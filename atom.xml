@@ -4,7 +4,7 @@
   <title><![CDATA[Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-09-18T13:30:59+09:00</updated>
+  <updated>2015-09-18T13:41:38+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -34,6 +34,11 @@
 <h2>framework code reading</h2>
 
 <p>@kgmyshinさんの発表</p>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/Ay2qfwjelVPQx" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/shinnosukekugimiya/framework-code-reading" title="Framework code reading" target="_blank">Framework code reading</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/shinnosukekugimiya" target="_blank">shinnosuke kugimiya</a></strong> </div></p>
 
 <h2>Apple Watch Tips</h2>
 
@@ -80,10 +85,10 @@
 
 <h2>React Native</h2>
 
+<p>@petitviolet さんの発表</p>
+
 <script async class="speakerdeck-embed" data-id="12ec90ec3f8e4bdf84440db10605bb6d" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
 
-
-<p>@petitviolet さんの発表</p>
 
 <ul>
 <li>React Nativeさわってみた</li>
@@ -102,10 +107,10 @@
 
 <h2>ショボい pull request を積み重ねて、自分の中でOSS活動の敷居を下げる</h2>
 
+<p>@naoyashiga さんの発表</p>
+
 <script async class="speakerdeck-embed" data-id="319eda7832d64394943311f9285a6d2b" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
 
-
-<p>@naoyashiga さんの発表</p>
 
 <ul>
 <li>さのさんだったっぽい, 代理発表っぽい</li>
@@ -211,12 +216,12 @@
 
 <h2>バグのことは嫌いになってもXcodeのことは嫌いにならないでください</h2>
 
+<p>@daisuke0131 さんの発表</p>
+
 <iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/s3t9kpzwSz9Gq" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
 
 <p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/daisukeyamashita180/21-potatotips-yamashita" title="バグのことは嫌いになってもXcodeのことは嫌いにならないでください。" target="_blank">バグのことは嫌いになってもXcodeのことは嫌いにならないでください。</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/daisukeyamashita180" target="_blank">Daisuke Yamashita</a></strong> </div></p>
-
-<p>@daisuke0131 さんの発表</p>
 
 <ul>
 <li>ビズリーチのiOSエンジニア</li>
