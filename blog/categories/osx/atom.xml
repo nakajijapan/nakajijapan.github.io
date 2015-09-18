@@ -4,7 +4,7 @@
   <title><![CDATA[categories: OSX | Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/blog/categories/osx/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-05-06T22:53:36+09:00</updated>
+  <updated>2015-09-18T13:30:59+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ペパボテックカンファレンス#3で発表した]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/09/02/pepabo-tech-conference-3/"/>
+    <updated>2015-09-02T08:54:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/09/02/pepabo-tech-conference-3</id>
+    <content type="html"><![CDATA[<script async class="speakerdeck-embed" data-id="98adca89519c4ddc80dd89f38dd60d4b" data-ratio="1.77777777777778" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p><a href="http://pepabo.connpass.com/event/18641/">第三回ペパボテックカンファレンス</a>に参加しました。</p>
+
+<p>OS Xの話したけど、話の内容がなかなかニッチすぎたのと、想定された人たちを元にした内容になっていなかったので
+反応が薄くてだめだめだった。（自分のせいです。）だけど、自分の勉強会のまとめにするいい機会だったのでよかった
+のかなと自分に言い聞かせています。。。まだまだだ。</p>
+
+<p>今度はもっとそれっぽい人たち集めて話すぞ！！！！！ということで勉強会を開催してみた。
+<a href="http://shibuya-swift.connpass.com/event/19306/">Shibuya.swift</a>開催するのでよかったらきてみてください！</p>
+
+<p>これから定期的に鍛錬積んで自分の身の回りの便利アプリ作成していきたい。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[teiten をv1.1.1にした]]></title>

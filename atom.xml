@@ -4,7 +4,7 @@
   <title><![CDATA[Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-05-06T22:53:36+09:00</updated>
+  <updated>2015-09-18T13:30:59+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -12,6 +12,288 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[potatotips (iOS/Android開発Tips共有会) 第21回に参加してきた]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/09/16/potatotips-21/"/>
+    <updated>2015-09-16T23:59:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/09/16/potatotips-21</id>
+    <content type="html"><![CDATA[<p>potatotips (iOS/Android開発Tips共有会) 第21回にブログ枠として参加してきたのでそのメモになります。</p>
+
+<p><img src="http://nakajijapan.github.io/images/posts/2015-09-16-03.jpg" alt="" />
+<img src="http://nakajijapan.github.io/images/posts/2015-09-16-04.jpg" alt="" />
+<img src="http://nakajijapan.github.io/images/posts/2015-09-16-01.jpg" alt="" /></p>
+
+<h2>Swift compile time</h2>
+
+<p>@_mpon さんの発表</p>
+
+<script async class="speakerdeck-embed" data-id="5f3f2e3432c94ee0a7a2e31231a61625" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<h2>framework code reading</h2>
+
+<p>@kgmyshinさんの発表</p>
+
+<h2>Apple Watch Tips</h2>
+
+<p>@shobyさんの発表</p>
+
+<script async class="speakerdeck-embed" data-id="f845ef2cc00846b4a47deb1aa444baab" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<h2>To learn Interpolator</h2>
+
+<p>@amyu_san さんの発表</p>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/Dr6t7rxwMEsAV4" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/mimayuki7/to-learn-interpolator" title="To learn Interpolator" target="_blank">To learn Interpolator</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/mimayuki7" target="_blank">Mima Yuki</a></strong> </div>
+
+
+<h2>3D touch for iOS</h2>
+
+<p>@TachibanaKaoruさんの発表</p>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/4YvSUYs1kauGqL" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/toyship/3d-touch-for-ios" title="3D touch for iOS" target="_blank">3D touch for iOS</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/toyship" target="_blank">toyship</a></strong> </div></p>
+
+<h3>Recently Google Play Developer Console</h3>
+
+<p>@tarotaro4 さんの発表</p>
+
+<h3>UIKit Sound</h3>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/4bjlUN4jzPUy4C" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/cocominap/uikit-sound" title="UIKit Sound" target="_blank">UIKit Sound</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/cocominap" target="_blank">cocominap</a></strong> </div></p>
+
+<p>基本的な操作を音でフィードバックする</p>
+
+<hr />
+
+<p>後半戦スタート</p>
+
+<h2>React Native</h2>
+
+<script async class="speakerdeck-embed" data-id="12ec90ec3f8e4bdf84440db10605bb6d" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>@petitviolet さんの発表</p>
+
+<ul>
+<li>React Nativeさわってみた</li>
+<li>JSあんまりさわったことなかった</li>
+<li>セットアップ簡単</li>
+<li>実機はフルとリロードされる</li>
+<li>簡単なサンプル作成した
+
+<ul>
+<li>データバインディングしてみた</li>
+<li>中身はReactJSだ！！！！</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>ショボい pull request を積み重ねて、自分の中でOSS活動の敷居を下げる</h2>
+
+<script async class="speakerdeck-embed" data-id="319eda7832d64394943311f9285a6d2b" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>@naoyashiga さんの発表</p>
+
+<ul>
+<li>さのさんだったっぽい, 代理発表っぽい</li>
+<li>GitHubプロフィールをどうにかしたい</li>
+<li>Search GitHub
+
+<ul>
+<li>自分が詳しいコードを探せる</li>
+</ul>
+</li>
+<li>Trading Repository
+
+<ul>
+<li>作者がフィードバックを待っている</li>
+</ul>
+</li>
+<li>コードレビューした人の画像がかっこいい</li>
+<li>びびらなくても大丈夫だ！</li>
+<li>OSS活動は楽しい！！！</li>
+</ul>
+
+
+<h2>Nearby API</h2>
+
+<p>@konifar さんの発表</p>
+
+<ul>
+<li>Neaby = 近距離通信</li>
+<li>近くのデバイスで情報を共有する</li>
+<li>Network環境なくても通信可能</li>
+<li>超音波って聞かれる</li>
+<li>超音波の音聞こえるっぽくて怖いらしい</li>
+<li>超音波Networkにつながらないと通信できなかった</li>
+<li>Rxプロダクトいらたんだけどよさわからないからだれかおしえてほしいいいいいい</li>
+</ul>
+
+
+<h2>絵の描けないエンジニア/コードの書けないデザイナー</h2>
+
+<p>@grgr56 さんの発表</p>
+
+<ul>
+<li>Facebook Origami使ってる</li>
+<li>コード書かないでデザイナがインタラクションも含んだプロトタイプが作成できる</li>
+<li>プロトタイプツール</li>
+<li>デザイナツール</li>
+<li>エンジニア　かっこいい絵の壁</li>
+<li>デザイナ　プログラムの壁</li>
+<li>エンジニアは当然コード書いたほうがい早い！！！</li>
+<li><p>そうすると倒れてしまうよ！！！</p></li>
+<li><p>プロトタイピングツール</p>
+
+<ul>
+<li>Flint</li>
+<li>Invasion</li>
+<li>Origami</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>Promisified BLE Client</h2>
+
+<p>@izumin5210 さんの発表</p>
+
+<ul>
+<li>BLE の話</li>
+<li>iOS でも Android でも通信できる</li>
+<li>ServerのなかにServiceがたくさんある</li>
+<li>ライブラリ作成した</li>
+<li>Saiko no Experiense with Promise</li>
+</ul>
+
+
+<h2>TestFlightみたいなのを自作する</h2>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/GArGOVOXcw5wY6" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/hasegawatomoki/testflight-52816734" title="TestFlightみたいなのを自作する" target="_blank">TestFlightみたいなのを自作する</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/hasegawatomoki" target="_blank">Tomoki Hasegawa</a></strong> </div></p>
+
+<p>@tomzoh さんの発表</p>
+
+<ul>
+<li>InHouse配布してた</li>
+<li>ipa配布サーバをWebページで独自に作成したよ</li>
+<li><code>itms-services://</code>でリンクすればおk</li>
+</ul>
+
+
+<h2>Create Layouts with the Wearable UI Library</h2>
+
+<script async class="speakerdeck-embed" data-id="aa082aa7e2e9403284ffd04518ccca99" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>@teshi04 さんの発表</p>
+
+<ul>
+<li>uPhyca</li>
+<li>ライブラリの紹介の嵐！</li>
+</ul>
+
+
+<h2>バグのことは嫌いになってもXcodeのことは嫌いにならないでください</h2>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/s3t9kpzwSz9Gq" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/daisukeyamashita180/21-potatotips-yamashita" title="バグのことは嫌いになってもXcodeのことは嫌いにならないでください。" target="_blank">バグのことは嫌いになってもXcodeのことは嫌いにならないでください。</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/daisukeyamashita180" target="_blank">Daisuke Yamashita</a></strong> </div></p>
+
+<p>@daisuke0131 さんの発表</p>
+
+<ul>
+<li>ビズリーチのiOSエンジニア</li>
+<li>山下大輔さん</li>
+<li>クラッシュしたときにAppDelegateで止まってしまう</li>
+<li>Exception Breakpointっていう設定が左下にあるんだ！</li>
+<li>breakpoint発生時にActionを指定</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>po $arg1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>いい感じに止まってくれて出力される</p>
+
+<h2>Popup view on Mortar</h2>
+
+<script async class="speakerdeck-embed" data-id="0fb262d8a0034a32ab2570805d8c9e17" data-ratio="1.77777777777778" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>@KeithYokoma さんの発表</p>
+
+<ul>
+<li>Square</li>
+<li>Fragmentなんてくそくらえ!?</li>
+<li>Mortaライブラリの解説
+
+<ul>
+<li>Fragment,ListFragment &ndash;> View &amp; Screen.Presenter</li>
+<li>DialogFragment &ndash;> Popup</li>
+</ul>
+</li>
+<li>地味にめんどくさいのある</li>
+</ul>
+
+
+<h2>感想</h2>
+
+<p>今回初めて発表しない枠で参加してみて、資料つくらなくていいから気兼ねなく参加できたのでよかった。
+ただやっぱりネタ持ってきてみんなと話したほうがもっと楽しいので次回はネタ持って参加したいっすね。やっぱり。</p>
+
+<p>あと、@_mpon さんが優しいスライドを作成したいただいたのに最初参加できなくて申し訳なかったです。。。。</p>
+
+<script async class="speakerdeck-embed" data-slide="43" data-id="5f3f2e3432c94ee0a7a2e31231a61625" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>ということで、<a href="http://shibuya-swift.connpass.com/event/19306/">Shibuya.swift</a>開催するのでよかったらきてみてください！</p>
+
+<p><img src="http://nakajijapan.github.io/images/posts/2015-09-16-02.jpg" alt="_mponさん" /></p>
+
+<h2>参照</h2>
+
+<p><a href="https://github.com/potatotips/potatotips/wiki/potatotips-21">https://github.com/potatotips/potatotips/wiki/potatotips-21</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ペパボテックカンファレンス#3で発表した]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/09/02/pepabo-tech-conference-3/"/>
+    <updated>2015-09-02T08:54:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/09/02/pepabo-tech-conference-3</id>
+    <content type="html"><![CDATA[<script async class="speakerdeck-embed" data-id="98adca89519c4ddc80dd89f38dd60d4b" data-ratio="1.77777777777778" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p><a href="http://pepabo.connpass.com/event/18641/">第三回ペパボテックカンファレンス</a>に参加しました。</p>
+
+<p>OS Xの話したけど、話の内容がなかなかニッチすぎたのと、想定された人たちを元にした内容になっていなかったので
+反応が薄くてだめだめだった。（自分のせいです。）だけど、自分の勉強会のまとめにするいい機会だったのでよかった
+のかなと自分に言い聞かせています。。。まだまだだ。</p>
+
+<p>今度はもっとそれっぽい人たち集めて話すぞ！！！！！ということで勉強会を開催してみた。
+<a href="http://shibuya-swift.connpass.com/event/19306/">Shibuya.swift</a>開催するのでよかったらきてみてください！</p>
+
+<p>これから定期的に鍛錬積んで自分の身の回りの便利アプリ作成していきたい。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Apple Watch App Memo]]></title>
@@ -212,6 +494,22 @@
 <p>とりあえず、未来を感じたかったので購入しました。
 ６月に届くのかと思いきや4月２４日に来たのでびっくり。
 まだまだ未開拓な領域であるけど何起こるかわからんから押さえられるとこ抑えとこ。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ペパボテックカンファレンス#1で発表した]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/04/19/pepabo-tech-conference-1/"/>
+    <updated>2015-04-19T08:55:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/04/19/pepabo-tech-conference-1</id>
+    <content type="html"><![CDATA[<script async class="speakerdeck-embed" data-id="023eb64f35ac4a9987782cc0049137e5" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p><a href="http://pepabo.connpass.com/event/13208/">第一回ペパボテックカンファレンス</a>に参加しました。</p>
+
+<p>基本的には自分の紹介の話と自分の人生の振り返りをだらだらと発表したスライドです。
+自分を振り返るよい機会になったのでよかったと思う。
+まだなんとなくだけど自分の生き方はこうだってのが見えてきた。</p>
 ]]></content>
   </entry>
   
@@ -498,7 +796,7 @@ NSURLがNSPasteboardWritingの実装をしてくれているのでそのまま�
 <h2>NSDraggingSource</h2>
 
 <p>プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。
-ドラッグ捜査中に受け取るメッセージ</p>
+ドラッグ操作中に受け取るメッセージ</p>
 
 <h3>draggingSession(_:sourceOperationMaskForDraggingContext:)</h3>
 
@@ -1291,736 +1589,6 @@ Unmanaged<T>構造体は非管理オブジェクトをメモリ管理されたob
 
 <p>これ、何気に便利で、デザイナさんにXcode立ち上げなくても指定のディレクトリおいておくだけで、余計なところを実装せずに済むので
 仕事が捗るのではないかと気づいた今日このごろでした。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[録画時にブラックシーンができてしまう問題]]></title>
-    <link href="http://nakajijapan.github.io/blog/2014/06/15/study-avassetwriter/"/>
-    <updated>2014-06-15T18:26:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2014/06/15/study-avassetwriter</id>
-    <content type="html"><![CDATA[<p><a href="http://nakajijapan.github.io/blog/2014/06/08/wwdc2014/">WWDC2014に行って来た</a>の話になるのですが、
-プライベートでアプリ作成しているときにAV Foundation絡みでわからないところがあったのでAppleのエンジニアさんに質問してきました。</p>
-
-<h2>現象</h2>
-
-<p>問題は、自分が作成した<a href="https://github.com/nakajijapan/NKJMultiMovieCaptureView">NKJMultiMovieCaptureView</a>でその現象が発生しました。
-作成したときの話は<a href="http://nakajijapan.github.io/blog/2014/06/01/app-doujou3/">こちら</a>になります。
-Vine動画のようにタッチしたら録画し、タッチが終了したら(指を離したら)録画を終了し、録画した複数の動画を一つにする仕組みを作成したのですが、
-実際作成した動画を見てみると最初のほんの一瞬だけなぜかブラックシーンができてしまいます。</p>
-
-<p>現状の処理として以下のようなことをしています。</p>
-
-<h3>1. 録画開始</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">touchesBegan:</span><span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nv">touches</span> <span class="nf">withEvent:</span><span class="p">(</span><span class="n">UIEvent</span> <span class="o">*</span><span class="p">)</span><span class="nv">event</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>タッチイベントで録画の処理を開始します。このときにファイルに対しての書き込み処理を開始します。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">assetWriter</span> <span class="n">startWriting</span><span class="p">];</span>
-</span><span class='line'><span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">assetWriter</span> <span class="nl">startSessionAtSourceTime:</span><span class="n">self</span><span class="p">.</span><span class="n">recordStartTime</span><span class="p">];</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>2. 録画</h3>
-
-<p><code>AVCaptureVideoDataOutputSampleBufferDelegate</code>, <code>AVCaptureAudioDataOutputSampleBufferDelegate</code>をプロトコルとして指定して、
-以下のメソッドで録画の処理を行います。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">captureOutput:</span><span class="p">(</span><span class="n">AVCaptureOutput</span> <span class="o">*</span><span class="p">)</span><span class="nv">captureOutput</span> <span class="nf">didOutputSampleBuffer:</span><span class="p">(</span><span class="n">CMSampleBufferRef</span><span class="p">)</span><span class="nv">sampleBuffer</span> <span class="nf">fromConnection:</span><span class="p">(</span><span class="n">AVCaptureConnection</span> <span class="o">*</span><span class="p">)</span><span class="nv">connection</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ざっくりですが、内部でやっていることはCMSampleBufferというフレーム情報が取得でき、それを１秒間に何回も実行されるこのメソッドで<code>AVAssetWriterInput</code>オブジェクトに
-追加処理をしています。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="n">CFRetain</span><span class="p">(</span><span class="n">sampleBuffer</span><span class="p">);</span>
-</span><span class='line'><span class="n">CFRetain</span><span class="p">(</span><span class="n">formatDescription</span><span class="p">);</span>
-</span><span class='line'><span class="n">dispatch_async</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">movieWritingQueue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">_assetWriter</span><span class="p">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">AVAssetWriterStatusWriting</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">assetWriterInput</span><span class="p">.</span><span class="n">readyForMoreMediaData</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">assetWriterInput</span> <span class="nl">appendSampleBuffer:</span><span class="n">sampleBuffer</span><span class="p">])</span> <span class="p">{</span>
-</span><span class='line'>                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,[</span><span class="n">self</span><span class="p">.</span><span class="n">assetWriter</span> <span class="n">error</span><span class="p">]);</span>
-</span><span class='line'>            <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">CFRelease</span><span class="p">(</span><span class="n">sampleBuffer</span><span class="p">);</span>
-</span><span class='line'>    <span class="n">CFRelease</span><span class="p">(</span><span class="n">formatDescription</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>3. 録画終了</h3>
-
-<p>タッチが終了したら録画終了の処理を行います。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">touchesEnded:</span><span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nv">touches</span> <span class="nf">withEvent:</span><span class="p">(</span><span class="n">UIEvent</span> <span class="o">*</span><span class="p">)</span><span class="nv">event</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>問題</h2>
-
-<p>どうやらスレッドを利用しての保存方法に問題があったようです。</p>
-
-<h3>修正前</h3>
-
-<p><img src="http://nakajijapan.github.io/images/posts/2014-06-15_01_avassetwriter.jpg" alt="AVAssetWriter" /></p>
-
-<p>録画開始とフレーム情報を保存する処理が別スレッドで行われているせいで微妙にタイミングがずれたフレーム情報を取得してしまっている。
-ここっだと、開始した時間よりも一瞬だけ先のフレーム情報を取得してしまうので最初の一瞬はブラックシーンになります。</p>
-
-<h3>修正後</h3>
-
-<p><img src="http://nakajijapan.github.io/images/posts/2014-06-15_02_avassetwriter.jpg" alt="AVAssetWriter" /></p>
-
-<p>なので録画開始も同じスレッドで順次処理させるようにし、時間の誤差を最小限にしました。こうすることで無事ブラックシーンが無くなりました。</p>
-
-<p>実際には以下のように修正しています。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='diff'><span class='line'> // Record
-</span><span class='line'> NSLog(@&quot;[Starting to record]&quot;);
-</span><span class='line'><span class="gd">-    [self.assetWriter startWriting];</span>
-</span><span class='line'><span class="gd">-    [self.assetWriter startSessionAtSourceTime:self.recordStartTime];</span>
-</span><span class='line'><span class="gi">+    dispatch_async(self.movieWritingQueue, ^{</span>
-</span><span class='line'><span class="gi">+        [self.assetWriter startWriting];</span>
-</span><span class='line'><span class="gi">+        [self.assetWriter startSessionAtSourceTime:self.recordStartTime];</span>
-</span><span class='line'><span class="gi">+    });</span>
-</span><span class='line'><span class="gi">+</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>まとめ</h3>
-
-<p>とはいえ、この実装も完璧というわけではなくてタイミングがずれることはあるとおっしゃっていましたが、
-今のところ発生していないので安心しています。</p>
-
-<h2>参考</h2>
-
-<ul>
-<li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVAssetWriter_Class/Reference/Reference.html">AVAssetWriter Class Reference</a></li>
-<li><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Multithreading/Multithreading.pdf">Threading Programming Guide</a></li>
-<li><a href="https://developer.apple.com/library/ios/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091">Concurrency Programming Guide</a></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Swift勉強会をした]]></title>
-    <link href="http://nakajijapan.github.io/blog/2014/06/10/study-swift-01/"/>
-    <updated>2014-06-10T18:25:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2014/06/10/study-swift-01</id>
-    <content type="html"><![CDATA[<p>社内で早速Swift勉強会を開きました。
-流れとしては、あのときの動画（クレイグがSwiftを発表したところ）をみんなで１０分程鑑賞してテンションあげてから公式のドキュメントを見ながら、みんなでぺちゃくちゃ話す会をしました。</p>
-
-<h2>はじめに</h2>
-
-<p>以下の動画をみてまずざっくりどんなものか概要をつかむ</p>
-
-<p><a href="https://developer.apple.com/videos/wwdc/2014/?id=101">https://developer.apple.com/videos/wwdc/2014/?id=101</a></p>
-
-<h1>A Swift Tour</h1>
-
-<h2>About Swift</h2>
-
-<ul>
-<li>Objective-C without the C</li>
-<li>iOSとOS Xで開発するための開発言語</li>
-<li>Ccoa and Cocoa Touch</li>
-<li>Build with LLVM compiler</li>
-<li>Optimizer and Autovectorizer</li>
-<li>ARC memory management</li>
-<li>Same runtime as Objective-C</li>
-</ul>
-
-
-<h2>Simple Value</h2>
-
-<ul>
-<li><code>let</code>,<code>var</code>で宣言</li>
-<li><code>let</code>は定数、<code>var</code>は変数</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var foo = 33
-</span><span class='line'>let foo = 33</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>格納する値が明白であれば自動できに方が決定される</li>
-<li>十分でなければ明示的に指定することも可能</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>let total = 30
-</span><span class='line'>let total = 30.0
-</span><span class='line'>let total:Double = 0</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>初期化に以下のような宣言ができる</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>let emptyArray = String[]()
-</span><span class='line'>let emptyDictionary = Dictionary&lt;String, Float&gt;()
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>単純な初期化は<code>[] and [:]</code>で省略できる</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>let emptyArray = []
-</span><span class='line'>let emptyDictionary = [:]</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Control Flow</h3>
-
-<ul>
-<li>どこかでみたような記述でif,switch,for-in,for,while,do-whileできるよ</li>
-<li><code>..</code>で数値の範囲を決定できることができる</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var total = 0;
-</span><span class='line'>for i in 0..10 {
-</span><span class='line'>    total += 2
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>total</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Functions and Closures</h2>
-
-<ul>
-<li>考え方は他の言語と同じ。引数があって返り値がある</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>func greet(name: String, day: String) -&gt; String {
-</span><span class='line'>  return "Hello \(name), today is \(day)"
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>greet("Bob", "Tuesday")</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Touple
-
-<ul>
-<li>複数の返り値を返す</li>
-</ul>
-</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>func getGasPrices() -&gt; (Double, Double, Double) {
-</span><span class='line'>    return (3.59, 3.69, 3.79)
-</span><span class='line'>}
-</span><span class='line'>getGasPrices()
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>引数を任意で指定することもできます</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>func sumOf(numbers:Int...) -&gt; Int
-</span><span class='line'>{
-</span><span class='line'>    var sum = 0
-</span><span class='line'>    for number in numbers {
-</span><span class='line'>        sum += number
-</span><span class='line'>    }
-</span><span class='line'>
-</span><span class='line'>    return sum
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>sumOf()
-</span><span class='line'>
-</span><span class='line'>sumOf(10, 20, 33)</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><code>{}</code>でクロージャを記述</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>numbers.map({
-</span><span class='line'>    (number: Int) -&gt; Int in
-</span><span class='line'>    let result = 3 * number
-</span><span class='line'>    return result
-</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
-
-
-<p>以下の記述も同じ意味</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>numbers.map({ number in 3 * number })</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Objects and Classes</h2>
-
-<ul>
-<li><code>class</code>で定義</li>
-<li><code>init()</code>はコンストラクタ</li>
-</ul>
-
-
-<p>継承は</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Squre : NamedShape {
-</span><span class='line'>
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>overrideはfuncの前に<code>override</code>を宣言する</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>override func init() {
-</span><span class='line'>    super.init()
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>インスタンス変数をカスタマイズできる</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var perimeter: Double {
-</span><span class='line'>    get {
-</span><span class='line'>        return 3.0 * sideLength
-</span><span class='line'>    }
-</span><span class='line'>    set {
-</span><span class='line'>        sideLength = newValue / 3.0
-</span><span class='line'>    }
-</span><span class='line'>}
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>メンバ変数に以下の記述,<code>willSet</code>,<code>didSet</code>をすることであらかじめ、前処理後処理ができるようになる</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class {
-</span><span class='line'>    var triangle: EquilateralTriangle {
-</span><span class='line'>    willSet {
-</span><span class='line'>        square.sideLength = newValue.sideLength
-</span><span class='line'>    }
-</span><span class='line'>    didSet {
-</span><span class='line'>        square.sideLength *= 2
-</span><span class='line'>    }
-</span><span class='line'>    }
-</span><span class='line'>
-</span><span class='line'>}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>引数に別名を持たせられる</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Counter {
-</span><span class='line'>    var count: Int = 0
-</span><span class='line'>    func incrementBy(amount: Int, numberOfTimes times: Int) {
-</span><span class='line'>        count += amount * times
-</span><span class='line'>    }
-</span><span class='line'>}
-</span><span class='line'>var counter = Counter()
-</span><span class='line'>counter.incrementBy(2, numberOfTimes: 7)
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Enumerations and Structures</h2>
-
-<ul>
-<li>メソッドも作成できる</li>
-<li>最初に数値を入れておかなければならない</li>
-<li>後はインクリメントされる</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>enum Rank: Int {
-</span><span class='line'>    case Ace = 1
-</span><span class='line'>    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
-</span><span class='line'>    case Jack, Queen, King
-</span><span class='line'>    func simpleDescription() -&gt; String {
-</span><span class='line'>        switch self {
-</span><span class='line'>        case .Ace:
-</span><span class='line'>            return "ace"
-</span><span class='line'>        case .Jack:
-</span><span class='line'>            return "jack"
-</span><span class='line'>        case .Queen:
-</span><span class='line'>            return "queen"
-</span><span class='line'>        case .King:
-</span><span class='line'>            return "king"
-</span><span class='line'>        default:
-</span><span class='line'>            return String(self.toRaw())
-</span><span class='line'>        }
-</span><span class='line'>    }
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>let ace = Rank.Ace
-</span><span class='line'>let aceRawValue = ace.toRaw() # 1
-</span><span class='line'>let name = ace.simpleDescription() # "Ace"
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>enumの方で比較しないとだめ</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>
-</span><span class='line'>        if ace == Rank.Ace {
-</span><span class='line'>            NSLog("-- ace!!!")
-</span><span class='line'>        }
-</span><span class='line'>// NG
-</span><span class='line'>//        else if ace == 1 {
-</span><span class='line'>//            NSLog("-- no ace...")
-</span><span class='line'>//        }
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h5>structure</h5>
-
-<ul>
-<li>classとほぼ同じ振る舞いをする</li>
-<li>処理するときは必ずコピーされる, クラスは参照によって処理される</li>
-</ul>
-
-
-<h2>Protocols and Extensions</h2>
-
-<ul>
-<li>基本的なところはObjective-Cと変わらない</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>protocol ExampleProtocol {
-</span><span class='line'>    var simpleDescription: String { get } # readonly
-</span><span class='line'>    mutating func adjust()
-</span><span class='line'>}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>クラスにも構造体にも組み込める</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class SimpleClass: ExampleProtocol {
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>struct SimpleStructure: ExampleProtocol {
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Generics</h2>
-
-<ul>
-<li>型に汎用性を持たせて同じロジックを処理させることができる</li>
-<li><code>classes</code>, <code>enumerations</code>, <code>structures</code>で利用できる</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>func repeat&lt;T&gt;(item: T, times: Int) -&gt; T[] {
-</span><span class='line'>    var result = T[]()
-</span><span class='line'>    for i in 0..times {
-</span><span class='line'>        result += item
-</span><span class='line'>    }
-</span><span class='line'>    return result
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>repeat("knock", 4)
-</span><span class='line'>repeat(333, 3)
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>まとめ</h2>
-
-<p>何よりシンプルでモダンな作りになっているのでアプリを作ることがよりいっそう楽しくなること間違い無しですな。
-ただ、いくつか説明できないところがあったので、次の会まで宿題にすることにします。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WWDC2014に参加してきました - 番外編(暮らし)]]></title>
-    <link href="http://nakajijapan.github.io/blog/2014/06/09/wwdc2014-life/"/>
-    <updated>2014-06-09T07:43:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2014/06/09/wwdc2014-life</id>
-    <content type="html"><![CDATA[<p><img src="http://nakajijapan.github.io/images/posts/2014-06-09-01.jpg" alt="サンフランシスコ" /></p>
-
-<p><a href="http://nakajijapan.github.io/blog/2014/06/08/wwdc2014/">前回の記事(WWDC2014に参加してきました)</a>の番外編です。</p>
-
-<p>初めてのサンフランシスコだったり、そこに一週間もいたのでブログにそのときの記録を記します。</p>
-
-<h2>前準備</h2>
-
-<ul>
-<li>予約
-
-<ul>
-<li>ホテルと飛行機は早めに撮った方がいいです。全世界から人が集まるのでホテルは早く予約しないと結構遠くになって毎日いくのが大変、飛行機当然日程が迫るにつれて高くなるのでお早めに。</li>
-</ul>
-</li>
-<li>服
-
-<ul>
-<li>会場の近くにはユニクロがあるのでパンツも靴下もパーカーも服はすべて現地調達できるので問題ありません！！！！</li>
-</ul>
-</li>
-<li>携帯
-
-<ul>
-<li>バッテリーは必ず持っていきましょう！！いじってると絶対なくなります。</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>空港＆飛行機</h2>
-
-<ul>
-<li>空港には余裕をもって３時間前に到着するといいでしょう。
-
-<ul>
-<li>40前に来たらいろいろ手続きがあるので時間がかかってしまうせいか空港の人にかなり急かされました。</li>
-</ul>
-</li>
-<li>成田空港には第一ターミナル、第二ターミナルがあって降りる場所間違うとバスか電車で移動しないといけないので時間のロスになります。</li>
-<li>飛行機は９時間ものっているのですごい暇になります。絶対暇つぶしになるものを用意しておくといいです。
-自分はだいたいMacでブログ書いていたりプログラミングしていました。
-やばそうな気流がぶつかることが何回かあって、多少ジェットコースター気分が味わえてしまいます。酔ってしまう人は注意してください。</li>
-</ul>
-
-
-<h2>電車</h2>
-
-<ul>
-<li>Moscone Centerまでは<a href="http://www.bart.gov/stations">地下鉄BART</a>を利用して行きます。電光掲示板が無いので毎回確認したほうがいいです。</li>
-<li>お金をチャージして乗る形式っぽいです。</li>
-</ul>
-
-
-<h2>生活</h2>
-
-<ul>
-<li>インターネット
-
-<ul>
-<li>自分はソフトバンクなので<a href="http://www.softbank.jp/mobile/service/global/overseas/web/packet-flat-late/">海外パケットし放題</a></li>
-</ul>
-</li>
-<li>だいたいのお店は袋が有料なので袋が必要ないのにOK!っていうと何セントかよけいに請求されます。</li>
-<li>チャージが含まれているお店とそうでないお店があるので注意
-
-<ul>
-<li>相場は15-20%の間?</li>
-<li>ベッドメイキングは<code>$1</code>が相場？</li>
-</ul>
-</li>
-<li>物価は日本とそんな変わらないのですがチップのこと考えると高いですね。</li>
-<li>タクシーは怖くて使わなかった</li>
-<li>お酒を購入するときはは写真のID見せろと言われるので忘れずに</li>
-<li>朝食・昼食はでますので食費には困らない
-
-<ul>
-<li>野菜でないのかなと思ってたらベジタリアン用の弁当がでていました。</li>
-</ul>
-</li>
-<li>よく外国は窃盗が多いからリュックは前にして、財布は後ろポケットにいれるな！っていう言い伝えのようなものがあったけど全然しなかった
-
-<ul>
-<li>会場行き来するくらいなので何も起きなかっただけなのかもしれません&hellip;</li>
-</ul>
-</li>
-</ul>
-
-
-<h2>帰国</h2>
-
-<ul>
-<li>日本円に換金するときにコインは換金できないので使い切る必要があるといわれたのでコインは外国で使い切って帰国しましょう！！</li>
-</ul>
-
-
-<p>そんなところかな、何の問題もなく生活・帰還しました。
-　
-　</p>
-
-<p>終わり。</p>
 ]]></content>
   </entry>
   
