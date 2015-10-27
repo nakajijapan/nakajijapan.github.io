@@ -9,8 +9,8 @@
   <meta name="author" content="nakajijapan">
 
   
-  <meta name="description" content="先日ですが、#potatetips　（第五回）に参加させていただきました。
-持ち時間一人５分のtips共有会なのですが、自分はAVFoundation周りの話をしてきました。 &hellip;">
+  <meta name="description" content="先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして
+自宅で活用できるものを作ってみました。 IRKit Estimote Beacons 仕様としては、 beaconに近づいたら（家に帰ってきたら）テレビをつける &hellip;">
   <meta name="keywords" content="nakajijapan,iOS,ナカジ,Swift,CloudKit,AVFoundation,Cocoa">
 
 
@@ -35,8 +35,8 @@
   <meta name="twitter:url" content="http://nakajijapan.github.io/blog/page/7">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="nakajijapan">
-  <meta name="twitter:description" content="先日ですが、#potatetips　（第五回）に参加させていただきました。
-持ち時間一人５分のtips共有会なのですが、自分はAVFoundation周りの話をしてきました。 &hellip;">
+  <meta name="twitter:description" content="先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして
+自宅で活用できるものを作ってみました。 IRKit Estimote Beacons 仕様としては、 beaconに近づいたら（家に帰ってきたら）テレビをつける &hellip;">
 
 
   <!-- facebook -->
@@ -44,8 +44,8 @@
   <meta property="og:type"  content="website" />
   <meta property="og:url"   content="http://nakajijapan.github.io/blog/page/7" />
   <meta property="og:image" content="http://nakajijapan.github.io/favicon.ico" />
-  <meta property="og:description" content="先日ですが、#potatetips　（第五回）に参加させていただきました。
-持ち時間一人５分のtips共有会なのですが、自分はAVFoundation周りの話をしてきました。 &hellip;" />
+  <meta property="og:description" content="先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして
+自宅で活用できるものを作ってみました。 IRKit Estimote Beacons 仕様としては、 beaconに近づいたら（家に帰ってきたら）テレビをつける &hellip;" />
 
 
 
@@ -89,6 +89,368 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/29/irkit-plus-ibeacon/">IRKit + iBeacon</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-29T16:32:00+09:00" pubdate data-updated="true">Mar 29<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして
+自宅で活用できるものを作ってみました。</p>
+
+<h4>IRKit</h4>
+
+<p><a href="http://www.amazon.co.jp/IRKit-001-IRKit-iPhone-iPad%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%A4%96%E5%87%BA%E5%85%88%E3%81%8B%E3%82%89%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E7%AD%89%E3%81%AE%E5%AE%B6%E9%9B%BB%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%A7%E3%81%8D%E3%82%8B%E5%AD%A6%E7%BF%92%E3%83%AA%E3%83%A2%E3%82%B3%E3%83%B3/dp/B00H91KK26%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00H91KK26" target="_blank" title="IRKit - iPhone,iPadを使って外出先からエアコン等の家電を操作できる学習リモコン"><img src="http://ecx.images-amazon.com/images/I/31HuSy3ACXL.jpg" width="500" height="356" alt="IRKit - iPhone,iPadを使って外出先からエアコン等の家電を操作できる学習リモコン" /></a></p>
+
+<h4>Estimote Beacons</h4>
+
+<iframe src="//instagram.com/p/iDTqkYMR1I/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+
+
+<p>仕様としては、</p>
+
+<ul>
+<li>beaconに近づいたら（家に帰ってきたら）テレビをつける</li>
+<li>beaconから離れたら（外出したら）テレビを消す</li>
+</ul>
+
+
+<p>ってことを試してみました。</p>
+
+<h2>下準備</h2>
+
+<p>まずはそれぞれのライブラリを追加して<code>pod install</code>する。</p>
+
+<p>SDKのインストール。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>target "irkit_ibeacon" do
+</span><span class='line'>  pod 'IRKit', :git =&gt; 'https://github.com/irkit/ios-sdk.git'
+</span><span class='line'>  pod 'EstimoteSDK'
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>frameworkの追加。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CoreLocation.framework
+</span><span class='line'>CoreBluetooth.framework</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>IRKit</h2>
+
+<p>ここでは、IRKit SDKを利用してシグナルを登録してテーブルのセルにボタンを追加する処理を行います。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="n">snip</span><span class="p">..)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// find IRKit</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">([</span><span class="n">IRKit</span> <span class="n">sharedInstance</span><span class="p">].</span><span class="n">countOfReadyPeripherals</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">IRNewPeripheralViewController</span> <span class="o">*</span><span class="n">vc</span> <span class="o">=</span> <span class="p">[[</span><span class="n">IRNewPeripheralViewController</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>        <span class="n">vc</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">self</span> <span class="nl">presentViewController:</span><span class="n">vc</span>
+</span><span class='line'>                           <span class="nl">animated:</span><span class="n">YES</span>
+</span><span class='line'>                         <span class="nl">completion:</span><span class="o">^</span><span class="p">{</span>
+</span><span class='line'>                             <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;presented&quot;</span><span class="p">);</span>
+</span><span class='line'>                         <span class="p">}];</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">IRSignals</span> <span class="o">*</span><span class="n">tmpSignals</span> <span class="o">=</span> <span class="p">[[</span><span class="n">IRSignals</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// and add a signal to the collection</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">tmpSignals</span> <span class="nl">loadFromStandardUserDefaultsKey:</span><span class="s">@&quot;xxxxxxxxxxxxxxxxxxxxxx&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">[[</span><span class="n">tmpSignals</span> <span class="n">signals</span><span class="p">]</span> <span class="n">count</span><span class="p">];</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="n">tmpSignals</span> <span class="n">signals</span><span class="p">]</span> <span class="nl">objectAtIndex:</span><span class="n">i</span><span class="p">]);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>IRNewPeripheralViewControllerDelegate</code>で信号の登録が終了したときに呼ばれるメソッドの実装を行います。
+ここでは、ハード側で学習が完了した信号を<code>NSUserDefault</code>側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="cp">#pragma mark - IRNewPeripheralViewControllerDelegate</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">newSignalViewController:</span><span class="p">(</span><span class="n">IRNewSignalViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">viewController</span>
+</span><span class='line'>            <span class="nf">didFinishWithSignal:</span><span class="p">(</span><span class="n">IRSignal</span> <span class="o">*</span><span class="p">)</span><span class="nv">signal</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span> <span class="s">@&quot;signal: %@&quot;</span><span class="p">,</span> <span class="n">signal</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">_datasource</span> <span class="nl">addSignalsObject:</span><span class="n">signal</span><span class="p">];</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">_datasource</span><span class="p">.</span><span class="n">signals</span> <span class="nl">saveToStandardUserDefaultsWithKey:</span><span class="s">@&quot;SIGNALS&quot;</span><span class="p">];</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">tableView</span> <span class="n">reloadData</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span> <span class="nl">dismissViewControllerAnimated:</span><span class="n">YES</span>
+</span><span class='line'>                             <span class="nl">completion:</span><span class="o">^</span><span class="p">{</span>
+</span><span class='line'>                                 <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;dismissed&quot;</span><span class="p">);</span>
+</span><span class='line'>                             <span class="p">}];</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#pragma mark - IRNewSignalViewControllerDelegate</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">newPeripheralViewController:</span><span class="p">(</span><span class="n">IRNewPeripheralViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">viewController</span>
+</span><span class='line'>            <span class="nf">didFinishWithPeripheral:</span><span class="p">(</span><span class="n">IRPeripheral</span> <span class="o">*</span><span class="p">)</span><span class="nv">peripheral</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span> <span class="s">@&quot;peripheral: %@&quot;</span><span class="p">,</span> <span class="n">peripheral</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span> <span class="nl">dismissViewControllerAnimated:</span><span class="n">YES</span>
+</span><span class='line'>                             <span class="nl">completion:</span><span class="o">^</span><span class="p">{</span>
+</span><span class='line'>                                 <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;dismissed&quot;</span><span class="p">);</span>
+</span><span class='line'>                             <span class="p">}];</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>登録した信号を実行するときは以下のような実装で呼び出せるようになります。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="nv">tableView</span> <span class="nf">didSelectRowAtIndexPath:</span><span class="p">(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;indexPath: %@&quot;</span><span class="p">,</span> <span class="n">indexPath</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">tableView</span> <span class="nl">deselectRowAtIndexPath:</span><span class="n">indexPath</span>
+</span><span class='line'>                             <span class="nl">animated:</span><span class="n">YES</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">IRSignal</span> <span class="o">*</span><span class="n">signal</span> <span class="o">=</span> <span class="p">[</span><span class="n">_datasource</span> <span class="nl">objectAtIndex:</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">[</span><span class="n">signal</span> <span class="nl">sendWithCompletion:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;sent error: %@&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}];</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>iBeacon</h2>
+
+<p>ここでは、ビーコンで領域を観測し出たか入ったかを監視して、IRKitに信号を送る処理を行います。</p>
+
+<p>まず、<code>ESTBeaconManager</code>をインスタンス化して<code>startMonitoringForRegion:</code> で監視を開始します。
+<code>startRangingBeaconsInRegion:</code>で距離の観測を開始します。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="n">snip</span><span class="p">...)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">self</span><span class="p">.</span><span class="n">beaconManager</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ESTBeaconManager</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">self</span><span class="p">.</span><span class="n">beaconManager</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">ESTBeaconRegion</span> <span class="o">*</span><span class="n">region</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ESTBeaconRegion</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithProximityUUID:</span><span class="n">MY_ESTIMOTE_PROXIMITY_UUID</span>
+</span><span class='line'>                                                                       <span class="nl">major:</span><span class="mi">36605</span>
+</span><span class='line'>                                                                       <span class="nl">minor:</span><span class="mi">43679</span>
+</span><span class='line'>                                                                  <span class="nl">identifier:</span><span class="s">@&quot;EstimoteSampleRegion&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">beaconManager</span> <span class="nl">startMonitoringForRegion:</span><span class="n">region</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">beaconManager</span> <span class="nl">startRangingBeaconsInRegion:</span><span class="n">region</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>位置情報を利用した領域観測の方法と同様に、ビーコン領域の出入りのイベントをハンドリングします。その処理内でIRKitへ信号の送信する処理を実行します。
+メソッドとしては、<code>locationManager:didEnterRegion:</code>と、<code>locationManager:didExitRegion:</code>をハンドリングして処理を行います。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">beaconManager:</span><span class="p">(</span><span class="n">ESTBeaconManager</span> <span class="o">*</span><span class="p">)</span><span class="nv">manager</span> <span class="nf">didEnterRegion:</span><span class="p">(</span><span class="n">ESTBeaconRegion</span> <span class="o">*</span><span class="p">)</span><span class="nv">region</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">IRSignals</span> <span class="o">*</span><span class="n">signals</span> <span class="o">=</span> <span class="p">[[</span><span class="n">IRSignals</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">signals</span> <span class="nl">loadFromStandardUserDefaultsKey:</span><span class="s">@&quot;SIGNALS&quot;</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">IRSignal</span> <span class="o">*</span><span class="n">signal</span> <span class="o">=</span> <span class="p">[</span><span class="n">signals</span> <span class="nl">objectAtIndex:</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">signal</span> <span class="nl">sendWithCompletion:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="p">[</span><span class="n">self</span> <span class="nl">say:</span><span class="p">[</span><span class="n">NSString</span>  <span class="nl">stringWithFormat:</span><span class="s">@&quot;%@を実行しました。&quot;</span><span class="p">,</span> <span class="n">signal</span><span class="p">.</span><span class="n">name</span><span class="p">]];</span>
+</span><span class='line'>        <span class="p">}];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;beaconの近くに入りました。&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">beaconManager:</span><span class="p">(</span><span class="n">ESTBeaconManager</span> <span class="o">*</span><span class="p">)</span><span class="nv">manager</span> <span class="nf">didExitRegion:</span><span class="p">(</span><span class="n">ESTBeaconRegion</span> <span class="o">*</span><span class="p">)</span><span class="nv">region</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">IRSignals</span> <span class="o">*</span><span class="n">signals</span> <span class="o">=</span> <span class="p">[[</span><span class="n">IRSignals</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">signals</span> <span class="nl">loadFromStandardUserDefaultsKey:</span><span class="s">@&quot;SIGNALS&quot;</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">IRSignal</span> <span class="o">*</span><span class="n">signal</span> <span class="o">=</span> <span class="p">[</span><span class="n">signals</span> <span class="nl">objectAtIndex:</span><span class="mi">1</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="p">[</span><span class="n">signal</span> <span class="nl">sendWithCompletion:</span><span class="o">^</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="p">[</span><span class="n">self</span> <span class="nl">say:</span><span class="p">[</span><span class="n">NSString</span>  <span class="nl">stringWithFormat:</span><span class="s">@&quot;%@を実行しました。&quot;</span><span class="p">,</span> <span class="n">signal</span><span class="p">.</span><span class="n">name</span><span class="p">]];</span>
+</span><span class='line'>        <span class="p">}];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;beaconから離れました。&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>まとめ</h2>
+
+<p>これで上記の仕様が実現できます。
+今回の実装はまだIRKitにしてもEstimote Beaconsにしてもさわりの部分しか実装していないのですが、他の仕様も合わせたりするとまだまだ面白いことでできるかと思います。
+最近、生活が変わるような技術がどんどんでてきていて楽しいですね♪（ただハードを購入しなきゃいけないのでお金がかかってしまいますがw）
+まだまだこれからも、生活を変えるような技術がでてくると思うのでそれキャッチアップして試せるものは試していこうと思います！！</p>
+
+<p>Enjoy Technology!!!</p>
+
+<h2>Ref</h2>
+
+<ul>
+<li><a href="http://getirkit.com/">IRKit</a></li>
+<li><a href="http://estimote.com/">Estimote Beacons</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+
+    </article>
   
   
     <article>
@@ -744,80 +1106,6 @@ Appleが未だ実現されていない機能を先に作れ</p></blockquote>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/02/conference-with-developers-2014/">Confrence With Developer2に参加してLTしてきた</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-02T23:32:00+09:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今回、Confrence With Developer2に参加してきました。
-iOSに携わる、すべての開発者に向けたカンファレンスイベントだったのですが
-いろいろ収穫があり、たくさん勉強させていただきました。</p>
-
-<p>そんな僕もここでLTをしてきたのでのせときます。以前は、MA9でも発表している
-ですがあくまでプロダクトとして発表だったのと今回は技術的なカンファレンス
-なので技術的側面に焦点をあてて発表させていただきました。</p>
-
-<p>話した内容はアプリでがんがん利用していた<code>AV Foundation</code>の話をしてきました。</p>
-
-<script async class="speakerdeck-embed" data-id="ebaab3406d820131c6665e5071095c76" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-
-<p>(発表時にディスプレイコネクタが認識しなくて発狂していたところ<code>@tamotamago</code>さんにパソコンを貸していただき大変感謝です！)</p>
-
-<p>自分でもいろいろとメモっていたのですが以下のサイトがよく纏められていたのでご参照ください。</p>
-
-<h3>Developers.IO</h3>
-
-<ul>
-<li><a href="http://dev.classmethod.jp/smartphone/ios-confwd2/">http://dev.classmethod.jp/smartphone/ios-confwd2/</a></li>
-</ul>
-
-
-<h3>Togetter</h3>
-
-<ul>
-<li><a href="http://togetter.com/li/623779">http://togetter.com/li/623779</a></li>
-</ul>
-
-
-<h3>Ustream録画</h3>
-
-<ul>
-<li><a href="http://www.ustream.tv/recorded/43319245">http://www.ustream.tv/recorded/43319245</a></li>
-<li><a href="http://www.ustream.tv/recorded/43323576">http://www.ustream.tv/recorded/43323576</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -866,6 +1154,10 @@ iOSに携わる、すべての開発者に向けたカンファレンスイベ�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/10/22/minne-tech-conference/">「minne」技術戦略カンファレンスに登壇しました。</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/09/16/potatotips-21/">Potatotips (iOS/Android開発Tips共有会) 第21回に参加してきた</a>
       </li>
     
@@ -881,15 +1173,11 @@ iOSに携わる、すべての開発者に向けたカンファレンスイベ�
         <a href="/blog/2015/04/24/get-apple-watch/">僕の左腕にApple Watchがキタ！</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/04/19/pepabo-tech-conference-1/">ペパボテックカンファレンス#1で発表した</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/backbonejs/'>backbonejs (4)</a></li><li><a href='/blog/categories/ci/'>ci (1)</a></li><li><a href='/blog/categories/cloudkit/'>CloudKit (1)</a></li><li><a href='/blog/categories/diary/'>Diary (1)</a></li><li><a href='/blog/categories/diary/'>diary (1)</a></li><li><a href='/blog/categories/ios/'>iOS (26)</a></li><li><a href='/blog/categories/javascript/'>javascript (1)</a></li><li><a href='/blog/categories/osx/'>OSX (4)</a></li><li><a href='/blog/categories/osx-swift/'>OSX,Swift (2)</a></li><li><a href='/blog/categories/rails/'>Rails (1)</a></li><li><a href='/blog/categories/ruby/'>Ruby (2)</a></li><li><a href='/blog/categories/study/'>study (1)</a></li><li><a href='/blog/categories/swift/'>Swift (3)</a></li><li><a href='/blog/categories/swift-ios/'>Swift,iOS (1)</a></li><li><a href='/blog/categories/vagrant/'>vagrant (1)</a></li><li><a href='/blog/categories/wwdc/'>WWDC (2)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/backbonejs/'>backbonejs (4)</a></li><li><a href='/blog/categories/ci/'>ci (1)</a></li><li><a href='/blog/categories/cloudkit/'>CloudKit (1)</a></li><li><a href='/blog/categories/diary/'>Diary (1)</a></li><li><a href='/blog/categories/diary/'>diary (1)</a></li><li><a href='/blog/categories/ios/'>iOS (27)</a></li><li><a href='/blog/categories/javascript/'>javascript (1)</a></li><li><a href='/blog/categories/osx/'>OSX (4)</a></li><li><a href='/blog/categories/osx-swift/'>OSX,Swift (2)</a></li><li><a href='/blog/categories/rails/'>Rails (1)</a></li><li><a href='/blog/categories/ruby/'>Ruby (2)</a></li><li><a href='/blog/categories/study/'>study (1)</a></li><li><a href='/blog/categories/swift/'>Swift (3)</a></li><li><a href='/blog/categories/swift-ios/'>Swift,iOS (1)</a></li><li><a href='/blog/categories/vagrant/'>vagrant (1)</a></li><li><a href='/blog/categories/wwdc/'>WWDC (2)</a></li></ul>
 </section>
 
 <section>

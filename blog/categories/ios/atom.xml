@@ -4,7 +4,7 @@
   <title><![CDATA[categories: iOS | Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-09-18T13:41:38+09:00</updated>
+  <updated>2015-10-27T15:22:44+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[「minne」技術戦略カンファレンスに登壇しました。]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/10/22/minne-tech-conference/"/>
+    <updated>2015-10-22T01:00:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/10/22/minne-tech-conference</id>
+    <content type="html"><![CDATA[<p>先日ですが「minne」技術戦略カンファレンスというものがありましてモバイル枠としてお話しさせていただきました。
+内容は「ユーザ体験を生み出す現場作り」でした。</p>
+
+<p>minneはモバイルに関してUI/UX部分を深津さんに引っ張っていただいているところですが、日々大変勉強になっています。
+今回はそのものづくりの取り組みにどういったことをするべきで、どれだけ集中できるようにするか、そのために開発は
+どういったことをしているかを開発者の立場としてお話しさせていただきました。</p>
+
+<ul>
+<li><a href="http://peatix.com/event/121467">「minne」技術戦略カンファレンス</a></li>
+</ul>
+
+
+<h2>資料</h2>
+
+<script async class="speakerdeck-embed" data-slide="1" data-id="321ea5e0b71a496e86a5471dc8a1e272" data-ratio="1.77777777777778" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<h2>反省点</h2>
+
+<p>場所が普段発表するような場所じゃないのと会場が大きかったの何か見えない大きなプレッシャーを感じて全てが裏目に回った感じがしました。。。</p>
+
+<ul>
+<li>極度の緊張のせいでスライドしか見てなかった。あとどこ見てしゃべったらいいかわかんなくなってパニクった</li>
+<li>ステージ往復してみたかった</li>
+<li>「え〜」言わないぞって思ったけど多くて悲しかった</li>
+<li>練習量足りない</li>
+</ul>
+
+
+<h2>最後に</h2>
+
+<p>今回の発表で色々話しましたが、まだまだまだまだ改善できるところはたくさんあるので圧倒的ナンバーワンになるまで
+引き続き頑張っていこうと思う日なのでした。</p>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//suzuri.jp/thirdparty/widgets.js";js.charset="utf-8";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","suzuri-widget-script");</script>
+
+
+<div class="suzuri-widget-product" data-suzuri-product-id="436871" data-suzuri-item-variant-id="3"><a href="https://suzuri.jp/nakajijapan/294061/t-shirt/s/navy"><img src="https://d1q9av5b648rmv.cloudfront.net/v3/323x323/t-shirt/s/navy/294061/1445775617-2520x2992.png.jpg?h=9d193f04f1089d4b82d07328f6712473f824609c" width="323" height="323"></a></div>
+
+
+<p>気合いいれてこ。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[potatotips (iOS/Android開発Tips共有会) 第21回に参加してきた]]></title>
@@ -187,12 +236,12 @@
 
 <h2>TestFlightみたいなのを自作する</h2>
 
+<p>@tomzoh さんの発表</p>
+
 <iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/GArGOVOXcw5wY6" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
 
 <p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/hasegawatomoki/testflight-52816734" title="TestFlightみたいなのを自作する" target="_blank">TestFlightみたいなのを自作する</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/hasegawatomoki" target="_blank">Tomoki Hasegawa</a></strong> </div></p>
-
-<p>@tomzoh さんの発表</p>
 
 <ul>
 <li>InHouse配布してた</li>
@@ -203,10 +252,10 @@
 
 <h2>Create Layouts with the Wearable UI Library</h2>
 
+<p>@teshi04 さんの発表</p>
+
 <script async class="speakerdeck-embed" data-id="aa082aa7e2e9403284ffd04518ccca99" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
 
-
-<p>@teshi04 さんの発表</p>
 
 <ul>
 <li>uPhyca</li>
@@ -240,10 +289,10 @@ po $arg1
 
 <h2>Popup view on Mortar</h2>
 
+<p>@KeithYokoma さんの発表</p>
+
 <script async class="speakerdeck-embed" data-id="0fb262d8a0034a32ab2570805d8c9e17" data-ratio="1.77777777777778" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
 
-
-<p>@KeithYokoma さんの発表</p>
 
 <ul>
 <li>Square</li>
@@ -452,59 +501,6 @@ CKQueryぽいですね。</p>
 
 
 <p>そんな夏休みの自由研究話でした。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2014年夏に読んだ本]]></title>
-    <link href="http://nakajijapan.github.io/blog/2014/08/19/read-books-in-2014-summer/"/>
-    <updated>2014-08-19T03:49:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2014/08/19/read-books-in-2014-summer</id>
-    <content type="html"><![CDATA[<p>この夏に読んだ本をメモライズ。</p>
-
-<h2>Mac App</h2>
-
-<p>この２冊でMac周りの勉強をざっくりしました。</p>
-
-<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/MAC-OS-X-COCOA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC4%E7%89%88/dp/4501552700%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4501552700" target="_blank" title="MAC OS X COCOAプログラミング 第4版"><img src="http://ecx.images-amazon.com/images/I/41bAmGQ-ljL._SL160_.jpg" width="119" height="150" alt="MAC OS X COCOAプログラミング 第4版" style="border:0;border-radius:0" /></a></div>
-
-
-<p><a href="http://www.amazon.co.jp/MAC-OS-X-COCOA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC4%E7%89%88/dp/4501552700%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4501552700" target="_blank">MAC OS X COCOAプログラミング 第4版</a></p>
-
-<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/Mac-OS-iPhone%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECocoa%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E8%97%A4%E6%9C%AC-%E8%A3%95%E4%B9%8B/dp/4881666967%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4881666967" target="_blank" title="Mac OS X/iPhoneのためのCocoaプログラミング入門"><img src="http://ecx.images-amazon.com/images/I/519bb6t6VoL._SL160_.jpg" width="117" height="150" alt="Mac OS X/iPhoneのためのCocoaプログラミング入門" style="border:0;border-radius:0" /></a></div>
-
-
-<p><a href="http://www.amazon.co.jp/Mac-OS-iPhone%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECocoa%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E8%97%A4%E6%9C%AC-%E8%A3%95%E4%B9%8B/dp/4881666967%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4881666967" target="_blank">Mac OS X/iPhoneのためのCocoaプログラミング入門</a></p>
-
-<h2>Core Data</h2>
-
-<p>CloudKitと合わせて使いたかったので読みました。</p>
-
-<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/iOS-Core-Data%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-%E5%9C%8B%E5%B1%85-%E8%B2%B4%E6%B5%A9/dp/4798039799%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798039799" target="_blank" title="iOS Core Data徹底入門"><img src="http://ecx.images-amazon.com/images/I/41l4NOjbb8L._SL160_.jpg" width="106" height="150" alt="iOS Core Data徹底入門" style="border:0;border-radius:0" /></a></div>
-
-
-<p><a href="http://www.amazon.co.jp/iOS-Core-Data%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-%E5%9C%8B%E5%B1%85-%E8%B2%B4%E6%B5%A9/dp/4798039799%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798039799" target="_blank">iOS Core Data徹底入門</a></p>
-
-<h2>Objective-C</h2>
-
-<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/Effective-Objective-C-2-0-Matt-Galloway/dp/4798134198%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798134198" target="_blank" title="Effective Objective-C 2.0"><img src="http://ecx.images-amazon.com/images/I/51BbaG2KA1L._SL160_.jpg" width="120" height="150" alt="Effective Objective-C 2.0" style="border:0;border-radius:0" /></a></div>
-
-
-<p><a href="http://www.amazon.co.jp/Effective-Objective-C-2-0-Matt-Galloway/dp/4798134198%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798134198" target="_blank">Effective Objective-C 2.0</a></p>
-
-<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/iOS%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E2%80%95iBeacon-GeoFence-Navi-CoreMotion-M7%E3%81%AE%E7%90%86%E8%A7%A3%E3%81%A8%E5%AE%9F%E8%B7%B5/dp/4798040703%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798040703" target="_blank" title="iOS位置情報プログラミング―iBeacon/GeoFence/Navi/CoreMotion/M7の理解と実践"><img src="http://ecx.images-amazon.com/images/I/41IrAamsuEL._SL160_.jpg" width="113" height="150" alt="iOS位置情報プログラミング―iBeacon/GeoFence/Navi/CoreMotion/M7の理解と実践" style="border:0;border-radius:0" /></a></div>
-
-
-<p><a href="http://www.amazon.co.jp/iOS%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E2%80%95iBeacon-GeoFence-Navi-CoreMotion-M7%E3%81%AE%E7%90%86%E8%A7%A3%E3%81%A8%E5%AE%9F%E8%B7%B5/dp/4798040703%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798040703" target="_blank">iOS位置情報プログラミング―iBeacon/GeoFence/Navi/CoreMotion/M7の理解と実践</a></p>
-
-<h2>About Apple</h2>
-
-<p>スティーブ・ジョブズ亡き後ののアップルがどうなるんだろうか本</p>
-
-<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/%E6%B2%88%E3%81%BF%E3%82%86%E3%81%8F%E5%B8%9D%E5%9B%BD-%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%96%E3%83%BB%E3%82%B8%E3%83%A7%E3%83%96%E3%82%BA%E4%BA%A1%E3%81%8D%E3%81%82%E3%81%A8%E3%80%81%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB%E3%81%AF%E5%81%89%E5%A4%A7%E3%81%AA%E4%BC%81%E6%A5%AD%E3%81%A7%E3%81%84%E3%82%89%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B-%E3%82%B1%E3%82%A4%E3%83%B3%E5%B2%A9%E8%B0%B7%E3%82%86%E3%81%8B%E3%82%8A-ebook/dp/B00KMVHZE6%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KMVHZE6" target="_blank" title="沈みゆく帝国 スティーブ・ジョブズ亡きあと、アップルは偉大な企業でいられるのか"><img src="http://ecx.images-amazon.com/images/I/51CePaw6ywL._SL160_.jpg" width="102" height="150" alt="沈みゆく帝国 スティーブ・ジョブズ亡きあと、アップルは偉大な企業でいられるのか" style="border:0;border-radius:0" /></a></div>
-
-
-<p><a href="http://www.amazon.co.jp/%E6%B2%88%E3%81%BF%E3%82%86%E3%81%8F%E5%B8%9D%E5%9B%BD-%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%96%E3%83%BB%E3%82%B8%E3%83%A7%E3%83%96%E3%82%BA%E4%BA%A1%E3%81%8D%E3%81%82%E3%81%A8%E3%80%81%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB%E3%81%AF%E5%81%89%E5%A4%A7%E3%81%AA%E4%BC%81%E6%A5%AD%E3%81%A7%E3%81%84%E3%82%89%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B-%E3%82%B1%E3%82%A4%E3%83%B3%E5%B2%A9%E8%B0%B7%E3%82%86%E3%81%8B%E3%82%8A-ebook/dp/B00KMVHZE6%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KMVHZE6" target="_blank">沈みゆく帝国 スティーブ・ジョブズ亡きあと、アップルは偉大な企業でいられるのか</a></p>
 ]]></content>
   </entry>
   

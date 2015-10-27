@@ -4,7 +4,7 @@
   <title><![CDATA[Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-09-18T13:41:38+09:00</updated>
+  <updated>2015-10-27T15:22:44+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[「minne」技術戦略カンファレンスに登壇しました。]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/10/22/minne-tech-conference/"/>
+    <updated>2015-10-22T01:00:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/10/22/minne-tech-conference</id>
+    <content type="html"><![CDATA[<p>先日ですが「minne」技術戦略カンファレンスというものがありましてモバイル枠としてお話しさせていただきました。
+内容は「ユーザ体験を生み出す現場作り」でした。</p>
+
+<p>minneはモバイルに関してUI/UX部分を深津さんに引っ張っていただいているところですが、日々大変勉強になっています。
+今回はそのものづくりの取り組みにどういったことをするべきで、どれだけ集中できるようにするか、そのために開発は
+どういったことをしているかを開発者の立場としてお話しさせていただきました。</p>
+
+<ul>
+<li><a href="http://peatix.com/event/121467">「minne」技術戦略カンファレンス</a></li>
+</ul>
+
+
+<h2>資料</h2>
+
+<script async class="speakerdeck-embed" data-slide="1" data-id="321ea5e0b71a496e86a5471dc8a1e272" data-ratio="1.77777777777778" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<h2>反省点</h2>
+
+<p>場所が普段発表するような場所じゃないのと会場が大きかったの何か見えない大きなプレッシャーを感じて全てが裏目に回った感じがしました。。。</p>
+
+<ul>
+<li>極度の緊張のせいでスライドしか見てなかった。あとどこ見てしゃべったらいいかわかんなくなってパニクった</li>
+<li>ステージ往復してみたかった</li>
+<li>「え〜」言わないぞって思ったけど多くて悲しかった</li>
+<li>練習量足りない</li>
+</ul>
+
+
+<h2>最後に</h2>
+
+<p>今回の発表で色々話しましたが、まだまだまだまだ改善できるところはたくさんあるので圧倒的ナンバーワンになるまで
+引き続き頑張っていこうと思う日なのでした。</p>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//suzuri.jp/thirdparty/widgets.js";js.charset="utf-8";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","suzuri-widget-script");</script>
+
+
+<div class="suzuri-widget-product" data-suzuri-product-id="436871" data-suzuri-item-variant-id="3"><a href="https://suzuri.jp/nakajijapan/294061/t-shirt/s/navy"><img src="https://d1q9av5b648rmv.cloudfront.net/v3/323x323/t-shirt/s/navy/294061/1445775617-2520x2992.png.jpg?h=9d193f04f1089d4b82d07328f6712473f824609c" width="323" height="323"></a></div>
+
+
+<p>気合いいれてこ。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[potatotips (iOS/Android開発Tips共有会) 第21回に参加してきた]]></title>
@@ -187,12 +236,12 @@
 
 <h2>TestFlightみたいなのを自作する</h2>
 
+<p>@tomzoh さんの発表</p>
+
 <iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/GArGOVOXcw5wY6" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 
 
 <p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/hasegawatomoki/testflight-52816734" title="TestFlightみたいなのを自作する" target="_blank">TestFlightみたいなのを自作する</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/hasegawatomoki" target="_blank">Tomoki Hasegawa</a></strong> </div></p>
-
-<p>@tomzoh さんの発表</p>
 
 <ul>
 <li>InHouse配布してた</li>
@@ -203,10 +252,10 @@
 
 <h2>Create Layouts with the Wearable UI Library</h2>
 
+<p>@teshi04 さんの発表</p>
+
 <script async class="speakerdeck-embed" data-id="aa082aa7e2e9403284ffd04518ccca99" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
 
-
-<p>@teshi04 さんの発表</p>
 
 <ul>
 <li>uPhyca</li>
@@ -240,10 +289,10 @@
 
 <h2>Popup view on Mortar</h2>
 
+<p>@KeithYokoma さんの発表</p>
+
 <script async class="speakerdeck-embed" data-id="0fb262d8a0034a32ab2570805d8c9e17" data-ratio="1.77777777777778" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
 
-
-<p>@KeithYokoma さんの発表</p>
 
 <ul>
 <li>Square</li>
@@ -1562,38 +1611,6 @@ Unmanaged<T>構造体は非管理オブジェクトをメモリ管理されたob
 
 <p>とにかく、Swift勉強会が無事終えてよかったです。
 参加してくれたみなさん、そして発表してくれた、<a href="http://twitter.com/misyobun">@misyobun</a> <a href="http://twitter.com/hypermkt">@hypermkt</a> <a href="http://twitter.com/kurotaky">@kurotaky</a> ありがとうございました！！！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Xcodeのフォルダ参照]]></title>
-    <link href="http://nakajijapan.github.io/blog/2014/07/11/xcode-folder-references/"/>
-    <updated>2014-07-11T00:37:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2014/07/11/xcode-folder-references</id>
-    <content type="html"><![CDATA[<p>なにげに今まで知らなかったんですが結構便利だってことに最近気づいたのでメモ。
-普段リソースをXcodeに関連づけさせるためにドラッグアンドドロップさせていたのですが、
-一旦以下のチェック項目でディレクトリ参照にしてしまえば、これ以降リソースファイルを追加したときに毎度
-ドラッグアンドドロップさせなくてよく、自動的に追加されます。</p>
-
-<p><img src="http://nakajijapan.github.io/images/posts/2014-07-11-01.png" alt="nakajijapan" /></p>
-
-<p><img src="http://nakajijapan.github.io/images/posts/2014-07-11-02.png" alt="nakajijapan" /></p>
-
-<p>他と違うのは対象のディレクトリは色が青になっています。</p>
-
-<p>実際に呼び出すときには通常の呼び出し方法と異なります。リソースファイルの前に指定のディレクトリ名を宣言
-する必要があります。</p>
-
-<p>今回だと以下の感じになります。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>let soundFilePath = NSBundle.mainBundle().pathForResource("music/sound001", ofType: "mp3")</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>music</code>がディレクトリにあたりますね。</p>
-
-<p>これ、何気に便利で、デザイナさんにXcode立ち上げなくても指定のディレクトリおいておくだけで、余計なところを実装せずに済むので
-仕事が捗るのではないかと気づいた今日このごろでした。</p>
 ]]></content>
   </entry>
   
