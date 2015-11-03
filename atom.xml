@@ -4,7 +4,7 @@
   <title><![CDATA[Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-10-27T15:22:44+09:00</updated>
+  <updated>2015-11-03T23:09:02+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Teiten 1.3.0にバージョンアップ。動画のアーカイブをできるようにした。]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/11/03/teiten-update/"/>
+    <updated>2015-11-03T17:05:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/11/03/teiten-update</id>
+    <content type="html"><![CDATA[<p>adsafda</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[「minne」技術戦略カンファレンスに登壇しました。]]></title>
@@ -1561,56 +1570,6 @@ Unmanaged<T>構造体は非管理オブジェクトをメモリ管理されたob
 
 
 <p><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%A7%A3-Objective-C-2-0-%E7%AC%AC3%E7%89%88-%E8%8D%BB%E5%8E%9F/dp/4797368276%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4797368276" target="_blank">詳解 Objective-C 2.0 第3版</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Swift勉強会を開催して話してきました。]]></title>
-    <link href="http://nakajijapan.github.io/blog/2014/07/19/swift-shibuya-01/"/>
-    <updated>2014-07-19T20:08:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2014/07/19/swift-shibuya-01</id>
-    <content type="html"><![CDATA[<script async class="speakerdeck-embed" data-id="a9200910f163013106da6eb14261a8ef" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
-
-
-<p>先日、小さい規模ながらSwfit勉強会を開催しました。</p>
-
-<p><a href="http://atnd.org/events/52641">Swift勉強会 hosted by @nakajijapan from ペパボ</a></p>
-
-<p>そんななか、自分も「Swiftに慣れるまで行ったこと」を発表しました。</p>
-
-<p>ざっくり言うSwiftに慣れるのに以下のことをしてみた献じたことを話しました。</p>
-
-<ol>
-<li>公式ドキュメント（を読んだ後に）</li>
-<li>サンプルアプリをTableViewControllerベースで作成してみたこと</li>
-<li>自分のプラグイン(NKJMovieComposer)をSwiftで書き換えてみたこと</li>
-<li>気分高ぶってMac OS Xも作成してみたこと</li>
-</ol>
-
-
-<p>詳しくはスライドをご覧ください。</p>
-
-<p>Swiftが出たときにSan Franciscoで一心不乱にサンプルアプリプログラム書いてブログ上げようかと思ったけど
-いろんな人が既にブログに上げていたのでただただGitHubにあげるだけでした。そんなんか
-いろいろ勉強していくうちにMacアプリもつくれんじゃねーかwで脳内麻痺して書籍を購入してSwiftで作成
-してみました。</p>
-
-<p><img src="http://nakajijapan.github.io/images/posts/2014-07-19-01.png" alt="swift" /></p>
-
-<p>起動しとけば単純に画像を定期的に保存するアプリです。
-（そのうちに１日で保存した画像をGifアニメのような動画にしてソーシャルにアップする機能作ろうかと計画中）
-ある程度できたらGeHubにアップ仕様と思います。</p>
-
-<p>ちなみにこちらの書籍を購入しました。</p>
-
-<p><a href="http://frustration.me/items/5171">
-  <img src="http://ecx.images-amazon.com/images/I/41bAmGQ-ljL.jpg" />
-</a></p>
-
-<p>Macアプリ、知識が溜まって来たらまた記事にします。</p>
-
-<p>とにかく、Swift勉強会が無事終えてよかったです。
-参加してくれたみなさん、そして発表してくれた、<a href="http://twitter.com/misyobun">@misyobun</a> <a href="http://twitter.com/hypermkt">@hypermkt</a> <a href="http://twitter.com/kurotaky">@kurotaky</a> ありがとうございました！！！</p>
 ]]></content>
   </entry>
   
