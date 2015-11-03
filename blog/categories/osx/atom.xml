@@ -4,7 +4,7 @@
   <title><![CDATA[categories: OSX | Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/blog/categories/osx/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-11-03T23:12:23+09:00</updated>
+  <updated>2015-11-03T23:20:15+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://nakajijapan.github.io/blog/2015/11/03/teiten-update-avfoundation/"/>
     <updated>2015-11-03T23:10:00+09:00</updated>
     <id>http://nakajijapan.github.io/blog/2015/11/03/teiten-update-avfoundation</id>
-    <content type="html"><![CDATA[<p><img src="http://teiten.nakajijapan.net/images/icon.png" width="300" /></p>
+    <content type="html"><![CDATA[<p><img src="https://github.com/nakajijapan/teiten/raw/master/Icons/Icon-256.png" width="300" /></p>
 
 <p><a href="http://teiten.nakajijapan.net/">Teiten</a>のバージョンアップを行いました。</p>
 
@@ -66,7 +66,7 @@
 
 <p>以前自分が作成したプラグイン<a href="">NKJMovieComposer</a>でさくっと実装した</p>
 
-<p>```swift
+<p>```
 let movieComposition = NKJMovieComposer()
 movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height)</p>
 
@@ -91,7 +91,7 @@ _ = movieComposition.addVideo(movieURL)
 <p>時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。
 動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。</p>
 
-<p>```swift
+<p>```
 // today
 let dateFormatter = NSDateFormatter()
 dateFormatter.dateFormat = &ldquo;yyyy/MM/dd HH:mm&rdquo;</p>

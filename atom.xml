@@ -4,7 +4,7 @@
   <title><![CDATA[Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-11-03T23:09:02+09:00</updated>
+  <updated>2015-11-03T23:20:15+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -14,11 +14,163 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Teiten 1.3.0にバージョンアップ。動画のアーカイブをできるようにした。]]></title>
-    <link href="http://nakajijapan.github.io/blog/2015/11/03/teiten-update/"/>
-    <updated>2015-11-03T17:05:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2015/11/03/teiten-update</id>
-    <content type="html"><![CDATA[<p>adsafda</p>
+    <title type="html"><![CDATA[Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/11/03/teiten-update-avfoundation/"/>
+    <updated>2015-11-03T23:10:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/11/03/teiten-update-avfoundation</id>
+    <content type="html"><![CDATA[<p><img src="https://github.com/nakajijapan/teiten/raw/master/Icons/Icon-256.png" width="300" /></p>
+
+<p><a href="http://teiten.nakajijapan.net/">Teiten</a>のバージョンアップを行いました。</p>
+
+<p>バージョンアップ内容は以下の内容です。</p>
+
+<ul>
+<li>動画にその時の時間を加えました。</li>
+<li>指定された時間ごとに３秒動画を撮ってそれを結合できるようにしました。</li>
+</ul>
+
+
+<p>もっと監視っぷりを高めたくこの更新を行いました。</p>
+
+<iframe width="800" height="400" src="https://www.youtube.com/embed/WIT30fkJn6s" frameborder="0" allowfullscreen></iframe>
+
+
+<h2>処理内容</h2>
+
+<ul>
+<li>動画を保存する</li>
+<li>保存された動画を結合する</li>
+<li>動画には録画された時間帯を表示させておく</li>
+</ul>
+
+
+<h3>動画を保存する</h3>
+
+<p>今まで出力に</p>
+
+<ul>
+<li>AVCaptureStillImageOutput</li>
+</ul>
+
+
+<p>を利用していたが新たな出力先に</p>
+
+<ul>
+<li>AVCaptureMovieFileOutput</li>
+</ul>
+
+
+<p>を登録した。</p>
+
+<h3>保存された動画を結合する</h3>
+
+<p>以前自分が作成したプラグイン<a href="">NKJMovieComposer</a>でさくっと実装した</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>let movieComposition = NKJMovieComposer()
+</span><span class='line'>movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height)
+</span><span class='line'>
+</span><span class='line'>for i in 0..&lt;self.files.count {
+</span><span class='line'>
+</span><span class='line'>    let beforeTimeDuration = movieComposition.currentTimeDuration
+</span><span class='line'>    let moviePath = self.files[i]
+</span><span class='line'>
+</span><span class='line'>    // movie
+</span><span class='line'>    let movieURL = NSURL(fileURLWithPath: moviePath)
+</span><span class='line'>    //let layerInstruction = movieComposition.addVideo(movieURL)
+</span><span class='line'>    _ = movieComposition.addVideo(movieURL)
+</span><span class='line'>
+</span><span class='line'>    (snip...)
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>動画には録画された時間帯を表示させておく</h3>
+
+<p>時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。
+動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// today
+</span><span class='line'>let dateFormatter = NSDateFormatter()
+</span><span class='line'>dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+</span><span class='line'>
+</span><span class='line'>// text layer
+</span><span class='line'>let textLayer = CATextLayer()
+</span><span class='line'>textLayer.frame = CGRect(x: self.size.width - 400.0 - 10.0, y: 10.0, width: 400.0, height: 52.0)
+</span><span class='line'>textLayer.string = dateFormatter.stringFromDate(self.dates[i])
+</span><span class='line'>textLayer.fontSize = 48.0
+</span><span class='line'>textLayer.alignmentMode = kCAAlignmentRight
+</span><span class='line'>textLayer.foregroundColor = NSColor.whiteColor().CGColor
+</span><span class='line'>textLayer.shouldRasterize = true
+</span><span class='line'>textLayer.opacity = 0.0
+</span><span class='line'>layerRoot.addSublayer(textLayer)
+</span><span class='line'>
+</span><span class='line'>// animation
+</span><span class='line'>let offsetTimeDuration = CMTimeSubtract(movieComposition.currentTimeDuration, beforeTimeDuration)
+</span><span class='line'>let animation = CABasicAnimation(keyPath: "opacity")
+</span><span class='line'>animation.beginTime     = (i == 0) ? AVCoreAnimationBeginTimeAtZero : CMTimeGetSeconds(beforeTimeDuration)
+</span><span class='line'>animation.duration      = CMTimeGetSeconds(offsetTimeDuration)
+</span><span class='line'>animation.repeatCount   = 1
+</span><span class='line'>animation.autoreverses  = false
+</span><span class='line'>animation.fromValue     = NSNumber(float: 1.0)
+</span><span class='line'>animation.toValue       = NSNumber(float: 1.0)
+</span><span class='line'>animation.removedOnCompletion = false
+</span><span class='line'>textLayer.addAnimation(animation, forKey:"hide")</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最後はそのアニメーションを<code>AVVideoCompositionCoreAnimationTool</code>を使ってVideo Compositionに登録する。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// animation
+</span><span class='line'>movieComposition.videoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: layerVideo, inLayer: layerRoot)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで上記にある動画は実現できた。</p>
+
+<h2>まとめ</h2>
+
+<p>今回は既存の知識で何とかできたのでそれほど技術的に達成感はないものの、動画ネタはまだ自分の中でまだまだ冷めてないことがわかった。また、何か面白そうなことがあれば試していきたいと思う。
+監視最高。</p>
 ]]></content>
   </entry>
   
