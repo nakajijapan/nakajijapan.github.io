@@ -4,7 +4,7 @@
   <title><![CDATA[Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-12-17T03:14:35+09:00</updated>
+  <updated>2015-12-17T03:19:04+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -18,9 +18,9 @@
     <link href="http://nakajijapan.github.io/blog/2015/12/16/etsy-of-technology/"/>
     <updated>2015-12-16T01:26:00+09:00</updated>
     <id>http://nakajijapan.github.io/blog/2015/12/16/etsy-of-technology</id>
-    <content type="html"><![CDATA[<p>初めまして, @nakajijapanです。</p>
+    <content type="html"><![CDATA[<p>初めまして, <a href="https://twitter.com/nakajijapan">@nakajijapan</a>です。</p>
 
-<p>この記事は<a href="http://qiita.com/advent-calendar/2015/ios">iOS Adovent Calendar</a>12/16の記事になります。</p>
+<p>この記事は<a href="http://qiita.com/advent-calendar/2015/ios">iOS Adovent Calendar 2015</a>の16日目の記事になります。</p>
 
 <p>今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。
 どんなインタラクションかというと作品のの個数を決めるときに通常だとドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような
