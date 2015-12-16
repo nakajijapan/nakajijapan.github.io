@@ -4,7 +4,7 @@
   <title><![CDATA[categories: iOS | Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-12-17T03:10:04+09:00</updated>
+  <updated>2015-12-17T03:14:35+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -78,7 +78,7 @@
 <p>では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。
 あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。</p>
 
-<p>```swift
+<p>```
 func transitionBackgroundView(degree: CGFloat, location:CGPoint) {</p>
 
 <pre><code>let overlayView = self.parentView!.viewWithTag(920)!
