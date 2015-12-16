@@ -4,7 +4,7 @@
   <title><![CDATA[categories: iOS | Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-11-03T23:20:15+09:00</updated>
+  <updated>2015-12-17T03:09:05+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Technology of Etsy]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/12/17/etsy-of-technology/"/>
+    <updated>2015-12-17T01:26:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/12/17/etsy-of-technology</id>
+    <content type="html"><![CDATA[<p>初めまして, @nakajijapanです。</p>
+
+<p>この記事は<a href="http://qiita.com/advent-calendar/2015/ios">iOS Adovent Calendar</a>12/16の記事になります。</p>
+
+<p>今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。
+どんなインタラクションかというと作品のの個数を決めるときに通常だとドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような
+インタラクションを実現しています。</p>
+
+<p><img src="/images/posts/2015-12-17-02.gif" alt="" /></p>
+
+<p>カートで在庫や作品の色を決めるときに表現されます。</p>
+
+<ul>
+<li>transitionで現在の画面を多少縮小させる</li>
+<li>画面の半分までTableViewが表示される
+
+<ul>
+<li>Cellをタップしたら閉じる</li>
+</ul>
+</li>
+<li>NavigationBarのような部分をパンすることで最後までTableViewが表示されるようになる。
+
+<ul>
+<li>パンしている間、縮小した画面はそれに合わせてリアルタイムに変化する</li>
+</ul>
+</li>
+</ul>
+
+
+<p>これは、少ない選択肢の時はTableViewを半分だけ表示すれば事足りるのだが、その半分に治らない場合はパンすることでさらに見ることができるようになるという仕組み。
+これがいいのは、ユーザの細かいフェーズでインタラクションを実現できることだと思う。</p>
+
+<ul>
+<li>選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる。
+
+<ul>
+<li>後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる</li>
+</ul>
+</li>
+<li>選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる
+
+<ul>
+<li>上記と同じなのだが、さらに<strong>本当</strong>にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>試してみたこと</h2>
+
+<p>では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのが<code>UIPercentDrivenInteractiveTransition</code>を利用した方法です。
+これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して
+行われてしまうのですが<code>UIPercentDrivenInteractiveTransition</code>を利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体は<code>UIViewControllerAnimatorTransitioning</code>プロトコルを利用したアニメーションクラスを実装することで実現できます。
+しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中から<code>UIPercentDrivenInteractiveTransition</code>を利用してパンしながらリアルタイムにアニメーションをすることができませんでした。</p>
+
+<h2>どのように作成したの</h2>
+
+<p>では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。
+あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。</p>
+
+<p>```swift
+func transitionBackgroundView(degree: CGFloat, location:CGPoint) {</p>
+
+<pre><code>let overlayView = self.parentView!.viewWithTag(920)!
+let imageView = overlayView.viewWithTag(910) as! UIImageView
+let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0)
+let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1)
+imageView.layer.removeAllAnimations()
+imageView.layer.transform = transform
+imageView.setNeedsLayout()
+imageView.layoutIfNeeded()
+</code></pre>
+
+<p>}
+```</p>
+
+<p>イベントは<code>UIPanGestureRecognizer</code>を利用すれば実現できます。</p>
+
+<p><code>
+let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "pan:")
+self.navigationBar.addGestureRecognizer(panGestureRecognizer)
+</code></p>
+
+<p>実際以下のような感じになりました。</p>
+
+<p><img src="/images/posts/2015-12-17-01.gif" alt="" /></p>
+
+<h2>まとめ</h2>
+
+<p>今回はEtsyの気になるインタラクションを真似して実装してみるという実験を行う話でした。
+もちろん、これが正しいとは限らないんですが、別の手段があれば是非教えて欲しいものです。
+とりあえず、技術的にはできるようになったしこれはこれでよしとしたいと思います。今回ソースは
+まだ公開できないのですが今年中にはCocopodsにして出そうかと思います。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[「minne」技術戦略カンファレンスに登壇しました。]]></title>
@@ -389,118 +490,6 @@ Swiftは名前空間あるのでキラキラ名にするでも良かったんだ
 
 <script async class="speakerdeck-embed" data-id="dd60f3a020540132fa3f463cb3105589" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Introducing CloudKit]]></title>
-    <link href="http://nakajijapan.github.io/blog/2014/08/23/introducing-cloudkit/"/>
-    <updated>2014-08-23T21:06:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2014/08/23/introducing-cloudkit</id>
-    <content type="html"><![CDATA[<p><img src="https://developer.apple.com/icloud/images/cloudkit.png" alt="" /></p>
-
-<p><a href="https://developer.apple.com/icloud/documentation/cloudkit-storage/">CloudKit Strage</a></p>
-
-<p>WWDC2014でiOS8からの新しい機能であるCloudKitについて調べたよという話です。</p>
-
-<p>次に自分がリリースするプロダクトのバックエンドを実験がてらParseでやろうとしていたのですが、
-CloudKitのほうが便利そうだったのと、何かときめきを感じるものがあったのでCloudKitを選定して実装する方向
-にはなったのです。しかし、情報はというとサンプルプログラムとただドキュメントがあるんだけでした
-ので自分なりに調べてどういう実装をしたらいいのかというのを調査して、一部まとめたお話です。</p>
-
-<p>せっかくなので<a href="https://github.com/potatotips/potatotips/wiki/potatotips-8">potatotips #8</a>でも共有させていただきました。</p>
-
-<script async class="speakerdeck-embed" data-id="8680d4d00aa80132acd15e86903014cd" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
-
-
-<p>簡単に話すと以下のような内容になっています。</p>
-
-<ul>
-<li>簡単にCloudKitの説明</li>
-<li>CRUDで実装した場合、どんな実装になるのか</li>
-<li>ページング処理の話</li>
-<li>要調査内容</li>
-<li>感想</li>
-</ul>
-
-
-<p>補足なのですが<code>CKSubscription</code>も試してみたのでご参考までに。</p>
-
-<h2>CKSubscription</h2>
-
-<p>サーバ上での変更を追跡するのに利用されます。
-例えば、何かのレコードに変更があった場合にPush通知を送信できたりします。
-実際のコードは以下のようなもの。</p>
-
-<p>```</p>
-
-<p>// #1</p>
-
-<pre><code>    let truePredicate = NSPredicate(value: true)
-    let itemSubscription = CKSubscription(
-        recordType: "Items",
-        predicate: truePredicate,
-        options: CKSubscriptionOptions.FiresOnRecordCreation
-    )
-</code></pre>
-
-<p>// #2</p>
-
-<pre><code>    let notification = CKNotificationInfo()
-    notification.alertBody = "Item Add"
-    itemSubscription.notificationInfo = notification
-</code></pre>
-
-<p>// #3</p>
-
-<pre><code>    self.publicDatabase.saveSubscription(
-        itemSubscription,
-        completionHandler: { (subscription:CKSubscription!, error:NSError!) -&gt; Void in
-
-            if error != nil {
-                println("An error occured in \(error.description)")
-            }
-
-            // do something
-
-        }
-    )
-</code></pre>
-
-<p>```</p>
-
-<h3>＃1</h3>
-
-<p>CKSubscriptionを指定されたレコードタイプに条件(NSPredicate)を指定してインスタンス化します。
-CKQueryぽいですね。</p>
-
-<h3>＃2</h3>
-
-<p>ここでは通知メッセージの設定を行っています。</p>
-
-<h3>＃3</h3>
-
-<p>ここでSubscriptionの変更をサーバにリクエストします。
-これで完了です。削除したい場合は<code>deleteSubscriptionWithID</code>を利用すれば削除が適用されます。</p>
-
-<p>こんな感じで実装は完了です。</p>
-
-<h2>CloudKitを使ってみての感想</h2>
-
-<p>爆速でバックエンドが構築されるのでアプリに集中したい人にとってはかなりおすすめですね。
-だいたいの機能は揃っているので簡単なアプリを作成するんであればこれでいいかもしれません。
-引き続きwatchしていきます。</p>
-
-<p>ちなみに、スレイドにも書いたんですが、Macで使うとMacデベロッパープログラムを契約しないと
-利用できなかったので発表が終わった瞬間に購入しました。。。。</p>
-
-<blockquote class="twitter-tweet" lang="ja"><p>Mac Developer Program 購入しました。 <a href="https://twitter.com/hashtag/potatotips?src=hash">#potatotips</a> <a href="http://t.co/lbYe8FYzJc">pic.twitter.com/lbYe8FYzJc</a></p>&mdash; nakajijapan (@nakajijapan) <a href="https://twitter.com/nakajijapan/statuses/502072810622054400">2014, 8月 20</a></blockquote>
-
-
-<script async src="http://nakajijapan.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-<p>そんな夏休みの自由研究話でした。</p>
 ]]></content>
   </entry>
   
