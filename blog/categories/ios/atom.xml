@@ -4,7 +4,7 @@
   <title><![CDATA[categories: iOS | Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-12-17T08:14:02+09:00</updated>
+  <updated>2015-12-18T22:59:19+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -12,6 +12,223 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[potatotips #24に参加してきた]]></title>
+    <link href="http://nakajijapan.github.io/blog/2015/12/16/potatotips24/"/>
+    <updated>2015-12-16T01:26:00+09:00</updated>
+    <id>http://nakajijapan.github.io/blog/2015/12/16/potatotips24</id>
+    <content type="html"><![CDATA[<p>potatotips (iOS/Android開発Tips共有会) 第24回にブログ枠として参加してきたのでそのメモになります。</p>
+
+<p><img src="/images/posts/2015-12-16-05.jpg" alt="" /></p>
+
+<h2>iOSでテーマ(着せ替え)機能を実装した時のTips</h2>
+
+<p>Goodpatchの重田さん</p>
+
+<script async class="speakerdeck-embed" data-id="d1c3cc8a35dd4366b573d69ebe926c70" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<ul>
+<li>UIAppearanceの話</li>
+</ul>
+
+
+<h2>tvOSでWebSocketを使う</h2>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/aFlPe40wvAwbNT" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/hasegawatomoki/tvoswebsocket" title="tvOSでWebSocketを使う" target="_blank">tvOSでWebSocketを使う</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/hasegawatomoki" target="_blank">Tomoki Hasegawa</a></strong> </div></p>
+
+<ul>
+<li>Apple TVの話</li>
+<li>AppleTVのサーバ通信</li>
+<li>WEB API?</li>
+<li>もっとリアルタイムにしたい</li>
+<li>APNs？</li>
+<li>WebSocket?
+
+<ul>
+<li>Starscreamが良かった
+
+<ul>
+<li>Pure Swift!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>iOS7をサポート対象外にして開発を健全化する</h2>
+
+<script async class="speakerdeck-embed" data-id="0bd92e03f3714c389936de4535f104c1" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>@shoby さんの発表</p>
+
+<ul>
+<li>iOS 7をサポート対象外にして健全にする</li>
+<li>ユーザにOSのアップデートを促す</li>
+<li>最終互換バージョンを提供する</li>
+<li>著名なアプリが対象外にしている！！！！！</li>
+</ul>
+
+
+<h2>xcconfigで複数ターゲットのビルド設定をまとめる</h2>
+
+<p>@k_katsumi さん</p>
+
+<script async class="speakerdeck-embed" data-id="7192f21150ea49bc858305f69640a5f5" data-ratio="1.77777777777778" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<ul>
+<li>Univy targets for multiple platforms into one target</li>
+<li>メルカリは言語ごとにターゲット作ってる</li>
+<li>複数管理する方法</li>
+<li>keychainaccess
+
+<ul>
+<li>v2.1 コピーすればios7でも使える</li>
+</ul>
+</li>
+<li>どうやるか
+
+<ul>
+<li>configuration file使ってる
+
+<ul>
+<li>base.xcconfig
+
+<ul>
+<li>全部デプロイ面とターゲットを利用している</li>
+</ul>
+</li>
+<li>Debug.xcconfig</li>
+<li>Release.xcconfig</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>＊で設定すると便利</li>
+<li>BuildSettingExtractor使うと便利</li>
+</ul>
+
+
+<h2>Enhancements with 3D Touch</h2>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/zwXhhkTd8TV58I" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/satsv/enhancements-with-3d-touch" title="Enhancements with 3D Touch" target="_blank">Enhancements with 3D Touch</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/satsv" target="_blank">Satoshi Ohki</a></strong> </div></p>
+
+<p>グッドパッチの @roothybrid7 さん</p>
+
+<ul>
+<li>Enhancements with 3D touch</li>
+<li>導入した話</li>
+<li>なぜ？
+
+<ul>
+<li>プロトタイプのプレビューをすぐみたい</li>
+</ul>
+</li>
+<li>3D touch
+
+<ul>
+<li>Home Screen</li>
+<li>Quick Actions</li>
+<li>Peek and Pop</li>
+</ul>
+</li>
+<li>Blurによりうきあがる量いいの指定</li>
+<li>タッチしたポイント（location）から算出</li>
+</ul>
+
+
+<h2>On Demand Resourcesを意識したコンテンツ制作</h2>
+
+<script async class="speakerdeck-embed" data-id="671dcfe617844e66b9dc3ae6bb01eb15" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>ユビレジの @nolili さん</p>
+
+<ul>
+<li>try!</li>
+<li>昔のアプリをtvOS対応した話</li>
+<li>サーバのリソース入れ替えよう！！ &ndash;> ダメ</li>
+<li>住めてのアセットがそれ追っていること</li>
+<li>適切なタグが振られていること</li>
+<li>どこでユーザをまあたせていいのか
+
+<ul>
+<li>初回起動時にオフラインのユーザがどの段階までコンテンツにアクセスrすrのかSubmit時の意トラブル発覚は辛い</li>
+<li>TestFlightでテストする</li>
+</ul>
+</li>
+<li>ドキュメントあるからそこみるといい</li>
+</ul>
+
+
+<h2>What&rsquo;s new in Swift3</h2>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/56xqM4tz5IVjxi" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/toyship/whats-new-swift3" title="What&#x27;s new Swift3" target="_blank">What&#x27;s new Swift3</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/toyship" target="_blank">toyship</a></strong> </div></p>
+
+<p>@TachibanaKaoru さん</p>
+
+<ul>
+<li>Swiftの話
+
+<ul>
+<li>try! Swiftの紹介</li>
+</ul>
+</li>
+<li>Swift Evolution</li>
+<li>今後のSwiftのレビューを振り返る</li>
+<li>Swift 2.2</li>
+<li>春にリリースされるバグ修正、実装の品質向上</li>
+<li>コード互換性あり</li>
+<li><p>3.0リリースに見据えてwarningを表示するようになる</p></li>
+<li><p>3.0</p>
+
+<ul>
+<li>2016年秋に出る予定</li>
+<li>3.0で対応しないこと</li>
+<li>Proposalレポジトリ</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>enumrate</h2>
+
+<iframe src="http://nakajijapan.github.io//www.slideshare.net/slideshow/embed_code/key/eAV50QiffweLgZ" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="http://nakajijapan.github.io//www.slideshare.net/motokinarita7/enumerate" title="Enumerate" target="_blank">Enumerate</a> </strong> from <strong><a href="http://nakajijapan.github.io//www.slideshare.net/motokinarita7" target="_blank">Motoki Narita</a></strong> </div></p>
+
+<p>@mo_to_44 さん</p>
+
+<ul>
+<li>enumarateはどう実装されているのか</li>
+<li><code>.gyb</code></li>
+<li>Generate Your Boilerplate</li>
+<li>Swiftのプロジェクトで使われいてるテンプレート形式</li>
+<li>GeneratorTypeプロトコル</li>
+<li>EnumerateSequence</li>
+</ul>
+
+
+<h2>感想</h2>
+
+<p>ブログ枠だったけど次回はトーク枠で参加したいですね。
+企画・主催してくださったグッドパッチさんに鬼感謝です！！！！！！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Technology of Etsy]]></title>
@@ -451,44 +668,6 @@ Swiftは名前空間あるのでキラキラ名にするでも良かったんだ
 </ul>
 </li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[お産合宿2014に参加してきた。]]></title>
-    <link href="http://nakajijapan.github.io/blog/2014/09/17/osan2014/"/>
-    <updated>2014-09-17T00:06:00+09:00</updated>
-    <id>http://nakajijapan.github.io/blog/2014/09/17/osan2014</id>
-    <content type="html"><![CDATA[<p>夏も終わろうかとしている今日このごろ皆さんいかがお過ごしでしょうか。
-僕はパンパンです。中島です。</p>
-
-<p>先日、弊社で<a href="http://osan.pepabo.com/2014/">お産合宿2014</a>という開発合宿的なイベントが開催されたので参加してきました。</p>
-
-<p>今回は、別なチームで組んだことと、参加締め切りまでそんなに時間がなかったので適当に<code>nakajijapan</code>というチームで応募(自分のtwitter idです&hellip;)しました。
-結果的にも自分の価値観を押し出す感じにはなりましたが、それでもみんな意見をいろいろだしてくれていい感じに開発できたと思います。</p>
-
-<p><img src="http://osan.pepabo.com/2014/wp-content/uploads/2014/08/tokyo_05_nakajijapan1000x800.png" width="400" /></p>
-
-<p>ほいで今年はこんなアプリを作成しました。</p>
-
-<h2>音楽位置情報アプリ 「Limu」</h2>
-
-<h3><a href="limu.xyz">limu.xyz</a></h3>
-
-<p><a href="http://limu.xyz">
-<img src="/images/posts/2014-09-17-01.png" alt="" />
-</a></p>
-
-<p>コンセプトは新しい音楽の出会い方です！</p>
-
-<p>詳細は後々公開していきます。
-完成度としては、まだ５割ほどでいろいろ試行錯誤が必要なところが結構あるのですが１０月くらいにはリリースできるようにメンバー全員
-頑張っておりますのでぜひご期待ください！！！！！！！！！！！</p>
-
-<p>以下にお産合宿発表した資料を載せておきます。（一部修正しました）</p>
-
-<script async class="speakerdeck-embed" data-id="dd60f3a020540132fa3f463cb3105589" data-ratio="1.33333333333333" src="http://nakajijapan.github.io//speakerdeck.com/assets/embed.js"></script>
 
 ]]></content>
   </entry>
