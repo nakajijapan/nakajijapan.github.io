@@ -4,7 +4,7 @@
   <title><![CDATA[Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2015-12-18T23:20:26+09:00</updated>
+  <updated>2015-12-18T23:26:27+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -18,7 +18,8 @@
     <link href="http://nakajijapan.github.io/blog/2015/12/16/potatotips24/"/>
     <updated>2015-12-16T01:26:00+09:00</updated>
     <id>http://nakajijapan.github.io/blog/2015/12/16/potatotips24</id>
-    <content type="html"><![CDATA[<p>potatotips (iOS/Android開発Tips共有会) 第24回にブログ枠として参加してきたのでそのメモになります。</p>
+    <content type="html"><![CDATA[<p><a href="http://connpass.com/event/23065/">potatotips (iOS/Android開発Tips共有会) 第24回</a>にブログ枠として参加してきたのでそのメモに綴ります！
+今回はGoodpatchさん主催での開催となりました。</p>
 
 <p><img src="http://nakajijapan.github.io/images/posts/2015-12-16-05.jpg" alt="" /></p>
 
@@ -46,8 +47,12 @@
 <ul>
 <li>Apple TVの話</li>
 <li>AppleTVのサーバ通信</li>
-<li>WEB API?</li>
+<li>WEB API?
+
+<ul>
 <li>もっとリアルタイムにしたい</li>
+</ul>
+</li>
 <li>APNs？</li>
 <li>WebSocket?
 
@@ -194,8 +199,8 @@
 <li>Swift 2.2</li>
 <li>春にリリースされるバグ修正、実装の品質向上</li>
 <li>コード互換性あり</li>
-<li><p>3.0リリースに見据えてwarningを表示するようになる</p></li>
-<li><p>3.0</p>
+<li>3.0リリースに見据えてwarningを表示するようになる</li>
+<li>3.0
 
 <ul>
 <li>2016年秋に出る予定</li>
@@ -227,8 +232,16 @@
 
 <h2>感想</h2>
 
-<p>ブログ枠だったけど次回はトーク枠で参加したいですね。
-企画・主催してくださったグッドパッチさんに鬼感謝です！！！！！！</p>
+<ul>
+<li>ブログ枠だったけど次回はトーク枠で参加したいですね。</li>
+<li>企画・主催してくださったグッドパッチさんに鬼感謝です！！！！！！</li>
+<li>Goodpatchさんの<a href="http://qiita.com/advent-calendar/2015/goodpatch">アドベントカレンダー</a>があるようです！</li>
+</ul>
+
+
+<h2>次回</h2>
+
+<p>次回開催はFringe81さんで<a href="http://connpass.com/event/24223/">potatotips</a>を行うそうです！！！！</p>
 ]]></content>
   </entry>
   
