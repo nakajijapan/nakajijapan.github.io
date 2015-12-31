@@ -9,9 +9,7 @@
   <meta name="author" content="nakajijapan">
 
   
-  <meta name="description" content="先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。
-その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。
-対策としては、 &hellip;">
+  <meta name="description" content="動画のある一部分を画像として取り出したいときがあったので調べてみたら、ドキュメントにそれっぽい記述があったので実装してみました。 方法としては、以下のメソッドを利用してCMTimeを利用して指定された時間に対する画像を生成します。 copyCGImageAtTime:actualTime: &hellip;">
   <meta name="keywords" content="nakajijapan,iOS,ナカジ,Swift,CloudKit,AVFoundation,Cocoa">
 
 
@@ -36,9 +34,7 @@
   <meta name="twitter:url" content="http://nakajijapan.github.io/blog/page/7">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="nakajijapan">
-  <meta name="twitter:description" content="先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。
-その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。
-対策としては、 &hellip;">
+  <meta name="twitter:description" content="動画のある一部分を画像として取り出したいときがあったので調べてみたら、ドキュメントにそれっぽい記述があったので実装してみました。 方法としては、以下のメソッドを利用してCMTimeを利用して指定された時間に対する画像を生成します。 copyCGImageAtTime:actualTime: &hellip;">
 
 
   <!-- facebook -->
@@ -46,9 +42,7 @@
   <meta property="og:type"  content="website" />
   <meta property="og:url"   content="http://nakajijapan.github.io/blog/page/7" />
   <meta property="og:image" content="http://nakajijapan.github.io/favicon.ico" />
-  <meta property="og:description" content="先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。
-その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。
-対策としては、 &hellip;" />
+  <meta property="og:description" content="動画のある一部分を画像として取り出したいときがあったので調べてみたら、ドキュメントにそれっぽい記述があったので実装してみました。 方法としては、以下のメソッドを利用してCMTimeを利用して指定された時間に対する画像を生成します。 copyCGImageAtTime:actualTime: &hellip;" />
 
 
 
@@ -92,6 +86,115 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/25/creating-thumbnailimage-from-the-movie/">動画からサムネイル画像を生成する</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-25T22:02:00+09:00" pubdate data-updated="true">May 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>動画のある一部分を画像として取り出したいときがあったので調べてみたら、ドキュメントにそれっぽい記述があったので実装してみました。</p>
+
+<p>方法としては、以下のメソッドを利用してCMTimeを利用して指定された時間に対する画像を生成します。</p>
+
+<blockquote><p>copyCGImageAtTime:actualTime:error:</p></blockquote>
+
+<p>実際に、メソッドにして動くようにしました。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (UIImage*)createThumbnailImageWithURL:(NSURL *)movieURL
+</span><span class='line'>{
+</span><span class='line'>    AVAsset *asset = [[AVURLAsset alloc] initWithURL:[movieURL objectAtIndex:index] options:nil];
+</span><span class='line'>
+</span><span class='line'>    if ([asset tracksWithMediaCharacteristic:AVMediaTypeVideo]) {
+</span><span class='line'>        AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+</span><span class='line'>
+</span><span class='line'>        Float64 durationSeconds = CMTimeGetSeconds([asset duration]);
+</span><span class='line'>        CMTime midpoint         = CMTimeMakeWithSeconds(durationSeconds/2.0, 600);
+</span><span class='line'>        NSError* error          = nil;
+</span><span class='line'>        CMTime actualTime;
+</span><span class='line'>
+</span><span class='line'>        CGImageRef halfWayImageRef = [imageGenerator copyCGImageAtTime:midpoint actualTime:&actualTime error:&error];
+</span><span class='line'>
+</span><span class='line'>        if (halfWayImageRef != NULL) {
+</span><span class='line'>            UIImage* image = [[UIImage alloc]initWithCGImage:halfWayImageRef];
+</span><span class='line'>
+</span><span class='line'>            // 明示的にリリースしておきます
+</span><span class='line'>            CGImageRelease(halfWayImageRef);
+</span><span class='line'>            return image;
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>    return nil;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>動画を取り終わった後に、一時的に一覧として残しておきたいときなどに利用できますね。</p>
+
+<h2>p.s.</h2>
+
+<p>これは試していないのですが、以下のメソッドがあってブロックの中で複数の画像が生成できるようです。</p>
+
+<blockquote><p>generateCGImagesAsynchronouslyForTimes:completionHandler::^(CMTime requestedTime, CGImageRef image, CMTime actualTime, AVAssetImageGeneratorResult result, NSError
+*error)</p></blockquote>
+
+<h2>ref</h2>
+
+<ul>
+<li><a href="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/AVFoundationPG.pdf">AV Foundation Programming Guide</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+
+    </article>
   
   
     <article>
@@ -819,74 +922,6 @@ mixiさん、@punchdrunkerさん、参加された皆さん楽しい時間をあ
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/17/potetotips5-nkjmoviecomposer/">第５回 #potatotips に参加してきた。</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-17T03:37:00+09:00" pubdate data-updated="true">Mar 17<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>先日ですが、#potatetips　（第五回）に参加させていただきました。
-持ち時間一人５分のtips共有会なのですが、自分はAVFoundation周りの話をしてきました。
-本当は実装しているときにこんなメソッド使うと便利だよとかこうすると迷走するからこうしたしたほうがいいよとかあればよかったのですが
-いまいち思いつかなくて、自分でプラグイン作成して、これ使うと便利だよっ、知らなかったでしょう！！という感じに強制的にもっていった発表内容でした。
-内容としては前回の発表のつづきで、以前作成したアプリの機能を切り出して、動画関連の処理を簡単に実装できるようにした（CocoaPods化）した話をしました。</p>
-
-<script async class="speakerdeck-embed" data-id="f675b2008c7e013162b85e7a2e8ee0d7" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-
-<p><a href="https://github.com/nakajijapan/NKJMovieComposer">NKJMovieComposer</a></p>
-
-<p>インストール方法は至って簡単で</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pod "NKJMovieComposer"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>でオッケーです。後は実装するファイルに<code>#import 'NKJMovieComposer.h'を追加すればOKです。</code></p>
-
-<p>機能としては以下の機能が実装できます。</p>
-
-<ul>
-<li>動画結合</li>
-<li>ワイプ</li>
-<li>フェードイン・アウト</li>
-</ul>
-
-
-<p>詳しいことは<a href="https://github.com/nakajijapan/NKJMovieComposer">GitHub</a>をみていただくことにして、
-まだエラー処理とかデバイス・OSに応じたカスタマイズがまだまだできていないので地道に実装していこうと思います。</p>
-
-<p>最後に、発表者のみなさん、クックパッドさんおつかれさまでした！</p>
-</div>
-  
-  
-
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -935,6 +970,10 @@ mixiさん、@punchdrunkerさん、参加された皆さん楽しい時間をあ
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/12/31/2015-review/">2015年 振り返り</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/12/16/potatotips24/">Potatotips #24に参加してきた</a>
       </li>
     
@@ -948,10 +987,6 @@ mixiさん、@punchdrunkerさん、参加された皆さん楽しい時間をあ
     
       <li class="post">
         <a href="/blog/2015/10/22/minne-tech-conference/">「minne」技術戦略カンファレンスに登壇しました。</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/09/16/potatotips-21/">Potatotips (iOS/Android開発Tips共有会) 第21回に参加してきた</a>
       </li>
     
   </ul>
@@ -1000,7 +1035,7 @@ mixiさん、@punchdrunkerさん、参加された皆さん楽しい時間をあ
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - nakajijapan -
+  Copyright &copy; 2016 - nakajijapan -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
