@@ -9,8 +9,8 @@
   <meta name="author" content="nakajijapan">
 
   
-  <meta name="description" content="ドラッギングアンドドロップ関連の調査 NSDraggingSource プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。
-ドラッグ操作中に受け取るメッセージ draggingSession(_: &hellip;">
+  <meta name="description" content="ようやくCocoapodsがSwiftに対応した(0.36になった)ので自分のプラグインもSwfitに書き換えたものをmasterにマージしました。
+Swiftは名前空間あるのでキラキラ名にするでも良かったんだけど、良い名前が思い浮かばなかったのとなんだか NKJ に愛着があるので &hellip;">
   <meta name="keywords" content="nakajijapan,iOS,ナカジ,Swift,CloudKit,AVFoundation,Cocoa">
 
 
@@ -35,8 +35,8 @@
   <meta name="twitter:url" content="http://nakajijapan.github.io/blog/page/4">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="nakajijapan">
-  <meta name="twitter:description" content="ドラッギングアンドドロップ関連の調査 NSDraggingSource プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。
-ドラッグ操作中に受け取るメッセージ draggingSession(_: &hellip;">
+  <meta name="twitter:description" content="ようやくCocoapodsがSwiftに対応した(0.36になった)ので自分のプラグインもSwfitに書き換えたものをmasterにマージしました。
+Swiftは名前空間あるのでキラキラ名にするでも良かったんだけど、良い名前が思い浮かばなかったのとなんだか NKJ に愛着があるので &hellip;">
 
 
   <!-- facebook -->
@@ -44,8 +44,8 @@
   <meta property="og:type"  content="website" />
   <meta property="og:url"   content="http://nakajijapan.github.io/blog/page/4" />
   <meta property="og:image" content="http://nakajijapan.github.io/favicon.ico" />
-  <meta property="og:description" content="ドラッギングアンドドロップ関連の調査 NSDraggingSource プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。
-ドラッグ操作中に受け取るメッセージ draggingSession(_: &hellip;" />
+  <meta property="og:description" content="ようやくCocoapodsがSwiftに対応した(0.36になった)ので自分のプラグインもSwfitに書き換えたものをmasterにマージしました。
+Swiftは名前空間あるのでキラキラ名にするでも良かったんだけど、良い名前が思い浮かばなかったのとなんだか NKJ に愛着があるので &hellip;" />
 
 
 
@@ -89,6 +89,316 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/17/nkjmoviecomposer-swift/">NKJMovieComposerをSwiftにした</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-17T13:40:00+09:00" pubdate data-updated="true">Mar 17<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>ようやくCocoapodsがSwiftに対応した(0.36になった)ので自分のプラグインもSwfitに書き換えたものを<code>master</code>にマージしました。
+Swiftは名前空間あるのでキラキラ名にするでも良かったんだけど、良い名前が思い浮かばなかったのとなんだか <em>NKJ</em> に愛着があるので
+そのままにしましたｗ</p>
+
+<p>基本自分のプラグインを書き換えるときはこの方針で行こう。
+あと、わかりやすいように自分のプラグインのデモをのせてみました。</p>
+
+<p><img src="https://github.com/nakajijapan/NKJMovieComposer/raw/master/demo.gif" alt="nakajijapan" /></p>
+
+<ul>
+<li>Swiftに書き換えた時のレポジトリ
+
+<ul>
+<li><a href="https://github.com/nakajijapan/NKJMovieComposer/pull/1">https://github.com/nakajijapan/NKJMovieComposer/pull/1</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/10/osx-dandd2/">自作のアプリから他のWindowに画像をドラッグする</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-10T21:15:00+09:00" pubdate data-updated="true">Feb 10<span>th</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>タイトルの通り。たとえば、自作アプリで生成された画像をそのままGitHubにドロップして画像を登録する。
+っていうことをできるようにしたい。だけど前回の記事だとどうしてもドロップする機能が実装できなくて
+困っていたのですができる方法が見つかったので記録しておく。</p>
+
+<p>結論からいうと<code>NSTableView</code>をうまく利用することでできるようになった。</p>
+
+<p><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/index.html#//apple_ref/occ/instm/NSTableViiew">公式ドキュメント</a>
+にもあるのですが、Draggingの操作があらかじめ用意されていてすくない実装で目的のことができるようになります。</p>
+
+<h3>Setup</h3>
+
+<p><code>NSTableView</code>は初期化されていることは前提で、それ以外で必要な設定を説明します。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>let types = [NSImage.imagePasteboardTypes()]
+</span><span class='line'>tableView.registerForDraggedTypes(types)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これはドロップできるデータのデータのタイプを指定します。
+この場合だと画像の種類を指定しています。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tableView.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これは、ドラッグできる操作の種類、他のWindowにもドラッグできるかどうかも指定できます。
+この場合だとファイルのコピーを他のWindowにドロップします。</p>
+
+<p>ドラッグの種類は<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSDraggingInfo_Protocol/#//apple_ref/c/tdef/NSDragOperation">ここ</a>
+にすべて記述してあります。</p>
+
+<h3>NSTableViewDataSource</h3>
+
+<p>今回は一つだけ表示できればいいので要素を一つのみ表示する処理をします。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// MARK: - NSTableViewDataSource
+</span><span class='line'>
+</span><span class='line'>func numberOfRowsInTableView(tableView: NSTableView) -&gt; Int {
+</span><span class='line'>    return 1
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -&gt; NSView? {
+</span><span class='line'>    var view = tableView.makeViewWithIdentifier("imageCell", owner: self) as NSView
+</span><span class='line'>
+</span><span class='line'>    self.entity = Entity()
+</span><span class='line'>    var imageView = view.viewWithTag(1) as NSImageView
+</span><span class='line'>    imageView.image = self.entity.image
+</span><span class='line'>
+</span><span class='line'>    return view
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -&gt; NSPasteboardWriting? {
+</span><span class='line'>     return self.entity
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>データを管理するEntityを作成</h3>
+
+<p>TableViewを扱うというとはCellが必要になってそこに描画するデータが必要になります。
+今回はそのデータを管理するクラスを作成して、そこにドラッグするデータを保持します。
+さらにそのデータをドロップしたときの処理も<code>NSPasteboardWriting</code>を宣言して実装していきます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Class Entity: NSObject, NSPasteboardWriting {
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    (..snip..)
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    var fileURL:NSURL!
+</span><span class='line'>
+</span><span class='line'>    // MARK: - NSPasteboardWriting
+</span><span class='line'>
+</span><span class='line'>    func writableTypesForPasteboard(pasteboard: NSPasteboard!) -&gt; [AnyObject]! {
+</span><span class='line'>        return self.fileURL.writableTypesForPasteboard(pasteboard)
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    func pasteboardPropertyListForType(type: String!) -&gt; AnyObject! {
+</span><span class='line'>        return self.fileURL.pasteboardPropertyListForType(type)
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    func writinOptionsForType(type: String!, pasteboard: NSPasteboard!) -&gt; NSPasteboardWritingOptions {
+</span><span class='line'>        return self.fileURL.writingOptionsForType(type, pasteboard: pasteboard)
+</span><span class='line'>    }
+</span><span class='line'>}
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ここではファイルのパスをPasteboardにファイルURLのデータをどの型でどのオブジェクトを返すのかを実装しています。
+NSURLがNSPasteboardWritingの実装をしてくれているのでそのまま返せば問題ありません。</p>
+
+<h2>まとめ</h2>
+
+<p>これで画像をドラッグしてFinder等にドロップして画像を保存することが可能になりました。
+今回は<code>NSTableView</code>を利用して目的を実現できましたが、まわりくどいやりかたしなくてもできそうな気はぬぐいきれないのです。
+単純にNSView側にドラッグとドロップの処理実装できればシンプルになりそうな気がした今日この頃です。それができると信じて
+調査したんだけどリタイヤしたのが前回の記事の話でした。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/index.html#//apple_ref/occ/instm/NSTableViiew">NSTableView</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSDraggingInfo_Protocol/#//apple_ref/c/tdef/NSDragOperation">NSDragOperation</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSDraggingSession_Class/#//apple_ref/occ/instp/NSDraggingSession/draggingLocation">NSDraggingSession</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/01/book/">最近読んだ本</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-01T22:52:00+09:00" pubdate data-updated="true">Feb 1<span>st</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近読んだ本</p>
+
+<p><img src="https://imagery.pragprog.com/products/373/adios2_xlargebeta.jpg?1414692598" alt="" /></p>
+
+<p><a href="https://pragprog.com/book/adios2/ios-8-sdk-development">iOS 8 SDK Development: Creating iPhone and iPad Apps with Swift</a></p>
+
+<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D/dp/B00RX1951E%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00RX1951E" target="_blank" title="ジョナサン・アイブ　偉大な製品を生み出すアップルの天才デザイナー"><img src="http://ecx.images-amazon.com/images/I/51WbR9eLwOL._SL160_.jpg" width="101" height="150" alt="ジョナサン・アイブ　偉大な製品を生み出すアップルの天才デザイナー" style="border:0;border-radius:0" /></a></div>
+
+
+<p><a href="http://www.amazon.co.jp/%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D/dp/B00RX1951E%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00RX1951E" target="_blank">ジョナサン・アイブ　偉大な製品を生み出すアップルの天才デザイナー</a></p>
+
+<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/Pro-Continuous-Integration-Romain-Pouclet-ebook/dp/B00K6N4K2A%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00K6N4K2A" target="_blank" title="Pro iOS Continuous Integration"><img src="http://ecx.images-amazon.com/images/I/41bLTp-nTpL._SL160_.jpg" width="121" height="150" alt="Pro iOS Continuous Integration" style="border:0;border-radius:0" /></a></div>
+
+
+<p><a href="http://www.amazon.co.jp/Pro-Continuous-Integration-Romain-Pouclet-ebook/dp/B00K6N4K2A%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00K6N4K2A" target="_blank">Pro iOS Continuous Integration</a></p>
+
+<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3-%E2%80%95UI-UX%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E7%A5%9E%E3%81%8C%E5%AE%BF%E3%82%8B%E7%B4%B0%E9%83%A8-Dan-Saffer/dp/4873116597%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873116597" target="_blank" title="マイクロインタラクション ―UI/UXデザインの神が宿る細部"><img src="http://ecx.images-amazon.com/images/I/51LgvWft-IL._SL160_.jpg" width="105" height="150" alt="マイクロインタラクション ―UI/UXデザインの神が宿る細部" style="border:0;border-radius:0" /></a></div>
+
+
+<p><a href="http://www.amazon.co.jp/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3-%E2%80%95UI-UX%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E7%A5%9E%E3%81%8C%E5%AE%BF%E3%82%8B%E7%B4%B0%E9%83%A8-Dan-Saffer/dp/4873116597%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873116597" target="_blank">マイクロインタラクション ―UI/UXデザインの神が宿る細部</a></p>
+
+<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/iOS-UICollectionView-Complete-Edition-Programming-ebook/dp/B00IHZKDCU%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00IHZKDCU" target="_blank" title="iOS UICollectionView: The Complete Guide (2nd Edition) (Mobile Programming)"><img src="http://ecx.images-amazon.com/images/I/51PLsDdMCbL._SL160_.jpg" width="115" height="150" alt="iOS UICollectionView: The Complete Guide (2nd Edition) (Mobile Programming)" style="border:0;border-radius:0" /></a></div>
+
+
+<p><a href="http://www.amazon.co.jp/iOS-UICollectionView-Complete-Edition-Programming-ebook/dp/B00IHZKDCU%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00IHZKDCU" target="_blank">iOS UICollectionView: The Complete Guide (2nd Edition) (Mobile Programming)</a></p>
+
+<div style="margin-bottom:5px;"><a href="http://www.amazon.com/Swift-Development-Cocoa-Developing-Stores/dp/1491908947%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Dbooklogjp-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1491908947" target="_blank" title="Swift Development with Cocoa: Developing for the Mac and iOS App Stores"><img src="http://ecx.images-amazon.com/images/I/51QozVPjPiL._SL160_.jpg" width="114" height="150" alt="Swift Development with Cocoa: Developing for the Mac and iOS App Stores" style="border:0;border-radius:0" /></a></div>
+
+
+<p><a href="http://www.amazon.com/Swift-Development-Cocoa-Developing-Stores/dp/1491908947%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Dbooklogjp-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1491908947" target="_blank">Swift Development with Cocoa: Developing for the Mac and iOS App Stores</a></p>
+
+<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/Learning-Foundation-Hands-Mastering-Framework-ebook/dp/B00OV3DFGI%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00OV3DFGI" target="_blank" title="Learning AV Foundation: A Hands-on Guide to Mastering the AV Foundation Framework"><img src="http://ecx.images-amazon.com/images/I/51njEv08GbL._SL160_.jpg" width="116" height="150" alt="Learning AV Foundation: A Hands-on Guide to Mastering the AV Foundation Framework" style="border:0;border-radius:0" /></a></div>
+
+
+<p><a href="http://www.amazon.co.jp/Learning-Foundation-Hands-Mastering-Framework-ebook/dp/B00OV3DFGI%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00OV3DFGI" target="_blank">Learning AV Foundation: A Hands-on Guide to Mastering the AV Foundation Framework</a></p>
+</div>
+  
+  
+
+
+
+    </article>
   
   
     <article>
@@ -364,321 +674,6 @@ WWDC2014の発表から少しづつ地道に開発してきてようやく形に
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/12/16/pepabo-advent-calendar-2014/">Pepabo Advent Calendar 2014</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-12-16T22:33:00+09:00" pubdate data-updated="true">Dec 16<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>この記事は、<a href="http://qiita.com/advent-calendar/2014/pepabo">Pepabo Advent Calendar 2014</a>の17日目の記事です。
-明日は lamanotrama さんです。くろださーーーん。</p>
-
-<p>最近ではiPhoneおじさんとして活動させていただいています。<a href="https://twitter.com/nakajijapan">@nakajijapan</a>です。</p>
-
-<p>Pepabo Advent Calendarはやっぱりこれでしょうということで<a href="http://nakajijapan.github.io/blog/2014/06/08/wwdc2014/">WWDC2014</a>に行ったことを出そうかなと思ったのですが、何も書いていないのはあれなのでその後、どうなったかを書いていきます。</p>
-
-<p>最初に&hellip;</p>
-
-<h2>テンションあがる</h2>
-
-<p>ただ参加しただけでも大きな価値があると思うのですが、今年はAppleが開発者向けに大きな発表があったことはみなさんご存知だと思います。それによりさらにさらにテンションアゲアゲMAXでアドレナリン分泌状態であります。</p>
-
-<h2>プレッシャー感高まる</h2>
-
-<p>会社の神対応には大変感謝しておりますが、まぁそれと同等のプレッシャーは感じておりまして今以上に何か恩返しせねばという勢いで、まず社内のSNSのハンドルネーム的なものをApple信者会員番号２番にしました。（社内から僕の他に@misyobunという人も参加してもともとAndroidエンジニアだったのが急に寝返って僕よりも早くApple信者に変えていた裏切り者がいるので。。。）</p>
-
-<h2>神恩返しのために</h2>
-
-<h3>座談会を盛り上げました？</h3>
-
-<p>弊社では業務中に週に一回ずつAndroidとiOSで座談会的な集会が行われています。
-いろんなサービスがあるペパボでは、なかなか同じ職種（特にモバイル）の人が一緒に
-仕事をする機会がない中で、同じ職種の人が集まって今週どうだったかどか、新しい機種出たね、この実装どうしてるとかを話せる貴重な時間であり、日々ぽよぽよしています。</p>
-
-<h3>CIサーバ構築</h3>
-
-<p>モバイル環境でもCI活動ができるようにJenkins運用したり。</p>
-
-<script async class="speakerdeck-embed" data-slide="9" data-id="55cde09038e501324a864a15dbbe3320" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-
-<p>(これはFlat Designの歴史について話した時のつかみみたいなものです。。。)</p>
-
-<p>プラグインは<a href="https://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin">Simple Theme Plugin</a>を利用しましたCSSを変更しました。
-jenkinsをsteve jobsにすることでさらにテンションが上がり、仕事の意欲も高まりました。
-自動化してしまうとIRCに結果が流れてくるので、なかなか直接みに行かないものですがなぜか、時々見に行ってしまいます。</p>
-
-<h3>Swiftrisを作成した</h3>
-
-<p><a href="https://www.bloc.io/swiftris-build-your-first-ios-game-with-swift">BLOC &ndash; Learn Swift</a>を題材にSwift勉強しながらテトリス作っちゃおうという教材を利用してみんなで隔週で行いました。</p>
-
-<p>BGMはこの曲にするとテンションがあがることでしょう。</p>
-
-<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/88243228&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-
-
-<h3>iOS8 SDK読書会</h3>
-
-<div class="booklog_html"><table><tr><td class="booklog_html_image"><a href="http://www.amazon.co.jp/Ios-Sdk-Development-Creating-Iphone/dp/1941222641%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1941222641" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51jTyaM8J5L._SL160_.jpg" width="124" height="150" style="border:0;border-radius:0;" /></a></td><td class="booklog_html_info" style="padding-left:20px;"><div class="booklog_html_title" style="margin-bottom:10px;font-size:14px;font-weight:bold;"><a href="http://www.amazon.co.jp/Ios-Sdk-Development-Creating-Iphone/dp/1941222641%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1941222641" target="_blank">Ios 8 Sdk Development: Creating Iphone and Ipad Apps With Swift</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="margin-bottom:15px;font-size:12px;;line-height:1.2em">著者 : <a href="http://booklog.jp/author/Chris+Adamson" target="_blank">Chris Adamson</a></div><div class="booklog_html_manufacturer" style="margin-bottom:5px;font-size:12px;;line-height:1.2em">Pragmatic Bookshelf</div><div class="booklog_html_release" style="font-size:12px;;line-height:1.2em">発売日 : 2015-01-25</div></div><div class="booklog_html_link_amazon"><a href="http://booklog.jp/item/1/1941222641" style="font-size:12px;" target="_blank">ブクログでレビューを見る»</a></div></td></tr></table></div>
-
-
-<p>まだBeta版なのですが、出た瞬間後輩の<a href="https://twitter.com/kurotaky">@kurotaky</a>, <a href="https://twitter.com/ryoma_123">@ryoma_123</a>に懇願して仕事が始まる１時間前に集合して朝練活動を行っております。コードを書きながら進んでいるので遅めですが最近やっとGestureRecognizerの章までいきました。執筆に追いつくことを目標に日々取り組んでおります。</p>
-
-<h3>IRCに通知するやつ</h3>
-
-<p>なるべく情報の取得が遅れないようにと話のネタ作りにモバイル関係の記事を流すようにしました。。。主にAndroidとAppleの情報が毎朝流れるようになっています。もっとモバイルに興味もってーーーーーーーという僕の想いの表れです。</p>
-
-<p><a href="https://github.com/nakajijapan/post-feeds-in-irc">https://github.com/nakajijapan/post-feeds-in-irc</a></p>
-
-<h2>まだまだだ！</h2>
-
-<p>と、なにかと活動してきましたが、まだまだもっと自分ができることはたくさんあるはずだし進化できると思う。
-なので、来年は今年以上に技術をさらに掘り下げつつサービスや会社に貢献していくんだ！！と決意。
-以下の三つを掘り下げます。</p>
-
-<ol>
-<li>iPhoneおじさんを掘り下げる</li>
-<li>モバイルの開発基盤を掘り下げる</li>
-<li>UI/UXを掘り下げる</li>
-</ol>
-
-
-<p>その先に神恩返しがあるのではないかと思います。</p>
-
-<p>以上、自分が決意する記事でした。</p>
-
-<h2>そんな僕たちは</h2>
-
-<p>モバイルエンジニアを大大大大大募集です！！！！</p>
-
-<p><a href="https://js01.jposting.net/paperboy/u/recruit/job.phtml?job_code=109">30days Album　Androidアプリエンジニア（正社員）</a></p>
-
-<p>そして、モバイルエンジニアを大大大大大募集です！！！！</p>
-
-<p><a href="https://js01.jposting.net/paperboy/u/recruit/job.phtml?job_code=109">30days Album　Androidアプリエンジニア（正社員）</a></p>
-
-<p>さらに、モバイルエンジニアを大大大大大募集です！！！！</p>
-
-<p><a href="https://js01.jposting.net/paperboy/u/recruit/job.phtml?job_code=109">30days Album　Androidアプリエンジニア（正社員）</a></p>
-
-<p>もう一度おまけに、モバイルエンジニアを大大大大大募集です！！！！</p>
-
-<p><a href="https://js01.jposting.net/paperboy/u/recruit/job.phtml?job_code=109">30days Album　Androidアプリエンジニア（正社員）</a></p>
-
-<p>一緒にMac App作りましょう！</p>
-</div>
-  
-  
-
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/12/14/osx-advent-calendar-2014/">OS X Advent Calendar 2014 - OSXアプリ初心者の域を脱するためにしたこと</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-12-14T23:56:00+09:00" pubdate data-updated="true">Dec 14<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>この記事は<a href="http://qiita.com/advent-calendar/2014/osx">OS X Advent Calendar 2014</a>の15日目の記事になります。</p>
-
-<p><img src="https://devimages.apple.com.edgekey.net/osx/images/osx-whats-new-hero.png" alt="" /></p>
-
-<p>AppleがSwiftという言語をサポートしてから半年が経とうとしています。
-このほかにも今年はAppleに驚かせる一年になったのではないでしょうか。
-みなさんこんにちは<a href="https://twitter.com/nakajijapan">@nakajijapan</a>です。</p>
-
-<p>Swiftが出た当初はコードの書きやすさに驚き、ドキュメントを読んでは
-サンプルコードを書いたり、はたまた<a href="http://limu.xyz/">Limu</a>というサービスを作成するようになりました。ちなみにこのサービスはいまだに地道に開発しています。。。</p>
-
-<p>そして、私は新たな興味を持ちました。OSXアプリも頑張れば開発できるのではないかと。</p>
-
-<p>とにかく、なにも考えずOSXプロジェクトを作成して初期起動してみる。
-とりあえずなにもできないWindowが起動できる。
-あとは、iOS開発でしたノウハウである程度のカスタマイズができるのではないかと。
-しかし、そこまでで終わりでUIKitやiOSの開発知識である程度流用できるものはありますが
-それ以上にCocoaプログラミングする上での仕様を学ぶ必要がありました。</p>
-
-<p>そこで今回は、ある程度開発できる？(いや、まだまだであります)ようになってきたのでここでちょっとまとめようと思います。</p>
-
-<h2>OSXアプリ開発ができるようになるまでに行ったこと</h2>
-
-<ul>
-<li>とにかくサンプルを読む</li>
-<li>思ったことは駄目元で試してみる</li>
-<li>公式ドキュメントを読む</li>
-<li>本を読む</li>
-</ul>
-
-
-<h3>とにかくサンプルを読む</h3>
-
-<p>大体のサンプルはObjective-Cで書いてあります。最初からSwiftで書いていてほしいのですが、まだ昔のサンプルのままで更新されていないので、それをみるようになりますがObjective-CからSwiftに変えるのはそこまで難しくないです。ただより、下のレイヤーにを実装するとなると少し考える事が増えるでしょうが。。。そこにヒントが隠されているので気になるソースを落としてはサンプルを眺めてビルドしてみましょう。</p>
-
-<p>自分は10個くらい眺めてなんとなくこんな書き方すればいいんだと若干ながら理解して
-いきました。</p>
-
-<h3>思ったことは駄目元でためしてみる</h3>
-
-<p>iOS以上に情報が少ないので自分で解決しなきゃいけないことが多くなってきます。
-実装が滞るのであれば、ソースをミクロな状態にしてそれができるかこうやったらどうなるんだろうと試行錯誤をしてみることが大切です。</p>
-
-<h3>公式ドキュメントを読む</h3>
-
-<p>ネットの情報に自分の疑問の答えがあっても、仕様は確認するといいです。それより便利なプロパティやメソッドが用意されているかもしれませんし、そもそも使い方が間違っているかもしれません。</p>
-
-<h3>本を読む</h3>
-
-<p>日本語の情報がない中、以下の本を参考にしました。</p>
-
-<div class="booklog_html"><table><tr><td class="booklog_html_image"><a href="http://www.amazon.co.jp/MAC-OS-X-COCOA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC4%E7%89%88/dp/4501552700%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4501552700" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41bAmGQ-ljL._SL160_.jpg" width="119" height="150" style="border:0;border-radius:0;" /></a></td><td class="booklog_html_info" style="padding-left:20px;"><div class="booklog_html_title" style="margin-bottom:10px;font-size:14px;font-weight:bold;"><a href="http://www.amazon.co.jp/MAC-OS-X-COCOA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC4%E7%89%88/dp/4501552700%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4501552700" target="_blank">MAC OS X COCOAプログラミング 第4版</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="margin-bottom:15px;font-size:12px;;line-height:1.2em">著者 : <a href="http://booklog.jp/author/%E3%82%A2%E3%83%BC%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%92%E3%83%AC%E3%82%AC%E3%82%B9" target="_blank">アーロン・ヒレガス</a></div><div class="booklog_html_manufacturer" style="margin-bottom:5px;font-size:12px;;line-height:1.2em">東京電機大学出版局</div><div class="booklog_html_release" style="font-size:12px;;line-height:1.2em">発売日 : 2014-05-20</div></div><div class="booklog_html_link_amazon"><a href="http://booklog.jp/item/1/4501552700" style="font-size:12px;" target="_blank">ブクログでレビューを見る»</a></div></td></tr></table></div>
-
-
-<p>情報はかなり古いのですが、Cocoaプログラミングの基本がわかるというところまではいいのですが、ある程度iOSで学んだことが記述されているので分厚いわりにはそこまで自分にとって優良な情報は少なかったイメージがあります。</p>
-
-<div class="booklog_html"><table><tr><td class="booklog_html_image"><a href="http://www.amazon.co.jp/Mac-OS-iPhone%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECocoa%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E8%97%A4%E6%9C%AC-%E8%A3%95%E4%B9%8B/dp/4881666967%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4881666967" target="_blank"><img src="http://ecx.images-amazon.com/images/I/519bb6t6VoL._SL160_.jpg" width="117" height="150" style="border:0;border-radius:0;" /></a></td><td class="booklog_html_info" style="padding-left:20px;"><div class="booklog_html_title" style="margin-bottom:10px;font-size:14px;font-weight:bold;"><a href="http://www.amazon.co.jp/Mac-OS-iPhone%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECocoa%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E8%97%A4%E6%9C%AC-%E8%A3%95%E4%B9%8B/dp/4881666967%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4881666967" target="_blank">Mac OS X/iPhoneのためのCocoaプログラミング入門</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="margin-bottom:15px;font-size:12px;;line-height:1.2em">著者 : <a href="http://booklog.jp/author/%E8%97%A4%E6%9C%AC%E8%A3%95%E4%B9%8B" target="_blank">藤本裕之</a></div><div class="booklog_html_manufacturer" style="margin-bottom:5px;font-size:12px;;line-height:1.2em">ソーテック社</div><div class="booklog_html_release" style="font-size:12px;;line-height:1.2em">発売日 : 2009-07-04</div></div><div class="booklog_html_link_amazon"><a href="http://booklog.jp/item/1/4881666967" style="font-size:12px;" target="_blank">ブクログでレビューを見る»</a></div></td></tr></table></div>
-
-
-<p>他にもう一冊読もうかなと思って購入した一冊なのですが関西弁？と微妙な例えに苦しんで読みにくかった。。。</p>
-
-<h4>余談</h4>
-
-<div class="booklog_html"><table><tr><td class="booklog_html_image"><a href="http://www.amazon.co.jp/Cocoa-Programming-OS-Edition-Guides/dp/0134076958%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0134076958" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51CF44RQryL._SL160_.jpg" width="105" height="150" style="border:0;border-radius:0;" /></a></td><td class="booklog_html_info" style="padding-left:20px;"><div class="booklog_html_title" style="margin-bottom:10px;font-size:14px;font-weight:bold;"><a href="http://www.amazon.co.jp/Cocoa-Programming-OS-Edition-Guides/dp/0134076958%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0134076958" target="_blank">Cocoa Programming for OS X: The Big Nerd Ranch Guide (5th Edition) (Big Nerd Ranch Guides)</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="margin-bottom:15px;font-size:12px;;line-height:1.2em">著者 : <a href="http://booklog.jp/author/Aaron+Hillegass" target="_blank">Aaron Hillegass</a></div><div class="booklog_html_manufacturer" style="margin-bottom:5px;font-size:12px;;line-height:1.2em">Big Nerd Ranch Guides</div><div class="booklog_html_release" style="font-size:12px;;line-height:1.2em">発売日 : 2015-04-10</div></div><div class="booklog_html_link_amazon"><a href="http://booklog.jp/item/1/0134076958" style="font-size:12px;" target="_blank">ブクログでレビューを見る»</a></div></td></tr></table></div>
-
-
-<p>来年発売される第五版の本はSwift、Xcode6に対応しているので勉強しがいがあります。</p>
-
-<p><font color="red">熱い!!!!!!!</font></p>
-
-<h2>まとめ</h2>
-
-<p>自分がどうやってCocoaプログラミングの勉強してきたかをまとめてみました。
-なにあともあれ自分は何が作成したいかだと思うので、それありきの勉強じゃないと長続きはしないと思うのでそれを見つけるのが何より重要かもしれませんし、
-僕も作りたいものがあって勉強してます。あと、まだ始めたばかりでものすごく勉強不足なのですが来年も継続して勉強していきたいです。</p>
-
-<p>そんなこんなで、来年の目標としては自分でもCocoa勉強会（のようなもの）を開催できるようになるまでいけたらいいすね。</p>
-
-<h2>余談</h2>
-
-<p>次がないのですが @shu223 さんの記事が楽しみだ。</p>
-</div>
-  
-  
-
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/17/osan2014/">お産合宿2014に参加してきた。</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-17T00:06:00+09:00" pubdate data-updated="true">Sep 17<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>夏も終わろうかとしている今日このごろ皆さんいかがお過ごしでしょうか。
-僕はパンパンです。中島です。</p>
-
-<p>先日、弊社で<a href="http://osan.pepabo.com/2014/">お産合宿2014</a>という開発合宿的なイベントが開催されたので参加してきました。</p>
-
-<p>今回は、別なチームで組んだことと、参加締め切りまでそんなに時間がなかったので適当に<code>nakajijapan</code>というチームで応募(自分のtwitter idです&hellip;)しました。
-結果的にも自分の価値観を押し出す感じにはなりましたが、それでもみんな意見をいろいろだしてくれていい感じに開発できたと思います。</p>
-
-<p><img src="http://osan.pepabo.com/2014/wp-content/uploads/2014/08/tokyo_05_nakajijapan1000x800.png" width="400" /></p>
-
-<p>ほいで今年はこんなアプリを作成しました。</p>
-
-<h2>音楽位置情報アプリ 「Limu」</h2>
-
-<h3><a href="limu.xyz">limu.xyz</a></h3>
-
-<p><a href="http://limu.xyz">
-<img src="/images/posts/2014-09-17-01.png" alt="" />
-</a></p>
-
-<p>コンセプトは新しい音楽の出会い方です！</p>
-
-<p>詳細は後々公開していきます。
-完成度としては、まだ５割ほどでいろいろ試行錯誤が必要なところが結構あるのですが１０月くらいにはリリースできるようにメンバー全員
-頑張っておりますのでぜひご期待ください！！！！！！！！！！！</p>
-
-<p>以下にお産合宿発表した資料を載せておきます。（一部修正しました）</p>
-
-<script async class="speakerdeck-embed" data-id="dd60f3a020540132fa3f463cb3105589" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-</div>
-  
-  
-
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -727,6 +722,18 @@ jenkinsをsteve jobsにすることでさらにテンションが上がり、仕
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2016/03/28/training-camp/">朝練チームで合宿してきました。</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/13/sengiri/">Macアプリ Sengiri をリリースした。</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/17/teiten-update-to-1-1-2/">Teiten v1.1.2にアップデートした</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/12/31/2015-review/">2015年 振り返り</a>
       </li>
     
@@ -734,23 +741,11 @@ jenkinsをsteve jobsにすることでさらにテンションが上がり、仕
         <a href="/blog/2015/12/16/potatotips24/">Potatotips #24に参加してきた</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/12/16/etsy-of-technology/">Technology of Etsy</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/11/03/teiten-update-avfoundation/">Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/10/22/minne-tech-conference/">「minne」技術戦略カンファレンスに登壇しました。</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/backbonejs/'>backbonejs (4)</a></li><li><a href='/blog/categories/ci/'>ci (1)</a></li><li><a href='/blog/categories/cloudkit/'>CloudKit (1)</a></li><li><a href='/blog/categories/diary/'>Diary (1)</a></li><li><a href='/blog/categories/diary/'>diary (1)</a></li><li><a href='/blog/categories/ios/'>iOS (29)</a></li><li><a href='/blog/categories/javascript/'>javascript (1)</a></li><li><a href='/blog/categories/osx/'>OSX (5)</a></li><li><a href='/blog/categories/osx-swift/'>OSX,Swift (2)</a></li><li><a href='/blog/categories/rails/'>Rails (1)</a></li><li><a href='/blog/categories/ruby/'>Ruby (2)</a></li><li><a href='/blog/categories/study/'>study (1)</a></li><li><a href='/blog/categories/swift/'>Swift (3)</a></li><li><a href='/blog/categories/swift-ios/'>Swift,iOS (1)</a></li><li><a href='/blog/categories/vagrant/'>vagrant (1)</a></li><li><a href='/blog/categories/wwdc/'>WWDC (2)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/backbonejs/'>backbonejs (4)</a></li><li><a href='/blog/categories/ci/'>ci (1)</a></li><li><a href='/blog/categories/cloudkit/'>CloudKit (1)</a></li><li><a href='/blog/categories/diary/'>Diary (1)</a></li><li><a href='/blog/categories/diary/'>diary (1)</a></li><li><a href='/blog/categories/ios/'>iOS (29)</a></li><li><a href='/blog/categories/javascript/'>javascript (1)</a></li><li><a href='/blog/categories/osx/'>OSX (6)</a></li><li><a href='/blog/categories/osx-swift/'>OSX,Swift (2)</a></li><li><a href='/blog/categories/rails/'>Rails (1)</a></li><li><a href='/blog/categories/ruby/'>Ruby (2)</a></li><li><a href='/blog/categories/study/'>study (1)</a></li><li><a href='/blog/categories/swift/'>Swift (3)</a></li><li><a href='/blog/categories/swift-ios/'>Swift,iOS (1)</a></li><li><a href='/blog/categories/vagrant/'>vagrant (1)</a></li><li><a href='/blog/categories/wwdc/'>WWDC (2)</a></li></ul>
 </section>
 
 <section>

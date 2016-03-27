@@ -9,9 +9,8 @@
   <meta name="author" content="nakajijapan">
 
   
-  <meta name="description" content="欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。
-Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷
-して送信させるようにしました。 &hellip;">
+  <meta name="description" content="お化けアプリを絶賛作成中なのですが、そのなかで世界観を少しでも作るべくいろいろ試行錯誤しているのですが、ちょっとトップに
+人魂でもいれてみようじゃないかと思い立って作ってみました。 iOS5からCore &hellip;">
   <meta name="keywords" content="nakajijapan,iOS,ナカジ,Swift,CloudKit,AVFoundation,Cocoa">
 
 
@@ -36,9 +35,8 @@ Railsを利用しているときはCSRF用のtokenを発行しているのでそ
   <meta name="twitter:url" content="http://nakajijapan.github.io/blog/page/11">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="nakajijapan">
-  <meta name="twitter:description" content="欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。
-Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷
-して送信させるようにしました。 &hellip;">
+  <meta name="twitter:description" content="お化けアプリを絶賛作成中なのですが、そのなかで世界観を少しでも作るべくいろいろ試行錯誤しているのですが、ちょっとトップに
+人魂でもいれてみようじゃないかと思い立って作ってみました。 iOS5からCore &hellip;">
 
 
   <!-- facebook -->
@@ -46,9 +44,8 @@ Railsを利用しているときはCSRF用のtokenを発行しているのでそ
   <meta property="og:type"  content="website" />
   <meta property="og:url"   content="http://nakajijapan.github.io/blog/page/11" />
   <meta property="og:image" content="http://nakajijapan.github.io/favicon.ico" />
-  <meta property="og:description" content="欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。
-Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷
-して送信させるようにしました。 &hellip;" />
+  <meta property="og:description" content="お化けアプリを絶賛作成中なのですが、そのなかで世界観を少しでも作るべくいろいろ試行錯誤しているのですが、ちょっとトップに
+人魂でもいれてみようじゃないかと思い立って作ってみました。 iOS5からCore &hellip;" />
 
 
 
@@ -92,6 +89,551 @@ Railsを利用しているときはCSRF用のtokenを発行しているのでそ
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/07/create-hitodama-with-uikit/">UIKitで人魂つくってみた</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-07T07:42:00+09:00" pubdate data-updated="true">Sep 7<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>お化けアプリを絶賛作成中なのですが、そのなかで世界観を少しでも作るべくいろいろ試行錯誤しているのですが、ちょっとトップに
+人魂でもいれてみようじゃないかと思い立って作ってみました。</p>
+
+<p>iOS5からCore AnimationなるものがサポートされていてパーティクルエフェクトがUIKitでも作成できるようになったので実装してみました。
+以前はCocos2Dのフレームワーク情報で作成していたのですがそれを利用しないのは初めて。</p>
+
+<p>まずはフレームワークをインポートする</p>
+
+<h2>1</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import &lt;QuartzCore/QuartzCore.h&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2</h2>
+
+<p>あとは表現したものを想像して実装するのみ！！！！っていってもパラメータが沢山あるので
+感覚的にGUIで設定できてその状態のパラメータをみれるツールをつかいました。</p>
+
+<ul>
+<li>UIEffectDesigner
+
+<ul>
+<li><a href="http://www.touch-code-magazine.com/uieffectdesigner/">http://www.touch-code-magazine.com/uieffectdesigner/</a></li>
+</ul>
+</li>
+</ul>
+
+
+<p>これにfire ballっていのがあったのでそれを参考にしつつ自分なりに調整してみました。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='objective-c'><span class='line'><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">CAEmitterLayer</span><span class="o">*</span> <span class="n">fireEmitter</span> <span class="o">=</span> <span class="p">[</span><span class="n">CAEmitterLayer</span> <span class="n">layer</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">fireEmitter</span><span class="p">.</span><span class="n">emitterPosition</span> <span class="o">=</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">fireEmitter</span><span class="p">.</span><span class="n">emitterSize</span> <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">fireEmitter</span><span class="p">.</span><span class="n">renderMode</span> <span class="o">=</span> <span class="n">kCAEmitterLayerAdditive</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">CAEmitterCell</span><span class="o">*</span> <span class="n">fire</span> <span class="o">=</span> <span class="p">[</span><span class="n">CAEmitterCell</span> <span class="n">emitterCell</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">birthRate</span>     <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">lifetime</span>      <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">lifetimeRange</span> <span class="o">=</span> <span class="mf">2.06</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">velocity</span>      <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">velocityRange</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">color</span>         <span class="o">=</span> <span class="p">[[</span><span class="n">UIColor</span> <span class="nl">colorWithRed:</span><span class="mf">0.0</span> <span class="nl">green:</span><span class="mf">0.0</span> <span class="nl">blue:</span><span class="mf">0.05</span> <span class="nl">alpha:</span><span class="mf">1.0</span><span class="p">]</span> <span class="n">CGColor</span><span class="p">];</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">redRange</span>      <span class="o">=</span> <span class="mf">0.12</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">greenRange</span>    <span class="o">=</span> <span class="mf">0.12</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">blueRange</span>     <span class="o">=</span> <span class="mf">0.12</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">contents</span>      <span class="o">=</span> <span class="p">(</span><span class="kt">id</span><span class="p">)[[</span><span class="n">UIImage</span> <span class="nl">imageNamed:</span><span class="s">@&quot;particle.png&quot;</span><span class="p">]</span> <span class="n">CGImage</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">[</span><span class="n">fire</span> <span class="nl">setName:</span><span class="s">@&quot;fire&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">alphaRange</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">scale</span>      <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">scaleRange</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">spin</span>       <span class="o">=</span> <span class="mf">1.56</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">spinRange</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">alphaSpeed</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.33</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">scaleSpeed</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">emissionRange</span>     <span class="o">=</span> <span class="n">M_PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">emissionLongitude</span> <span class="o">=</span> <span class="mf">1.57</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">emissionLatitude</span>  <span class="o">=</span> <span class="mf">2.33</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">xAcceleration</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">yAcceleration</span> <span class="o">=</span> <span class="o">-</span><span class="mi">80</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">fire</span><span class="p">.</span><span class="n">zAcceleration</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fireEmitter</span><span class="p">.</span><span class="n">emitterCells</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nl">arrayWithObject:</span><span class="n">fire</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">layer</span> <span class="nl">addSublayer:</span><span class="n">fireEmitter</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とりあえずこれで自分なりの人魂作成に成功しました。
+パラメータをいろいろ覚えなければいけないものが沢山あるのでちょっと覚えるの大変だなという印象。
+今回その煩雑さをUIEffectDesignerで補完しましたが、それでもパラメータがどのような効果があるのかはある程度理解しておく必要があるようです。</p>
+
+<p><img src="/images/posts/2013-09-08_01.png" alt="ss" /></p>
+
+<h3>参照</h3>
+
+<p>iOS Developer Library
+<a href="https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CAEmitterLayer_class/Reference/Reference.html">https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CAEmitterLayer_class/Reference/Reference.html</a></p>
+
+<p>UIEffectDesigner
+<a href="http://www.touch-code-magazine.com/uieffectdesigner/">http://www.touch-code-magazine.com/uieffectdesigner/</a></p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/13/update-rails4/">Update to Rails4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-13T15:13:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>自分のサービスのRailsのversionがまだ<code>3.2</code>だったので地道にRails4にアップデートしました。
+その際に必要になった作業をメモっときます。</p>
+
+<h2>attr_accessible is extracted out of Rails into a gem.</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError)</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>attr_accessible</code>はRailsから省いて<code>strong_parameters</code>を利用してとのこと。
+振るいものを利用するなら<code>protected_attributes</code>っていうGem使ってね。
+しかし、今回は<code>strong_parameters</code>を記述していきます。</p>
+
+<p>とりあえずModelからの排除を行う。</p>
+
+<h2>DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. (called from block in &lt;top (required)&gt; at /private/var/www/frustration/config/environm
+</span><span class='line'>ents/development.rb:10)</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>whiny_nils
+
+<ul>
+<li>初期化されていないオブジェクトが呼び出させたときに、警告を表示する</li>
+</ul>
+</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gd">-  # Log error messages when you accidentally call methods on nil</span>
+</span><span class='line'><span class="gd">-  config.whiny_nils = true</span>
+</span><span class='line'><span class="gd">-</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>config.eager_load is set to nil.</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'>config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+</span><span class='line'>
+</span><span class='line'>  * development - set it to false
+</span><span class='line'>  * test - set it to false (unless you use a tool that preloads your test environment)
+</span><span class='line'>  * production - set it to true
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>必須の設定項目増えたので<code>rails new</code>して作成された環境ファイルを眺めてみる。</p>
+
+<h2>The provided regular expression</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'>E, [2013-07-04T12:00:26.429744 #7376] ERROR -- : The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline =&gt; true option? (ArgumentError)
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>正規表現の処理にもセキュリティが強化されていました。
+一行を考慮したデータのチェック<code>^</code>なら<code>\A</code>、<code>$</code>なら<code>\z</code>にすると意図したチェックになるよ。
+複数行を考慮してるんだよ！ってときは<code>:multiline =&gt; true</code>にしてね！</p>
+
+<p>自分のValidationは一行のデータを考慮しているので修正します。</p>
+
+<h2>You should not use the <code>match</code> method in your router without specifying an HTTP method.</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'>E, [2013-07-04T12:07:42.318503 #7626] ERROR -- : You should not use the `match` method in your router without specifying an HTTP method.
+</span><span class='line'>If you want to expose your action to both GET and POST, add `via: [:get, :post]` option.
+</span><span class='line'>If you want to expose your action to GET, use `get` in the router:
+</span><span class='line'>  Instead of: match &quot;controller#action&quot;
+</span><span class='line'>  Do: get &quot;controller#action&quot; (RuntimeError)
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>match</code>の代わりにHTTPメソッドをちゃんと宣言しようぜ！っていうメッセージ。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'><span class="gd">-  match &#39;home&#39; =&gt; &#39;home#index&#39;, :via =&gt; :get</span>
+</span><span class='line'><span class="gi">+  get &#39;home&#39; =&gt; &#39;home#index&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>なかんじで修正。</p>
+
+<p>これで起動はうまくいった。strong_parameterによる警告はあるけどこれは後ほど修正することにする。
+その後は、テストを流して全部通す。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'>bundle exec rspec spec
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>DEPRECATION WARNING: Calling #find(:first) is deprecated.</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'>DEPRECATION WARNING: Calling #find(:first) is deprecated. Please call #first directly instead. You have also used finder options. These are also deprecated. Please build a scope instead of using finder options. (called from block in create_with_item at /private/var/www/frustration/app/services/service_fuman.rb:51)
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以下のような推奨されていない使い方をしていたので修正しました。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='diff'><span class='line'>Hoge.find(:first, condition: {user_id: @user.id})
+</span><span class='line'>↓
+</span><span class='line'>Hoge.where(user_id: @user.id).first
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>strong_parameter</h2>
+
+<p>ここはひたすらcontroller側に制限の内容を記述。</p>
+
+<p>ホワイトリストとして許可するパラメータを記述していきます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="kp">private</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">category_params</span>
+</span><span class='line'>      <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:category</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:user_id</span><span class="p">,</span> <span class="ss">:name</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>DEPRECATION WARNING: You didn&rsquo;t set config.secret_key_base.</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">DEPRECATION</span> <span class="ss">WARNING</span><span class="p">:</span> <span class="no">You</span> <span class="n">didn</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">set</span> <span class="n">config</span><span class="o">.</span><span class="n">secret_key_base</span><span class="o">.</span> <span class="no">Read</span> <span class="n">the</span> <span class="n">upgrade</span> <span class="n">documentation</span> <span class="n">to</span> <span class="n">learn</span> <span class="n">more</span> <span class="n">about</span> <span class="n">this</span> <span class="kp">new</span> <span class="n">config</span> <span class="n">option</span><span class="o">.</span> <span class="p">(</span><span class="n">called</span> <span class="n">from</span> <span class="n">env_config</span> <span class="n">at</span> <span class="sr">/private/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">frustration</span><span class="o">/</span><span class="n">vendor</span><span class="o">/</span><span class="n">bundle</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">railties</span><span class="o">-</span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">rails</span><span class="o">/</span><span class="n">application</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">141</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>secret_token</code>はもう推奨されていなくて<code>secret_key_base</code>に名前が変更されたようです。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">secret_key_base</span><span class="o">.</span><span class="n">blank?</span>
+</span><span class='line'>      <span class="ss">ActiveSupport</span><span class="p">:</span><span class="ss">:Deprecation</span><span class="o">.</span><span class="n">warn</span> <span class="s2">&quot;You didn&#39;t set config.secret_key_base. &quot;</span> <span class="o">+</span>
+</span><span class='line'>        <span class="s2">&quot;Read the upgrade documentation to learn more about this new config option.&quot;</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">secret_token</span><span class="o">.</span><span class="n">blank?</span>
+</span><span class='line'>        <span class="k">raise</span> <span class="s2">&quot;You must set config.secret_key_base in your app&#39;s config.&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>まとめ</h2>
+
+<p>これですべてテストがうまくいったのでPull Requestを自分に送ってfin.</p>
+
+<p><a href="https://github.com/nakajijapan/frustrationme_app/pulls">https://github.com/nakajijapan/frustrationme_app/pulls</a></p>
+
+<p>メジャーバージョンが上がってるということで、新しい機能が追加されたり、機能が廃止されたり、名前が変更されていたりと、いろいろと変更するべき点は多かったですがテストを書いていたので実行させては修正、実行させては修正の連続で効率的に修正作業ができたんじゃないかとおもいます（最終的にはWEB上での確認はしましたが）。</p>
+
+<p>あと、今回は規模が小さいし、修正箇所もそんなに多くなかったのでstrong_parametersの部分も変更させてしましましたが、</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;strong_parameters&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>であらかじめ3系で実装しておくと細かい粒度で修正できて安心かもしれませんね。</p>
+
+<p>さてさて、アップデートできてよかった。。。</p>
+
+<h2>Ref</h2>
+
+<p><a href="http://www.upgradingtorails4.com/">http://www.upgradingtorails4.com/</a>
+<a href="http://railscasts.com/episodes/415-upgrading-to-rails-4?language=ja&amp;view=asciicast">http://railscasts.com/episodes/415-upgrading-to-rails-4?language=ja&amp;view=asciicast</a></p>
+</div>
+  
+  
+
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/02/usinggoogledrive/">GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-02T22:30:00+09:00" pubdate data-updated="true">Jul 2<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。</p>
+
+<p>便利だったのが<a href="https://github.com/gimite/google-drive-ruby">google-drive-ruby</a>で、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。</p>
+
+<p>実際に<a href="http://www.frustration.me/">www.frustration.me</a>のユーザ数やアイテム数を計測するために使用してみました。</p>
+
+<p>まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">desc</span> <span class="s2">&quot;send score data to google spreadsheet&quot;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;google_drive&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">namespace</span> <span class="ss">:batches</span> <span class="k">do</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">task</span> <span class="n">total_scores</span><span class="p">:</span> <span class="ss">:environment</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">fail</span> <span class="s1">&#39;no username&#39;</span> <span class="k">if</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;GOOGLE_USERNAME&#39;</span><span class="o">].</span><span class="n">blank?</span>
+</span><span class='line'>    <span class="nb">fail</span> <span class="s1">&#39;no password&#39;</span> <span class="k">if</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;GOOGLE_PASSWORD&#39;</span><span class="o">].</span><span class="n">blank?</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">session</span> <span class="o">=</span> <span class="no">GoogleDrive</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;GOOGLE_USERNAME&#39;</span><span class="o">]</span><span class="p">,</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;GOOGLE_PASSWORD&#39;</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">spreadsheet</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">spreadsheet_by_key</span><span class="p">(</span><span class="s2">&quot;input key name&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">worksheet</span> <span class="o">=</span> <span class="n">spreadsheet</span><span class="o">.</span><span class="n">worksheet_by_title</span><span class="p">(</span><span class="no">Rails</span><span class="o">.</span><span class="n">env</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">analyze_data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="ss">date</span><span class="p">:</span>           <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="p">),</span>
+</span><span class='line'>      <span class="n">users_num</span><span class="p">:</span>      <span class="no">User</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">items_num</span><span class="p">:</span>      <span class="no">Item</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">comments_num</span><span class="p">:</span>   <span class="no">Comment</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">categories_num</span><span class="p">:</span> <span class="no">Category</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">count</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">worksheet</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">analyze_data</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">worksheet</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで<code>rake batches:total_scores</code>で実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では</p>
+
+<p><img src="/images/posts/2013-07-02_01.png" alt="ss" /></p>
+
+<p>な感じでどんどんレコードが追加されていきます。</p>
+
+<p>便利。</p>
+
+<p>ただし、注意点があります。今回は<a href="http://sqale.jp">sqale</a>のcronで動かしているのですがログインで以下のように失敗することがあります。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>bundle <span class="nb">exec </span>rake batches:total_scores
+</span><span class='line'>WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
+</span><span class='line'>rake aborted!
+</span><span class='line'>Authentication failed <span class="k">for </span>hogehoge@gmail.com: Response code 403 <span class="k">for </span>post https://www.google.com/accounts/ClientLogin: <span class="nv">Error</span><span class="o">=</span>BadAuthentication
+</span><span class='line'><span class="nv">Url</span><span class="o">=</span>https://www.google.com/accounts/ServiceLogin?service<span class="o">=</span>wise#Email<span class="o">=</span>hogehoge%40gmail.com
+</span><span class='line'><span class="nv">Info</span><span class="o">=</span>WebLoginRequired
+</span><span class='line'>/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:93:in <span class="sb">`</span>rescue in login<span class="s1">&#39;</span>
+</span><span class='line'><span class="s1">/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:86:in `login&#39;</span>
+</span><span class='line'>/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:38:in <span class="sb">`</span>login<span class="s1">&#39;</span>
+</span><span class='line'><span class="s1">/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive.rb:18:in `login&#39;</span>
+</span><span class='line'>/home/sqale/current/lib/tasks/scores.rake:10:in <span class="sb">`</span>block <span class="o">(</span>2 levels<span class="o">)</span> in &lt;top <span class="o">(</span>required<span class="o">)</span>&gt;<span class="err">&#39;</span>
+</span><span class='line'>Tasks: <span class="nv">TOP</span> <span class="o">=</span>&gt; batches:total_scores
+</span><span class='line'><span class="o">(</span>See full trace by running task with --trace<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。</p>
+
+<p><img src="/images/posts/2013-07-02_02.png" alt="ss" /></p>
+
+<p>あとはグラフツール使って簡単に見やすくできるのでお手軽&amp;便利メソッドでした。</p>
+
+<p><img src="/images/posts/2013-07-02_03.png" alt="まだ情報はすくないのであれです" />
+まだ情報は少ないのであれですがどんどん勝手にグラフ化されていくはず！</p>
+</div>
+  
+  
+
+
+
+    </article>
   
   
     <article>
@@ -361,472 +903,6 @@ DELETE用にも対応できるよう実装してみた。（<code>Model.destroy<
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/13/backbone-guidebook03/">Backbone.jsガイドブック読書会 第２章</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-13T10:56:00+09:00" pubdate data-updated="true">Jun 13<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>前回の続きです。１章ではBackboneの基礎的な知識を読んでいきましたが、次は実際に使われるオブジェクトの説明。
-Backboneで利用される重要な３つのモデルModel, Coolection, Viewの説明（役割・使い方）でした。</p>
-
-<p>概要と話題になったことをメモろうと思います。</p>
-
-<h2>Model</h2>
-
-<p>データを扱う方法を提供するもの。
-View側で実際にデータがどう扱われているかは気にしない。 &ndash;> viewとの分離
-これがjavascriptで使えちゃう。</p>
-
-<h3>提供するもの</h3>
-
-<ul>
-<li>保持</li>
-<li>検証</li>
-<li>アクセス制御</li>
-<li>保存</li>
-</ul>
-
-
-<h3>Validationをどうするか</h3>
-
-<p>サーバサイドでもクライアントサイドでも実装しなくちゃいけなくなるのは大変だよね。って話をした。
-場合によりけりだろうけど。そこまでのアクセスを気にしなきゃ。検証はサーバサイドで全て任せて
-その結果を画面に表示。は二重管理せずに済むよね。ユーザにリアルタイムに検証結果を表示させたいとき
-とかはクライアント側でも利用するよねーという話をした。</p>
-
-<p>ちなみに欲求不満(<a href="http://www.frustration.me">http://www.frustration.me</a>)ではサーバサイドでもチェックできるようクラスを用意して
-それを継承して処理が動作するようになっている。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="err">#</span><span class="o">-------------------------------------------</span>
-</span><span class='line'><span class="err">#</span> <span class="nx">Model</span>
-</span><span class='line'><span class="err">#</span><span class="o">-------------------------------------------</span>
-</span><span class='line'><span class="kr">class</span> <span class="nx">BackboneFrustration</span><span class="p">.</span><span class="nx">Model</span> <span class="kr">extends</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Model</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">initialize</span><span class="o">:</span> <span class="p">(</span><span class="nx">attributes</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="o">-&gt;</span>
-</span><span class='line'>    <span class="err">@</span><span class="nx">on</span> <span class="s1">&#39;error&#39;</span><span class="p">,</span>   <span class="err">@</span><span class="nx">defaultErrorHandler</span>
-</span><span class='line'>    <span class="err">@</span><span class="nx">on</span> <span class="s1">&#39;invalid&#39;</span><span class="p">,</span> <span class="err">@</span><span class="nx">defaultErrorHandler</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nx">defaultErrorHandler</span><span class="o">:</span> <span class="p">(</span><span class="nx">model</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="o">-&gt;</span>
-</span><span class='line'>    <span class="k">if</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span>
-</span><span class='line'>      <span class="k">if</span> <span class="nx">error</span><span class="p">.</span><span class="nx">statusText</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span>
-</span><span class='line'>        <span class="nx">alert</span> <span class="s1">&#39;Intal Server Error&#39;</span>
-</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span> <span class="nx">error</span>
-</span><span class='line'>
-</span><span class='line'>     <span class="k">else</span> <span class="k">if</span> <span class="k">typeof</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;string&#39;</span>
-</span><span class='line'>       <span class="k">if</span> <span class="nx">error</span><span class="o">?</span> <span class="nx">or</span> <span class="nx">error</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span>
-</span><span class='line'>         <span class="nx">alert</span> <span class="nx">error</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Collecation</h2>
-
-<p>複数のモデルを管理するためのオブジェクト。それ自体にデータはない。
-Underscoreの配列操作に由来した関数群があるのでそれ使うと便利という話。
-each(),pluck(),invoke()等のよく使いそうな便利メソッドの紹介があった。</p>
-
-<h2>View</h2>
-
-<p>BackboneにおけるViewは二つの役割を持っているという話。</p>
-
-<ul>
-<li>Viewとして、「適切にDOMツリーを構築する」</li>
-<li>Controllerとして、「そのDOMツリーで起ったDOMイベントを処理する」</li>
-</ul>
-
-
-<p>前者でいうと</p>
-
-<ul>
-<li>Model,Collectionを利用してデータの操作して、保存を行ったり、新しいViewを構築する</li>
-</ul>
-
-
-<p>後者でいうと</p>
-
-<ul>
-<li>DOMのイベントハンドリングはView内でちゃんとやろう</li>
-</ul>
-
-
-<p>なのかなと感じた。</p>
-
-<p>あと、Underscoreのテンプレートエンジンの話が出てきて、また記法覚えるの辛かったのでERBの記法に似た<a href="http://embeddedjs.com/">EJS</a>を利用したいのですが余裕があるのでこちらに移行してみるのありだと思いました。</p>
-</div>
-  
-  
-
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/09/install-bower/">RailsでBowerの導入</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-09T16:07:00+09:00" pubdate data-updated="true">Jun 9<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>javascriptのパッケージ管理がしたくて<code>bower</code>というパッケージ管理ツールを<a href="http://www.frustration.me">http://www.frustration.me</a> にインストールしてみました。
-(ブランチ切って試してみました・・・)</p>
-
-<p>とりあえず、バージョンが古いので最新のものにインストールします。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ node -v 
-</span><span class='line'>v0.6.19
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>$ brew install node
-</span><span class='line'>
-</span><span class='line'>==&gt; Upgrading 1 outdated package, with result:
-</span><span class='line'>node 0.10.7
-</span><span class='line'>==&gt; Upgrading node
-</span><span class='line'>Beginning with 0.8.0, this recipe now comes with npm.
-</span><span class='line'>It appears you already have npm installed at /usr/local/lib/node_modules/npm.
-</span><span class='line'>To use the npm that comes with this recipe, first uninstall npm with
-</span><span class='line'>`npm uninstall npm -g`, then run this command again.
-</span><span class='line'>
-</span><span class='line'>If you would like to keep your installation of npm instead of
-</span><span class='line'>using the one provided with homebrew, install the formula with
-</span><span class='line'>the `--without-npm` option.
-</span><span class='line'>Error: An unsatisfied requirement failed this build.</span></code></pre></td></tr></table></div></figure>
-
-
-<p>npm をまずアンインストールしてほしいとのこと</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm uninstall npm -g</span></code></pre></td></tr></table></div></figure>
-
-
-<p>再度実行します。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ brew upgrade node
-</span><span class='line'>$ node -v
-</span><span class='line'>v0.10.7</span></code></pre></td></tr></table></div></figure>
-
-
-<p>これで最新版になった。
-次にbowerをインストール</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install -g bower</span></code></pre></td></tr></table></div></figure>
-
-
-<p>これでインストール完了。</p>
-
-<p>とりえず、検索でどうなるか確認。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bower search backbone
-</span><span class='line'>Search results:
-</span><span class='line'>
-</span><span class='line'>    backbone git://github.com/documentcloud/backbone.git
-</span><span class='line'>    backbone-amd git://github.com/amdjs/backbone
-</span><span class='line'>    backbone.stickit git://github.com/NYTimes/backbone.stickit.git
-</span><span class='line'>    backbone.marionette git://github.com/marionettejs/backbone.marionette
-</span><span class='line'>    backbone.wreqr git://github.com/marionettejs/backbone.wreqr.git
-</span><span class='line'>・
-</span><span class='line'>・
-</span><span class='line'>・</span></code></pre></td></tr></table></div></figure>
-
-
-<p>てな感じでbackboneに関連するプラグインがどどどっと出力される</p>
-
-<p>試しにインストールすると、ホームディレクトリに生成されてしまうので
-アプリごとに管理したいところ</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ bower install jquery
-</span><span class='line'>bower cloning git://github.com/components/jquery.git
-</span><span class='line'>bower cached git://github.com/components/jquery.git
-</span><span class='line'>bower fetching jquery
-</span><span class='line'>bower checking out jquery#2.0.2
-</span><span class='line'>bower copying /Users/pp_kupepo_gattyanmo/.bower/cache/jquery/29cb4373d29144ca260ac7c3997f4381
-</span><span class='line'>bower installing jquery#2.0.2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ここからRaisに組み込んでいきます。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ bower init
-</span><span class='line'>name: [frustration]
-</span><span class='line'>version: [0.0.0]
-</span><span class='line'>main file: []
-</span><span class='line'>add current components as dependencies? (y/n): [y] y
-</span><span class='line'>add commonly ignored files to ignore list? (y/n): [y]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>そうするとカレントディレクトリに以下のファイルが作成されます。
-このファイルでプラグインの管理を行います。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{
-</span><span class='line'>  "name": "frustration",
-</span><span class='line'>  "version": "0.0.0",
-</span><span class='line'>  "dependencies": {
-</span><span class='line'>    "jquery": "~2.0.2"
-</span><span class='line'>  },
-</span><span class='line'>  "ignore": [
-</span><span class='line'>    "**/.*",
-</span><span class='line'>    "node_modules",
-</span><span class='line'>    "components"
-</span><span class='line'>  ]
-</span><span class='line'>}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>現状の設定だとグローバルの設定なのでダウンロードがプロジェクト単位でできないので
-<code>.bowerrc</code>ファイルをプロジェクトディレクトリ直下に保存する。
-デフォルトは<code>~/.bowerrc</code>を参照するようだ。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{
-</span><span class='line'>  "directory": "vendor/assets/javascripts/components",
-</span><span class='line'>  "json": "bower.json",
-</span><span class='line'>  "searchpath": [
-</span><span class='line'>    "https://bower.herokuapp.com"
-</span><span class='line'>  ]
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>これで<code>bower install</code>すると指定のディレクトリに保存される。</p>
-
-<h2>Railsの場合</h2>
-
-<p><code>application.rb</code>でパスを通るようにする</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># for bower
-</span><span class='line'>config.assets.paths &lt;&lt; Rails.root.join('vendor', 'assets', 'javascripts', 'components')</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>applicatio.js</code>でパスの再設定を行う。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//= require components/jquery/jquery.js
-</span><span class='line'>//= require components/jquery-ui/ui/jquery-ui.js</span></code></pre></td></tr></table></div></figure>
-
-
-<p>これでRailsの場合は完了です。</p>
-
-<h2>所感</h2>
-
-<p>jsもbundlerのように管理できるようになったのは大変便利作業です。
-version上がることごとにサイト確認して<code>wget</code>してこないといけないし、コマンド一発でプラグインの削除・検索・バージョンのアップ・ダウングレードもできてしまうのは進化であるのです。</p>
-
-<p>ですが、まだ</p>
-
-<ul>
-<li>version 管理されていないプラグインある</li>
-<li>本番環境にnodeが入っていない・bowerが使えない</li>
-</ul>
-
-
-<p>ときがあるのでそこは共存なり、一旦保留なりしたほうが良いかもしれません。。。
-また、後者のときはいけてないけどパッケージも合わせてコミットするのが良いかもしれない。</p>
-
-<h2>Ref</h2>
-
-<ul>
-<li>source
-
-<ul>
-<li><a href="https://github.com/bower/bower">https://github.com/bower/bower</a></li>
-</ul>
-</li>
-<li>Bower components
-
-<ul>
-<li><a href="http://sindresorhus.com/bower-components/">http://sindresorhus.com/bower-components/</a></li>
-</ul>
-</li>
-</ul>
-
-
-<p>ここにパッケージが登録されています</p>
-</div>
-  
-  
-
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/05/rubyhiroba/">RubyHiroba</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-05T00:12:00+09:00" pubdate data-updated="true">Jun 5<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><iframe src="http://www.slideshare.net/slideshow/embed_code/22314337" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
-
-
-<p> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/nakajijapan/2013-lt" title="サービスをRailsにした話" target="_blank">サービスをRailsにした話</a> </strong> from <strong><a href="http://www.slideshare.net/nakajijapan" target="_blank">Daichi Nakajima</a></strong> </div></p>
-
-<p><a href="http://rubyhiroba.org/2013/">RubyHiroba</a>でLTに参加してきまして自分のサービスのことについて話してきました。
-以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。
-やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが
-反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）</p>
-
-<p>perlにしろrubyにしろテストがあるのは大変心強いし、安心します。
-たとえ、最新のRailsにのせ変えたとしてもテストがない時点でもう技術的負債。前のコードと何ら変わりはない。
-まぁ作成した時点負債は負債なんだけどその劣化速度は抑えられるはず。</p>
-
-<p>まだまだリニューアルは続きますが、引き続きがんばります。</p>
-
-<p>そして裏で支えていただいた@hsbt氏には感謝の意を隠しきれないであります。。。</p>
-</div>
-  
-  
-
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/12/">&larr; Older</a>
@@ -875,6 +951,18 @@ version上がることごとにサイト確認して<code>wget</code>してこ�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2016/03/28/training-camp/">朝練チームで合宿してきました。</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/13/sengiri/">Macアプリ Sengiri をリリースした。</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/17/teiten-update-to-1-1-2/">Teiten v1.1.2にアップデートした</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/12/31/2015-review/">2015年 振り返り</a>
       </li>
     
@@ -882,23 +970,11 @@ version上がることごとにサイト確認して<code>wget</code>してこ�
         <a href="/blog/2015/12/16/potatotips24/">Potatotips #24に参加してきた</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2015/12/16/etsy-of-technology/">Technology of Etsy</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/11/03/teiten-update-avfoundation/">Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/10/22/minne-tech-conference/">「minne」技術戦略カンファレンスに登壇しました。</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/backbonejs/'>backbonejs (4)</a></li><li><a href='/blog/categories/ci/'>ci (1)</a></li><li><a href='/blog/categories/cloudkit/'>CloudKit (1)</a></li><li><a href='/blog/categories/diary/'>Diary (1)</a></li><li><a href='/blog/categories/diary/'>diary (1)</a></li><li><a href='/blog/categories/ios/'>iOS (29)</a></li><li><a href='/blog/categories/javascript/'>javascript (1)</a></li><li><a href='/blog/categories/osx/'>OSX (5)</a></li><li><a href='/blog/categories/osx-swift/'>OSX,Swift (2)</a></li><li><a href='/blog/categories/rails/'>Rails (1)</a></li><li><a href='/blog/categories/ruby/'>Ruby (2)</a></li><li><a href='/blog/categories/study/'>study (1)</a></li><li><a href='/blog/categories/swift/'>Swift (3)</a></li><li><a href='/blog/categories/swift-ios/'>Swift,iOS (1)</a></li><li><a href='/blog/categories/vagrant/'>vagrant (1)</a></li><li><a href='/blog/categories/wwdc/'>WWDC (2)</a></li></ul>
+    <ul id="category-list"><li><a href='/blog/categories/backbonejs/'>backbonejs (4)</a></li><li><a href='/blog/categories/ci/'>ci (1)</a></li><li><a href='/blog/categories/cloudkit/'>CloudKit (1)</a></li><li><a href='/blog/categories/diary/'>Diary (1)</a></li><li><a href='/blog/categories/diary/'>diary (1)</a></li><li><a href='/blog/categories/ios/'>iOS (29)</a></li><li><a href='/blog/categories/javascript/'>javascript (1)</a></li><li><a href='/blog/categories/osx/'>OSX (6)</a></li><li><a href='/blog/categories/osx-swift/'>OSX,Swift (2)</a></li><li><a href='/blog/categories/rails/'>Rails (1)</a></li><li><a href='/blog/categories/ruby/'>Ruby (2)</a></li><li><a href='/blog/categories/study/'>study (1)</a></li><li><a href='/blog/categories/swift/'>Swift (3)</a></li><li><a href='/blog/categories/swift-ios/'>Swift,iOS (1)</a></li><li><a href='/blog/categories/vagrant/'>vagrant (1)</a></li><li><a href='/blog/categories/wwdc/'>WWDC (2)</a></li></ul>
 </section>
 
 <section>
