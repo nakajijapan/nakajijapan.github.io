@@ -4,7 +4,7 @@
   <title><![CDATA[Nakajijapan]]></title>
   <link href="http://nakajijapan.github.io/atom.xml" rel="self"/>
   <link href="http://nakajijapan.github.io/"/>
-  <updated>2016-07-18T01:29:15+09:00</updated>
+  <updated>2016-07-18T01:33:26+09:00</updated>
   <id>http://nakajijapan.github.io/</id>
   <author>
     <name><![CDATA[nakajijapan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://nakajijapan.github.io/blog/2016/07/18/iosdc2016-talk/"/>
     <updated>2016-07-18T01:11:00+09:00</updated>
     <id>http://nakajijapan.github.io/blog/2016/07/18/iosdc2016-talk</id>
-    <content type="html"><![CDATA[<p><img src="./images/posts/2016-07-18-01.png" alt="" /></p>
+    <content type="html"><![CDATA[<p><img src="http://nakajijapan.github.io/images/posts/2016-07-18-01.png" alt="" /></p>
 
 <p>採択されたぞという話です。
 今年日本で開催されるデベロッパーカンファレンス、iOSDC2016が開催されることになりました。
