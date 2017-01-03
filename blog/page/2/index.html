@@ -9,8 +9,7 @@
   <meta name="author" content="nakajijapan">
 
   
-  <meta name="description" content="これを書いている時はまだ2015ですが、出す頃には2016になってるんだろうな。 さて、2015年振り返ってみることにしよう。
-今年は自分が部署移動して来て仕事が怒涛に前に進んでいったというイメージが強い。日々自分もそこで奮闘していた。 &hellip;">
+  <meta name="description" content="TeitenのにRxSwiftを導入してみた。 ユーザ側にはちょっとしか変更はなかったので今回内部構造をえいやっとRxSwiftに変更してみました。 Teiten Pull request #4 ">
   <meta name="keywords" content="nakajijapan,iOS,ナカジ,Swift,CloudKit,AVFoundation,Cocoa">
 
 
@@ -35,8 +34,7 @@
   <meta name="twitter:url" content="http://nakajijapan.github.io/blog/page/2">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="nakajijapan">
-  <meta name="twitter:description" content="これを書いている時はまだ2015ですが、出す頃には2016になってるんだろうな。 さて、2015年振り返ってみることにしよう。
-今年は自分が部署移動して来て仕事が怒涛に前に進んでいったというイメージが強い。日々自分もそこで奮闘していた。 &hellip;">
+  <meta name="twitter:description" content="TeitenのにRxSwiftを導入してみた。 ユーザ側にはちょっとしか変更はなかったので今回内部構造をえいやっとRxSwiftに変更してみました。 Teiten Pull request #4 ">
 
 
   <!-- facebook -->
@@ -44,8 +42,7 @@
   <meta property="og:type"  content="website" />
   <meta property="og:url"   content="http://nakajijapan.github.io/blog/page/2" />
   <meta property="og:image" content="http://nakajijapan.github.io/favicon.ico" />
-  <meta property="og:description" content="これを書いている時はまだ2015ですが、出す頃には2016になってるんだろうな。 さて、2015年振り返ってみることにしよう。
-今年は自分が部署移動して来て仕事が怒涛に前に進んでいったというイメージが強い。日々自分もそこで奮闘していた。 &hellip;" />
+  <meta property="og:description" content="TeitenのにRxSwiftを導入してみた。 ユーザ側にはちょっとしか変更はなかったので今回内部構造をえいやっとRxSwiftに変更してみました。 Teiten Pull request #4 " />
 
 
 
@@ -89,6 +86,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/02/17/teiten-update-to-1-1-2/">Teiten v1.1.2にアップデートした</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-02-17T20:32:00+09:00" pubdate data-updated="true">Feb 17<span>th</span>, 2016</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>TeitenのにRxSwiftを導入してみた。</p>
+
+<p>ユーザ側にはちょっとしか変更はなかったので今回内部構造をえいやっとRxSwiftに変更してみました。</p>
+
+<ul>
+<li><a href="https://github.com/nakajijapan/teiten">Teiten</a>
+
+<ul>
+<li><a href="https://github.com/nakajijapan/teiten/pull/4">Pull request #4</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+  
+  
+
+
+
+    </article>
   
   
     <article>
@@ -838,83 +884,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/10/22/minne-tech-conference/">「minne」技術戦略カンファレンスに登壇しました。</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-10-22T01:00:00+09:00" pubdate data-updated="true">Oct 22<span>nd</span>, 2015</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>先日ですが「minne」技術戦略カンファレンスというものがありましてモバイル枠としてお話しさせていただきました。
-内容は「ユーザ体験を生み出す現場作り」でした。</p>
-
-<p>minneはモバイルに関してUI/UX部分を深津さんに引っ張っていただいているところですが、日々大変勉強になっています。
-今回はそのものづくりの取り組みにどういったことをするべきで、どれだけ集中できるようにするか、そのために開発は
-どういったことをしているかを開発者の立場としてお話しさせていただきました。</p>
-
-<ul>
-<li><a href="http://peatix.com/event/121467">「minne」技術戦略カンファレンス</a></li>
-</ul>
-
-
-<h2>資料</h2>
-
-<script async class="speakerdeck-embed" data-slide="1" data-id="321ea5e0b71a496e86a5471dc8a1e272" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
-
-
-<h2>反省点</h2>
-
-<p>場所が普段発表するような場所じゃないのと会場が大きかったの何か見えない大きなプレッシャーを感じて全てが裏目に回った感じがしました。。。</p>
-
-<ul>
-<li>極度の緊張のせいでスライドしか見てなかった。あとどこ見てしゃべったらいいかわかんなくなってパニクった</li>
-<li>ステージ往復してみたかった</li>
-<li>「え〜」言わないぞって思ったけど多くて悲しかった</li>
-<li>練習量足りない</li>
-</ul>
-
-
-<h2>最後に</h2>
-
-<p>今回の発表で色々話しましたが、まだまだまだまだ改善できるところはたくさんあるので圧倒的ナンバーワンになるまで
-引き続き頑張っていこうと思う日なのでした。</p>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//suzuri.jp/thirdparty/widgets.js";js.charset="utf-8";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","suzuri-widget-script");</script>
-
-
-<div class="suzuri-widget-product" data-suzuri-product-id="436871" data-suzuri-item-variant-id="3"><a href="https://suzuri.jp/nakajijapan/294061/t-shirt/s/navy"><img src="https://d1q9av5b648rmv.cloudfront.net/v3/323x323/t-shirt/s/navy/294061/1445775617-2520x2992.png.jpg?h=9d193f04f1089d4b82d07328f6712473f824609c" width="323" height="323"></a></div>
-
-
-<p>気合いいれてこ。</p>
-</div>
-  
-  
-
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -963,6 +932,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2017/01/01/happpy-new-year/">Happpy-new-year</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2016/08/21/iosdc2016/">iOSDC2016で発表してきた。</a>
       </li>
     
@@ -976,10 +949,6 @@
     
       <li class="post">
         <a href="/blog/2016/03/13/sengiri/">Macアプリ Sengiri をリリースした。</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/02/17/teiten-update-to-1-1-2/">Teiten v1.1.2にアップデートした</a>
       </li>
     
   </ul>
@@ -1028,7 +997,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - nakajijapan -
+  Copyright &copy; 2017 - nakajijapan -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
