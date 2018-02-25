@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://nakajijapan.github.io/sitemap.xml 
