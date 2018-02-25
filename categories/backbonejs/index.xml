@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backbonejs on Nakajijapan</title>
+    <link>http://nakajijapan.github.io/categories/backbonejs/</link>
+    <description>Recent content in Backbonejs on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Mon, 01 Jul 2013 07:53:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/categories/backbonejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSRF Protection for Rails and Backbone.js</title>
+      <link>http://nakajijapan.github.io/blog/2013/07/01/csrf-protection-for-rails-and-backbone.js/</link>
+      <pubDate>Mon, 01 Jul 2013 07:53:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/07/01/csrf-protection-for-rails-and-backbone.js/</guid>
+      <description>欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。 Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷 して送信させるようにしました。
+ちなみに以前はModelにtoJSONメソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので DELETE用にも対応できるよう実装してみた。（Model.destroy時にはtoJSON()を仲介しない）
+#------------------------------------------- # Sync #------------------------------------------- Backbone._sync = Backbone.sync Backbone.sync = (method, model, options) -&amp;gt; if method == &#39;create&#39; || method == &#39;update&#39; || method == &#39;delete&#39; options_csrf = headers: &#39;X-CSRF-Token&#39;: BackboneFrustration.Model.csrf_token() _.extend( options, options_csrf ) return Backbone._sync(method, model, options)  メソッドをオーバーライドしてHEADERにX−CSRF-Tokenを付加して親処理に渡す。BackboneFrustration.Model.csrf_token()は 単純にフォームからCSRF用のtokenを取得しているだけです。これでajax通信のときはtokenを無視して処理をするようなその場しのぎな実装をせずになりました。
+以下のような処理撲滅です。
+protect_from_forgery except: :craete  この修正で問題なく動作しているので適用させました。
+ところでRails用のgemでbackbone-railsなんてものがありましてそこのコードを 見ていたらだいたい同じことをしていたのであらかじめこれを参考にして勉強すれば良かったと思いました。とほほ。。
+https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js
+とりあえず、これで一安心。
+実際の修正箇所 https://github.com/nakajijapan/frustrationme_app/pull/25/files</description>
+    </item>
+    
+    <item>
+      <title>Backbone.jsガイドブック読書会 第２章</title>
+      <link>http://nakajijapan.github.io/blog/2013/06/13/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%92%E7%AB%A0/</link>
+      <pubDate>Thu, 13 Jun 2013 10:56:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/06/13/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%92%E7%AB%A0/</guid>
+      <description>前回の続きです。１章ではBackboneの基礎的な知識を読んでいきましたが、次は実際に使われるオブジェクトの説明。 Backboneで利用される重要な３つのモデルModel, Coolection, Viewの説明（役割・使い方）でした。
+概要と話題になったことをメモろうと思います。
+Model データを扱う方法を提供するもの。 View側で実際にデータがどう扱われているかは気にしない。 -&amp;gt; viewとの分離 これがjavascriptで使えちゃう。
+提供するもの  保持 検証 アクセス制御 保存  Validationをどうするか サーバサイドでもクライアントサイドでも実装しなくちゃいけなくなるのは大変だよね。って話をした。 場合によりけりだろうけど。そこまでのアクセスを気にしなきゃ。検証はサーバサイドで全て任せて その結果を画面に表示。は二重管理せずに済むよね。ユーザにリアルタイムに検証結果を表示させたいとき とかはクライアント側でも利用するよねーという話をした。
+ちなみに欲求不満(http://www.frustration.me)ではサーバサイドでもチェックできるようクラスを用意して それを継承して処理が動作するようになっている。
+#------------------------------------------- # Model #------------------------------------------- class BackboneFrustration.Model extends Backbone.Model initialize: (attributes, options) -&amp;gt; @on &#39;error&#39;, @defaultErrorHandler @on &#39;invalid&#39;, @defaultErrorHandler defaultErrorHandler: (model, error) -&amp;gt; if typeof(error) == &#39;object&#39; if error.statusText != &#39;&#39; alert &#39;Intal Server Error&#39; console.error error else if typeof(error) == &#39;string&#39; if error? or error !</description>
+    </item>
+    
+    <item>
+      <title>Backbone.jsガイドブック読書会 第１章 続き</title>
+      <link>http://nakajijapan.github.io/blog/2013/05/30/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/</link>
+      <pubDate>Thu, 30 May 2013 00:12:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/05/30/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/</guid>
+      <description>第１章の続き
+Eventsあたりのところから
+ Eventsが提供しているインタフェースはオブザーバパターンを駆使してオブジェクト間の結合を「疎」に保たせている
+ と記述されている。
+オブザーバパターンとは 購読者と発行者と呼ばれるオブジェクトが存在する。 発行者が購読者のメソッドを直接呼び出す代わりに、購読者は発行者 のイベントを購読する。イベントが発生したらそれを購読している オブジェクトに通知される。
+発行者はだれが購読してるのか知らずに済む。
+イベント駆動開発の技法。
+詳細はここが分かりやすい。 http://www.techscore.com/tech/DesignPattern/Observer.html/
+Backbone.jsでいう購読者と発行者 これを以下のようにして考えるとわかりやすい
+ 購読者: View 発行者 : Model  Modelはだれが購読してるかしらなくていい、イベントを通知してあげればいいんです。
+# viewの中で var entry = new Entry(); entry.on(&#39;change&#39;, this.render());  メディエータパターン  複数オブジェクトの間を取り持つ仲介者と鳴るオブジェクトを用意し、オブジェクト間の連動の詳細をその仲介者に持たせる 個々のオブジェクトの独自性を高める
+ 内容は理解できたけど、使いどころまだピンときていない。
+ここに詳しく記述されていた。 http://www.techscore.com/tech/DesignPattern/Mediator.html/
+コラムでのまめ知識 メモリーリークの問題からon() off()ではなくて listenTo() stopListening()を利用するといい v1.0からはView#remove()内部でstopListening() ViewではlistenToしてるので大丈夫！
+Underscore.js 便利関数の紹介だった。
+ _.debounce()  一定時間イベントが発生しなかったときに処理を実行する  _.throtte()  コールバックの実行頻度をさげる  _.delay()  処理を遅らせる  _.defer()  コールバック関数の中で最後に実行されることを保証する   上記二つの関数は今にも使えそうな便利関数だったので導入していきたいな。</description>
+    </item>
+    
+    <item>
+      <title>Backbone.jsガイドブック読書会 第１章 続き</title>
+      <link>http://nakajijapan.github.io/blog/2013/05/23/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/</link>
+      <pubDate>Thu, 23 May 2013 00:12:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/05/23/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/</guid>
+      <description>Backbone.js読書会１日目 Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）
+そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。
+「Backbone.js ガイドブック」
+
+Backbone.jsガイドブック
+はじめは概要なのですらっと。
+一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } );  サンプルみただけだとふーんですよね。僕もいまのところふーんです。
+ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&amp;lsquo;modal&amp;rsquo;)とかで毎回DOMを操作しなくて済む。
+ふと思った訳です。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { modal_template: null, class_m: function(){ this.modal_template = $(&#39;#modal&#39;).html()} } );  こんなかんじ。
+あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。
+さ。来週もすすめていきますよ。
+追記 洋書は今月末にでるようだ。
+
+Developing Backbone.js Applications</description>
+    </item>
+    
+  </channel>
+</rss>

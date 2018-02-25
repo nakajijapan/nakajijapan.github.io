@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swift Ios on Nakajijapan</title>
+    <link>http://nakajijapan.github.io/categories/swift-ios/</link>
+    <description>Recent content in Swift Ios on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Sat, 26 Jul 2014 16:44:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/categories/swift-ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Core Foudation in Working with Cocoa Data Types</title>
+      <link>http://nakajijapan.github.io/blog/2014/07/26/about-core-foudation-in-working-with-cocoa-data-types/</link>
+      <pubDate>Sat, 26 Jul 2014 16:44:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/07/26/about-core-foudation-in-working-with-cocoa-data-types/</guid>
+      <description>AV Foundation関連のプログラムをSwiftで書き直しているときに、単純に変換できないところがあったので 一旦でキュメントに振り返って読み直してみました。
+参照先はAppleの公式ドキュメントに記載してあるのを自分なりに翻訳してみました。
+Core Foundation Core Foundation型は自動的にfull-fledgedなSwiftクラスとしてインポートされる。 メモリ管理が提供されるときはいつでも、Swiftは自動的にCore Foundation objectsのメモリを管理し、 自身をインスタンス化したCore Foundation objectsをインクルードして管理します。Swift内で、 あなたはtoll-free bridgedなFoundationとCore Foundationの両方を相互に変換できる。 あなたはブリッジしているFoundation型をキャストするならSwiftの標準ライブラリに対してtoll-free bridgedな Core Foundation型をブリッジすることができる
+ toll-free bridged  オブジェクトを変換することなくキャストすることで相互変換可能な仕組みのことを指すらしいです   Remapped Types SwiftはCore Foundation型をインポートするとき、コンパイラはそれらの型名を再配置する コンパイラは各型の最後に記述されているRefを削除する、なぜならSwiftクラスのすべては参照型、 それゆえにサフィックスはいらない
+CFTypeRefはAnyObjectに再配置されるよ。CFTypeRefをつかうときはAnyObjectを利用すべきだ！
+Memory Managed Objects APIから返却されたCore Foundation objectsはSwiftで自動的にメモリ管理される。 あなたは自分自身でCFRetain、CFRelease、CFAutoreleaseを呼び出す必要はない。独自のCの関数からCore Foundation objects を返すのなら、それらをCF_RETURNS_RETAINEDとCF_RETURNS_NOT_RETAINEDのいずれかを使ってアノテートする。 上記のAPIを呼び出すSwiftコードをコンパイルするとき、コンパイラは自動的ににメモリ管理用の呼び出しを行う。 Core Foundation objectsを返さないAPIを利用するときは、このセクションをスキップしてね。 でないのならunmanaged Core Foundation objectsの操作について学んでね。
+Unmanaged Objects Swiftが提供されているAPIをimportするときに、コンパイラは自動的に返却されたCore Foundation Objectsをメモリ管理できないよ SwiftはUnmanaged&amp;lt;T&amp;gt;構造体内でこれらの返却されたCore Foundation objectsを内包する 間接的に返却されたCore Foundation objectsのすべては管理されい。例えば以下のように宣言できる
+Objective-C CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)  Swift func StringByAddingTwoStrings(CFString!</description>
+    </item>
+    
+  </channel>
+</rss>

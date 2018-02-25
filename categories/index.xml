@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Nakajijapan</title>
+    <link>http://nakajijapan.github.io/categories/</link>
+    <description>Recent content in Categories on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Mon, 01 Jul 2013 07:53:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Backbonejs</title>
+      <link>http://nakajijapan.github.io/categories/backbonejs/</link>
+      <pubDate>Mon, 01 Jul 2013 07:53:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/backbonejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ci</title>
+      <link>http://nakajijapan.github.io/categories/ci/</link>
+      <pubDate>Mon, 24 Jun 2013 08:02:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diary</title>
+      <link>http://nakajijapan.github.io/categories/diary/</link>
+      <pubDate>Tue, 16 Dec 2014 22:33:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/diary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ios</title>
+      <link>http://nakajijapan.github.io/categories/ios/</link>
+      <pubDate>Sun, 21 Aug 2016 11:41:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ios Cloudkit</title>
+      <link>http://nakajijapan.github.io/categories/ios-cloudkit/</link>
+      <pubDate>Wed, 17 Sep 2014 00:06:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/ios-cloudkit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ios Swift</title>
+      <link>http://nakajijapan.github.io/categories/ios-swift/</link>
+      <pubDate>Sat, 19 Jul 2014 20:08:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/ios-swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ios Wwdc</title>
+      <link>http://nakajijapan.github.io/categories/ios-wwdc/</link>
+      <pubDate>Sun, 08 Jun 2014 23:50:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/ios-wwdc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>http://nakajijapan.github.io/categories/javascript/</link>
+      <pubDate>Sun, 09 Jun 2013 16:07:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Osx</title>
+      <link>http://nakajijapan.github.io/categories/osx/</link>
+      <pubDate>Sun, 13 Mar 2016 02:19:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/osx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Osxswift</title>
+      <link>http://nakajijapan.github.io/categories/osxswift/</link>
+      <pubDate>Tue, 10 Feb 2015 21:15:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/osxswift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rails</title>
+      <link>http://nakajijapan.github.io/categories/rails/</link>
+      <pubDate>Sat, 13 Jul 2013 15:13:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>http://nakajijapan.github.io/categories/ruby/</link>
+      <pubDate>Tue, 02 Jul 2013 22:30:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Study</title>
+      <link>http://nakajijapan.github.io/categories/study/</link>
+      <pubDate>Sat, 15 Feb 2014 01:51:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/study/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>http://nakajijapan.github.io/categories/swift/</link>
+      <pubDate>Tue, 10 Jun 2014 18:25:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift Ios</title>
+      <link>http://nakajijapan.github.io/categories/swift-ios/</link>
+      <pubDate>Sat, 26 Jul 2014 16:44:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/swift-ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swiftios</title>
+      <link>http://nakajijapan.github.io/categories/swiftios/</link>
+      <pubDate>Sun, 01 Feb 2015 22:52:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/swiftios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant</title>
+      <link>http://nakajijapan.github.io/categories/vagrant/</link>
+      <pubDate>Fri, 28 Feb 2014 20:34:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wwdc</title>
+      <link>http://nakajijapan.github.io/categories/wwdc/</link>
+      <pubDate>Mon, 09 Jun 2014 07:43:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/categories/wwdc/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

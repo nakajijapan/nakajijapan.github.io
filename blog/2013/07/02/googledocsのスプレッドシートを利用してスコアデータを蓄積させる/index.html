@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.36.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Nakajijapan">
+<title>GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる - Nakajijapan</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="Nakajijapan"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2013-07-02">July 02, 2013</time></span>
+			<section itemprop="entry-text">
+				<p>サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。</p>
+
+<p>便利だったのが<a href="https://github.com/gimite/google-drive-ruby">google-drive-ruby</a>で、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。</p>
+
+<p>実際に<a href="http://www.frustration.me/">www.frustration.me</a>のユーザ数やアイテム数を計測するために使用してみました。</p>
+
+<p>まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。</p>
+
+<pre><code class="language-ruby">desc &quot;send score data to google spreadsheet&quot;
+require 'google_drive'
+
+namespace :batches do
+
+  task total_scores: :environment do |t, args|
+    fail 'no username' if ENV['GOOGLE_USERNAME'].blank?
+    fail 'no password' if ENV['GOOGLE_PASSWORD'].blank?
+
+    session = GoogleDrive.login(ENV['GOOGLE_USERNAME'], ENV['GOOGLE_PASSWORD'])
+    spreadsheet = session.spreadsheet_by_key(&quot;input key name&quot;)
+    worksheet = spreadsheet.worksheet_by_title(Rails.env)
+    analyze_data = {
+      date:           Time.now.strftime(&quot;%Y-%m-%d&quot;),
+      users_num:      User.all.count,
+      items_num:      Item.all.count,
+      comments_num:   Comment.all.count,
+      categories_num: Category.all.count
+    }
+    worksheet.list.push(analyze_data)
+    worksheet.save()
+  end
+
+end
+</code></pre>
+
+<p>これで<code>rake batches:total_scores</code>で実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では</p>
+
+<p><img src="/images/posts/2013-07-02_01.png" alt="ss" /></p>
+
+<p>な感じでどんどんレコードが追加されていきます。</p>
+
+<p>便利。</p>
+
+<p>ただし、注意点があります。今回は<a href="http://sqale.jp">sqale</a>のcronで動かしているのですがログインで以下のように失敗することがあります。</p>
+
+<pre><code class="language-bash">$ bundle exec rake batches:total_scores
+WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
+rake aborted!
+Authentication failed for hogehoge@gmail.com: Response code 403 for post https://www.google.com/accounts/ClientLogin: Error=BadAuthentication
+Url=https://www.google.com/accounts/ServiceLogin?service=wise#Email=hogehoge%40gmail.com
+Info=WebLoginRequired
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:93:in `rescue in login'
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:86:in `login'
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:38:in `login'
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive.rb:18:in `login'
+/home/sqale/current/lib/tasks/scores.rake:10:in `block (2 levels) in &lt;top (required)&gt;'
+Tasks: TOP =&gt; batches:total_scores
+(See full trace by running task with --trace)
+</code></pre>
+
+<p>これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。</p>
+
+<p><img src="/images/posts/2013-07-02_02.png" alt="ss" /></p>
+
+<p>あとはグラフツール使って簡単に見やすくできるのでお手軽&amp;便利メソッドでした。</p>
+
+<p><img src="/images/posts/2013-07-02_03.png" alt="まだ情報はすくないのであれです" />
+まだ情報は少ないのであれですがどんどん勝手にグラフ化されていくはず！</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			<a href="https://twitter.com/nakajijapan" target="_blank">Twitter</a>
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+			
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

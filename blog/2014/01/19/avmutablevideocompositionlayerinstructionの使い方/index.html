@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.36.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Nakajijapan">
+<title>AVMutableVideoCompositionLayerInstructionの使い方 - Nakajijapan</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="Nakajijapan"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">AVMutableVideoCompositionLayerInstructionの使い方</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2014-01-19">January 19, 2014</time></span>
+			<section itemprop="entry-text">
+				
+
+<p>ビデオ用の<code>AVMutableCompositionTrack</code>にレイヤーを持たせることができます。
+それが<code>AVMutableVideoCompositionLayerInstruction</code>なんですがこれが意外と
+簡単に動画に対して<code>CGAffineTransform</code>を指定することで動画の移動・回転・拡大縮小
+ができたりフェードイン・アウトの設定ができたのでメモ。</p>
+
+<p>まずは対象のトラックをもとにして、レイヤーをインスタンス化します。</p>
+
+<p><code>+ (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track</code></p>
+
+<pre><code class="language-obj-c">    AVMutableVideoCompositionLayerInstruction *layerInstruction;
+    layerInstruction = [AVMutableVideoCompositionLayerInstruction
+                        videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];
+</code></pre>
+
+<h3 id="transform">TransForm</h3>
+
+<p><code>- (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange</code></p>
+
+<p>この例だと、３秒間左から動画が移動してきます。</p>
+
+<pre><code class="language-obj-c">    // transition
+    CGAffineTransform rotateStart, rotateEnd;
+    startTime    = kCMTimeZero;
+    timeDuration = CMTimeMake(3, 1);
+    rotateStart  = CGAffineTransformMakeScale(1, 1);
+    rotateStart  = CGAffineTransformMakeTranslation(-720, 0);
+    rotateEnd    = CGAffineTransformTranslate(rotateStart, 720, 0);
+    [layerInstruction setTransformRampFromStartTransform:rotateStart
+                                          toEndTransform:rotateEnd
+                                               timeRange:CMTimeRangeMake(startTime, timeDuration)];
+</code></pre>
+
+<h3 id="opacity">Opacity</h3>
+
+<p><code>- (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange</code></p>
+
+<p>この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。</p>
+
+<pre><code class="language-obj-c">    // fade in
+    CMTime startTime, timeDuration;
+    startTime    = kCMTimeZero;
+    timeDuration = CMTimeMake(3, 1);
+    [layerInstruction setOpacityRampFromStartOpacity:0.0
+                                        toEndOpacity:1.0
+                                           timeRange:CMTimeRangeMake(startTime, timeDuration)];
+
+
+    // fade out
+    startTime    = CMTimeSubtract(videoComposition.currentTimeDuration, CMTimeMake(3, 1));
+    timeDuration = CMTimeMake(3, 1);
+    [layerInstruction setOpacityRampFromStartOpacity:1.0
+                                        toEndOpacity:0.0
+                                           timeRange:CMTimeRangeMake(startTime, timeDuration)];
+
+</code></pre>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>Appleのドキュメントでこのクラスの説明をみると動画処理にしては結構シンプルだったので何個か試してみたのでした。
+ただ、<code>CMTime</code>関連・<code>CGAffineTransform</code>関連の知識はないと結構何がなんだかわからなくなるのであらかじめ知識として
+蓄えておくことはは必須ですね。</p>
+
+<h2 id="ref">Ref</h2>
+
+<p><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVMutableVideoCompositionLayerInstruction_Class/Reference/Reference.html#//apple_ref/occ/instm/AVMutableVideoCompositionLayerInstruction/setTransformRampFromStartTransform:toEndTransform:timeRange:">https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVMutableVideoCompositionLayerInstruction_Class/Reference/Reference.html#//apple_ref/occ/instm/AVMutableVideoCompositionLayerInstruction/setTransformRampFromStartTransform:toEndTransform:timeRange:</a></p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			<a href="https://twitter.com/nakajijapan" target="_blank">Twitter</a>
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+			
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.36.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Nakajijapan">
+<title>AVAudioMixでオーディオの調節を行う - Nakajijapan</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="Nakajijapan"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">AVAudioMixでオーディオの調節を行う</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2014-05-01">May 01, 2014</time></span>
+			<section itemprop="entry-text">
+				
+
+<p>先日、<a href="https://itunes.apple.com/jp/app/the-ghost-movie-app-look-again/id696530211?mt=8">心霊動画アプリ「もう一度ご覧いただこう」</a>のアップデートしました。
+その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。
+対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。<code>AVAudioMix</code>、<code>AVMutableAudioMixInputParameters</code>をうまく利用することで解決しました。</p>
+
+<h2 id="実装">実装</h2>
+
+<p>基本的には対象のメディア情報に対して、オーディオを制御する用の<code>AVMutableAudioMixInputParameters</code>を利用します。</p>
+
+<pre><code class="language-obj-c">AVMutableComposition avComposition;
+
+(snip)
+
+// movie sound
+AVMutableCompositionTrack* compositionAudioTrack = [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio
+                                                                              preferredTrackID:kCMPersistentTrackID_Invalid];
+
+
+
+// オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する
+AVMutableAudioMixInputParameters *mixInputParameters = [AVMutableAudioMixInputParameters
+                                                        audioMixInputParametersWithTrack:audioTrack];
+
+// 音量の調整
+[mixInputParameters setVolumeRampFromStartVolume:0.2f toEndVolume:0.2f
+                                  timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)];
+
+
+// 入力パラメータをオーディオミックスに渡す。
+mutableAudioMix = [AVMutableAudioMix audioMix];
+mutableAudioMix.inputParameters = @[mixInputParameters];
+</code></pre>
+
+<h4 id="bool-getvolumerampfortime-cmtime-time-startvolume-float-startvolume-endvolume-float-endvolume-timerange-cmtimerange-timerange">- (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange</h4>
+
+<p>これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。</p>
+
+<pre><code class="language-obj-c">AVAssetExportSession *assetExportSession;
+
+(snip)
+
+// 音声の制御
+assetExportSession.audioMix = mutableAudioMix;
+</code></pre>
+
+<p>設定が終われば、<code>AVAssetExportSession</code>の<code>audioMix</code>に格納すれば、設定が反映されているはずです。
+これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVMutableAudioMix_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40009740">AVMutableAudioMix Class</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVAudioMixInputParameters_Class/Reference/Reference.html#//apple_ref/occ/cl/AVAudioMixInputParameters">AVAudioMixInputParameters Class</a></li>
+</ul>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			<a href="https://twitter.com/nakajijapan" target="_blank">Twitter</a>
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+			
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

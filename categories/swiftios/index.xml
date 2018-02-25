@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swiftios on Nakajijapan</title>
+    <link>http://nakajijapan.github.io/categories/swiftios/</link>
+    <description>Recent content in Swiftios on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Sun, 01 Feb 2015 22:52:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/categories/swiftios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>最近読んだ本</title>
+      <link>http://nakajijapan.github.io/blog/2015/02/01/%E6%9C%80%E8%BF%91%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</link>
+      <pubDate>Sun, 01 Feb 2015 22:52:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/02/01/%E6%9C%80%E8%BF%91%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</guid>
+      <description>最近読んだ本
+iOS 8 SDK Development: Creating iPhone and iPad Apps with Swift
+ジョナサン・アイブ　偉大な製品を生み出すアップルの天才デザイナー
+Pro iOS Continuous Integration
+マイクロインタラクション ―UI/UXデザインの神が宿る細部
+iOS UICollectionView: The Complete Guide (2nd Edition) (Mobile Programming)
+Swift Development with Cocoa: Developing for the Mac and iOS App Stores
+Learning AV Foundation: A Hands-on Guide to Mastering the AV Foundation Framework</description>
+    </item>
+    
+  </channel>
+</rss>

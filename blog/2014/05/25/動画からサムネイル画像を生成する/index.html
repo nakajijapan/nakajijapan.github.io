@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.36.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Nakajijapan">
+<title>動画からサムネイル画像を生成する - Nakajijapan</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="Nakajijapan"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">動画からサムネイル画像を生成する</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2014-05-25">May 25, 2014</time></span>
+			<section itemprop="entry-text">
+				
+
+<p>動画のある一部分を画像として取り出したいときがあったので調べてみたら、ドキュメントにそれっぽい記述があったので実装してみました。</p>
+
+<p>方法としては、以下のメソッドを利用してCMTimeを利用して指定された時間に対する画像を生成します。</p>
+
+<blockquote>
+<p>copyCGImageAtTime:actualTime:error:</p>
+</blockquote>
+
+<p>実際に、メソッドにして動くようにしました。</p>
+
+<pre><code>- (UIImage*)createThumbnailImageWithURL:(NSURL *)movieURL
+{
+    AVAsset *asset = [[AVURLAsset alloc] initWithURL:[movieURL objectAtIndex:index] options:nil];
+
+    if ([asset tracksWithMediaCharacteristic:AVMediaTypeVideo]) {
+        AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+
+        Float64 durationSeconds = CMTimeGetSeconds([asset duration]);
+        CMTime midpoint         = CMTimeMakeWithSeconds(durationSeconds/2.0, 600);
+        NSError* error          = nil;
+        CMTime actualTime;
+
+        CGImageRef halfWayImageRef = [imageGenerator copyCGImageAtTime:midpoint actualTime:&amp;actualTime error:&amp;error];
+
+        if (halfWayImageRef != NULL) {
+            UIImage* image = [[UIImage alloc]initWithCGImage:halfWayImageRef];
+
+            // 明示的にリリースしておきます
+            CGImageRelease(halfWayImageRef);
+            return image;
+        }
+    }
+    return nil;
+}
+</code></pre>
+
+<p>動画を取り終わった後に、一時的に一覧として残しておきたいときなどに利用できますね。</p>
+
+<h2 id="p-s">p.s.</h2>
+
+<p>これは試していないのですが、以下のメソッドがあってブロックの中で複数の画像が生成できるようです。</p>
+
+<blockquote>
+<p>generateCGImagesAsynchronouslyForTimes:completionHandler::^(CMTime requestedTime, CGImageRef image, CMTime actualTime, AVAssetImageGeneratorResult result, NSError
+*error)</p>
+</blockquote>
+
+<h2 id="ref">ref</h2>
+
+<ul>
+<li><a href="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/AVFoundationPG.pdf">AV Foundation Programming Guide</a></li>
+</ul>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			<a href="https://twitter.com/nakajijapan" target="_blank">Twitter</a>
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+			
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

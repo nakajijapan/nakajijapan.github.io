@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.36.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Nakajijapan">
+<title>動画関連の処理をする上で注意すること - Nakajijapan</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="Nakajijapan"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">動画関連の処理をする上で注意すること</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2014-01-19">January 19, 2014</time></span>
+			<section itemprop="entry-text">
+				
+
+<p>以前の記事でも書いたのですが、<a href="https://itunes.apple.com/jp/app/the-ghost-movie-app-look-again/id696530211?mt=8">心霊動画アプリ「もう一度ご覧いただこう」</a>というアプリを作成したときにいろいろと苦労したことがあったので、それを書き留めておこうと思います。</p>
+
+<h3 id="回転問題">回転問題</h3>
+
+<p>そのまま動画を保存すると270度になってしまっているので回転する必要があった</p>
+
+<pre><code>    CGAffineTransform transformVideo       = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, 0.0);
+    CGAffineTransform transformVideoRotate = CGAffineTransformRotate(transformVideo, M_PI * 0.5);
+    CGAffineTransform transformVideoMove   = CGAffineTransformTranslate(transformVideoRotate, -300, 0);
+    [layerInstruction setTransform: transformVideoMove atTime:kCMTimeZero];
+</code></pre>
+
+<p>結構、簡単で地味なことだったのですが、こういうことが原因で数日迷走していた日があったのでもう迷走しない為に。。。</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			<a href="https://twitter.com/nakajijapan" target="_blank">Twitter</a>
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+			
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

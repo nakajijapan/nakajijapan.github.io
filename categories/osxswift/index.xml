@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Osxswift on Nakajijapan</title>
+    <link>http://nakajijapan.github.io/categories/osxswift/</link>
+    <description>Recent content in Osxswift on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Tue, 10 Feb 2015 21:15:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/categories/osxswift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>自作のアプリから他のWindowに画像をドラッグする</title>
+      <link>http://nakajijapan.github.io/blog/2015/02/10/%E8%87%AA%E4%BD%9C%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E4%BB%96%E3%81%AEwindow%E3%81%AB%E7%94%BB%E5%83%8F%E3%82%92%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%81%99%E3%82%8B/</link>
+      <pubDate>Tue, 10 Feb 2015 21:15:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/02/10/%E8%87%AA%E4%BD%9C%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E4%BB%96%E3%81%AEwindow%E3%81%AB%E7%94%BB%E5%83%8F%E3%82%92%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%81%99%E3%82%8B/</guid>
+      <description>タイトルの通り。たとえば、自作アプリで生成された画像をそのままGitHubにドロップして画像を登録する。 っていうことをできるようにしたい。だけど前回の記事だとどうしてもドロップする機能が実装できなくて 困っていたのですができる方法が見つかったので記録しておく。
+結論からいうとNSTableViewをうまく利用することでできるようになった。
+公式ドキュメント にもあるのですが、Draggingの操作があらかじめ用意されていてすくない実装で目的のことができるようになります。
+Setup NSTableViewは初期化されていることは前提で、それ以外で必要な設定を説明します。
+let types = [NSImage.imagePasteboardTypes()] tableView.registerForDraggedTypes(types)  これはドロップできるデータのデータのタイプを指定します。 この場合だと画像の種類を指定しています。
+tableView.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)  これは、ドラッグできる操作の種類、他のWindowにもドラッグできるかどうかも指定できます。 この場合だとファイルのコピーを他のWindowにドロップします。
+ドラッグの種類はここ にすべて記述してあります。
+NSTableViewDataSource 今回は一つだけ表示できればいいので要素を一つのみ表示する処理をします。
+// MARK: - NSTableViewDataSource func numberOfRowsInTableView(tableView: NSTableView) -&amp;gt; Int { return 1 } func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -&amp;gt; NSView? { var view = tableView.makeViewWithIdentifier(&amp;quot;imageCell&amp;quot;, owner: self) as NSView self.entity = Entity() var imageView = view.viewWithTag(1) as NSImageView imageView.image = self.</description>
+    </item>
+    
+    <item>
+      <title>OSX ドラッグアンドドロップの調査</title>
+      <link>http://nakajijapan.github.io/blog/2015/01/20/osx-%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%82%A2%E3%83%B3%E3%83%89%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%81%AE%E8%AA%BF%E6%9F%BB/</link>
+      <pubDate>Tue, 20 Jan 2015 17:01:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/01/20/osx-%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%82%A2%E3%83%B3%E3%83%89%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%81%AE%E8%AA%BF%E6%9F%BB/</guid>
+      <description>ドラッギングアンドドロップ関連の調査
+NSDraggingSource プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。 ドラッグ操作中に受け取るメッセージ
+draggingSession(_:sourceOperationMaskForDraggingContext:) ドラッギングしている状況を教えて、どんなドラッグのタイプを許すか設定します。
+enum NSDraggingContext : Int { case OutsideApplication case WithinApplication }  ドラッグ操作のマスク。ここでどんな操作を許すのかの種類
+struct NSDragOperation : RawOptionSetType { init(_ rawValue: UInt) init(rawValue: UInt) static var None: NSDragOperation { get } static var Copy: NSDragOperation { get } static var Link: NSDragOperation { get } static var Generic: NSDragOperation { get } static var Private: NSDragOperation { get } static var Move: NSDragOperation { get } static var Delete: NSDragOperation { get } static var Every: NSDragOperation { get } static var All_Obsolete: NSDragOperation { get } // Use NSDragOperationEvery static var All: NSDragOperation { get } // Use NSDragOperationEvery }  以下は、指定されたスクリーン上をトリガーにして呼び出されるメソッド その時の位置も保持している。</description>
+    </item>
+    
+  </channel>
+</rss>

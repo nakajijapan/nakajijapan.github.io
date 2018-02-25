@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.36.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Nakajijapan">
+<title>Backbone.jsガイドブック読書会 第２章 - Nakajijapan</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="Nakajijapan"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Backbone.jsガイドブック読書会 第２章</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2013-06-13">June 13, 2013</time></span>
+			<section itemprop="entry-text">
+				
+
+<p>前回の続きです。１章ではBackboneの基礎的な知識を読んでいきましたが、次は実際に使われるオブジェクトの説明。
+Backboneで利用される重要な３つのモデルModel, Coolection, Viewの説明（役割・使い方）でした。</p>
+
+<p>概要と話題になったことをメモろうと思います。</p>
+
+<h2 id="model">Model</h2>
+
+<p>データを扱う方法を提供するもの。
+View側で実際にデータがどう扱われているかは気にしない。 -&gt; viewとの分離
+これがjavascriptで使えちゃう。</p>
+
+<h3 id="提供するもの">提供するもの</h3>
+
+<ul>
+<li>保持</li>
+<li>検証</li>
+<li>アクセス制御</li>
+<li>保存</li>
+</ul>
+
+<h3 id="validationをどうするか">Validationをどうするか</h3>
+
+<p>サーバサイドでもクライアントサイドでも実装しなくちゃいけなくなるのは大変だよね。って話をした。
+場合によりけりだろうけど。そこまでのアクセスを気にしなきゃ。検証はサーバサイドで全て任せて
+その結果を画面に表示。は二重管理せずに済むよね。ユーザにリアルタイムに検証結果を表示させたいとき
+とかはクライアント側でも利用するよねーという話をした。</p>
+
+<p>ちなみに欲求不満(<a href="http://www.frustration.me)ではサーバサイドでもチェックできるようクラスを用意して">http://www.frustration.me)ではサーバサイドでもチェックできるようクラスを用意して</a>
+それを継承して処理が動作するようになっている。</p>
+
+<pre><code class="language-javascript">#-------------------------------------------
+# Model
+#-------------------------------------------
+class BackboneFrustration.Model extends Backbone.Model
+
+  initialize: (attributes, options) -&gt;
+    @on 'error',   @defaultErrorHandler
+    @on 'invalid', @defaultErrorHandler
+
+  defaultErrorHandler: (model, error) -&gt;
+    if typeof(error) == 'object'
+      if error.statusText != ''
+        alert 'Intal Server Error'
+        console.error error
+
+     else if typeof(error) == 'string'
+       if error? or error != ''
+         alert error
+</code></pre>
+
+<h2 id="collecation">Collecation</h2>
+
+<p>複数のモデルを管理するためのオブジェクト。それ自体にデータはない。
+Underscoreの配列操作に由来した関数群があるのでそれ使うと便利という話。
+each(),pluck(),invoke()等のよく使いそうな便利メソッドの紹介があった。</p>
+
+<h2 id="view">View</h2>
+
+<p>BackboneにおけるViewは二つの役割を持っているという話。</p>
+
+<ul>
+<li>Viewとして、「適切にDOMツリーを構築する」</li>
+<li>Controllerとして、「そのDOMツリーで起ったDOMイベントを処理する」</li>
+</ul>
+
+<p>前者でいうと</p>
+
+<ul>
+<li>Model,Collectionを利用してデータの操作して、保存を行ったり、新しいViewを構築する</li>
+</ul>
+
+<p>後者でいうと</p>
+
+<ul>
+<li>DOMのイベントハンドリングはView内でちゃんとやろう</li>
+</ul>
+
+<p>なのかなと感じた。</p>
+
+<p>あと、Underscoreのテンプレートエンジンの話が出てきて、また記法覚えるの辛かったのでERBの記法に似た<a href="http://embeddedjs.com/">EJS</a>を利用したいのですが余裕があるのでこちらに移行してみるのありだと思いました。</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			<a href="https://twitter.com/nakajijapan" target="_blank">Twitter</a>
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+			
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Osx on Nakajijapan</title>
+    <link>http://nakajijapan.github.io/categories/osx/</link>
+    <description>Recent content in Osx on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Sun, 13 Mar 2016 02:19:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/categories/osx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Macアプリ Sengiri をリリースした。</title>
+      <link>http://nakajijapan.github.io/blog/2016/03/13/mac%E3%82%A2%E3%83%97%E3%83%AA-sengiri-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sun, 13 Mar 2016 02:19:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2016/03/13/mac%E3%82%A2%E3%83%97%E3%83%AA-sengiri-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%9F/</guid>
+      <description> つい先日、SengiriというMacアプリをリリースしました。
+何それ？ 「千切り」はスクリーン録画からGIFアニメーションファイルにするまで、簡単な操作ですぐに作成することができます。
+機能は？ ・録画できる領域を指定することができます。 ・トップウィンドウの矩形を自動で行います。 ・録画はステータスメニューから止めることができます。 ・それぞれの操作がショートカットに対応しています。
+なぜ？ それなりにGIFにするツールはあるのですがもっと簡単にショートカット一つで録画できるようなものがあればいいのになと常々不満に思っていたので作成してみました。
+作業ログ 作成したものは↓にあるのでツッコミあったら教えていただけると助かります！ Sengiri
+後、調べたことはShibuya.swift #2で話しました。
+ </description>
+    </item>
+    
+    <item>
+      <title>Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした</title>
+      <link>http://nakajijapan.github.io/blog/2015/11/03/teiten-1.3.0%E3%81%AB%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%A2%E3%83%83%E3%83%97---%E5%8B%95%E7%94%BB%E3%82%92%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 03 Nov 2015 23:10:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/11/03/teiten-1.3.0%E3%81%AB%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%A2%E3%83%83%E3%83%97---%E5%8B%95%E7%94%BB%E3%82%92%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F/</guid>
+      <description>Teitenのバージョンアップを行いました。
+バージョンアップ内容は以下の内容です。
+ 動画にその時の時間を加えました。 指定された時間ごとに３秒動画を撮ってそれを結合できるようにしました。  もっと監視っぷりを高めたくこの更新を行いました。
+ 処理内容  動画を保存する 保存された動画を結合する 動画には録画された時間帯を表示させておく  動画を保存する 今まで出力に
+ AVCaptureStillImageOutput  を利用していたが新たな出力先に
+ AVCaptureMovieFileOutput  を登録した。
+保存された動画を結合する 以前自分が作成したプラグイン[NKJMovieComposer]()でさくっと実装した
+let movieComposition = NKJMovieComposer() movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height) for i in 0..&amp;lt;self.files.count { let beforeTimeDuration = movieComposition.currentTimeDuration let moviePath = self.files[i] // movie let movieURL = NSURL(fileURLWithPath: moviePath) //let layerInstruction = movieComposition.addVideo(movieURL) _ = movieComposition.addVideo(movieURL) (snip...) }  動画には録画された時間帯を表示させておく 時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。 動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。</description>
+    </item>
+    
+    <item>
+      <title>ペパボテックカンファレンス#3で発表した</title>
+      <link>http://nakajijapan.github.io/blog/2015/09/02/%E3%83%9A%E3%83%91%E3%83%9C%E3%83%86%E3%83%83%E3%82%AF%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#3%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%9F/</link>
+      <pubDate>Wed, 02 Sep 2015 08:54:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/09/02/%E3%83%9A%E3%83%91%E3%83%9C%E3%83%86%E3%83%83%E3%82%AF%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#3%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%9F/</guid>
+      <description>第三回ペパボテックカンファレンスに参加しました。
+OS Xの話したけど、話の内容がなかなかニッチすぎたのと、想定された人たちを元にした内容になっていなかったので 反応が薄くてだめだめだった。（自分のせいです。）だけど、自分の勉強会のまとめにするいい機会だったのでよかった のかなと自分に言い聞かせています。。。まだまだだ。
+今度はもっとそれっぽい人たち集めて話すぞ！！！！！ということで勉強会を開催してみた。 Shibuya.swift開催するのでよかったらきてみてください！
+これから定期的に鍛錬積んで自分の身の回りの便利アプリ作成していきたい。</description>
+    </item>
+    
+    <item>
+      <title>teiten をv1.1.1にした</title>
+      <link>http://nakajijapan.github.io/blog/2015/03/17/teiten-%E3%82%92v1.1.1%E3%81%AB%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 17 Mar 2015 13:49:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/03/17/teiten-%E3%82%92v1.1.1%E3%81%AB%E3%81%97%E3%81%9F/</guid>
+      <description>Teitenのバージョンアップを行いました。
+バージョンアップ内容は以下の内容です。
+ 画像を保存するときに画像の解像度を選択できるようになりました。 File -&amp;gt; Open Saved Images で保存されているディレクトリをFinderで開ける用にしました。  地味なバージョアンアップでした。</description>
+    </item>
+    
+    <item>
+      <title>OS X Advent Calendar 2014 - 初めてMacOS X App作成してみた。</title>
+      <link>http://nakajijapan.github.io/blog/2014/12/25/os-x-advent-calendar-2014---%E5%88%9D%E3%82%81%E3%81%A6macos-x-app%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Thu, 25 Dec 2014 00:00:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/12/25/os-x-advent-calendar-2014---%E5%88%9D%E3%82%81%E3%81%A6macos-x-app%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>この記事はOS X Advent Calendar 2014の25日目の記事になります。 ラストーーーーーーーー！！！！
+実は前回も自分がOSXアプリ初心者の行きを脱するためにしたこと書きましたが、 まだまだ熱が冷めないので二つ目の記事を書くことにしました。
+teitenという MacOS Xアプリを作成しました。 WWDC2014の発表から少しづつ地道に開発してきてようやく形になりました。
+teiten Macのカメラを通して自分自身を定点観測するアプリです。 アイコンはめっちゃ見ている感じを出したくてカメラ＋妖怪でそれっぽさを出してみました。 観測というかもう監視している感じですが。。。 アイコンはえびちゃんというデザイナの方に作成していただきました。
+機能  10 sec or 60 sec ごとに勝手に写真を撮ります。 自由に自分自身で写真を取ることもできます。 適当に溜まったら画像を集めて動画が作成できるようになります。  Compatibility OS X 10.9以上ですが、もしかしたら10.10しか動かないかも&amp;hellip;
+追記：OS X 10.10以上でした。。。
+Dwonload 期間限定ですがここあるのでよければどうぞ。
+それだけです。それだけのアプリなのにいろいろハマりにハマりまくって結構時間かかりました。。。 めっちゃシンプルなアプリですがなんか大変だった。。
+ScreenShot capture imageでも写真は取れるのですが、カウントダウンされて０になっても写真が撮れます。
+経緯 実は昔にペパボの先輩の@taropと @diskipが同じようなWEBサービス作成していました。 個人的には好きで、毎日のように利用していたのですが、もうサービスが無くなってしまったのがちょっと悲しくて、なんかもったいないと思ったので それに近い形でありながらMacOSXアプリならではの機能をつけて作成した次第です。
+もう一つは、今作成しているLimuというサービスがMac版も対応する予定でいるので、その準備運動の一つでもあります。
+最後に プロダクト作るのって自分の興味＋αでいろいろ知らないといけないんですが、何か作る度に自分が一歩成長している間があるのでなかなかやめれない。 あと、そもそも楽しい。 まだまだ、バグも多いし機能も足りないのでちょっとづつ改善していこう思います。
+なんとかAdvent Calenderには間に合ったけど、僕のクリスマスはこれで消えてしまった！！！</description>
+    </item>
+    
+    <item>
+      <title>OS X Advent Calendar 2014 - OSXアプリ初心者の域を脱するためにしたこと</title>
+      <link>http://nakajijapan.github.io/blog/2014/12/14/os-x-advent-calendar-2014---osx%E3%82%A2%E3%83%97%E3%83%AA%E5%88%9D%E5%BF%83%E8%80%85%E3%81%AE%E5%9F%9F%E3%82%92%E8%84%B1%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8/</link>
+      <pubDate>Sun, 14 Dec 2014 23:56:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/12/14/os-x-advent-calendar-2014---osx%E3%82%A2%E3%83%97%E3%83%AA%E5%88%9D%E5%BF%83%E8%80%85%E3%81%AE%E5%9F%9F%E3%82%92%E8%84%B1%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8/</guid>
+      <description>この記事はOS X Advent Calendar 2014の15日目の記事になります。
+AppleがSwiftという言語をサポートしてから半年が経とうとしています。 このほかにも今年はAppleに驚かせる一年になったのではないでしょうか。 みなさんこんにちは@nakajijapanです。
+Swiftが出た当初はコードの書きやすさに驚き、ドキュメントを読んでは サンプルコードを書いたり、はたまたLimuというサービスを作成するようになりました。ちなみにこのサービスはいまだに地道に開発しています。。。
+そして、私は新たな興味を持ちました。OSXアプリも頑張れば開発できるのではないかと。
+とにかく、なにも考えずOSXプロジェクトを作成して初期起動してみる。 とりあえずなにもできないWindowが起動できる。 あとは、iOS開発でしたノウハウである程度のカスタマイズができるのではないかと。 しかし、そこまでで終わりでUIKitやiOSの開発知識である程度流用できるものはありますが それ以上にCocoaプログラミングする上での仕様を学ぶ必要がありました。
+そこで今回は、ある程度開発できる？(いや、まだまだであります)ようになってきたのでここでちょっとまとめようと思います。
+OSXアプリ開発ができるようになるまでに行ったこと  とにかくサンプルを読む 思ったことは駄目元で試してみる 公式ドキュメントを読む 本を読む  とにかくサンプルを読む 大体のサンプルはObjective-Cで書いてあります。最初からSwiftで書いていてほしいのですが、まだ昔のサンプルのままで更新されていないので、それをみるようになりますがObjective-CからSwiftに変えるのはそこまで難しくないです。ただより、下のレイヤーにを実装するとなると少し考える事が増えるでしょうが。。。そこにヒントが隠されているので気になるソースを落としてはサンプルを眺めてビルドしてみましょう。
+自分は10個くらい眺めてなんとなくこんな書き方すればいいんだと若干ながら理解して いきました。
+思ったことは駄目元でためしてみる iOS以上に情報が少ないので自分で解決しなきゃいけないことが多くなってきます。 実装が滞るのであれば、ソースをミクロな状態にしてそれができるかこうやったらどうなるんだろうと試行錯誤をしてみることが大切です。
+公式ドキュメントを読む ネットの情報に自分の疑問の答えがあっても、仕様は確認するといいです。それより便利なプロパティやメソッドが用意されているかもしれませんし、そもそも使い方が間違っているかもしれません。
+本を読む 日本語の情報がない中、以下の本を参考にしました。
+MAC OS X COCOAプログラミング 第4版著者 : アーロン・ヒレガス東京電機大学出版局発売日 : 2014-05-20ブクログでレビューを見る» 情報はかなり古いのですが、Cocoaプログラミングの基本がわかるというところまではいいのですが、ある程度iOSで学んだことが記述されているので分厚いわりにはそこまで自分にとって優良な情報は少なかったイメージがあります。
+Mac OS X/iPhoneのためのCocoaプログラミング入門著者 : 藤本裕之ソーテック社発売日 : 2009-07-04ブクログでレビューを見る» 他にもう一冊読もうかなと思って購入した一冊なのですが関西弁？と微妙な例えに苦しんで読みにくかった。。。
+余談 Cocoa Programming for OS X: The Big Nerd Ranch Guide (5th Edition) (Big Nerd Ranch Guides)著者 : Aaron HillegassBig Nerd Ranch Guides発売日 : 2015-04-10ブクログでレビューを見る» 来年発売される第五版の本はSwift、Xcode6に対応しているので勉強しがいがあります。</description>
+    </item>
+    
+  </channel>
+</rss>

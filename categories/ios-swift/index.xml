@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios Swift on Nakajijapan</title>
+    <link>http://nakajijapan.github.io/categories/ios-swift/</link>
+    <description>Recent content in Ios Swift on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Sat, 19 Jul 2014 20:08:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/categories/ios-swift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Swift勉強会を開催して話してきました。</title>
+      <link>http://nakajijapan.github.io/blog/2014/07/19/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E9%96%8B%E5%82%AC%E3%81%97%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sat, 19 Jul 2014 20:08:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/07/19/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E9%96%8B%E5%82%AC%E3%81%97%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>先日、小さい規模ながらSwfit勉強会を開催しました。
+Swift勉強会 hosted by @nakajijapan from ペパボ
+そんななか、自分も「Swiftに慣れるまで行ったこと」を発表しました。
+ざっくり言うSwiftに慣れるのに以下のことをしてみた献じたことを話しました。
+ 公式ドキュメント（を読んだ後に） サンプルアプリをTableViewControllerベースで作成してみたこと 自分のプラグイン(NKJMovieComposer)をSwiftで書き換えてみたこと 気分高ぶってMac OS Xも作成してみたこと  詳しくはスライドをご覧ください。
+Swiftが出たときにSan Franciscoで一心不乱にサンプルアプリプログラム書いてブログ上げようかと思ったけど いろんな人が既にブログに上げていたのでただただGitHubにあげるだけでした。そんなんか いろいろ勉強していくうちにMacアプリもつくれんじゃねーかwで脳内麻痺して書籍を購入してSwiftで作成 してみました。
+起動しとけば単純に画像を定期的に保存するアプリです。 （そのうちに１日で保存した画像をGifアニメのような動画にしてソーシャルにアップする機能作ろうかと計画中） ある程度できたらGeHubにアップ仕様と思います。
+ちなみにこちらの書籍を購入しました。
+
+Macアプリ、知識が溜まって来たらまた記事にします。
+とにかく、Swift勉強会が無事終えてよかったです。 参加してくれたみなさん、そして発表してくれた、@misyobun @hypermkt @kurotaky ありがとうございました！！！</description>
+    </item>
+    
+  </channel>
+</rss>

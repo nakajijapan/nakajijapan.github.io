@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rails on Nakajijapan</title>
+    <link>http://nakajijapan.github.io/categories/rails/</link>
+    <description>Recent content in Rails on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Sat, 13 Jul 2013 15:13:00 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/categories/rails/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Update To Rails4</title>
+      <link>http://nakajijapan.github.io/blog/2013/07/13/update-to-rails4/</link>
+      <pubDate>Sat, 13 Jul 2013 15:13:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/07/13/update-to-rails4/</guid>
+      <description>自分のサービスのRailsのversionがまだ3.2だったので地道にRails4にアップデートしました。 その際に必要になった作業をメモっときます。
+attr_accessible is extracted out of Rails into a gem. E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError)  attr_accessibleはRailsから省いてstrong_parametersを利用してとのこと。 振るいものを利用するならprotected_attributesっていうGem使ってね。 しかし、今回はstrong_parametersを記述していきます。
+とりあえずModelからの排除を行う。
+DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.</description>
+    </item>
+    
+  </channel>
+</rss>
