@@ -87,3 +87,11 @@ main {
   background: -webkit-linear-gradient(left, white, #E1E1E1, white);
   background: linear-gradient(to right, white, #E1E1E1, white);
 }
+
+.error-title {
+  text-align: center;
+  font-size: 20rem;
+}
+.error-text {
+  text-align: center;
+}
