@@ -1,13 +1,13 @@
 body {
   font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #FCFCFC;
+  background-color: #fbfbfb;
   font-size: 1.8rem;
 }
 
 h1 {
-  font-size: 3.8rem;
+  font-size: 4.0rem;
 }
-h2 { font-size: 3.0rem; }
+h2 { font-size: 3.2rem; }
 h3 { font-size: 2.6rem; }
 h4,
 h5,
@@ -24,6 +24,14 @@ header,
 footer {
   margin: 4rem 0;
   text-align: center;
+}
+
+header .header-menu a {
+  text-decoration: none;
+  color: #444;
+}
+header .header-menu a:hover {
+  text-decoration: underline;
 }
 
 main {
@@ -73,6 +81,10 @@ main {
   margin-bottom: 2rem;
   font-size: 1.7rem;
   color: #888;
+}
+
+section[itemprop="entry-text"] {
+  font-size: 2.0rem;
 }
 
 .footer-link {
