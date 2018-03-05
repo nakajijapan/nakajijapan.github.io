@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <copyright>nakajijapan All rights reserved.</copyright>
-    <lastBuildDate>Sun, 25 Feb 2018 20:41:19 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 01 Mar 2018 14:35:04 +0900</lastBuildDate>
     
 	<atom:link href="http://nakajijapan.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2018 try! swift</title>
+      <link>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</link>
+      <pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</guid>
+      <description>先日、try! swiftに参加してきた。これで二年連続になる。 自分が興味を持った部分をピックアップしてめも
+Event driven networking for Swift  📝 https://github.com/apple/swift-nio  SwiftNIO is a cross-platform asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp;amp; clients.   iOSでCharlesを導入する  iOS版が出るのは楽しみだが審査通らなそう JAVAは辛い 設定の手間省かれそう？  Aspect Oriented Programing in Swift  アスペクト指向プログラミング これログ吐き出す時に便そう 構文解析 コンパイル前に色々作業する https://github.com/kishikawakatsumi/SwiftPowerAssert  デジタル信号処理 in Swift  デジタル信号処理の部分ちゃんと理解して実装できるようになりたい フーリエ解析 波形のアニメーション面白そう AVFoundation結構使える？ ちょっと難しい話だった興味があるので再度見直す  UIImageView vs Metal これは純粋に面白かったし、Metalのこともわかった気になった。
+  UIImageView vs Metal [日本語版] #tryswiftconf  from Shuichi Tsutsumi</description>
+    </item>
     
     <item>
       <title>About</title>
