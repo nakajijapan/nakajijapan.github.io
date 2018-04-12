@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://nakajijapan.github.io/blog/2018/04/11/izumo-updated-to-1.1.1/</loc>
+    <lastmod>2018-04-11T02:39:40+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://nakajijapan.github.io/blog/2018/03/25/izumo---markdown-note-tool---%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</loc>
     <lastmod>2018-03-25T17:58:22+09:00</lastmod>
   </url>
@@ -403,7 +408,7 @@
   
   <url>
     <loc>http://nakajijapan.github.io/</loc>
-    <lastmod>2018-03-25T17:58:22+09:00</lastmod>
+    <lastmod>2018-04-11T02:39:40+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -421,7 +426,7 @@
   
   <url>
     <loc>http://nakajijapan.github.io/post/</loc>
-    <lastmod>2018-03-25T17:58:22+09:00</lastmod>
+    <lastmod>2018-04-11T02:39:40+09:00</lastmod>
     <priority>0</priority>
   </url>
   
