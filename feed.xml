@@ -1,0 +1,1109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nakajijapan</title>
+    <link>http://nakajijapan.github.io/</link>
+    <description>Recent content on Nakajijapan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Tue, 03 Jul 2018 00:02:29 +0900</lastBuildDate>
+    
+	<atom:link href="http://nakajijapan.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>家用の液晶モニター 43UD79-B(4K) を買った</title>
+      <link>http://nakajijapan.github.io/blog/2018/07/03/%E5%AE%B6%E7%94%A8%E3%81%AE%E6%B6%B2%E6%99%B6%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC-43ud79-b4k-%E3%82%92%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
+      <pubDate>Tue, 03 Jul 2018 00:02:29 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2018/07/03/%E5%AE%B6%E7%94%A8%E3%81%AE%E6%B6%B2%E6%99%B6%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC-43ud79-b4k-%E3%82%92%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
+      <description>仕事道具きた！！！！ pic.twitter.com/brobUvxT3v
+&amp;mdash; The old man (@nakajijapan) 2018年7月1日 
+会社で同僚が43inchのディスプレイを使っていたので１ヶ月くらい使った結果、良すぎたので家でも購入することにした。
+なんで買ったの？ 姿勢の矯正 以前は4KでDellの27inchだったり24inchを使用していたのだが、大分細かいので何かと前かがみになることが多かった。。。 それが原因でよく腰を壊してしまった。視力と腰の弱さでそのぐらいのサイズが必要となってきたのかもしれない。
+家のディスプレイの限界  色合いがおかしい  個人アプリでデザインもしているので実機で確認したりするときに色が微妙に異なることがある  映像が頻繁に荒れる そもそも4Kじゃない。４Kじゃないとシミュレータが大きすぎることがある  USB Power Delivery 本当はこれが魅力の一つではあったのだが、これには罠があった。
+USB Type-C™ならケーブル1本で 裏表がなく接続が簡単なUSB Type-Cでパソコンとモニターを繋げると、ケーブル1本で映像表示とデータ転送ができるオールインワン接続、さらに携帯電話を接続すれば急速充電が可能です。 * パソコンの充電には対応しません。また、携帯電話を接続した場合、映像、データ転送には対応しません。 充電できるけどパソコン並みの充電はできないとのことでした。   https://www.lg.com/jp/monitor/lg-43UD79-B
+ パソコンの充電には対応しません。また、携帯電話を接続した場合、映像、データ転送には対応しません。
+ホームページにも記述してあるように、映像＋電源供給もできるとのことなのだがパソコンを充電できるほどのパワーは持っていない。しかも、実際に試してみたらずっと起動しているとノートパソコンの電源がなくなっていった。とほほ。
+本当にそこまで求めるなら値段ははるがこちらを購入するといいだろう。
+ LG 32UD99-W  https://www.lg.com/jp/monitor/lg-32UD99-W   これは電源供給に60Wをようしてるので充電できるであろう。
+副次的なものとして  映画良さそう  本来の目的である仕事をしなくなりそう。。  ゲーム良さそう  4KのPS持ってない。。。  ディスプレイなのにおとも出してくれるの  ノートから音を出すと横から音が伝わるので違和感がある そこそこ音がいい 両サイドにあるJBL使えばいいじゃん  アンプがない。。    そもそも4Kである理由 スマートフォンの解像度が大きくなるにつれて原寸大の大きさでの確認ができずにかならず縮小しないといけない時があった。 では縮小だとなにがいけないのか。</description>
+    </item>
+    
+    <item>
+      <title>Izumo Updated to 1.1.1</title>
+      <link>http://nakajijapan.github.io/blog/2018/04/11/izumo-updated-to-1.1.1/</link>
+      <pubDate>Wed, 11 Apr 2018 02:39:40 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2018/04/11/izumo-updated-to-1.1.1/</guid>
+      <description> Izumoアップデートしました。
+改善内容は
+ いくつかのマークダウン形式のハイライトをサポートしました。 テキスト編集に対する設定を変更できるようにしました。  自動インデントに対応しました。    ショートカットもなんこか追加しました。   タブをスペースに変更できるようにしました。  てな感じです。
+今後の予定  ボールドの色・デザインを変更 ショートカットキーの追加 アンドゥ機能 Deleteタグ  </description>
+    </item>
+    
+    <item>
+      <title>Apple Pencil &#43; iPad購入した</title>
+      <link>http://nakajijapan.github.io/blog/2018/04/03/apple-pencil---ipad%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 03 Apr 2018 02:40:01 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2018/04/03/apple-pencil---ipad%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+      <description>iPad + Apple Pencil くるぞ！ pic.twitter.com/6FSOUaWmhx
+&amp;mdash; The old man (@nakajijapan) 2018年4月2日 
+先日発表があってApple Pencil対応のiPadが手に入ることになったので購入することにしました。 最初は共同購入だったのですがなんだかんだで事実上奥さんのものに。。
+まぁそれは良いとして、Apple Pencilがとっても良い体験でした。 僕には以下の要件が満たせているのでもう購入した甲斐があります。
+ お絵かきがすこぶる楽しい メモにも使える 頭の整理に図をかく時にすぐかける 画面モックをえいやって書くときにデバイスのテンプレートがあるのでそれを元にかける  何よりもお絵かきが楽しい。何かをトレースして書くのうまくなった気がしてとても快感。。。
+Apple Pencil 楽しくて自分を写経してたらウシジマくんになった、、、 pic.twitter.com/OOiTQEfKlo
+&amp;mdash; The old man (@nakajijapan) 2018年4月7日 
+奥さんが利用していないスキをみて、どんどん使っていこう。</description>
+    </item>
+    
+    <item>
+      <title>Izumo - markdown note tool - をリリースしました。</title>
+      <link>http://nakajijapan.github.io/blog/2018/03/25/izumo---markdown-note-tool---%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sun, 25 Mar 2018 17:58:22 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2018/03/25/izumo---markdown-note-tool---%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>Izumo Just Released!!!! 先日、Izumo - markdown note toolのmacOS版をリリースしました。
+一年越しの個人アプリ。長かったわーhttps://t.co/qbI5qij8Aw
+&amp;mdash; The old man (@nakajijapan) 2018年3月13日 
+そして、本日iOS版もリリースすることになりました。簡単に説明するとマルチデバイスで同期可能なマークダウン用のノートアプリです。
+Izumoの説明 Izumo is とてもシンプルなマークダウン専用メモアプリです。 AppleIDを持っていれば、いろんなデバイスでデータの共有ができるようになります。 macOSアプリ専用のアプリ、Izumoをを利用すればPCでもnoteの編集・保存ができます。 無料で全ての機能が利用できます。
+機能  マークダウンをサポート フォントスタイルの調整 iCloudを利用してMacアプリとバックグラウンドで同期ができる  （あらかじめApple IDでログインしておく必要があります）  多くのメモから特定のメモを検索することができます。  おすすめする人  テキストリッチにはしなくていいけどマークダウンでメモをしたい人 いろんなデバイスでnoteを編集・保存したい人  早速ですが、よかったら使ってください。。。
+ 
+Izumo? マルチデバイス対応　⏩　クラウド　⏩　雲　⏩　出雲　⏩　Izumo!
+特にひねりもなく。。。
+なぜ作ったのか 世の中には様々なノートツールがあります。Appleのnotesを筆頭にBear,DayOne,CotEditorなどがあげられるかと思います。 しかしながら、自分に最適なツールはありませんでした。何が不満だったかというと、
+ なるべくシンプルなやつ〜 マークダウン表現をリッチにせずにただ色づけされされる マルチデバイス対応（同期ができる）  とい自分の個人アプリでここまでかかったのうことで、ないなら作ろうと思って作ってみました。ということで2017年3月くらいか構想やら実験やらを初めて今に至ります。
+やったこと  CloudKitを利用したデータ同期  データ同期・ネットワーク周りの実装・テストはなかなか大変だ。  文章のリアルタイム編集  Markdownに変換してくれるライブラリはあるもののリアルタイムに変換してくれるものはなかったので自前で実装。   以前に調査したやつ   最後に 初めて同じプロダクトで両方のデバイスをサポートしたのは初めててで、ものすごく苦労することが多かったのですが、なんとか無事リリースできたのでとりあえずはよかったです。。。一年という期間は個人アプリを作る中であまりにも長い期間でモチベーションを上げ続けるにはものすごく辛い期間だったかなと思います。どれだけ他のアプリ使おっかなと思ったことか。せっかくここまでできたからといつも心に秘めてなんとか持ちこたえられました。 リリースしたと言ってもまだまだバグがあるしやることはあるのでゆっくりと広い心で見守っていただければと思います。 もし、僕もこういうの欲しかった。バグ直して欲しい。僕のことが何を持ってか好きな方がいれば、支援していただければと思います。</description>
+    </item>
+    
+    <item>
+      <title>2018 try! swift</title>
+      <link>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</link>
+      <pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</guid>
+      <description>先日、try! swiftに参加してきた。これで二年連続になる。 自分が興味を持った部分をピックアップしてめも
+Event driven networking for Swift  📝 https://github.com/apple/swift-nio  SwiftNIO is a cross-platform asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp;amp; clients.   iOSでCharlesを導入する  iOS版が出るのは楽しみだが審査通らなそう JAVAは辛い 設定の手間省かれそう？  Aspect Oriented Programing in Swift  アスペクト指向プログラミング これログ吐き出す時に便そう 構文解析 コンパイル前に色々作業する https://github.com/kishikawakatsumi/SwiftPowerAssert  デジタル信号処理 in Swift  デジタル信号処理の部分ちゃんと理解して実装できるようになりたい フーリエ解析 波形のアニメーション面白そう AVFoundation結構使える？ ちょっと難しい話だった興味があるので再度見直す  UIImageView vs Metal これは純粋に面白かったし、Metalのこともわかった気になった。
+  UIImageView vs Metal [日本語版] #tryswiftconf  from Shuichi Tsutsumi</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://nakajijapan.github.io/about/</link>
+      <pubDate>Sun, 25 Feb 2018 20:41:19 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/about/</guid>
+      <description>I&amp;rsquo;m nakajijapan. http://nakajijapan.net
+ 会津大学コンピューター理工学部に入学し、ベンチャー企業でネットワークエンジニアとして実際の業務を学生のうちから経験しながら勉学に励む。卒業後、受託企業に入社。自分が楽しみたかったインターネットじゃないと感じ、インターネットを楽しみつつ仕事ができるGMOペパボに入社。エンジニアとして幅広く業務を経験した。その後、iOSエンジニアとしてハンドメイドマーケット「minne」のアプリ開発に携わる。 2015年1月からプリシンパルエンジニアに昇格する。技術的側面からチームメンバーのフォローをしたり、メンバーが開発しやすい環境を構築を行う。所属事業部以外では、全社的に勉強会・読書会や開発合宿を企画してモバイルエンジニアの成長を促しつつ、プライベートや業務で得た知見を社内外にアウトプットすることで会社のモバイルエンジニアとしてのプレゼンス向上に寄与。 現在、CAMPFIRE, Inc.でモバイルエンジニアとして活動中。 趣味はものづくり、良い環境で映画鑑賞。  My Products        </description>
+    </item>
+    
+    <item>
+      <title>こんにちはお久しぶりです初めまして</title>
+      <link>http://nakajijapan.github.io/blog/2018/02/25/%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%81%8A%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%A7%E3%81%99%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6/</link>
+      <pubDate>Sun, 25 Feb 2018 14:14:19 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2018/02/25/%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%81%8A%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%A7%E3%81%99%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6/</guid>
+      <description>一年ぶりのブログになる。 昨年は、心に余裕がなくてあまりブログをかけていなかったのだけれでも、とはいえ基本的に心に余裕がないので 無理矢理にでもブログを再開するようにした。そう、改めてということもあり静的サイトジェネレートを一新してみた。 OctopressからHUGOにしてみた。デザインはカスタマイズをあとで自分でもできるようになるべきシンプルなものを 探してみたがhugo-zenがよさそうだった。今の所少し不満だが、また数年後にブログ替え時な時期がくるので 焦らずゆっくりやっていこう。
+Hugo  https://gohugo.io/  今年は今年で色々経験していきたいです。
+ではでは</description>
+    </item>
+    
+    <item>
+      <title>Good bye 2017</title>
+      <link>http://nakajijapan.github.io/blog/2017/12/31/good-bye-2017/</link>
+      <pubDate>Sun, 31 Dec 2017 16:26:46 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2017/12/31/good-bye-2017/</guid>
+      <description>2017年実績メモ。
+iosdc/iosdc-app  39 closed: change design in qrcode viewcontroller 2017-09-09 38 closed: enable to deselect animation 2017-09-09 35 closed: 申請用 2017-09-02 34 closed: 複数投票できるようにした 2017-09-02 30 closed: 本番データを入れる 2017-08-29 29 closed: Update Yahoo Logo Images 2017-08-29 22 closed: add tab icon (いいもの見つかるまでアイコン追加しといた ![simulat&amp;hellip;) 2017-08-20 21 closed: [WIP] delete debug mode (最後に削除する) 2017-08-19 20 closed: bugfix arround Vote (optimized UI around vote bugfix) 2017-08-19 19 closed: delete HasUserHash (ついでのcarthage update) 2017-08-19 14 closed: connect to server 2017-08-07 11 closed: 投票できるところまで 2017-08-01 7 closed: Introducing Realm (シミュレータの時は常にインサートされる。) 2017-07-09 4 closed: add TalkList and TalkFilter 2017-07-06 2 closed: 投票画面周りの実装 2017-06-19  matthewpalmer/Regift  45 closed: Stop to use the fileprivate (For Swift 4.</description>
+    </item>
+    
+    <item>
+      <title>2016年 振り返りと2017年！</title>
+      <link>http://nakajijapan.github.io/blog/2017/01/01/2016%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A82017%E5%B9%B4/</link>
+      <pubDate>Sun, 01 Jan 2017 14:14:19 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2017/01/01/2016%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A82017%E5%B9%B4/</guid>
+      <description>明けましておめでとうございます！ @nakajijapan です。 去年が怒涛に過ぎていき、気づいたらもう2017年。ぼーっとしていたらもう三日が過ぎていて、気づいたらもう明日は仕事始めです。 それなのにまだ振り返っていなかったので、このブログで振り返っていこうと思う。
+2016年 振り返り 自分にとってこの年はだいぶ濃厚な1人になったのではないか思う。 大きく以下の出来事がありました。
+ 入籍して式を挙げた（１０月） Apple Pay導入(１０月) iOSDC2016（８月） 執筆活動で自分の頭をフル回転（後半）  式を挙げた この１年の半分はずっとこのことを考えていても過言では無い。 10月には式を挙げる計画で進んでいたのだが日程が近くに連れてまだやらなくていいかと保留にしていたタスクがどんどん決定しなくてはいけない期日になっていく。 それが多くなるだけではなく、夫婦でちゃんと相談しなくてはいけないことが増え始める。大変だったのが予算を削る為に自分で動画（始めと終わりの動画）を 作らなければいけないタスクが辛かった。。あとは仕事面とプライベートで大きなイベントがその時期に被っていたこと。自分が忙しくて奥さんとの結婚の話が できなくてよく喧嘩したのはまだ記憶に新しいです。当日はもうすごい勢いで時が流れてしまいあんまり覚えてないくらいでかなり自分がちゃんとしていたかが不安なところだがやりきりれていたようで一安心。
+Apple Pay これは、日本で初めて導入することで色々不安だったところもあるが、なんとかリリースできてよかった。 エンジニアとしては十分に楽しめるイベントでものすごく楽しめた。会社に圧倒的感謝。ビジネス面ではうーんという感じ。 あと、日本での知見はペパボのエンジニアブログに書き留めて置いたのでよければ見てやってくください。
+iOSDC2016 僕のもう一つの拠り所。日本で初めてのiOSのデベロッパーカンファレンスに運営に携われたこと・発表できたこと。 会社のモバイル人口はそこまで多くはないので寂しい思いがあったのですが、カンファレンスにきてみるとめちゃめちゃいるじゃんといった感じで僕が思っていた以上の人たちが集まっていて驚いた。 そんな同じ属性を持ったエンジニアさんの話を聞けるのは勉強になるのは当然として、酒を交わしながらお話ができるのはとても楽しい。 純粋に楽しいのでこういったイベントには引き続き関わりたい！！！
+執筆活動 普段日常的に文章を書かないので、１日５００文字が限度でしかもその内容の精度が低いものでとても大変だった。 今年も精度上げて頑張っていくつもり。
+エンジニアとして OSS業 頑張ってSwift3にするというのが主なタスク。だけどあまり勧められていないっていうのが現状でした。 もう一つは、個人アプリとしてMacOSアプリ - Sengiriを出せたのは達成感あります。 あと、UIライブラリとしてShariも試行錯誤して作成した。これは普段やってみたいインタラクションが実際にできるようになって嬉しかったのでその勢いで作成したものです。
+ 改善したもの  https://github.com/nakajijapan/PhotoSlider https://github.com/nakajijapan/SwiftSampleAppForCollectionView https://github.com/nakajijapan/UIColor-Hex https://github.com/nakajijapan/NKJModalSelector https://github.com/nakajijapan/NKJPhotoSliderController https://github.com/nakajijapan/Shari https://github.com/nakajijapan/teiten https://github.com/nakajijapan/NKJMovieComposer https://github.com/nakajijapan/NKJMultiMovieCaptureView https://github.com/nakajijapan/Kazaguruma https://github.com/nakajijapan/nakajichan https://github.com/matthewpalmer/Regift Sengiri Mac app 雑誌：Mac Fan 2016年6月号に紹介される   技術系イベント  Shibuya.swift #3を主催する  Sengiri - OS X Applicationの仕組み・紹介をした。 GIF動画を簡単に録画から作成まで少ない作業で作成できるツール(download)を作成しました  Shibuya.</description>
+    </item>
+    
+    <item>
+      <title>iOSDC2016で発表してきた。</title>
+      <link>http://nakajijapan.github.io/blog/2016/08/21/iosdc2016%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Sun, 21 Aug 2016 11:41:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2016/08/21/iosdc2016%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description>8月20日に開催されたiOSDC2016にコアスタッフ兼スピーカーとして参加して来ました。 内容は「33歳 エンジニア道」です。
+発表の様子
+内容  今回は一切技術の話はなしで、キャリアのお話です。（他にそういうことを話す人がいなくてゲロ吐きそうなくらいプレッシャーにおわれたのはいうまでもない） モバイルエンジニアとしてガンガンやって来たけどこの先どうしたいいかと思って色々考えた結果のお話です。 あとこれをきっかけにみんなどうしてるんだろうという話のきっかけにするという目論見もありました。
+考えるときに基本的には以下の三つを考えれば良いことなのかなと思い、自分の人生を振り返りながらどうすればいいのかを考えていきました。 言葉にしたら単純なことだけど深掘りして答えをだすというのがなかなか難しい。ただ、これからのキャリアのことも考えるとかなり重要なこと だと思ったので振り返った次第であります。
+中堅として  個人としてどうしたいのか エンジニアとしてどうありたいか（どうあるべきか） 会社に何を求められているのか  継続していくために 年齢を重ねていくうちにいろんな事がおきてきます。
+それに逃げては何も始まりません、それと向き合って如何に問題を解決していかなければいかないのか考えていかないといけない。 それが以下のことだったりします。
+ 体力  健康維持  時間  家族と仕事の両立   質問 なんだかんだで席がパンパンになったのが嬉しかったと同時に心の中でゲロ吐いてました。（緊張してた。） 質問でうまく答えられなところがあったのでざっくりここで補足しておきます。
+ 結構何でもやられているがそれでもいいんじゃないでしょうか？  色々やって来たがどれもみんな頑張ればできるようなものだと自分では感じている なのでこの問題は俺にしかで来ないものを一つ以上持ちたい そう、一つ上のステージにいきたいんだ！って感じです。  ライブラリとか会社で創出したものは自分のアカウントで出しても問題ないのか  特に大きなルールはない、チームで作り上げたものは会社としてやるべき出し、ほぼ自分で作成したものは自分で出している。ケースバイケース。 ベジネスに関わるものが入って居なければ問題ない ちょっとでも世の中になければ、少しでも便利になるものがあればアウトプットしている 既存のものにPull requestをして便利にする場合もある。  中堅としてどんな事していく  正しい技術を正しく利用できるように！ 開発基盤整えてく！   関連  togetterまとめ  感想 今度は、実際やった事を次のどこかで話せるよう進めていこう。
+iOSDC 2016 Droidkaigiで何回かカンファレンスが開催される中、iOSでもそういうのやりたいなーとモヤモヤ思っている日が続いて居ました。そん時に @tomzoh とpotatotipsで出会い、同じ想いをもっていてすでに会場の予約までしていたのにとても感動してぜひお手伝いをします！というのがきっかけでここまで駆け巡って来ました。そして、当日を迎えられ、無事最後まで完了することができて感無量です。@tomzoh さんには大変感謝！！！！！！！ 今回は記念すべき第一回、スタッフとしてスピーカーとしてこのカンファレンスに参加できたことは自分の中でものすごい良い思い出になりました。最高でしかない。 カメラ係として当日は全然トークを聞く状況じゃなかったのであとでじっくり動画を見て一人iOSDCをやろうかと思います。</description>
+    </item>
+    
+    <item>
+      <title>iOSDC2016で話します。</title>
+      <link>http://nakajijapan.github.io/blog/2016/07/18/iosdc2016%E3%81%A7%E8%A9%B1%E3%81%97%E3%81%BE%E3%81%99/</link>
+      <pubDate>Mon, 18 Jul 2016 01:11:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2016/07/18/iosdc2016%E3%81%A7%E8%A9%B1%E3%81%97%E3%81%BE%E3%81%99/</guid>
+      <description>採択されたぞという話です。 今年日本で開催されるデベロッパーカンファレンス、iOSDC2016が開催されることになりました。 運あってか自分はこのカンファレンスで「３３歳モバイルエンジニア道」というタイトルで話をすることになりました。
+日本の皆さんが待望していたカンファレンスだと思っていたので倍率が高くなることを見越して二つほど提出しました。 そのうちの一つがこれです。実はこっちの方がテックなところもあり安心して話せそうだなと思っていました。
+採択されなかったトーク https://iosdc.jp/2016/c/node/142
+最近ではWEB・アプリでもいろんなところで動画に関連するコンテンツが増え、様々なシーンで動画が利用されるようになってきました。とはいえ、アプリで動画の作成したり編集したりしようとすると、設計を理解するのに時間がかかったり、情報がそもそも少なかったりと自分で学ぶ環境としては大変難しい状況であります。 そんな中、本発表ではアプリで動画を編集するところを切り口として、メディアをどのように扱い、どのように編集するのか、つまずいたポイントなど、少しでも皆さんに便利情報をお伝えできればと思います。
+ 対象者  動画編集が興味あるけどよくわからない方   採択されたトーク そして、今回採択されたのがこれ。 数ある技術トークの中からジャンルとしてはエモいというだいぶレアなカテゴリで話すことになっているので結構緊張していたりします。。 とはいえ、発表する以上みなさんに有用な情報を少しでも届けられたらと思うので、頑張って資料作成しようと思います！！
+https://iosdc.jp/2016/c/node/65
+時代がWEBからモバイルの時代に突入する中、@nakajijapanは運あってか モバイルエンジニアとして仕事をいただき、その時代をただひたすらと駆け抜けていく日々でした。いつの間にか歳は今年で３３歳という社会では中堅という立場になってきました。最近では若者がどんどんモバイルエンジニアとして成長していき、 自分の立ち位置が危ぶまれるという恐怖心と戦いながら日々仕事をしています。 本発表では、これまでを振り返り、自分はどうあるべきだったのか・何が良かったのか、モバイルエンジニア・中堅エンジニアとしてこれかどう生き抜いていくのか、皆さまに少しでもお役に立てそうな話をお伝えできればと思います。
+ 対象者  これから中堅エンジニアになっていくけど不安に思っている方 もう中堅エンジニアの方で今まさにその状況の方   とにもかくにも、前夜祭と当日で面白いトークが満載なので楽しみです！
+ウォーーーーーーー！！！！！</description>
+    </item>
+    
+    <item>
+      <title>朝練チームで合宿してきました。</title>
+      <link>http://nakajijapan.github.io/blog/2016/03/28/%E6%9C%9D%E7%B7%B4%E3%83%81%E3%83%BC%E3%83%A0%E3%81%A7%E5%90%88%E5%AE%BF%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Mon, 28 Mar 2016 00:19:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2016/03/28/%E6%9C%9D%E7%B7%B4%E3%83%81%E3%83%BC%E3%83%A0%E3%81%A7%E5%90%88%E5%AE%BF%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>先日ですが金曜日・土曜日にかけていつも朝に読書会＆勉強会（僕たちはこの会を朝練と言っています）をするメンバーで開発合宿を行ってきました。 この開発合宿は、何かテーマは決まっているものではいなく、この1日で各自が行いたいこと決めてもらってそこで決めたことを自分で追い込みを行っていろいろインプットしてもらう。 後はブログやら成果物やらでアウトプットを行って終了という形式になっています。結構ゆるゆるな合宿ですw 仕事終わって地道に勉強していることを朝から晩までずっと違う環境でやるのも良いかもねという気軽に思いつきからこの企画が始まりました。 別に何か強い何かはあったわけではなくて本当に気軽に。みんな快く賛同してくれたので本当に良かった。
+どこに行ったの？ グランビュー熱海 http://www.grandview-atami.com/
+マンションをホテルにリフォームした感じのところでした。 2DKの部屋で４人で作業にするには丁度いい場所でした。
+旅のしおり 1日目  渋谷 8:57発 横浜 9:26着 横浜 9:35発 熱海 10:48着 横浜 - 熱海間やること  ４人各自やりたいこと黙々  11:00 - 13:00  CAFE ROCA 休憩  13:00 - 14:00  お昼だ！！ 海鮮丼を食べるゾ！！   14:00 - 15:00 15:00  ホテルチェックイン  15:00 - 20:00  もくもく会  20:00  夕飯だ！！ 寿司だ！！   21:00 - 28:30  スーパーもくもくタイム  28:30 -  ( ˘ω˘ ) ｽﾔｧ   2日目  8:00 - 9:00  朝食  9:00 - 10:00  もくもく会  10:00 - 12:00  秘宝館  12:00 - 13:30  各自したことの報告会&amp;amp;打ち上げ  14:00 - 15:00  吉村屋  15:00  解散   なのをしたの？ Teitenのバグ修正 以前App Storeに申請した時に、幾つか指摘されたのでその修正を行った</description>
+    </item>
+    
+    <item>
+      <title>Macアプリ Sengiri をリリースした。</title>
+      <link>http://nakajijapan.github.io/blog/2016/03/13/mac%E3%82%A2%E3%83%97%E3%83%AA-sengiri-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sun, 13 Mar 2016 02:19:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2016/03/13/mac%E3%82%A2%E3%83%97%E3%83%AA-sengiri-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%9F/</guid>
+      <description> つい先日、SengiriというMacアプリをリリースしました。
+何それ？ 「千切り」はスクリーン録画からGIFアニメーションファイルにするまで、簡単な操作ですぐに作成することができます。
+機能は？ ・録画できる領域を指定することができます。 ・トップウィンドウの矩形を自動で行います。 ・録画はステータスメニューから止めることができます。 ・それぞれの操作がショートカットに対応しています。
+なぜ？ それなりにGIFにするツールはあるのですがもっと簡単にショートカット一つで録画できるようなものがあればいいのになと常々不満に思っていたので作成してみました。
+作業ログ 作成したものは↓にあるのでツッコミあったら教えていただけると助かります！ Sengiri
+後、調べたことはShibuya.swift #2で話しました。
+ </description>
+    </item>
+    
+    <item>
+      <title>Teiten v1.1.2にアップデートした</title>
+      <link>http://nakajijapan.github.io/blog/2016/02/17/teiten-v1.1.2%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%9F/</link>
+      <pubDate>Wed, 17 Feb 2016 20:32:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2016/02/17/teiten-v1.1.2%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%9F/</guid>
+      <description>TeitenのにRxSwiftを導入してみた。
+ユーザ側にはちょっとしか変更はなかったので今回内部構造をえいやっとRxSwiftに変更してみました。
+ Teiten  Pull request #4   </description>
+    </item>
+    
+    <item>
+      <title>2015年 振り返り</title>
+      <link>http://nakajijapan.github.io/blog/2015/12/31/2015%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</link>
+      <pubDate>Thu, 31 Dec 2015 23:21:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/12/31/2015%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</guid>
+      <description>これを書いている時はまだ2015ですが、出す頃には2016になってるんだろうな。
+さて、2015年振り返ってみることにしよう。 今年は自分が部署移動して来て仕事が怒涛に前に進んでいったというイメージが強い。日々自分もそこで奮闘していた。 モバイルエンジニアとして活動してから２年ちょっと経過したのかと思う。（実際は趣味で2012年からやり始めているから結構経過していた） その中でもこの１年はさらに濃いものだったと思う。
+仕事 モバイルでは初の複数人開発を経験した。今まで一人で開発してきての急な複数人開発で不安なものがあった。 まぁスクラムをある程度体系化していたのとメンバーとのコミュニケーションもそれなりにとれていたのでコンテキスト が大幅にずれることはなかったのでうまく仕事を回せていけた。その甲斐もあって、この１年間でいろんな問題が通常の３倍のスピードで改善されていった。 来年もさらに改善活動は続けていくのだが、それだけでは圧倒的なプロダクトになっていかないので自分たちは自分達なりにそのプロダクトをどうしていくべきを考えて いかなければいけない。自分としては改善活動と合わせて、技術をさらに深掘りしていくのと、デザインやマーケティングをもっと学んで違ったアプローチでプロダクト をよくしていく活動もしていこうと思う。
+発表 以前自分がどのようにしてエンジニアとして成長しているのかというのを自己紹介という名目で発表した。 今年はまさにそれを体現している一年となったかもしれない。ただ、変わっていたのは個人プロダクトから 会社のプロダクト経由でたくさんの挑戦や学びを得たというところだろうか。
+ スライド  shibuya.swift #2  メッセージ機能改善活動をしてきたことを発表しました  「minne」技術戦略カンファレンス  ユーザ体験を生み出す現場づくりについて発表しました。  shibuya.swift #1  Diversity is Good. - Introducing to PhotoSlider for Swiftを発表  Pepabo Tech Conference 03  Promotion activities for Mac OS X Development  potatotips19  Introducing Teitenを発表しました  Google I/O &amp;amp; WWDC 情報共有会  Mysteries of Auto Layoutを発表しました  potatotips #14  Introduction to NKJPagerViewController potatotips第１４回で自作プラグインの紹介をしました  私の半生 〜もの作り人生〜  2015年4月ペパボテックカンファレンス資料で20分の自己紹介しました。  Mysteries of Auto Layout  Google I/O &amp;amp; WWDC 情報共有会でiOS9で新しく導入されたクラスUIStackViewの話をしました どれだけ楽になるのかを説明をしています  app道場#4  mixiさんと細々と続けているモバイルアプリエンジニア向けのイベントです エクストリームフィッシュボウルをしました   小さいものから大きいものまであるが自分の成長サイクルの一環としてできているので今後も継続していきたい。 ただ、やや個人的なもの多かったので大規模なもの、さらに技術的に濃いことを踏み込んで話せていければさらに自分の成長につながっていいのではないかと思ったので実践していくぞ！</description>
+    </item>
+    
+    <item>
+      <title>Technology of Etsy</title>
+      <link>http://nakajijapan.github.io/blog/2015/12/16/technology-of-etsy/</link>
+      <pubDate>Wed, 16 Dec 2015 01:26:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/12/16/technology-of-etsy/</guid>
+      <description>初めまして, @nakajijapanです。
+この記事はiOS Adovent Calendar 2015の16日目の記事になります。
+今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。 どんなインタラクションかというと作品のの個数を決めるときにドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような インタラクションを実現しています。
+カートで在庫や作品の色を決めるときに表現されます。
+ transitionで現在の画面を多少縮小させる 画面の半分までTableViewが表示される  Cellをタップしたら閉じる  NavigationBarのような部分をパンすることで最後までTableViewが表示されるようになる  パンしている間、縮小した画面はそれに合わせてリアルタイムに変化する   これは、少ない選択肢の時はTableViewを半分だけ表示すれば事足りるのだが、その半分におさまらない場合はパンすることでさらに見ることができるようになるという仕組み？かと思います。 これがいいのは、ユーザの細かいフェーズでインタラクションを実現できることだと思います。
+ 選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる  後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる  選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる  上記と同じなのだが、さらに本当にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている   試してみたこと では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのがUIPercentDrivenInteractiveTransitionを利用した方法です。 これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して 行われてしまうのですがUIPercentDrivenInteractiveTransitionを利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体はUIViewControllerAnimatorTransitioningプロトコルを利用したアニメーションクラスを実装することで実現できます。 しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中からUIPercentDrivenInteractiveTransitionを利用してパンしながらリアルタイムにアニメーションをすることができませんでした。
+どのように作成したの では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。 あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。
+func transitionBackgroundView(degree: CGFloat, location:CGPoint) { let overlayView = self.parentView!.viewWithTag(920)! let imageView = overlayView.viewWithTag(910) as! UIImageView let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0) let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1) imageView.</description>
+    </item>
+    
+    <item>
+      <title>potatotips #24に参加してきた</title>
+      <link>http://nakajijapan.github.io/blog/2015/12/16/potatotips-#24%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Wed, 16 Dec 2015 01:26:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/12/16/potatotips-#24%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description>potatotips (iOS/Android開発Tips共有会) 第24回にブログ枠として参加してきたのでそのメモに綴ります！ 今回はGoodpatchさん主催での開催となりました。
+iOSでテーマ(着せ替え)機能を実装した時のTips  Goodpatchの重田さん
+ UIAppearanceの話  tvOSでWebSocketを使う   tvOSでWebSocketを使う  from Tomoki Hasegawa 
+デジタルサーカスの長谷川さん
+ Apple TVの話 AppleTVのサーバ通信 WEB API?  もっとリアルタイムにしたい  APNs？ WebSocket?  Starscreamが良かった Pure Swift!   iOS7をサポート対象外にして開発を健全化する  @shoby さん
+ iOS 7をサポート対象外にして健全にする ユーザにOSのアップデートを促す 最終互換バージョンを提供する 著名なアプリが対象外にしている！！！！！  xcconfigで複数ターゲットのビルド設定をまとめる @k_katsumi さん
+  Univy targets for multiple platforms into one target メルカリは言語ごとにターゲット作ってる 複数管理する方法 keychainaccess  v2.1 コピーすればios7でも使える  どうやるか  configuration file使ってる base.</description>
+    </item>
+    
+    <item>
+      <title>Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした</title>
+      <link>http://nakajijapan.github.io/blog/2015/11/03/teiten-1.3.0%E3%81%AB%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%A2%E3%83%83%E3%83%97---%E5%8B%95%E7%94%BB%E3%82%92%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 03 Nov 2015 23:10:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/11/03/teiten-1.3.0%E3%81%AB%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%A2%E3%83%83%E3%83%97---%E5%8B%95%E7%94%BB%E3%82%92%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F/</guid>
+      <description>Teitenのバージョンアップを行いました。
+バージョンアップ内容は以下の内容です。
+ 動画にその時の時間を加えました。 指定された時間ごとに３秒動画を撮ってそれを結合できるようにしました。  もっと監視っぷりを高めたくこの更新を行いました。
+ 処理内容  動画を保存する 保存された動画を結合する 動画には録画された時間帯を表示させておく  動画を保存する 今まで出力に
+ AVCaptureStillImageOutput  を利用していたが新たな出力先に
+ AVCaptureMovieFileOutput  を登録した。
+保存された動画を結合する 以前自分が作成したプラグイン[NKJMovieComposer]()でさくっと実装した
+let movieComposition = NKJMovieComposer() movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height) for i in 0..&amp;lt;self.files.count { let beforeTimeDuration = movieComposition.currentTimeDuration let moviePath = self.files[i] // movie let movieURL = NSURL(fileURLWithPath: moviePath) //let layerInstruction = movieComposition.addVideo(movieURL) _ = movieComposition.addVideo(movieURL) (snip...) }  動画には録画された時間帯を表示させておく 時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。 動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。</description>
+    </item>
+    
+    <item>
+      <title>「minne」技術戦略カンファレンスに登壇しました。</title>
+      <link>http://nakajijapan.github.io/blog/2015/10/22/minne%E6%8A%80%E8%A1%93%E6%88%A6%E7%95%A5%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%81%AB%E7%99%BB%E5%A3%87%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Thu, 22 Oct 2015 01:00:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/10/22/minne%E6%8A%80%E8%A1%93%E6%88%A6%E7%95%A5%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%81%AB%E7%99%BB%E5%A3%87%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>先日ですが「minne」技術戦略カンファレンスというものがありましてモバイル枠としてお話しさせていただきました。 内容は「ユーザ体験を生み出す現場作り」でした。
+minneはモバイルに関してUI/UX部分を深津さんに引っ張っていただいているところですが、日々大変勉強になっています。 今回はそのものづくりの取り組みにどういったことをするべきで、どれだけ集中できるようにするか、そのために開発は どういったことをしているかを開発者の立場としてお話しさせていただきました。
+ 「minne」技術戦略カンファレンス  資料  反省点 場所が普段発表するような場所じゃないのと会場が大きかったの何か見えない大きなプレッシャーを感じて全てが裏目に回った感じがしました。。。
+ 極度の緊張のせいでスライドしか見てなかった。あとどこ見てしゃべったらいいかわかんなくなってパニクった ステージ往復してみたかった 「え〜」言わないぞって思ったけど多くて悲しかった 練習量足りない  最後に 今回の発表で色々話しましたが、まだまだまだまだ改善できるところはたくさんあるので圧倒的ナンバーワンになるまで 引き続き頑張っていこうと思う日なのでした。
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;); 
+気合いいれてこ。</description>
+    </item>
+    
+    <item>
+      <title>potatotips (iOS/Android開発Tips共有会) 第21回に参加してきた</title>
+      <link>http://nakajijapan.github.io/blog/2015/09/16/potatotips-ios/android%E9%96%8B%E7%99%BAtips%E5%85%B1%E6%9C%89%E4%BC%9A-%E7%AC%AC21%E5%9B%9E%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Wed, 16 Sep 2015 23:59:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/09/16/potatotips-ios/android%E9%96%8B%E7%99%BAtips%E5%85%B1%E6%9C%89%E4%BC%9A-%E7%AC%AC21%E5%9B%9E%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description>potatotips (iOS/Android開発Tips共有会) 第21回にブログ枠として参加してきたのでそのメモになります。
+Swift compile time @_mpon さんの発表
+ framework code reading @kgmyshinさんの発表
+  Framework code reading  from shinnosuke kugimiya 
+Apple Watch Tips @shobyさんの発表
+ To learn Interpolator @amyu_san さんの発表
+  To learn Interpolator  from Mima Yuki 
+3D touch for iOS @TachibanaKaoruさんの発表
+  3D touch for iOS  from toyship 
+Recently Google Play Developer Console @tarotaro4 さんの発表
+UIKit Sound   UIKit Sound  from cocominap</description>
+    </item>
+    
+    <item>
+      <title>ペパボテックカンファレンス#3で発表した</title>
+      <link>http://nakajijapan.github.io/blog/2015/09/02/%E3%83%9A%E3%83%91%E3%83%9C%E3%83%86%E3%83%83%E3%82%AF%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#3%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%9F/</link>
+      <pubDate>Wed, 02 Sep 2015 08:54:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/09/02/%E3%83%9A%E3%83%91%E3%83%9C%E3%83%86%E3%83%83%E3%82%AF%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#3%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%9F/</guid>
+      <description>第三回ペパボテックカンファレンスに参加しました。
+OS Xの話したけど、話の内容がなかなかニッチすぎたのと、想定された人たちを元にした内容になっていなかったので 反応が薄くてだめだめだった。（自分のせいです。）だけど、自分の勉強会のまとめにするいい機会だったのでよかった のかなと自分に言い聞かせています。。。まだまだだ。
+今度はもっとそれっぽい人たち集めて話すぞ！！！！！ということで勉強会を開催してみた。 Shibuya.swift開催するのでよかったらきてみてください！
+これから定期的に鍛錬積んで自分の身の回りの便利アプリ作成していきたい。</description>
+    </item>
+    
+    <item>
+      <title>Apple Watch App Memo</title>
+      <link>http://nakajijapan.github.io/blog/2015/05/05/apple-watch-app-memo/</link>
+      <pubDate>Tue, 05 May 2015 18:21:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/05/05/apple-watch-app-memo/</guid>
+      <description>折角Apple Watchを購入したので、何かしら作れるようになりたいので、WatchKitのことを雑に自分用にメモした。
+どんな機能があるのか WatchKit App  通常Apple Watchで利用するアプリ 階層型、ページ型がある  Glance  意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。  Notification  iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの  新しく増えたインタラクション  プレス  強く押す感じ   構造  WatchKit App Architecture   通信はWatchKit経由で通信を行う。  InterfaceController  画面はInterfaceControllerなるものごとに管理されている  Life Cycle init  インスタンス化時に呼び出される  awakeWithContext  UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない  willActivate  表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する  アニメーションの変更のときとかかな   didDeactivate  利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される  要素 クラスはこれだけ。
+import WatchKit.</description>
+    </item>
+    
+    <item>
+      <title>僕の左腕にApple Watchがキタ！</title>
+      <link>http://nakajijapan.github.io/blog/2015/04/24/%E5%83%95%E3%81%AE%E5%B7%A6%E8%85%95%E3%81%ABapple-watch%E3%81%8C%E3%82%AD%E3%82%BF/</link>
+      <pubDate>Fri, 24 Apr 2015 19:49:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/04/24/%E5%83%95%E3%81%AE%E5%B7%A6%E8%85%95%E3%81%ABapple-watch%E3%81%8C%E3%82%AD%E3%82%BF/</guid>
+      <description>未来
+daichi nakajimaさん(@nakajijapan)が投稿した写真 - 2015 4月 23 9:23午後 PDT
+ 
+とりあえず、未来を感じたかったので購入しました。 ６月に届くのかと思いきや4月２４日に来たのでびっくり。 まだまだ未開拓な領域であるけど何起こるかわからんから押さえられるとこ抑えとこ。</description>
+    </item>
+    
+    <item>
+      <title>ペパボテックカンファレンス#1で発表した</title>
+      <link>http://nakajijapan.github.io/blog/2015/04/19/%E3%83%9A%E3%83%91%E3%83%9C%E3%83%86%E3%83%83%E3%82%AF%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#1%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sun, 19 Apr 2015 08:55:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/04/19/%E3%83%9A%E3%83%91%E3%83%9C%E3%83%86%E3%83%83%E3%82%AF%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9#1%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%9F/</guid>
+      <description>第一回ペパボテックカンファレンスに参加しました。
+基本的には自分の紹介の話と自分の人生の振り返りをだらだらと発表したスライドです。 自分を振り返るよい機会になったのでよかったと思う。 まだなんとなくだけど自分の生き方はこうだってのが見えてきた。</description>
+    </item>
+    
+    <item>
+      <title>Nexus6がキタ！</title>
+      <link>http://nakajijapan.github.io/blog/2015/04/13/nexus6%E3%81%8C%E3%82%AD%E3%82%BF/</link>
+      <pubDate>Mon, 13 Apr 2015 19:57:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/04/13/nexus6%E3%81%8C%E3%82%AD%E3%82%BF/</guid>
+      <description>iPhone6Plusと二台持ちになった
+daichi nakajimaさん(@nakajijapan)が投稿した写真 - 2015 4月 12 10:42午後 PDT
+ 
+普段は、バッグエンドとかiOSとかいじってるけどそろそろAndroidもいじらんとなと思うようになったので購入してみた。
+なぜ 同僚の@misyobunがなぜ購入しないのかと言わんばかりの顔を毎日していたのも理由のうちにあるでしょう。 また、Androidの勉強でシミュレータで実行して確認してたけど、なんかぱっとしない。やっぱ実機でできた感だしたいので。 あとは、Androidの優良アプリを普段から利用することでその吸収できるところはをしておこうという魂胆です。
+あとは、インターネットに繋がないとあまり意味ないのでDMMmobileの3GBを契約しました。 月８５０円なのでかなりお得。
+これで準備は整った！！！！！！！</description>
+    </item>
+    
+    <item>
+      <title>teiten をv1.1.1にした</title>
+      <link>http://nakajijapan.github.io/blog/2015/03/17/teiten-%E3%82%92v1.1.1%E3%81%AB%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 17 Mar 2015 13:49:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/03/17/teiten-%E3%82%92v1.1.1%E3%81%AB%E3%81%97%E3%81%9F/</guid>
+      <description>Teitenのバージョンアップを行いました。
+バージョンアップ内容は以下の内容です。
+ 画像を保存するときに画像の解像度を選択できるようになりました。 File -&amp;gt; Open Saved Images で保存されているディレクトリをFinderで開ける用にしました。  地味なバージョアンアップでした。</description>
+    </item>
+    
+    <item>
+      <title>NKJMovieComposerをSwiftにした</title>
+      <link>http://nakajijapan.github.io/blog/2015/03/17/nkjmoviecomposer%E3%82%92swift%E3%81%AB%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 17 Mar 2015 13:40:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/03/17/nkjmoviecomposer%E3%82%92swift%E3%81%AB%E3%81%97%E3%81%9F/</guid>
+      <description>ようやくCocoapodsがSwiftに対応した(0.36になった)ので自分のプラグインもSwfitに書き換えたものをmasterにマージしました。 Swiftは名前空間あるのでキラキラ名にするでも良かったんだけど、良い名前が思い浮かばなかったのとなんだか NKJ に愛着があるので そのままにしましたｗ
+基本自分のプラグインを書き換えるときはこの方針で行こう。 あと、わかりやすいように自分のプラグインのデモをのせてみました。
+ Swiftに書き換えた時のレポジトリ  https://github.com/nakajijapan/NKJMovieComposer/pull/1   </description>
+    </item>
+    
+    <item>
+      <title>自作のアプリから他のWindowに画像をドラッグする</title>
+      <link>http://nakajijapan.github.io/blog/2015/02/10/%E8%87%AA%E4%BD%9C%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E4%BB%96%E3%81%AEwindow%E3%81%AB%E7%94%BB%E5%83%8F%E3%82%92%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%81%99%E3%82%8B/</link>
+      <pubDate>Tue, 10 Feb 2015 21:15:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/02/10/%E8%87%AA%E4%BD%9C%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8B%E3%82%89%E4%BB%96%E3%81%AEwindow%E3%81%AB%E7%94%BB%E5%83%8F%E3%82%92%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%81%99%E3%82%8B/</guid>
+      <description>タイトルの通り。たとえば、自作アプリで生成された画像をそのままGitHubにドロップして画像を登録する。 っていうことをできるようにしたい。だけど前回の記事だとどうしてもドロップする機能が実装できなくて 困っていたのですができる方法が見つかったので記録しておく。
+結論からいうとNSTableViewをうまく利用することでできるようになった。
+公式ドキュメント にもあるのですが、Draggingの操作があらかじめ用意されていてすくない実装で目的のことができるようになります。
+Setup NSTableViewは初期化されていることは前提で、それ以外で必要な設定を説明します。
+let types = [NSImage.imagePasteboardTypes()] tableView.registerForDraggedTypes(types)  これはドロップできるデータのデータのタイプを指定します。 この場合だと画像の種類を指定しています。
+tableView.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)  これは、ドラッグできる操作の種類、他のWindowにもドラッグできるかどうかも指定できます。 この場合だとファイルのコピーを他のWindowにドロップします。
+ドラッグの種類はここ にすべて記述してあります。
+NSTableViewDataSource 今回は一つだけ表示できればいいので要素を一つのみ表示する処理をします。
+// MARK: - NSTableViewDataSource func numberOfRowsInTableView(tableView: NSTableView) -&amp;gt; Int { return 1 } func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -&amp;gt; NSView? { var view = tableView.makeViewWithIdentifier(&amp;quot;imageCell&amp;quot;, owner: self) as NSView self.entity = Entity() var imageView = view.viewWithTag(1) as NSImageView imageView.image = self.</description>
+    </item>
+    
+    <item>
+      <title>最近読んだ本</title>
+      <link>http://nakajijapan.github.io/blog/2015/02/01/%E6%9C%80%E8%BF%91%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</link>
+      <pubDate>Sun, 01 Feb 2015 22:52:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/02/01/%E6%9C%80%E8%BF%91%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</guid>
+      <description>最近読んだ本
+iOS 8 SDK Development: Creating iPhone and iPad Apps with Swift
+ジョナサン・アイブ　偉大な製品を生み出すアップルの天才デザイナー
+Pro iOS Continuous Integration
+マイクロインタラクション ―UI/UXデザインの神が宿る細部
+iOS UICollectionView: The Complete Guide (2nd Edition) (Mobile Programming)
+Swift Development with Cocoa: Developing for the Mac and iOS App Stores
+Learning AV Foundation: A Hands-on Guide to Mastering the AV Foundation Framework</description>
+    </item>
+    
+    <item>
+      <title>OSX ドラッグアンドドロップの調査</title>
+      <link>http://nakajijapan.github.io/blog/2015/01/20/osx-%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%82%A2%E3%83%B3%E3%83%89%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%81%AE%E8%AA%BF%E6%9F%BB/</link>
+      <pubDate>Tue, 20 Jan 2015 17:01:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2015/01/20/osx-%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%82%A2%E3%83%B3%E3%83%89%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%81%AE%E8%AA%BF%E6%9F%BB/</guid>
+      <description>ドラッギングアンドドロップ関連の調査
+NSDraggingSource プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。 ドラッグ操作中に受け取るメッセージ
+draggingSession(_:sourceOperationMaskForDraggingContext:) ドラッギングしている状況を教えて、どんなドラッグのタイプを許すか設定します。
+enum NSDraggingContext : Int { case OutsideApplication case WithinApplication }  ドラッグ操作のマスク。ここでどんな操作を許すのかの種類
+struct NSDragOperation : RawOptionSetType { init(_ rawValue: UInt) init(rawValue: UInt) static var None: NSDragOperation { get } static var Copy: NSDragOperation { get } static var Link: NSDragOperation { get } static var Generic: NSDragOperation { get } static var Private: NSDragOperation { get } static var Move: NSDragOperation { get } static var Delete: NSDragOperation { get } static var Every: NSDragOperation { get } static var All_Obsolete: NSDragOperation { get } // Use NSDragOperationEvery static var All: NSDragOperation { get } // Use NSDragOperationEvery }  以下は、指定されたスクリーン上をトリガーにして呼び出されるメソッド その時の位置も保持している。</description>
+    </item>
+    
+    <item>
+      <title>OS X Advent Calendar 2014 - 初めてMacOS X App作成してみた。</title>
+      <link>http://nakajijapan.github.io/blog/2014/12/25/os-x-advent-calendar-2014---%E5%88%9D%E3%82%81%E3%81%A6macos-x-app%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Thu, 25 Dec 2014 00:00:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/12/25/os-x-advent-calendar-2014---%E5%88%9D%E3%82%81%E3%81%A6macos-x-app%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>この記事はOS X Advent Calendar 2014の25日目の記事になります。 ラストーーーーーーーー！！！！
+実は前回も自分がOSXアプリ初心者の行きを脱するためにしたこと書きましたが、 まだまだ熱が冷めないので二つ目の記事を書くことにしました。
+teitenという MacOS Xアプリを作成しました。 WWDC2014の発表から少しづつ地道に開発してきてようやく形になりました。
+teiten Macのカメラを通して自分自身を定点観測するアプリです。 アイコンはめっちゃ見ている感じを出したくてカメラ＋妖怪でそれっぽさを出してみました。 観測というかもう監視している感じですが。。。 アイコンはえびちゃんというデザイナの方に作成していただきました。
+機能  10 sec or 60 sec ごとに勝手に写真を撮ります。 自由に自分自身で写真を取ることもできます。 適当に溜まったら画像を集めて動画が作成できるようになります。  Compatibility OS X 10.9以上ですが、もしかしたら10.10しか動かないかも&amp;hellip;
+追記：OS X 10.10以上でした。。。
+Dwonload 期間限定ですがここあるのでよければどうぞ。
+それだけです。それだけのアプリなのにいろいろハマりにハマりまくって結構時間かかりました。。。 めっちゃシンプルなアプリですがなんか大変だった。。
+ScreenShot capture imageでも写真は取れるのですが、カウントダウンされて０になっても写真が撮れます。
+経緯 実は昔にペパボの先輩の@taropと @diskipが同じようなWEBサービス作成していました。 個人的には好きで、毎日のように利用していたのですが、もうサービスが無くなってしまったのがちょっと悲しくて、なんかもったいないと思ったので それに近い形でありながらMacOSXアプリならではの機能をつけて作成した次第です。
+もう一つは、今作成しているLimuというサービスがMac版も対応する予定でいるので、その準備運動の一つでもあります。
+最後に プロダクト作るのって自分の興味＋αでいろいろ知らないといけないんですが、何か作る度に自分が一歩成長している間があるのでなかなかやめれない。 あと、そもそも楽しい。 まだまだ、バグも多いし機能も足りないのでちょっとづつ改善していこう思います。
+なんとかAdvent Calenderには間に合ったけど、僕のクリスマスはこれで消えてしまった！！！</description>
+    </item>
+    
+    <item>
+      <title>Pepabo Advent Calendar 2014</title>
+      <link>http://nakajijapan.github.io/blog/2014/12/16/pepabo-advent-calendar-2014/</link>
+      <pubDate>Tue, 16 Dec 2014 22:33:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/12/16/pepabo-advent-calendar-2014/</guid>
+      <description>この記事は、Pepabo Advent Calendar 2014の17日目の記事です。 明日は lamanotrama さんです。くろださーーーん。
+最近ではiPhoneおじさんとして活動させていただいています。@nakajijapanです。
+Pepabo Advent CalendarはやっぱりこれでしょうということでWWDC2014に行ったことを出そうかなと思ったのですが、何も書いていないのはあれなのでその後、どうなったかを書いていきます。
+最初に&amp;hellip;
+テンションあがる ただ参加しただけでも大きな価値があると思うのですが、今年はAppleが開発者向けに大きな発表があったことはみなさんご存知だと思います。それによりさらにさらにテンションアゲアゲMAXでアドレナリン分泌状態であります。
+プレッシャー感高まる 会社の神対応には大変感謝しておりますが、まぁそれと同等のプレッシャーは感じておりまして今以上に何か恩返しせねばという勢いで、まず社内のSNSのハンドルネーム的なものをApple信者会員番号２番にしました。（社内から僕の他に@misyobunという人も参加してもともとAndroidエンジニアだったのが急に寝返って僕よりも早くApple信者に変えていた裏切り者がいるので。。。）
+神恩返しのために 座談会を盛り上げました？ 弊社では業務中に週に一回ずつAndroidとiOSで座談会的な集会が行われています。 いろんなサービスがあるペパボでは、なかなか同じ職種（特にモバイル）の人が一緒に 仕事をする機会がない中で、同じ職種の人が集まって今週どうだったかどか、新しい機種出たね、この実装どうしてるとかを話せる貴重な時間であり、日々ぽよぽよしています。
+CIサーバ構築 モバイル環境でもCI活動ができるようにJenkins運用したり。
+ (これはFlat Designの歴史について話した時のつかみみたいなものです。。。)
+プラグインはSimple Theme Pluginを利用しましたCSSを変更しました。 jenkinsをsteve jobsにすることでさらにテンションが上がり、仕事の意欲も高まりました。 自動化してしまうとIRCに結果が流れてくるので、なかなか直接みに行かないものですがなぜか、時々見に行ってしまいます。
+Swiftrisを作成した BLOC - Learn Swiftを題材にSwift勉強しながらテトリス作っちゃおうという教材を利用してみんなで隔週で行いました。
+BGMはこの曲にするとテンションがあがることでしょう。
+ iOS8 SDK読書会 Ios 8 Sdk Development: Creating Iphone and Ipad Apps With Swift著者 : Chris AdamsonPragmatic Bookshelf発売日 : 2015-01-25ブクログでレビューを見る» まだBeta版なのですが、出た瞬間後輩の@kurotaky, @ryoma_123に懇願して仕事が始まる１時間前に集合して朝練活動を行っております。コードを書きながら進んでいるので遅めですが最近やっとGestureRecognizerの章までいきました。執筆に追いつくことを目標に日々取り組んでおります。
+IRCに通知するやつ なるべく情報の取得が遅れないようにと話のネタ作りにモバイル関係の記事を流すようにしました。。。主にAndroidとAppleの情報が毎朝流れるようになっています。もっとモバイルに興味もってーーーーーーーという僕の想いの表れです。
+https://github.com/nakajijapan/post-feeds-in-irc
+まだまだだ！ と、なにかと活動してきましたが、まだまだもっと自分ができることはたくさんあるはずだし進化できると思う。 なので、来年は今年以上に技術をさらに掘り下げつつサービスや会社に貢献していくんだ！！と決意。 以下の三つを掘り下げます。
+ iPhoneおじさんを掘り下げる モバイルの開発基盤を掘り下げる UI/UXを掘り下げる  その先に神恩返しがあるのではないかと思います。</description>
+    </item>
+    
+    <item>
+      <title>OS X Advent Calendar 2014 - OSXアプリ初心者の域を脱するためにしたこと</title>
+      <link>http://nakajijapan.github.io/blog/2014/12/14/os-x-advent-calendar-2014---osx%E3%82%A2%E3%83%97%E3%83%AA%E5%88%9D%E5%BF%83%E8%80%85%E3%81%AE%E5%9F%9F%E3%82%92%E8%84%B1%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8/</link>
+      <pubDate>Sun, 14 Dec 2014 23:56:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/12/14/os-x-advent-calendar-2014---osx%E3%82%A2%E3%83%97%E3%83%AA%E5%88%9D%E5%BF%83%E8%80%85%E3%81%AE%E5%9F%9F%E3%82%92%E8%84%B1%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8/</guid>
+      <description>この記事はOS X Advent Calendar 2014の15日目の記事になります。
+AppleがSwiftという言語をサポートしてから半年が経とうとしています。 このほかにも今年はAppleに驚かせる一年になったのではないでしょうか。 みなさんこんにちは@nakajijapanです。
+Swiftが出た当初はコードの書きやすさに驚き、ドキュメントを読んでは サンプルコードを書いたり、はたまたLimuというサービスを作成するようになりました。ちなみにこのサービスはいまだに地道に開発しています。。。
+そして、私は新たな興味を持ちました。OSXアプリも頑張れば開発できるのではないかと。
+とにかく、なにも考えずOSXプロジェクトを作成して初期起動してみる。 とりあえずなにもできないWindowが起動できる。 あとは、iOS開発でしたノウハウである程度のカスタマイズができるのではないかと。 しかし、そこまでで終わりでUIKitやiOSの開発知識である程度流用できるものはありますが それ以上にCocoaプログラミングする上での仕様を学ぶ必要がありました。
+そこで今回は、ある程度開発できる？(いや、まだまだであります)ようになってきたのでここでちょっとまとめようと思います。
+OSXアプリ開発ができるようになるまでに行ったこと  とにかくサンプルを読む 思ったことは駄目元で試してみる 公式ドキュメントを読む 本を読む  とにかくサンプルを読む 大体のサンプルはObjective-Cで書いてあります。最初からSwiftで書いていてほしいのですが、まだ昔のサンプルのままで更新されていないので、それをみるようになりますがObjective-CからSwiftに変えるのはそこまで難しくないです。ただより、下のレイヤーにを実装するとなると少し考える事が増えるでしょうが。。。そこにヒントが隠されているので気になるソースを落としてはサンプルを眺めてビルドしてみましょう。
+自分は10個くらい眺めてなんとなくこんな書き方すればいいんだと若干ながら理解して いきました。
+思ったことは駄目元でためしてみる iOS以上に情報が少ないので自分で解決しなきゃいけないことが多くなってきます。 実装が滞るのであれば、ソースをミクロな状態にしてそれができるかこうやったらどうなるんだろうと試行錯誤をしてみることが大切です。
+公式ドキュメントを読む ネットの情報に自分の疑問の答えがあっても、仕様は確認するといいです。それより便利なプロパティやメソッドが用意されているかもしれませんし、そもそも使い方が間違っているかもしれません。
+本を読む 日本語の情報がない中、以下の本を参考にしました。
+MAC OS X COCOAプログラミング 第4版著者 : アーロン・ヒレガス東京電機大学出版局発売日 : 2014-05-20ブクログでレビューを見る» 情報はかなり古いのですが、Cocoaプログラミングの基本がわかるというところまではいいのですが、ある程度iOSで学んだことが記述されているので分厚いわりにはそこまで自分にとって優良な情報は少なかったイメージがあります。
+Mac OS X/iPhoneのためのCocoaプログラミング入門著者 : 藤本裕之ソーテック社発売日 : 2009-07-04ブクログでレビューを見る» 他にもう一冊読もうかなと思って購入した一冊なのですが関西弁？と微妙な例えに苦しんで読みにくかった。。。
+余談 Cocoa Programming for OS X: The Big Nerd Ranch Guide (5th Edition) (Big Nerd Ranch Guides)著者 : Aaron HillegassBig Nerd Ranch Guides発売日 : 2015-04-10ブクログでレビューを見る» 来年発売される第五版の本はSwift、Xcode6に対応しているので勉強しがいがあります。</description>
+    </item>
+    
+    <item>
+      <title>お産合宿2014に参加してきた。</title>
+      <link>http://nakajijapan.github.io/blog/2014/09/17/%E3%81%8A%E7%94%A3%E5%90%88%E5%AE%BF2014%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Wed, 17 Sep 2014 00:06:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/09/17/%E3%81%8A%E7%94%A3%E5%90%88%E5%AE%BF2014%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description>夏も終わろうかとしている今日このごろ皆さんいかがお過ごしでしょうか。 僕はパンパンです。中島です。
+先日、弊社でお産合宿2014という開発合宿的なイベントが開催されたので参加してきました。
+今回は、別なチームで組んだことと、参加締め切りまでそんなに時間がなかったので適当にnakajijapanというチームで応募(自分のtwitter idです&amp;hellip;)しました。 結果的にも自分の価値観を押し出す感じにはなりましたが、それでもみんな意見をいろいろだしてくれていい感じに開発できたと思います。
+ほいで今年はこんなアプリを作成しました。
+音楽位置情報アプリ 「Limu」 limu.xyz 
+コンセプトは新しい音楽の出会い方です！
+詳細は後々公開していきます。 完成度としては、まだ５割ほどでいろいろ試行錯誤が必要なところが結構あるのですが１０月くらいにはリリースできるようにメンバー全員 頑張っておりますのでぜひご期待ください！！！！！！！！！！！
+以下にお産合宿発表した資料を載せておきます。（一部修正しました）</description>
+    </item>
+    
+    <item>
+      <title>Introducing CloudKit</title>
+      <link>http://nakajijapan.github.io/blog/2014/08/23/introducing-cloudkit/</link>
+      <pubDate>Sat, 23 Aug 2014 21:06:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/08/23/introducing-cloudkit/</guid>
+      <description>CloudKit Strage
+WWDC2014でiOS8からの新しい機能であるCloudKitについて調べたよという話です。
+次に自分がリリースするプロダクトのバックエンドを実験がてらParseでやろうとしていたのですが、 CloudKitのほうが便利そうだったのと、何かときめきを感じるものがあったのでCloudKitを選定して実装する方向 にはなったのです。しかし、情報はというとサンプルプログラムとただドキュメントがあるんだけでした ので自分なりに調べてどういう実装をしたらいいのかというのを調査して、一部まとめたお話です。
+せっかくなのでpotatotips #8でも共有させていただきました。
+ 簡単に話すと以下のような内容になっています。
+ 簡単にCloudKitの説明 CRUDで実装した場合、どんな実装になるのか ページング処理の話 要調査内容 感想  補足なのですがCKSubscriptionも試してみたのでご参考までに。
+CKSubscription サーバ上での変更を追跡するのに利用されます。 例えば、何かのレコードに変更があった場合にPush通知を送信できたりします。 実際のコードは以下のようなもの。
+ // #1 let truePredicate = NSPredicate(value: true) let itemSubscription = CKSubscription( recordType: &amp;quot;Items&amp;quot;, predicate: truePredicate, options: CKSubscriptionOptions.FiresOnRecordCreation ) // #2 let notification = CKNotificationInfo() notification.alertBody = &amp;quot;Item Add&amp;quot; itemSubscription.notificationInfo = notification // #3 self.publicDatabase.saveSubscription( itemSubscription, completionHandler: { (subscription:CKSubscription!, error:NSError!) -&amp;gt; Void in if error != nil { println(&amp;quot;An error occured in \(error.</description>
+    </item>
+    
+    <item>
+      <title>2014年夏に読んだ本</title>
+      <link>http://nakajijapan.github.io/blog/2014/08/19/2014%E5%B9%B4%E5%A4%8F%E3%81%AB%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</link>
+      <pubDate>Tue, 19 Aug 2014 03:49:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/08/19/2014%E5%B9%B4%E5%A4%8F%E3%81%AB%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</guid>
+      <description>この夏に読んだ本をメモライズ。
+Mac App この２冊でMac周りの勉強をざっくりしました。
+MAC OS X COCOAプログラミング 第4版 Mac OS X/iPhoneのためのCocoaプログラミング入門
+Core Data CloudKitと合わせて使いたかったので読みました。
+iOS Core Data徹底入門
+Objective-C Effective Objective-C 2.0 iOS位置情報プログラミング―iBeacon/GeoFence/Navi/CoreMotion/M7の理解と実践
+About Apple スティーブ・ジョブズ亡き後ののアップルがどうなるんだろうか本
+沈みゆく帝国 スティーブ・ジョブズ亡きあと、アップルは偉大な企業でいられるのか</description>
+    </item>
+    
+    <item>
+      <title>About Core Foudation in Working with Cocoa Data Types</title>
+      <link>http://nakajijapan.github.io/blog/2014/07/26/about-core-foudation-in-working-with-cocoa-data-types/</link>
+      <pubDate>Sat, 26 Jul 2014 16:44:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/07/26/about-core-foudation-in-working-with-cocoa-data-types/</guid>
+      <description>AV Foundation関連のプログラムをSwiftで書き直しているときに、単純に変換できないところがあったので 一旦でキュメントに振り返って読み直してみました。
+参照先はAppleの公式ドキュメントに記載してあるのを自分なりに翻訳してみました。
+Core Foundation Core Foundation型は自動的にfull-fledgedなSwiftクラスとしてインポートされる。 メモリ管理が提供されるときはいつでも、Swiftは自動的にCore Foundation objectsのメモリを管理し、 自身をインスタンス化したCore Foundation objectsをインクルードして管理します。Swift内で、 あなたはtoll-free bridgedなFoundationとCore Foundationの両方を相互に変換できる。 あなたはブリッジしているFoundation型をキャストするならSwiftの標準ライブラリに対してtoll-free bridgedな Core Foundation型をブリッジすることができる
+ toll-free bridged  オブジェクトを変換することなくキャストすることで相互変換可能な仕組みのことを指すらしいです   Remapped Types SwiftはCore Foundation型をインポートするとき、コンパイラはそれらの型名を再配置する コンパイラは各型の最後に記述されているRefを削除する、なぜならSwiftクラスのすべては参照型、 それゆえにサフィックスはいらない
+CFTypeRefはAnyObjectに再配置されるよ。CFTypeRefをつかうときはAnyObjectを利用すべきだ！
+Memory Managed Objects APIから返却されたCore Foundation objectsはSwiftで自動的にメモリ管理される。 あなたは自分自身でCFRetain、CFRelease、CFAutoreleaseを呼び出す必要はない。独自のCの関数からCore Foundation objects を返すのなら、それらをCF_RETURNS_RETAINEDとCF_RETURNS_NOT_RETAINEDのいずれかを使ってアノテートする。 上記のAPIを呼び出すSwiftコードをコンパイルするとき、コンパイラは自動的ににメモリ管理用の呼び出しを行う。 Core Foundation objectsを返さないAPIを利用するときは、このセクションをスキップしてね。 でないのならunmanaged Core Foundation objectsの操作について学んでね。
+Unmanaged Objects Swiftが提供されているAPIをimportするときに、コンパイラは自動的に返却されたCore Foundation Objectsをメモリ管理できないよ SwiftはUnmanaged&amp;lt;T&amp;gt;構造体内でこれらの返却されたCore Foundation objectsを内包する 間接的に返却されたCore Foundation objectsのすべては管理されい。例えば以下のように宣言できる
+Objective-C CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)  Swift func StringByAddingTwoStrings(CFString!</description>
+    </item>
+    
+    <item>
+      <title>Swift勉強会を開催して話してきました。</title>
+      <link>http://nakajijapan.github.io/blog/2014/07/19/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E9%96%8B%E5%82%AC%E3%81%97%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sat, 19 Jul 2014 20:08:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/07/19/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E9%96%8B%E5%82%AC%E3%81%97%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>先日、小さい規模ながらSwfit勉強会を開催しました。
+Swift勉強会 hosted by @nakajijapan from ペパボ
+そんななか、自分も「Swiftに慣れるまで行ったこと」を発表しました。
+ざっくり言うSwiftに慣れるのに以下のことをしてみた献じたことを話しました。
+ 公式ドキュメント（を読んだ後に） サンプルアプリをTableViewControllerベースで作成してみたこと 自分のプラグイン(NKJMovieComposer)をSwiftで書き換えてみたこと 気分高ぶってMac OS Xも作成してみたこと  詳しくはスライドをご覧ください。
+Swiftが出たときにSan Franciscoで一心不乱にサンプルアプリプログラム書いてブログ上げようかと思ったけど いろんな人が既にブログに上げていたのでただただGitHubにあげるだけでした。そんなんか いろいろ勉強していくうちにMacアプリもつくれんじゃねーかwで脳内麻痺して書籍を購入してSwiftで作成 してみました。
+起動しとけば単純に画像を定期的に保存するアプリです。 （そのうちに１日で保存した画像をGifアニメのような動画にしてソーシャルにアップする機能作ろうかと計画中） ある程度できたらGeHubにアップ仕様と思います。
+ちなみにこちらの書籍を購入しました。
+
+Macアプリ、知識が溜まって来たらまた記事にします。
+とにかく、Swift勉強会が無事終えてよかったです。 参加してくれたみなさん、そして発表してくれた、@misyobun @hypermkt @kurotaky ありがとうございました！！！</description>
+    </item>
+    
+    <item>
+      <title>Xcodeのフォルダ参照</title>
+      <link>http://nakajijapan.github.io/blog/2014/07/11/xcode%E3%81%AE%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E5%8F%82%E7%85%A7/</link>
+      <pubDate>Fri, 11 Jul 2014 00:37:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/07/11/xcode%E3%81%AE%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E5%8F%82%E7%85%A7/</guid>
+      <description>なにげに今まで知らなかったんですが結構便利だってことに最近気づいたのでメモ。 普段リソースをXcodeに関連づけさせるためにドラッグアンドドロップさせていたのですが、 一旦以下のチェック項目でディレクトリ参照にしてしまえば、これ以降リソースファイルを追加したときに毎度 ドラッグアンドドロップさせなくてよく、自動的に追加されます。
+他と違うのは対象のディレクトリは色が青になっています。
+実際に呼び出すときには通常の呼び出し方法と異なります。リソースファイルの前に指定のディレクトリ名を宣言 する必要があります。
+今回だと以下の感じになります。
+let soundFilePath = NSBundle.mainBundle().pathForResource(&amp;quot;music/sound001&amp;quot;, ofType: &amp;quot;mp3&amp;quot;)  musicがディレクトリにあたりますね。
+これ、何気に便利で、デザイナさんにXcode立ち上げなくても指定のディレクトリおいておくだけで、余計なところを実装せずに済むので 仕事が捗るのではないかと気づいた今日このごろでした。</description>
+    </item>
+    
+    <item>
+      <title>録画時にブラックシーンができてしまう問題</title>
+      <link>http://nakajijapan.github.io/blog/2014/06/15/%E9%8C%B2%E7%94%BB%E6%99%82%E3%81%AB%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%82%B7%E3%83%BC%E3%83%B3%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%A6%E3%81%97%E3%81%BE%E3%81%86%E5%95%8F%E9%A1%8C/</link>
+      <pubDate>Sun, 15 Jun 2014 18:26:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/06/15/%E9%8C%B2%E7%94%BB%E6%99%82%E3%81%AB%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%82%B7%E3%83%BC%E3%83%B3%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%A6%E3%81%97%E3%81%BE%E3%81%86%E5%95%8F%E9%A1%8C/</guid>
+      <description>WWDC2014に行って来たの話になるのですが、 プライベートでアプリ作成しているときにAV Foundation絡みでわからないところがあったのでAppleのエンジニアさんに質問してきました。
+現象 問題は、自分が作成したNKJMultiMovieCaptureViewでその現象が発生しました。 作成したときの話はこちらになります。 Vine動画のようにタッチしたら録画し、タッチが終了したら(指を離したら)録画を終了し、録画した複数の動画を一つにする仕組みを作成したのですが、 実際作成した動画を見てみると最初のほんの一瞬だけなぜかブラックシーンができてしまいます。
+現状の処理として以下のようなことをしています。
+1. 録画開始 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event  タッチイベントで録画の処理を開始します。このときにファイルに対しての書き込み処理を開始します。
+[self.assetWriter startWriting]; [self.assetWriter startSessionAtSourceTime:self.recordStartTime];  2. 録画 AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegateをプロトコルとして指定して、 以下のメソッドで録画の処理を行います。
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection  ざっくりですが、内部でやっていることはCMSampleBufferというフレーム情報が取得でき、それを１秒間に何回も実行されるこのメソッドでAVAssetWriterInputオブジェクトに 追加処理をしています。
+CFRetain(sampleBuffer); CFRetain(formatDescription); dispatch_async(self.movieWritingQueue, ^{ if (_assetWriter.status == AVAssetWriterStatusWriting) { if (assetWriterInput.readyForMoreMediaData) { if (![assetWriterInput appendSampleBuffer:sampleBuffer]) { NSLog(@&amp;quot;%@&amp;quot;,[self.assetWriter error]); } } } CFRelease(sampleBuffer); CFRelease(formatDescription); });  3. 録画終了 タッチが終了したら録画終了の処理を行います。
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event  問題 どうやらスレッドを利用しての保存方法に問題があったようです。</description>
+    </item>
+    
+    <item>
+      <title>Swift勉強会をした</title>
+      <link>http://nakajijapan.github.io/blog/2014/06/10/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 10 Jun 2014 18:25:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/06/10/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E3%81%97%E3%81%9F/</guid>
+      <description>社内で早速Swift勉強会を開きました。 流れとしては、あのときの動画（クレイグがSwiftを発表したところ）をみんなで１０分程鑑賞してテンションあげてから公式のドキュメントを見ながら、みんなでぺちゃくちゃ話す会をしました。
+はじめに 以下の動画をみてまずざっくりどんなものか概要をつかむ
+https://developer.apple.com/videos/wwdc/2014/?id=101
+A Swift Tour About Swift  Objective-C without the C iOSとOS Xで開発するための開発言語 Ccoa and Cocoa Touch Build with LLVM compiler Optimizer and Autovectorizer ARC memory management Same runtime as Objective-C  Simple Value  let,varで宣言 letは定数、varは変数  var foo = 33 let foo = 33   格納する値が明白であれば自動できに方が決定される 十分でなければ明示的に指定することも可能  let total = 30 let total = 30.0 let total:Double = 0   初期化に以下のような宣言ができる  let emptyArray = String[]() let emptyDictionary = Dictionary&amp;lt;String, Float&amp;gt;()   単純な初期化は[] and [:]で省略できる   let emptyArray = [] let emptyDictionary = [:]  Control Flow  どこかでみたような記述でif,switch,for-in,for,while,do-whileできるよ .</description>
+    </item>
+    
+    <item>
+      <title>WWDC2014に参加してきました - 番外編(暮らし)</title>
+      <link>http://nakajijapan.github.io/blog/2014/06/09/wwdc2014%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F---%E7%95%AA%E5%A4%96%E7%B7%A8%E6%9A%AE%E3%82%89%E3%81%97/</link>
+      <pubDate>Mon, 09 Jun 2014 07:43:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/06/09/wwdc2014%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F---%E7%95%AA%E5%A4%96%E7%B7%A8%E6%9A%AE%E3%82%89%E3%81%97/</guid>
+      <description>前回の記事(WWDC2014に参加してきました)の番外編です。
+初めてのサンフランシスコだったり、そこに一週間もいたのでブログにそのときの記録を記します。
+前準備  予約  ホテルと飛行機は早めに撮った方がいいです。全世界から人が集まるのでホテルは早く予約しないと結構遠くになって毎日いくのが大変、飛行機当然日程が迫るにつれて高くなるのでお早めに。  服  会場の近くにはユニクロがあるのでパンツも靴下もパーカーも服はすべて現地調達できるので問題ありません！！！！  携帯  バッテリーは必ず持っていきましょう！！いじってると絶対なくなります。   空港＆飛行機  空港には余裕をもって３時間前に到着するといいでしょう。  40前に来たらいろいろ手続きがあるので時間がかかってしまうせいか空港の人にかなり急かされました。  成田空港には第一ターミナル、第二ターミナルがあって降りる場所間違うとバスか電車で移動しないといけないので時間のロスになります。 飛行機は９時間ものっているのですごい暇になります。絶対暇つぶしになるものを用意しておくといいです。 自分はだいたいMacでブログ書いていたりプログラミングしていました。 やばそうな気流がぶつかることが何回かあって、多少ジェットコースター気分が味わえてしまいます。酔ってしまう人は注意してください。  電車  Moscone Centerまでは地下鉄BARTを利用して行きます。電光掲示板が無いので毎回確認したほうがいいです。 お金をチャージして乗る形式っぽいです。  生活  インターネット  自分はソフトバンクなので海外パケットし放題  だいたいのお店は袋が有料なので袋が必要ないのにOK!っていうと何セントかよけいに請求されます。 チャージが含まれているお店とそうでないお店があるので注意  相場は15-20%の間? ベッドメイキングは$1が相場？  物価は日本とそんな変わらないのですがチップのこと考えると高いですね。 タクシーは怖くて使わなかった お酒を購入するときはは写真のID見せろと言われるので忘れずに 朝食・昼食はでますので食費には困らない  野菜でないのかなと思ってたらベジタリアン用の弁当がでていました。  よく外国は窃盗が多いからリュックは前にして、財布は後ろポケットにいれるな！っていう言い伝えのようなものがあったけど全然しなかった  会場行き来するくらいなので何も起きなかっただけなのかもしれません&amp;hellip;   帰国  日本円に換金するときにコインは換金できないので使い切る必要があるといわれたのでコインは外国で使い切って帰国しましょう！！  そんなところかな、何の問題もなく生活・帰還しました。 終わり。</description>
+    </item>
+    
+    <item>
+      <title>WWDC2014に参加してきました</title>
+      <link>http://nakajijapan.github.io/blog/2014/06/08/wwdc2014%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sun, 08 Jun 2014 23:50:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/06/08/wwdc2014%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>今回、アプリエンジニアなら一度は行ってみたいはずのWWDC2014に行くことになりました。そこで、この一週間いろんなこと起きたので何回かに分けてブログという形で記録に残しておきたいと思います。
+経緯 ここ最近の２、３年はプライベートでアプリを作る時間の割合がどんどん大きくなってきて何個かアプリを出したり、CocoaPodsでプラグインを出したりと活動して来たわけですが、その成果もあってかないのか仕事でもアプリの仕事を振られるようになって徐々に仕事もプライベートもアプリの仕事の比重が高くなってくる今日このごろでした。
+そんななか同僚の@misyobun @daniel0613と今年のWWDCはどうしようかという話になって、たしかにいち早くセッションの内容が見れたりLabで開発者の人に質問したりと魅力たっぷりなのですが予算とか有給とか上長の許可とか。。。。超えなければいけない壁あったのですが、まぁ当選に受かったらその後のことは後で考えようということで駄目もとで応募してみました。
+その後、突如何の前触れもなく当選したというメールがきたのでびっくりしました。じわじわきた感じです。とはいえ、これからどうしたものかと思いとにかく基盤の方、事業部長、上長、人事の方に相談していろいろありましたが、WWDCに行く承認がおりましてめでたく参加という形になりました。一つ奇跡がありまして僕の同僚である@misyobunも受かっていたことです。初めてのサンフランシスコで初めてのWWDCだったの一緒にいくメンバーがいたのは大変心強いものを感じました。
+KeyNote 詳しい纏めはギズモードさんの記事を読んでもらった方がわかりやすいです。
+衝撃的だったのが新しいプログラミング「Swift」が発表されたこと。 しかも、しれっとはじまったので驚きました。。。クレイグさんが「Xcode..」って言ったときにみんな”ざわっ”ってしてたのは忘れないです。 今年はiPhone6やフィットネス関係のハードが出るのかなと思いきや、iOS8、Swiftとデベロッパの祭典ならではの内容だったのかなと思います。
+Swift - Objective-C without C Introducing Swift
+ 安全なプログラミングパターンの提供 現代の機能・技術の即したものをよりシンプルに柔軟に楽しく実装できる Python, Objective-Cより高速  CocoaPods MeetUp in Twillio その日は、いろんな会社でWWDCにちなんだミートアップをやっていたので自分はTwillio社で開催されていたCocoaPodsのミートアップに参加してきました。英語が早くてほとんど聞き取れなかった・・・。とはいえ、なんかコミニュケーションしようと思って発表した人に挨拶しにいきました。
+ 2日目 せっかくなので自分の興味のある分野をみてきたのでした。
+ Mastering Modern Media Playback Harnessing Metadata in Audiovisual Media Introducing HomeKit  夜は二人でSwiftごにょごにょ
+3日目 この日もせっかくなので自分の興味のある分野をみてきたのでした。
+ What&amp;rsquo;s New in Core Audio Introducing HealthKit Mastering Modern Media Playback Harnessing Metadata in Audiovisual Media Camera Capture: Manual Controls Intermediate Swift Swift Interoperability In Depth  夜は二人でSwiftごにょごにょ</description>
+    </item>
+    
+    <item>
+      <title>app道場#3 「よくある動画アプリのあれを実装したい」を発表した</title>
+      <link>http://nakajijapan.github.io/blog/2014/06/01/app%E9%81%93%E5%A0%B4#3-%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E5%8B%95%E7%94%BB%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E3%81%82%E3%82%8C%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%81%84%E3%82%92%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sun, 01 Jun 2014 20:05:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/06/01/app%E9%81%93%E5%A0%B4#3-%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E5%8B%95%E7%94%BB%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AE%E3%81%82%E3%82%8C%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%9F%E3%81%84%E3%82%92%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%9F/</guid>
+      <description> ２回目の参加となるiPhone and Android勉強会の「app道場#3」に参加してきました。
+今回は、自分が酔った勢いで以下のような発言をしてしまい、大変誤解を招くような発言をしてしまいました。この場を借りて陳謝したいと思います。 そんなこんながありまして、弊社で勉強会を開催する運びとなりました。
+mixiさんに喧嘩売ってきた。
+&amp;mdash; nakajijapan (@nakajijapan) 2014, 4月 23 
+詳細は「喧嘩を売る」を参照すると良いでしょう。
+ お分かりの通り、ここでいう「喧嘩を売る」は「次の勉強会を企画・開催する」と解釈されます。 「app道場」という字面的に少し物騒ではありますが「喧嘩」というフレーズは意外にも正鵠を射ているのではないかと思う次第です。（さすが、@nakajijapan）
+ いいこといっています。
+本題 さて、今回は「よくある動画アプリのあれを実装したい」というタイトルで、またもやAV Foundationの話になります。自分も動画周りの勉強してる身として、VineとかInstagramとかの動画のインターフェースの実装ってどうやるんだろうなと疑問に思っていました。 気になって気になってしょうがなかったのでちょっと実装してみようかなという想い、自分なりに考えて実装してみました。
+ 仕様自体は以下のようになっています。
+ タッチが開始したら動画の保存を開始する タッチが終了したら動画の保存を終了する 動画はファイルに保存する それぞれ保存した動画を結合して一つの動画ファイルに結合する。  詳細はスライドを見ていただくことにして、実際にいい感じにできたのでCocoaPodsに登録しました。
+NKJMultiMovieCaptureView
+これが今回公開したpodで、SessionCaptureView部分にタッチして動画を保存するところまでの処理を提供しています。 実際の保存処理は前回作成したpod, NKJMovieComposerを利用することで簡単に実装することができます。
+しかし、まだまだまだまだ汎用性に欠ける部分が多々あるので粛々と時間を見つけて改善していこうと思います。
+課題  現在は正方形のビデオサイズを主にテスト対象にしているのでいろんなサイズに対応できるようにする 動画を結合したときに最初の0.1?0.2?だけ真っ黒になる部分がでてしまう。  懇親会 今回の勉強会にSlideStoryさんの中の人が来てくださって、動画周りのことでやんややんやお話を聞くとができたので大変勉強なりやした。 実装してみてやはり同じ課題にぶつかっていたそうです。あと何個か動画関連のpodを紹介してもらえたので時間を見つけて実装して見ようと思います。
+ SCRecorder GPUImage  また、今回の勉強会の裏側で違う勉強会が開催されていた模様で自分と同じような内容の発表があり、大変シンクロを感じましたので紹介させていただきます。かなり驚きました！！！！w
+  6秒動画アプリ Vineの作り方  from Hiramatsu Ryosuke 
+最後に、勉強会準備で手伝ってくださったみなさん、app道場関係者のみなさん、本当にお疲れ様でした。また次も参加します！！
+だれかに喧嘩売らねば！！！！！（売りません買わないでださい）
+Ref  AVCaptureVideoDataOutput AVCaptureVideoDataOutputSampleBufferDelegate AVCaptureAudioDataOutputSampleBufferDelegate AVAssetWriter AVAssetWriterInput CMSampleBuffer  </description>
+    </item>
+    
+    <item>
+      <title>動画からサムネイル画像を生成する</title>
+      <link>http://nakajijapan.github.io/blog/2014/05/25/%E5%8B%95%E7%94%BB%E3%81%8B%E3%82%89%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB%E7%94%BB%E5%83%8F%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B/</link>
+      <pubDate>Sun, 25 May 2014 22:02:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/05/25/%E5%8B%95%E7%94%BB%E3%81%8B%E3%82%89%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB%E7%94%BB%E5%83%8F%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B/</guid>
+      <description>動画のある一部分を画像として取り出したいときがあったので調べてみたら、ドキュメントにそれっぽい記述があったので実装してみました。
+方法としては、以下のメソッドを利用してCMTimeを利用して指定された時間に対する画像を生成します。
+ copyCGImageAtTime:actualTime:error:
+ 実際に、メソッドにして動くようにしました。
+- (UIImage*)createThumbnailImageWithURL:(NSURL *)movieURL { AVAsset *asset = [[AVURLAsset alloc] initWithURL:[movieURL objectAtIndex:index] options:nil]; if ([asset tracksWithMediaCharacteristic:AVMediaTypeVideo]) { AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset]; Float64 durationSeconds = CMTimeGetSeconds([asset duration]); CMTime midpoint = CMTimeMakeWithSeconds(durationSeconds/2.0, 600); NSError* error = nil; CMTime actualTime; CGImageRef halfWayImageRef = [imageGenerator copyCGImageAtTime:midpoint actualTime:&amp;amp;actualTime error:&amp;amp;error]; if (halfWayImageRef != NULL) { UIImage* image = [[UIImage alloc]initWithCGImage:halfWayImageRef]; // 明示的にリリースしておきます CGImageRelease(halfWayImageRef); return image; } } return nil; }  動画を取り終わった後に、一時的に一覧として残しておきたいときなどに利用できますね。</description>
+    </item>
+    
+    <item>
+      <title>AVAudioMixでオーディオの調節を行う</title>
+      <link>http://nakajijapan.github.io/blog/2014/05/01/avaudiomix%E3%81%A7%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%81%AE%E8%AA%BF%E7%AF%80%E3%82%92%E8%A1%8C%E3%81%86/</link>
+      <pubDate>Thu, 01 May 2014 11:56:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/05/01/avaudiomix%E3%81%A7%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%81%AE%E8%AA%BF%E7%AF%80%E3%82%92%E8%A1%8C%E3%81%86/</guid>
+      <description> 先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。 その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。 対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。AVAudioMix、AVMutableAudioMixInputParametersをうまく利用することで解決しました。
+実装 基本的には対象のメディア情報に対して、オーディオを制御する用のAVMutableAudioMixInputParametersを利用します。
+AVMutableComposition avComposition; (snip) // movie sound AVMutableCompositionTrack* compositionAudioTrack = [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する AVMutableAudioMixInputParameters *mixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack]; // 音量の調整 [mixInputParameters setVolumeRampFromStartVolume:0.2f toEndVolume:0.2f timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)]; // 入力パラメータをオーディオミックスに渡す。 mutableAudioMix = [AVMutableAudioMix audioMix]; mutableAudioMix.inputParameters = @[mixInputParameters];  - (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。
+AVAssetExportSession *assetExportSession; (snip) // 音声の制御 assetExportSession.audioMix = mutableAudioMix;  設定が終われば、AVAssetExportSessionのaudioMixに格納すれば、設定が反映されているはずです。 これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！
+Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  </description>
+    </item>
+    
+    <item>
+      <title>AVCompositionDebugVieweriOS使ってみた</title>
+      <link>http://nakajijapan.github.io/blog/2014/04/23/avcompositiondebugviewerios%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Wed, 23 Apr 2014 10:50:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/04/23/avcompositiondebugviewerios%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>先日ですが、mixiさんで開催されたスマホアプリ開発勉強会 app道場 #2に参加して、LTしてきました。
+今回は、WWDC 2013 Session VideosのAdvanced Editing with AV Foundationをみていたときにまだ試していないサンプルがあったのと、ビデオ編集時に使えそうなテストプログラムだったので試しに使ってみたときの話をしてきました。 「Debug of a video editing」です。サンプルプログラムのタイトルはAVCompositionDebugVieweriOSです。
+これは、ビデオ編集時に大きくAVComposition,AVVideoComposition,AVAudioMixなるクラスを利用するのですが、その構造を可視化してくれるプログラムでした。 普段は、生成した後に単純に目的の動画が完成しているかをただ 目視 しているだけだったのでサンプレプログラムなのに大変助かるプログラムでした。なので少しカスタマイズして自分で作った動画アプリ「もう一度ご覧いただこう」に組み込んでおきました。
+発表がすべて終了した後の反省会なる飲み会が、参加者全員？といろいろおしゃべりもできて大変有意義な時間を過ごさせていただきました。 mixiさん、@punchdrunkerさん、参加された皆さん楽しい時間をありがとうございました！</description>
+    </item>
+    
+    <item>
+      <title>メディアキャプチャの出力先の実装について</title>
+      <link>http://nakajijapan.github.io/blog/2014/04/07/%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3%E3%81%AE%E5%87%BA%E5%8A%9B%E5%85%88%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</link>
+      <pubDate>Mon, 07 Apr 2014 02:10:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/04/07/%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3%E3%81%AE%E5%87%BA%E5%8A%9B%E5%85%88%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</guid>
+      <description>AV Foundationを利用して写真の撮影やはたまた動画の撮影を行う場合は、カメラデバイスに接続して映像をリアルタイムに表示させたい場合があるかと思います。
+そんなときはAVCaptureSessionを利用してメディアキャプチャの実装の準備をを行い、入力先・出力先はどうするかという設定を行うのですが、今回はその出力部分について何パターンか方法があったので調べてみました。
+Video Output  AVCaptureMovieFileOutput  ムービーファイルを出力するときに利用する  AVCaptureVideoDataOutput  キャプチャ中のビデオフレームを処理するときに利用する  AVCaptureStillImageOutput  付随するメタデータを使用して静止画像をキャプチャするときに利用する   Audio Output  AVCaptureAudioDataOutput  キャプチャ中のオーディオフレームを処理するときに利用する   使い方 AVCaptureMovieFileOutput ムービーファイルを保存するのに必要な処理を提供してくれるクラス。
+録画するときは
+//録画開始 [captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];  のように始めることができます。
+必要に応じてAVCaptureFileOutputRecordingDelegateオプションを利用して、各タイミングに応じた処理を行います。
+ AVCaptureFileOutputRecordingDelegate  Delegate Methods – captureOutput:didStartRecordingToOutputFileAtURL:fromConnections: – captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:  前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。
+AVCaptureStillImageOutput 画像をキャプチャするときに利用して、出力は以下のように実装します。
+AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObject]; [captureStillImageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) { NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer]; UIImage *image = [UIImage imageWithData:data]; ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init]; [library writeImageToSavedPhotosAlbum:image.</description>
+    </item>
+    
+    <item>
+      <title>IRKit &#43; iBeacon</title>
+      <link>http://nakajijapan.github.io/blog/2014/03/29/irkit---ibeacon/</link>
+      <pubDate>Sat, 29 Mar 2014 16:32:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/03/29/irkit---ibeacon/</guid>
+      <description>先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして 自宅で活用できるものを作ってみました。
+IRKit 
+Estimote Beacons  仕様としては、
+ beaconに近づいたら（家に帰ってきたら）テレビをつける beaconから離れたら（外出したら）テレビを消す  ってことを試してみました。
+下準備 まずはそれぞれのライブラリを追加してpod installする。
+SDKのインストール。
+target &amp;quot;irkit_ibeacon&amp;quot; do pod &#39;IRKit&#39;, :git =&amp;gt; &#39;https://github.com/irkit/ios-sdk.git&#39; pod &#39;EstimoteSDK&#39; end  frameworkの追加。
+CoreLocation.framework CoreBluetooth.framework  IRKit ここでは、IRKit SDKを利用してシグナルを登録してテーブルのセルにボタンを追加する処理を行います。
+- (void)viewDidLoad { (snip..) // find IRKit if ([IRKit sharedInstance].countOfReadyPeripherals == 0) { IRNewPeripheralViewController *vc = [[IRNewPeripheralViewController alloc] init]; vc.delegate = self; [self presentViewController:vc animated:YES completion:^{ NSLog(@&amp;quot;presented&amp;quot;); }]; } IRSignals *tmpSignals = [[IRSignals alloc] init]; // and add a signal to the collection [tmpSignals loadFromStandardUserDefaultsKey:@&amp;quot;xxxxxxxxxxxxxxxxxxxxxx&amp;quot;]; for (int i = 0; i &amp;lt; [[tmpSignals signals] count]; i++) { NSLog(@&amp;quot;%@&amp;quot;, [[tmpSignals signals] objectAtIndex:i]); } }  IRNewPeripheralViewControllerDelegateで信号の登録が終了したときに呼ばれるメソッドの実装を行います。 ここでは、ハード側で学習が完了した信号をNSUserDefault側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）</description>
+    </item>
+    
+    <item>
+      <title>第５回 #potatotips に参加してきた。</title>
+      <link>http://nakajijapan.github.io/blog/2014/03/17/%E7%AC%AC%EF%BC%95%E5%9B%9E-#potatotips-%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Mon, 17 Mar 2014 03:37:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/03/17/%E7%AC%AC%EF%BC%95%E5%9B%9E-#potatotips-%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description>先日ですが、#potatetips　（第五回）に参加させていただきました。 持ち時間一人５分のtips共有会なのですが、自分はAVFoundation周りの話をしてきました。 本当は実装しているときにこんなメソッド使うと便利だよとかこうすると迷走するからこうしたしたほうがいいよとかあればよかったのですが いまいち思いつかなくて、自分でプラグイン作成して、これ使うと便利だよっ、知らなかったでしょう！！という感じに強制的にもっていった発表内容でした。 内容としては前回の発表のつづきで、以前作成したアプリの機能を切り出して、動画関連の処理を簡単に実装できるようにした（CocoaPods化）した話をしました。
+ NKJMovieComposer
+インストール方法は至って簡単で
+pod &amp;quot;NKJMovieComposer&amp;quot;  でオッケーです。後は実装するファイルに#import &#39;NKJMovieComposer.h&#39;を追加すればOKです。
+機能としては以下の機能が実装できます。
+ 動画結合 ワイプ フェードイン・アウト  詳しいことはGitHubをみていただくことにして、 まだエラー処理とかデバイス・OSに応じたカスタマイズがまだまだできていないので地道に実装していこうと思います。
+最後に、発表者のみなさん、クックパッドさんおつかれさまでした！</description>
+    </item>
+    
+    <item>
+      <title>Vagrant勉強会でLTした</title>
+      <link>http://nakajijapan.github.io/blog/2014/02/28/vagrant%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%81%A7lt%E3%81%97%E3%81%9F/</link>
+      <pubDate>Fri, 28 Feb 2014 20:34:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/02/28/vagrant%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%81%A7lt%E3%81%97%E3%81%9F/</guid>
+      <description>社内でVagrant勉強会があったので参加・発表してきました。
+あるサービスのVagrant化を進めていて、エンジニアは当然のことデザイナさんでもローカルで開発できるように環境をそろえていた時に苦労したちょっとしたTipsを発表しました。まぁちょっとしたことなのですが、はまると何時間もはまるときあるのでこういう機会があると大変助かります。。。
+ 僕の他にも公開しているメンバーがいるのでご紹介します。 こちらのブログにもリンクがあるので他の人の資料にもたどりつけると思います。
+うづら(udzura)さん http://udzura.hatenablog.jp/entry/2014/02/28/140957 (アフェリエイトおじさんです。。。)</description>
+    </item>
+    
+    <item>
+      <title>【iOS勉強会】ヤフー vs クラスメソッド に参加してきた</title>
+      <link>http://nakajijapan.github.io/blog/2014/02/26/ios%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%83%A4%E3%83%95%E3%83%BC-vs-%E3%82%AF%E3%83%A9%E3%82%B9%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89-%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Wed, 26 Feb 2014 21:44:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/02/26/ios%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%83%A4%E3%83%95%E3%83%BC-vs-%E3%82%AF%E3%83%A9%E3%82%B9%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89-%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description>面白そうな勉強会が開催されると耳にして【iOS勉強会】ヤフー vs クラスメソッド に参加してきました。
+ ヤフーさん発表資料 http://techblog.yahoo.co.jp/ios/yxcm/
+ クラスメソッドさん発表資料 http://dev.classmethod.jp/study_meeting/yxcm-epilogue/
+  形式的にはYahoo!さんとクラスメソッドさんが交互にiOS開発に関連するテーマに対して発表してどちらグッドだったか競う会になっていました。よかったらその場でボタンを連打して投票する仕組みがあるのですが、リアルタイムにFacebook風ないいねの花火みたいなのでがドーンと別画面で表示されてわかるのはかなり面白かったです（Node.jsかな&amp;hellip;）。
+そのなかで便利そうなものをpickupして自分でもやってみました。
+code snippet Code Snippet Libraryを開いた状態にする 対象のコードを選択しといてそれLibrary側にドラッグアンドドロップ そうするとMy Code Snippetが出来上がるのでそれを適当に編集すると終わりです。 作成されたSnippetは/Users/username/Library/Developer/Xcode/UserData/CodeSnippets/いかに保存されます。
+試しにUIAlertViewをいれてみました。
+UIAlertView *alertView = [[UIAlertView alloc] initWithTitle : NSLocalizedString(@&amp;quot;Title&amp;quot;, nil) message : NSLocalizedString(@&amp;quot;Message&amp;quot;, nil) delegate : self cancelButtonTitle : NSLocalizedString(@&amp;quot;OK&amp;quot;, nil) otherButtonTitles : nil ]; [alertView setTag:1]; [alertView show];  Objective-Cって結構冗長になりがちなので、よく利用するものは登録しておくとよさそう。
+code template よくファイルを作成するときにはデフォルトでその親クラスに合わせたコードなりヘッダコメントなりテンプレートを作成してくれるのですが、カスタマイズしたくなったときは/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templatesにいっぱいテンプレートが用意されています。これを自分のディレクトリにコピーして利用するといいです。
+mkdir -p ~/Library/Developer/Xcode/Templates/File Templates cd ~/Library/Developer/Xcode/Templates/File Templates cp /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/* .</description>
+    </item>
+    
+    <item>
+      <title>Developers Summit 2014</title>
+      <link>http://nakajijapan.github.io/blog/2014/02/15/developers-summit-2014/</link>
+      <pubDate>Sat, 15 Feb 2014 01:51:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/02/15/developers-summit-2014/</guid>
+      <description>先週ではありますが、Developers Summit 2014に参加してきました。 サミットが平日だったので全部はみれていませんが、いくつかのステージをみること はできたのでそのメモを記します。
+ Developers Summit 2014  http://event.shoeisha.jp/devsumi/20140213/   iOSアプリケーションの継続的デリバリー  発表者  https://event.shoeisha.jp/devsumi/20140213/session/430  発表資料  http://www.slideshare.net/numeha/ios-31199969   どのくらいスピードが必要なのか  iOS１ヶ月で約四回リリース ネックは申請降りるのに７日間必要。。。 1年で１２回のリリース 自分たちのリリースのリズムできてますか？  いつもリリースできる状態にしときましょう!!  継続的デリバリー  ビジネスの主導権を握る為にCIやるんだ!!!    価値のあるソフトウェアをはやく継続的にリリースする
+ 徹底的に自動化してきた コード品質のパイプライン  コード取得 -&amp;gt; Git ビルド -&amp;gt; Xcode コード行数 -&amp;gt; SLOCCount 重複コード -&amp;gt; DRY 警告 -&amp;gt; Warnnings   テストにはGHUnitを利用している カバレッジはgcovr  製品品質のパイプライン  実記でのテストが必要 テストフレームワークを同封してビルドしている 自動でipaファイル作成 複数のデバイスに自動でインストール  fruitstrap or Instruments  特定の端末のピンポイントでデプロイする Frankというテストフレーム httpで外部から複数代のios端末を操作 ios7からのTouch問うの操作API禁止 fsdfdsafda sdfsadfsadfd  どうしよう。。。</description>
+    </item>
+    
+    <item>
+      <title>Confrence With Developer2に参加してLTしてきた</title>
+      <link>http://nakajijapan.github.io/blog/2014/02/02/confrence-with-developer2%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6lt%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Sun, 02 Feb 2014 23:32:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/02/02/confrence-with-developer2%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6lt%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description> 今回、Confrence With Developer2に参加してきました。 iOSに携わる、すべての開発者に向けたカンファレンスイベントだったのですが いろいろ収穫があり、たくさん勉強させていただきました。
+そんな僕もここでLTをしてきたのでのせときます。以前は、MA9でも発表している ですがあくまでプロダクトとして発表だったのと今回は技術的なカンファレンス なので技術的側面に焦点をあてて発表させていただきました。
+話した内容はアプリでがんがん利用していたAV Foundationの話をしてきました。
+ (発表時にディスプレイコネクタが認識しなくて発狂していたところ@tamotamagoさんにパソコンを貸していただき大変感謝です！)
+自分でもいろいろとメモっていたのですが以下のサイトがよく纏められていたのでご参照ください。
+Developers.IO  http://dev.classmethod.jp/smartphone/ios-confwd2/  Togetter  http://togetter.com/li/623779  Ustream録画  http://www.ustream.tv/recorded/43319245 http://www.ustream.tv/recorded/43323576  </description>
+    </item>
+    
+    <item>
+      <title>AVMutableVideoCompositionLayerInstructionの使い方</title>
+      <link>http://nakajijapan.github.io/blog/2014/01/19/avmutablevideocompositionlayerinstruction%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</link>
+      <pubDate>Sun, 19 Jan 2014 19:32:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/01/19/avmutablevideocompositionlayerinstruction%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/</guid>
+      <description>ビデオ用のAVMutableCompositionTrackにレイヤーを持たせることができます。 それがAVMutableVideoCompositionLayerInstructionなんですがこれが意外と 簡単に動画に対してCGAffineTransformを指定することで動画の移動・回転・拡大縮小 ができたりフェードイン・アウトの設定ができたのでメモ。
+まずは対象のトラックをもとにして、レイヤーをインスタンス化します。
++ (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track
+AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];  TransForm - (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
+この例だと、３秒間左から動画が移動してきます。
+// transition CGAffineTransform rotateStart, rotateEnd; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); rotateStart = CGAffineTransformMakeScale(1, 1); rotateStart = CGAffineTransformMakeTranslation(-720, 0); rotateEnd = CGAffineTransformTranslate(rotateStart, 720, 0); [layerInstruction setTransformRampFromStartTransform:rotateStart toEndTransform:rotateEnd timeRange:CMTimeRangeMake(startTime, timeDuration)];  Opacity - (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
+この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。
+// fade in CMTime startTime, timeDuration; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); [layerInstruction setOpacityRampFromStartOpacity:0.</description>
+    </item>
+    
+    <item>
+      <title>動画関連の処理をする上で注意すること</title>
+      <link>http://nakajijapan.github.io/blog/2014/01/19/%E5%8B%95%E7%94%BB%E9%96%A2%E9%80%A3%E3%81%AE%E5%87%A6%E7%90%86%E3%82%92%E3%81%99%E3%82%8B%E4%B8%8A%E3%81%A7%E6%B3%A8%E6%84%8F%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8/</link>
+      <pubDate>Sun, 19 Jan 2014 19:32:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/01/19/%E5%8B%95%E7%94%BB%E9%96%A2%E9%80%A3%E3%81%AE%E5%87%A6%E7%90%86%E3%82%92%E3%81%99%E3%82%8B%E4%B8%8A%E3%81%A7%E6%B3%A8%E6%84%8F%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8/</guid>
+      <description>以前の記事でも書いたのですが、心霊動画アプリ「もう一度ご覧いただこう」というアプリを作成したときにいろいろと苦労したことがあったので、それを書き留めておこうと思います。
+回転問題 そのまま動画を保存すると270度になってしまっているので回転する必要があった
+ CGAffineTransform transformVideo = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, 0.0); CGAffineTransform transformVideoRotate = CGAffineTransformRotate(transformVideo, M_PI * 0.5); CGAffineTransform transformVideoMove = CGAffineTransformTranslate(transformVideoRotate, -300, 0); [layerInstruction setTransform: transformVideoMove atTime:kCMTimeZero];  結構、簡単で地味なことだったのですが、こういうことが原因で数日迷走していた日があったのでもう迷走しない為に。。。</description>
+    </item>
+    
+    <item>
+      <title>Happy New Year</title>
+      <link>http://nakajijapan.github.io/blog/2014/01/02/happy-new-year/</link>
+      <pubDate>Thu, 02 Jan 2014 20:22:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2014/01/02/happy-new-year/</guid>
+      <description>明けましておめでとうございます。
+時が経つが年々早くなるのがだんだんと早く感じる今日この頃ですが、去年は自分がもう ３０年も生きたことになり、仕事にプライベートに考えさせられる一年だったと思います。
+いかがおすごしでしょうか。 nakajijapanです。
+去年を振り返ってみると、とにかく自分の可能性を信じつつ自分が未開拓な領域 をガンガン攻めた年ではありました。しかし、まだスタート地点に立ったところ というか物足りないと感じてる次第です。もっとイケル！
+殻を打ち破る日はまだ分からないですが、あきらめず自分のケツを叩きながら 一歩づつ前に突き進んでいこうと思います。
+今年も仕事にプライベートにがんばるぞ！
+今年もよろしくお願いします。</description>
+    </item>
+    
+    <item>
+      <title>iOS勉強会 iBeaconでできること　に参加してきた</title>
+      <link>http://nakajijapan.github.io/blog/2013/12/12/ios%E5%8B%89%E5%BC%B7%E4%BC%9A-ibeacon%E3%81%A7%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Thu, 12 Dec 2013 19:06:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/12/12/ios%E5%8B%89%E5%BC%B7%E4%BC%9A-ibeacon%E3%81%A7%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description>Developer&amp;rsquo;s IOさんが主催する勉強会に参加してきました。 http://connpass.com/event/4225/
+iOS7の発表がでてからiBeaconに興味を持ち出して、このにゅ〜てくのろじ〜を面白いことにつかえないかと調査していたのですが、今回もっと知識を深めるべく勉強会にさんかしてきました。そのメモを残しておこうと思います。
+【初級】iBeaconの基礎のキ 開発者以外にひとでも分かるようにiBeaconというものをざっくり説明してました。
+iBeaconとは  BLEを利用している Bluetooth onにしないといけない CoreLocation.framework iOS7がインストールされるからってBLEが利用されるわけではない  iOS7 + BLEが利用できるっていうのが重要   ざっくり定義すると
+BLEを利用したAppleの距離と領域観測のサービス
+です。
+利用したサービス  AppleStore  テーブルに近づくとiPhoneの紹介や下取りの情報が表示される  Macy&amp;rsquo;s  入店検知してクーポンの取得、おすすめ商品の紹介 O2O施策としてだいぶ確率されているようです  スマポ  来店ポイントがたまる 日本でしっかりベジネスにしているサービスですね  MLB  入場用のバーコード point クーポン 本日の対戦情報を表示してくれる 自分の座席情報を教えてくれる とはいえ、現在まだベータ運用しているらしく、本番運用はまだのようですね   よく利用される用語  Beacon  電子情報を受信して現在情報を知る電子機器のことをいうらしい http://e-words.jp/w/E38393E383BCE382B3E383B3.html  BLE  2.4GHz の無線を使った近距離無線通信規格 少ない電池でもいままでよりも長くバッテリーが持つようにつくられている  Advertise  アドバタイズ：ある機器が別の機器に管理情報を伝達すること proximity UUID（企業） major（建物） minor（フロア）  リージョン監視  領域の入出チェック（虜域観測） リージョン=UUID 出るイベントはドキュメント情報は２０秒っぽいが実際は３０秒かかるっぽい  Ranging  エリア内のBeaconの情報を取得（距離推定） Beacon距離 proximity  距離判定は４つとれる 相対的に変わる  accuracy  位置情報取得の精度を指定 もちろん精度が良いほど正確だが電池の量も多い 領域はだいたいのもの  rssi  Received Signal Strength Indication 無線通信機器が受信する信号の強度を測定するための回路または信号   電波法！！！！  技適マークがついていない無線機は電波法違反らしい estimoteのビーコン端末は日本実運用すると電波法違反になるぽいですね   iBeaconを使ってみよう iBeaconアプリの作り方を二つのキーワードで説明しています。 以下の二つをもとに実装を行っていく</description>
+    </item>
+    
+    <item>
+      <title>AV Foundation Frameworkを利用して動画の結合を行う</title>
+      <link>http://nakajijapan.github.io/blog/2013/10/22/av-foundation-framework%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E5%8B%95%E7%94%BB%E3%81%AE%E7%B5%90%E5%90%88%E3%82%92%E8%A1%8C%E3%81%86/</link>
+      <pubDate>Tue, 22 Oct 2013 19:06:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/10/22/av-foundation-framework%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E5%8B%95%E7%94%BB%E3%81%AE%E7%B5%90%E5%90%88%E3%82%92%E8%A1%8C%E3%81%86/</guid>
+      <description>こんにちはあのnakajijapanです。 以前、心霊動画アプリで「もう一度ご覧いただこう」 というアプリをリリースしました。 心霊動画アプリなので動画と動画を結合したり動画の上に動画を重ねて実装したりといろいろ やるわけですが今回はじめてということもあり沢山勉強になったのでここいらで自分の頭の整理 がてら情報をまためようと思います。
+今回主に利用したのが「AV Foundation」です。
+ざっくりいうとメディア情報（動画）を細かく制御できるようにしたフレームワークで、メタ情報の 取得、作成、編集、再エンコードができたりできます。
+階層的には以下のような階層に存在して、簡単に動画とか写真の処理をしたい場合は
+ Media Player Framework(MPMoviePlayerController, MPMoviePlayerViewController) UIKit(UIIMagePickerController)  を実装すれば難なく実装できちゃいます。ただ、今回は動画にいろんなエフェクトをいれたいのでもっと細かく制御 できる下の階層のフレームワークを使いました。感覚的に細かい制御できるようになるのでそのぶん面倒くさいのは いうまでもありません。
+https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html
+では実際にどう実装していけばいいかなのですが、そのために結構なクラスを利用するのでそれぞれざっくり説明していきます。
+AVAsset iPodや写真ライブラリのメディア情報をオブジェクトとして保持することができ、これからいろんなの情報を切り出して取得すること ができます。
+AVAsset* videoAsset; videoAsset = [[AVURLAsset alloc] initWithURL:movieUrl options:nil];  AVAssetTrack アセットの情報からトラックレベルで切り出した情報。（うまく翻訳できなかった・・・） 例えば、アセットから動画と音声に切り分ける。
+AVAsset* videoAsset; AVAssetTrack* videoTrack; AVAssetTrack* audioTrack; videoAsset = [[AVURLAsset alloc] initWithURL:movieUrl options:nil]; // アセットからトラックを取得 videoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0]; audioTrack = [[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];  AVMutableCompositionTrack 様々なメディア情報を結合したものです。このクラスで様々に編集された動画や音声を結合したり、時間の制御をしたり するクラスです。最終的にAVAssetExportSessionに渡してエキスポート処理（実際にファイルに保存する）します。
+AVMutableComposition* mixComposition; AVMutableCompositionTrack* compositionVideoTrack; // コンポジション作成 mixComposition = [AVMutableComposition composition]; compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];  AVMutableVideoComposition AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。</description>
+    </item>
+    
+    <item>
+      <title>心霊動画アプリ 「もう一度ご覧いただこう」をリリースしました。</title>
+      <link>http://nakajijapan.github.io/blog/2013/09/30/%E5%BF%83%E9%9C%8A%E5%8B%95%E7%94%BB%E3%82%A2%E3%83%97%E3%83%AA-%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%E3%81%94%E8%A6%A7%E3%81%84%E3%81%9F%E3%81%A0%E3%81%93%E3%81%86%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Mon, 30 Sep 2013 02:17:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/09/30/%E5%BF%83%E9%9C%8A%E5%8B%95%E7%94%BB%E3%82%A2%E3%83%97%E3%83%AA-%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%E3%81%94%E8%A6%A7%E3%81%84%E3%81%9F%E3%81%A0%E3%81%93%E3%81%86%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>先日ではありますがnakajijapan所属するチーム「恥知らず」で次なるアプリをリリースしました。 その名も
+心霊動画アプリ 「もう一度ご覧いただこう」 http://owkr.info/movie
+です。
+構想は３年前からあったのですが僕の技術力不足で無理！とか言って、最初はその前進となる
+心霊写真アプリ「おわかりいただけただろうか」 http://owkr.info
+を作成しました。その後時を経て、そろそろできるんじゃねという根拠ない自信がありまして 作成するにいたった次第です。今回はそのリリースが出来ましたよっていうご報告であります！
+今回動画アプリを作成してみて、自分としてグッドっだったのは
+ AVFoundationガリガリガリガリいじったし（未知の領域への挑戦）  動画動詞の結合 動画内でのアニメーション 動画のスローモーション 動画内に動画をいれる（ワイプ）  いろんなTips学んだ  シュミレータで効率的に開発していく方法 iOSのバージョンのデザインの差異（主に位置によるずれ）の直し方  キャンペーンの出し方  以前にリリースアプリと連携デザインに統一感をもたせた   失敗や改善した方がいいなというのも何個かあって
+iOS7でチェックしとけばよかった。しかもガンガンみんなiOS7にしてしまったのでこれはつらかった・・ iOS7でテストして仮に問題が発生したときにその対応でリリースが遅れるのは避けたかったのでちょっと 最後まで避けてたのが仇となりました。無念。やりかたとしては、新しいバージョンがリリース間近に なった場合はかならず確認を行うことをマストにしたほうがいいですね。これ勉強！
+リリースタイミングを逃しました。本当は夏にリリースすれば良かったのですが僕の技術力不足であえなく断念して しまいました。。。
+あとは、デザイナの確認作業についてです。デザイナにはある程度できあがらないとテストや確認出来ない状態でしたし、 毎回自分のPCでビルドして渡すのはかなり面倒でした。（のでこの作業はほとんどやってない・・・）なので自分が修正 したらすぐに自分の実機やシミュレータでがんがん確認出来るような状況を作ればなと思っていました。会社だとjenkins でビルドしてそれをダウンロードできる基盤があるのでそれ参考に個人でも作成してみようと思う。
+肝心のiOS7でのおばけが表示されないバグがありますが先日修正したものを申請しましたのでもう少しでiOS7にした人も 使えることでしょう！！
+とりあえず、リリースできてよかったのです。
+また、いろんなことに挑戦していきたい。
+今後はもう一度の使い方なり、AVFoundationのTipsをちょこちょこ書いていこうと思います。</description>
+    </item>
+    
+    <item>
+      <title>UIButtonのカスタマイズ - ライトON/OFFを制御するボタンを作成してみた</title>
+      <link>http://nakajijapan.github.io/blog/2013/09/18/uibutton%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA---%E3%83%A9%E3%82%A4%E3%83%88on/off%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Wed, 18 Sep 2013 20:19:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/09/18/uibutton%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA---%E3%83%A9%E3%82%A4%E3%83%88on/off%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>iPhoneについているライトのON/OFFを制御したいのですが、ボタンをそのまま流量できるのかなと思いきや UIImagePickerControllerを利用しないで実装する場合はイベントしか用意されておらずデザインも自分で実装 しないといけないようです。
+なので自分なりにそれっぽいのを実装してみました。 （とりあえず手動でon/offで切り替えるUIにしてます）
+// ライトが利用できたら表示 if (device.torchAvailable == YES) { UIButton* toggleLightButton = [UIButton buttonWithType:UIButtonTypeCustom]; [toggleLightButton setFrame:CGRectMake(30, 120, 100, 55)]; [toggleLightButton setTitle:@&amp;quot;ON&amp;quot; forState:UIControlStateNormal]; // レイヤー内でボタンデザインの編集を行う [[toggleLightButton layer] setCornerRadius:25.0f];// 角丸 [[toggleLightButton layer] setMasksToBounds:YES]; [[toggleLightButton layer] setBorderWidth:2.5f];// 枠線の太さ [[toggleLightButton layer] setBorderColor:[[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7] CGColor]];// 枠線の色 [[toggleLightButton layer] setBackgroundColor:[[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.3] CGColor]];// 背景色 [toggleLightButton addTarget:self action:@selector(toggleChangeTorchMode:) forControlEvents:UIControlEventTouchUpInside]; // 画像を左側に埋め込む UIImage* image = [UIImage imageNamed:@&amp;quot;light.png&amp;quot;]; CALayer* imgLayer = [CALayer layer]; imgLayer.</description>
+    </item>
+    
+    <item>
+      <title>UIKitで人魂つくってみた</title>
+      <link>http://nakajijapan.github.io/blog/2013/09/07/uikit%E3%81%A7%E4%BA%BA%E9%AD%82%E3%81%A4%E3%81%8F%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Sat, 07 Sep 2013 07:42:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/09/07/uikit%E3%81%A7%E4%BA%BA%E9%AD%82%E3%81%A4%E3%81%8F%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>お化けアプリを絶賛作成中なのですが、そのなかで世界観を少しでも作るべくいろいろ試行錯誤しているのですが、ちょっとトップに 人魂でもいれてみようじゃないかと思い立って作ってみました。
+iOS5からCore AnimationなるものがサポートされていてパーティクルエフェクトがUIKitでも作成できるようになったので実装してみました。 以前はCocos2Dのフレームワーク情報で作成していたのですがそれを利用しないのは初めて。
+まずはフレームワークをインポートする
+1 #import &amp;lt;QuartzCore/QuartzCore.h&amp;gt;  2 あとは表現したものを想像して実装するのみ！！！！っていってもパラメータが沢山あるので 感覚的にGUIで設定できてその状態のパラメータをみれるツールをつかいました。
+ UIEffectDesigner  http://www.touch-code-magazine.com/uieffectdesigner/   これにfire ballっていのがあったのでそれを参考にしつつ自分なりに調整してみました。
+- (void)viewDidLoad { [super viewDidLoad]; CAEmitterLayer* fireEmitter = [CAEmitterLayer layer]; fireEmitter.emitterPosition = CGPointMake(200, 200); fireEmitter.emitterSize = CGSizeMake(40, 40); fireEmitter.renderMode = kCAEmitterLayerAdditive; CAEmitterCell* fire = [CAEmitterCell emitterCell]; fire.birthRate = 250; fire.lifetime = 2.0; fire.lifetimeRange = 2.06; fire.velocity = 26; fire.velocityRange = 40; fire.color = [[UIColor colorWithRed:0.0 green:0.0 blue:0.05 alpha:1.0] CGColor]; fire.</description>
+    </item>
+    
+    <item>
+      <title>Update To Rails4</title>
+      <link>http://nakajijapan.github.io/blog/2013/07/13/update-to-rails4/</link>
+      <pubDate>Sat, 13 Jul 2013 15:13:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/07/13/update-to-rails4/</guid>
+      <description>自分のサービスのRailsのversionがまだ3.2だったので地道にRails4にアップデートしました。 その際に必要になった作業をメモっときます。
+attr_accessible is extracted out of Rails into a gem. E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError)  attr_accessibleはRailsから省いてstrong_parametersを利用してとのこと。 振るいものを利用するならprotected_attributesっていうGem使ってね。 しかし、今回はstrong_parametersを記述していきます。
+とりあえずModelからの排除を行う。
+DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.</description>
+    </item>
+    
+    <item>
+      <title>GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる</title>
+      <link>http://nakajijapan.github.io/blog/2013/07/02/googledocs%E3%81%AE%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%93%84%E7%A9%8D%E3%81%95%E3%81%9B%E3%82%8B/</link>
+      <pubDate>Tue, 02 Jul 2013 22:30:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/07/02/googledocs%E3%81%AE%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%93%84%E7%A9%8D%E3%81%95%E3%81%9B%E3%82%8B/</guid>
+      <description>サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。
+便利だったのがgoogle-drive-rubyで、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。
+実際にwww.frustration.meのユーザ数やアイテム数を計測するために使用してみました。
+まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。
+desc &amp;quot;send score data to google spreadsheet&amp;quot; require &#39;google_drive&#39; namespace :batches do task total_scores: :environment do |t, args| fail &#39;no username&#39; if ENV[&#39;GOOGLE_USERNAME&#39;].blank? fail &#39;no password&#39; if ENV[&#39;GOOGLE_PASSWORD&#39;].blank? session = GoogleDrive.login(ENV[&#39;GOOGLE_USERNAME&#39;], ENV[&#39;GOOGLE_PASSWORD&#39;]) spreadsheet = session.spreadsheet_by_key(&amp;quot;input key name&amp;quot;) worksheet = spreadsheet.worksheet_by_title(Rails.env) analyze_data = { date: Time.now.strftime(&amp;quot;%Y-%m-%d&amp;quot;), users_num: User.all.count, items_num: Item.all.count, comments_num: Comment.all.count, categories_num: Category.all.count } worksheet.list.push(analyze_data) worksheet.save() end end  これでrake batches:total_scoresで実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では
+な感じでどんどんレコードが追加されていきます。
+便利。
+ただし、注意点があります。今回はsqaleのcronで動かしているのですがログインで以下のように失敗することがあります。
+$ bundle exec rake batches:total_scores WARNING: Nokogiri was built against LibXML version 2.</description>
+    </item>
+    
+    <item>
+      <title>CSRF Protection for Rails and Backbone.js</title>
+      <link>http://nakajijapan.github.io/blog/2013/07/01/csrf-protection-for-rails-and-backbone.js/</link>
+      <pubDate>Mon, 01 Jul 2013 07:53:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/07/01/csrf-protection-for-rails-and-backbone.js/</guid>
+      <description>欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。 Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷 して送信させるようにしました。
+ちなみに以前はModelにtoJSONメソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので DELETE用にも対応できるよう実装してみた。（Model.destroy時にはtoJSON()を仲介しない）
+#------------------------------------------- # Sync #------------------------------------------- Backbone._sync = Backbone.sync Backbone.sync = (method, model, options) -&amp;gt; if method == &#39;create&#39; || method == &#39;update&#39; || method == &#39;delete&#39; options_csrf = headers: &#39;X-CSRF-Token&#39;: BackboneFrustration.Model.csrf_token() _.extend( options, options_csrf ) return Backbone._sync(method, model, options)  メソッドをオーバーライドしてHEADERにX−CSRF-Tokenを付加して親処理に渡す。BackboneFrustration.Model.csrf_token()は 単純にフォームからCSRF用のtokenを取得しているだけです。これでajax通信のときはtokenを無視して処理をするようなその場しのぎな実装をせずになりました。
+以下のような処理撲滅です。
+protect_from_forgery except: :craete  この修正で問題なく動作しているので適用させました。
+ところでRails用のgemでbackbone-railsなんてものがありましてそこのコードを 見ていたらだいたい同じことをしていたのであらかじめこれを参考にして勉強すれば良かったと思いました。とほほ。。
+https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js
+とりあえず、これで一安心。
+実際の修正箇所 https://github.com/nakajijapan/frustrationme_app/pull/25/files</description>
+    </item>
+    
+    <item>
+      <title>Jenkinsでcommit statusを操作する</title>
+      <link>http://nakajijapan.github.io/blog/2013/06/24/jenkins%E3%81%A7commit-status%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%99%E3%82%8B/</link>
+      <pubDate>Mon, 24 Jun 2013 08:02:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/06/24/jenkins%E3%81%A7commit-status%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%99%E3%82%8B/</guid>
+      <description>自分のサービスでテストを行うときはTravisCIに任せて自動で作業させているのですが、基本はソースをオープンにしないといけないので 自社サービスに利用する訳にはいきません。そこでJenkinsを利用して同じような仕組みを作成しました。
+仕組みとしはcommit statusを操作するためのGitHubのAPI利用してPull Requestがきたらジョブを走らせるようにします。
+監視用の親ジョブ作成  ソースコード管理
+ Gitを選択 Repository URL(テスト対象のものを入れる) ex) git@github.com:paperboy-petit/user-app.git Branch Specifier() */master, */releaseを記述する 高度な設定のChoosing strategy  Inverseを選択する  これでmaster,release意外のブランチを監視対象にできる  ビルド環境
+ テストに必要な環境の設定なので適宜設定する  ビルド
+ ここでテストする処理を実行  ビルド後の処理
+ ビルド後の結果をトリガーにしてパラメータを小ジョブに渡す設定行う。フォームにはいかの用に項目設定する Build Triggers 1  Project to build: CommitSTatusUpdate Trigger when build is stable or unstable but not failed parameters commit_status=successを設定  Build Triggers 2  Project to build: CommitSTatusUpdate Trigger when build is failed parameters commit_status=failureを設定    小ジョブ作成(CommitStatusUPdate)  ビルドのパラメータ化</description>
+    </item>
+    
+    <item>
+      <title>Backbone.jsガイドブック読書会 第２章</title>
+      <link>http://nakajijapan.github.io/blog/2013/06/13/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%92%E7%AB%A0/</link>
+      <pubDate>Thu, 13 Jun 2013 10:56:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/06/13/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%92%E7%AB%A0/</guid>
+      <description>前回の続きです。１章ではBackboneの基礎的な知識を読んでいきましたが、次は実際に使われるオブジェクトの説明。 Backboneで利用される重要な３つのモデルModel, Coolection, Viewの説明（役割・使い方）でした。
+概要と話題になったことをメモろうと思います。
+Model データを扱う方法を提供するもの。 View側で実際にデータがどう扱われているかは気にしない。 -&amp;gt; viewとの分離 これがjavascriptで使えちゃう。
+提供するもの  保持 検証 アクセス制御 保存  Validationをどうするか サーバサイドでもクライアントサイドでも実装しなくちゃいけなくなるのは大変だよね。って話をした。 場合によりけりだろうけど。そこまでのアクセスを気にしなきゃ。検証はサーバサイドで全て任せて その結果を画面に表示。は二重管理せずに済むよね。ユーザにリアルタイムに検証結果を表示させたいとき とかはクライアント側でも利用するよねーという話をした。
+ちなみに欲求不満(http://www.frustration.me)ではサーバサイドでもチェックできるようクラスを用意して それを継承して処理が動作するようになっている。
+#------------------------------------------- # Model #------------------------------------------- class BackboneFrustration.Model extends Backbone.Model initialize: (attributes, options) -&amp;gt; @on &#39;error&#39;, @defaultErrorHandler @on &#39;invalid&#39;, @defaultErrorHandler defaultErrorHandler: (model, error) -&amp;gt; if typeof(error) == &#39;object&#39; if error.statusText != &#39;&#39; alert &#39;Intal Server Error&#39; console.error error else if typeof(error) == &#39;string&#39; if error? or error !</description>
+    </item>
+    
+    <item>
+      <title>RailsでBowerの導入</title>
+      <link>http://nakajijapan.github.io/blog/2013/06/09/rails%E3%81%A7bower%E3%81%AE%E5%B0%8E%E5%85%A5/</link>
+      <pubDate>Sun, 09 Jun 2013 16:07:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/06/09/rails%E3%81%A7bower%E3%81%AE%E5%B0%8E%E5%85%A5/</guid>
+      <description>javascriptのパッケージ管理がしたくてbowerというパッケージ管理ツールをhttp://www.frustration.me にインストールしてみました。 (ブランチ切って試してみました・・・)
+とりあえず、バージョンが古いので最新のものにインストールします。
+$ node -v v0.6.19 $ brew install node ==&amp;gt; Upgrading 1 outdated package, with result: node 0.10.7 ==&amp;gt; Upgrading node Beginning with 0.8.0, this recipe now comes with npm. It appears you already have npm installed at /usr/local/lib/node_modules/npm. To use the npm that comes with this recipe, first uninstall npm with `npm uninstall npm -g`, then run this command again. If you would like to keep your installation of npm instead of using the one provided with homebrew, install the formula with the `--without-npm` option.</description>
+    </item>
+    
+    <item>
+      <title>RubyHiroba</title>
+      <link>http://nakajijapan.github.io/blog/2013/06/05/rubyhiroba/</link>
+      <pubDate>Wed, 05 Jun 2013 00:12:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/06/05/rubyhiroba/</guid>
+      <description>サービスをRailsにした話  from Daichi Nakajima 
+RubyHirobaでLTに参加してきまして自分のサービスのことについて話してきました。 以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。 やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが 反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）
+perlにしろrubyにしろテストがあるのは大変心強いし、安心します。 たとえ、最新のRailsにのせ変えたとしてもテストがない時点でもう技術的負債。前のコードと何ら変わりはない。 まぁ作成した時点負債は負債なんだけどその劣化速度は抑えられるはず。
+まだまだリニューアルは続きますが、引き続きがんばります。
+そして裏で支えていただいた@hsbt氏には感謝の意を隠しきれないであります。。。</description>
+    </item>
+    
+    <item>
+      <title>Backbone.jsガイドブック読書会 第１章 続き</title>
+      <link>http://nakajijapan.github.io/blog/2013/05/30/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/</link>
+      <pubDate>Thu, 30 May 2013 00:12:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/05/30/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/</guid>
+      <description>第１章の続き
+Eventsあたりのところから
+ Eventsが提供しているインタフェースはオブザーバパターンを駆使してオブジェクト間の結合を「疎」に保たせている
+ と記述されている。
+オブザーバパターンとは 購読者と発行者と呼ばれるオブジェクトが存在する。 発行者が購読者のメソッドを直接呼び出す代わりに、購読者は発行者 のイベントを購読する。イベントが発生したらそれを購読している オブジェクトに通知される。
+発行者はだれが購読してるのか知らずに済む。
+イベント駆動開発の技法。
+詳細はここが分かりやすい。 http://www.techscore.com/tech/DesignPattern/Observer.html/
+Backbone.jsでいう購読者と発行者 これを以下のようにして考えるとわかりやすい
+ 購読者: View 発行者 : Model  Modelはだれが購読してるかしらなくていい、イベントを通知してあげればいいんです。
+# viewの中で var entry = new Entry(); entry.on(&#39;change&#39;, this.render());  メディエータパターン  複数オブジェクトの間を取り持つ仲介者と鳴るオブジェクトを用意し、オブジェクト間の連動の詳細をその仲介者に持たせる 個々のオブジェクトの独自性を高める
+ 内容は理解できたけど、使いどころまだピンときていない。
+ここに詳しく記述されていた。 http://www.techscore.com/tech/DesignPattern/Mediator.html/
+コラムでのまめ知識 メモリーリークの問題からon() off()ではなくて listenTo() stopListening()を利用するといい v1.0からはView#remove()内部でstopListening() ViewではlistenToしてるので大丈夫！
+Underscore.js 便利関数の紹介だった。
+ _.debounce()  一定時間イベントが発生しなかったときに処理を実行する  _.throtte()  コールバックの実行頻度をさげる  _.delay()  処理を遅らせる  _.defer()  コールバック関数の中で最後に実行されることを保証する   上記二つの関数は今にも使えそうな便利関数だったので導入していきたいな。</description>
+    </item>
+    
+    <item>
+      <title>Backbone.jsガイドブック読書会 第１章 続き</title>
+      <link>http://nakajijapan.github.io/blog/2013/05/23/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/</link>
+      <pubDate>Thu, 23 May 2013 00:12:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/05/23/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/</guid>
+      <description>Backbone.js読書会１日目 Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）
+そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。
+「Backbone.js ガイドブック」
+
+Backbone.jsガイドブック
+はじめは概要なのですらっと。
+一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } );  サンプルみただけだとふーんですよね。僕もいまのところふーんです。
+ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&amp;lsquo;modal&amp;rsquo;)とかで毎回DOMを操作しなくて済む。
+ふと思った訳です。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { modal_template: null, class_m: function(){ this.modal_template = $(&#39;#modal&#39;).html()} } );  こんなかんじ。
+あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。
+さ。来週もすすめていきますよ。
+追記 洋書は今月末にでるようだ。
+
+Developing Backbone.js Applications</description>
+    </item>
+    
+    <item>
+      <title>hello</title>
+      <link>http://nakajijapan.github.io/blog/2013/03/03/hello/</link>
+      <pubDate>Sun, 03 Mar 2013 10:23:00 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2013/03/03/hello/</guid>
+      <description> こちらでいろいろ記述していくことにしました。
+mkdownはなによりたのもしいです。 さよならwordpress&amp;hellip;
+Title Sub class Hoge def hello { message: &#39;hello world nakajijapan&#39; } end end  </description>
+    </item>
+    
+  </channel>
+</rss>
