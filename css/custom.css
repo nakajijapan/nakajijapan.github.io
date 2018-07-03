@@ -83,9 +83,16 @@ main {
   color: #888;
 }
 
+.entry-categories {
+  color: #888;
+}
 .entry-categories a {
   color: #888;
   text-decoration: none;
+}
+.entry-categories a:hover {
+  color: #888;
+  text-decoration: underline;
 }
 
 section[itemprop="entry-text"] {
