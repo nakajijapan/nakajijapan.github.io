@@ -7,7 +7,11 @@ body {
 h1 {
   font-size: 4.0rem;
 }
-h2 { font-size: 3.2rem; }
+
+h2 {
+  font-size: 3.2rem;
+  border-bottom: solid 1px #ddd;
+}
 h3 { font-size: 2.6rem; }
 h4,
 h5,
@@ -122,4 +126,57 @@ section[itemprop="entry-text"] img {
 }
 .error-text {
   text-align: center;
+}
+
+section[itemprop="entry-text"] h1 {
+    padding: 8px 8px 8px 8px;
+    background: #f1f1f1;
+    border-radius: 4px;
+    margin-left: -8px;
+}
+
+section[itemprop="entry-text"] blockquote {
+    position: relative;
+    padding: 30px 15px 30px 15px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-style: italic;
+    font-size: 1.6rem;
+    background: #f8f8f8;
+    color: #888888;
+}
+
+section[itemprop="entry-text"] blockquote:before{
+    display: inline-block;
+    position: absolute;
+    top: 13px;
+    left: 15px;
+    vertical-align: bottom;
+    content: "’’";
+    color: #cfcfcf;
+    font-size: 28px;
+    line-height: 1;
+}
+section[itemprop="entry-text"] blockquote:after{
+    display: inline-block;
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    vertical-align: middle;
+    content: "’’";
+    color: #cfcfcf;
+    font-size: 28px;
+    line-height: 1;
+}
+section[itemprop="entry-text"] blockquote p {
+    padding: 0;
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+section[itemprop="entry-text"] blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
 }
