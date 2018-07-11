@@ -27,10 +27,10 @@ func applicationDidBecomeActive(_ application: UIApplication) { let versionUpdat
     
     <item>
       <title>Izumo Updated  v1.3.1</title>
-      <link>http://nakajijapan.github.io/blog/2018/07/12/izumo-updated--v1.3.1/</link>
-      <pubDate>Thu, 12 Jul 2018 00:44:06 +0900</pubDate>
+      <link>http://nakajijapan.github.io/blog/2018/07/11/izumo-updated--v1.3.1/</link>
+      <pubDate>Wed, 11 Jul 2018 00:44:06 +0900</pubDate>
       
-      <guid>http://nakajijapan.github.io/blog/2018/07/12/izumo-updated--v1.3.1/</guid>
+      <guid>http://nakajijapan.github.io/blog/2018/07/11/izumo-updated--v1.3.1/</guid>
       <description>Izumo - Markdown Note tool -のアップデートをしました。
  macOS iOS  macOS  編集中のノートを同期しようとした時にカーソルが先頭に移動してしまう ローカライズ対応  中国語を対応した   iOS  カテゴリ選択のインタラクションとUIの改善  角丸対応 https://github.com/nakajijapan/Shari/pull/32  Cellのスワイプ後、タップした時のインタラクションの改善  ローカライズは中国でダウンロードされて欲しいという希望的観測です。。。
 Tシャツ作った テンション上がって作ってみました。 あまり派手にせずシンプルにしてカジュアルに着れるようにしています。うん、僕が着ます。
