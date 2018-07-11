@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <copyright>nakajijapan All rights reserved.</copyright>
-    <lastBuildDate>Thu, 12 Jul 2018 00:44:06 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 12 Jul 2018 00:54:13 +0900</lastBuildDate>
     
 	<atom:link href="http://nakajijapan.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>アップデートをユーザにお知らせするライブラリ作成した。（iOS!）</title>
+      <link>http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios/</link>
+      <pubDate>Thu, 12 Jul 2018 00:54:13 +0900</pubDate>
+      
+      <guid>http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios/</guid>
+      <description>何かと必要なのでシンプルなものをSwiftで作成し直した。 以前は、Objective-C用のライブラリを使っていてPRとかもしていた。 だけど、Swiftのものが欲しくなったので作成した。
+VersionUpdater  Notify users when a new version of your app is available and force them to upgrade the application of the version.
+ https://github.com/nakajijapan/VersionUpdater
+Requirements  iOS 10.0+ Xcode 9+ Swift 4+  仕様  アプリがアクティブになったらサーバからJSONファイルを取得する バージョンを比較して低ければアラートを表示する モード  強制  ダイアログを閉じれなくし、指定のURLへの遷移を強制させる  オプショナル  ダイアログを閉じることができ、以降アプリの操作ができる サイドアプリがアクティブになればまたダイアログが表示される    Usage endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。
+func applicationDidBecomeActive(_ application: UIApplication) { let versionUpdater = VersionUpdater( endPointURL: URL(string: &amp;quot;https://foo.com/ios.json&amp;quot;)! ) versionUpdater.</description>
+    </item>
     
     <item>
       <title>Izumo Updated  v1.3.1</title>
@@ -20,7 +33,7 @@
       <guid>http://nakajijapan.github.io/blog/2018/07/12/izumo-updated--v1.3.1/</guid>
       <description>Izumo - Markdown Note tool -のアップデートをしました。
  macOS iOS  macOS  編集中のノートを同期しようとした時にカーソルが先頭に移動してしまう ローカライズ対応  中国語を対応した   iOS  カテゴリ選択のインタラクションとUIの改善  角丸対応 https://github.com/nakajijapan/Shari/pull/32  Cellのスワイプ後、タップした時のインタラクションの改善  ローカライズは中国でダウンロードされて欲しいという希望的観測です。。。
-Tシャツ作った テンション上がって作ってみました。 あまり派手にせずシンプルにしてカジュアルに着れるようにしています。
+Tシャツ作った テンション上がって作ってみました。 あまり派手にせずシンプルにしてカジュアルに着れるようにしています。うん、僕が着ます。
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;);</description>
     </item>
     
