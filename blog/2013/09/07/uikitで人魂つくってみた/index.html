@@ -8,20 +8,25 @@
 <meta property="og:title" content="UIKitで人魂つくってみた">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2013/09/07/uikit%E3%81%A7%E4%BA%BA%E9%AD%82%E3%81%A4%E3%81%8F%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/" />
-<meta property="go:description"
-      content="
-                   
-                       お化けアプリを絶賛作成中なのですが、そのなかで世界観を少しでも作るべくいろいろ試行錯誤しているのですが、ちょっとトップに 人魂でもいれてみようじゃないかと思い立って作ってみました。
+<meta property="go:description" content="お化けアプリを絶賛作成中なのですが、そのなかで世界観を少しでも作るべくいろいろ試行錯誤しているのですが、ちょっとトップに 人魂でもいれてみようじゃないかと思い立って作ってみました。
 iOS5からCore AnimationなるものがサポートされていてパーティクルエフェクトがUIKitでも作成できるようになったので実装してみました。 以前はCocos2Dのフレームワーク情報で作成していたのですがそれを利用しないのは初めて。
 まずはフレームワークをインポートする
 1 #import &lt;QuartzCore/QuartzCore.h&gt;  2 あとは表現したものを想像して実装するのみ！！！！っていってもパラメータが沢山あるので 感覚的にGUIで設定できてその状態のパラメータをみれるツールをつかいました。
  UIEffectDesigner  http://www.touch-code-magazine.com/uieffectdesigner/   これにfire ballっていのがあったのでそれを参考にしつつ自分なりに調整してみました。
-- (void)viewDidLoad { [super viewDidLoad]; CAEmitterLayer* fireEmitter = [CAEmitterLayer layer]; fireEmitter.emitterPosition = CGPointMake(200, 200); fireEmitter.emitterSize = CGSizeMake(40, 40); fireEmitter.renderMode = kCAEmitterLayerAdditive; CAEmitterCell* fire = [CAEmitterCell emitterCell]; fire.birthRate = 250; fire.lifetime = 2.0; fire.lifetimeRange = 2.06; fire.velocity = 26; fire.velocityRange = 40; fire.color = [[UIColor colorWithRed:0.0 green:0.0 blue:0.05 alpha:1.0] CGColor]; fire.
-                   
-               " />
+- (void)viewDidLoad { [super viewDidLoad]; CAEmitterLayer* fireEmitter = [CAEmitterLayer layer]; fireEmitter.emitterPosition = CGPointMake(200, 200); fireEmitter.emitterSize = CGSizeMake(40, 40); fireEmitter.renderMode = kCAEmitterLayerAdditive; CAEmitterCell* fire = [CAEmitterCell emitterCell]; fire.birthRate = 250; fire.lifetime = 2.0; fire.lifetimeRange = 2.06; fire.velocity = 26; fire.velocityRange = 40; fire.color = [[UIColor colorWithRed:0.0 green:0.0 blue:0.05 alpha:1.0] CGColor]; fire." />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="UIKitで人魂つくってみた" />
+<meta name="twitter:description" content="お化けアプリを絶賛作成中なのですが、そのなかで世界観を少しでも作るべくいろいろ試行錯誤しているのですが、ちょっとトップに 人魂でもいれてみようじゃないかと思い立って作ってみました。
+iOS5からCore AnimationなるものがサポートされていてパーティクルエフェクトがUIKitでも作成できるようになったので実装してみました。 以前はCocos2Dのフレームワーク情報で作成していたのですがそれを利用しないのは初めて。
+まずはフレームワークをインポートする
+1 #import &lt;QuartzCore/QuartzCore.h&gt;  2 あとは表現したものを想像して実装するのみ！！！！っていってもパラメータが沢山あるので 感覚的にGUIで設定できてその状態のパラメータをみれるツールをつかいました。
+ UIEffectDesigner  http://www.touch-code-magazine.com/uieffectdesigner/   これにfire ballっていのがあったのでそれを参考にしつつ自分なりに調整してみました。
+- (void)viewDidLoad { [super viewDidLoad]; CAEmitterLayer* fireEmitter = [CAEmitterLayer layer]; fireEmitter.emitterPosition = CGPointMake(200, 200); fireEmitter.emitterSize = CGSizeMake(40, 40); fireEmitter.renderMode = kCAEmitterLayerAdditive; CAEmitterCell* fire = [CAEmitterCell emitterCell]; fire.birthRate = 250; fire.lifetime = 2.0; fire.lifetimeRange = 2.06; fire.velocity = 26; fire.velocityRange = 40; fire.color = [[UIColor colorWithRed:0.0 green:0.0 blue:0.05 alpha:1.0] CGColor]; fire." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

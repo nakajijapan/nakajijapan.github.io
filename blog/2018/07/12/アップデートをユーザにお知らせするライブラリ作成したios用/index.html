@@ -8,19 +8,23 @@
 <meta property="og:title" content="アップデートをユーザにお知らせするライブラリ作成した。（iOS用）">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios%E7%94%A8/" />
-<meta property="go:description"
-      content="
-                   
-                       何かと必要なのでシンプルなものをSwiftで作成し直した。 以前は、Objective-C用のライブラリを使っていてPRとかもしていた。 だけど、Swiftのものが欲しくなったので作成した。
+<meta property="go:description" content="何かと必要なのでシンプルなものをSwiftで作成し直した。 以前は、Objective-C用のライブラリを使っていてPRとかもしていた。 だけど、Swiftのものが欲しくなったので作成した。
 VersionUpdater  Notify users when a new version of your app is available and force them to upgrade the application of the version.
  https://github.com/nakajijapan/VersionUpdater
 Requirements  iOS 10.0&#43; Xcode 9&#43; Swift 4&#43;  仕様  アプリがアクティブになったらサーバからJSONファイルを取得する バージョンを比較して低ければアラートを表示する モード  強制  ダイアログを閉じれなくし、指定のURLへの遷移を強制させる  オプショナル  ダイアログを閉じることができ、以降アプリの操作ができる サイドアプリがアクティブになればまたダイアログが表示される    Usage endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。
-func applicationDidBecomeActive(_ application: UIApplication) { let versionUpdater = VersionUpdater( endPointURL: URL(string: &quot;https://foo.com/ios.json&quot;)! ) versionUpdater.
-                   
-               " />
+func applicationDidBecomeActive(_ application: UIApplication) { let versionUpdater = VersionUpdater( endPointURL: URL(string: &quot;https://foo.com/ios.json&quot;)! ) versionUpdater." />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="アップデートをユーザにお知らせするライブラリ作成した。（iOS用）" />
+<meta name="twitter:description" content="何かと必要なのでシンプルなものをSwiftで作成し直した。 以前は、Objective-C用のライブラリを使っていてPRとかもしていた。 だけど、Swiftのものが欲しくなったので作成した。
+VersionUpdater  Notify users when a new version of your app is available and force them to upgrade the application of the version.
+ https://github.com/nakajijapan/VersionUpdater
+Requirements  iOS 10.0&#43; Xcode 9&#43; Swift 4&#43;  仕様  アプリがアクティブになったらサーバからJSONファイルを取得する バージョンを比較して低ければアラートを表示する モード  強制  ダイアログを閉じれなくし、指定のURLへの遷移を強制させる  オプショナル  ダイアログを閉じることができ、以降アプリの操作ができる サイドアプリがアクティブになればまたダイアログが表示される    Usage endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。
+func applicationDidBecomeActive(_ application: UIApplication) { let versionUpdater = VersionUpdater( endPointURL: URL(string: &quot;https://foo.com/ios.json&quot;)! ) versionUpdater." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

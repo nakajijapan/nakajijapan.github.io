@@ -8,22 +8,29 @@
 <meta property="og:title" content="Introducing CloudKit">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/08/23/introducing-cloudkit/" />
-<meta property="go:description"
-      content="
-                   
-                       CloudKit Strage
+<meta property="go:description" content="CloudKit Strage
 WWDC2014でiOS8からの新しい機能であるCloudKitについて調べたよという話です。
 次に自分がリリースするプロダクトのバックエンドを実験がてらParseでやろうとしていたのですが、 CloudKitのほうが便利そうだったのと、何かときめきを感じるものがあったのでCloudKitを選定して実装する方向 にはなったのです。しかし、情報はというとサンプルプログラムとただドキュメントがあるんだけでした ので自分なりに調べてどういう実装をしたらいいのかというのを調査して、一部まとめたお話です。
 せっかくなのでpotatotips #8でも共有させていただきました。
  簡単に話すと以下のような内容になっています。
  簡単にCloudKitの説明 CRUDで実装した場合、どんな実装になるのか ページング処理の話 要調査内容 感想  補足なのですがCKSubscriptionも試してみたのでご参考までに。
 CKSubscription サーバ上での変更を追跡するのに利用されます。 例えば、何かのレコードに変更があった場合にPush通知を送信できたりします。 実際のコードは以下のようなもの。
- // #1 let truePredicate = NSPredicate(value: true) let itemSubscription = CKSubscription( recordType: &quot;Items&quot;, predicate: truePredicate, options: CKSubscriptionOptions.FiresOnRecordCreation ) // #2 let notification = CKNotificationInfo() notification.alertBody = &quot;Item Add&quot; itemSubscription.notificationInfo = notification // #3 self.publicDatabase.saveSubscription( itemSubscription, completionHandler: { (subscription:CKSubscription!, error:NSError!) -&gt; Void in if error != nil { println(&quot;An error occured in \(error.
-                   
-               " />
+ // #1 let truePredicate = NSPredicate(value: true) let itemSubscription = CKSubscription( recordType: &quot;Items&quot;, predicate: truePredicate, options: CKSubscriptionOptions.FiresOnRecordCreation ) // #2 let notification = CKNotificationInfo() notification.alertBody = &quot;Item Add&quot; itemSubscription.notificationInfo = notification // #3 self.publicDatabase.saveSubscription( itemSubscription, completionHandler: { (subscription:CKSubscription!, error:NSError!) -&gt; Void in if error != nil { println(&quot;An error occured in \(error." />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Introducing CloudKit" />
+<meta name="twitter:description" content="CloudKit Strage
+WWDC2014でiOS8からの新しい機能であるCloudKitについて調べたよという話です。
+次に自分がリリースするプロダクトのバックエンドを実験がてらParseでやろうとしていたのですが、 CloudKitのほうが便利そうだったのと、何かときめきを感じるものがあったのでCloudKitを選定して実装する方向 にはなったのです。しかし、情報はというとサンプルプログラムとただドキュメントがあるんだけでした ので自分なりに調べてどういう実装をしたらいいのかというのを調査して、一部まとめたお話です。
+せっかくなのでpotatotips #8でも共有させていただきました。
+ 簡単に話すと以下のような内容になっています。
+ 簡単にCloudKitの説明 CRUDで実装した場合、どんな実装になるのか ページング処理の話 要調査内容 感想  補足なのですがCKSubscriptionも試してみたのでご参考までに。
+CKSubscription サーバ上での変更を追跡するのに利用されます。 例えば、何かのレコードに変更があった場合にPush通知を送信できたりします。 実際のコードは以下のようなもの。
+ // #1 let truePredicate = NSPredicate(value: true) let itemSubscription = CKSubscription( recordType: &quot;Items&quot;, predicate: truePredicate, options: CKSubscriptionOptions.FiresOnRecordCreation ) // #2 let notification = CKNotificationInfo() notification.alertBody = &quot;Item Add&quot; itemSubscription.notificationInfo = notification // #3 self.publicDatabase.saveSubscription( itemSubscription, completionHandler: { (subscription:CKSubscription!, error:NSError!) -&gt; Void in if error != nil { println(&quot;An error occured in \(error." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

@@ -8,21 +8,27 @@
 <meta property="og:title" content="iOS勉強会 iBeaconでできること　に参加してきた">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2013/12/12/ios%E5%8B%89%E5%BC%B7%E4%BC%9A-ibeacon%E3%81%A7%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/" />
-<meta property="go:description"
-      content="
-                   
-                       Developer&rsquo;s IOさんが主催する勉強会に参加してきました。 http://connpass.com/event/4225/
+<meta property="go:description" content="Developer&rsquo;s IOさんが主催する勉強会に参加してきました。 http://connpass.com/event/4225/
 iOS7の発表がでてからiBeaconに興味を持ち出して、このにゅ〜てくのろじ〜を面白いことにつかえないかと調査していたのですが、今回もっと知識を深めるべく勉強会にさんかしてきました。そのメモを残しておこうと思います。
 【初級】iBeaconの基礎のキ 開発者以外にひとでも分かるようにiBeaconというものをざっくり説明してました。
 iBeaconとは  BLEを利用している Bluetooth onにしないといけない CoreLocation.framework iOS7がインストールされるからってBLEが利用されるわけではない  iOS7 &#43; BLEが利用できるっていうのが重要   ざっくり定義すると
 BLEを利用したAppleの距離と領域観測のサービス
 です。
-利用したサービス  AppleStore  テーブルに近づくとiPhoneの紹介や下取りの情報が表示される  Macy&rsquo;s  入店検知してクーポンの取得、おすすめ商品の紹介 O2O施策としてだいぶ確率されているようです  スマポ  来店ポイントがたまる 日本でしっかりベジネスにしているサービスですね  MLB  入場用のバーコード point クーポン 本日の対戦情報を表示してくれる 自分の座席情報を教えてくれる とはいえ、現在まだベータ運用しているらしく、本番運用はまだのようですね   よく利用される用語  Beacon  電子情報を受信して現在情報を知る電子機器のことをいうらしい http://e-words.jp/w/E38393E383BCE382B3E383B3.html  BLE  2.4GHz の無線を使った近距離無線通信規格 少ない電池でもいままでよりも長くバッテリーが持つようにつくられている  Advertise  アドバタイズ：ある機器が別の機器に管理情報を伝達すること proximity UUID（企業） major（建物） minor（フロア）  リージョン監視  領域の入出チェック（虜域観測） リージョン=UUID 出るイベントはドキュメント情報は２０秒っぽいが実際は３０秒かかるっぽい  Ranging  エリア内のBeaconの情報を取得（距離推定） Beacon距離 proximity  距離判定は４つとれる 相対的に変わる  accuracy  位置情報取得の精度を指定 もちろん精度が良いほど正確だが電池の量も多い 領域はだいたいのもの  rssi  Received Signal Strength Indication 無線通信機器が受信する信号の強度を測定するための回路または信号   電波法！！！！  技適マークがついていない無線機は電波法違反らしい estimoteのビーコン端末は日本実運用すると電波法違反になるぽいですね   iBeaconを使ってみよう iBeaconアプリの作り方を二つのキーワードで説明しています。 以下の二つをもとに実装を行っていく
-                   
-               " />
+利用したサービス  AppleStore  テーブルに近づくとiPhoneの紹介や下取りの情報が表示される  Macy&rsquo;s  入店検知してクーポンの取得、おすすめ商品の紹介 O2O施策としてだいぶ確率されているようです  スマポ  来店ポイントがたまる 日本でしっかりベジネスにしているサービスですね  MLB  入場用のバーコード point クーポン 本日の対戦情報を表示してくれる 自分の座席情報を教えてくれる とはいえ、現在まだベータ運用しているらしく、本番運用はまだのようですね   よく利用される用語  Beacon  電子情報を受信して現在情報を知る電子機器のことをいうらしい http://e-words.jp/w/E38393E383BCE382B3E383B3.html  BLE  2.4GHz の無線を使った近距離無線通信規格 少ない電池でもいままでよりも長くバッテリーが持つようにつくられている  Advertise  アドバタイズ：ある機器が別の機器に管理情報を伝達すること proximity UUID（企業） major（建物） minor（フロア）  リージョン監視  領域の入出チェック（虜域観測） リージョン=UUID 出るイベントはドキュメント情報は２０秒っぽいが実際は３０秒かかるっぽい  Ranging  エリア内のBeaconの情報を取得（距離推定） Beacon距離 proximity  距離判定は４つとれる 相対的に変わる  accuracy  位置情報取得の精度を指定 もちろん精度が良いほど正確だが電池の量も多い 領域はだいたいのもの  rssi  Received Signal Strength Indication 無線通信機器が受信する信号の強度を測定するための回路または信号   電波法！！！！  技適マークがついていない無線機は電波法違反らしい estimoteのビーコン端末は日本実運用すると電波法違反になるぽいですね   iBeaconを使ってみよう iBeaconアプリの作り方を二つのキーワードで説明しています。 以下の二つをもとに実装を行っていく" />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="iOS勉強会 iBeaconでできること　に参加してきた" />
+<meta name="twitter:description" content="Developer&rsquo;s IOさんが主催する勉強会に参加してきました。 http://connpass.com/event/4225/
+iOS7の発表がでてからiBeaconに興味を持ち出して、このにゅ〜てくのろじ〜を面白いことにつかえないかと調査していたのですが、今回もっと知識を深めるべく勉強会にさんかしてきました。そのメモを残しておこうと思います。
+【初級】iBeaconの基礎のキ 開発者以外にひとでも分かるようにiBeaconというものをざっくり説明してました。
+iBeaconとは  BLEを利用している Bluetooth onにしないといけない CoreLocation.framework iOS7がインストールされるからってBLEが利用されるわけではない  iOS7 &#43; BLEが利用できるっていうのが重要   ざっくり定義すると
+BLEを利用したAppleの距離と領域観測のサービス
+です。
+利用したサービス  AppleStore  テーブルに近づくとiPhoneの紹介や下取りの情報が表示される  Macy&rsquo;s  入店検知してクーポンの取得、おすすめ商品の紹介 O2O施策としてだいぶ確率されているようです  スマポ  来店ポイントがたまる 日本でしっかりベジネスにしているサービスですね  MLB  入場用のバーコード point クーポン 本日の対戦情報を表示してくれる 自分の座席情報を教えてくれる とはいえ、現在まだベータ運用しているらしく、本番運用はまだのようですね   よく利用される用語  Beacon  電子情報を受信して現在情報を知る電子機器のことをいうらしい http://e-words.jp/w/E38393E383BCE382B3E383B3.html  BLE  2.4GHz の無線を使った近距離無線通信規格 少ない電池でもいままでよりも長くバッテリーが持つようにつくられている  Advertise  アドバタイズ：ある機器が別の機器に管理情報を伝達すること proximity UUID（企業） major（建物） minor（フロア）  リージョン監視  領域の入出チェック（虜域観測） リージョン=UUID 出るイベントはドキュメント情報は２０秒っぽいが実際は３０秒かかるっぽい  Ranging  エリア内のBeaconの情報を取得（距離推定） Beacon距離 proximity  距離判定は４つとれる 相対的に変わる  accuracy  位置情報取得の精度を指定 もちろん精度が良いほど正確だが電池の量も多い 領域はだいたいのもの  rssi  Received Signal Strength Indication 無線通信機器が受信する信号の強度を測定するための回路または信号   電波法！！！！  技適マークがついていない無線機は電波法違反らしい estimoteのビーコン端末は日本実運用すると電波法違反になるぽいですね   iBeaconを使ってみよう iBeaconアプリの作り方を二つのキーワードで説明しています。 以下の二つをもとに実装を行っていく" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

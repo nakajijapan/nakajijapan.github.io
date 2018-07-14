@@ -8,22 +8,29 @@
 <meta property="og:title" content="About Core Foudation in Working with Cocoa Data Types">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/07/26/about-core-foudation-in-working-with-cocoa-data-types/" />
-<meta property="go:description"
-      content="
-                   
-                       AV Foundation関連のプログラムをSwiftで書き直しているときに、単純に変換できないところがあったので 一旦でキュメントに振り返って読み直してみました。
+<meta property="go:description" content="AV Foundation関連のプログラムをSwiftで書き直しているときに、単純に変換できないところがあったので 一旦でキュメントに振り返って読み直してみました。
 参照先はAppleの公式ドキュメントに記載してあるのを自分なりに翻訳してみました。
 Core Foundation Core Foundation型は自動的にfull-fledgedなSwiftクラスとしてインポートされる。 メモリ管理が提供されるときはいつでも、Swiftは自動的にCore Foundation objectsのメモリを管理し、 自身をインスタンス化したCore Foundation objectsをインクルードして管理します。Swift内で、 あなたはtoll-free bridgedなFoundationとCore Foundationの両方を相互に変換できる。 あなたはブリッジしているFoundation型をキャストするならSwiftの標準ライブラリに対してtoll-free bridgedな Core Foundation型をブリッジすることができる
  toll-free bridged  オブジェクトを変換することなくキャストすることで相互変換可能な仕組みのことを指すらしいです   Remapped Types SwiftはCore Foundation型をインポートするとき、コンパイラはそれらの型名を再配置する コンパイラは各型の最後に記述されているRefを削除する、なぜならSwiftクラスのすべては参照型、 それゆえにサフィックスはいらない
 CFTypeRefはAnyObjectに再配置されるよ。CFTypeRefをつかうときはAnyObjectを利用すべきだ！
 Memory Managed Objects APIから返却されたCore Foundation objectsはSwiftで自動的にメモリ管理される。 あなたは自分自身でCFRetain、CFRelease、CFAutoreleaseを呼び出す必要はない。独自のCの関数からCore Foundation objects を返すのなら、それらをCF_RETURNS_RETAINEDとCF_RETURNS_NOT_RETAINEDのいずれかを使ってアノテートする。 上記のAPIを呼び出すSwiftコードをコンパイルするとき、コンパイラは自動的ににメモリ管理用の呼び出しを行う。 Core Foundation objectsを返さないAPIを利用するときは、このセクションをスキップしてね。 でないのならunmanaged Core Foundation objectsの操作について学んでね。
 Unmanaged Objects Swiftが提供されているAPIをimportするときに、コンパイラは自動的に返却されたCore Foundation Objectsをメモリ管理できないよ SwiftはUnmanaged&lt;T&gt;構造体内でこれらの返却されたCore Foundation objectsを内包する 間接的に返却されたCore Foundation objectsのすべては管理されい。例えば以下のように宣言できる
-Objective-C CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)  Swift func StringByAddingTwoStrings(CFString!
-                   
-               " />
+Objective-C CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)  Swift func StringByAddingTwoStrings(CFString!" />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="About Core Foudation in Working with Cocoa Data Types" />
+<meta name="twitter:description" content="AV Foundation関連のプログラムをSwiftで書き直しているときに、単純に変換できないところがあったので 一旦でキュメントに振り返って読み直してみました。
+参照先はAppleの公式ドキュメントに記載してあるのを自分なりに翻訳してみました。
+Core Foundation Core Foundation型は自動的にfull-fledgedなSwiftクラスとしてインポートされる。 メモリ管理が提供されるときはいつでも、Swiftは自動的にCore Foundation objectsのメモリを管理し、 自身をインスタンス化したCore Foundation objectsをインクルードして管理します。Swift内で、 あなたはtoll-free bridgedなFoundationとCore Foundationの両方を相互に変換できる。 あなたはブリッジしているFoundation型をキャストするならSwiftの標準ライブラリに対してtoll-free bridgedな Core Foundation型をブリッジすることができる
+ toll-free bridged  オブジェクトを変換することなくキャストすることで相互変換可能な仕組みのことを指すらしいです   Remapped Types SwiftはCore Foundation型をインポートするとき、コンパイラはそれらの型名を再配置する コンパイラは各型の最後に記述されているRefを削除する、なぜならSwiftクラスのすべては参照型、 それゆえにサフィックスはいらない
+CFTypeRefはAnyObjectに再配置されるよ。CFTypeRefをつかうときはAnyObjectを利用すべきだ！
+Memory Managed Objects APIから返却されたCore Foundation objectsはSwiftで自動的にメモリ管理される。 あなたは自分自身でCFRetain、CFRelease、CFAutoreleaseを呼び出す必要はない。独自のCの関数からCore Foundation objects を返すのなら、それらをCF_RETURNS_RETAINEDとCF_RETURNS_NOT_RETAINEDのいずれかを使ってアノテートする。 上記のAPIを呼び出すSwiftコードをコンパイルするとき、コンパイラは自動的ににメモリ管理用の呼び出しを行う。 Core Foundation objectsを返さないAPIを利用するときは、このセクションをスキップしてね。 でないのならunmanaged Core Foundation objectsの操作について学んでね。
+Unmanaged Objects Swiftが提供されているAPIをimportするときに、コンパイラは自動的に返却されたCore Foundation Objectsをメモリ管理できないよ SwiftはUnmanaged&lt;T&gt;構造体内でこれらの返却されたCore Foundation objectsを内包する 間接的に返却されたCore Foundation objectsのすべては管理されい。例えば以下のように宣言できる
+Objective-C CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)  Swift func StringByAddingTwoStrings(CFString!" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

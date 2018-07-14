@@ -8,17 +8,19 @@
 <meta property="og:title" content="動画関連の処理をする上で注意すること">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/01/19/%E5%8B%95%E7%94%BB%E9%96%A2%E9%80%A3%E3%81%AE%E5%87%A6%E7%90%86%E3%82%92%E3%81%99%E3%82%8B%E4%B8%8A%E3%81%A7%E6%B3%A8%E6%84%8F%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8/" />
-<meta property="go:description"
-      content="
-                   
-                       以前の記事でも書いたのですが、心霊動画アプリ「もう一度ご覧いただこう」というアプリを作成したときにいろいろと苦労したことがあったので、それを書き留めておこうと思います。
+<meta property="go:description" content="以前の記事でも書いたのですが、心霊動画アプリ「もう一度ご覧いただこう」というアプリを作成したときにいろいろと苦労したことがあったので、それを書き留めておこうと思います。
 回転問題 そのまま動画を保存すると270度になってしまっているので回転する必要があった
- CGAffineTransform transformVideo = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, 0.0); CGAffineTransform transformVideoRotate = CGAffineTransformRotate(transformVideo, M_PI * 0.5); CGAffineTransform transformVideoMove = CGAffineTransformTranslate(transformVideoRotate, -300, 0); [layerInstruction setTransform: transformVideoMove atTime:kCMTimeZero];  結構、簡単で地味なことだったのですが、こういうことが原因で数日迷走していた日があったのでもう迷走しない為に。。。
-                   
-               " />
+ CGAffineTransform transformVideo = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, 0.0); CGAffineTransform transformVideoRotate = CGAffineTransformRotate(transformVideo, M_PI * 0.5); CGAffineTransform transformVideoMove = CGAffineTransformTranslate(transformVideoRotate, -300, 0); [layerInstruction setTransform: transformVideoMove atTime:kCMTimeZero];  結構、簡単で地味なことだったのですが、こういうことが原因で数日迷走していた日があったのでもう迷走しない為に。。。" />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="動画関連の処理をする上で注意すること" />
+<meta name="twitter:description" content="以前の記事でも書いたのですが、心霊動画アプリ「もう一度ご覧いただこう」というアプリを作成したときにいろいろと苦労したことがあったので、それを書き留めておこうと思います。
+回転問題 そのまま動画を保存すると270度になってしまっているので回転する必要があった
+ CGAffineTransform transformVideo = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, 0.0); CGAffineTransform transformVideoRotate = CGAffineTransformRotate(transformVideo, M_PI * 0.5); CGAffineTransform transformVideoMove = CGAffineTransformTranslate(transformVideoRotate, -300, 0); [layerInstruction setTransform: transformVideoMove atTime:kCMTimeZero];  結構、簡単で地味なことだったのですが、こういうことが原因で数日迷走していた日があったのでもう迷走しない為に。。。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

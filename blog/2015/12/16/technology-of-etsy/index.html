@@ -8,22 +8,29 @@
 <meta property="og:title" content="Technology of Etsy">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2015/12/16/technology-of-etsy/" />
-<meta property="go:description"
-      content="
-                   
-                       初めまして, @nakajijapanです。
+<meta property="go:description" content="初めまして, @nakajijapanです。
 この記事はiOS Adovent Calendar 2015の16日目の記事になります。
 今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。 どんなインタラクションかというと作品のの個数を決めるときにドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような インタラクションを実現しています。
 カートで在庫や作品の色を決めるときに表現されます。
  transitionで現在の画面を多少縮小させる 画面の半分までTableViewが表示される  Cellをタップしたら閉じる  NavigationBarのような部分をパンすることで最後までTableViewが表示されるようになる  パンしている間、縮小した画面はそれに合わせてリアルタイムに変化する   これは、少ない選択肢の時はTableViewを半分だけ表示すれば事足りるのだが、その半分におさまらない場合はパンすることでさらに見ることができるようになるという仕組み？かと思います。 これがいいのは、ユーザの細かいフェーズでインタラクションを実現できることだと思います。
  選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる  後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる  選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる  上記と同じなのだが、さらに本当にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている   試してみたこと では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのがUIPercentDrivenInteractiveTransitionを利用した方法です。 これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して 行われてしまうのですがUIPercentDrivenInteractiveTransitionを利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体はUIViewControllerAnimatorTransitioningプロトコルを利用したアニメーションクラスを実装することで実現できます。 しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中からUIPercentDrivenInteractiveTransitionを利用してパンしながらリアルタイムにアニメーションをすることができませんでした。
 どのように作成したの では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。 あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。
-func transitionBackgroundView(degree: CGFloat, location:CGPoint) { let overlayView = self.parentView!.viewWithTag(920)! let imageView = overlayView.viewWithTag(910) as! UIImageView let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0) let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1) imageView.
-                   
-               " />
+func transitionBackgroundView(degree: CGFloat, location:CGPoint) { let overlayView = self.parentView!.viewWithTag(920)! let imageView = overlayView.viewWithTag(910) as! UIImageView let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0) let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1) imageView." />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Technology of Etsy" />
+<meta name="twitter:description" content="初めまして, @nakajijapanです。
+この記事はiOS Adovent Calendar 2015の16日目の記事になります。
+今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。 どんなインタラクションかというと作品のの個数を決めるときにドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような インタラクションを実現しています。
+カートで在庫や作品の色を決めるときに表現されます。
+ transitionで現在の画面を多少縮小させる 画面の半分までTableViewが表示される  Cellをタップしたら閉じる  NavigationBarのような部分をパンすることで最後までTableViewが表示されるようになる  パンしている間、縮小した画面はそれに合わせてリアルタイムに変化する   これは、少ない選択肢の時はTableViewを半分だけ表示すれば事足りるのだが、その半分におさまらない場合はパンすることでさらに見ることができるようになるという仕組み？かと思います。 これがいいのは、ユーザの細かいフェーズでインタラクションを実現できることだと思います。
+ 選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる  後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる  選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる  上記と同じなのだが、さらに本当にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている   試してみたこと では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのがUIPercentDrivenInteractiveTransitionを利用した方法です。 これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して 行われてしまうのですがUIPercentDrivenInteractiveTransitionを利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体はUIViewControllerAnimatorTransitioningプロトコルを利用したアニメーションクラスを実装することで実現できます。 しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中からUIPercentDrivenInteractiveTransitionを利用してパンしながらリアルタイムにアニメーションをすることができませんでした。
+どのように作成したの では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。 あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。
+func transitionBackgroundView(degree: CGFloat, location:CGPoint) { let overlayView = self.parentView!.viewWithTag(920)! let imageView = overlayView.viewWithTag(910) as! UIImageView let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0) let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1) imageView." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

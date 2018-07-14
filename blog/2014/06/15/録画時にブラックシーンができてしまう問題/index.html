@@ -8,22 +8,29 @@
 <meta property="og:title" content="録画時にブラックシーンができてしまう問題">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/06/15/%E9%8C%B2%E7%94%BB%E6%99%82%E3%81%AB%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%82%B7%E3%83%BC%E3%83%B3%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%A6%E3%81%97%E3%81%BE%E3%81%86%E5%95%8F%E9%A1%8C/" />
-<meta property="go:description"
-      content="
-                   
-                       WWDC2014に行って来たの話になるのですが、 プライベートでアプリ作成しているときにAV Foundation絡みでわからないところがあったのでAppleのエンジニアさんに質問してきました。
+<meta property="go:description" content="WWDC2014に行って来たの話になるのですが、 プライベートでアプリ作成しているときにAV Foundation絡みでわからないところがあったのでAppleのエンジニアさんに質問してきました。
 現象 問題は、自分が作成したNKJMultiMovieCaptureViewでその現象が発生しました。 作成したときの話はこちらになります。 Vine動画のようにタッチしたら録画し、タッチが終了したら(指を離したら)録画を終了し、録画した複数の動画を一つにする仕組みを作成したのですが、 実際作成した動画を見てみると最初のほんの一瞬だけなぜかブラックシーンができてしまいます。
 現状の処理として以下のようなことをしています。
 1. 録画開始 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event  タッチイベントで録画の処理を開始します。このときにファイルに対しての書き込み処理を開始します。
 [self.assetWriter startWriting]; [self.assetWriter startSessionAtSourceTime:self.recordStartTime];  2. 録画 AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegateをプロトコルとして指定して、 以下のメソッドで録画の処理を行います。
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection  ざっくりですが、内部でやっていることはCMSampleBufferというフレーム情報が取得でき、それを１秒間に何回も実行されるこのメソッドでAVAssetWriterInputオブジェクトに 追加処理をしています。
 CFRetain(sampleBuffer); CFRetain(formatDescription); dispatch_async(self.movieWritingQueue, ^{ if (_assetWriter.status == AVAssetWriterStatusWriting) { if (assetWriterInput.readyForMoreMediaData) { if (![assetWriterInput appendSampleBuffer:sampleBuffer]) { NSLog(@&quot;%@&quot;,[self.assetWriter error]); } } } CFRelease(sampleBuffer); CFRelease(formatDescription); });  3. 録画終了 タッチが終了したら録画終了の処理を行います。
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event  問題 どうやらスレッドを利用しての保存方法に問題があったようです。
-                   
-               " />
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event  問題 どうやらスレッドを利用しての保存方法に問題があったようです。" />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="録画時にブラックシーンができてしまう問題" />
+<meta name="twitter:description" content="WWDC2014に行って来たの話になるのですが、 プライベートでアプリ作成しているときにAV Foundation絡みでわからないところがあったのでAppleのエンジニアさんに質問してきました。
+現象 問題は、自分が作成したNKJMultiMovieCaptureViewでその現象が発生しました。 作成したときの話はこちらになります。 Vine動画のようにタッチしたら録画し、タッチが終了したら(指を離したら)録画を終了し、録画した複数の動画を一つにする仕組みを作成したのですが、 実際作成した動画を見てみると最初のほんの一瞬だけなぜかブラックシーンができてしまいます。
+現状の処理として以下のようなことをしています。
+1. 録画開始 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event  タッチイベントで録画の処理を開始します。このときにファイルに対しての書き込み処理を開始します。
+[self.assetWriter startWriting]; [self.assetWriter startSessionAtSourceTime:self.recordStartTime];  2. 録画 AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegateをプロトコルとして指定して、 以下のメソッドで録画の処理を行います。
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection  ざっくりですが、内部でやっていることはCMSampleBufferというフレーム情報が取得でき、それを１秒間に何回も実行されるこのメソッドでAVAssetWriterInputオブジェクトに 追加処理をしています。
+CFRetain(sampleBuffer); CFRetain(formatDescription); dispatch_async(self.movieWritingQueue, ^{ if (_assetWriter.status == AVAssetWriterStatusWriting) { if (assetWriterInput.readyForMoreMediaData) { if (![assetWriterInput appendSampleBuffer:sampleBuffer]) { NSLog(@&quot;%@&quot;,[self.assetWriter error]); } } } CFRelease(sampleBuffer); CFRelease(formatDescription); });  3. 録画終了 タッチが終了したら録画終了の処理を行います。
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event  問題 どうやらスレッドを利用しての保存方法に問題があったようです。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

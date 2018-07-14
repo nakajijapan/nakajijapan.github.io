@@ -8,22 +8,29 @@
 <meta property="og:title" content="AVMutableVideoCompositionLayerInstructionの使い方">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/01/19/avmutablevideocompositionlayerinstruction%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/" />
-<meta property="go:description"
-      content="
-                   
-                       ビデオ用のAVMutableCompositionTrackにレイヤーを持たせることができます。 それがAVMutableVideoCompositionLayerInstructionなんですがこれが意外と 簡単に動画に対してCGAffineTransformを指定することで動画の移動・回転・拡大縮小 ができたりフェードイン・アウトの設定ができたのでメモ。
+<meta property="go:description" content="ビデオ用のAVMutableCompositionTrackにレイヤーを持たせることができます。 それがAVMutableVideoCompositionLayerInstructionなんですがこれが意外と 簡単に動画に対してCGAffineTransformを指定することで動画の移動・回転・拡大縮小 ができたりフェードイン・アウトの設定ができたのでメモ。
 まずは対象のトラックをもとにして、レイヤーをインスタンス化します。
 &#43; (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track
 AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];  TransForm - (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
 この例だと、３秒間左から動画が移動してきます。
 // transition CGAffineTransform rotateStart, rotateEnd; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); rotateStart = CGAffineTransformMakeScale(1, 1); rotateStart = CGAffineTransformMakeTranslation(-720, 0); rotateEnd = CGAffineTransformTranslate(rotateStart, 720, 0); [layerInstruction setTransformRampFromStartTransform:rotateStart toEndTransform:rotateEnd timeRange:CMTimeRangeMake(startTime, timeDuration)];  Opacity - (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
 この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。
-// fade in CMTime startTime, timeDuration; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); [layerInstruction setOpacityRampFromStartOpacity:0.
-                   
-               " />
+// fade in CMTime startTime, timeDuration; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); [layerInstruction setOpacityRampFromStartOpacity:0." />
+<meta property="og:site_name" content="おじさんの知恵"/>
+
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="AVMutableVideoCompositionLayerInstructionの使い方" />
+<meta name="twitter:description" content="ビデオ用のAVMutableCompositionTrackにレイヤーを持たせることができます。 それがAVMutableVideoCompositionLayerInstructionなんですがこれが意外と 簡単に動画に対してCGAffineTransformを指定することで動画の移動・回転・拡大縮小 ができたりフェードイン・アウトの設定ができたのでメモ。
+まずは対象のトラックをもとにして、レイヤーをインスタンス化します。
+&#43; (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track
+AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];  TransForm - (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
+この例だと、３秒間左から動画が移動してきます。
+// transition CGAffineTransform rotateStart, rotateEnd; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); rotateStart = CGAffineTransformMakeScale(1, 1); rotateStart = CGAffineTransformMakeTranslation(-720, 0); rotateEnd = CGAffineTransformTranslate(rotateStart, 720, 0); [layerInstruction setTransformRampFromStartTransform:rotateStart toEndTransform:rotateEnd timeRange:CMTimeRangeMake(startTime, timeDuration)];  Opacity - (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
+この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。
+// fade in CMTime startTime, timeDuration; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); [layerInstruction setOpacityRampFromStartOpacity:0." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
