@@ -8,6 +8,21 @@
 <meta property="og:title" content="【iOS勉強会】ヤフー vs クラスメソッド に参加してきた">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/02/26/ios%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%83%A4%E3%83%95%E3%83%BC-vs-%E3%82%AF%E3%83%A9%E3%82%B9%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89-%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/" />
+<meta property="go:description"
+      content="
+                   
+                       面白そうな勉強会が開催されると耳にして【iOS勉強会】ヤフー vs クラスメソッド に参加してきました。
+ ヤフーさん発表資料 http://techblog.yahoo.co.jp/ios/yxcm/
+ クラスメソッドさん発表資料 http://dev.classmethod.jp/study_meeting/yxcm-epilogue/
+  形式的にはYahoo!さんとクラスメソッドさんが交互にiOS開発に関連するテーマに対して発表してどちらグッドだったか競う会になっていました。よかったらその場でボタンを連打して投票する仕組みがあるのですが、リアルタイムにFacebook風ないいねの花火みたいなのでがドーンと別画面で表示されてわかるのはかなり面白かったです（Node.jsかな&hellip;）。
+そのなかで便利そうなものをpickupして自分でもやってみました。
+code snippet Code Snippet Libraryを開いた状態にする 対象のコードを選択しといてそれLibrary側にドラッグアンドドロップ そうするとMy Code Snippetが出来上がるのでそれを適当に編集すると終わりです。 作成されたSnippetは/Users/username/Library/Developer/Xcode/UserData/CodeSnippets/いかに保存されます。
+試しにUIAlertViewをいれてみました。
+UIAlertView *alertView = [[UIAlertView alloc] initWithTitle : NSLocalizedString(@&quot;Title&quot;, nil) message : NSLocalizedString(@&quot;Message&quot;, nil) delegate : self cancelButtonTitle : NSLocalizedString(@&quot;OK&quot;, nil) otherButtonTitles : nil ]; [alertView setTag:1]; [alertView show];  Objective-Cって結構冗長になりがちなので、よく利用するものは登録しておくとよさそう。
+code template よくファイルを作成するときにはデフォルトでその親クラスに合わせたコードなりヘッダコメントなりテンプレートを作成してくれるのですが、カスタマイズしたくなったときは/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templatesにいっぱいテンプレートが用意されています。これを自分のディレクトリにコピーして利用するといいです。
+mkdir -p ~/Library/Developer/Xcode/Templates/File Templates cd ~/Library/Developer/Xcode/Templates/File Templates cp /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/* .
+                   
+               " />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">

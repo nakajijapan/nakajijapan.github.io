@@ -8,6 +8,16 @@
 <meta property="og:title" content="OSX ドラッグアンドドロップの調査">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2015/01/20/osx-%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%82%A2%E3%83%B3%E3%83%89%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%81%AE%E8%AA%BF%E6%9F%BB/" />
+<meta property="go:description"
+      content="
+                   
+                       ドラッギングアンドドロップ関連の調査
+NSDraggingSource プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。 ドラッグ操作中に受け取るメッセージ
+draggingSession(_:sourceOperationMaskForDraggingContext:) ドラッギングしている状況を教えて、どんなドラッグのタイプを許すか設定します。
+enum NSDraggingContext : Int { case OutsideApplication case WithinApplication }  ドラッグ操作のマスク。ここでどんな操作を許すのかの種類
+struct NSDragOperation : RawOptionSetType { init(_ rawValue: UInt) init(rawValue: UInt) static var None: NSDragOperation { get } static var Copy: NSDragOperation { get } static var Link: NSDragOperation { get } static var Generic: NSDragOperation { get } static var Private: NSDragOperation { get } static var Move: NSDragOperation { get } static var Delete: NSDragOperation { get } static var Every: NSDragOperation { get } static var All_Obsolete: NSDragOperation { get } // Use NSDragOperationEvery static var All: NSDragOperation { get } // Use NSDragOperationEvery }  以下は、指定されたスクリーン上をトリガーにして呼び出されるメソッド その時の位置も保持している。
+                   
+               " />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">

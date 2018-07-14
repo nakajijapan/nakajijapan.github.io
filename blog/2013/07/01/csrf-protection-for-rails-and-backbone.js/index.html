@@ -8,6 +8,20 @@
 <meta property="og:title" content="CSRF Protection for Rails and Backbone.js">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2013/07/01/csrf-protection-for-rails-and-backbone.js/" />
+<meta property="go:description"
+      content="
+                   
+                       欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。 Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷 して送信させるようにしました。
+ちなみに以前はModelにtoJSONメソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので DELETE用にも対応できるよう実装してみた。（Model.destroy時にはtoJSON()を仲介しない）
+#------------------------------------------- # Sync #------------------------------------------- Backbone._sync = Backbone.sync Backbone.sync = (method, model, options) -&gt; if method == &#39;create&#39; || method == &#39;update&#39; || method == &#39;delete&#39; options_csrf = headers: &#39;X-CSRF-Token&#39;: BackboneFrustration.Model.csrf_token() _.extend( options, options_csrf ) return Backbone._sync(method, model, options)  メソッドをオーバーライドしてHEADERにX−CSRF-Tokenを付加して親処理に渡す。BackboneFrustration.Model.csrf_token()は 単純にフォームからCSRF用のtokenを取得しているだけです。これでajax通信のときはtokenを無視して処理をするようなその場しのぎな実装をせずになりました。
+以下のような処理撲滅です。
+protect_from_forgery except: :craete  この修正で問題なく動作しているので適用させました。
+ところでRails用のgemでbackbone-railsなんてものがありましてそこのコードを 見ていたらだいたい同じことをしていたのであらかじめこれを参考にして勉強すれば良かったと思いました。とほほ。。
+https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js
+とりあえず、これで一安心。
+実際の修正箇所 https://github.com/nakajijapan/frustrationme_app/pull/25/files
+                   
+               " />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">

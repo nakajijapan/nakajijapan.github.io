@@ -8,6 +8,20 @@
 <meta property="og:title" content="IRKit &#43; iBeacon">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/03/29/irkit---ibeacon/" />
+<meta property="go:description"
+      content="
+                   
+                       先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして 自宅で活用できるものを作ってみました。
+IRKit 
+Estimote Beacons  仕様としては、
+ beaconに近づいたら（家に帰ってきたら）テレビをつける beaconから離れたら（外出したら）テレビを消す  ってことを試してみました。
+下準備 まずはそれぞれのライブラリを追加してpod installする。
+SDKのインストール。
+target &quot;irkit_ibeacon&quot; do pod &#39;IRKit&#39;, :git =&gt; &#39;https://github.com/irkit/ios-sdk.git&#39; pod &#39;EstimoteSDK&#39; end  frameworkの追加。
+CoreLocation.framework CoreBluetooth.framework  IRKit ここでは、IRKit SDKを利用してシグナルを登録してテーブルのセルにボタンを追加する処理を行います。
+- (void)viewDidLoad { (snip..) // find IRKit if ([IRKit sharedInstance].countOfReadyPeripherals == 0) { IRNewPeripheralViewController *vc = [[IRNewPeripheralViewController alloc] init]; vc.delegate = self; [self presentViewController:vc animated:YES completion:^{ NSLog(@&quot;presented&quot;); }]; } IRSignals *tmpSignals = [[IRSignals alloc] init]; // and add a signal to the collection [tmpSignals loadFromStandardUserDefaultsKey:@&quot;xxxxxxxxxxxxxxxxxxxxxx&quot;]; for (int i = 0; i &lt; [[tmpSignals signals] count]; i&#43;&#43;) { NSLog(@&quot;%@&quot;, [[tmpSignals signals] objectAtIndex:i]); } }  IRNewPeripheralViewControllerDelegateで信号の登録が終了したときに呼ばれるメソッドの実装を行います。 ここでは、ハード側で学習が完了した信号をNSUserDefault側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）
+                   
+               " />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">

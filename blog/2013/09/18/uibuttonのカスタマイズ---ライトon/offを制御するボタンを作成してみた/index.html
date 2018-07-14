@@ -8,6 +8,14 @@
 <meta property="og:title" content="UIButtonのカスタマイズ - ライトON/OFFを制御するボタンを作成してみた">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2013/09/18/uibutton%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA---%E3%83%A9%E3%82%A4%E3%83%88on/off%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/" />
+<meta property="go:description"
+      content="
+                   
+                       iPhoneについているライトのON/OFFを制御したいのですが、ボタンをそのまま流量できるのかなと思いきや UIImagePickerControllerを利用しないで実装する場合はイベントしか用意されておらずデザインも自分で実装 しないといけないようです。
+なので自分なりにそれっぽいのを実装してみました。 （とりあえず手動でon/offで切り替えるUIにしてます）
+// ライトが利用できたら表示 if (device.torchAvailable == YES) { UIButton* toggleLightButton = [UIButton buttonWithType:UIButtonTypeCustom]; [toggleLightButton setFrame:CGRectMake(30, 120, 100, 55)]; [toggleLightButton setTitle:@&quot;ON&quot; forState:UIControlStateNormal]; // レイヤー内でボタンデザインの編集を行う [[toggleLightButton layer] setCornerRadius:25.0f];// 角丸 [[toggleLightButton layer] setMasksToBounds:YES]; [[toggleLightButton layer] setBorderWidth:2.5f];// 枠線の太さ [[toggleLightButton layer] setBorderColor:[[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7] CGColor]];// 枠線の色 [[toggleLightButton layer] setBackgroundColor:[[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.3] CGColor]];// 背景色 [toggleLightButton addTarget:self action:@selector(toggleChangeTorchMode:) forControlEvents:UIControlEventTouchUpInside]; // 画像を左側に埋め込む UIImage* image = [UIImage imageNamed:@&quot;light.png&quot;]; CALayer* imgLayer = [CALayer layer]; imgLayer.
+                   
+               " />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">

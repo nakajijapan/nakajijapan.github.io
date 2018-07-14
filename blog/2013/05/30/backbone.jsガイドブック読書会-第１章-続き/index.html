@@ -8,6 +8,27 @@
 <meta property="og:title" content="Backbone.jsガイドブック読書会 第１章 続き">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2013/05/30/backbone.js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF%E8%AA%AD%E6%9B%B8%E4%BC%9A-%E7%AC%AC%EF%BC%91%E7%AB%A0-%E7%B6%9A%E3%81%8D/" />
+<meta property="go:description"
+      content="
+                   
+                       第１章の続き
+Eventsあたりのところから
+ Eventsが提供しているインタフェースはオブザーバパターンを駆使してオブジェクト間の結合を「疎」に保たせている
+ と記述されている。
+オブザーバパターンとは 購読者と発行者と呼ばれるオブジェクトが存在する。 発行者が購読者のメソッドを直接呼び出す代わりに、購読者は発行者 のイベントを購読する。イベントが発生したらそれを購読している オブジェクトに通知される。
+発行者はだれが購読してるのか知らずに済む。
+イベント駆動開発の技法。
+詳細はここが分かりやすい。 http://www.techscore.com/tech/DesignPattern/Observer.html/
+Backbone.jsでいう購読者と発行者 これを以下のようにして考えるとわかりやすい
+ 購読者: View 発行者 : Model  Modelはだれが購読してるかしらなくていい、イベントを通知してあげればいいんです。
+# viewの中で var entry = new Entry(); entry.on(&#39;change&#39;, this.render());  メディエータパターン  複数オブジェクトの間を取り持つ仲介者と鳴るオブジェクトを用意し、オブジェクト間の連動の詳細をその仲介者に持たせる 個々のオブジェクトの独自性を高める
+ 内容は理解できたけど、使いどころまだピンときていない。
+ここに詳しく記述されていた。 http://www.techscore.com/tech/DesignPattern/Mediator.html/
+コラムでのまめ知識 メモリーリークの問題からon() off()ではなくて listenTo() stopListening()を利用するといい v1.0からはView#remove()内部でstopListening() ViewではlistenToしてるので大丈夫！
+Underscore.js 便利関数の紹介だった。
+ _.debounce()  一定時間イベントが発生しなかったときに処理を実行する  _.throtte()  コールバックの実行頻度をさげる  _.delay()  処理を遅らせる  _.defer()  コールバック関数の中で最後に実行されることを保証する   上記二つの関数は今にも使えそうな便利関数だったので導入していきたいな。
+                   
+               " />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
