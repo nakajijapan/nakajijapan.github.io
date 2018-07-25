@@ -14,7 +14,7 @@ Model データを扱う方法を提供するもの。 View側で実際にデー
 提供するもの  保持 検証 アクセス制御 保存  Validationをどうするか サーバサイドでもクライアントサイドでも実装しなくちゃいけなくなるのは大変だよね。って話をした。 場合によりけりだろうけど。そこまでのアクセスを気にしなきゃ。検証はサーバサイドで全て任せて その結果を画面に表示。は二重管理せずに済むよね。ユーザにリアルタイムに検証結果を表示させたいとき とかはクライアント側でも利用するよねーという話をした。
 ちなみに欲求不満(http://www.frustration.me)ではサーバサイドでもチェックできるようクラスを用意して それを継承して処理が動作するようになっている。
 #------------------------------------------- # Model #------------------------------------------- class BackboneFrustration.Model extends Backbone.Model initialize: (attributes, options) -&gt; @on &#39;error&#39;, @defaultErrorHandler @on &#39;invalid&#39;, @defaultErrorHandler defaultErrorHandler: (model, error) -&gt; if typeof(error) == &#39;object&#39; if error.statusText != &#39;&#39; alert &#39;Intal Server Error&#39; console.error error else if typeof(error) == &#39;string&#39; if error? or error !" />
-<meta property="og:site_name" content="おじさんの知恵"/>
+<meta property="og:site_name" content="おじさんは生きている"/>
 
 
 <meta property="og:image" content="/images/meta_logo.jpg" />
@@ -35,9 +35,9 @@ Model データを扱う方法を提供するもの。 View側で実際にデー
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんの知恵">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>Backbone.jsガイドブック読書会 第２章 - おじさんの知恵</title>
+<title>Backbone.jsガイドブック読書会 第２章 - おじさんは生きている</title>
 </head>
 <body>
 
@@ -45,7 +45,7 @@ Model データを扱う方法を提供するもの。 View側で実際にデー
 
 	<header role="banner">
 		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんの知恵"></a>
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
 		</div>
 		
 

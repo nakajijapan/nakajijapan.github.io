@@ -16,7 +16,7 @@
  AVCaptureMovieFileOutput  を登録した。
 保存された動画を結合する 以前自分が作成したプラグイン[NKJMovieComposer]()でさくっと実装した
 let movieComposition = NKJMovieComposer() movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height) for i in 0..&lt;self.files.count { let beforeTimeDuration = movieComposition.currentTimeDuration let moviePath = self.files[i] // movie let movieURL = NSURL(fileURLWithPath: moviePath) //let layerInstruction = movieComposition.addVideo(movieURL) _ = movieComposition.addVideo(movieURL) (snip...) }  動画には録画された時間帯を表示させておく 時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。 動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。" />
-<meta property="og:site_name" content="おじさんの知恵"/>
+<meta property="og:site_name" content="おじさんは生きている"/>
 
 
 <meta property="og:image" content="/images/meta_logo.jpg" />
@@ -39,9 +39,9 @@ let movieComposition = NKJMovieComposer() movieComposition.videoComposition.rend
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんの知恵">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした - おじさんの知恵</title>
+<title>Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした - おじさんは生きている</title>
 </head>
 <body>
 
@@ -49,7 +49,7 @@ let movieComposition = NKJMovieComposer() movieComposition.videoComposition.rend
 
 	<header role="banner">
 		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんの知恵"></a>
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
 		</div>
 		
 

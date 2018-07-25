@@ -11,7 +11,7 @@
 <meta property="go:description" content="折角Apple Watchを購入したので、何かしら作れるようになりたいので、WatchKitのことを雑に自分用にメモした。
 どんな機能があるのか WatchKit App  通常Apple Watchで利用するアプリ 階層型、ページ型がある  Glance  意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。  Notification  iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの  新しく増えたインタラクション  プレス  強く押す感じ   構造  WatchKit App Architecture   通信はWatchKit経由で通信を行う。  InterfaceController  画面はInterfaceControllerなるものごとに管理されている  Life Cycle init  インスタンス化時に呼び出される  awakeWithContext  UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない  willActivate  表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する  アニメーションの変更のときとかかな   didDeactivate  利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される  要素 クラスはこれだけ。
 import WatchKit." />
-<meta property="og:site_name" content="おじさんの知恵"/>
+<meta property="og:site_name" content="おじさんは生きている"/>
 
 
 <meta property="og:image" content="/images/meta_logo.jpg" />
@@ -29,9 +29,9 @@ import WatchKit." />
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんの知恵">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>Apple Watch App Memo - おじさんの知恵</title>
+<title>Apple Watch App Memo - おじさんは生きている</title>
 </head>
 <body>
 
@@ -39,7 +39,7 @@ import WatchKit." />
 
 	<header role="banner">
 		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんの知恵"></a>
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
 		</div>
 		
 

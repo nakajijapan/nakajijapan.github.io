@@ -16,7 +16,7 @@
  選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる  後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる  選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる  上記と同じなのだが、さらに本当にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている   試してみたこと では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのがUIPercentDrivenInteractiveTransitionを利用した方法です。 これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して 行われてしまうのですがUIPercentDrivenInteractiveTransitionを利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体はUIViewControllerAnimatorTransitioningプロトコルを利用したアニメーションクラスを実装することで実現できます。 しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中からUIPercentDrivenInteractiveTransitionを利用してパンしながらリアルタイムにアニメーションをすることができませんでした。
 どのように作成したの では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。 あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。
 func transitionBackgroundView(degree: CGFloat, location:CGPoint) { let overlayView = self.parentView!.viewWithTag(920)! let imageView = overlayView.viewWithTag(910) as! UIImageView let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0) let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1) imageView." />
-<meta property="og:site_name" content="おじさんの知恵"/>
+<meta property="og:site_name" content="おじさんは生きている"/>
 
 
 <meta property="og:image" content="/images/meta_logo.jpg" />
@@ -39,9 +39,9 @@ func transitionBackgroundView(degree: CGFloat, location:CGPoint) { let overlayVi
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんの知恵">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>Technology of Etsy - おじさんの知恵</title>
+<title>Technology of Etsy - おじさんは生きている</title>
 </head>
 <body>
 
@@ -49,7 +49,7 @@ func transitionBackgroundView(degree: CGFloat, location:CGPoint) { let overlayVi
 
 	<header role="banner">
 		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんの知恵"></a>
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
 		</div>
 		
 

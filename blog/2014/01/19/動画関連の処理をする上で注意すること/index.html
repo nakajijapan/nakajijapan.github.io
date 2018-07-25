@@ -11,7 +11,7 @@
 <meta property="go:description" content="以前の記事でも書いたのですが、心霊動画アプリ「もう一度ご覧いただこう」というアプリを作成したときにいろいろと苦労したことがあったので、それを書き留めておこうと思います。
 回転問題 そのまま動画を保存すると270度になってしまっているので回転する必要があった
  CGAffineTransform transformVideo = CGAffineTransformMakeTranslation(videoTrack.naturalSize.height, 0.0); CGAffineTransform transformVideoRotate = CGAffineTransformRotate(transformVideo, M_PI * 0.5); CGAffineTransform transformVideoMove = CGAffineTransformTranslate(transformVideoRotate, -300, 0); [layerInstruction setTransform: transformVideoMove atTime:kCMTimeZero];  結構、簡単で地味なことだったのですが、こういうことが原因で数日迷走していた日があったのでもう迷走しない為に。。。" />
-<meta property="og:site_name" content="おじさんの知恵"/>
+<meta property="og:site_name" content="おじさんは生きている"/>
 
 
 <meta property="og:image" content="/images/meta_logo.jpg" />
@@ -29,9 +29,9 @@
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんの知恵">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>動画関連の処理をする上で注意すること - おじさんの知恵</title>
+<title>動画関連の処理をする上で注意すること - おじさんは生きている</title>
 </head>
 <body>
 
@@ -39,7 +39,7 @@
 
 	<header role="banner">
 		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんの知恵"></a>
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
 		</div>
 		
 

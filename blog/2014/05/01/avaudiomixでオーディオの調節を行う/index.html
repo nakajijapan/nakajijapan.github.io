@@ -13,7 +13,7 @@
 AVMutableComposition avComposition; (snip) // movie sound AVMutableCompositionTrack* compositionAudioTrack = [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する AVMutableAudioMixInputParameters *mixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack]; // 音量の調整 [mixInputParameters setVolumeRampFromStartVolume:0.2f toEndVolume:0.2f timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)]; // 入力パラメータをオーディオミックスに渡す。 mutableAudioMix = [AVMutableAudioMix audioMix]; mutableAudioMix.inputParameters = @[mixInputParameters];  - (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。
 AVAssetExportSession *assetExportSession; (snip) // 音声の制御 assetExportSession.audioMix = mutableAudioMix;  設定が終われば、AVAssetExportSessionのaudioMixに格納すれば、設定が反映されているはずです。 これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！
 Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  " />
-<meta property="og:site_name" content="おじさんの知恵"/>
+<meta property="og:site_name" content="おじさんは生きている"/>
 
 
 <meta property="og:image" content="/images/meta_logo.jpg" />
@@ -33,9 +33,9 @@ Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  " />
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんの知恵">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>AVAudioMixでオーディオの調節を行う - おじさんの知恵</title>
+<title>AVAudioMixでオーディオの調節を行う - おじさんは生きている</title>
 </head>
 <body>
 
@@ -43,7 +43,7 @@ Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  " />
 
 	<header role="banner">
 		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんの知恵"></a>
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
 		</div>
 		
 

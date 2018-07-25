@@ -13,7 +13,7 @@
  copyCGImageAtTime:actualTime:error:
  実際に、メソッドにして動くようにしました。
 - (UIImage*)createThumbnailImageWithURL:(NSURL *)movieURL { AVAsset *asset = [[AVURLAsset alloc] initWithURL:[movieURL objectAtIndex:index] options:nil]; if ([asset tracksWithMediaCharacteristic:AVMediaTypeVideo]) { AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset]; Float64 durationSeconds = CMTimeGetSeconds([asset duration]); CMTime midpoint = CMTimeMakeWithSeconds(durationSeconds/2.0, 600); NSError* error = nil; CMTime actualTime; CGImageRef halfWayImageRef = [imageGenerator copyCGImageAtTime:midpoint actualTime:&amp;actualTime error:&amp;error]; if (halfWayImageRef != NULL) { UIImage* image = [[UIImage alloc]initWithCGImage:halfWayImageRef]; // 明示的にリリースしておきます CGImageRelease(halfWayImageRef); return image; } } return nil; }  動画を取り終わった後に、一時的に一覧として残しておきたいときなどに利用できますね。" />
-<meta property="og:site_name" content="おじさんの知恵"/>
+<meta property="og:site_name" content="おじさんは生きている"/>
 
 
 <meta property="og:image" content="/images/meta_logo.jpg" />
@@ -33,9 +33,9 @@
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんの知恵">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>動画からサムネイル画像を生成する - おじさんの知恵</title>
+<title>動画からサムネイル画像を生成する - おじさんは生きている</title>
 </head>
 <body>
 
@@ -43,7 +43,7 @@
 
 	<header role="banner">
 		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんの知恵"></a>
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
 		</div>
 		
 

@@ -16,7 +16,7 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection  ざっくりですが、内部でやっていることはCMSampleBufferというフレーム情報が取得でき、それを１秒間に何回も実行されるこのメソッドでAVAssetWriterInputオブジェクトに 追加処理をしています。
 CFRetain(sampleBuffer); CFRetain(formatDescription); dispatch_async(self.movieWritingQueue, ^{ if (_assetWriter.status == AVAssetWriterStatusWriting) { if (assetWriterInput.readyForMoreMediaData) { if (![assetWriterInput appendSampleBuffer:sampleBuffer]) { NSLog(@&quot;%@&quot;,[self.assetWriter error]); } } } CFRelease(sampleBuffer); CFRelease(formatDescription); });  3. 録画終了 タッチが終了したら録画終了の処理を行います。
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event  問題 どうやらスレッドを利用しての保存方法に問題があったようです。" />
-<meta property="og:site_name" content="おじさんの知恵"/>
+<meta property="og:site_name" content="おじさんは生きている"/>
 
 
 <meta property="og:image" content="/images/meta_logo.jpg" />
@@ -39,9 +39,9 @@ CFRetain(sampleBuffer); CFRetain(formatDescription); dispatch_async(self.movieWr
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんの知恵">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>録画時にブラックシーンができてしまう問題 - おじさんの知恵</title>
+<title>録画時にブラックシーンができてしまう問題 - おじさんは生きている</title>
 </head>
 <body>
 
@@ -49,7 +49,7 @@ CFRetain(sampleBuffer); CFRetain(formatDescription); dispatch_async(self.movieWr
 
 	<header role="banner">
 		<div class="header-logo">
-			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんの知恵"></a>
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
 		</div>
 		
 
