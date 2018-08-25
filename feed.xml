@@ -10,9 +10,25 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Sat, 28 Jul 2018 01:08:11 +0900</lastBuildDate>
+		<lastBuildDate>Sat, 25 Aug 2018 17:42:50 +0900</lastBuildDate>
 		
 		<atom:link href="/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>iOSDC2018で発表するぞ！</title>
+			<link>http://nakajijapan.github.io/blog/2018/08/25/iosdc2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%99%E3%82%8B%E3%81%9E/</link>
+			<pubDate>Sat, 25 Aug 2018 17:42:50 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/08/25/iosdc2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%99%E3%82%8B%E3%81%9E/</guid>
+			<description> iOSDC2018 で話すことになりました。 今回、出したのは以下の三つでしたが幸運にも一つ採択されました。よかった。。。 採択されたのはMarkdownをリアルタイムに解析するで地味に色々考えることがあったのでそのことについて赤裸々に話せればと思います！
+あと、他の二つもどこかしらでアウトプットしようと思います。
+カンファレンスはスタッフとしてほぼいると思いますので、ぜひお声がけしていただければと思います！ 友達になってください！
+採択 Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
+ Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
+ 不採択 リリース間もないサービスにVIPER+RxSwiftを導入した話  iOSを開発をする上で一度はどんな設計でアプリを開発していったらいいのか考えるかと思います。 私たちはアプリを開発を始めてもうすぐ一年が経とうとするアプリに対してVIPER+RxSwiftを取り入れました。 このトークでは、なぜ、どのようにどこまでしてそれを導入したのか、実際にどうなったか、さらには実際の画面に応じた実装がどうなっているのかを実際のコードを交えながら説明できればと思います。
+ マルチデバイス対応＋同期可能なメモアプリを開発した話。  みなさんは業務でも個人でもで、iPhone,iPad,macOS等のマルチデバイスに対応し、同期を行うということはなかなか無いと思います。 私は個人で実際にそれに対応したメモアプリをリリースしました。その中でデバイス間の同期をどのようにして行われているのか。 実際にマルチデバイス(iPhone,iPad,macOS)を対応するにおいて何を考慮しないといけないのかをお話しできればと思います。
+ </description>
+		</item>
 		
 		<item>
 			<title>Springアニメーションのテスト</title>
@@ -196,22 +212,6 @@ Hugo  https://gohugo.io/  今年は今年で色々経験していきたいです
 			<guid>http://nakajijapan.github.io/blog/2017/12/31/good-bye-2017/</guid>
 			<description>2017年実績メモ。
 iosdc/iosdc-app  39 closed: change design in qrcode viewcontroller 2017-09-09 38 closed: enable to deselect animation 2017-09-09 35 closed: 申請用 2017-09-02 34 closed: 複数投票できるようにした 2017-09-02 30 closed: 本番データを入れる 2017-08-29 29 closed: Update Yahoo Logo Images 2017-08-29 22 closed: add tab icon (いいもの見つかるまでアイコン追加しといた ![simulat&amp;hellip;) 2017-08-20 21 closed: [WIP] delete debug mode (最後に削除する) 2017-08-19 20 closed: bugfix arround Vote (optimized UI around vote bugfix) 2017-08-19 19 closed: delete HasUserHash (ついでのcarthage update) 2017-08-19 14 closed: connect to server 2017-08-07 11 closed: 投票できるところまで 2017-08-01 7 closed: Introducing Realm (シミュレータの時は常にインサートされる。) 2017-07-09 4 closed: add TalkList and TalkFilter 2017-07-06 2 closed: 投票画面周りの実装 2017-06-19  matthewpalmer/Regift  45 closed: Stop to use the fileprivate (For Swift 4.</description>
-		</item>
-		
-		<item>
-			<title>2016年 振り返りと2017年！</title>
-			<link>http://nakajijapan.github.io/blog/2017/01/01/2016%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A82017%E5%B9%B4/</link>
-			<pubDate>Sun, 01 Jan 2017 14:14:19 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2017/01/01/2016%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A82017%E5%B9%B4/</guid>
-			<description>明けましておめでとうございます！ @nakajijapan です。 去年が怒涛に過ぎていき、気づいたらもう2017年。ぼーっとしていたらもう三日が過ぎていて、気づいたらもう明日は仕事始めです。 それなのにまだ振り返っていなかったので、このブログで振り返っていこうと思う。
-2016年 振り返り 自分にとってこの年はだいぶ濃厚な1人になったのではないか思う。 大きく以下の出来事がありました。
- 入籍して式を挙げた: １０月 Apple Pay導入: １０月 iOSDC2016: ８月 執筆活動で自分の頭をフル回転　後半  式を挙げた この１年の半分はずっとこのことを考えていても過言では無い。 10月には式を挙げる計画で進んでいたのだが日程が近くに連れてまだやらなくていいかと保留にしていたタスクがどんどん決定しなくてはいけない期日になっていく。 それが多くなるだけではなく、夫婦でちゃんと相談しなくてはいけないことが増え始める。大変だったのが予算を削る為に自分で動画（始めと終わりの動画）を 作らなければいけないタスクが辛かった。。あとは仕事面とプライベートで大きなイベントがその時期に被っていたこと。自分が忙しくて奥さんとの結婚の話が できなくてよく喧嘩したのはまだ記憶に新しいです。当日はもうすごい勢いで時が流れてしまいあんまり覚えてないくらいでかなり自分がちゃんとしていたかが不安なところだがやりきりれていたようで一安心。
-Apple Pay これは、日本で初めて導入することで色々不安だったところもあるが、なんとかリリースできてよかった。 エンジニアとしては十分に楽しめるイベントでものすごく楽しめた。会社に圧倒的感謝。ビジネス面ではうーんという感じ。 あと、日本での知見はペパボのエンジニアブログに書き留めて置いたのでよければ見てやってくください。
-iOSDC2016 僕のもう一つの拠り所。日本で初めてのiOSのデベロッパーカンファレンスに運営に携われたこと・発表できたこと。 会社のモバイル人口はそこまで多くはないので寂しい思いがあったのですが、カンファレンスにきてみるとめちゃめちゃいるじゃんといった感じで僕が思っていた以上の人たちが集まっていて驚いた。 そんな同じ属性を持ったエンジニアさんの話を聞けるのは勉強になるのは当然として、酒を交わしながらお話ができるのはとても楽しい。 純粋に楽しいのでこういったイベントには引き続き関わりたい！！！
-執筆活動 普段日常的に文章を書かないので、１日５００文字が限度でしかもその内容の精度が低いものでとても大変だった。 今年も精度上げて頑張っていくつもり。
-エンジニアとして OSS業 頑張ってSwift3にするというのが主なタスク。だけどあまり勧められていないっていうのが現状でした。 もう一つは、個人アプリとしてMacOSアプリ - Sengiriを出せたのは達成感あります。 あと、UIライブラリとしてShariも試行錯誤して作成した。これは普段やってみたいインタラクションが実際にできるようになって嬉しかったのでその勢いで作成したものです。
- 改善したもの  https://github.com/nakajijapan/PhotoSlider https://github.com/nakajijapan/SwiftSampleAppForCollectionView https://github.com/nakajijapan/UIColor-Hex https://github.com/nakajijapan/NKJModalSelector https://github.com/nakajijapan/NKJPhotoSliderController https://github.com/nakajijapan/Shari https://github.com/nakajijapan/teiten https://github.com/nakajijapan/NKJMovieComposer https://github.com/nakajijapan/NKJMultiMovieCaptureView https://github.com/nakajijapan/Kazaguruma https://github.com/nakajijapan/nakajichan https://github.com/matthewpalmer/Regift Sengiri Mac app 雑誌：Mac Fan 2016年6月号に紹介される   技術系イベント  Shibuya.</description>
 		</item>
 		
 	</channel>
