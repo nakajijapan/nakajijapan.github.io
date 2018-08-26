@@ -15,13 +15,13 @@
 		<atom:link href="/" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>iOSDC2018で発表します 💪</title>
-			<link>http://nakajijapan.github.io/blog/2018/08/25/iosdc2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99-/</link>
+			<title>iOSDC Japan 2018で発表します 💪</title>
+			<link>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99-/</link>
 			<pubDate>Sat, 25 Aug 2018 17:42:50 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/blog/2018/08/25/iosdc2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99-/</guid>
-			<description> iOSDC2018 で話すことになりました。 今回、出したのは以下の三つでしたが幸運にも一つ採択されました。よかった。。。 採択されたのはMarkdownをリアルタイムに解析するで地味に色々考えることがあったのでそのことについて赤裸々に話せればと思います！
-あと、他の二つもどこかしらでアウトプットしようと思います。
+			<guid>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99-/</guid>
+			<description> iOSDC2018 で話すことになりました。 今回、出したのは以下の三つでしたが幸運にも一つ採択されました。よかった。。。 採択されたのはMarkdownをリアルタイムに解析するでIzumoというMarkdown専用のメモアプリを作成するときに 色々考えることがあったのでそのことについて赤裸々に話せればと思います！
+あと、他の二つも結構ガンバ行っているところなのでどこかしらでアウトプットできればと思っています。
 カンファレンスはスタッフとしてほぼいると思いますので、ぜひお声がけしていただければと思います！ 友達になってください！
 採択 Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
  Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
