@@ -10,9 +10,30 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Sat, 25 Aug 2018 17:42:50 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 10 Sep 2018 00:46:52 +0900</lastBuildDate>
 		
 		<atom:link href="/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>iOSDC 2018に参加＆発表してきた。</title>
+			<link>http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018%E3%81%AB%E5%8F%82%E5%8A%A0%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+			<pubDate>Mon, 10 Sep 2018 00:46:52 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018%E3%81%AB%E5%8F%82%E5%8A%A0%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+			<description>発表したぞ！
+iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。 発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと 心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。
+発表のタイトルはこちら
+Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
+ Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
+ 資料  ざっくり解説
+リアルタイムに処理をするために 以下の項目を基点に話を掘り下げていきました。
+ カラーリング 入力補佐  カラーリング 一番リアルタイム性を考えなければいけないのが文字を入力した時です。
+最小限の範囲で文字列操作を行う いつ？ まず、、NSTextStorageDelegateのメソッド（以下のメソッド）を使用して取得する必要がありました。 これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。 さらにeditedRangeは複数行の場合があることを考慮に入れる必要があります。
+// MARK: - NSTextStorageDelegate extension TextViewController: NSTextStorageDelegate { func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) { self.editedRange = editedRange } }  何を？ それは変換するべき領域です。以前のコードでeditedRangeを利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。
+  この赤線の部分が一行ずつ抽出して属性を変更していきます。
+どのようにして？ 変換するべき領域を抽出するんですがその時には以下の関数を使うと行の全ての範囲を取得することが可能になります。 ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。
+ lineRange   　絵文字 ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.</description>
+		</item>
 		
 		<item>
 			<title>iOSDC Japan 2018で発表します 💪</title>
@@ -201,16 +222,6 @@ Event driven networking for Swift  📝 https://github.com/apple/swift-nio  Swif
 			<description>一年ぶりのブログになる。 昨年は、心に余裕がなくてあまりブログをかけていなかったのだけれでも、とはいえ基本的に心に余裕がないので 無理矢理にでもブログを再開するようにした。そう、改めてということもあり静的サイトジェネレートを一新してみた。 OctopressからHUGOにしてみた。デザインはカスタマイズをあとで自分でもできるようになるべきシンプルなものを 探してみたがhugo-zenがよさそうだった。今の所少し不満だが、また数年後にブログ替え時な時期がくるので 焦らずゆっくりやっていこう。
 Hugo  https://gohugo.io/  今年は今年で色々経験していきたいです。
 ではでは</description>
-		</item>
-		
-		<item>
-			<title>AV spec memo</title>
-			<link>http://nakajijapan.github.io/blog/2018/01/01/av-spec-memo/</link>
-			<pubDate>Mon, 01 Jan 2018 01:36:23 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/01/01/av-spec-memo/</guid>
-			<description>TV  Panasonic VIERA 42V型地上・BS・110度CSデジタルフルハイビジョンプラズマテレビ TH-42PZ80-K ブラック  AVアンプ  AVC-4310  https://www.denon.jp/jp/product/hometheater/avreceivers/avc4310   spec  定格出力／フロント130W+130W、センター130W、サラウンド130W+130W、サラウンドバック130W+130W（8Ω、20Hz-20kHz、THD0.05%） ● 実用最大出力／フロント：190W＋190W、センター：190W、サラウンド：190W＋190W、サラウンドバック：190W＋190W（6Ω、JEITA）
- BDプレーヤー  OPPO(オッポ) 3D対応 ユニバーサル・ブルーレイプレーヤー BDP-95  Speaker  JBL ミドルサイズ・スタジオモニタースピーカー 4429 JBL 4312 3ウェイコントロールモニタースピーカー  stand  HAMILEX スピーカースタンドSB-303  以前  DENON/デノン　CDプレーヤー　DCD-1500AE DENON/デノン　プリメインアンプ PMA-1500AE  https://matome.naver.jp/odai/2134820157278647701</description>
 		</item>
 		
 	</channel>
