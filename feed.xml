@@ -10,9 +10,35 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Mon, 24 Sep 2018 23:18:18 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 11 Oct 2018 00:08:36 +0900</lastBuildDate>
 		
 		<atom:link href="/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>IzumoはDark Modeを対応しました。</title>
+			<link>http://nakajijapan.github.io/blog/2018/10/11/izumo%E3%81%AFdark-mode%E3%82%92%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<pubDate>Thu, 11 Oct 2018 00:08:36 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/10/11/izumo%E3%81%AFdark-mode%E3%82%92%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<description>IzumoはDark Modeを対応しました。
+作業 基本的に動画やドキュメントを見ればある程度のことはできるようになります。 まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。
+あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。
+ updateConstraints layout draw(_ dirtyRect: NSRect) updateLayer  気に食わなかったところ NSScrollerのデザインがDark Modeにした時に十分なデザインではなかったのでカスタマイズしました。
+実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。
+import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) } override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) { super.drawKnobSlot(in: slotRect, highlight: flag) // 背景はリストの背景と同じにする NSColor.defaultBackgroundColor.set() slotRect.fill() // 同じにすると境界がわからなくなるのでボーダー独自に描くようにする NSColor.defaultScrollerLeft.set() let rect = CGRect(x: 0, y: 0, width: 1, height: slotRect.height) rect.fill() } } class NoteListScrollView: NSScrollView { required init?</description>
+		</item>
+		
+		<item>
+			<title>サブウーファー買った</title>
+			<link>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
+			<pubDate>Tue, 09 Oct 2018 01:07:47 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
+			<description> http://jbl.harman-japan.co.jp/product.php?id=stage_suba100p
+念願のサブウーファー なのだがリビンングは子供のベッド＆子育てスペースとして使われているので設置不可能。。。 もう少し設置完了までに時間がかかりそう。
+仕様  製品名 STAGE SUB A100P 形式 背面バスレフ、アクティブサブウーファー 構成 250mm径ウーファー 出力 150W(RMS)、300W(Peak) 周波数特性 35Hz ～ 150Hz クロスオーバー周波数 50Hz ～ 150Hz（連続可変） 外形寸法(W x H x D) 335 x 380 x 405（グリル含）mm 本体重量 13.7kg 付属品 スパイク×4、グリル、電源コード（1.8m） 価格 標準価格 \35,000 (税別) / 1本
+ </description>
+		</item>
 		
 		<item>
 			<title>ベビーカー購入した</title>
@@ -198,37 +224,6 @@ USB Type-C™ならケーブル1本で 裏表がなく接続が簡単なUSB Type
 Apple Pencil 楽しくて自分を写経してたらウシジマくんになった、、、 pic.twitter.com/OOiTQEfKlo
 &amp;mdash; The old man (@nakajijapan) 2018年4月7日 
 奥さんが利用していないスキをみて、どんどん使っていこう。</description>
-		</item>
-		
-		<item>
-			<title>Izumo - markdown note tool - をリリースしました。</title>
-			<link>http://nakajijapan.github.io/blog/2018/03/25/izumo---markdown-note-tool---%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Sun, 25 Mar 2018 17:58:22 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/03/25/izumo---markdown-note-tool---%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>Izumo Just Released!!!! 先日、Izumo - markdown note toolのmacOS版をリリースしました。
-一年越しの個人アプリ。長かったわーhttps://t.co/qbI5qij8Aw
-&amp;mdash; The old man (@nakajijapan) 2018年3月13日 
-そして、本日iOS版もリリースすることになりました。簡単に説明するとマルチデバイスで同期可能なマークダウン用のノートアプリです。
-Izumoの説明 Izumo is とてもシンプルなマークダウン専用メモアプリです。 AppleIDを持っていれば、いろんなデバイスでデータの共有ができるようになります。 macOSアプリ専用のアプリ、Izumoをを利用すればPCでもnoteの編集・保存ができます。 無料で全ての機能が利用できます。
-機能  マークダウンをサポート フォントスタイルの調整 iCloudを利用してMacアプリとバックグラウンドで同期ができる  （あらかじめApple IDでログインしておく必要があります）  多くのメモから特定のメモを検索することができます。  おすすめする人  テキストリッチにはしなくていいけどマークダウンでメモをしたい人 いろんなデバイスでnoteを編集・保存したい人  早速ですが、よかったら使ってください。。。
- 
-Izumo? マルチデバイス対応　⏩　クラウド　⏩　雲　⏩　出雲　⏩　Izumo!
-特にひねりもなく。。。
-なぜ作ったのか 世の中には様々なノートツールがあります。Appleのnotesを筆頭にBear,DayOne,CotEditorなどがあげられるかと思います。 しかしながら、自分に最適なツールはありませんでした。何が不満だったかというと、
- なるべくシンプルなやつ〜 マークダウン表現をリッチにせずにただ色づけされされる マルチデバイス対応（同期ができる）  とい自分の個人アプリでここまでかかったのうことで、ないなら作ろうと思って作ってみました。ということで2017年3月くらいか構想やら実験やらを初めて今に至ります。
-やったこと  CloudKitを利用したデータ同期  データ同期・ネットワーク周りの実装・テストはなかなか大変だ。  文章のリアルタイム編集  Markdownに変換してくれるライブラリはあるもののリアルタイムに変換してくれるものはなかったので自前で実装。   以前に調査したやつ   最後に 初めて同じプロダクトで両方のデバイスをサポートしたのは初めててで、ものすごく苦労することが多かったのですが、なんとか無事リリースできたのでとりあえずはよかったです。。。一年という期間は個人アプリを作る中であまりにも長い期間でモチベーションを上げ続けるにはものすごく辛い期間だったかなと思います。どれだけ他のアプリ使おっかなと思ったことか。せっかくここまでできたからといつも心に秘めてなんとか持ちこたえられました。 リリースしたと言ってもまだまだバグがあるしやることはあるのでゆっくりと広い心で見守っていただければと思います。 もし、僕もこういうの欲しかった。バグ直して欲しい。僕のことが何を持ってか好きな方がいれば、支援していただければと思います。</description>
-		</item>
-		
-		<item>
-			<title>2018 try! swift</title>
-			<link>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</link>
-			<pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</guid>
-			<description>先日、try! swiftに参加してきた。これで二年連続になる。 自分が興味を持った部分をピックアップしてめも
-Event driven networking for Swift  📝 https://github.com/apple/swift-nio  SwiftNIO is a cross-platform asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp;amp; clients.   iOSでCharlesを導入する  iOS版が出るのは楽しみだが審査通らなそう JAVAは辛い 設定の手間省かれそう？  Aspect Oriented Programing in Swift  アスペクト指向プログラミング これログ吐き出す時に便そう 構文解析 コンパイル前に色々作業する https://github.com/kishikawakatsumi/SwiftPowerAssert  デジタル信号処理 in Swift  デジタル信号処理の部分ちゃんと理解して実装できるようになりたい フーリエ解析 波形のアニメーション面白そう AVFoundation結構使える？ ちょっと難しい話だった興味があるので再度見直す  UIImageView vs Metal これは純粋に面白かったし、Metalのこともわかった気になった。
-  UIImageView vs Metal [日本語版] #tryswiftconf  from Shuichi Tsutsumi</description>
 		</item>
 		
 	</channel>
