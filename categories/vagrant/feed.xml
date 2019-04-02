@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Vagrant on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/vagrant/</link>
+		<description>Recent content in Vagrant on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Fri, 28 Feb 2014 20:34:00 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/vagrant/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Vagrant勉強会でLTした</title>
+			<link>http://nakajijapan.github.io/blog/2014/02/28/vagrant%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%81%A7lt%E3%81%97%E3%81%9F/</link>
+			<pubDate>Fri, 28 Feb 2014 20:34:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2014/02/28/vagrant%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%81%A7lt%E3%81%97%E3%81%9F/</guid>
+			<description>社内でVagrant勉強会があったので参加・発表してきました。
+あるサービスのVagrant化を進めていて、エンジニアは当然のことデザイナさんでもローカルで開発できるように環境をそろえていた時に苦労したちょっとしたTipsを発表しました。まぁちょっとしたことなのですが、はまると何時間もはまるときあるのでこういう機会があると大変助かります。。。
+ 僕の他にも公開しているメンバーがいるのでご紹介します。 こちらのブログにもリンクがあるので他の人の資料にもたどりつけると思います。
+うづら(udzura)さん http://udzura.hatenablog.jp/entry/2014/02/28/140957 (アフェリエイトおじさんです。。。)</description>
+		</item>
+		
+	</channel>
+</rss>

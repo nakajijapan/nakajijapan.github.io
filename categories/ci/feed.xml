@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ci on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/ci/</link>
+		<description>Recent content in Ci on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Mon, 24 Jun 2013 08:02:00 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/ci/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Jenkinsでcommit statusを操作する</title>
+			<link>http://nakajijapan.github.io/blog/2013/06/24/jenkins%E3%81%A7commit-status%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%99%E3%82%8B/</link>
+			<pubDate>Mon, 24 Jun 2013 08:02:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2013/06/24/jenkins%E3%81%A7commit-status%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%99%E3%82%8B/</guid>
+			<description>自分のサービスでテストを行うときはTravisCIに任せて自動で作業させているのですが、基本はソースをオープンにしないといけないので 自社サービスに利用する訳にはいきません。そこでJenkinsを利用して同じような仕組みを作成しました。
+仕組みとしはcommit statusを操作するためのGitHubのAPI利用してPull Requestがきたらジョブを走らせるようにします。
+監視用の親ジョブ作成  ソースコード管理
+ Gitを選択 Repository URL(テスト対象のものを入れる) ex) git@github.com:paperboy-petit/user-app.git Branch Specifier() */master, */releaseを記述する 高度な設定のChoosing strategy  Inverseを選択する  これでmaster,release意外のブランチを監視対象にできる  ビルド環境
+ テストに必要な環境の設定なので適宜設定する  ビルド
+ ここでテストする処理を実行  ビルド後の処理
+ ビルド後の結果をトリガーにしてパラメータを小ジョブに渡す設定行う。フォームにはいかの用に項目設定する Build Triggers 1  Project to build: CommitSTatusUpdate Trigger when build is stable or unstable but not failed parameters commit_status=successを設定  Build Triggers 2  Project to build: CommitSTatusUpdate Trigger when build is failed parameters commit_status=failureを設定    小ジョブ作成(CommitStatusUPdate)  ビルドのパラメータ化</description>
+		</item>
+		
+	</channel>
+</rss>

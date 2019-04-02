@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Cloudkit on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/cloudkit/</link>
+		<description>Recent content in Cloudkit on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Wed, 17 Sep 2014 00:06:00 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/cloudkit/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>お産合宿2014に参加してきた。</title>
+			<link>http://nakajijapan.github.io/blog/2014/09/17/%E3%81%8A%E7%94%A3%E5%90%88%E5%AE%BF2014%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+			<pubDate>Wed, 17 Sep 2014 00:06:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2014/09/17/%E3%81%8A%E7%94%A3%E5%90%88%E5%AE%BF2014%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+			<description>夏も終わろうかとしている今日このごろ皆さんいかがお過ごしでしょうか。 僕はパンパンです。中島です。
+先日、弊社でお産合宿2014という開発合宿的なイベントが開催されたので参加してきました。
+今回は、別なチームで組んだことと、参加締め切りまでそんなに時間がなかったので適当にnakajijapanというチームで応募(自分のtwitter idです&amp;hellip;)しました。 結果的にも自分の価値観を押し出す感じにはなりましたが、それでもみんな意見をいろいろだしてくれていい感じに開発できたと思います。
+ほいで今年はこんなアプリを作成しました。
+音楽位置情報アプリ 「Limu」 limu.xyz 
+コンセプトは新しい音楽の出会い方です！
+詳細は後々公開していきます。 完成度としては、まだ５割ほどでいろいろ試行錯誤が必要なところが結構あるのですが１０月くらいにはリリースできるようにメンバー全員 頑張っておりますのでぜひご期待ください！！！！！！！！！！！
+以下にお産合宿発表した資料を載せておきます。（一部修正しました）</description>
+		</item>
+		
+	</channel>
+</rss>

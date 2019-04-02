@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ruby on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/ruby/</link>
+		<description>Recent content in Ruby on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Tue, 02 Jul 2013 22:30:00 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/ruby/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる</title>
+			<link>http://nakajijapan.github.io/blog/2013/07/02/googledocs%E3%81%AE%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%93%84%E7%A9%8D%E3%81%95%E3%81%9B%E3%82%8B/</link>
+			<pubDate>Tue, 02 Jul 2013 22:30:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2013/07/02/googledocs%E3%81%AE%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%93%84%E7%A9%8D%E3%81%95%E3%81%9B%E3%82%8B/</guid>
+			<description>サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。
+便利だったのがgoogle-drive-rubyで、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。
+実際にwww.frustration.meのユーザ数やアイテム数を計測するために使用してみました。
+まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。
+desc &amp;quot;send score data to google spreadsheet&amp;quot; require &#39;google_drive&#39; namespace :batches do task total_scores: :environment do |t, args| fail &#39;no username&#39; if ENV[&#39;GOOGLE_USERNAME&#39;].blank? fail &#39;no password&#39; if ENV[&#39;GOOGLE_PASSWORD&#39;].blank? session = GoogleDrive.login(ENV[&#39;GOOGLE_USERNAME&#39;], ENV[&#39;GOOGLE_PASSWORD&#39;]) spreadsheet = session.spreadsheet_by_key(&amp;quot;input key name&amp;quot;) worksheet = spreadsheet.worksheet_by_title(Rails.env) analyze_data = { date: Time.now.strftime(&amp;quot;%Y-%m-%d&amp;quot;), users_num: User.all.count, items_num: Item.all.count, comments_num: Comment.all.count, categories_num: Category.all.count } worksheet.list.push(analyze_data) worksheet.save() end end  これでrake batches:total_scoresで実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では
+な感じでどんどんレコードが追加されていきます。
+便利。
+ただし、注意点があります。今回はsqaleのcronで動かしているのですがログインで以下のように失敗することがあります。
+$ bundle exec rake batches:total_scores WARNING: Nokogiri was built against LibXML version 2.</description>
+		</item>
+		
+		<item>
+			<title>RubyHiroba</title>
+			<link>http://nakajijapan.github.io/blog/2013/06/05/rubyhiroba/</link>
+			<pubDate>Wed, 05 Jun 2013 00:12:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2013/06/05/rubyhiroba/</guid>
+			<description>サービスをRailsにした話  from Daichi Nakajima 
+RubyHirobaでLTに参加してきまして自分のサービスのことについて話してきました。 以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。 やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが 反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）
+perlにしろrubyにしろテストがあるのは大変心強いし、安心します。 たとえ、最新のRailsにのせ変えたとしてもテストがない時点でもう技術的負債。前のコードと何ら変わりはない。 まぁ作成した時点負債は負債なんだけどその劣化速度は抑えられるはず。
+まだまだリニューアルは続きますが、引き続きがんばります。
+そして裏で支えていただいた@hsbt氏には感謝の意を隠しきれないであります。。。</description>
+		</item>
+		
+	</channel>
+</rss>

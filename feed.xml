@@ -10,9 +10,18 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Tue, 01 Jan 2019 00:56:34 +0900</lastBuildDate>
+		<lastBuildDate>Tue, 02 Apr 2019 22:04:04 +0900</lastBuildDate>
 		
 		<atom:link href="/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>我が子のハーフバースデイ</title>
+			<link>http://nakajijapan.github.io/blog/2019/04/02/%E6%88%91%E3%81%8C%E5%AD%90%E3%81%AE%E3%83%8F%E3%83%BC%E3%83%95%E3%83%90%E3%83%BC%E3%82%B9%E3%83%87%E3%82%A4/</link>
+			<pubDate>Tue, 02 Apr 2019 22:04:04 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2019/04/02/%E6%88%91%E3%81%8C%E5%AD%90%E3%81%AE%E3%83%8F%E3%83%BC%E3%83%95%E3%83%90%E3%83%BC%E3%82%B9%E3%83%87%E3%82%A4/</guid>
+			<description>妻が頑張って飾りつけしてくれたので記念です。</description>
+		</item>
 		
 		<item>
 			<title>2018を振り返る</title>
@@ -148,10 +157,10 @@ Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/
 		
 		<item>
 			<title>iOSDC Japan 2018で発表します 💪</title>
-			<link>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99-/</link>
+			<link>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99/</link>
 			<pubDate>Sat, 25 Aug 2018 17:42:50 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99-/</guid>
+			<guid>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99/</guid>
 			<description> iOSDC2018 で話すことになりました。 今回、出したのは以下の三つでしたが幸運にも一つ採択されました。よかった。。。 採択されたのはMarkdownをリアルタイムに解析するでIzumoというMarkdown専用のメモアプリを作成するときに 色々考えることがあったのでそのことについて赤裸々に話せればと思います！
 あと、他の二つも結構ガンバ行っているところなのでどこかしらでアウトプットできればと思っています。
 カンファレンスはスタッフとしてほぼいると思いますので、ぜひお声がけしていただければと思います！ 友達になってください！
@@ -189,10 +198,10 @@ let animation = CASpringAnimation(keyPath: &amp;quot;transform.scale&amp;quot;) 
 		
 		<item>
 			<title>  👶  第一子生まれました。</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/23/--%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<link>http://nakajijapan.github.io/blog/2018/07/23/%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</link>
 			<pubDate>Mon, 23 Jul 2018 00:09:27 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/blog/2018/07/23/--%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<guid>http://nakajijapan.github.io/blog/2018/07/23/%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</guid>
 			<description>第一子生まれました。👶 どうやら、僕らの子供はメンズのようです。
 2018/07/21 予定日から一週間が過ぎて本当に生まれるのかなと、少し疑心暗鬼になりながら過ごしていたが、ついに妻がちょっとした？破水のようなものが始まったといい出した。痛みが少しづつ出たらしいのでこれはきたのか！！！！と思いつつ病院に電話して入院の準備をして今後に備えるようになった。
 自分は一旦帰宅、入院に必要なものを何個か忘れたのでそれを集めて再度病院に行った。その間、妻は診察してもらっていた。 診てもらったところまだ陣痛の初期の段階でこれからという話だった。診察が終わったところで痛みは治まったらしいのでとりあえず今日はないかとおもい、帰りがてら景気付けに夕ご飯に家系のとんこつラーメン、しかもにんにくもりもりを食べて帰宅した。
@@ -209,19 +218,6 @@ let animation = CASpringAnimation(keyPath: &amp;quot;transform.scale&amp;quot;) 
 			
 			<guid>http://nakajijapan.github.io/blog/2018/07/17/%E3%81%8A%E7%A5%88%E3%82%8A%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
 			<description>今にも生まれそうな奥さんと元気な赤ちゃんが生まれるようお祈りして来た。</description>
-		</item>
-		
-		<item>
-			<title>アップデートをユーザにお知らせするライブラリ作成した。（iOS用）</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios%E7%94%A8/</link>
-			<pubDate>Thu, 12 Jul 2018 00:54:13 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios%E7%94%A8/</guid>
-			<description>何かと必要なのでシンプルなものをSwiftで作成し直した。 以前は、Objective-C用のライブラリを使っていてPRとかもしていた。 だけど、Swiftのものが欲しくなったので作成した。
-VersionUpdater  Notify users when a new version of your app is available and force them to upgrade the application of the version.
- https://github.com/nakajijapan/VersionUpdater
-Requirements  iOS 10.0+ Xcode 9+ Swift 4+  仕様  アプリがアクティブになったらサーバからJSONファイルを取得する バージョンを比較して低ければアラートを表示する モード  強制  ダイアログを閉じれなくし、指定のURLへの遷移を強制させる  オプショナル  ダイアログを閉じることができ、以降アプリの操作ができる サイドアプリがアクティブになればまたダイアログが表示される    Usage endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。
- func applicationDidBecomeActive(_ application: UIApplication) { let versionUpdater = VersionUpdater( endPointURL: URL(string: &amp;quot;https://foo.com/ios.json&amp;quot;)! ) versionUpdater.</description>
 		</item>
 		
 	</channel>
