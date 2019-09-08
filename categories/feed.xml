@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Categories on おじさんは生きている</title>
@@ -9,66 +10,30 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Mon, 17 Dec 2018 00:00:00 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 01 Jul 2013 07:53:00 +0900</lastBuildDate>
 		
 		<atom:link href="/categories/" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>iOS</title>
-			<link>http://nakajijapan.github.io/categories/ios/</link>
-			<pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate>
+			<title>Backbonejs</title>
+			<link>http://nakajijapan.github.io/categories/backbonejs/</link>
+			<pubDate>Mon, 01 Jul 2013 07:53:00 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/categories/ios/</guid>
+			<guid>http://nakajijapan.github.io/categories/backbonejs/</guid>
 			<description></description>
 		</item>
 		
 		<item>
-			<title>macOS</title>
-			<link>http://nakajijapan.github.io/categories/macos/</link>
-			<pubDate>Thu, 25 Oct 2018 01:08:24 +0900</pubDate>
+			<title>Ci</title>
+			<link>http://nakajijapan.github.io/categories/ci/</link>
+			<pubDate>Mon, 24 Jun 2013 08:02:00 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/categories/macos/</guid>
+			<guid>http://nakajijapan.github.io/categories/ci/</guid>
 			<description></description>
 		</item>
 		
 		<item>
-			<title>life</title>
-			<link>http://nakajijapan.github.io/categories/life/</link>
-			<pubDate>Sun, 21 Oct 2018 01:08:14 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/life/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>osx</title>
-			<link>http://nakajijapan.github.io/categories/osx/</link>
-			<pubDate>Wed, 11 Apr 2018 02:39:40 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/osx/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>Swift</title>
-			<link>http://nakajijapan.github.io/categories/swift/</link>
-			<pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/swift/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>diary</title>
-			<link>http://nakajijapan.github.io/categories/diary/</link>
-			<pubDate>Tue, 16 Dec 2014 22:33:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/diary/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>CloudKit</title>
+			<title>Cloudkit</title>
 			<link>http://nakajijapan.github.io/categories/cloudkit/</link>
 			<pubDate>Wed, 17 Sep 2014 00:06:00 +0900</pubDate>
 			
@@ -77,29 +42,56 @@
 		</item>
 		
 		<item>
-			<title>WWDC</title>
-			<link>http://nakajijapan.github.io/categories/wwdc/</link>
-			<pubDate>Mon, 09 Jun 2014 07:43:00 +0900</pubDate>
+			<title>Diary</title>
+			<link>http://nakajijapan.github.io/categories/diary/</link>
+			<pubDate>Tue, 16 Dec 2014 22:33:00 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/categories/wwdc/</guid>
+			<guid>http://nakajijapan.github.io/categories/diary/</guid>
 			<description></description>
 		</item>
 		
 		<item>
-			<title>vagrant</title>
-			<link>http://nakajijapan.github.io/categories/vagrant/</link>
-			<pubDate>Fri, 28 Feb 2014 20:34:00 +0900</pubDate>
+			<title>Ios</title>
+			<link>http://nakajijapan.github.io/categories/ios/</link>
+			<pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/categories/vagrant/</guid>
+			<guid>http://nakajijapan.github.io/categories/ios/</guid>
 			<description></description>
 		</item>
 		
 		<item>
-			<title>study</title>
-			<link>http://nakajijapan.github.io/categories/study/</link>
-			<pubDate>Sat, 15 Feb 2014 01:51:00 +0900</pubDate>
+			<title>Javascript</title>
+			<link>http://nakajijapan.github.io/categories/javascript/</link>
+			<pubDate>Sun, 09 Jun 2013 16:07:00 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/categories/study/</guid>
+			<guid>http://nakajijapan.github.io/categories/javascript/</guid>
+			<description></description>
+		</item>
+		
+		<item>
+			<title>Life</title>
+			<link>http://nakajijapan.github.io/categories/life/</link>
+			<pubDate>Tue, 02 Apr 2019 22:04:04 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/life/</guid>
+			<description></description>
+		</item>
+		
+		<item>
+			<title>Macos</title>
+			<link>http://nakajijapan.github.io/categories/macos/</link>
+			<pubDate>Thu, 25 Oct 2018 01:08:24 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/macos/</guid>
+			<description></description>
+		</item>
+		
+		<item>
+			<title>Osx</title>
+			<link>http://nakajijapan.github.io/categories/osx/</link>
+			<pubDate>Wed, 11 Apr 2018 02:39:40 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/osx/</guid>
 			<description></description>
 		</item>
 		
@@ -122,29 +114,38 @@
 		</item>
 		
 		<item>
-			<title>backbonejs</title>
-			<link>http://nakajijapan.github.io/categories/backbonejs/</link>
-			<pubDate>Mon, 01 Jul 2013 07:53:00 +0900</pubDate>
+			<title>Study</title>
+			<link>http://nakajijapan.github.io/categories/study/</link>
+			<pubDate>Sat, 15 Feb 2014 01:51:00 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/categories/backbonejs/</guid>
+			<guid>http://nakajijapan.github.io/categories/study/</guid>
 			<description></description>
 		</item>
 		
 		<item>
-			<title>ci</title>
-			<link>http://nakajijapan.github.io/categories/ci/</link>
-			<pubDate>Mon, 24 Jun 2013 08:02:00 +0900</pubDate>
+			<title>Swift</title>
+			<link>http://nakajijapan.github.io/categories/swift/</link>
+			<pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/categories/ci/</guid>
+			<guid>http://nakajijapan.github.io/categories/swift/</guid>
 			<description></description>
 		</item>
 		
 		<item>
-			<title>javascript</title>
-			<link>http://nakajijapan.github.io/categories/javascript/</link>
-			<pubDate>Sun, 09 Jun 2013 16:07:00 +0900</pubDate>
+			<title>Vagrant</title>
+			<link>http://nakajijapan.github.io/categories/vagrant/</link>
+			<pubDate>Fri, 28 Feb 2014 20:34:00 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/categories/javascript/</guid>
+			<guid>http://nakajijapan.github.io/categories/vagrant/</guid>
+			<description></description>
+		</item>
+		
+		<item>
+			<title>Wwdc</title>
+			<link>http://nakajijapan.github.io/categories/wwdc/</link>
+			<pubDate>Mon, 09 Jun 2014 07:43:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/wwdc/</guid>
 			<description></description>
 		</item>
 		
