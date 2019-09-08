@@ -1,0 +1,246 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>iOS on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/ios/</link>
+		<description>Recent content in iOS on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Mon, 17 Dec 2018 00:00:00 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/ios/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>VIPER設計(&#43;RxSwift)でサービスのコードを置き換えた</title>
+			<link>http://nakajijapan.github.io/blog/2018/12/17/viper%E8%A8%AD%E8%A8%88-rxswift%E3%81%A7%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%81%9F/</link>
+			<pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/12/17/viper%E8%A8%AD%E8%A8%88-rxswift%E3%81%A7%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%81%9F/</guid>
+			<description>iOS (その2) Advent Calendar 2018 17日目です！
+本記事はプロダクトのコードをRxSwiftをうまく活用しながらVIPERの設計に置き換えていった話です。
+なぜ置き換えたのか 現在、Polcaをリリースをして一年が立ちました。開発をし始めて二年は経過しました。 自分はリリースして半年が経過しているときに入社したのですが、当初もある程度機能はある状態で、コード量も1万に突破していく頃でした。 自分は開発していく上で下記の問題を抱くようになりました。
+ 責務がいたるところに分散している コード量がある程度多くなってきた テストが書きにくい RxSwiftが既に導入されているのでもっと活用したい。そして、ちゃんと使いたい。  そこで、今後開発をしていく上である程度運用しやすい状態にしたい、変えるタイミングとしては今がやりやすいと考え、VIPERの導入に踏み切りました。
+VIPERとは そもそもVIPERとはどんなものでしょうか簡単におさらいしていきます。 VIPERはiOSにおけるクリーンアーキテクチャの手法の一つとなり、責務を大きく５つに分けています。 ざっくりまとめると以下の通り。
+ View  プレゼンターによって何かを伝える プレゼンターにユーザの入力を受け取る  Interactor  ユースケースによって必要なビジネスロジックが含まれている  Presenter  インタラクタから受け取った、ユーザの入力により受け取った情報を準備するためのロジック  Entity  インタラクたによって利用された基本的なモデルオブジェクトが含まれている  Routing  画面がどの順番で表示されるのかをナビゲーションロジックが含まれている   https://www.objc.io/issues/13-architecture/viper/ 詳細はこちらを参照してください
+どのようにしていったか polcaではVIPERを意識した設計を導入していますが、全てを適用したわけではありません。 Routingの部分はまだ適用していません。それは、今のフェーズで費用対効果あまり感じないように思ったことが一つと 必要に迫られたとしてこれは、後からでもリファクタリングが可能だと思ったからです。
+実装編 ではどのように実装していったか。 まず、Presenterを軸にインターフェースなる部分を作成していきました。ここでは、それぞれの役割が何を伝えて、何を受け取るのかを定義していきます。 Presenterから作成しその引数をprotocolにしていくことでViewControllerの実装をすることなしにビルドであったりテストが可能になるので まずはここから始めています。その後、Presenterを実装しつつ、Interactor、Viewと実装していっています。 別レイヤーのやりとりでは、基本的にはRxSwiftを利用しています。単純なイベントの送受信だったらDriver&amp;lt;Void&amp;gt;であったり 情報の取得時にはSingle&amp;lt;PaginationResponse&amp;lt;ProjectPickup.Project&amp;gt;&amp;gt;を利用し、状況に応じて型を変更して流れを変化させています。
+Presenter protocol WatchedProjectListViewProtocol { var scrollViewReachedBottom: Driver&amp;lt;Void&amp;gt; { get } var refreshTrigger: Driver&amp;lt;Void&amp;gt; { get } } protocol WatchedProjectListInteractorProtocol { func getWatchedProjects(maxID: Int64) -&amp;gt; Single&amp;lt;PaginationResponse&amp;lt;ProjectPickup.</description>
+		</item>
+		
+		<item>
+			<title>iOSDC 2018 でMarkdownの解析について発表してきた。</title>
+			<link>http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018-%E3%81%A7markdown%E3%81%AE%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+			<pubDate>Mon, 10 Sep 2018 00:46:52 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018-%E3%81%A7markdown%E3%81%AE%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+			<description>発表したぞ！
+iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。 発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと 心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。
+発表のタイトルはこちら
+Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
+ Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
+ 資料  ざっくり解説
+リアルタイムに処理をするために 以下の項目を基点に話を掘り下げていきました。
+ カラーリング 入力補佐  カラーリング 一番リアルタイム性を考えなければいけないのが文字を入力した時です。
+最小限の範囲で文字列操作を行う いつ？ まず、、NSTextStorageDelegateのメソッド（以下のメソッド）を使用して取得する必要がありました。 これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。 さらにeditedRangeは複数行の場合があることを考慮に入れる必要があります。
+// MARK: - NSTextStorageDelegate extension TextViewController: NSTextStorageDelegate { func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) { self.editedRange = editedRange } }  何を？ それは変換するべき領域です。以前のコードでeditedRangeを利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。
+  この赤線の部分が一行ずつ抽出して属性を変更していきます。
+どのようにして？ 変換するべき領域を抽出するんですがその時には以下の関数を使うと行の全ての範囲を取得することが可能になります。 ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。
+ lineRange   　絵文字 ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.</description>
+		</item>
+		
+		<item>
+			<title>iOSDC Japan 2018で発表します 💪</title>
+			<link>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99/</link>
+			<pubDate>Sat, 25 Aug 2018 17:42:50 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99/</guid>
+			<description> iOSDC2018 で話すことになりました。 今回、出したのは以下の三つでしたが幸運にも一つ採択されました。よかった。。。 採択されたのはMarkdownをリアルタイムに解析するでIzumoというMarkdown専用のメモアプリを作成するときに 色々考えることがあったのでそのことについて赤裸々に話せればと思います！
+あと、他の二つも結構ガンバ行っているところなのでどこかしらでアウトプットできればと思っています。
+カンファレンスはスタッフとしてほぼいると思いますので、ぜひお声がけしていただければと思います！ 友達になってください！
+採択 Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
+ Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
+ 不採択 リリース間もないサービスにVIPER+RxSwiftを導入した話  iOSを開発をする上で一度はどんな設計でアプリを開発していったらいいのか考えるかと思います。 私たちはアプリを開発を始めてもうすぐ一年が経とうとするアプリに対してVIPER+RxSwiftを取り入れました。 このトークでは、なぜ、どのようにどこまでしてそれを導入したのか、実際にどうなったか、さらには実際の画面に応じた実装がどうなっているのかを実際のコードを交えながら説明できればと思います。
+ マルチデバイス対応＋同期可能なメモアプリを開発した話。  みなさんは業務でも個人でもで、iPhone,iPad,macOS等のマルチデバイスに対応し、同期を行うということはなかなか無いと思います。 私は個人で実際にそれに対応したメモアプリをリリースしました。その中でデバイス間の同期をどのようにして行われているのか。 実際にマルチデバイス(iPhone,iPad,macOS)を対応するにおいて何を考慮しないといけないのかをお話しできればと思います。
+ </description>
+		</item>
+		
+		<item>
+			<title>Springアニメーションのテスト</title>
+			<link>http://nakajijapan.github.io/blog/2018/07/28/spring%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%86%E3%82%B9%E3%83%88/</link>
+			<pubDate>Sat, 28 Jul 2018 01:08:11 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/07/28/spring%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%86%E3%82%B9%E3%83%88/</guid>
+			<description> モチベーション macOSでNSIndicatorViewを利用し用としたところ、なぜか背景が透過せずに若干グレイになってしまっていてそれが仕様のようなので自分で作ることにした。 どうせ作るんだったら少し捻ったものにしようと思い、試行錯誤している。
+https://github.com/nakajijapan/CASpringAnimationTest
+CASpringAnimation Springアニメーションの制御がlayerに対して行えるようになります。 このパラメータをうまく設定することで期待しているアニメーションが実現できるようになります。
+ mass  質量  initialVelocity  初速度  damping  振動の減衰  stiffness  ばねの弾性力   Example これは実際の大きさになるためのアニメーションにスプリングを加えたものになります。
+let animation = CASpringAnimation(keyPath: &amp;quot;transform.scale&amp;quot;) animation.mass = CGFloat(mass.value) animation.damping = CGFloat(damping.value) animation.stiffness = CGFloat(stiffness.value) animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn) animation.fromValue = 0.6 animation.toValue = 1.0 animation.isRemovedOnCompletion = true animation.fillMode = kCAFillModeForwards animation.duration = CFTimeInterval(duration.value)  Reference  https://developer.apple.com/documentation/quartzcore/caspringanimation https://github.com/MengTo/Spring  </description>
+		</item>
+		
+		<item>
+			<title>Izumo 1.4.0にアップデートしました。</title>
+			<link>http://nakajijapan.github.io/blog/2018/07/26/izumo-1.4.0%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<pubDate>Thu, 26 Jul 2018 00:47:43 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/07/26/izumo-1.4.0%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<description>Izumo - Markdown Note tool -のアップデートをしました。
+ macOS iOS  macOS  インジケータを表示するようにした。  iOS  インジケータを表示するようにした。 カテゴリ一覧に件数を表示するようにした。  思い インジケータは、本当はユーザに知らせる必要はないものと一見思えるものだが、アプリとの機能として同期ができるものとなっている。 普通に操作していると何もしていないかのような状態になっているので、ユーザに他のデバイスとちゃんと同期をしていますよという安心感を 無意識に認知させるためにある。もちろん目立ってはいけないので操作の邪魔にならないようにさりげないところに小さく置いてある。
+カテゴリ一覧は、あまりに情報が少なく、自分が保存した量がしっかり保存されているのかと確認と安心感を与えるために実装した。
+子供用です !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;);</description>
+		</item>
+		
+		<item>
+			<title>アップデートをユーザにお知らせするライブラリ作成した。（iOS用）</title>
+			<link>http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios%E7%94%A8/</link>
+			<pubDate>Thu, 12 Jul 2018 00:54:13 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios%E7%94%A8/</guid>
+			<description>何かと必要なのでシンプルなものをSwiftで作成し直した。 以前は、Objective-C用のライブラリを使っていてPRとかもしていた。 だけど、Swiftのものが欲しくなったので作成した。
+VersionUpdater  Notify users when a new version of your app is available and force them to upgrade the application of the version.
+ https://github.com/nakajijapan/VersionUpdater
+Requirements  iOS 10.0+ Xcode 9+ Swift 4+  仕様  アプリがアクティブになったらサーバからJSONファイルを取得する バージョンを比較して低ければアラートを表示する モード  強制  ダイアログを閉じれなくし、指定のURLへの遷移を強制させる  オプショナル  ダイアログを閉じることができ、以降アプリの操作ができる サイドアプリがアクティブになればまたダイアログが表示される    Usage endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。
+ func applicationDidBecomeActive(_ application: UIApplication) { let versionUpdater = VersionUpdater( endPointURL: URL(string: &amp;quot;https://foo.com/ios.json&amp;quot;)! ) versionUpdater.</description>
+		</item>
+		
+		<item>
+			<title>Izumo 1.3.1にアップデートしました。</title>
+			<link>http://nakajijapan.github.io/blog/2018/07/11/izumo-1.3.1%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<pubDate>Wed, 11 Jul 2018 00:44:06 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2018/07/11/izumo-1.3.1%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<description>Izumo - Markdown Note tool -のアップデートをしました。
+ macOS iOS  macOS  編集中のノートを同期しようとした時にカーソルが先頭に移動してしまう ローカライズ対応  中国語を対応した   iOS  カテゴリ選択のインタラクションとUIの改善  角丸対応 https://github.com/nakajijapan/Shari/pull/32  Cellのスワイプ後、タップした時のインタラクションの改善  ローカライズは中国でダウンロードされて欲しいという希望的観測です。。。
+Tシャツ作った テンション上がって作ってみました。 あまり派手にせずシンプルにしてカジュアルに着れるようにしています。うん、僕が着ます。
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;);</description>
+		</item>
+		
+		<item>
+			<title>iOSDC2016で発表してきた。</title>
+			<link>http://nakajijapan.github.io/blog/2016/08/21/iosdc2016%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+			<pubDate>Sun, 21 Aug 2016 11:41:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2016/08/21/iosdc2016%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+			<description>8月20日に開催されたiOSDC2016にコアスタッフ兼スピーカーとして参加して来ました。 内容は「33歳 エンジニア道」です。
+発表の様子
+内容  今回は一切技術の話はなしで、キャリアのお話です。（他にそういうことを話す人がいなくてゲロ吐きそうなくらいプレッシャーにおわれたのはいうまでもない） モバイルエンジニアとしてガンガンやって来たけどこの先どうしたいいかと思って色々考えた結果のお話です。 あとこれをきっかけにみんなどうしてるんだろうという話のきっかけにするという目論見もありました。
+考えるときに基本的には以下の三つを考えれば良いことなのかなと思い、自分の人生を振り返りながらどうすればいいのかを考えていきました。 言葉にしたら単純なことだけど深掘りして答えをだすというのがなかなか難しい。ただ、これからのキャリアのことも考えるとかなり重要なこと だと思ったので振り返った次第であります。
+中堅として  個人としてどうしたいのか エンジニアとしてどうありたいか（どうあるべきか） 会社に何を求められているのか  継続していくために 年齢を重ねていくうちにいろんな事がおきてきます。
+それに逃げては何も始まりません、それと向き合って如何に問題を解決していかなければいかないのか考えていかないといけない。 それが以下のことだったりします。
+ 体力  健康維持  時間  家族と仕事の両立   質問 なんだかんだで席がパンパンになったのが嬉しかったと同時に心の中でゲロ吐いてました。（緊張してた。） 質問でうまく答えられなところがあったのでざっくりここで補足しておきます。
+ 結構何でもやられているがそれでもいいんじゃないでしょうか？  色々やって来たがどれもみんな頑張ればできるようなものだと自分では感じている なのでこの問題は俺にしかで来ないものを一つ以上持ちたい そう、一つ上のステージにいきたいんだ！って感じです。  ライブラリとか会社で創出したものは自分のアカウントで出しても問題ないのか  特に大きなルールはない、チームで作り上げたものは会社としてやるべき出し、ほぼ自分で作成したものは自分で出している。ケースバイケース。 ベジネスに関わるものが入って居なければ問題ない ちょっとでも世の中になければ、少しでも便利になるものがあればアウトプットしている 既存のものにPull requestをして便利にする場合もある。  中堅としてどんな事していく  正しい技術を正しく利用できるように！ 開発基盤整えてく！   関連  togetterまとめ  感想 今度は、実際やった事を次のどこかで話せるよう進めていこう。
+iOSDC 2016 Droidkaigiで何回かカンファレンスが開催される中、iOSでもそういうのやりたいなーとモヤモヤ思っている日が続いて居ました。そん時に @tomzoh とpotatotipsで出会い、同じ想いをもっていてすでに会場の予約までしていたのにとても感動してぜひお手伝いをします！というのがきっかけでここまで駆け巡って来ました。そして、当日を迎えられ、無事最後まで完了することができて感無量です。@tomzoh さんには大変感謝！！！！！！！ 今回は記念すべき第一回、スタッフとしてスピーカーとしてこのカンファレンスに参加できたことは自分の中でものすごい良い思い出になりました。最高でしかない。 カメラ係として当日は全然トークを聞く状況じゃなかったのであとでじっくり動画を見て一人iOSDCをやろうかと思います。</description>
+		</item>
+		
+		<item>
+			<title>iOSDC2016で話します。</title>
+			<link>http://nakajijapan.github.io/blog/2016/07/18/iosdc2016%E3%81%A7%E8%A9%B1%E3%81%97%E3%81%BE%E3%81%99/</link>
+			<pubDate>Mon, 18 Jul 2016 01:11:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2016/07/18/iosdc2016%E3%81%A7%E8%A9%B1%E3%81%97%E3%81%BE%E3%81%99/</guid>
+			<description>採択されたぞという話です。 今年日本で開催されるデベロッパーカンファレンス、iOSDC2016が開催されることになりました。 運あってか自分はこのカンファレンスで「３３歳モバイルエンジニア道」というタイトルで話をすることになりました。
+日本の皆さんが待望していたカンファレンスだと思っていたので倍率が高くなることを見越して二つほど提出しました。 そのうちの一つがこれです。実はこっちの方がテックなところもあり安心して話せそうだなと思っていました。
+採択されなかったトーク https://iosdc.jp/2016/c/node/142
+最近ではWEB・アプリでもいろんなところで動画に関連するコンテンツが増え、様々なシーンで動画が利用されるようになってきました。とはいえ、アプリで動画の作成したり編集したりしようとすると、設計を理解するのに時間がかかったり、情報がそもそも少なかったりと自分で学ぶ環境としては大変難しい状況であります。 そんな中、本発表ではアプリで動画を編集するところを切り口として、メディアをどのように扱い、どのように編集するのか、つまずいたポイントなど、少しでも皆さんに便利情報をお伝えできればと思います。
+ 対象者  動画編集が興味あるけどよくわからない方   採択されたトーク そして、今回採択されたのがこれ。 数ある技術トークの中からジャンルとしてはエモいというだいぶレアなカテゴリで話すことになっているので結構緊張していたりします。。 とはいえ、発表する以上みなさんに有用な情報を少しでも届けられたらと思うので、頑張って資料作成しようと思います！！
+https://iosdc.jp/2016/c/node/65
+時代がWEBからモバイルの時代に突入する中、@nakajijapanは運あってか モバイルエンジニアとして仕事をいただき、その時代をただひたすらと駆け抜けていく日々でした。いつの間にか歳は今年で３３歳という社会では中堅という立場になってきました。最近では若者がどんどんモバイルエンジニアとして成長していき、 自分の立ち位置が危ぶまれるという恐怖心と戦いながら日々仕事をしています。 本発表では、これまでを振り返り、自分はどうあるべきだったのか・何が良かったのか、モバイルエンジニア・中堅エンジニアとしてこれかどう生き抜いていくのか、皆さまに少しでもお役に立てそうな話をお伝えできればと思います。
+ 対象者  これから中堅エンジニアになっていくけど不安に思っている方 もう中堅エンジニアの方で今まさにその状況の方   とにもかくにも、前夜祭と当日で面白いトークが満載なので楽しみです！
+ウォーーーーーーー！！！！！</description>
+		</item>
+		
+		<item>
+			<title>potatotips #24に参加してきた</title>
+			<link>http://nakajijapan.github.io/blog/2015/12/16/potatotips-#24%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+			<pubDate>Wed, 16 Dec 2015 01:26:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2015/12/16/potatotips-#24%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+			<description>potatotips (iOS/Android開発Tips共有会) 第24回にブログ枠として参加してきたのでそのメモに綴ります！ 今回はGoodpatchさん主催での開催となりました。
+iOSでテーマ(着せ替え)機能を実装した時のTips  Goodpatchの重田さん
+ UIAppearanceの話  tvOSでWebSocketを使う   tvOSでWebSocketを使う  from Tomoki Hasegawa 
+デジタルサーカスの長谷川さん
+ Apple TVの話 AppleTVのサーバ通信 WEB API?  もっとリアルタイムにしたい  APNs？ WebSocket?  Starscreamが良かった Pure Swift!   iOS7をサポート対象外にして開発を健全化する  @shoby さん
+ iOS 7をサポート対象外にして健全にする ユーザにOSのアップデートを促す 最終互換バージョンを提供する 著名なアプリが対象外にしている！！！！！  xcconfigで複数ターゲットのビルド設定をまとめる @k_katsumi さん
+  Univy targets for multiple platforms into one target メルカリは言語ごとにターゲット作ってる 複数管理する方法 keychainaccess  v2.1 コピーすればios7でも使える  どうやるか  configuration file使ってる base.</description>
+		</item>
+		
+		<item>
+			<title>Technology of Etsy</title>
+			<link>http://nakajijapan.github.io/blog/2015/12/16/technology-of-etsy/</link>
+			<pubDate>Wed, 16 Dec 2015 01:26:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2015/12/16/technology-of-etsy/</guid>
+			<description>初めまして, @nakajijapanです。
+この記事はiOS Adovent Calendar 2015の16日目の記事になります。
+今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。 どんなインタラクションかというと作品のの個数を決めるときにドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような インタラクションを実現しています。
+カートで在庫や作品の色を決めるときに表現されます。
+ transitionで現在の画面を多少縮小させる 画面の半分までTableViewが表示される  Cellをタップしたら閉じる  NavigationBarのような部分をパンすることで最後までTableViewが表示されるようになる  パンしている間、縮小した画面はそれに合わせてリアルタイムに変化する   これは、少ない選択肢の時はTableViewを半分だけ表示すれば事足りるのだが、その半分におさまらない場合はパンすることでさらに見ることができるようになるという仕組み？かと思います。 これがいいのは、ユーザの細かいフェーズでインタラクションを実現できることだと思います。
+ 選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる  後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる  選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる  上記と同じなのだが、さらに本当にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている   試してみたこと では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのがUIPercentDrivenInteractiveTransitionを利用した方法です。 これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して 行われてしまうのですがUIPercentDrivenInteractiveTransitionを利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体はUIViewControllerAnimatorTransitioningプロトコルを利用したアニメーションクラスを実装することで実現できます。 しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中からUIPercentDrivenInteractiveTransitionを利用してパンしながらリアルタイムにアニメーションをすることができませんでした。
+どのように作成したの では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。 あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。
+func transitionBackgroundView(degree: CGFloat, location:CGPoint) { let overlayView = self.parentView!.viewWithTag(920)! let imageView = overlayView.viewWithTag(910) as! UIImageView let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0) let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1) imageView.</description>
+		</item>
+		
+		<item>
+			<title>「minne」技術戦略カンファレンスに登壇しました。</title>
+			<link>http://nakajijapan.github.io/blog/2015/10/22/minne%E6%8A%80%E8%A1%93%E6%88%A6%E7%95%A5%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%81%AB%E7%99%BB%E5%A3%87%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<pubDate>Thu, 22 Oct 2015 01:00:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2015/10/22/minne%E6%8A%80%E8%A1%93%E6%88%A6%E7%95%A5%E3%82%AB%E3%83%B3%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9%E3%81%AB%E7%99%BB%E5%A3%87%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<description>先日ですが「minne」技術戦略カンファレンスというものがありましてモバイル枠としてお話しさせていただきました。 内容は「ユーザ体験を生み出す現場作り」でした。
+minneはモバイルに関してUI/UX部分を深津さんに引っ張っていただいているところですが、日々大変勉強になっています。 今回はそのものづくりの取り組みにどういったことをするべきで、どれだけ集中できるようにするか、そのために開発は どういったことをしているかを開発者の立場としてお話しさせていただきました。
+ 「minne」技術戦略カンファレンス  資料  反省点 場所が普段発表するような場所じゃないのと会場が大きかったの何か見えない大きなプレッシャーを感じて全てが裏目に回った感じがしました。。。
+ 極度の緊張のせいでスライドしか見てなかった。あとどこ見てしゃべったらいいかわかんなくなってパニクった ステージ往復してみたかった 「え〜」言わないぞって思ったけど多くて悲しかった 練習量足りない  最後に 今回の発表で色々話しましたが、まだまだまだまだ改善できるところはたくさんあるので圧倒的ナンバーワンになるまで 引き続き頑張っていこうと思う日なのでした。
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;); 
+気合いいれてこ。</description>
+		</item>
+		
+		<item>
+			<title>potatotips (iOS/Android開発Tips共有会) 第21回に参加してきた</title>
+			<link>http://nakajijapan.github.io/blog/2015/09/16/potatotips-ios/android%E9%96%8B%E7%99%BAtips%E5%85%B1%E6%9C%89%E4%BC%9A-%E7%AC%AC21%E5%9B%9E%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+			<pubDate>Wed, 16 Sep 2015 23:59:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2015/09/16/potatotips-ios/android%E9%96%8B%E7%99%BAtips%E5%85%B1%E6%9C%89%E4%BC%9A-%E7%AC%AC21%E5%9B%9E%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+			<description>potatotips (iOS/Android開発Tips共有会) 第21回にブログ枠として参加してきたのでそのメモになります。
+Swift compile time @_mpon さんの発表
+ framework code reading @kgmyshinさんの発表
+  Framework code reading  from shinnosuke kugimiya 
+Apple Watch Tips @shobyさんの発表
+ To learn Interpolator @amyu_san さんの発表
+  To learn Interpolator  from Mima Yuki 
+3D touch for iOS @TachibanaKaoruさんの発表
+  3D touch for iOS  from toyship 
+Recently Google Play Developer Console @tarotaro4 さんの発表
+UIKit Sound   UIKit Sound  from cocominap</description>
+		</item>
+		
+		<item>
+			<title>NKJMovieComposerをSwiftにした</title>
+			<link>http://nakajijapan.github.io/blog/2015/03/17/nkjmoviecomposer%E3%82%92swift%E3%81%AB%E3%81%97%E3%81%9F/</link>
+			<pubDate>Tue, 17 Mar 2015 13:40:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2015/03/17/nkjmoviecomposer%E3%82%92swift%E3%81%AB%E3%81%97%E3%81%9F/</guid>
+			<description>ようやくCocoapodsがSwiftに対応した(0.36になった)ので自分のプラグインもSwfitに書き換えたものをmasterにマージしました。 Swiftは名前空間あるのでキラキラ名にするでも良かったんだけど、良い名前が思い浮かばなかったのとなんだか NKJ に愛着があるので そのままにしましたｗ
+基本自分のプラグインを書き換えるときはこの方針で行こう。 あと、わかりやすいように自分のプラグインのデモをのせてみました。
+ Swiftに書き換えた時のレポジトリ  https://github.com/nakajijapan/NKJMovieComposer/pull/1   </description>
+		</item>
+		
+		<item>
+			<title>最近読んだ本</title>
+			<link>http://nakajijapan.github.io/blog/2015/02/01/%E6%9C%80%E8%BF%91%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</link>
+			<pubDate>Sun, 01 Feb 2015 22:52:00 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2015/02/01/%E6%9C%80%E8%BF%91%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</guid>
+			<description>最近読んだ本
+iOS 8 SDK Development: Creating iPhone and iPad Apps with Swift
+ジョナサン・アイブ　偉大な製品を生み出すアップルの天才デザイナー
+Pro iOS Continuous Integration
+マイクロインタラクション ―UI/UXデザインの神が宿る細部
+iOS UICollectionView: The Complete Guide (2nd Edition) (Mobile Programming)
+Swift Development with Cocoa: Developing for the Mac and iOS App Stores
+Learning AV Foundation: A Hands-on Guide to Mastering the AV Foundation Framework</description>
+		</item>
+		
+	</channel>
+</rss>

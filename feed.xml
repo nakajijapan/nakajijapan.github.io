@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>おじさんは生きている on おじさんは生きている</title>
@@ -15,213 +14,22 @@
 		<atom:link href="/" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>2018を振り返る</title>
-			<link>http://nakajijapan.github.io/blog/2019/01/01/2018%E3%82%92%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8B/</link>
+			<title>Posts</title>
+			<link>http://nakajijapan.github.io/post/</link>
 			<pubDate>Tue, 01 Jan 2019 00:56:34 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/blog/2019/01/01/2018%E3%82%92%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8B/</guid>
-			<description>２０１８年を振り返る。
-仕事 今年はまた新しい会社で働くことになり、心機一転頑張るぞというところから始まったが、まぁ社内ではスタートアップあるあるというかなんというか ごたついていて序盤は仕事に集中できていなかったように思う。せっかく入社してこれから心配になりそうだったのでメインの仕事以外にも自分もやらないと いけないと感じ、実務以外のところで、自分だけではなく他のメンバーへのハレーションが拡大しなように色々動いたと思う。
-エンジニアリングマネージャ 自分の会社で初めて評価制度ができたタイミングで、もっと良くできるのではないかなと思い、 今までの経験からエンジニアの評価制度はこうするべきと考えて、会社に企画・提案を行い、実施まで行った。 そこから、エンジニアの軸だったり採用方針だったりを決めるところまで実行に移すことになる。 その後、それを担う技術戦略部ができ、そこにも所属することになった。 その結果、エンジニアリングマネージャ？となった。つまるところエンジニア全員の技術評価をしたり採用したりという役割。
-モバイルエンジニア 当時はiOSは開発者3人体制で開発し、リリースしてから一年を経とうとしているアプリだった。 しかし、チーム開発をするにはまだまだ課題があると感じたので以下のことを行った。
- Gitの使い方が間違っていたのでチーム開発に耐えれるような方針を提案 ルーキー枠のエンジニアがいたがレビューがほとんど行われていなく、放置状態だったのでレビュー体制を整えるだけではなく、彼のフォロー体制も企画・提案を実施 チームで安定した開発ができるようにするためにVIPER+RxSwiftを利用した設計で運用することを提案・導入  安定した開発とは、開発しやすい、バグの起きにくい、レビューがしやすい 先ずは設計に慣れてないないエンジニアがほとんどだったので、最初に設計の勉強会（モバイル開発にはどういう実装があるのか色々な設計方法を交えて）から具体的にどのような実装をしていくのかを簡単な機能でPull Requestを作成して説明した。 その結果、責務を分割したことでコードの見通しはよくなり、テストコードも書きやすくなり安定した開発ができるようになりました。 VIPER設計(+RxSwift)でサービスのコードを置き換えた  自動化  構築したっきり誰も運用されていないかったので自分で運用するようにした テストがなかったのでモデルのテストからUIの状態テストまでできるようにした Cocoapodsが速度を遅くしている原因になったいたので少しずつ移行し、処理時間の短縮化に成功した  勉強会でFirebase Authrizationを発表した  Androidエンジニアが一時的にいない問題 運用途中から、Androidエンジニアがいなくなってしまうという問題が発生した。 現状はリリースしてしまっている・機会損失に繋がる・ビジネス的判断から開発を止めるわけにはいかなかった。 それ以降からPolcaのモバイル開発はiOS、Androidも開発を行うようにした。そこまで、実践経験がなかった自分だったが、 これによりAndroidでも通常の機能開発できるようになったことはもちろんのことデザインのレビューの際には各プラットフォーム に適したデザインの提案がデザイナとできるようになりました。
-デザインにもコミット ある程度のデザインであれば、自分でSketchを利用してUI設計を行いデザイナいらずでリリースまで持っていくことが増えた。 デザイナが不要というわけではなくめっちゃ必要なんだけど、すぐに採用というわけにはいかなかったので自分でできるところはやる というところやってみた プライベート（技術） Izumo 無事、一年越しで自分専用に欲しかったMarkdownメモアプリをリリースすることができた。対応プラットフォームはMacOS、iOS。 いまのところ、自分が使い続けているので今後の保守・運用は続けていくつもり。
- Izumo - markdown note tool - をリリースしました。  対応  多言語化 ダークモード対応 諸々のバグ修正   iOSDC 2018 でMarkdownの解析について発表してきた。  OSS nakajijapan/ColorHex  ios grade down deployment target: 2018-06-01 Add calibrated color: 2018-01-16 Use Xcode9: 2018-01-07 Support macOS: 2018-01-07  nakajijapan/Izumo  Speed up the codeblock algorithm: 2018-10-28 Abolish to use swift string method: (https://github.</description>
+			<guid>http://nakajijapan.github.io/post/</guid>
+			<description></description>
 		</item>
 		
 		<item>
-			<title>VIPER設計(&#43;RxSwift)でサービスのコードを置き換えた</title>
-			<link>http://nakajijapan.github.io/blog/2018/12/17/viper%E8%A8%AD%E8%A8%88-rxswift%E3%81%A7%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%81%9F/</link>
-			<pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate>
+			<title>About</title>
+			<link>http://nakajijapan.github.io/about/</link>
+			<pubDate>Sun, 25 Feb 2018 20:41:19 +0900</pubDate>
 			
-			<guid>http://nakajijapan.github.io/blog/2018/12/17/viper%E8%A8%AD%E8%A8%88-rxswift%E3%81%A7%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%81%9F/</guid>
-			<description>iOS (その2) Advent Calendar 2018 17日目です！
-本記事はプロダクトのコードをRxSwiftをうまく活用しながらVIPERの設計に置き換えていった話です。
-なぜ置き換えたのか 現在、Polcaをリリースをして一年が立ちました。開発をし始めて二年は経過しました。 自分はリリースして半年が経過しているときに入社したのですが、当初もある程度機能はある状態で、コード量も1万に突破していく頃でした。 自分は開発していく上で下記の問題を抱くようになりました。
- 責務がいたるところに分散している コード量がある程度多くなってきた テストが書きにくい RxSwiftが既に導入されているのでもっと活用したい。そして、ちゃんと使いたい。  そこで、今後開発をしていく上である程度運用しやすい状態にしたい、変えるタイミングとしては今がやりやすいと考え、VIPERの導入に踏み切りました。
-VIPERとは そもそもVIPERとはどんなものでしょうか簡単におさらいしていきます。 VIPERはiOSにおけるクリーンアーキテクチャの手法の一つとなり、責務を大きく５つに分けています。 ざっくりまとめると以下の通り。
- View  プレゼンターによって何かを伝える プレゼンターにユーザの入力を受け取る  Interactor  ユースケースによって必要なビジネスロジックが含まれている  Presenter  インタラクタから受け取った、ユーザの入力により受け取った情報を準備するためのロジック  Entity  インタラクたによって利用された基本的なモデルオブジェクトが含まれている  Routing  画面がどの順番で表示されるのかをナビゲーションロジックが含まれている   https://www.objc.io/issues/13-architecture/viper/ 詳細はこちらを参照してください
-どのようにしていったか polcaではVIPERを意識した設計を導入していますが、全てを適用したわけではありません。 Routingの部分はまだ適用していません。それは、今のフェーズで費用対効果あまり感じないように思ったことが一つと 必要に迫られたとしてこれは、後からでもリファクタリングが可能だと思ったからです。
-実装編 ではどのように実装していったか。 まず、Presenterを軸にインターフェースなる部分を作成していきました。ここでは、それぞれの役割が何を伝えて、何を受け取るのかを定義していきます。 Presenterから作成しその引数をprotocolにしていくことでViewControllerの実装をすることなしにビルドであったりテストが可能になるので まずはここから始めています。その後、Presenterを実装しつつ、Interactor、Viewと実装していっています。 別レイヤーのやりとりでは、基本的にはRxSwiftを利用しています。単純なイベントの送受信だったらDriver&amp;lt;Void&amp;gt;であったり 情報の取得時にはSingle&amp;lt;PaginationResponse&amp;lt;ProjectPickup.Project&amp;gt;&amp;gt;を利用し、状況に応じて型を変更して流れを変化させています。
-Presenter protocol WatchedProjectListViewProtocol { var scrollViewReachedBottom: Driver&amp;lt;Void&amp;gt; { get } var refreshTrigger: Driver&amp;lt;Void&amp;gt; { get } } protocol WatchedProjectListInteractorProtocol { func getWatchedProjects(maxID: Int64) -&amp;gt; Single&amp;lt;PaginationResponse&amp;lt;ProjectPickup.</description>
-		</item>
-		
-		<item>
-			<title>NSPopoverからWindowにViewを分裂させる</title>
-			<link>http://nakajijapan.github.io/blog/2018/10/25/nspopover%E3%81%8B%E3%82%89window%E3%81%ABview%E3%82%92%E5%88%86%E8%A3%82%E3%81%95%E3%81%9B%E3%82%8B/</link>
-			<pubDate>Thu, 25 Oct 2018 01:08:24 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/10/25/nspopover%E3%81%8B%E3%82%89window%E3%81%ABview%E3%82%92%E5%88%86%E8%A3%82%E3%81%95%E3%81%9B%E3%82%8B/</guid>
-			<description> NSPopoverからWindowにViewを分裂させる
-BearのアプリのようにPopoverからタップを移動することでWindowにに分離する方法を知りたくて調査した。
-まず、popover自体はNSPopoverを利用すれば表示することができる。 WindowにするにはNSPopoverのあるデリゲートメソッドを記述すればできるようになる
-NSPopover  popover.contentViewController = viewController popover.delegate = self popover.behavior = NSPopover.Behavior.transient  分離方法 NSPopoverDelegate  func popoverShouldDetach(_ popover: NSPopover) -&amp;gt; Bool { return true }   Detaches the popover creating a window containing the content.
- 以下のメソッドでカスタムのwindowを作ることができる
- func detachableWindow(for popover: NSPopover) -&amp;gt; NSWindow? { return nil //return detachedWindowController.window }  Referer  https://developer.apple.com/documentation/appkit/nspopoverdelegate/1534822-detachablewindow https://github.com/lukaskubanek/DetachablePopoverExample  </description>
-		</item>
-		
-		<item>
-			<title>お宮参り</title>
-			<link>http://nakajijapan.github.io/blog/2018/10/21/%E3%81%8A%E5%AE%AE%E5%8F%82%E3%82%8A/</link>
-			<pubDate>Sun, 21 Oct 2018 01:08:14 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/10/21/%E3%81%8A%E5%AE%AE%E5%8F%82%E3%82%8A/</guid>
-			<description>お宮参りとは、その土地の守り神である産土神（うぶすながみ）に赤ちゃんの誕生を報告し、健やかな成長を願う意味のある行事のこと。他に「初宮詣（はつみやもうで）」「初宮参り」「産土参り(うぶすなまいり)」と呼ばれる場合もあります。 https://allabout.co.jp/gm/gc/71827/
- 健やかに成長して欲しいのでお宮参りしてきた。 場所は川崎大使。朝早くいったせいかほとんど混んでいなく、すんなりことを終えることができた。 その後は、料亭でお食い初めの儀式、家族の記念写真を撮って終了した。いろんな儀式があって大変だったけど妻が全てやってくれたので助かった。。。
-どうでもいいけどビッグカメラ行きたかったけど完全に疲れたので延期で。。</description>
-		</item>
-		
-		<item>
-			<title>IzumoはDark Modeに対応しました。</title>
-			<link>http://nakajijapan.github.io/blog/2018/10/11/izumo%E3%81%AFdark-mode%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Thu, 11 Oct 2018 00:08:36 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/10/11/izumo%E3%81%AFdark-mode%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>IzumoはDark Modeを対応しました。
-作業 基本的に動画やドキュメントを見ればある程度のことはできるようになります。 まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。
-あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。
- updateConstraints layout draw(_ dirtyRect: NSRect) updateLayer  気に食わなかったところ NSScrollerのデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）
-実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。
-import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) } override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) { super.drawKnobSlot(in: slotRect, highlight: flag) // 背景はリストの背景と同じにする NSColor.defaultBackgroundColor.set() slotRect.fill() // 同じにすると境界がわからなくなるのでボーダー独自に描くようにする NSColor.defaultScrollerLeft.set() let rect = CGRect(x: 0, y: 0, width: 1, height: slotRect.height) rect.fill() } } class NoteListScrollView: NSScrollView { required init?</description>
-		</item>
-		
-		<item>
-			<title>サブウーファー買った</title>
-			<link>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
-			<pubDate>Tue, 09 Oct 2018 01:07:47 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
-			<description> http://jbl.harman-japan.co.jp/product.php?id=stage_suba100p
-念願のサブウーファー なのだがリビンングは子供のベッド＆子育てスペースとして使われているので設置不可能。。。 もう少し設置完了までに時間がかかりそう。
-仕様  製品名 STAGE SUB A100P 形式 背面バスレフ、アクティブサブウーファー 構成 250mm径ウーファー 出力 150W(RMS)、300W(Peak) 周波数特性 35Hz ～ 150Hz クロスオーバー周波数 50Hz ～ 150Hz（連続可変） 外形寸法(W x H x D) 335 x 380 x 405（グリル含）mm 本体重量 13.7kg 付属品 スパイク×4、グリル、電源コード（1.8m） 価格 標準価格 \35,000 (税別) / 1本
- </description>
-		</item>
-		
-		<item>
-			<title>ベビーカー購入した</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/24/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Mon, 24 Sep 2018 23:18:18 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/24/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description> そろそろ必要性出てくるかなと思い、ベビーカーを購入した。購入場所は安定のアカチャンホンポで。 ベビーカーにも色々あるようで、自分は新生児から3歳くらいまで一つにしたかったのと最初の頃は対面にし、その後逆にできるように切り替えができるものしたかったので それができるものにした。
-Optia (Aprica) 感想 コンパクトと言いながらも結構大きなものなので歩道が無いような細い道だとちょっと危ないかもしれない。二列は以ての外だった。 あと、二輪ででこぼこ道もスイスイ行けるかなと思ったがあまりにもでこぼこしてるとこれまた限界がある。なるべく舗装された道を移動するのが吉。
-あったら便利 アカチャンホンポに来てる人のベビーカーを観察していたら色々カスタマイズされていて、自分も必要そうなのをパクってみました。 一つはフックです。これで買い物袋をかけて移動してる人が結構いました。それに合わせてポーチもつけてる人もいたそれはまた今度にした。 もう一つはジュース入れ。これでスタバの中で飲まなくてもいいし、飲みつつ移動がかなり楽になります。 最後にレインコート。何かと忘れがちなもので案の定自分も購入時にそこは何も考えていなかった。購入特典で付いてきたのはよかった。 基本は雨が降りそうな時にはベビーカーを利用しないのがいいのだがどうしてもというときはつけたほうがいいだろう。少しでも天気に 不安を感じたら持っておくべきもの。
-今後欲しいもの  ベルトカバー 冬用のブランケット ブランケットを止めるもの  参考  ベビーカーの選び方  https://www.aprica.jp/products/babycar/select_babycar/  ベビーカーのカスタマイズ  https://minne.com/ でベビーカーで検索すると結構出てくる   </description>
-		</item>
-		
-		<item>
-			<title>エアコン購入した</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Sat, 22 Sep 2018 03:53:45 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description>エアコン買った。
-現状はリビングに一つエアコンがあり、子供が快適な温度で暮らせるようにずっとリビングに寝させていたのだ。しかし、理想としては子供は寝室で寝かせておきたかったのだがエアコンがなかったので断念していたが自分たちの体調が辛くなってきたのと自分たちのプライベートスペースとして利用したかったり、今後の遊びスペースとするために寝室にもエアコンを設置することにした。
-エアコン購入は初めてで何を購入すればいいのかわからなかったし、メーカをちゃんと比較するほど気力はなかったので家にある王道の？ダイキンのエアコンにすることは決めていた。
-ちなみにもともと住む前から設置されていたのは２０１６年モデルのS36TTES-W、１２畳用のものらしい。
-今回購入したのがAN25VCS-Wだいたい６−８畳のエアコン。
-高い 買いに行って思ったのがエアコンは意外と高い。 型落ちを買おうとしても家電量販だとあんまりなくてかといってネットだと設置工事とか面倒くさい。まぁ生活が楽になってくれればありがたいことですが！
-ちなみに １０万くらいだと？自動フィルター掃除が付いていて ２０万くらい払えばほとんど掃除しなくていい上に色々機能が付加されているらしいがその進化においつていけないのでもうわけわからん。
-エアコンも進化している。</description>
-		</item>
-		
-		<item>
-			<title>iOSDC 2018 でMarkdownの解析について発表してきた。</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018-%E3%81%A7markdown%E3%81%AE%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
-			<pubDate>Mon, 10 Sep 2018 00:46:52 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018-%E3%81%A7markdown%E3%81%AE%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
-			<description>発表したぞ！
-iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。 発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと 心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。
-発表のタイトルはこちら
-Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
- Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
- 資料  ざっくり解説
-リアルタイムに処理をするために 以下の項目を基点に話を掘り下げていきました。
- カラーリング 入力補佐  カラーリング 一番リアルタイム性を考えなければいけないのが文字を入力した時です。
-最小限の範囲で文字列操作を行う いつ？ まず、、NSTextStorageDelegateのメソッド（以下のメソッド）を使用して取得する必要がありました。 これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。 さらにeditedRangeは複数行の場合があることを考慮に入れる必要があります。
-// MARK: - NSTextStorageDelegate extension TextViewController: NSTextStorageDelegate { func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) { self.editedRange = editedRange } }  何を？ それは変換するべき領域です。以前のコードでeditedRangeを利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。
-  この赤線の部分が一行ずつ抽出して属性を変更していきます。
-どのようにして？ 変換するべき領域を抽出するんですがその時には以下の関数を使うと行の全ての範囲を取得することが可能になります。 ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。
- lineRange   　絵文字 ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.</description>
-		</item>
-		
-		<item>
-			<title>iOSDC Japan 2018で発表します 💪</title>
-			<link>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99-/</link>
-			<pubDate>Sat, 25 Aug 2018 17:42:50 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99-/</guid>
-			<description> iOSDC2018 で話すことになりました。 今回、出したのは以下の三つでしたが幸運にも一つ採択されました。よかった。。。 採択されたのはMarkdownをリアルタイムに解析するでIzumoというMarkdown専用のメモアプリを作成するときに 色々考えることがあったのでそのことについて赤裸々に話せればと思います！
-あと、他の二つも結構ガンバ行っているところなのでどこかしらでアウトプットできればと思っています。
-カンファレンスはスタッフとしてほぼいると思いますので、ぜひお声がけしていただければと思います！ 友達になってください！
-採択 Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
- Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
- 不採択 リリース間もないサービスにVIPER+RxSwiftを導入した話  iOSを開発をする上で一度はどんな設計でアプリを開発していったらいいのか考えるかと思います。 私たちはアプリを開発を始めてもうすぐ一年が経とうとするアプリに対してVIPER+RxSwiftを取り入れました。 このトークでは、なぜ、どのようにどこまでしてそれを導入したのか、実際にどうなったか、さらには実際の画面に応じた実装がどうなっているのかを実際のコードを交えながら説明できればと思います。
- マルチデバイス対応＋同期可能なメモアプリを開発した話。  みなさんは業務でも個人でもで、iPhone,iPad,macOS等のマルチデバイスに対応し、同期を行うということはなかなか無いと思います。 私は個人で実際にそれに対応したメモアプリをリリースしました。その中でデバイス間の同期をどのようにして行われているのか。 実際にマルチデバイス(iPhone,iPad,macOS)を対応するにおいて何を考慮しないといけないのかをお話しできればと思います。
- </description>
-		</item>
-		
-		<item>
-			<title>Springアニメーションのテスト</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/28/spring%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%86%E3%82%B9%E3%83%88/</link>
-			<pubDate>Sat, 28 Jul 2018 01:08:11 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/28/spring%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%86%E3%82%B9%E3%83%88/</guid>
-			<description> モチベーション macOSでNSIndicatorViewを利用し用としたところ、なぜか背景が透過せずに若干グレイになってしまっていてそれが仕様のようなので自分で作ることにした。 どうせ作るんだったら少し捻ったものにしようと思い、試行錯誤している。
-https://github.com/nakajijapan/CASpringAnimationTest
-CASpringAnimation Springアニメーションの制御がlayerに対して行えるようになります。 このパラメータをうまく設定することで期待しているアニメーションが実現できるようになります。
- mass  質量  initialVelocity  初速度  damping  振動の減衰  stiffness  ばねの弾性力   Example これは実際の大きさになるためのアニメーションにスプリングを加えたものになります。
-let animation = CASpringAnimation(keyPath: &amp;quot;transform.scale&amp;quot;) animation.mass = CGFloat(mass.value) animation.damping = CGFloat(damping.value) animation.stiffness = CGFloat(stiffness.value) animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn) animation.fromValue = 0.6 animation.toValue = 1.0 animation.isRemovedOnCompletion = true animation.fillMode = kCAFillModeForwards animation.duration = CFTimeInterval(duration.value)  Reference  https://developer.apple.com/documentation/quartzcore/caspringanimation https://github.com/MengTo/Spring  </description>
-		</item>
-		
-		<item>
-			<title>Izumo 1.4.0にアップデートしました。</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/26/izumo-1.4.0%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Thu, 26 Jul 2018 00:47:43 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/26/izumo-1.4.0%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>Izumo - Markdown Note tool -のアップデートをしました。
- macOS iOS  macOS  インジケータを表示するようにした。  iOS  インジケータを表示するようにした。 カテゴリ一覧に件数を表示するようにした。  思い インジケータは、本当はユーザに知らせる必要はないものと一見思えるものだが、アプリとの機能として同期ができるものとなっている。 普通に操作していると何もしていないかのような状態になっているので、ユーザに他のデバイスとちゃんと同期をしていますよという安心感を 無意識に認知させるためにある。もちろん目立ってはいけないので操作の邪魔にならないようにさりげないところに小さく置いてある。
-カテゴリ一覧は、あまりに情報が少なく、自分が保存した量がしっかり保存されているのかと確認と安心感を与えるために実装した。
-子供用です !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;);</description>
-		</item>
-		
-		<item>
-			<title>  👶  第一子生まれました。</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/23/--%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Mon, 23 Jul 2018 00:09:27 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/23/--%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>第一子生まれました。👶 どうやら、僕らの子供はメンズのようです。
-2018/07/21 予定日から一週間が過ぎて本当に生まれるのかなと、少し疑心暗鬼になりながら過ごしていたが、ついに妻がちょっとした？破水のようなものが始まったといい出した。痛みが少しづつ出たらしいのでこれはきたのか！！！！と思いつつ病院に電話して入院の準備をして今後に備えるようになった。
-自分は一旦帰宅、入院に必要なものを何個か忘れたのでそれを集めて再度病院に行った。その間、妻は診察してもらっていた。 診てもらったところまだ陣痛の初期の段階でこれからという話だった。診察が終わったところで痛みは治まったらしいのでとりあえず今日はないかとおもい、帰りがてら景気付けに夕ご飯に家系のとんこつラーメン、しかもにんにくもりもりを食べて帰宅した。
-さーて勉強するかと思っていたら妻からの電話、途中で看護師さんと交換され、もう生まれるらしいから立ち会うならきてくださいと伝えられた。「え、今日なんだ！！！！😵」とものすごく急でびっくりしていた。
-再度、病院に行く。もう妻は激しい痛みに襲われていて、自分は動揺していたが自分ができることはしようと思い、 痛み出したら背中をさする・お尻を押すことずっと続けていた。あの温厚が妻が興奮している野獣のような状態だったことは印象的だった。 案の定、ニンニクで怒られたことはいうまでもない。（基本的には喋らず行動で。。。）
-2018/07/22 時間は２４：００を超え、もうすぐ佳境という状態だった。 出そうというところで男の人がでてきてその人が来たらものの数分で赤ん坊が出てきた。ぽんって産まれた。 メッッチャおなかおしててこれが最終段階ですることなんだ！意外と原始的だったの覚えてる。 僕は感動し過ぎて言語能力は著しく低下していた。子供を見て、「生きてる」「動いてる」「すごい！」をしばらく言い続けていた。。。 神秘的すぎる。
-ようこそ！ なんだかんだで大変でしたが無事そして元気に生まれてきたことにホッとしております。これからの子育て業かなり大変になりそうですが歯食いしばって頑張っていくぞ。 そして、しばらくは子供👶のことしか考えられないぞ！！！みんなごめん！</description>
-		</item>
-		
-		<item>
-			<title>お祈りしてきた。</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/17/%E3%81%8A%E7%A5%88%E3%82%8A%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
-			<pubDate>Tue, 17 Jul 2018 17:57:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/17/%E3%81%8A%E7%A5%88%E3%82%8A%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
-			<description>今にも生まれそうな奥さんと元気な赤ちゃんが生まれるようお祈りして来た。</description>
-		</item>
-		
-		<item>
-			<title>アップデートをユーザにお知らせするライブラリ作成した。（iOS用）</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios%E7%94%A8/</link>
-			<pubDate>Thu, 12 Jul 2018 00:54:13 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios%E7%94%A8/</guid>
-			<description>何かと必要なのでシンプルなものをSwiftで作成し直した。 以前は、Objective-C用のライブラリを使っていてPRとかもしていた。 だけど、Swiftのものが欲しくなったので作成した。
-VersionUpdater  Notify users when a new version of your app is available and force them to upgrade the application of the version.
- https://github.com/nakajijapan/VersionUpdater
-Requirements  iOS 10.0+ Xcode 9+ Swift 4+  仕様  アプリがアクティブになったらサーバからJSONファイルを取得する バージョンを比較して低ければアラートを表示する モード  強制  ダイアログを閉じれなくし、指定のURLへの遷移を強制させる  オプショナル  ダイアログを閉じることができ、以降アプリの操作ができる サイドアプリがアクティブになればまたダイアログが表示される    Usage endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。
- func applicationDidBecomeActive(_ application: UIApplication) { let versionUpdater = VersionUpdater( endPointURL: URL(string: &amp;quot;https://foo.com/ios.json&amp;quot;)! ) versionUpdater.</description>
+			<guid>http://nakajijapan.github.io/about/</guid>
+			<description>I&amp;rsquo;m nakajijapan. http://nakajijapan.net
+ 会津大学コンピューター理工学部に入学し、ベンチャー企業でネットワークエンジニアとして実際の業務を学生のうちから経験しながら勉学に励む。卒業後、受託企業に入社。自分が楽しみたかったインターネットじゃないと感じ、インターネットを楽しみつつ仕事ができるGMOペパボに入社。エンジニアとして幅広く業務を経験した。その後、iOSエンジニアとしてハンドメイドマーケット「minne」のアプリ開発に携わる。 2015年1月からプリシンパルエンジニアに昇格する。技術的側面からチームメンバーのフォローをしたり、メンバーが開発しやすい環境を構築を行う。所属事業部以外では、全社的に勉強会・読書会や開発合宿を企画してモバイルエンジニアの成長を促しつつ、プライベートや業務で得た知見を社内外にアウトプットすることで会社のモバイルエンジニアとしてのプレゼンス向上に寄与。 現在、CAMPFIRE, Inc.でモバイルエンジニアとして活動中。 趣味はものづくり、良い環境で映画鑑賞。  My Products          </description>
 		</item>
 		
 	</channel>

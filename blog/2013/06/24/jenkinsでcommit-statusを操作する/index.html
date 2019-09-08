@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.36.1" />
+<meta name="generator" content="Hugo 0.58.1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Jenkinsでcommit statusを操作する">
@@ -139,17 +139,15 @@
 親ジョブと同じ設定にする</p></li>
 
 <li><p>シェルの実行
-コミットステータスの変更を行う</p></li>
-</ul>
+コミットステータスの変更を行う</p>
 
 <pre><code class="language-bash">curl -H 'Authorization: token hogehogehogehogheohogehoge' \
-  --data &quot;{\&quot;state\&quot;:\&quot;${commit_status}\&quot;, \&quot;target_url\&quot;:\&quot;${BUILD_URL}\&quot;}&quot; \
-  https://api.github.com/repos/paperboy-petit/user-app/statuses/${GIT_COMMIT}
-</code></pre>
+--data &quot;{\&quot;state\&quot;:\&quot;${commit_status}\&quot;, \&quot;target_url\&quot;:\&quot;${BUILD_URL}\&quot;}&quot; \
+https://api.github.com/repos/paperboy-petit/user-app/statuses/${GIT_COMMIT}
+</code></pre></li>
 
-<ul>
-<li>ビルド後の処理
-お好みでIRCに渡します</li>
+<li><p>ビルド後の処理
+お好みでIRCに渡します</p></li>
 </ul>
 
 <p>最終的に以下のようにチェックがついてたりしたら出来ています</p>
