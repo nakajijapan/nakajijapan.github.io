@@ -1,0 +1,30 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Devlopment on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/devlopment/</link>
+		<description>Recent content in Devlopment on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Sat, 23 Jan 2010 11:39:18 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/devlopment/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>NetBeans使ってみる</title>
+			<link>http://nakajijapan.github.io/blog/2010/01/23/netbeans%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B/</link>
+			<pubDate>Sat, 23 Jan 2010 11:39:18 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/01/23/netbeans%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
+			<description>なんかGUIでいいのないかなぁって思っていたら。
+NetBeansなるもの発見情報としてはおそいんでしょうけどね。。。
+とりあえず、フォントは変更。
+filename.Consolas=CONSOLA.TTF filename.Consolas_Bold=CONSOLAB.TTF filename.Consolas_Italic=CONSOLAI.TTF filename.Consolas_Bold_Italic=CONSOLAZ.TTF # alphebet と japanese を逆にする # じゃないとまたmonospacedになるみたいです。 sequence.monospaced.windows-31j=alphabetic,japanese,dingbats,symbol # mod monospaced.plain.alphabetic=Consolas monospaced.bold.alphabetic=Consolas Bold monospaced.italic.alphabetic=Consolas Italic monospaced.bolditalic.alphabetic=Consolas Bold Italic  次は空白とタブを表示できるようにする。でこのへんのサイト参考にしてたんだけど なんかうまくプラグインがインストールしてくれなかった。。。６．８だとなんか問題 あるのかな？
+Netbeans org-netbeans-modules-fixtabs.nbm このへんの書き方</description>
+		</item>
+		
+	</channel>
+</rss>

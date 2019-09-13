@@ -1,0 +1,240 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>iPhone on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/iphone/</link>
+		<description>Recent content in iPhone on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Sun, 02 Dec 2012 16:43:30 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/iphone/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>中島清掃局リリース致しました</title>
+			<link>http://nakajijapan.github.io/blog/2012/12/02/%E4%B8%AD%E5%B3%B6%E6%B8%85%E6%8E%83%E5%B1%80%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E8%87%B4%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<pubDate>Sun, 02 Dec 2012 16:43:30 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2012/12/02/%E4%B8%AD%E5%B3%B6%E6%B8%85%E6%8E%83%E5%B1%80%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E8%87%B4%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<description>お待たせ致しました！！！（またせていない）
+８月にお産で作成し、それ以降Applieの申請で３度もRejectされ４度目にしてなんとか
+１２月にして公開までありつけました。。。。４ヶ月もかかったよ。。
+本当はうんこスタイルで出したかったのですが、やはり天下のAppleはそんなことはさせなかったようです。でもやはり悔しいところ はあったので少しでもうんこの面影を残そうと思ってなんどか申請しました。でもやっぱりだめ。もういっそのこと世界観をガラッと 変えてうんこを掃除するゲームからゴミを掃除するゲームに無理してしまいました。これはこれでいい感じに仕上がってはいるのですが やはりうんこにしたかった。 まぁ、リリースできたことで一安心です。 ここからダウンロードできるので是非くそゲーだと実感してください！
+ちょとした経緯 一度目 Reason for reject  We found that your app contains content that many audiences would find objectionable, which is not in compliance with the App Store Review Guidelines. Specifically, we noticed the purpose of the game is to clean out feces. Such apps are not appropriate for the App Store. We encourage you to review your app content and evaluate whether you can modify the content to bring it into compliance with the Guidelines.</description>
+		</item>
+		
+		<item>
+			<title>cocos2dで作るiPhone&amp;iPadゲームプログラミングを読んだ</title>
+			<link>http://nakajijapan.github.io/blog/2012/08/30/cocos2d%E3%81%A7%E4%BD%9C%E3%82%8Biphoneipad%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0/</link>
+			<pubDate>Thu, 30 Aug 2012 02:44:02 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2012/08/30/cocos2d%E3%81%A7%E4%BD%9C%E3%82%8Biphoneipad%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0/</guid>
+			<description>とあるきっかけからゲームを作りたいというなんの根拠もない衝動にかられまして（いや本当はあるのですが）１から本を買って勉強することになったのですが、そのときに読んだ本を紹介します。
+cocos2dで作る iPhone＆iPadゲームプログラミングSteffen Itterheimインプレスジャパン発売日：2011-06-24ブクログでレビューを見る»
+ この本はフレームワークのバージョンはちょっと古く今とはことなる部分はありますがバージョンを超えてたいていの基本的なことが学べる代物だと思います。僕が作成したかったのは大雑把にいうとシューティングだったので物理エンジンやタイルマップの章についてはすっとばして読んでいます。 ただ、大変だったのはサンプルプログラムが読んだものを書きうつすと実行できないので出版社のサイト？からダウンロードしてそのコードをコピペせず写経してわからんものは本に立ち返ってよみかえしたりしてました。
+Learn cocos2d Game Development with iOS 5 (Learn Apress)Steffen ItterheimApress発売日：2011-11-09ブクログでレビューを見る»
+ 次にこちらの方は、以前の本の次に出版した本で一番新しい書籍になります。もちろん英語です。 基本的には同じことが記述されているのですが、xcodeのバージョンアップに伴い多少の実装に変更があったことと ゲーム作成するさいに役立つ周辺ツールが変更されてました。自分はこちらで紹介されていたあたらしいツールを 利用してゲームを作成しています。
+TexturePacker - http://www.codeandweb.com/texturepackerです。
+あと、もっとちっちゃなところでいうと以前のサンプルゲームがチープじゃなくなっていますw この書籍も全部読んだと言うわけではなくてなにか変更されてるところはないか、新しい知識がないか のチェックというスタンスで読みました。
+以上が紹介です。
+これを読み終わって、ゲームの実装の終盤に差し迫った時についにメジャーバージョンがあがりまして困惑しましたがなんとかなりました！</description>
+		</item>
+		
+		<item>
+			<title>[iphone][memo]なんかメモリ参照がおかしい件</title>
+			<link>http://nakajijapan.github.io/blog/2011/10/14/iphonememo%E3%81%AA%E3%82%93%E3%81%8B%E3%83%A1%E3%83%A2%E3%83%AA%E5%8F%82%E7%85%A7%E3%81%8C%E3%81%8A%E3%81%8B%E3%81%97%E3%81%84%E4%BB%B6/</link>
+			<pubDate>Fri, 14 Oct 2011 00:00:58 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/10/14/iphonememo%E3%81%AA%E3%82%93%E3%81%8B%E3%83%A1%E3%83%A2%E3%83%AA%E5%8F%82%E7%85%A7%E3%81%8C%E3%81%8A%E3%81%8B%E3%81%97%E3%81%84%E4%BB%B6/</guid>
+			<description>なんか迷ってしまったのです。
+１．NSDataからNSStringに変換して文字列を結合してメンバ変数に入れておく。 ２．他のメソッドからそのメンバ変数を関数に引数にして処理を行う。
+こんな簡単なことを１時間以上のも悩んだ挙げ句結局答えはわからずじまいでした。 いったいなんだったんでしょうか？？？
+test.h #import 
+@interface CameraViewController : UIViewController { IBOutlet UIImageView *imageView;
+NSString *_imageUrl;  }
+@property (nonatomic, retain) IBOutlet UIImageView *imageView; @property (nonatomic, retain) NSString *_imageUrl;
+ (IBAction)pushButtonCamera; (IBAction)pushButtonSaveImage; (IBAction)pushButtonPostImage;  @end 
+test.m @synthesize _imageUrl; - (IBAction)pushButtonPostImage { _imageUrl = [NSString stringWithFormat:@&amp;ldquo;http:/hogehoge/?s=aaaa+%@%@&amp;ldquo;, UPLOAD_SERVER_URL, [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]]; }
+ (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex { NSLog(@&amp;ldquo;%@ が押された&amp;rdquo;, [alertView buttonTitleAtIndex:buttonIndex]); NSLog(@&amp;ldquo;buttonIndex = %d&amp;rdquo;, buttonIndex);
+// for logpi if (buttonIndex == 1) { [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]]; } }</description>
+		</item>
+		
+		<item>
+			<title>[memo]海外送金手数料絡みの話だっちゃわい</title>
+			<link>http://nakajijapan.github.io/blog/2011/09/13/memo%E6%B5%B7%E5%A4%96%E9%80%81%E9%87%91%E6%89%8B%E6%95%B0%E6%96%99%E7%B5%A1%E3%81%BF%E3%81%AE%E8%A9%B1%E3%81%A0%E3%81%A3%E3%81%A1%E3%82%83%E3%82%8F%E3%81%84/</link>
+			<pubDate>Tue, 13 Sep 2011 19:45:23 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/09/13/memo%E6%B5%B7%E5%A4%96%E9%80%81%E9%87%91%E6%89%8B%E6%95%B0%E6%96%99%E7%B5%A1%E3%81%BF%E3%81%AE%E8%A9%B1%E3%81%A0%E3%81%A3%E3%81%A1%E3%82%83%E3%82%8F%E3%81%84/</guid>
+			<description>おれ最近グローバルなんだよね。nakajijapanです。
+最近売上を気にするようになってから、外国の為替とか手数料とかなんちゃらかんちゃらを気にする用になって以下のサイトを知り合いの方におしえていただきました。外国日本間のお金振込の話です。
+iPhoneアプリの場合であれば、外国から日本に送金されるのでそこで発生する手数料がきになるところです。
+■海外送金手数料の比較 http://www.tamasoft.co.jp/ja/fx/index.html
+■CityBankにしたよ！ http://d.hatena.ne.jp/s-0samu/20110709/1310192497
+２５００円なのですね、それプラス為替マージン、受取先で生じる手数料。
+手数料かかるのはわかっちゃいたけどここまでかかるとは全然意識してなかったです！これはやだ！ 手数料がかからないのは「CityBank」「新生銀行」なのですが、大丈夫なのですかね？？？
+【追記】
+結局「CityBank」にしましたよ。僕。これで振込手数料が最小限や！</description>
+		</item>
+		
+		<item>
+			<title>[iPhoneApp]EINコード取得しなきゃいけなくなった</title>
+			<link>http://nakajijapan.github.io/blog/2011/09/09/iphoneappein%E3%82%B3%E3%83%BC%E3%83%89%E5%8F%96%E5%BE%97%E3%81%97%E3%81%AA%E3%81%8D%E3%82%83%E3%81%84%E3%81%91%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F/</link>
+			<pubDate>Fri, 09 Sep 2011 10:30:22 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/09/09/iphoneappein%E3%82%B3%E3%83%BC%E3%83%89%E5%8F%96%E5%BE%97%E3%81%97%E3%81%AA%E3%81%8D%E3%82%83%E3%81%84%E3%81%91%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F/</guid>
+			<description>端的に言うと税金対策しました。
+私nakajijapanはiPhoneアプリ「おわかりいただけただろうか」っていうiPhoneアプリを出していまして、その売上っていうのはどうなるかって言うとAppleで運営しているサービスから売り上げるので基本はアメリカで売り上げたことになります当然その売上はアメリカの税金が適用されます。そして日本にお金がはいってくるときも税金が発生してきます。
+でもわたくしnakajijapanは日本で働き、売り上げているので日本の税金でいいのです。 アメリカからの税金は免除できるということになりますね。なので日本で売上だしてるから税金免除してーっていう書類を提出しなければいけないのですが、その手順として、
+１．EIN取得 ２．W-8BEN提出
+をしなければいけないらしいです。
+ちなみにiTunesConnectでしっかり「アメリカでビジネスしてねーよこんちくしょー」に選択していれば、２だけおこなえばよかったのですが（この書類にサインしてねっていうメールがAppleからくるらしいのです）、適当にすすめてしまったためにこんなめんどくさい作業をしなければいけなくなった次第です。
+今回は「１」を行いました。
+そのメモです。
+■アメリカの国税局 http://www.irs.gov/businesses/small/article/0,,id=97860,00.html
+まずここで書類を落とします。
+■EINの書類の書き方 http://blog.iphone-studio.com/2008/10/app-storeein.html
+ここのサイトを参考にいろいろかきこんでいきました。
+すべて記入し終えたら、FAXで送信です。書類はファミリーマートで送信しました。 今回FAXしたのは、「010-1-267-941-1040」です。
+【メモ】 ・電話番号は「０８０」ー＞「＋８１８０」 ・アメリカの国番号は「１」 ・日本から国際電話するときは「０１０」を最初にプッシュ
+■電話対応で速攻GETする方法!! http://d.hatena.ne.jp/htz/20090107 今回電話したのは「010-1-267-941-1099」です。
+僕はチキンなので電話の対応は会社の同僚にしていただきました！！ しかし、２０分の激戦の末、失敗におわりました。。。。。
+・反省点 「regular phone or speaker phone?」なんのこっちゃ？
+「Business?」 「not Business!」 「違うところに電話して！！」（非営利団体だと思われたんですかね・・・）
+言いたいこと言いまくって話をやめたほうがすんなり理解してもらえそう。という反省をしつつも再度電話に挑戦しようと思います！！だいたい２０分近く話したり待ち状態になっていたので通話代２０００円は軽く突破したと思います・・・。</description>
+		</item>
+		
+		<item>
+			<title>[memo]xcode4でアプリ申請</title>
+			<link>http://nakajijapan.github.io/blog/2011/08/19/memoxcode4%E3%81%A7%E3%82%A2%E3%83%97%E3%83%AA%E7%94%B3%E8%AB%8B/</link>
+			<pubDate>Fri, 19 Aug 2011 03:58:52 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/08/19/memoxcode4%E3%81%A7%E3%82%A2%E3%83%97%E3%83%AA%E7%94%B3%E8%AB%8B/</guid>
+			<description>証明書 provisioning code
+的なものは作ってある前提の話になります。
+この次にやらなきゃいけないのはAppleConnectにアプリをアップロードすることです。
+その前に
+・setting icon iPhone+iPhone(retina)+iPad用に必要なアイコン群の登録をおこないます。 （自分の場合は、iPhoneアプリの申請だったのでiPadは捨てています）
+・Build アプリのソースコードをビルドして「application.app」てきなファイルを作成させます。
+・Archive アップロードするためにファイルをアーカイブしてます。（多分） 以上の処理が終わると、オーガナイザーが立ち上がり、次の処理 が進むようになります。
+・Validate（オーガナイザ） AppleConnectにつなげてアプリの最終チェックをおこないます。
+・Submit（オーガナイザ） AppleConnectにファイル（アプリ）をアップロードします。
+このときにステータスは「wait for review」
+その後 「in review」 「Processing for Apple Store」 「Ready for Sale」
+でようやくリリースにありつけます。
+2011年８月中旬現在でだいたい一週間程度でリリースまでありつけました。 今回はrejectがなかったので最短でということなりますが、再度申請とかに なってくるともっとかかってくるのでしょうね・・・。
+□参照URL http://iphone-app-developer.seesaa.net/article/190448941.html http://d.hatena.ne.jp/Kmusiclife/20110630/1309425193</description>
+		</item>
+		
+		<item>
+			<title>[ios][memo]UITableViewControllerのめも。</title>
+			<link>http://nakajijapan.github.io/blog/2011/08/08/iosmemouitableviewcontroller%E3%81%AE%E3%82%81%E3%82%82/</link>
+			<pubDate>Mon, 08 Aug 2011 23:30:26 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/08/08/iosmemouitableviewcontroller%E3%81%AE%E3%82%81%E3%82%82/</guid>
+			<description>勉強の一環であります。
+実際に実装して間隔つかむ。
+#import  @interface RootViewController : UITableViewController { NSMutableArray *arrListSection1; NSMutableArray *arrListSection2; } @property (nonatomic, retain) NSMutableArray *arrListSection1; @property (nonatomic, retain) NSMutableArray *arrListSection2; @end  #import &#34;RootViewController.h&#34; @implementation RootViewController @synthesize arrListSection1; @synthesize arrListSection2; - (void)viewDidLoad { [super viewDidLoad]; [self.navigationItem setTitle:@&#34;test table&#34;]; arrListSection1 = [[NSMutableArray alloc] initWithObjects:@&#34;test1&#34;,@&#34;test2&#34;,@&#34;test3&#34;, nil]; arrListSection2 = [[NSMutableArray alloc] initWithObjects:@&#34;test11&#34;,@&#34;test22&#34;,@&#34;test33&#34;, nil]; } - (void)viewWillAppear:(BOOL)animated { [super viewWillAppear:animated]; } - (void)viewDidAppear:(BOOL)animated { [super viewDidAppear:animated]; } - (void)viewWillDisappear:(BOOL)animated { [super viewWillDisappear:animated]; } - (void)viewDidDisappear:(BOOL)animated { [super viewDidDisappear:animated]; } //---------------------------------------------------------------- #pragma mark - TableViewController //---------------------------------------------------------------- - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section { UIView *view = [[UIView alloc] init]; // 背景に画像をセットする view.</description>
+		</item>
+		
+		<item>
+			<title>[memo]UIImagePickerControllerに非推奨のメソッドあいr</title>
+			<link>http://nakajijapan.github.io/blog/2011/08/08/memouiimagepickercontroller%E3%81%AB%E9%9D%9E%E6%8E%A8%E5%A5%A8%E3%81%AE%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%82%E3%81%84r/</link>
+			<pubDate>Mon, 08 Aug 2011 01:44:07 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/08/08/memouiimagepickercontroller%E3%81%AB%E9%9D%9E%E6%8E%A8%E5%A5%A8%E3%81%AE%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89%E3%81%82%E3%81%84r/</guid>
+			<description>Appleのドキュメントをほとんどみていなかったので全然気づきませんでした。
+非推奨となっていましたのでとりあえず修正してつかわないでおくようにしよう。
+- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingImage:(UIImage*)image editingInfo:(NSDictionary*)editingInfo { }  - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info { }  方法はいつもと変わらずです。</description>
+		</item>
+		
+		<item>
+			<title>[ios]実機でテストしてみようぜ！！(provisioning profileの作成方法)</title>
+			<link>http://nakajijapan.github.io/blog/2011/08/02/ios%E5%AE%9F%E6%A9%9F%E3%81%A7%E3%83%86%E3%82%B9%E3%83%88%E3%81%97%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86%E3%81%9Cprovisioning-profile%E3%81%AE%E4%BD%9C%E6%88%90%E6%96%B9%E6%B3%95/</link>
+			<pubDate>Tue, 02 Aug 2011 13:15:19 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/08/02/ios%E5%AE%9F%E6%A9%9F%E3%81%A7%E3%83%86%E3%82%B9%E3%83%88%E3%81%97%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86%E3%81%9Cprovisioning-profile%E3%81%AE%E4%BD%9C%E6%88%90%E6%96%B9%E6%B3%95/</guid>
+			<description>最近はチュートリアルなんて画期的な機能がついているもので一発で開発機の登録ができました。
+&amp;nbsp;
+ここで開発機にさせるために必要な
+ Provisioning Profile 証明書  を生成します。
+profileはオーガナイザを開いて実機に登録させ、証明書はダブルクリックでキーチェーンアクセスに登録させときます。 最後にXcode-&amp;gt;Project部分でCode Signingなるカテゴリがあるので証明書を選択する。
+これでいけるはず！</description>
+		</item>
+		
+		<item>
+			<title>[iphone][memo]画像をトリミング(crop)する</title>
+			<link>http://nakajijapan.github.io/blog/2011/07/19/iphonememo%E7%94%BB%E5%83%8F%E3%82%92%E3%83%88%E3%83%AA%E3%83%9F%E3%83%B3%E3%82%B0crop%E3%81%99%E3%82%8B/</link>
+			<pubDate>Tue, 19 Jul 2011 01:00:22 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/07/19/iphonememo%E7%94%BB%E5%83%8F%E3%82%92%E3%83%88%E3%83%AA%E3%83%9F%E3%83%B3%E3%82%B0crop%E3%81%99%E3%82%8B/</guid>
+			<description>関数にしてみました。「CGRect」は画像の座標・大きさを指定できる構造体。 これでCGRectで指定した座標・大きさをimageから取得し、そのUIImage型のポインタを返す。
+// crop -(UIImage*)crop:(UIImage*)image rect:(CGRect)rect { // 画像編集に必要な情報が入った構造体 CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect); // UIimage型に変換 UIImage *retImage = [UIImage imageWithCGImage:imageRef]; // メモリ上に保持しているbitmap情報を解放する CGImageRelease(imageRef); // UIimage型の画像情報を返す return retImage; }  </description>
+		</item>
+		
+		<item>
+			<title>[iphone][memo]画像を保存する処理</title>
+			<link>http://nakajijapan.github.io/blog/2011/07/18/iphonememo%E7%94%BB%E5%83%8F%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E5%87%A6%E7%90%86/</link>
+			<pubDate>Mon, 18 Jul 2011 12:02:24 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/07/18/iphonememo%E7%94%BB%E5%83%8F%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E5%87%A6%E7%90%86/</guid>
+			<description>カメラやライブラリから写真を読み込んで、デバイスに保存する処理。 だけじゃあれなので、保存後のメッセージを出力する。
+- (IBAction)pushButtonSaveImage { // 画像をデバイスに保存 UIImageWriteToSavedPhotosAlbum(_imageView.image, self, nil, nil); // 保存後のメッセージを出力 UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@&#34;image saved&#34; message:@&#34;どどすこ&#34; delegate:self cancelButtonTitle:@&#34;いみなし&#34; otherButtonTitles:nil] autorelease]; [alert show]; }  </description>
+		</item>
+		
+		<item>
+			<title>[iphone][memo]FirstResponder</title>
+			<link>http://nakajijapan.github.io/blog/2011/07/18/iphonememofirstresponder/</link>
+			<pubDate>Mon, 18 Jul 2011 12:01:22 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/07/18/iphonememofirstresponder/</guid>
+			<description>FirstResponder ユーザのアクションに対して最初に反応するオブジェクト 入力中のフィールドはFirstResponderなのでこれを放棄することによりキーボードを消すことができます。
+ユーザが画面で起こした何らかのアクションに対して最初に反応するオブジェクトってこと。 だからこのオブジェクトを放棄することで反応させなくする（解放する？）、アクションを終了させるって ことになるのかな。
+以下のは「return」ボタンでキーボードを終了させるための処理
+- (BOOL)textFieldShouldReturn:(UITextField *)textField { [textField resignFirstResponder]; return YES; }  以下のものは、キーボード以外の画面をタップしても終了できるようにするもの。
+- (IBAction)backgroundTap:(id)sender { [field1 resignFirstResponder]; }  はじめてのiPhone3プログラミングDave Mark,Jeff LaMarcheソフトバンククリエイティブ発売日：2009-12-17ブクログでレビューを見る»
+ </description>
+		</item>
+		
+		<item>
+			<title>[iphone]Navigation-based Application からのアプリ(タブビュー)作成めも</title>
+			<link>http://nakajijapan.github.io/blog/2011/07/12/iphonenavigation-based-application-%E3%81%8B%E3%82%89%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E3%82%BF%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E4%BD%9C%E6%88%90%E3%82%81%E3%82%82/</link>
+			<pubDate>Tue, 12 Jul 2011 07:24:09 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/07/12/iphonenavigation-based-application-%E3%81%8B%E3%82%89%E3%81%AE%E3%82%A2%E3%83%97%E3%83%AA%E3%82%BF%E3%83%96%E3%83%93%E3%83%A5%E3%83%BC%E4%BD%9C%E6%88%90%E3%82%81%E3%82%82/</guid>
+			<description>作りたいものはタブバーでビュー切り換えする画面を作成したくてある人から教えていただいた作成方法のメモ。
+プロジェクト作成 本をベースで作成していくときは、「windows-based Application」で別にrootViewControllerを 作成してIBでつなぎ合わせていたけど、今回は「navigation-based Application」から作成してみる。
+プロトコルの追加 @interface RootViewController : UITableViewController {
+} 
+から
+@interface RootViewController : UIViewController { }  にして親のクラスを利用する
+不要メソッドの削除 UITableViewControllerから継承されているメソッドが何個かあるのでそれを削除する。 利用する時にまた実装すればいいだけのこと！
+IBから不要なオブジェクト削除 ここでもUITableView関連のオブジェクトが存在するのでばしばし削除していく
+IBでいろいろを当て込む ・Viewを作成してFile&amp;rsquo;s Ownerのviewに関連づけさせる ・TabBarを作成 ・[memo]画像はtest@2x.pngとするとretina対応で自動的にこちらの画像にしてくれるらしい
+InspectorのSimulated Metrics Top Barを「Navigation Bar」とする。
+タイトルの表示 viewロード時にタイトルを表示させる - (void)viewDidLoad { [super viewDidLoad]; [self.navigationItem setTitle:@&amp;ldquo;Home&amp;rdquo;]; }</description>
+		</item>
+		
+		<item>
+			<title>欲しいもの一覧　iPhone編</title>
+			<link>http://nakajijapan.github.io/blog/2010/05/24/%E6%AC%B2%E3%81%97%E3%81%84%E3%82%82%E3%81%AE%E4%B8%80%E8%A6%A7-iphone%E7%B7%A8/</link>
+			<pubDate>Mon, 24 May 2010 23:23:03 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/05/24/%E6%AC%B2%E3%81%97%E3%81%84%E3%82%82%E3%81%AE%E4%B8%80%E8%A6%A7-iphone%E7%B7%A8/</guid>
+			<description>   &amp;nbsp;&amp;nbsp;   &amp;nbsp;&amp;nbsp;     &amp;nbsp;&amp;nbsp;   &amp;nbsp;&amp;nbsp;     &amp;nbsp;&amp;nbsp;   &amp;nbsp;&amp;nbsp;     &amp;nbsp;&amp;nbsp;   &amp;nbsp;&amp;nbsp;      </description>
+		</item>
+		
+		<item>
+			<title>objective-C 文字列</title>
+			<link>http://nakajijapan.github.io/blog/2010/04/24/objective-c-%E6%96%87%E5%AD%97%E5%88%97/</link>
+			<pubDate>Sat, 24 Apr 2010 02:58:35 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/04/24/objective-c-%E6%96%87%E5%AD%97%E5%88%97/</guid>
+			<description>NSString：インスタンスを生成した後に文字列を変更できない静的な文字列クラス NSMutableString：インスタンスを生成した後も文字列を変更できる動的なクラス
+ ■継承関係 NSObject ↓ NSString ↓ NSMutableString   ■文字列定数 @”文字列”  NSString* str = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 NInteger len = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 (int) NUInteger len = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 (unsigned int) // copy NSString* str = [ NSString stringWithString: @&#34;Hello&#34; ]; // @&#34;hello&#34;という文字列のインスタンスをstrに代入 NSString* str = @&#34;hello&#34;; NSMutableString* str = [ NSMutableString stringWithString: @&#34;hello&#34; ]; // 書式ありの文字列 int min = 12; NSString str = [ NSString stringWithFormat: @&#34;</description>
+		</item>
+		
+	</channel>
+</rss>

@@ -1,0 +1,64 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Game on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/game/</link>
+		<description>Recent content in Game on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Mon, 08 Nov 2010 02:52:09 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/game/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>[映画]WANTED</title>
+			<link>http://nakajijapan.github.io/blog/2010/11/08/%E6%98%A0%E7%94%BBwanted/</link>
+			<pubDate>Mon, 08 Nov 2010 02:52:09 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/11/08/%E6%98%A0%E7%94%BBwanted/</guid>
+			<description>これの続編のゲームしてみたい</description>
+		</item>
+		
+		<item>
+			<title>Dragon Rising[PS3]</title>
+			<link>http://nakajijapan.github.io/blog/2010/01/20/dragon-risingps3/</link>
+			<pubDate>Wed, 20 Jan 2010 09:06:07 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/01/20/dragon-risingps3/</guid>
+			<description></description>
+		</item>
+		
+		<item>
+			<title>ドラゴンボールレイジングブラスト</title>
+			<link>http://nakajijapan.github.io/blog/2010/01/09/%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%AB%E3%83%AC%E3%82%A4%E3%82%B8%E3%83%B3%E3%82%B0%E3%83%96%E3%83%A9%E3%82%B9%E3%83%88/</link>
+			<pubDate>Sat, 09 Jan 2010 01:38:59 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/01/09/%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B3%E3%83%9C%E3%83%BC%E3%83%AB%E3%83%AC%E3%82%A4%E3%82%B8%E3%83%B3%E3%82%B0%E3%83%96%E3%83%A9%E3%82%B9%E3%83%88/</guid>
+			<description>あと２，３人だしてない。 奥が深い。 俺結構強い。</description>
+		</item>
+		
+		<item>
+			<title>アサシンクリード２</title>
+			<link>http://nakajijapan.github.io/blog/2010/01/09/%E3%82%A2%E3%82%B5%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%89%EF%BC%92/</link>
+			<pubDate>Sat, 09 Jan 2010 01:36:29 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/01/09/%E3%82%A2%E3%82%B5%E3%82%B7%E3%83%B3%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%89%EF%BC%92/</guid>
+			<description>かってみたぉ</description>
+		</item>
+		
+		<item>
+			<title>コールオブデューティ　モダンウォー２</title>
+			<link>http://nakajijapan.github.io/blog/2010/01/08/%E3%82%B3%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%96%E3%83%87%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3-%E3%83%A2%E3%83%80%E3%83%B3%E3%82%A6%E3%82%A9%E3%83%BC%EF%BC%92/</link>
+			<pubDate>Fri, 08 Jan 2010 01:59:02 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/01/08/%E3%82%B3%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%96%E3%83%87%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3-%E3%83%A2%E3%83%80%E3%83%B3%E3%82%A6%E3%82%A9%E3%83%BC%EF%BC%92/</guid>
+			<description>かってみたぉ
+普通のFPSゲーム＋αの面白さがあってかなりエキサイティングしました。
+このゲームでおなじみの瀕死状態になったときのスロープレイは自分的に好きです。</description>
+		</item>
+		
+	</channel>
+</rss>

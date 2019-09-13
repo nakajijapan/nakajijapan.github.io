@@ -1,0 +1,54 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>wordpress on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/wordpress/</link>
+		<description>Recent content in wordpress on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Sat, 09 Jan 2010 00:53:50 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/wordpress/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>wordpress_logpiプチ改造</title>
+			<link>http://nakajijapan.github.io/blog/2010/01/09/wordpress_logpi%E3%83%97%E3%83%81%E6%94%B9%E9%80%A0/</link>
+			<pubDate>Sat, 09 Jan 2010 00:53:50 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/01/09/wordpress_logpi%E3%83%97%E3%83%81%E6%94%B9%E9%80%A0/</guid>
+			<description>画像表示したかったのでプチ改造
+ループ中に以下の処理をいれて、画像を小さく表示できるようにした。
+// 置換 $message[&#39;description&#39;] = preg_replace(&#34;/img\.logpi\.jp\/(.+)_l\.(jpg|png|gif)\&#34;/&#34;, &#34;img.logpi.jp/$1_m.$2\&#34;
+&#34;, $message[&#39;description&#39;]);  でも画像用のAPIとかほしいよね〜。</description>
+		</item>
+		
+		<item>
+			<title>CSS微調整</title>
+			<link>http://nakajijapan.github.io/blog/2009/12/09/css%E5%BE%AE%E8%AA%BF%E6%95%B4/</link>
+			<pubDate>Wed, 09 Dec 2009 02:02:50 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2009/12/09/css%E5%BE%AE%E8%AA%BF%E6%95%B4/</guid>
+			<description>わーい、なんか「style.css」いじったら解決できた。
+どうもcodeのスタイルシート「display: block;」悪かったらしいんだけどいまいちよくわからず
+http://www.marguerite.jp/Nihongo/WWW/RefCSS/__box.html#BLOCK
+とりあえずblockしてると標準は上から下へ表示するようになって、コードが単語ごとに改行されていたのが それにあった模様。
+とりあえず消してみた。
+あとちょっとfirebugでスタイルシートを調整した。 画像までちょっと編集できなかったけどあとでおいおいすることにしようかしら。</description>
+		</item>
+		
+		<item>
+			<title>Code Test</title>
+			<link>http://nakajijapan.github.io/blog/2009/12/08/code-test/</link>
+			<pubDate>Tue, 08 Dec 2009 00:44:50 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2009/12/08/code-test/</guid>
+			<description> $test = &amp;ldquo;aaaa&amp;rdquo;; foreach ($arData as $key =&amp;gt; $value) { echo $value + 2; echo $key; } 
+codetest
+class Example def example(arg1) return “Hello: ” + arg1.to_s end end  $test = &#34;aaaa&#34;; foreach ($arData as $key = $value) { echo $value + 2; echo $key; }  alert(&#34;Hello world&#34;);  </description>
+		</item>
+		
+	</channel>
+</rss>

@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>ci on おじさんは生きている</title>
+		<title>CI on おじさんは生きている</title>
 		<link>http://nakajijapan.github.io/categories/ci/</link>
-		<description>Recent content in ci on おじさんは生きている</description>
+		<description>Recent content in CI on おじさんは生きている</description>
 		<generator>Hugo -- gohugo.io</generator>
 		
 		<language>ja-JP</language>
@@ -26,6 +26,22 @@
  テストに必要な環境の設定なので適宜設定する  ビルド
  ここでテストする処理を実行  ビルド後の処理
  ビルド後の結果をトリガーにしてパラメータを小ジョブに渡す設定行う。フォームにはいかの用に項目設定する Build Triggers 1  Project to build: CommitSTatusUpdate Trigger when build is stable or unstable but not failed parameters commit_status=successを設定  Build Triggers 2  Project to build: CommitSTatusUpdate Trigger when build is failed parameters commit_status=failureを設定    小ジョブ作成(CommitStatusUPdate)  ビルドのパラメータ化</description>
+		</item>
+		
+		<item>
+			<title>Travis CI &#43; GitHubを利用した継続的インテグレーション</title>
+			<link>http://nakajijapan.github.io/blog/2012/09/10/travis-ci-github%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E7%B6%99%E7%B6%9A%E7%9A%84%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</link>
+			<pubDate>Mon, 10 Sep 2012 02:39:50 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2012/09/10/travis-ci-github%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E7%B6%99%E7%B6%9A%E7%9A%84%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</guid>
+			<description>最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、
+PHPからRuby+Rails+S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。
+本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト
+環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの
+ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。
+ A hosted continuous integration service for the open source community. (翻訳) オープンソースコミュニティのための継続インテグレーションサービス  早速、設定してみました。 とりあえず、ユーザ登録します。 だいたいここをみてやればできるはずです。。
+language: ruby rvm: - 1.9.3 - 1.9.2 gemfile: - Gemfile env: - DB=mysql before_script: - mysql -e &#39;create database frustration_test;&#39; script: - RAILS_ENV=test bundle exec rake --trace db:migrate - bundle exec rake db:test:prepare - bundle exec rspec spec/  これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。 テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。
+あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが 問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって もんですね！！！</description>
 		</item>
 		
 	</channel>

@@ -1,0 +1,28 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Photoshop on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/photoshop/</link>
+		<description>Recent content in Photoshop on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Sun, 13 Feb 2011 03:11:38 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/photoshop/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>[PhotoshopCS5]画像のリサイズ・スライスの方法（基本やで！）</title>
+			<link>http://nakajijapan.github.io/blog/2011/02/13/photoshopcs5%E7%94%BB%E5%83%8F%E3%81%AE%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E6%96%B9%E6%B3%95%E5%9F%BA%E6%9C%AC%E3%82%84%E3%81%A7/</link>
+			<pubDate>Sun, 13 Feb 2011 03:11:38 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/02/13/photoshopcs5%E7%94%BB%E5%83%8F%E3%81%AE%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BA%E3%82%B9%E3%83%A9%E3%82%A4%E3%82%B9%E3%81%AE%E6%96%B9%E6%B3%95%E5%9F%BA%E6%9C%AC%E3%82%84%E3%81%A7/</guid>
+			<description>時代遅れのメモ。購入したはいいものの基本的なことができない！！ しかも、ちょっとさぼるとすぐ忘れる痴呆症のおじさんですのでざっくりメモしておこうと思う。
+項目たくさんあるのだけれど、覚えてしまうと簡単です。
+リサイズする スライスする スライスする  参考URL コンテンツに応じた拡大・縮小 ユーザー定義スライスの移動、サイズ変更およびスナップ</description>
+		</item>
+		
+	</channel>
+</rss>

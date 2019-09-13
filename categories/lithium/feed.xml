@@ -1,0 +1,27 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>lithium on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/lithium/</link>
+		<description>Recent content in lithium on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Tue, 16 Mar 2010 00:22:35 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/lithium/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>PHP lithiumのめも</title>
+			<link>http://nakajijapan.github.io/blog/2010/03/16/php-lithium%E3%81%AE%E3%82%81%E3%82%82/</link>
+			<pubDate>Tue, 16 Mar 2010 00:22:35 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/03/16/php-lithium%E3%81%AE%E3%82%81%E3%82%82/</guid>
+			<description>PHP 5.3 and Lithium: the most rad php frameworkView more presentations from G W.
+０．７が出たみたいですね。</description>
+		</item>
+		
+	</channel>
+</rss>

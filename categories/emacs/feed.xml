@@ -1,0 +1,29 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>emacs on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/emacs/</link>
+		<description>Recent content in emacs on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Wed, 25 Aug 2010 11:15:35 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/emacs/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>[memo]emacs カスタマイズ</title>
+			<link>http://nakajijapan.github.io/blog/2010/08/25/memoemacs-%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA/</link>
+			<pubDate>Wed, 25 Aug 2010 11:15:35 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/08/25/memoemacs-%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA/</guid>
+			<description>■いろいろな操作 http://www.bookshelf.jp/soft/meadow_32.html
+■行番号表示 http://temping-amagramer.blogspot.com/2009/02/emacs_07.html
+■矩形 http://taiyaki.org/elisp/sense-region/
+■めも http://blog.asial.co.jp/190</description>
+		</item>
+		
+	</channel>
+</rss>

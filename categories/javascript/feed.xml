@@ -24,5 +24,140 @@
 $ node -v v0.6.19 $ brew install node ==&amp;gt; Upgrading 1 outdated package, with result: node 0.10.7 ==&amp;gt; Upgrading node Beginning with 0.8.0, this recipe now comes with npm. It appears you already have npm installed at /usr/local/lib/node_modules/npm. To use the npm that comes with this recipe, first uninstall npm with `npm uninstall npm -g`, then run this command again. If you would like to keep your installation of npm instead of using the one provided with homebrew, install the formula with the `--without-npm` option.</description>
 		</item>
 		
+		<item>
+			<title>自作でモーダル画面つくってみた</title>
+			<link>http://nakajijapan.github.io/blog/2013/03/13/%E8%87%AA%E4%BD%9C%E3%81%A7%E3%83%A2%E3%83%BC%E3%83%80%E3%83%AB%E7%94%BB%E9%9D%A2%E3%81%A4%E3%81%8F%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+			<pubDate>Wed, 13 Mar 2013 08:02:16 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2013/03/13/%E8%87%AA%E4%BD%9C%E3%81%A7%E3%83%A2%E3%83%BC%E3%83%80%E3%83%AB%E7%94%BB%E9%9D%A2%E3%81%A4%E3%81%8F%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+			<description>世の中にはごまんとそういうプラグイン的なものあるけど、自分用にごにょごにょしたいのと勉強がてら作成してみました。
+用意するものとしては以下の通りです。
+ jquery.js(1.9.1) TwitterBootStrap(1.3)  form.css(フォーム関係一式あれば大丈夫) bootstrap.jp   html テスト ほげ Add X   Status ほしいよ もっている もっている もっている もっている いらない  Category  name_0 name_1 name_2 name_3 name_4 name_5 name_6 name_7 name_8 name_9  登録する       css .modal_conteiner { display: none; position: fixed; z-index: 1025; left: 50%; top: 50%; width: 550px; height: 350px; margin-left: -300px; margin-top: -150px; padding: 0px; background-color: white; border: 1px solid #aaa; box-shadow: 0px 0px 10px #333; border-radius: 6px; over-flow: auto; } .</description>
+		</item>
+		
+		<item>
+			<title>Maintainable Javascript読んだ（Part2）</title>
+			<link>http://nakajijapan.github.io/blog/2013/02/04/maintainable-javascript%E8%AA%AD%E3%82%93%E3%81%A0part2/</link>
+			<pubDate>Mon, 04 Feb 2013 02:25:31 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2013/02/04/maintainable-javascript%E8%AA%AD%E3%82%93%E3%81%A0part2/</guid>
+			<description>Maintainable JavascriptNicholas C. ZakasOreilly &amp; Associates Inc発売日：2012-05-31ブクログでレビューを見る»
+ Programing Practice 前回の続きです。今回はPart2のメモ。 実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。
+Event Handling  アプリケーションのロジックときり分けよう！ Don&#39;t Pass the Event Object Around(略せなかった・・・)  アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない 処理の透過性が悪くなるし、テストしにくいんだよ！ イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。   Avoid Null Comparisons Detecting Reference Values *どれもobjectが返るから注意
+console.log(typeof {}); // &#34;object&#34; console.log(typeof []); // &#34;object&#34; console.log(typeof new Date()); // &#34;object&#34; console.log(typeof new RegExp()); // &#34;object&#34; console.log(typeof null); // &#34;object&#34;   チェックはインスタンスを見るといい  if (hoge instance Date) { // do something } if (hoge instance Error) { throw value; }  Detecting Arrays Array.</description>
+		</item>
+		
+		<item>
+			<title>Maintainable Javascriptを読んだ</title>
+			<link>http://nakajijapan.github.io/blog/2013/01/07/maintainable-javascript%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0/</link>
+			<pubDate>Mon, 07 Jan 2013 00:36:05 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2013/01/07/maintainable-javascript%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0/</guid>
+			<description>Maintainable JavascriptNicholas C. ZakasOreilly &amp; Associates Inc発売日：2012-05-31ブクログでレビューを見る»
+ javascriptは以前からいろいろ実装していたものの、なんとは無しに実装していたが運用しやすいコードってどんなもんだろうな。どういう気概でやってるのだろうと思ってこの本を読んでみました。
+だいたい大きく纏めると
+ Style Guidlines Programming Practice Automation  で構成されています。今回はその「Style Guildlines」についてぼやいていこうと思います。 だいたい言っていることは他の言語でも通ずるところがあったのでしっくり腹に落とし込めた気がします。あと、「Style Guidlines」に関してはおすすめだけじゃなくてなんでこういう書き方いいのかを説明されているので納得いくものがありました。「Programming Practice 」は結構知らないことが多々あったのでちょっと実用性があるかは疑問なものもあったけど勉強になったと思います。
+Basic formatting コードのインデントや変数名・関数名の決め方がこんな書き方がいいよという紹介から始まり、変数の型について説明されていた。
+特にnullとundefinedで細かく説明されていたのでメモ。
+null  変数宣言の際には初期化しようね  var hoge = null;   期待されていないオブジェクトだったりしたときはnullを返す  function getPerson(){ if (condition) { return new Person(); } else { return null; } } var person = getPerson(); if (person !== null) { doSomething(); }   引数に設定（供給）されたかどうかをnullでチェックしないで！ この関数に技術的に間違っているわけじゃないけどそういう想定で
+やるとあとで大変なことになるからやらんほうがいいのかな。</description>
+		</item>
+		
+		<item>
+			<title>node.jsでもろもろ設定</title>
+			<link>http://nakajijapan.github.io/blog/2011/04/12/node.js%E3%81%A7%E3%82%82%E3%82%8D%E3%82%82%E3%82%8D%E8%A8%AD%E5%AE%9A/</link>
+			<pubDate>Tue, 12 Apr 2011 10:26:34 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/04/12/node.js%E3%81%A7%E3%82%82%E3%82%8D%E3%82%82%E3%82%8D%E8%A8%AD%E5%AE%9A/</guid>
+			<description>インストール wget http://nodejs.org/dist/node-v0.4.5.tar.gz tar zxvf node-v0.4.5.tar.gz cd node-v0.4.5 ./configure make make install 
+ライブラリ関連のモジュールをインストール curl http://npmjs.org/install.sh | sh
+npm install mysql npm install express npm install ejs 
+テストプログラムをListen状態にしておいてGETで情報が取得できるか確認する。 node test.js
+curl http://127.0.0.1:8124 
+参考URL http://sakuratan.biz/archives/3101 http://expressjs.com/ http://nodejs.org/</description>
+		</item>
+		
+		<item>
+			<title>input button onClick でJSを動かせない！</title>
+			<link>http://nakajijapan.github.io/blog/2011/02/16/input-button-onclick-%E3%81%A7js%E3%82%92%E5%8B%95%E3%81%8B%E3%81%9B%E3%81%AA%E3%81%84/</link>
+			<pubDate>Wed, 16 Feb 2011 03:48:05 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/02/16/input-button-onclick-%E3%81%A7js%E3%82%92%E5%8B%95%E3%81%8B%E3%81%9B%E3%81%AA%E3%81%84/</guid>
+			<description>もっと正確に言うとheadタグで作成したオブジェクトが参照できないのである。 しかしうまくいくのもあるんだけどなんなんだろうか。
+よくわからんなー。うーん。
+まずは、動かしたい処理
+function hoge() {} hoge.prototype = { moge: function() [ console.log(&#34;test&#34;); } } var hoge = new Hoge();  そして、HTMLには以下のコードを記述したとする。
+ add
+delete   上記のAタグてonclick()した場合うまくいくのだが、inputタグのタイプをbuttonで指定したものに onClick()した場合はうまく動作しなかった。</description>
+		</item>
+		
+		<item>
+			<title>jqueryでフォームを操作する</title>
+			<link>http://nakajijapan.github.io/blog/2010/09/30/jquery%E3%81%A7%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%99%E3%82%8B/</link>
+			<pubDate>Thu, 30 Sep 2010 17:18:04 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/09/30/jquery%E3%81%A7%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%99%E3%82%8B/</guid>
+			<description>Jqueryでフォームをいじっちゃいましょう。
+フォーム情報を取得したり設定したり var obj = $(&amp;lsquo;#target&amp;rsquo;); // id指定 var obj = $(&amp;lsquo;.targets&amp;rsquo;); // class指定 var obj = $(&amp;lsquo;input[name=target]&amp;lsquo;); // name指定
+// 選択したオブジェクトにたいしてそれぞれ処理を行う // (例)　ファームを「disabled」にする $(&amp;lsquo;input[name=target]&amp;lsquo;).attr(&amp;lsquo;disabled&amp;rsquo;, true);
+// .each() を利用してみる (上と同じ) $(&amp;lsquo;input[name=target]&amp;lsquo;).each(function(i){ $(this).attr(&amp;lsquo;disabled&amp;rsquo;, true); });
+//&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- // value属性の値を取得する //&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- var str = $(&amp;lsquo;#target&amp;rsquo;).attr(&amp;lsquo;value&amp;rsquo;); var str = $(&amp;lsquo;#target&amp;rsquo;).val();
+//&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- // value属性に値を入力する //&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- $(&amp;lsquo;#target&amp;rsquo;).attr({value: str}); $(&amp;lsquo;#target&amp;rsquo;).val(str);
+
+選択したオブジェクとを取得する(input[name=radio]) // get var obj = $(&amp;ldquo;input[name=target]:checked&amp;rdquo;);
+// ＠は正規表現 var obj2 = $(&amp;ldquo;input[@name=target]:checked&amp;rdquo;);
+// ラジオボタンで選択されているオブジェクトを取得する var objRadio = $(&amp;rdquo;:radio[@name=target]:checked&amp;rdquo;);</description>
+		</item>
+		
+		<item>
+			<title>[jquery]window.onloadを複数実行させたい</title>
+			<link>http://nakajijapan.github.io/blog/2010/09/29/jquerywindow.onload%E3%82%92%E8%A4%87%E6%95%B0%E5%AE%9F%E8%A1%8C%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84/</link>
+			<pubDate>Wed, 29 Sep 2010 00:43:58 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/09/29/jquerywindow.onload%E3%82%92%E8%A4%87%E6%95%B0%E5%AE%9F%E8%A1%8C%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84/</guid>
+			<description>いいんかな。
+規模が大きくなってくるとJSファイルだんだん増えてきて処理もそれなりに分割しなくちゃいけなくなる。 onloadインベントも共通の処理はあるけど、各処理（フレームワークでいうとコントローラごととか）でも 固有の処理を行いときがあります。しかも運用しやすい？用にファイルは分割して分けときたい。
+jqueryちゃんは優秀ですね。
+   // file A (common) $(document).ready(function(){ alert(&#39;a&#39;); });  // file B $(document).ready(function(){ alert(&#39;b&#39;); });  Aは全体で使う共通の処理、Bは各処理で行う処理。 こうすることでほぼonloadと同じタイミングで両方とも実行してくれることになります。 ただ、CSS読み込むときにはあらかじめCSSファイルを読み込んでおくことと、画像ファイルを全部 読み込み終わるまで「.ready」は実行されないことに注意。 jqueryのドキュメント結構勉強になった。 $(document).ready(handler) $().ready(handler) (this is not recommended) $(handler)  ■参照URL jquery document</description>
+		</item>
+		
+		<item>
+			<title>[memo]オブジェクト指向＋jquery</title>
+			<link>http://nakajijapan.github.io/blog/2010/09/07/memo%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91jquery/</link>
+			<pubDate>Tue, 07 Sep 2010 21:24:20 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/09/07/memo%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91jquery/</guid>
+			<description>いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので それ用に実装方法を書いてみる。
+  // クラス的な位置づけ var Nakaji = function(){ // メンバ変数的な位置づけ this.hidden = false; // コンストラクタ的な位置づけ this.setup(); } Nakaji.prototype = { setup: function(){ this.elem = $(&#39;NAKAJIJAPAN!&#39;); this.elem.css(&#34;background&#34;,&#34;#EEEEEE&#34;); $(document.body).append(this.elem.fadeIn(5000)); var self = this; this.elem.click(function(){ if(self.hidden){ self.show(); }else{ self.hide(); } }); }, hide: function(){ this.elem.css(&#34;background&#34;,&#34;#cccccc&#34;); this.hidden = true; }, show: function(){ this.elem.css(&#34;background&#34;,&#34;#000000&#34;); this.hidden = false; } } # document読み込み終了時に開始 $(function(){ var nakaji1 = new Nakaji(); var nakaji2 = new Nakaji(); var nakaji3 = new Nakaji(); var nakaji4 = new Nakaji(); var nakaji5 = new Nakaji(); });  ＜body＞ object ＜/body＞  </description>
+		</item>
+		
+		<item>
+			<title>[limeChat]RSS情報を定期的に読み込んで新着情報のみをぶっこぬく</title>
+			<link>http://nakajijapan.github.io/blog/2010/09/02/limechatrss%E6%83%85%E5%A0%B1%E3%82%92%E5%AE%9A%E6%9C%9F%E7%9A%84%E3%81%AB%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A7%E6%96%B0%E7%9D%80%E6%83%85%E5%A0%B1%E3%81%AE%E3%81%BF%E3%82%92%E3%81%B6%E3%81%A3%E3%81%93%E3%81%AC%E3%81%8F/</link>
+			<pubDate>Thu, 02 Sep 2010 02:37:51 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/09/02/limechatrss%E6%83%85%E5%A0%B1%E3%82%92%E5%AE%9A%E6%9C%9F%E7%9A%84%E3%81%AB%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A7%E6%96%B0%E7%9D%80%E6%83%85%E5%A0%B1%E3%81%AE%E3%81%BF%E3%82%92%E3%81%B6%E3%81%A3%E3%81%93%E3%81%AC%E3%81%8F/</guid>
+			<description>var targetChannel = &#34;#project&#34;; var fileName = &#34;projectSvnRevision.txt&#34;; //------------------------------------ // 実行時 //------------------------------------ var ret = 0; function event::onLoad() { ret = setInterval(getRssForDev, 1000 * 60 * 10); // by 10 min //ret = setInterval(getRssForDev, 1000 * 6); // by 1 min( for test) } //------------------------------------ // 時刻チェック //------------------------------------ function getRssForDev() { var lines = load_textfile_array( fileName ); var currentRevision = parseInt( lines[0] ); var req = new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;); if (req) { req.</description>
+		</item>
+		
+		<item>
+			<title>IE６だとaタグ利用してsubmit()できない</title>
+			<link>http://nakajijapan.github.io/blog/2010/05/25/ie%EF%BC%96%E3%81%A0%E3%81%A8a%E3%82%BF%E3%82%B0%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6submit%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</link>
+			<pubDate>Tue, 25 May 2010 12:05:55 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/05/25/ie%EF%BC%96%E3%81%A0%E3%81%A8a%E3%82%BF%E3%82%B0%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6submit%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/</guid>
+			<description>IE６だとaタグを利用してごにょごにょしてるとsubmit()処理がうまく動作しない件。
+ function func_submit() { document.form.submit(); }  選択したaaaaaaaaaa  これだとサブミット処理が行われない。最終的にvoid()処理がはいってしまい。結局なにもしないってことにしているのだろうか。
+一応ですがイベントの順番を考えてみる
+選択したaaaaaaaaaa  この場合だと順番として
+onClick →　href
+でイベントが行われる。
+つまりどうにかしてonClick時点で処理を止めればいいってことになるんでしょうか。
+何もしない処理(void)をさせない。
+つまりは、
+ function func_submit() { document.form.submit(); }  // 「return false; 」をonClickイベント終了前に実行する 選択したaaaaaaaaaa  こうするとIE６でも問題なく動作しました。 IEの文句は別にするとして、とりあえず問題が解決されたのでよかったです。調べてみたら結構みなさんもこういう問題に遭遇してるようですね。
+■参照URL http://anosinosaan.blog44.fc2.com/blog-entry-50.html</description>
+		</item>
+		
 	</channel>
 </rss>

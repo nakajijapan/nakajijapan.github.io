@@ -1,0 +1,55 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Music on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/music/</link>
+		<description>Recent content in Music on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Tue, 01 Jun 2010 02:29:43 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/music/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>まなざし [Single] [Maxi]</title>
+			<link>http://nakajijapan.github.io/blog/2010/06/01/%E3%81%BE%E3%81%AA%E3%81%96%E3%81%97-single-maxi/</link>
+			<pubDate>Tue, 01 Jun 2010 02:29:43 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/06/01/%E3%81%BE%E3%81%AA%E3%81%96%E3%81%97-single-maxi/</guid>
+			<description>タンブリングの主題歌です。
+初めてiTunesStoreで購入してみました。</description>
+		</item>
+		
+		<item>
+			<title>[CD]TIDE OF STARS SPECIAL EDITION</title>
+			<link>http://nakajijapan.github.io/blog/2010/05/16/cdtide-of-stars-special-edition/</link>
+			<pubDate>Sun, 16 May 2010 15:31:11 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/05/16/cdtide-of-stars-special-edition/</guid>
+			<description>最新アルバム買った勢いでファーストアルバムをかってみた。</description>
+		</item>
+		
+		<item>
+			<title>DE DE MOUSE[CD]</title>
+			<link>http://nakajijapan.github.io/blog/2010/04/15/de-de-mousecd/</link>
+			<pubDate>Thu, 15 Apr 2010 01:07:02 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/04/15/de-de-mousecd/</guid>
+			<description>ジャンル的にはElectricなのかな。いままでとはちょっと違った感じ新しい音楽。 音といいリズムといい好きですね。
+社員さんのSNSの記事をストーキングして発見したものです。●ヤマさんｱｻﾞｰｽ！！</description>
+		</item>
+		
+		<item>
+			<title>PLAYER(capsule)[CD]</title>
+			<link>http://nakajijapan.github.io/blog/2010/04/14/playercapsulecd/</link>
+			<pubDate>Wed, 14 Apr 2010 01:08:27 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/04/14/playercapsulecd/</guid>
+			<description>いいよー</description>
+		</item>
+		
+	</channel>
+</rss>

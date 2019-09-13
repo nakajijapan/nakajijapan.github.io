@@ -1,0 +1,26 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Smarty on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/smarty/</link>
+		<description>Recent content in Smarty on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Tue, 23 Feb 2010 22:20:42 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/smarty/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>即興でsmarty関数を作ってみる</title>
+			<link>http://nakajijapan.github.io/blog/2010/02/23/%E5%8D%B3%E8%88%88%E3%81%A7smarty%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B/</link>
+			<pubDate>Tue, 23 Feb 2010 22:20:42 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/02/23/%E5%8D%B3%E8%88%88%E3%81%A7smarty%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
+			<description>function smarty_function_my_assign($params, &amp;$smarty) { $str=&#34;&#34;; foreach ($params as $key = $value) { if (substr($key, 0, 5) === &#34;value&#34;) { $str .= $value; } } $smarty-assign($params[&#39;var&#39;], $str); }  {my_assign var-&#34;_test&#34; value1=&#34;aaaa&#34; value2=&#34;bbbb&#34;} {*aaaabbbb*} {$_test}  まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能</description>
+		</item>
+		
+	</channel>
+</rss>

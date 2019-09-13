@@ -1,0 +1,175 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Mac on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/mac/</link>
+		<description>Recent content in Mac on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Fri, 18 Nov 2011 02:18:57 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/mac/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>LaunchDaemons</title>
+			<link>http://nakajijapan.github.io/blog/2011/11/18/launchdaemons/</link>
+			<pubDate>Fri, 18 Nov 2011 02:18:57 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/11/18/launchdaemons/</guid>
+			<description>ふむふむなんです。 Daemon と Agent の違い  Daemon OS 起動時に、PID 1 の launched によって起動されるプログラム。   Agent ユーザ権限で起動する launched によって起動されるプログラム。Agent は GUI インターフェースを持つことができるが、Daemon はそれができない。 
+http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9</description>
+		</item>
+		
+		<item>
+			<title>brewでhttpdをインストール</title>
+			<link>http://nakajijapan.github.io/blog/2011/10/09/brew%E3%81%A7httpd%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/</link>
+			<pubDate>Sun, 09 Oct 2011 22:28:48 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/10/09/brew%E3%81%A7httpd%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/</guid>
+			<description>なぜなんだろうかbrewでhttpdがすんなりはいってくれない。 Formula (パッケージ(のようなもの)を定義するRubyファイル) が別途作成しなければいけないらしいよ。
+このアプリをインストールしてみることにします。 brew create http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz 
+自動的にエディタが起動されて編集しろと促されます。
+require &#39;formula&#39; class Httpd インストール開始します。
+brew install httpd  完成です。</description>
+		</item>
+		
+		<item>
+			<title>[入門][はじめ１]railsをインスコ、そこまで！</title>
+			<link>http://nakajijapan.github.io/blog/2011/10/04/%E5%85%A5%E9%96%80%E3%81%AF%E3%81%98%E3%82%81%EF%BC%91rails%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%B3%E3%81%9D%E3%81%93%E3%81%BE%E3%81%A7/</link>
+			<pubDate>Tue, 04 Oct 2011 21:10:12 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/10/04/%E5%85%A5%E9%96%80%E3%81%AF%E3%81%98%E3%82%81%EF%BC%91rails%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%B3%E3%81%9D%E3%81%93%E3%81%BE%E3%81%A7/</guid>
+			<description># 1.9.2が入りました brew install ruby  [nakajijapan] #sudo ruby setup.rb [~/Programming/rubygems-1.8.10] Password: RubyGems 1.8.10 installed == 1.8.10 / 2011-08-25 RubyGems 1.8.10 contains a security fix that prevents malicious gems from executing code when their specification is loaded. See https://github.com/rubygems/rubygems/pull/165 for details. * 5 bug fixes: * RubyGems escapes strings in ruby-format specs using #dump instead of #to_s and %q to prevent code injection. Issue #165 by Postmodern * RubyGems attempt to activate the psych gem now to obtain bugfixes from psych.</description>
+		</item>
+		
+		<item>
+			<title>[mac][lion]Lionにしてからxcodeのジェスチャーができなくなった。</title>
+			<link>http://nakajijapan.github.io/blog/2011/08/30/maclionlion%E3%81%AB%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89xcode%E3%81%AE%E3%82%B8%E3%82%A7%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F/</link>
+			<pubDate>Tue, 30 Aug 2011 02:14:26 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/08/30/maclionlion%E3%81%AB%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89xcode%E3%81%AE%E3%82%B8%E3%82%A7%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F/</guid>
+			<description>プログラムに熱中してくるとマウスに手を持っていく時間もストレスになってしまう僕ですが。
+OSをLionにしてからxcodeで重宝していたジェスチャーが利用できなくなった。
+３本のジェスチャーを上下に移動することでhoge.hとhoge.mファイルを切り替えるもの 選択移動になってしまっているではないか。
+とりあえずはショートカットキーをりようすることで対処しました。
+「Ctrl+Cmd+Up/Down」
+めも。
+&amp;ndash; 追記 &amp;ndash;
+なんかこんなショートカットキー見つけた！！
+http://cocoasamurai.blogspot.com/2008/02/complete-xcode-keyboard-shortcut-list.html
+更新が２００８年になっているのでLionには対応していない模様だけど、ショートカットキーなので特に問題はないでしょう。
+�</description>
+		</item>
+		
+		<item>
+			<title>[mac]キーボードの入力文字を変更したい</title>
+			<link>http://nakajijapan.github.io/blog/2011/01/23/mac%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%85%A5%E5%8A%9B%E6%96%87%E5%AD%97%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%81%84/</link>
+			<pubDate>Sun, 23 Jan 2011 13:37:25 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2011/01/23/mac%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%85%A5%E5%8A%9B%E6%96%87%E5%AD%97%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%81%84/</guid>
+			<description>いまさらですがめもします。 
+ここのIMEをクリックして「環境設定を表示」をクリック。 下記のように設定すればOK。
+
+■変更したもの 全角スラッシュ「／」→「・」</description>
+		</item>
+		
+		<item>
+			<title>emacsにタブ＆全角を識別させる</title>
+			<link>http://nakajijapan.github.io/blog/2010/01/15/emacs%E3%81%AB%E3%82%BF%E3%83%96%E5%85%A8%E8%A7%92%E3%82%92%E8%AD%98%E5%88%A5%E3%81%95%E3%81%9B%E3%82%8B/</link>
+			<pubDate>Fri, 15 Jan 2010 01:16:58 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/01/15/emacs%E3%81%AB%E3%82%BF%E3%83%96%E5%85%A8%E8%A7%92%E3%82%92%E8%AD%98%E5%88%A5%E3%81%95%E3%81%9B%E3%82%8B/</guid>
+			<description>なんかさくらエディタでできていたことがEmacsでできなかったのがやだったので調べたらありましたね。
+おまけ for GNU Emacs でまずjaspace.elファイルをダウンロード。
+そのあと以下のコードを.emacsに追加するとおｋ。
+それはここにあるみたい。 http://openlab.dino.co.jp/2008/08/29/230500336.html
+;; タブ, 全角スペース、改行直前の半角スペースを表示する (when (require &#39;jaspace nil t) (when (boundp &#39;jaspace-modes) (setq jaspace-modes (append jaspace-modes (list &#39;php-mode &#39;yaml-mode &#39;javascript-mode &#39;ruby-mode &#39;text-mode &#39;fundamental-mode)))) (when (boundp &#39;jaspace-alternate-jaspace-string) (setq jaspace-alternate-jaspace-string &#34;□&#34;)) (when (boundp &#39;jaspace-highlight-tabs) (setq jaspace-highlight-tabs ?^)) (add-hook &#39;jaspace-mode-off-hook (lambda() (when (boundp &#39;show-trailing-whitespace) (setq show-trailing-whitespace nil)))) (add-hook &#39;jaspace-mode-hook (lambda() (progn (when (boundp &#39;show-trailing-whitespace) (setq show-trailing-whitespace t)) (face-spec-set &#39;jaspace-highlight-jaspace-face &#39;((((class color) (background light)) (:foreground &#34;blue&#34;)) (t (:foreground &#34;</description>
+		</item>
+		
+		<item>
+			<title>macでfirefoxのキーバインドを変更してみた。</title>
+			<link>http://nakajijapan.github.io/blog/2009/12/25/mac%E3%81%A7firefox%E3%81%AE%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+			<pubDate>Fri, 25 Dec 2009 02:15:11 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2009/12/25/mac%E3%81%A7firefox%E3%81%AE%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+			<description>でけた。
+変更した場所(id)「textarea」「editor」「inputField」。 あ、「browser」もやっときゃよかったかも。
+http://kb.mozillazine.org/Emacs_Keybindings_%28Firefox%29</description>
+		</item>
+		
+		<item>
+			<title>Macで半角変換　ショートカット</title>
+			<link>http://nakajijapan.github.io/blog/2009/12/21/mac%E3%81%A7%E5%8D%8A%E8%A7%92%E5%A4%89%E6%8F%9B-%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88/</link>
+			<pubDate>Mon, 21 Dec 2009 21:07:04 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2009/12/21/mac%E3%81%A7%E5%8D%8A%E8%A7%92%E5%A4%89%E6%8F%9B-%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88/</guid>
+			<description>やたー、できそうでできなかた半角カタカナができるようになった。 まだまだ覚えることたくさんあるじゃわい。
+ﾏﾝｾ。</description>
+		</item>
+		
+		<item>
+			<title>キー変更</title>
+			<link>http://nakajijapan.github.io/blog/2009/12/13/%E3%82%AD%E3%83%BC%E5%A4%89%E6%9B%B4/</link>
+			<pubDate>Sun, 13 Dec 2009 11:44:59 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2009/12/13/%E3%82%AD%E3%83%BC%E5%A4%89%E6%9B%B4/</guid>
+			<description>とりあえずキーを変更してみた。
+とりあえずよく使うキーは押しやすいところに持っていく。
+これ効率的かつ合理的？
+それにしても全然ショートカット覚えきれてないや。山のようにたくさんある。 徐々に慣れてこ。
+むかついたこと macのfirefoxのショートカットがいろいろと言うこときかんね。 emacsのキーバインドがうまく適用されていないみだ。こんちくしょーーーーー。 どうもfirefoxでしていされたショートカットになってる。 なんか設定どうにかできそうだけど、めんどくしゃい。</description>
+		</item>
+		
+		<item>
+			<title>Make を入れてみる</title>
+			<link>http://nakajijapan.github.io/blog/2009/12/10/make-%E3%82%92%E5%85%A5%E3%82%8C%E3%81%A6%E3%81%BF%E3%82%8B/</link>
+			<pubDate>Thu, 10 Dec 2009 23:42:28 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2009/12/10/make-%E3%82%92%E5%85%A5%E3%82%8C%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
+			<description>あれ？wgetないからMacPortでインスコしようと思ってコマンド打ったら
+Makeがないっておこられてもうた。
+最初から付いていないもんなんだね。。。いつもLinuxをインスコする感覚だから
+あるのが当たり前におもってたからちょいと違和感を感じました。
+んでいろいろぐぐったらXcodeなるものが必要らしい
+例のDevelopper&amp;rsquo;s Siteからゲットってやつですね。
+https://connect.apple.com 後は実行して松の木です。
+！！
+やっとインスコできるわい。
+sudo port install wget  </description>
+		</item>
+		
+		<item>
+			<title>Mac奮闘記(MacPort編)</title>
+			<link>http://nakajijapan.github.io/blog/2009/11/25/mac%E5%A5%AE%E9%97%98%E8%A8%98macport%E7%B7%A8/</link>
+			<pubDate>Wed, 25 Nov 2009 01:52:10 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2009/11/25/mac%E5%A5%AE%E9%97%98%E8%A8%98macport%E7%B7%A8/</guid>
+			<description>ディストリビューションによってApacheのディレクトリ配置は結構違うもの。
+勝手に自分でインストールするのも自分がわかるところにインスコできるのは
+いいのよね。でもここはパッケージ管理で自動インスコこのマシン自体は
+サーバ管理が主じゃなくてプログラミングすることが主だからそこにいちいち
+こだわってられないのよねん。
+…まぁ結局Apacheの設定必要になってくるんだけどね。そんときはそんときで。
+後、いろいろと初めてなので冒険心です。
+余談ですが、昔のリナックスのパッケージ管理は結構なほどに面倒でしたね。
+まだyumもないころパッケージいちいち自分で依存性のあるものダウンロード
+してはちょこちょこやって、んでそこでもまた依存性があって挙げ句の果てに
+それは競合してるだなんていわれる始末。面倒くさいからひとまず強制インスコ。
+それでも元々のアプリがインスコできなくて…ひどかったなぁ。
+期待してます！！
+まずはここにいってユーザ登録。
+https://connect.apple.com
+そこからここでMacPortsをダウンロードする。自分はMac OS X 10.6
+なのでそれ用のものをダウンロード。
+http://svn.macosforge.org/repository/macports/downloads/
+と思ったら10.6用のパッケージがなかった。。。
+http://distfiles.macports.org/MacPorts/
+まず実行してみる。
+■インストールされてるパッケージの一覧表示 # sudo port installed # sudo port installed  No ports are installed.  うーん、既存のものは別なのね。普通にインストールされてるだけなのかな？ ■パッケージの検索   # sudo port search zsh zsh @4.2.7 (shells) Zsh is a UNIX command interpreter (shell)  zsh-devel @4.3.10 (shells) Zsh is a UNIX command interpreter (shell)  Found 2 ports.</description>
+		</item>
+		
+	</channel>
+</rss>

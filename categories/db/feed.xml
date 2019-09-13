@@ -1,0 +1,54 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>DB on おじさんは生きている</title>
+		<link>http://nakajijapan.github.io/categories/db/</link>
+		<description>Recent content in DB on おじさんは生きている</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+		<language>ja-JP</language>
+		
+		<copyright>nakajijapan All rights reserved.</copyright>
+		
+		<lastBuildDate>Fri, 26 Feb 2010 02:13:04 +0900</lastBuildDate>
+		
+		<atom:link href="/categories/db/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Myｓｑｌのコンソールが文字化ける(こんなことだった)</title>
+			<link>http://nakajijapan.github.io/blog/2010/02/26/my%EF%BD%93%EF%BD%91%EF%BD%8C%E3%81%AE%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%8C%E6%96%87%E5%AD%97%E5%8C%96%E3%81%91%E3%82%8B%E3%81%93%E3%82%93%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A0%E3%81%A3%E3%81%9F/</link>
+			<pubDate>Fri, 26 Feb 2010 02:13:04 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/02/26/my%EF%BD%93%EF%BD%91%EF%BD%8C%E3%81%AE%E3%82%B3%E3%83%B3%E3%82%BD%E3%83%BC%E3%83%AB%E3%81%8C%E6%96%87%E5%AD%97%E5%8C%96%E3%81%91%E3%82%8B%E3%81%93%E3%82%93%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A0%E3%81%A3%E3%81%9F/</guid>
+			<description>文字コード関連の話。ここ数年文字コードの話ってあるけどさなかなか統一されないよねっていうことと 設定箇所がまだ乱立してるのが面倒くさい。 今だとPHP＋apache＋linux＋mysqlの４つそれぞれせってしないといけないもんね。
+んで今回も少しだけとまどったわけなのです。ほんとにちょっとだけよ。
+まぁ、そのときの状態。 ①HTTPの入力・出力・内部処理はUTF-8で画面出力自体は問題なく表示される。 ツーことはDBには同じ文字コードで入っているはず。 ②コンソール上でクライアント動かしてSQL打っても表示されない。 ツーことはクライアントの設定かな
+あ、それですね。
+まずはDBの文字コード確認。
+mysql SHOW CREATE DATABASE testdb; +----------+-------------------------------------------------------------------+ | Database | Create Database | +----------+-------------------------------------------------------------------+ | testdb| CREATE DATABASE `testdb` /*!40100 DEFAULT CHARACTER SET utf8 */ | +----------+-------------------------------------------------------------------+ 1 row in set (0.00 sec)  クライアントはどうか
+mysql SHOW VARIABLES LIKE &#39;character\_set\_%&#39;; +--------------------------+--------+ | Variable_name | Value | +--------------------------+--------+ | character_set_client | latin1| | character_set_connection | latin1| | character_set_database | utf8 | | character_set_filesystem | binary | | character_set_results | latin1| | character_set_server | latin1| | character_set_system | utf8 | +--------------------------+--------+ 7 rows in set (0.</description>
+		</item>
+		
+		<item>
+			<title>DBの永続的接続</title>
+			<link>http://nakajijapan.github.io/blog/2010/01/29/db%E3%81%AE%E6%B0%B8%E7%B6%9A%E7%9A%84%E6%8E%A5%E7%B6%9A/</link>
+			<pubDate>Fri, 29 Jan 2010 00:24:14 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2010/01/29/db%E3%81%AE%E6%B0%B8%E7%B6%9A%E7%9A%84%E6%8E%A5%E7%B6%9A/</guid>
+			<description>Mysqlの設定していたときにちょっと疑問におもったので調査。
+ mysql.max_persistent integer The maximum number of persistent MySQL connections per process. 1プロセスあたりに永続接続できる最大接続数。
+ちなみに永続接続っていうのは ・DBのセッションがずっと持ちっぱなしで接続が終了してもセッションは開きっぱなしの状態。 ・もし開いている接続があればそれを使う。
+これだと効率がよくなるね、でもなんかゾンビ化しそう。
+非永続接続は ・DBの接続が終了すればセッションが閉じちゃう感じか。
+そんでもって上記の設定だと1プロセスに待ち状態の接続を最大なん個もたせるかか。
+例えば、永続接続は、１リクエストでmysql_connect()を2回接続すると2個のセッションが確立されるのでは なくてすでに最初で接続済みのものを利用する。条件はまったく同じ接続先の場合（詳細割愛)。
+１リクエスト１コネクション
+非永続だと
+１リクエスト２コネクションになっちゃうわけか
+じゃこの違いってなんだ？ 後者だと普通に考えて効率だよな。前者は一貫性のあるデータ取れたり、トランザクションも統一できるから安全性かな。
+なんか読めてきた。
+http://www.studyinghttp.net/connections http://php.net/manual/ja/features.persistent-connections.php http://php.net/manual/ja/function.mysql-connect.php
+  </description>
+		</item>
+		
+	</channel>
+</rss>
