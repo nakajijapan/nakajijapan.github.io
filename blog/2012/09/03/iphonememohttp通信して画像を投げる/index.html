@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[iphone][memo]HTTP通信して画像を投げる。">
@@ -11,7 +11,8 @@
 <meta property="go:description" content="最近いろんな言語であっちこっち開発しているから頭パンクしてきそうな季節ですね。
 意味分からないですね。nakajijapanです。
 簡単にできるといいのにね。まぁでもある意味生のデータを生成しているのでわかりやすいっちゃわかりやすい。 抽象化したやつは後で自分でつくっておこっと。
-//NSString *query = @&#34;test=hoge&test2=hogehoge&#34;; NSURL *url = [[NSURL alloc] initWithString:@&#34;http://test.hoge/hoge/post.php&#34;]; // GETでは使えない CGFloat quality = 100.0; NSData *postImage = [[[NSData alloc] initWithData:UIImageJPEGRepresentation(_imageView.image, quality)] autorelease]; // POST用 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: url]; [request setHTTPMethod:@&#34;POST&#34;]; NSString *boundary = [NSString stringWithString:@&#34;nakajijapan2011&#34;]; NSString *contentType = [NSString stringWithFormat:@&#34;multipart/form-data; boundary=%@&#34;,boundary]; [request addValue:contentType forHTTPHeaderField: @&#34;Content-Type&#34;]; NSMutableData *body = [NSMutableData data]; // name=image dataの設定 [body appendData:[[NSString stringWithFormat:@&#34;\r\n--%@\r\n&#34;,boundary] dataUsingEncoding:NSUTF8StringEncoding]]; [body appendData:[[NSString stringWithString:@&#34;Content-Disposition: form-data; name=\&#34;" />
+今回の処理でいうと同期処理なので実際にiPhoneでユーザがスムーズにストレスなく操作することを考慮にいれると 非同期の処理かましたほうがいいんだけど、それはまた後ほど。
+■参照URL https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSURLConnection_Class/Reference/Reference.html https://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSURLConnectionDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intf/NSURLConnectionDelegate" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -24,7 +25,8 @@
 <meta name="twitter:description" content="最近いろんな言語であっちこっち開発しているから頭パンクしてきそうな季節ですね。
 意味分からないですね。nakajijapanです。
 簡単にできるといいのにね。まぁでもある意味生のデータを生成しているのでわかりやすいっちゃわかりやすい。 抽象化したやつは後で自分でつくっておこっと。
-//NSString *query = @&#34;test=hoge&test2=hogehoge&#34;; NSURL *url = [[NSURL alloc] initWithString:@&#34;http://test.hoge/hoge/post.php&#34;]; // GETでは使えない CGFloat quality = 100.0; NSData *postImage = [[[NSData alloc] initWithData:UIImageJPEGRepresentation(_imageView.image, quality)] autorelease]; // POST用 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: url]; [request setHTTPMethod:@&#34;POST&#34;]; NSString *boundary = [NSString stringWithString:@&#34;nakajijapan2011&#34;]; NSString *contentType = [NSString stringWithFormat:@&#34;multipart/form-data; boundary=%@&#34;,boundary]; [request addValue:contentType forHTTPHeaderField: @&#34;Content-Type&#34;]; NSMutableData *body = [NSMutableData data]; // name=image dataの設定 [body appendData:[[NSString stringWithFormat:@&#34;\r\n--%@\r\n&#34;,boundary] dataUsingEncoding:NSUTF8StringEncoding]]; [body appendData:[[NSString stringWithString:@&#34;Content-Disposition: form-data; name=\&#34;" />
+今回の処理でいうと同期処理なので実際にiPhoneでユーザがスムーズにストレスなく操作することを考慮にいれると 非同期の処理かましたほうがいいんだけど、それはまた後ほど。
+■参照URL https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSURLConnection_Class/Reference/Reference.html https://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSURLConnectionDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intf/NSURLConnectionDelegate" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -60,61 +62,13 @@
 			<span class="entry-categories">( <a href="/categories/diary">Diary</a> )</span>
 			<section itemprop="entry-text">
 				<p>最近いろんな言語であっちこっち開発しているから頭パンクしてきそうな季節ですね。</p>
-
 <p>意味分からないですね。nakajijapanです。</p>
-
 <p>簡単にできるといいのにね。まぁでもある意味生のデータを生成しているのでわかりやすいっちゃわかりやすい。
 抽象化したやつは後で自分でつくっておこっと。</p>
-
-<pre class="brush: cpp">
-    //NSString *query = @"test=hoge&test2=hogehoge";
-    NSURL *url = [[NSURL alloc] initWithString:@"http://test.hoge/hoge/post.php"];
-
-    // GETでは使えない
-    CGFloat quality = 100.0;
-    NSData *postImage = [[[NSData alloc] initWithData:UIImageJPEGRepresentation(_imageView.image, quality)] autorelease];
-    
-    // POST用
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: url];
-    [request setHTTPMethod:@"POST"];
-    
-    NSString *boundary = [NSString stringWithString:@"nakajijapan2011"];
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-    NSMutableData *body = [NSMutableData data];
-
-    //  name=image dataの設定
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithString:@"Content-Disposition: form-data; name=\"image\";filename=\"source.jpg\"\r\n"] 
-                      dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithString:@"Content-Type: image/jpeg;\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:postImage];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-
-    [request setHTTPBody:body];
-    NSURLResponse *response = nil;
-    NSError       *error    = nil;
-    NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-
-    
-    // error
-    NSString *errorStr = [error localizedDescription];
-    if (0 < [errorStr length]) {
-        UIAlertView *alert = [[UIAlertView alloc] 
-                              initWithTitle:@"RequestError" 
-                              message:errorStr 
-                              delegate:nil 
-                              cancelButtonTitle:@"OK" 
-                              otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-        return;
-    }
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>今回の処理でいうと同期処理なので実際にiPhoneでユーザがスムーズにストレスなく操作することを考慮にいれると
 非同期の処理かましたほうがいいんだけど、それはまた後ほど。</p>
-
 <p>■参照URL
 <a href="https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSURLConnection_Class/Reference/Reference.html">https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSURLConnection_Class/Reference/Reference.html</a>
 <a href="https://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSURLConnectionDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intf/NSURLConnectionDelegate">https://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSURLConnectionDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intf/NSURLConnectionDelegate</a></p>

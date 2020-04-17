@@ -2,20 +2,14 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Travis CI &#43; GitHubを利用した継続的インテグレーション">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2012/09/10/travis-ci-github%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E7%B6%99%E7%B6%9A%E7%9A%84%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/" />
-<meta property="go:description" content="最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、
-PHPからRuby&#43;Rails&#43;S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。
-本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト
-環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの
-ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。
- A hosted continuous integration service for the open source community. (翻訳) オープンソースコミュニティのための継続インテグレーションサービス  早速、設定してみました。 とりあえず、ユーザ登録します。 だいたいここをみてやればできるはずです。。
-language: ruby rvm: - 1.9.3 - 1.9.2 gemfile: - Gemfile env: - DB=mysql before_script: - mysql -e &#39;create database frustration_test;&#39; script: - RAILS_ENV=test bundle exec rake --trace db:migrate - bundle exec rake db:test:prepare - bundle exec rspec spec/  これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。 テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。
-あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが 問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって もんですね！！！" />
+<meta property="go:description" content="(翻訳) オープンソースコミュニティのための継続インテグレーションサービス
+  " />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -25,14 +19,8 @@ language: ruby rvm: - 1.9.3 - 1.9.2 gemfile: - Gemfile env: - DB=mysql before_sc
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Travis CI &#43; GitHubを利用した継続的インテグレーション" />
-<meta name="twitter:description" content="最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、
-PHPからRuby&#43;Rails&#43;S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。
-本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト
-環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの
-ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。
- A hosted continuous integration service for the open source community. (翻訳) オープンソースコミュニティのための継続インテグレーションサービス  早速、設定してみました。 とりあえず、ユーザ登録します。 だいたいここをみてやればできるはずです。。
-language: ruby rvm: - 1.9.3 - 1.9.2 gemfile: - Gemfile env: - DB=mysql before_script: - mysql -e &#39;create database frustration_test;&#39; script: - RAILS_ENV=test bundle exec rake --trace db:migrate - bundle exec rake db:test:prepare - bundle exec rspec spec/  これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。 テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。
-あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが 問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって もんですね！！！" />
+<meta name="twitter:description" content="(翻訳) オープンソースコミュニティのための継続インテグレーションサービス
+  " />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -67,65 +55,25 @@ language: ruby rvm: - 1.9.3 - 1.9.2 gemfile: - Gemfile env: - DB=mysql before_sc
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2012-09-10">September 10, 2012</time></span>
 			<span class="entry-categories">( <a href="/categories/ci">CI</a> )</span>
 			<section itemprop="entry-text">
-				<p>最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、</p>
-
-<p>PHPからRuby+Rails+S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。</p>
-
-<p>本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト</p>
-
-<p>環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの</p>
-
-<p>ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。</p>
-
-<blockquote>
-A hosted continuous integration service for the open source community.
-
-(翻訳)
-オープンソースコミュニティのための継続インテグレーションサービス
-</blockquote>
-
-<p>早速、設定してみました。
-とりあえず、ユーザ登録します。
-だいたい<a href="http://about.travis-ci.org/docs/" target="_blank">ここ</a>をみてやればできるはずです。。</p>
-
-<pre class="brush:bash">
-language: ruby
-rvm:
-  - 1.9.3
-  - 1.9.2
-
-gemfile:
-  - Gemfile
-
-env:
-- DB=mysql
-
-before_script:
- - mysql -e 'create database frustration_test;'
-
-script: 
-  - RAILS_ENV=test bundle exec rake --trace db:migrate
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
-</pre>
-
-<p>これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。
-テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。</p>
-
-<p><img src="http://blog.nakajijapan.net/wp-content/uploads/2012/09/スクリーンショット-2012-09-10-2.20.39.png" alt="" title="Travis-CI" class="aligncenter size-full wp-image-3331" /></p>
-
-<p>あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが
-問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって
-もんですね！！！</p>
-
-<p><a href="https://github.com/nakajijapan/frustrationme_app/pull/2"><img src="http://blog.nakajijapan.net/wp-content/uploads/2012/09/スクリーンショット-2012-09-10-2.23.27.png" alt="Travis-CI_GitHub" title="Travis-CI_GitHub" class="aligncenter size-full wp-image-3333" /></a></p>
-
-<p>□参照URL</p>
-
-<p>http://travis-ci.org/</p>
-
-<p>https://github.com/</p>
-
+				<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>(翻訳)
+オープンソースコミュニティのための継続インテグレーションサービス</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <blockquote>
 </blockquote>
 

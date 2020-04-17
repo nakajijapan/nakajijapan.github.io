@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="IE8でもHTML5用で利用するタグを認識させる方法">
@@ -12,7 +12,7 @@
 確かに普通にITに関連のない人たちは普通にIEを使うのは普通であって当然アクセス解析をみるといる訳です。 そのままにしていくわけにはいかずにある程度見れるように調査いたしました！
 調べてみたらあっさりと解決してしまいました。
 「document.createElement」なるものを使用するとスタイルシートが適用されるみたいですね。
-var html5elements = [&#34;header&#34;, &#34;nav&#34;, &#34;article&#34;, &#34;section&#34;, &#34;aside&#34;, &#34;footer&#34;]; for(var i=0; i  ■参考 IE8でのHTML５要素有効かあれこれ" />
+&lt;![endif]&ndash;&gt; ■参考 IE8でのHTML５要素有効かあれこれ" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -26,7 +26,7 @@ var html5elements = [&#34;header&#34;, &#34;nav&#34;, &#34;article&#34;, &#34;se
 確かに普通にITに関連のない人たちは普通にIEを使うのは普通であって当然アクセス解析をみるといる訳です。 そのままにしていくわけにはいかずにある程度見れるように調査いたしました！
 調べてみたらあっさりと解決してしまいました。
 「document.createElement」なるものを使用するとスタイルシートが適用されるみたいですね。
-var html5elements = [&#34;header&#34;, &#34;nav&#34;, &#34;article&#34;, &#34;section&#34;, &#34;aside&#34;, &#34;footer&#34;]; for(var i=0; i  ■参考 IE8でのHTML５要素有効かあれこれ" />
+&lt;![endif]&ndash;&gt; ■参考 IE8でのHTML５要素有効かあれこれ" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -61,27 +61,19 @@ var html5elements = [&#34;header&#34;, &#34;nav&#34;, &#34;article&#34;, &#34;se
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2011-03-28">March 28, 2011</time></span>
 			<span class="entry-categories">( <a href="/categories/diary">Diary</a> )</span>
 			<section itemprop="entry-text">
-				<p>「<a href="http://frustration.me">欲求不満</a>」というサービスを作成しているときに調子にのりHTML５とCSS3をばりばり使ってしませいか
+				<p>「<!-- raw HTML omitted -->欲求不満<!-- raw HTML omitted -->」というサービスを作成しているときに調子にのりHTML５とCSS3をばりばり使ってしませいか
 IEでうまいように表示できなかったり崩れてしまいと残念な結果に終わっていました．もういっそのこと非推奨にして
 IEでみたときはエラーにしてしまえとアラートを出すようにしていたのです。</p>
-
 <p>確かに普通にITに関連のない人たちは普通にIEを使うのは普通であって当然アクセス解析をみるといる訳です。
 そのままにしていくわけにはいかずにある程度見れるように調査いたしました！</p>
-
 <p>調べてみたらあっさりと解決してしまいました。</p>
-
-<p><strong>「document.createElement</strong>」なるものを使用するとスタイルシートが適用されるみたいですね。</p>
-
-<pre class="brush: javascript">
-  <script type="text/javascript">
-  var html5elements = ["header", "nav", "article", "section", "aside", "footer"];
-  for(var i=0; i<=html5elements.length; i++) { document.createElement( html5elements[ i ] ); }
-  </script>
-  <![endif]-->
-</pre>
-
+<p><!-- raw HTML omitted -->「document.createElement<!-- raw HTML omitted -->」なるものを使用するとスタイルシートが適用されるみたいですね。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&lt;![endif]&ndash;&gt;
+<!-- raw HTML omitted --></p>
 <p>■参考
-<a href="http://p2b.jp/201007-various-HTML5-enabling-scripts">IE8でのHTML５要素有効かあれこれ</a></p>
+<!-- raw HTML omitted -->IE8でのHTML５要素有効かあれこれ<!-- raw HTML omitted --></p>
 
 			</section>
 		</article>

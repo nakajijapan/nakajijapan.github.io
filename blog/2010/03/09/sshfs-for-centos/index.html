@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="sshfs for CentOS">
@@ -60,12 +60,9 @@ mkdir mnt sshfs root@xxx.xxx.xxx.xxx/ mnt/
 			<span class="entry-categories">( <a href="/categories/linux">Linux</a> )</span>
 			<section itemprop="entry-text">
 				<p>複数サーバを行き来してるとemacsの設定とかまたやりなおさなきゃいけないのが癪（漢字これでいいのかな）なので、それを解消しようといれてみました。</p>
-
 <p>yum install sshfs</p>
-
 <p>mkdir mnt
-sshfs root@xxx.xxx.xxx.xxx/ mnt/</p>
-
+sshfs <a href="mailto:root@xxx.xxx.xxx.xxx">root@xxx.xxx.xxx.xxx</a>/ mnt/</p>
 <p>はい、完了。</p>
 
 			</section>

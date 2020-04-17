@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="AVMutableVideoCompositionLayerInstructionの使い方">
@@ -11,11 +11,11 @@
 <meta property="go:description" content="ビデオ用のAVMutableCompositionTrackにレイヤーを持たせることができます。 それがAVMutableVideoCompositionLayerInstructionなんですがこれが意外と 簡単に動画に対してCGAffineTransformを指定することで動画の移動・回転・拡大縮小 ができたりフェードイン・アウトの設定ができたのでメモ。
 まずは対象のトラックをもとにして、レイヤーをインスタンス化します。
 &#43; (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track
-AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];  TransForm - (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
+AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack]; TransForm - (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
 この例だと、３秒間左から動画が移動してきます。
-// transition CGAffineTransform rotateStart, rotateEnd; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); rotateStart = CGAffineTransformMakeScale(1, 1); rotateStart = CGAffineTransformMakeTranslation(-720, 0); rotateEnd = CGAffineTransformTranslate(rotateStart, 720, 0); [layerInstruction setTransformRampFromStartTransform:rotateStart toEndTransform:rotateEnd timeRange:CMTimeRangeMake(startTime, timeDuration)];  Opacity - (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
+// transition  CGAffineTransform rotateStart, rotateEnd; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); rotateStart = CGAffineTransformMakeScale(1, 1); rotateStart = CGAffineTransformMakeTranslation(-720, 0); rotateEnd = CGAffineTransformTranslate(rotateStart, 720, 0); [layerInstruction setTransformRampFromStartTransform:rotateStart toEndTransform:rotateEnd timeRange:CMTimeRangeMake(startTime, timeDuration)]; Opacity - (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
 この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。
-// fade in CMTime startTime, timeDuration; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); [layerInstruction setOpacityRampFromStartOpacity:0." />
+// fade in  CMTime startTime, timeDuration; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); [layerInstruction setOpacityRampFromStartOpacity:0." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -28,11 +28,11 @@ AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = 
 <meta name="twitter:description" content="ビデオ用のAVMutableCompositionTrackにレイヤーを持たせることができます。 それがAVMutableVideoCompositionLayerInstructionなんですがこれが意外と 簡単に動画に対してCGAffineTransformを指定することで動画の移動・回転・拡大縮小 ができたりフェードイン・アウトの設定ができたのでメモ。
 まずは対象のトラックをもとにして、レイヤーをインスタンス化します。
 &#43; (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track
-AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];  TransForm - (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
+AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack]; TransForm - (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
 この例だと、３秒間左から動画が移動してきます。
-// transition CGAffineTransform rotateStart, rotateEnd; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); rotateStart = CGAffineTransformMakeScale(1, 1); rotateStart = CGAffineTransformMakeTranslation(-720, 0); rotateEnd = CGAffineTransformTranslate(rotateStart, 720, 0); [layerInstruction setTransformRampFromStartTransform:rotateStart toEndTransform:rotateEnd timeRange:CMTimeRangeMake(startTime, timeDuration)];  Opacity - (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
+// transition  CGAffineTransform rotateStart, rotateEnd; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); rotateStart = CGAffineTransformMakeScale(1, 1); rotateStart = CGAffineTransformMakeTranslation(-720, 0); rotateEnd = CGAffineTransformTranslate(rotateStart, 720, 0); [layerInstruction setTransformRampFromStartTransform:rotateStart toEndTransform:rotateEnd timeRange:CMTimeRangeMake(startTime, timeDuration)]; Opacity - (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
 この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。
-// fade in CMTime startTime, timeDuration; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); [layerInstruction setOpacityRampFromStartOpacity:0." />
+// fade in  CMTime startTime, timeDuration; startTime = kCMTimeZero; timeDuration = CMTimeMake(3, 1); [layerInstruction setOpacityRampFromStartOpacity:0." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -67,72 +67,52 @@ AVMutableVideoCompositionLayerInstruction *layerInstruction; layerInstruction = 
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2014-01-19">January 19, 2014</time></span>
 			<span class="entry-categories">( <a href="/categories/ios">iOS</a> )</span>
 			<section itemprop="entry-text">
-				
-
-<p>ビデオ用の<code>AVMutableCompositionTrack</code>にレイヤーを持たせることができます。
+				<p>ビデオ用の<code>AVMutableCompositionTrack</code>にレイヤーを持たせることができます。
 それが<code>AVMutableVideoCompositionLayerInstruction</code>なんですがこれが意外と
 簡単に動画に対して<code>CGAffineTransform</code>を指定することで動画の移動・回転・拡大縮小
 ができたりフェードイン・アウトの設定ができたのでメモ。</p>
-
 <p>まずは対象のトラックをもとにして、レイヤーをインスタンス化します。</p>
-
 <p><code>+ (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track</code></p>
-
-<pre><code class="language-obj-c">    AVMutableVideoCompositionLayerInstruction *layerInstruction;
-    layerInstruction = [AVMutableVideoCompositionLayerInstruction
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">    AVMutableVideoCompositionLayerInstruction <span style="color:#f92672">*</span>layerInstruction;
+    layerInstruction <span style="color:#f92672">=</span> [AVMutableVideoCompositionLayerInstruction
                         videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];
-</code></pre>
-
-<h3 id="transform">TransForm</h3>
-
+</code></pre></div><h3 id="transform">TransForm</h3>
 <p><code>- (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange</code></p>
-
 <p>この例だと、３秒間左から動画が移動してきます。</p>
-
-<pre><code class="language-obj-c">    // transition
-    CGAffineTransform rotateStart, rotateEnd;
-    startTime    = kCMTimeZero;
-    timeDuration = CMTimeMake(3, 1);
-    rotateStart  = CGAffineTransformMakeScale(1, 1);
-    rotateStart  = CGAffineTransformMakeTranslation(-720, 0);
-    rotateEnd    = CGAffineTransformTranslate(rotateStart, 720, 0);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">    <span style="color:#75715e">// transition
+</span><span style="color:#75715e"></span>    CGAffineTransform rotateStart, rotateEnd;
+    startTime    <span style="color:#f92672">=</span> kCMTimeZero;
+    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
+    rotateStart  <span style="color:#f92672">=</span> CGAffineTransformMakeScale(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>);
+    rotateStart  <span style="color:#f92672">=</span> CGAffineTransformMakeTranslation(<span style="color:#f92672">-</span><span style="color:#ae81ff">720</span>, <span style="color:#ae81ff">0</span>);
+    rotateEnd    <span style="color:#f92672">=</span> CGAffineTransformTranslate(rotateStart, <span style="color:#ae81ff">720</span>, <span style="color:#ae81ff">0</span>);
     [layerInstruction setTransformRampFromStartTransform:rotateStart
                                           toEndTransform:rotateEnd
                                                timeRange:CMTimeRangeMake(startTime, timeDuration)];
-</code></pre>
-
-<h3 id="opacity">Opacity</h3>
-
+</code></pre></div><h3 id="opacity">Opacity</h3>
 <p><code>- (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange</code></p>
-
 <p>この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。</p>
-
-<pre><code class="language-obj-c">    // fade in
-    CMTime startTime, timeDuration;
-    startTime    = kCMTimeZero;
-    timeDuration = CMTimeMake(3, 1);
-    [layerInstruction setOpacityRampFromStartOpacity:0.0
-                                        toEndOpacity:1.0
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">    <span style="color:#75715e">// fade in
+</span><span style="color:#75715e"></span>    CMTime startTime, timeDuration;
+    startTime    <span style="color:#f92672">=</span> kCMTimeZero;
+    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
+    [layerInstruction setOpacityRampFromStartOpacity:<span style="color:#ae81ff">0.0</span>
+                                        toEndOpacity:<span style="color:#ae81ff">1.0</span>
                                            timeRange:CMTimeRangeMake(startTime, timeDuration)];
 
 
-    // fade out
-    startTime    = CMTimeSubtract(videoComposition.currentTimeDuration, CMTimeMake(3, 1));
-    timeDuration = CMTimeMake(3, 1);
-    [layerInstruction setOpacityRampFromStartOpacity:1.0
-                                        toEndOpacity:0.0
+    <span style="color:#75715e">// fade out
+</span><span style="color:#75715e"></span>    startTime    <span style="color:#f92672">=</span> CMTimeSubtract(videoComposition.currentTimeDuration, CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>));
+    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
+    [layerInstruction setOpacityRampFromStartOpacity:<span style="color:#ae81ff">1.0</span>
+                                        toEndOpacity:<span style="color:#ae81ff">0.0</span>
                                            timeRange:CMTimeRangeMake(startTime, timeDuration)];
 
-</code></pre>
-
-<h2 id="まとめ">まとめ</h2>
-
+</code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>Appleのドキュメントでこのクラスの説明をみると動画処理にしては結構シンプルだったので何個か試してみたのでした。
 ただ、<code>CMTime</code>関連・<code>CGAffineTransform</code>関連の知識はないと結構何がなんだかわからなくなるのであらかじめ知識として
 蓄えておくことはは必須ですね。</p>
-
 <h2 id="ref">Ref</h2>
-
 <p><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVMutableVideoCompositionLayerInstruction_Class/Reference/Reference.html#//apple_ref/occ/instm/AVMutableVideoCompositionLayerInstruction/setTransformRampFromStartTransform:toEndTransform:timeRange:">https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVMutableVideoCompositionLayerInstruction_Class/Reference/Reference.html#//apple_ref/occ/instm/AVMutableVideoCompositionLayerInstruction/setTransformRampFromStartTransform:toEndTransform:timeRange:</a></p>
 
 			</section>

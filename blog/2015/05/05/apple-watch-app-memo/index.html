@@ -2,15 +2,14 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Apple Watch App Memo">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2015/05/05/apple-watch-app-memo/" />
 <meta property="go:description" content="折角Apple Watchを購入したので、何かしら作れるようになりたいので、WatchKitのことを雑に自分用にメモした。
-どんな機能があるのか WatchKit App  通常Apple Watchで利用するアプリ 階層型、ページ型がある  Glance  意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。  Notification  iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの  新しく増えたインタラクション  プレス  強く押す感じ   構造  WatchKit App Architecture   通信はWatchKit経由で通信を行う。  InterfaceController  画面はInterfaceControllerなるものごとに管理されている  Life Cycle init  インスタンス化時に呼び出される  awakeWithContext  UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない  willActivate  表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する  アニメーションの変更のときとかかな   didDeactivate  利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される  要素 クラスはこれだけ。
-import WatchKit." />
+どんな機能があるのか WatchKit App  通常Apple Watchで利用するアプリ 階層型、ページ型がある  Glance  意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。  Notification  iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの  新しく増えたインタラクション  プレス  強く押す感じ    構造  WatchKit App Architecture   通信はWatchKit経由で通信を行う。  InterfaceController  画面はInterfaceControllerなるものごとに管理されている  Life Cycle init  インスタンス化時に呼び出される  awakeWithContext  UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない  willActivate  表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する  アニメーションの変更のときとかかな    didDeactivate  利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される  要素 クラスはこれだけ。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -21,8 +20,7 @@ import WatchKit." />
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Apple Watch App Memo" />
 <meta name="twitter:description" content="折角Apple Watchを購入したので、何かしら作れるようになりたいので、WatchKitのことを雑に自分用にメモした。
-どんな機能があるのか WatchKit App  通常Apple Watchで利用するアプリ 階層型、ページ型がある  Glance  意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。  Notification  iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの  新しく増えたインタラクション  プレス  強く押す感じ   構造  WatchKit App Architecture   通信はWatchKit経由で通信を行う。  InterfaceController  画面はInterfaceControllerなるものごとに管理されている  Life Cycle init  インスタンス化時に呼び出される  awakeWithContext  UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない  willActivate  表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する  アニメーションの変更のときとかかな   didDeactivate  利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される  要素 クラスはこれだけ。
-import WatchKit." />
+どんな機能があるのか WatchKit App  通常Apple Watchで利用するアプリ 階層型、ページ型がある  Glance  意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。  Notification  iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの  新しく増えたインタラクション  プレス  強く押す感じ    構造  WatchKit App Architecture   通信はWatchKit経由で通信を行う。  InterfaceController  画面はInterfaceControllerなるものごとに管理されている  Life Cycle init  インスタンス化時に呼び出される  awakeWithContext  UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない  willActivate  表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する  アニメーションの変更のときとかかな    didDeactivate  利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される  要素 クラスはこれだけ。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -57,109 +55,75 @@ import WatchKit." />
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2015-05-05">May 05, 2015</time></span>
 			<span class="entry-categories"></span>
 			<section itemprop="entry-text">
-				
-
-<p><img src="/images/posts/2015-05-05-01.png" alt="nakajijapan" /></p>
-
+				<p><img src="/images/posts/2015-05-05-01.png" alt="nakajijapan"></p>
 <p>折角Apple Watchを購入したので、何かしら作れるようになりたいので、WatchKitのことを雑に自分用にメモした。</p>
-
 <h2 id="どんな機能があるのか">どんな機能があるのか</h2>
-
 <h3 id="watchkit-app">WatchKit App</h3>
-
-<p><img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/storyboard_layout_2x.png" width=150 /></p>
-
+<p><!-- raw HTML omitted --></p>
 <ul>
 <li>通常Apple Watchで利用するアプリ</li>
 <li>階層型、ページ型がある</li>
 </ul>
-
 <h3 id="glance">Glance</h3>
-
-<p><img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/glance_lister_2x.png" width=100 /></p>
-
+<p><!-- raw HTML omitted --></p>
 <ul>
 <li>意味合いの通り、「ちらっ」確認する用の画面。</li>
 <li>下スワイプから出現されるもの。</li>
 <li>１ページのみ。</li>
 </ul>
-
 <h3 id="notification">Notification</h3>
-
-<p><img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/shortlook_calendar_2x.png" width="200" /></p>
-
+<p><!-- raw HTML omitted --></p>
 <ul>
 <li>iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの</li>
 </ul>
-
 <h2 id="新しく増えたインタラクション">新しく増えたインタラクション</h2>
-
 <ul>
 <li>プレス
-
 <ul>
 <li>強く押す感じ</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="構造">構造</h2>
-
 <ul>
 <li><a href="https://developer.apple.com/library/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/DesigningaWatchKitApp.html#//apple_ref/doc/uid/TP40014969-CH3-SW1">WatchKit App Architecture</a></li>
 </ul>
-
-<p><img src="https://developer.apple.com/library/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/app_communication_2x.png" alt="" /></p>
-
+<p><img src="https://developer.apple.com/library/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/app_communication_2x.png" alt=""></p>
 <ul>
 <li>通信はWatchKit経由で通信を行う。</li>
 </ul>
-
 <h3 id="interfacecontroller">InterfaceController</h3>
-
 <ul>
 <li>画面はInterfaceControllerなるものごとに管理されている</li>
 </ul>
-
 <h3 id="life-cycle">Life Cycle</h3>
-
-<p><img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/watch_app_lifecycle_simple_2x.png" alt="" /></p>
-
+<p><img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/watch_app_lifecycle_simple_2x.png" alt=""></p>
 <h4 id="init">init</h4>
-
 <ul>
 <li>インスタンス化時に呼び出される</li>
 </ul>
-
 <h4 id="awakewithcontext">awakeWithContext</h4>
-
 <ul>
 <li>UIの更新</li>
 <li>ロードされたデータをView側に更新するときに呼び出される</li>
 <li>コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない</li>
 </ul>
-
 <h4 id="willactivate">willActivate</h4>
-
 <ul>
 <li>表示されたときよびだされる</li>
 <li>Interfaceに対する小さな変更をするときなど利用する
-
 <ul>
 <li>アニメーションの変更のときとかかな</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h4 id="diddeactivate">didDeactivate</h4>
-
 <ul>
 <li>利用されなくなった、しばらく経過すると呼び出される</li>
 <li>ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される</li>
 </ul>
-
 <h2 id="要素">要素</h2>
-
 <p>クラスはこれだけ。</p>
-
 <pre><code>import WatchKit.WKDefines
 import WatchKit.WKError
 import WatchKit.WKInterfaceButton
@@ -176,32 +140,26 @@ import WatchKit.WKInterfaceSlider
 import WatchKit.WKInterfaceSwitch
 import WatchKit.WKInterfaceTable
 import WatchKit.WKInterfaceTimer
-</code></pre>
-
-<h2 id="leveraging-ios-technologies">Leveraging iOS Technologies</h2>
-
+</code></pre><h2 id="leveraging-ios-technologies">Leveraging iOS Technologies</h2>
 <ul>
 <li>テクノロジーの制限は受け入れるべきだ！
-
 <ul>
 <li>ユーザは位置情報(例)の制限している可能性があるのでそれに準拠すべき</li>
-</ul></li>
+</ul>
+</li>
 <li>バックグランド処理は利用しない
-
 <ul>
 <li>ユーザの操作のみで作用するべき</li>
-</ul></li>
+</ul>
+</li>
 <li>時間のかかる処理はしない
-
 <ul>
 <li>ユーザの操作が止まるとしばらくしたら止まるので、その処理も止まってしまう。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="参照">参照</h2>
-
 <p>だいたいこの辺調べれば知りたいこと知れる。</p>
-
 <p><a href="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/index.html#//apple_ref/doc/uid/TP40014969-CH8-SW1">Developing for Apple Watch</a></p>
 
 			</section>

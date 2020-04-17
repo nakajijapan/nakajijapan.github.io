@@ -2,17 +2,17 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="brewでhttpdをインストール">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/10/09/brew%E3%81%A7httpd%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/" />
 <meta property="go:description" content="なぜなんだろうかbrewでhttpdがすんなりはいってくれない。 Formula (パッケージ(のようなもの)を定義するRubyファイル) が別途作成しなければいけないらしいよ。
-このアプリをインストールしてみることにします。 brew create http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz 
+このアプリをインストールしてみることにします。
 自動的にエディタが起動されて編集しろと促されます。
-require &#39;formula&#39; class Httpd インストール開始します。
-brew install httpd  完成です。" />
+インストール開始します。
+完成です。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -23,10 +23,10 @@ brew install httpd  完成です。" />
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="brewでhttpdをインストール" />
 <meta name="twitter:description" content="なぜなんだろうかbrewでhttpdがすんなりはいってくれない。 Formula (パッケージ(のようなもの)を定義するRubyファイル) が別途作成しなければいけないらしいよ。
-このアプリをインストールしてみることにします。 brew create http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz 
+このアプリをインストールしてみることにします。
 自動的にエディタが起動されて編集しろと促されます。
-require &#39;formula&#39; class Httpd インストール開始します。
-brew install httpd  完成です。" />
+インストール開始します。
+完成です。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -63,54 +63,16 @@ brew install httpd  完成です。" />
 			<section itemprop="entry-text">
 				<p>なぜなんだろうかbrewでhttpdがすんなりはいってくれない。
 Formula (パッケージ(のようなもの)を定義するRubyファイル) が別途作成しなければいけないらしいよ。</p>
-
-<p>このアプリをインストールしてみることにします。
-<pre class="brush:bash">
-brew create <a href="http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz">http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz</a>
-</pre></p>
-
+<p>このアプリをインストールしてみることにします。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>自動的にエディタが起動されて編集しろと促されます。</p>
-
-<pre class="brush:bash">
-require 'formula'
-
-class Httpd < Formula
-  url 'http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz'
-  homepage ''
-  md5 'b24ca6db942a4f8e57c357e5e3058d31'
-
-  # depends_on 'cmake'
-
-  def install
-    #system "./configure", "--disable-debug", "--disable-dependency-tracking",
-    #                      "--prefix=#{prefix}"
-    # system "cmake . #{std_cmake_parameters}"
-    system "./configure", *args
-    system "make"
-    system "make install"
-  end
-
-  def test
-    # This test will fail and we won't accept that! It's enough to just
-    # replace "false" with the main program this formula installs, but
-    # it'd be nice if you were more thorough. Test the test with
-    # `brew test httpd`. Remove this comment before submitting
-    # your pull request!
-    system "false"
-  end
-
-  def args
-      return ["--prefix=#{prefix}","--disable-debug","--disable-dependency-tracking","--enable-so","--enable-rewrite","--mandir=#{man}",]
-  end
-end
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>インストール開始します。</p>
-
-<p><pre class="brush:bash">
-brew install  httpd
-</pre>
-完成です。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>完成です。</p>
 
 			</section>
 		</article>

@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[ios]CGContextDrawImageすると座標の原点が変更されてしまいてんやわんや。">
@@ -14,10 +14,9 @@
 view側が(0,0)だとするとコンテキストのときは(0, Y - y - h) Y:yの最大値 h:描画する画像の縦幅
 自分で変換してやってみました。
 しかし、原点の座標を変更処理があったのでした。
-CGContextScaleCTM  CGContextTranslateCTM  CGAffineTransform
-この辺をうまく利用すればできるのですが、描画する画像が垂直反転されて原因がいまいち 不明だったのであきらめました（汗汗汗汗汗汗汗）
+CGContextScaleCTMCGContextTranslateCTMCGAffineTransformこの辺をうまく利用すればできるのですが、描画する画像が垂直反転されて原因がいまいち 不明だったのであきらめました（汗汗汗汗汗汗汗）
 以下がやっつけ変換です。
-- (CGRect) calcRealSize: (CGRect)rect withRate:(float)rate { NSLog(@&#34;&#43;X: %f, Y: %f, W: %f, H: %f&#34;, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height); NSLog(@&#34;-X: %f, Y: %f, W: %f, H: %f&#34;, rect.origin.x * rate, 500 - (rect.origin.y * rate) - (rect.size.height*rate), rect.size.width * rate, rect.size.height * rate); CGRect retRect = CGRectMake(rect.origin.x * rate, 500 - (rect." />
+■参照URL http://developer.apple.com/library/mac/#documentation/GraphicsImaging/Reference/CGAffineTransform/Reference/reference.html http://ja.w3support.net/index.php?db=so&amp;id=506622" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -33,10 +32,9 @@ CGContextScaleCTM  CGContextTranslateCTM  CGAffineTransform
 view側が(0,0)だとするとコンテキストのときは(0, Y - y - h) Y:yの最大値 h:描画する画像の縦幅
 自分で変換してやってみました。
 しかし、原点の座標を変更処理があったのでした。
-CGContextScaleCTM  CGContextTranslateCTM  CGAffineTransform
-この辺をうまく利用すればできるのですが、描画する画像が垂直反転されて原因がいまいち 不明だったのであきらめました（汗汗汗汗汗汗汗）
+CGContextScaleCTMCGContextTranslateCTMCGAffineTransformこの辺をうまく利用すればできるのですが、描画する画像が垂直反転されて原因がいまいち 不明だったのであきらめました（汗汗汗汗汗汗汗）
 以下がやっつけ変換です。
-- (CGRect) calcRealSize: (CGRect)rect withRate:(float)rate { NSLog(@&#34;&#43;X: %f, Y: %f, W: %f, H: %f&#34;, rect.origin.x, rect.origin.y, rect.size.width, rect.size.height); NSLog(@&#34;-X: %f, Y: %f, W: %f, H: %f&#34;, rect.origin.x * rate, 500 - (rect.origin.y * rate) - (rect.size.height*rate), rect.size.width * rate, rect.size.height * rate); CGRect retRect = CGRectMake(rect.origin.x * rate, 500 - (rect." />
+■参照URL http://developer.apple.com/library/mac/#documentation/GraphicsImaging/Reference/CGAffineTransform/Reference/reference.html http://ja.w3support.net/index.php?db=so&amp;id=506622" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -72,44 +70,23 @@ CGContextScaleCTM  CGContextTranslateCTM  CGAffineTransform
 			<span class="entry-categories">( <a href="/categories/diary">Diary</a> )</span>
 			<section itemprop="entry-text">
 				<p>ガッツでのりこえました。</p>
-
 <p>いろんな画像を一つの画像に描画させるときにview側で保存しといた座標位置を「CGContextDrawImage」
 で画像を描画させるときに座標がずれてしまい、困っていました。</p>
-
 <p>原因はviewとCGContextするときのの座標の原点が異なっていたところと画像の原点はアイテムの中心に
 になっているところ</p>
-
 <p>view側が(0,0)だとするとコンテキストのときは(0, Y - y - h)
 Y:yの最大値
 h:描画する画像の縦幅</p>
-
 <p>自分で変換してやってみました。</p>
-
 <p>しかし、原点の座標を変更処理があったのでした。</p>
-
-<p><strong>CGContextScaleCTM</strong>
-<strong> CGContextTranslateCTM</strong>
-<strong> CGAffineTransform</strong></p>
-
+<p><!-- raw HTML omitted -->CGContextScaleCTM<!-- raw HTML omitted -->
+<!-- raw HTML omitted --> CGContextTranslateCTM<!-- raw HTML omitted -->
+<!-- raw HTML omitted --> CGAffineTransform<!-- raw HTML omitted --></p>
 <p>この辺をうまく利用すればできるのですが、描画する画像が垂直反転されて原因がいまいち
 不明だったのであきらめました（汗汗汗汗汗汗汗）</p>
-
 <p>以下がやっつけ変換です。</p>
-
-<pre class="brush: cpp">
-- (CGRect) calcRealSize: (CGRect)rect withRate:(float)rate
-{
-    NSLog(@"+X: %f, Y: %f, W: %f, H: %f", rect.origin.x,        rect.origin.y,        rect.size.width, rect.size.height);
-    NSLog(@"-X: %f, Y: %f, W: %f, H: %f", rect.origin.x * rate, 500 - (rect.origin.y * rate) - (rect.size.height*rate), rect.size.width * rate, rect.size.height * rate);
-    CGRect retRect = CGRectMake(rect.origin.x * rate, 
-                                500 - (rect.origin.y * rate) - (rect.size.height*rate) , 
-                                rect.size.width * rate, 
-                                rect.size.height * rate);
-
-    return retRect;
-}
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>■参照URL
 <a href="http://developer.apple.com/library/mac/#documentation/GraphicsImaging/Reference/CGAffineTransform/Reference/reference.html">http://developer.apple.com/library/mac/#documentation/GraphicsImaging/Reference/CGAffineTransform/Reference/reference.html</a>
 <a href="http://ja.w3support.net/index.php?db=so&amp;id=506622">http://ja.w3support.net/index.php?db=so&amp;id=506622</a></p>

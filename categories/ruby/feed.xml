@@ -23,7 +23,7 @@
 便利だったのがgoogle-drive-rubyで、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。
 実際にwww.frustration.meのユーザ数やアイテム数を計測するために使用してみました。
 まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。
-desc &amp;quot;send score data to google spreadsheet&amp;quot; require &#39;google_drive&#39; namespace :batches do task total_scores: :environment do |t, args| fail &#39;no username&#39; if ENV[&#39;GOOGLE_USERNAME&#39;].blank? fail &#39;no password&#39; if ENV[&#39;GOOGLE_PASSWORD&#39;].blank? session = GoogleDrive.login(ENV[&#39;GOOGLE_USERNAME&#39;], ENV[&#39;GOOGLE_PASSWORD&#39;]) spreadsheet = session.spreadsheet_by_key(&amp;quot;input key name&amp;quot;) worksheet = spreadsheet.worksheet_by_title(Rails.env) analyze_data = { date: Time.now.strftime(&amp;quot;%Y-%m-%d&amp;quot;), users_num: User.all.count, items_num: Item.all.count, comments_num: Comment.all.count, categories_num: Category.all.count } worksheet.list.push(analyze_data) worksheet.save() end end  これでrake batches:total_scoresで実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では
+desc &amp;#34;send score data to google spreadsheet&amp;#34; require &amp;#39;google_drive&amp;#39; namespace :batches do task total_scores: :environment do |t, args| fail &amp;#39;no username&amp;#39; if ENV[&amp;#39;GOOGLE_USERNAME&amp;#39;].blank? fail &amp;#39;no password&amp;#39; if ENV[&amp;#39;GOOGLE_PASSWORD&amp;#39;].blank? session = GoogleDrive.login(ENV[&amp;#39;GOOGLE_USERNAME&amp;#39;], ENV[&amp;#39;GOOGLE_PASSWORD&amp;#39;]) spreadsheet = session.spreadsheet_by_key(&amp;#34;input key name&amp;#34;) worksheet = spreadsheet.worksheet_by_title(Rails.env) analyze_data = { date: Time.now.strftime(&amp;#34;%Y-%m-%d&amp;#34;), users_num: User.all.count, items_num: Item.all.count, comments_num: Comment.all.count, categories_num: Category.all.count } worksheet.list.push(analyze_data) worksheet.save() end end これでrake batches:total_scoresで実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では
 な感じでどんどんレコードが追加されていきます。
 便利。
 ただし、注意点があります。今回はsqaleのcronで動かしているのですがログインで以下のように失敗することがあります。
@@ -36,8 +36,7 @@ $ bundle exec rake batches:total_scores WARNING: Nokogiri was built against LibX
 			<pubDate>Wed, 05 Jun 2013 00:12:00 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2013/06/05/rubyhiroba/</guid>
-			<description>サービスをRailsにした話  from Daichi Nakajima 
-RubyHirobaでLTに参加してきまして自分のサービスのことについて話してきました。 以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。 やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが 反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）
+			<description>RubyHirobaでLTに参加してきまして自分のサービスのことについて話してきました。 以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。 やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが 反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）
 perlにしろrubyにしろテストがあるのは大変心強いし、安心します。 たとえ、最新のRailsにのせ変えたとしてもテストがない時点でもう技術的負債。前のコードと何ら変わりはない。 まぁ作成した時点負債は負債なんだけどその劣化速度は抑えられるはず。
 まだまだリニューアルは続きますが、引き続きがんばります。
 そして裏で支えていただいた@hsbt氏には感謝の意を隠しきれないであります。。。</description>
@@ -49,16 +48,7 @@ perlにしろrubyにしろテストがあるのは大変心強いし、安心し
 			<pubDate>Sun, 16 Dec 2012 22:14:00 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/12/16/gem%E5%85%AC%E9%96%8B%E3%81%ABbump%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
-			<description>Gemの公開をBumpを利用して公開してみる。
-Bumpでやってみる.
-以前はjewelerを使っていたけど、使ってみることにしました。 GitHubみるかぎりなんだかシンプルそう。
-Bump
-https://github.com/gregorym/bump
-gem install bump  gemを作成しときます。
-bundle gem api-bucket  ここで一式のGem公開に必要なファイルが作成されるので、 あとはごにょごにょ作り込む。
-$ rake build api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem $ rake release api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem Tagged v0.0.1 Pushed git commits and tags Pushed api-bucket 0.0.1 to rubygems.org  バージョンアップは
-$ bump minor [master aa84ae1] v0.1.0 1 file changed, 1 insertion(+), 1 deletion(-) Bump version 0.0.1 to 0.1.0  で勝手にコミットまでしてくれる。
-あとは「rake build」でGemファイルを構築して「rake release」でGemにアップ。</description>
+			<description></description>
 		</item>
 		
 		<item>
@@ -67,8 +57,7 @@ $ bump minor [master aa84ae1] v0.1.0 1 file changed, 1 insertion(+), 1 deletion(
 			<pubDate>Sat, 02 Jun 2012 03:11:17 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/06/02/rails%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90%E6%9B%B4%E6%96%B0%E6%97%A5%E6%99%82%E3%81%AE%E3%82%AB%E3%83%A9%E3%83%A0%E5%90%8D%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B/</guid>
-			<description>Railsはテーブルを作成するときの決まり事として「created_at」「updated_at」と作成されます。 しかし、既存テのーブル構成を変更しないで作成・更新日時のカラムを利用しようとしたとき不便なものがありますが、 以下の方法を実装すれば、既存のカラムを変更しなくてもそれがRailsもモデル作成・更新日時用のカラムとして 認識させてくれるのです。
-module ActiveRecord module Timestamp private def timestamp_attributes_for_update #:nodoc: [:update_time, :update_date, :updated_at] end def timestamp_attributes_for_create #:nodoc: [:make_time, :create_date, :created_at] end end end  enviroment.rbに記述して再起動すれば反映されているはずです。</description>
+			<description></description>
 		</item>
 		
 		<item>
@@ -79,8 +68,8 @@ module ActiveRecord module Timestamp private def timestamp_attributes_for_update
 			<guid>http://nakajijapan.github.io/blog/2012/02/17/datetime_select%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%97%E3%81%9F%E3%81%A8%E3%81%8D%E3%81%AE%E3%81%82%E3%82%8C/</guid>
 			<description>なんか神経使った。Railsはいちいちつまずく。 デフォルトだとロケールも英語になっていてなんの問題もないけど、フォーマット変更したり、日本語にしたりするとさらに追加の設定が必要になったのでめも。
 最初はデフォルトのロケールを日本語にしているとエラーが発生してたので調査しました。 yaml側でどうも解析できていないみたいだったのでboot.rbに明示的に記述を足してライブラリを読み込めるように しました。
-# confg/application.rb config.i18n.default_locale = :ja  # config/boot.rb require &#39;yaml&#39; # この行を追加 YAML::ENGINE.yamler= &#39;syck&#39; # この行を追加  そんでもって日付のフォーマットを変更してみる
-# config/locale/ja.yml ja: date: order: [ :year, :month, :day ] datetime: order: [ :year, :month, :day, :hour, :min ]  # views/hoge/_form.html.erb true %  うまくいきました。
+そんでもって日付のフォーマットを変更してみる
+うまくいきました。
 ■参考URL http://stackoverflow.com/questions/7045137/rake-tasks-from-cron-uninitialized-constant-yamlengine</description>
 		</item>
 		
@@ -92,8 +81,15 @@ module ActiveRecord module Timestamp private def timestamp_attributes_for_update
 			<guid>http://nakajijapan.github.io/blog/2012/02/15/sorcery%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E5%87%A6%E7%90%86%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
 			<description>Railsでsorceryを使ってログイン処理を実現してみることにします。
 まずはMysqlを理由するのでそれに関連したプラグインもいれてきます。 Gemfileに必要なプラグインを記述
-gem &#39;mysql2&#39; gem &#39;sorcery&#39; gem &#39;refinerycms&#39; bundle install  DBの設定を行います
-development: adapter: mysql2 database: gifanime pool: 5 timeout: 5000 encoding: utf8 # Warning: The database defined as &#34;test&#34; will be erased and # re-generated from your development database when you run &#34;rake&#34;. # Do not set this db to the same as development or production. test: adapter: mysql2 database: gifanime pool: 5 timeout: 5000 encoding: utf8 production: adapter: mysql2 database: gifanime pool: 5 timeout: 5000 encoding: utf8  とりあえず、WEBサーバが動作するようにUnicornの設定をします。（内容はとりあえず、動作する目的で記述しているのであまりつっこまないでください）</description>
+DBの設定を行います
+とりあえず、WEBサーバが動作するようにUnicornの設定をします。（内容はとりあえず、動作する目的で記述しているのであまりつっこまないでください）
+前回の設定をちょっとかえてて、環境によってエラー出力をファイル出力か標準出力ぐらいのことしてます。 最後に起動してこんなふうに出力すればとりあえず完了。。
+次はsorceryのインストールです。
+あとはsorceryが公開されているgithubのwikiをみて写経していきます。
+これでログイン可能になります。
+このプラグインには他にもTwitter認証やfacebook認証もできるみたいで「external」をサブモジュールに 指定すればできるらしいです。
+■参照URL ・Simple Password Authentication https://github.com/NoamB/sorcery/wiki/Simple-Password-Authentication
+・外部連携してログインする方法 https://github.com/NoamB/sorcery/wiki/External</description>
 		</item>
 		
 		<item>
@@ -105,9 +101,9 @@ development: adapter: mysql2 database: gifanime pool: 5 timeout: 5000 encoding: 
 			<description>rubyで新サービスを開発するためにいろいろ技術調査やら実験しているわけでして、試行錯誤しているわけなフェーズな訳です。 とはいうもののなんだかんだしてrubyのバージョンがあがってフレームワークの並に乗れなかったりするのは嫌なので、システム からチョッち上の層でバージョン管理してくれるものあったのでインストールしてみることにします。
 今回はMacからのインストールですが、以前リナックスに同じバージョン管理してくれるRVMをいれていまして 「update」するとめんどくさいという経験談を聞いてちょっと公開してしまいましたがとりあえずはこれで運用しつつ、 Macではrbenvで運用してみることにします。
 でもその前に、久々にMacに入っているサーバやらソフトをbrewでアップデートします。brew入れてから半年もたってないけどもろもろ更新されてるみたいですね。
-# brew update # brew upgrade [~/config] == Upgrading 9 outdated packages, with result: cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6 ・ ・ ・ ・  rbenvのインストール brew install rbenv brew install ruby-build  brewは楽でいいですね。
-その後に.zshrcに以下の処理を追加します。 eval &amp;ldquo;$(rbenv init -)&amp;rdquo; source ~/.rbenv/completions/rbenv.zsh 
-rubyのインストール まずはちょっと前のバージョンをいれてみることにします。 rbenv install 1.9.2-p290 rbenv global 1.9.2-p290 rbenv rehash ruby -v ruby 1.</description>
+その後に.zshrcに以下の処理を追加します。
+以下も同様ですね。
+こんな感じにすれば、現在インストールされているものと利用されてるものが確認できるそうですね。</description>
 		</item>
 		
 		<item>
@@ -117,10 +113,11 @@ rubyのインストール まずはちょっと前のバージョンをいれて
 			
 			<guid>http://nakajijapan.github.io/blog/2012/01/31/rails-thin%E3%81%A7%E6%A7%8B%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B-in-scientific-linux/</guid>
 			<description>さくらのVPSを借りることになったので早速Ruby+Rails+Thinで構築してみることにします。
-「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。  the Mongrel parser, the root of Mongrel speed and security Event Machine, a network I/O library with extremely high scalability, performance and stability Rack, a minimal interface between webservers and Ruby frameworks 
-RVMのインストール bash -s stable &amp;lt; &amp;lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer) 
-設定情報を追加 [[ -s &amp;ldquo;$HOME/.rvm/scripts/rvm&amp;rdquo; ]] &amp;amp;&amp;amp; . &amp;ldquo;$HOME/.rvm/scripts/rvm&amp;rdquo; 
-# rvm install 1.9.3 # rvm install 1.9.2 # rvm --default use 1.9.3  RubyGemsのインストール sudo /usr/local/rvm/bin/ruby setup.</description>
+「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。
+これの前提条件として
+が必要になる。
+これでブラウザで画面がみれるようになれば完成です。しかし、Thinとは別にまたUnicornらしきものがでていることを知ったので勉強がてらいれてみることにします。それは後ほど。
+■リファレンス http://www.ruby-lang.org/ja/ http://rubygems.org/ http://beginrescueend.com/ http://code.macournoyer.com/thin/</description>
 		</item>
 		
 		<item>
@@ -130,9 +127,8 @@ RVMのインストール bash -s stable &amp;lt; &amp;lt;(curl -s https://raw.gi
 			
 			<guid>http://nakajijapan.github.io/blog/2011/11/14/%E5%85%A5%E9%96%80rails%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%AA%E3%83%98%E3%83%AB%E3%83%91%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
 			<description>viewで使うようのhelperを作成します。
-style=&#34;display: none&#34;   これじゃスマートじゃないよね。というかもっと簡素化します。
-  実際のヘルパーは「app/helpers/appliction_helper.rb」に保存されて以下のように実装すると完了です。
-module ApplicationHelper def hidden_div_if(condition, attributes = {}, &amp;block) if condition attributes[&#34;style&#34;] = &#34;display: none&#34; end content_tag(&#34;div&#34;, attributes, &amp;block) end end  </description>
+これじゃスマートじゃないよね。というかもっと簡素化します。
+実際のヘルパーは「app/helpers/appliction_helper.rb」に保存されて以下のように実装すると完了です。</description>
 		</item>
 		
 		<item>
@@ -143,8 +139,22 @@ module ApplicationHelper def hidden_div_if(condition, attributes = {}, &amp;bloc
 			<guid>http://nakajijapan.github.io/blog/2011/10/05/%E5%85%A5%E9%96%80%E7%B6%9A%E3%81%8D%EF%BC%92rails3%E3%81%A7%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%BE%E3%81%97%E3%81%9F/</guid>
 			<description>お勉強のつづきです。
 rails3フレームワークを指定したディレクトリにインストールします。 コマンドはrailsを利用してもろもろ作成していきます。
-[nakajijapan] #rails new test ・ ・ ・ Using rack-ssl (1.3.2) Using rdoc (3.9.4) Using thor (0.14.6) Using railties (3.1.0) Installing coffee-rails (3.1.1) Installing jquery-rails (1.0.14) Using rails (3.1.0) Installing sass (3.1.8) Installing sass-rails (3.1.4) Using sqlite3 (1.3.4) Installing turn (0.8.2) Installing uglifier (1.0.3) Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.  その後、コントローラを導入してみます。 処理内容としては顧客情報のCRUDをやらせましょう。
-[nakajijapan] #rails generate scaffold customer name:string email:string address:text [/var/www/spec] /usr/local/Cellar/ruby/1.</description>
+その後、コントローラを導入してみます。 処理内容としては顧客情報のCRUDをやらせましょう。
+もろもろできちゃいましたね。これでCRUDの処理系は作成し終わっちゃうことになりました。
+お継ぎはrakeっていうコマンドを利用して、顧客テーブルをDBに反映させます。すごい便利ですね。 その前にコマンド群をbrewでインストールしているために、若干パスが通っているかのチェックと あるファイルを要求させないとうまく動かないので入れておきます。
+DB反映
+ひゃっほーー。
+・・・・！！！！！
+アボンしました。
+gemで以下のDBに関するプラグイン郡を入れてみることにします。
+これも必要らしい（あ、忘れた。。。）
+もう一度DBに反映させてみます。
+ひゃっほー！！
+DBでもチェックしてみます。
+できましたね。
+簡単にできるのはいいけど、多少の融通きけるものであってほしいけどどうなんでしょうね！！！
+次はまた今度。
+■参照URL http://www.milligramme.cc/wp/archives/3475 http://stackoverflow.com/questions/4297253/install-mysql2-gem-on-snow-leopard-for-rails-3-with-rv</description>
 		</item>
 		
 	</channel>

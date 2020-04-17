@@ -21,9 +21,8 @@
 			<guid>http://nakajijapan.github.io/blog/2011/09/13/apache%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%82%92%E5%88%B6%E9%99%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
 			<description>パフォーマンスチューニング勉強
 Apache HTTP serverについてちょいとお勉強なうです。
-MPMはHTTPのリクエストを処理する部分。 Version2.0から採用サれている MPMには次の種類あり。  ・prefork １つのリクエストに対して１プロセスを割り当てる 負荷に応じて小プロセスを増減させる PHPだとPreforkMPMを推奨している
-StartServers: 最初に起動する子プロセスの数 MinSpareServers: 待機する子プロセスの最小数 MaxSpareServers: 待機する子プロセスの最大数 MaxClients: 生成する子プロセスの最大数 MaxRequestsPerChild: それぞれの子プロセスが扱うリクエスト数の制限数  ・worker ・perchild ・winnt 
-#MaxKeepAliveRequests 100 MaxKeepAliveRequests 30 #StartServers 8 #MinSpareServers 5 #MaxSpareServers 20 #ServerLimit 256 #MaxClients 256 #MaxRequestsPerChild 4000 StartServers 2 MinSpareServers 2 MaxSpareServers 8 ServerLimit 5 MaxClients 5 MaxRequestsPerChild 3000   □参考URL http://www.atmarkit.co.jp/flinux/rensai/apache16/apache16b.html http://labs.unoh.net/2008/03/apache_mpm.html</description>
+MPMはHTTPのリクエストを処理する部分。 Version2.0から採用サれている MPMには次の種類あり。 ・prefork １つのリクエストに対して１プロセスを割り当てる 負荷に応じて小プロセスを増減させる PHPだとPreforkMPMを推奨している
+StartServers: 最初に起動する子プロセスの数MinSpareServers: 待機する子プロセスの最小数MaxSpareServers: 待機する子プロセスの最大数MaxClients: 生成する子プロセスの最大数MaxRequestsPerChild: それぞれの子プロセスが扱うリクエスト数の制限数 ・worker ・perchild ・winnt □参考URL http://www.atmarkit.co.jp/flinux/rensai/apache16/apache16b.html http://labs.unoh.net/2008/03/apache_mpm.html</description>
 		</item>
 		
 		<item>
@@ -37,10 +36,10 @@ StartServers: 最初に起動する子プロセスの数 MinSpareServers: 待機
 その間に調査したこととして、圧縮の通信ていうのもHTTP/1.1からなので 「HTTP/1.1」を設定できるように設定すればいいのかと思ったがどうもそれでも だめだったようだ。
 ということでApacheで圧縮している箇所を探す
 mod_deflateっていう機能で実現してました。
-通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript 
+通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み
 これをコメントアウトして再起動したら、なんら問題はおきなくなった。 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
 あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。
-■参照URL http://sonic64.com/2005-09-14.html mod_deflate</description>
+■参照URL http://sonic64.</description>
 		</item>
 		
 		<item>
@@ -52,10 +51,14 @@ mod_deflateっていう機能で実現してました。
 			<description>Apacheの設定をいじる機会がありましていろいろしることできたのでメモ。 あと考え方もちょびちょび。
 ・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。
 このとき利用する方法としてVirtualDocumentRootの設定をします。
-それが以下の設定。 ディレクトリティブの設定 Options -Indexes -MultiViews +ExecCGI -Includes AllowOverride All FileETag None 
-すべてからのホストに対しての設定 ServerName %0 VirtualDocumentRoot /home/web/%0/public_html   これによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。 これができると楽なんだなぁと思いました。
-ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。  %% insert a % %p insert the port number of the virtual host %N.M insert (part of) the name
-0 the whole name 1 the first part 2 the second part -1 the last part -2 the penultimate part 2+ the second and all subsequent parts -2+ the penultimate and all preceding parts 1+ and -1+ the same as 0</description>
+それが以下の設定。
+これによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。 これができると楽なんだなぁと思いました。
+ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。
+0	the whole name 1	the first part 2	the second part -1	the last part -2	the penultimate part 2+	the second and all subsequent parts -2+	the penultimate and all preceding parts 1+ and -1+	the same as 0
+あとディレクティブの設定は別々にディレクトリを分けたのはいいけれど、時には ある特定の条件の時には共通の処理をしたいわがままなときがあるかもしれないような気がします。。。 そのときは指定されたディレクトリ以下をアクセスできるように設定をしてから。「VirtualHost」内で そのプログラムを実行できるようにします。
+こうすると指定のパスの場合だけすべて共通で「index.php」が実行されるようになる。
+Apacheって便利だねー。こんなこともできるなんて最近しりますた。
+DocumentRootVirtualHost大量バーチャルホストの設定/a&amp;gt;</description>
 		</item>
 		
 		<item>
@@ -66,7 +69,7 @@ mod_deflateっていう機能で実現してました。
 			<guid>http://nakajijapan.github.io/blog/2010/02/10/dso%E3%81%A7mod_perl%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%B3/</guid>
 			<description>mod_perをインスコログ
 これダウンロード先 http://perl.apache.org/download/index.html
-# 解答 $ tar zxvf mod_perl-2.0-current.tar.gz $ cd mod_perl-2.0.4/ # モジュールの確認を行う $ httpd -l Compiled in modules: core.c prefork.c http_core.c mod_so.c $ perl Makefile.PL USE_APXS=1 WITH_APXS=/usr/local/apache/bin/apxs EVERYTHING=1 MP_APR_CONFIG=/usr/local/apache/bin/apr-1-config $ make $ make install  $ vi httpd.conf LoadModule perl_module modules/mod_perl.so
+$ vi httpd.conf LoadModule perl_module modules/mod_perl.so
 これでおｋ</description>
 		</item>
 		

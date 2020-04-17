@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="VirtualDocumentRootを利用可能にさせる">
@@ -11,9 +11,7 @@
 <meta property="go:description" content="大量のドメインを管理するために「VirtualDocumentRoot」つかおうとしてたんだけど別途モジュールを組み込まないといけない みたいだったのでそのメモがわり。
 「mod_vhost_alias」が必要らしい。そこで必要になるのがDSOモジュール。このモジュールがApacheのインストール時に 組み込まれていれば、必要なモジュールをインストールしたいときに再度リコンパイルしなくても済むらしいです。
 自分のApacheはあらかじめ組み込んでおいたので、組み込みたいモジュールのコンパイルだけで済みました。 確かconfigure optionは「&ndash;enable-so」だった。
-# cd /usr/local/src/httpd-2.2.XX/modules/mappers # /usr/local/apache2/bin/apxs -cia mod_vhost_alias.c   c : コンパイル i : 出来上がったモジュールをインストール a : 自動的に「httpd.conf」に「LoadModule」ディレクティブを追加 ※下記のサイトをそのまま引用＆パクリしました。ごめんなさい。。。  Apache DSOモジュールの追加方法 (2) 実例
-Apxsリファレンス
-/a&gt;" />
+Apache DSOモジュールの追加方法 (2) 実例Apxsリファレンス/a&gt;" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -26,9 +24,7 @@ Apxsリファレンス
 <meta name="twitter:description" content="大量のドメインを管理するために「VirtualDocumentRoot」つかおうとしてたんだけど別途モジュールを組み込まないといけない みたいだったのでそのメモがわり。
 「mod_vhost_alias」が必要らしい。そこで必要になるのがDSOモジュール。このモジュールがApacheのインストール時に 組み込まれていれば、必要なモジュールをインストールしたいときに再度リコンパイルしなくても済むらしいです。
 自分のApacheはあらかじめ組み込んでおいたので、組み込みたいモジュールのコンパイルだけで済みました。 確かconfigure optionは「&ndash;enable-so」だった。
-# cd /usr/local/src/httpd-2.2.XX/modules/mappers # /usr/local/apache2/bin/apxs -cia mod_vhost_alias.c   c : コンパイル i : 出来上がったモジュールをインストール a : 自動的に「httpd.conf」に「LoadModule」ディレクティブを追加 ※下記のサイトをそのまま引用＆パクリしました。ごめんなさい。。。  Apache DSOモジュールの追加方法 (2) 実例
-Apxsリファレンス
-/a&gt;" />
+Apache DSOモジュールの追加方法 (2) 実例Apxsリファレンス/a&gt;" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -65,29 +61,15 @@ Apxsリファレンス
 			<section itemprop="entry-text">
 				<p>大量のドメインを管理するために「VirtualDocumentRoot」つかおうとしてたんだけど別途モジュールを組み込まないといけない
 みたいだったのでそのメモがわり。</p>
-
 <p>「mod_vhost_alias」が必要らしい。そこで必要になるのがDSOモジュール。このモジュールがApacheのインストール時に
 組み込まれていれば、必要なモジュールをインストールしたいときに再度リコンパイルしなくても済むらしいです。</p>
-
 <p>自分のApacheはあらかじめ組み込んでおいたので、組み込みたいモジュールのコンパイルだけで済みました。
 確かconfigure optionは「&ndash;enable-so」だった。</p>
-
-<pre class="brush: bash">
-# cd /usr/local/src/httpd-2.2.XX/modules/mappers
-# /usr/local/apache2/bin/apxs -cia mod_vhost_alias.c
-</pre>
-
-<blockquote>
-c : コンパイル
-i : 出来上がったモジュールをインストール
-a : 自動的に「httpd.conf」に「LoadModule」ディレクティブを追加
-※下記のサイトをそのまま引用＆パクリしました。ごめんなさい。。。
-</blockquote>
-
-<p><a href="http://www.skymerica.com/blog/yotsumoto/arch/2007/08/29/000878.html">Apache DSOモジュールの追加方法 (2) 実例</a></p>
-
-<p><a href="http://httpd.apache.org/docs/2.2/ja/programs/apxs.html">Apxsリファレンス</a></p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Apache DSOモジュールの追加方法 (2) 実例<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted -->Apxsリファレンス<!-- raw HTML omitted --></p>
 <p>/a&gt;</p>
 
 			</section>

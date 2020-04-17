@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[zend]アプリ側（UTF8）とDB(EUC-JP)の文字コード変換をPDOで行う">
@@ -14,8 +14,11 @@
 理想としてはすべてUTF-8にしたかったがそうはいかない。DBがEUC－JPだからだ。 DB・アプリ間でのインターフェースでそれぞれ変換する必要がある。
 対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。 （この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）
 ※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。
-まずは abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract { /** * Creates a PDO object and connects to the database. * * @return void * @throws Zend_Db_Adapter_Exception */ protected function _connect() { // if we already have a PDO object, no need to re-connect. if ($this-&gt;_connection) { return; }
- // get the dsn first, because some adapters alter the $_pdoType $dsn = $this-&gt;_dsn(); // check for PDO extension if (!" />
+まずは
+なんてものを作成します。
+実際変更したところといえば、
+あとは、PDOを継承して実装したクラスを記述しておしまいです。 これでほぼ取得や更新両方SQLを変換することができます。
+ちなみに「App_Array()」は配列のデータを再帰的に文字コード変換させてます。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -31,8 +34,11 @@
 理想としてはすべてUTF-8にしたかったがそうはいかない。DBがEUC－JPだからだ。 DB・アプリ間でのインターフェースでそれぞれ変換する必要がある。
 対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。 （この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）
 ※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。
-まずは abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract { /** * Creates a PDO object and connects to the database. * * @return void * @throws Zend_Db_Adapter_Exception */ protected function _connect() { // if we already have a PDO object, no need to re-connect. if ($this-&gt;_connection) { return; }
- // get the dsn first, because some adapters alter the $_pdoType $dsn = $this-&gt;_dsn(); // check for PDO extension if (!" />
+まずは
+なんてものを作成します。
+実際変更したところといえば、
+あとは、PDOを継承して実装したクラスを記述しておしまいです。 これでほぼ取得や更新両方SQLを変換することができます。
+ちなみに「App_Array()」は配列のデータを再帰的に文字コード変換させてます。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -69,164 +75,29 @@
 			<section itemprop="entry-text">
 				<p>システム開発行っていると、なるべく昔の仕様を変更せずに既存リソースを生かしながらも新しい開発行っていかな
 ければいけない自体が多々ある思われる。</p>
-
 <p>今回の件でいえば、文字コードの問題。</p>
-
 <p>システム側からみたら文字コードなんていっそのこと統一したほうが何も考えないで楽なんだけど、そうも
 いってられず昔の文字コードをどう利用していくかを考えなければいけないときがある。</p>
-
 <p>理想としてはすべてUTF-8にしたかったがそうはいかない。DBがEUC－JPだからだ。
 DB・アプリ間でのインターフェースでそれぞれ変換する必要がある。</p>
-
 <p>対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。
 （この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）</p>
-
 <p>※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。</p>
-
-<p>まずは
-<pre class="brush:php">
-abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract
-{
-    /**
-     * Creates a PDO object and connects to the database.
-     *
-     * @return void
-     * @throws Zend_Db_Adapter_Exception
-     */
-    protected function _connect()
-    {
-        // if we already have a PDO object, no need to re-connect.
-        if ($this-&gt;_connection) {
-            return;
-        }</p>
-
-<pre><code>    // get the dsn first, because some adapters alter the $_pdoType
-    $dsn = $this-&gt;_dsn();
-
-    // check for PDO extension
-    if (!extension_loaded('pdo')) {
-        /**
-         * @see Zend_Db_Adapter_Exception
-         */
-        require_once 'Zend/Db/Adapter/Exception.php';
-        throw new Zend_Db_Adapter_Exception('The PDO extension is required for this adapter but the extension is not loaded');
-    }
-
-    // check the PDO driver is available
-    if (!in_array($this-&gt;_pdoType, PDO::getAvailableDrivers())) {
-        /**
-         * @see Zend_Db_Adapter_Exception
-         */
-        require_once 'Zend/Db/Adapter/Exception.php';
-        throw new Zend_Db_Adapter_Exception('The ' . $this-&gt;_pdoType . ' driver is not currently installed');
-    }
-
-    // create PDO connection
-    $q = $this-&gt;_profiler-&gt;queryStart('connect', Zend_Db_Profiler::CONNECT);
-
-    // add the persistence flag if we find it in our config array
-    if (isset($this-&gt;_config['persistent']) &amp;&amp; ($this-&gt;_config['persistent'] == true)) {
-        $this-&gt;_config['driver_options'][PDO::ATTR_PERSISTENT] = true;
-    }
-
-    try {
-        $this-&gt;_connection = new PDOCSTM(
-            $dsn,
-            $this-&gt;_config['username'],
-            $this-&gt;_config['password'],
-            $this-&gt;_config['driver_options']
-        );
-
-        $this-&gt;_profiler-&gt;queryEnd($q);
-
-        // set the PDO connection to perform case-folding on array keys, or not
-        $this-&gt;_connection-&gt;setAttribute(PDO::ATTR_CASE, $this-&gt;_caseFolding);
-
-        // always use exceptions.
-        $this-&gt;_connection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    } catch (PDOException $e) {
-        /**
-         * @see Zend_Db_Adapter_Exception
-         */
-        require_once 'Zend/Db/Adapter/Exception.php';
-        throw new Zend_Db_Adapter_Exception($e-&gt;getMessage(), $e-&gt;getCode(), $e);
-    }
-
-}
-</code></pre>
-
-<p>}
-</pre></p>
-
+<p>まずは</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>なんてものを作成します。</p>
-
 <p>実際変更したところといえば、</p>
-
-<pre class="brush:php">
-# その１
-$this->_connection = new PDOCSTM();
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>あとは、PDOを継承して実装したクラスを記述しておしまいです。
 これでほぼ取得や更新両方SQLを変換することができます。</p>
-
-<pre class="brush:php">
-class PDOCSTM extends PDO {
-    public function __construct($dsn, $username="", $password="", $driver_options=array()) {
-        parent::__construct($dsn, $username, $password, $driver_options);
-        $this->setAttribute(PDO::ATTR_STATEMENT_CLASS, array('STMT', array($this)));
-    }
-}
-class STMT extends PDOStatement {
-    public $dbh;
-    protected function __construct($dbh) {
-        $this->dbh = $dbh;
-    }
-    function fetch($option=PDO::FETCH_ASSOC) {
-        $row = parent::fetch($option);
-        foreach ($row as $key=>$val) {
-            # その１
-            $row[$key] = mb_convert_encoding($val, "UTF-8", "EUC-JP");
-        }
-        return $row;
-    }
-    function fetchAll($option=PDO::FETCH_ASSOC) {
-        $rows = parent::fetchAll($option);
-        foreach ($rows as $key => $row) {
-            foreach ($row as $crm => $val) {
-                # その２
-                $rows[$key][$crm] = mb_convert_encoding($val, "UTF-8", "EUC-JP");
-            }
-        }
-        return $rows;
-    }
-    function execute($params=array()) {
-        if (APPLICATION_ENV !== "production") {
-            if (!preg_match("/SELECT/", $this->queryString)) {
-                error_log("[SQL] " . $this->queryString . " Array::" . print_r($params,true));
-            }
-            else {
-                error_log("[SQL] " . $this->queryString);
-            }
-            if (!empty($params)) {
-                # その３
-                $params = App_Array::getEncodedData($params, "EUC-JP", "UTF-8");
-            }
-        }
-        return parent::execute($params);
-    }
-}
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>ちなみに「App_Array()」は配列のデータを再帰的に文字コード変換させてます。</p>
-
-<pre class="brush:php">
-                # その３
-                $params = App_Array::getEncodedData($params, "EUC-JP", "UTF-8");
-</pre>
-
-<p></pre></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --></p>
 
 			</section>
 		</article>

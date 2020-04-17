@@ -2,16 +2,16 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="AVAudioMixでオーディオの調節を行う">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/05/01/avaudiomix%E3%81%A7%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%81%AE%E8%AA%BF%E7%AF%80%E3%82%92%E8%A1%8C%E3%81%86/" />
-<meta property="go:description" content=" 先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。 その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。 対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。AVAudioMix、AVMutableAudioMixInputParametersをうまく利用することで解決しました。
+<meta property="go:description" content="先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。 その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。 対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。AVAudioMix、AVMutableAudioMixInputParametersをうまく利用することで解決しました。
 実装 基本的には対象のメディア情報に対して、オーディオを制御する用のAVMutableAudioMixInputParametersを利用します。
-AVMutableComposition avComposition; (snip) // movie sound AVMutableCompositionTrack* compositionAudioTrack = [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する AVMutableAudioMixInputParameters *mixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack]; // 音量の調整 [mixInputParameters setVolumeRampFromStartVolume:0.2f toEndVolume:0.2f timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)]; // 入力パラメータをオーディオミックスに渡す。 mutableAudioMix = [AVMutableAudioMix audioMix]; mutableAudioMix.inputParameters = @[mixInputParameters];  - (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。
-AVAssetExportSession *assetExportSession; (snip) // 音声の制御 assetExportSession.audioMix = mutableAudioMix;  設定が終われば、AVAssetExportSessionのaudioMixに格納すれば、設定が反映されているはずです。 これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！
+AVMutableComposition avComposition; (snip) // movie sound AVMutableCompositionTrack* compositionAudioTrack = [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する AVMutableAudioMixInputParameters *mixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack]; // 音量の調整 [mixInputParameters setVolumeRampFromStartVolume:0.2f toEndVolume:0.2f timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)]; // 入力パラメータをオーディオミックスに渡す。 mutableAudioMix = [AVMutableAudioMix audioMix]; mutableAudioMix.inputParameters = @[mixInputParameters]; - (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。
+AVAssetExportSession *assetExportSession; (snip) // 音声の制御 assetExportSession.audioMix = mutableAudioMix; 設定が終われば、AVAssetExportSessionのaudioMixに格納すれば、設定が反映されているはずです。 これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！
 Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  " />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
@@ -22,10 +22,10 @@ Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  " />
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="AVAudioMixでオーディオの調節を行う" />
-<meta name="twitter:description" content=" 先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。 その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。 対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。AVAudioMix、AVMutableAudioMixInputParametersをうまく利用することで解決しました。
+<meta name="twitter:description" content="先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。 その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。 対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。AVAudioMix、AVMutableAudioMixInputParametersをうまく利用することで解決しました。
 実装 基本的には対象のメディア情報に対して、オーディオを制御する用のAVMutableAudioMixInputParametersを利用します。
-AVMutableComposition avComposition; (snip) // movie sound AVMutableCompositionTrack* compositionAudioTrack = [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する AVMutableAudioMixInputParameters *mixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack]; // 音量の調整 [mixInputParameters setVolumeRampFromStartVolume:0.2f toEndVolume:0.2f timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)]; // 入力パラメータをオーディオミックスに渡す。 mutableAudioMix = [AVMutableAudioMix audioMix]; mutableAudioMix.inputParameters = @[mixInputParameters];  - (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。
-AVAssetExportSession *assetExportSession; (snip) // 音声の制御 assetExportSession.audioMix = mutableAudioMix;  設定が終われば、AVAssetExportSessionのaudioMixに格納すれば、設定が反映されているはずです。 これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！
+AVMutableComposition avComposition; (snip) // movie sound AVMutableCompositionTrack* compositionAudioTrack = [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する AVMutableAudioMixInputParameters *mixInputParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:audioTrack]; // 音量の調整 [mixInputParameters setVolumeRampFromStartVolume:0.2f toEndVolume:0.2f timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)]; // 入力パラメータをオーディオミックスに渡す。 mutableAudioMix = [AVMutableAudioMix audioMix]; mutableAudioMix.inputParameters = @[mixInputParameters]; - (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。
+AVAssetExportSession *assetExportSession; (snip) // 音声の制御 assetExportSession.audioMix = mutableAudioMix; 設定が終われば、AVAssetExportSessionのaudioMixに格納すれば、設定が反映されているはずです。 これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！
 Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  " />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
@@ -61,57 +61,44 @@ Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  " />
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2014-05-01">May 01, 2014</time></span>
 			<span class="entry-categories">( <a href="/categories/ios">iOS</a> )</span>
 			<section itemprop="entry-text">
-				
-
-<p>先日、<a href="https://itunes.apple.com/jp/app/the-ghost-movie-app-look-again/id696530211?mt=8">心霊動画アプリ「もう一度ご覧いただこう」</a>のアップデートしました。
+				<p>先日、<a href="https://itunes.apple.com/jp/app/the-ghost-movie-app-look-again/id696530211?mt=8">心霊動画アプリ「もう一度ご覧いただこう」</a>のアップデートしました。
 その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。
 対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。<code>AVAudioMix</code>、<code>AVMutableAudioMixInputParameters</code>をうまく利用することで解決しました。</p>
-
 <h2 id="実装">実装</h2>
-
 <p>基本的には対象のメディア情報に対して、オーディオを制御する用の<code>AVMutableAudioMixInputParameters</code>を利用します。</p>
-
-<pre><code class="language-obj-c">AVMutableComposition avComposition;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">AVMutableComposition avComposition;
 
 (snip)
 
-// movie sound
-AVMutableCompositionTrack* compositionAudioTrack = [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio
+<span style="color:#75715e">// movie sound
+</span><span style="color:#75715e"></span>AVMutableCompositionTrack<span style="color:#f92672">*</span> compositionAudioTrack <span style="color:#f92672">=</span> [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio
                                                                               preferredTrackID:kCMPersistentTrackID_Invalid];
 
 
 
-// オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する
-AVMutableAudioMixInputParameters *mixInputParameters = [AVMutableAudioMixInputParameters
+<span style="color:#75715e">// オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する
+</span><span style="color:#75715e"></span>AVMutableAudioMixInputParameters <span style="color:#f92672">*</span>mixInputParameters <span style="color:#f92672">=</span> [AVMutableAudioMixInputParameters
                                                         audioMixInputParametersWithTrack:audioTrack];
 
-// 音量の調整
-[mixInputParameters setVolumeRampFromStartVolume:0.2f toEndVolume:0.2f
+<span style="color:#75715e">// 音量の調整
+</span><span style="color:#75715e"></span>[mixInputParameters setVolumeRampFromStartVolume:<span style="color:#ae81ff">0.2f</span> toEndVolume:<span style="color:#ae81ff">0.2f</span>
                                   timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)];
 
 
-// 入力パラメータをオーディオミックスに渡す。
-mutableAudioMix = [AVMutableAudioMix audioMix];
-mutableAudioMix.inputParameters = @[mixInputParameters];
-</code></pre>
-
-<h4 id="bool-getvolumerampfortime-cmtime-time-startvolume-float-startvolume-endvolume-float-endvolume-timerange-cmtimerange-timerange">- (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange</h4>
-
+<span style="color:#75715e">// 入力パラメータをオーディオミックスに渡す。
+</span><span style="color:#75715e"></span>mutableAudioMix <span style="color:#f92672">=</span> [AVMutableAudioMix audioMix];
+mutableAudioMix.inputParameters <span style="color:#f92672">=</span> <span style="color:#ae81ff">@[</span>mixInputParameters<span style="color:#ae81ff">]</span>;
+</code></pre></div><h4 id="--boolgetvolumerampfortimecmtimetime-startvolumefloat-startvolume-endvolumefloat-endvolume-timerangecmtimerange-timerange">- (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange</h4>
 <p>これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。</p>
-
-<pre><code class="language-obj-c">AVAssetExportSession *assetExportSession;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">AVAssetExportSession <span style="color:#f92672">*</span>assetExportSession;
 
 (snip)
 
-// 音声の制御
-assetExportSession.audioMix = mutableAudioMix;
-</code></pre>
-
-<p>設定が終われば、<code>AVAssetExportSession</code>の<code>audioMix</code>に格納すれば、設定が反映されているはずです。
+<span style="color:#75715e">// 音声の制御
+</span><span style="color:#75715e"></span>assetExportSession.audioMix <span style="color:#f92672">=</span> mutableAudioMix;
+</code></pre></div><p>設定が終われば、<code>AVAssetExportSession</code>の<code>audioMix</code>に格納すれば、設定が反映されているはずです。
 これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！</p>
-
 <h2 id="resources">Resources</h2>
-
 <ul>
 <li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVMutableAudioMix_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40009740">AVMutableAudioMix Class</a></li>
 <li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVAudioMixInputParameters_Class/Reference/Reference.html#//apple_ref/occ/cl/AVAudioMixInputParameters">AVAudioMixInputParameters Class</a></li>

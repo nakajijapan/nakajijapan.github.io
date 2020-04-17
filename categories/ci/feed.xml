@@ -21,11 +21,11 @@
 			<guid>http://nakajijapan.github.io/blog/2013/06/24/jenkins%E3%81%A7commit-status%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%99%E3%82%8B/</guid>
 			<description>自分のサービスでテストを行うときはTravisCIに任せて自動で作業させているのですが、基本はソースをオープンにしないといけないので 自社サービスに利用する訳にはいきません。そこでJenkinsを利用して同じような仕組みを作成しました。
 仕組みとしはcommit statusを操作するためのGitHubのAPI利用してPull Requestがきたらジョブを走らせるようにします。
-監視用の親ジョブ作成  ソースコード管理
- Gitを選択 Repository URL(テスト対象のものを入れる) ex) git@github.com:paperboy-petit/user-app.git Branch Specifier() */master, */releaseを記述する 高度な設定のChoosing strategy  Inverseを選択する  これでmaster,release意外のブランチを監視対象にできる  ビルド環境
- テストに必要な環境の設定なので適宜設定する  ビルド
- ここでテストする処理を実行  ビルド後の処理
- ビルド後の結果をトリガーにしてパラメータを小ジョブに渡す設定行う。フォームにはいかの用に項目設定する Build Triggers 1  Project to build: CommitSTatusUpdate Trigger when build is stable or unstable but not failed parameters commit_status=successを設定  Build Triggers 2  Project to build: CommitSTatusUpdate Trigger when build is failed parameters commit_status=failureを設定    小ジョブ作成(CommitStatusUPdate)  ビルドのパラメータ化</description>
+監視用の親ジョブ作成   ソースコード管理
+ Gitを選択 Repository URL(テスト対象のものを入れる)  ex) git@github.com:paperboy-petit/user-app.git   Branch Specifier()  */master, */releaseを記述する 高度な設定のChoosing strategy  Inverseを選択する   これでmaster,release意外のブランチを監視対象にできる      ビルド環境
+ テストに必要な環境の設定なので適宜設定する    ビルド
+ ここでテストする処理を実行    ビルド後の処理
+ ビルド後の結果をトリガーにしてパラメータを小ジョブに渡す設定行う。フォームにはいかの用に項目設定する Build Triggers 1  Project to build: CommitSTatusUpdate Trigger when build is stable or unstable but not failed parameters  commit_status=successを設定     Build Triggers 2  Project to build: CommitSTatusUpdate Trigger when build is failed parameters  commit_status=failureを設定        小ジョブ作成(CommitStatusUPdate)   ビルドのパラメータ化</description>
 		</item>
 		
 		<item>
@@ -34,14 +34,8 @@
 			<pubDate>Mon, 10 Sep 2012 02:39:50 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/09/10/travis-ci-github%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E7%B6%99%E7%B6%9A%E7%9A%84%E3%82%A4%E3%83%B3%E3%83%86%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3/</guid>
-			<description>最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、
-PHPからRuby+Rails+S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。
-本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト
-環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの
-ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。
- A hosted continuous integration service for the open source community. (翻訳) オープンソースコミュニティのための継続インテグレーションサービス  早速、設定してみました。 とりあえず、ユーザ登録します。 だいたいここをみてやればできるはずです。。
-language: ruby rvm: - 1.9.3 - 1.9.2 gemfile: - Gemfile env: - DB=mysql before_script: - mysql -e &#39;create database frustration_test;&#39; script: - RAILS_ENV=test bundle exec rake --trace db:migrate - bundle exec rake db:test:prepare - bundle exec rspec spec/  これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。 テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。
-あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが 問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって もんですね！！！</description>
+			<description>(翻訳) オープンソースコミュニティのための継続インテグレーションサービス
+  </description>
 		</item>
 		
 	</channel>

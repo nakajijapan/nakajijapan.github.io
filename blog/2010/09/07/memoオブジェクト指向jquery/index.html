@@ -2,14 +2,14 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[memo]オブジェクト指向＋jquery">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/09/07/memo%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91jquery/" />
 <meta property="go:description" content="いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので それ用に実装方法を書いてみる。
-  // クラス的な位置づけ var Nakaji = function(){ // メンバ変数的な位置づけ this.hidden = false; // コンストラクタ的な位置づけ this.setup(); } Nakaji.prototype = { setup: function(){ this.elem = $(&#39;NAKAJIJAPAN!&#39;); this.elem.css(&#34;background&#34;,&#34;#EEEEEE&#34;); $(document.body).append(this.elem.fadeIn(5000)); var self = this; this.elem.click(function(){ if(self.hidden){ self.show(); }else{ self.hide(); } }); }, hide: function(){ this.elem.css(&#34;background&#34;,&#34;#cccccc&#34;); this.hidden = true; }, show: function(){ this.elem.css(&#34;background&#34;,&#34;#000000&#34;); this.hidden = false; } } # document読み込み終了時に開始 $(function(){ var nakaji1 = new Nakaji(); var nakaji2 = new Nakaji(); var nakaji3 = new Nakaji(); var nakaji4 = new Nakaji(); var nakaji5 = new Nakaji(); });  ＜body＞ object ＜/body＞  " />
+＜body＞" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -20,7 +20,7 @@
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[memo]オブジェクト指向＋jquery" />
 <meta name="twitter:description" content="いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので それ用に実装方法を書いてみる。
-  // クラス的な位置づけ var Nakaji = function(){ // メンバ変数的な位置づけ this.hidden = false; // コンストラクタ的な位置づけ this.setup(); } Nakaji.prototype = { setup: function(){ this.elem = $(&#39;NAKAJIJAPAN!&#39;); this.elem.css(&#34;background&#34;,&#34;#EEEEEE&#34;); $(document.body).append(this.elem.fadeIn(5000)); var self = this; this.elem.click(function(){ if(self.hidden){ self.show(); }else{ self.hide(); } }); }, hide: function(){ this.elem.css(&#34;background&#34;,&#34;#cccccc&#34;); this.hidden = true; }, show: function(){ this.elem.css(&#34;background&#34;,&#34;#000000&#34;); this.hidden = false; } } # document読み込み終了時に開始 $(function(){ var nakaji1 = new Nakaji(); var nakaji2 = new Nakaji(); var nakaji3 = new Nakaji(); var nakaji4 = new Nakaji(); var nakaji5 = new Nakaji(); });  ＜body＞ object ＜/body＞  " />
+＜body＞" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -57,57 +57,12 @@
 			<section itemprop="entry-text">
 				<p>いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので
 それ用に実装方法を書いてみる。</p>
-
-<pre class="brush: html">
-<script src="../jquery-1_4_2.js" type="text/javascript"></script>
-<script>
-// クラス的な位置づけ
-var Nakaji = function(){ 
-    // メンバ変数的な位置づけ 
-    this.hidden = false; 
-
-    // コンストラクタ的な位置づけ
-    this.setup(); 
-} 
-Nakaji.prototype = { 
-    setup: function(){ 
-        this.elem = $('<div class="nakajijapan">NAKAJIJAPAN!</div>'); 
-        this.elem.css("background","#EEEEEE"); 
-        $(document.body).append(this.elem.fadeIn(5000)); 
-        var self = this; 
-        
-        this.elem.click(function(){ 
-            if(self.hidden){ 
-                self.show(); 
-            }else{ 
-                self.hide(); 
-            } 
-        }); 
-    }, 
-    hide: function(){ 
-        this.elem.css("background","#cccccc"); 
-        this.hidden = true; 
-    }, 
-    show: function(){ 
-        this.elem.css("background","#000000"); 
-        this.hidden = false; 
-    } 
-} 
-
-# document読み込み終了時に開始
-$(function(){ 
-    var nakaji1 = new Nakaji(); 
-    var nakaji2 = new Nakaji(); 
-    var nakaji3 = new Nakaji(); 
-    var nakaji4 = new Nakaji(); 
-    var nakaji5 = new Nakaji(); 
-});
-
-</script>
-＜body＞
-<h1>object</h1>
-＜/body＞
-</pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>＜body＞</p>
+<!-- raw HTML omitted -->
 
 			</section>
 		</article>

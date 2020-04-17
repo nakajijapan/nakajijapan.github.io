@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Zend_Application に　Autoloderの設定を行う">
@@ -11,8 +11,9 @@
 <meta property="go:description" content="昔のバージョンだとZendのソースを書き換えなくちゃいけなかったけど1.10からは自分でZend_Application利用してカスタマイズできるようになったみたいです。
 まずはPHP.iniを以下のように設定します。 設定項目としては、どのクラスが宣言された場合はどのディレクトリを読み込みにいくかという設定です。
 やりかたはいろいろあると思いますが、とりあえずこんな感じでいいかなレベルです。
-;-------------------- ; loader ;-------------------- ; resources.autoloader.lists.(設定名) = &#34;(どのクラス),(読み込み先)&#34; resources.autoloader.lists.validate = &#34;Validate,models/Validate&#34; resources.autoloader.lists.dbtable = &#34;Model_DbTable,models/DbTable&#34; resources.autoloader.lists.mappers = &#34;Model_Mapper,models/mappers&#34;  リソースのプログラムは以下のように実装します。
-/* * My_Application_Resource_Autoloader */ class My_Application_Resource_Autoloader extends Zend_Application_Resource_ResourceAbstract { /** * * @return My_Application_Resource_Autoloader */ public function init() { // init $router = null; // オプション情報取得 $options = $this-getOptions(); $moduleLoader = new Zend_Application_Module_Autoloader(array( &#39;basePath&#39; = APPLICATION_PATH, &#39;namespace&#39; = &#39;&#39;, )); foreach ($options[&#39;lists&#39;] as $key = $resource ) { $data = explode(&#39;,&#39;, $resource); $moduleLoader-addResourceType($key, $data[1], $data[0]); } return ; } }  これでいけるはず！！！" />
+リソースのプログラムは以下のように実装します。
+これでいけるはず！！！
+■参考URL http://d." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -25,8 +26,9 @@
 <meta name="twitter:description" content="昔のバージョンだとZendのソースを書き換えなくちゃいけなかったけど1.10からは自分でZend_Application利用してカスタマイズできるようになったみたいです。
 まずはPHP.iniを以下のように設定します。 設定項目としては、どのクラスが宣言された場合はどのディレクトリを読み込みにいくかという設定です。
 やりかたはいろいろあると思いますが、とりあえずこんな感じでいいかなレベルです。
-;-------------------- ; loader ;-------------------- ; resources.autoloader.lists.(設定名) = &#34;(どのクラス),(読み込み先)&#34; resources.autoloader.lists.validate = &#34;Validate,models/Validate&#34; resources.autoloader.lists.dbtable = &#34;Model_DbTable,models/DbTable&#34; resources.autoloader.lists.mappers = &#34;Model_Mapper,models/mappers&#34;  リソースのプログラムは以下のように実装します。
-/* * My_Application_Resource_Autoloader */ class My_Application_Resource_Autoloader extends Zend_Application_Resource_ResourceAbstract { /** * * @return My_Application_Resource_Autoloader */ public function init() { // init $router = null; // オプション情報取得 $options = $this-getOptions(); $moduleLoader = new Zend_Application_Module_Autoloader(array( &#39;basePath&#39; = APPLICATION_PATH, &#39;namespace&#39; = &#39;&#39;, )); foreach ($options[&#39;lists&#39;] as $key = $resource ) { $data = explode(&#39;,&#39;, $resource); $moduleLoader-addResourceType($key, $data[1], $data[0]); } return ; } }  これでいけるはず！！！" />
+リソースのプログラムは以下のように実装します。
+これでいけるはず！！！
+■参考URL http://d." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -62,65 +64,18 @@
 			<span class="entry-categories">( <a href="/categories/php">PHP</a> )</span>
 			<section itemprop="entry-text">
 				<p>昔のバージョンだとZendのソースを書き換えなくちゃいけなかったけど1.10からは自分でZend_Application利用してカスタマイズできるようになったみたいです。</p>
-
 <p>まずはPHP.iniを以下のように設定します。
 設定項目としては、どのクラスが宣言された場合はどのディレクトリを読み込みにいくかという設定です。</p>
-
 <p>やりかたはいろいろあると思いますが、とりあえずこんな感じでいいかなレベルです。</p>
-
-<pre class="brush:php">
-;--------------------
-; loader
-;--------------------
-; resources.autoloader.lists.(設定名) = "(どのクラス),(読み込み先)"
-resources.autoloader.lists.validate = "Validate,models/Validate"
-resources.autoloader.lists.dbtable = "Model_DbTable,models/DbTable"
-resources.autoloader.lists.mappers = "Model_Mapper,models/mappers"
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>リソースのプログラムは以下のように実装します。</p>
-
-<pre class="brush:php">
-
-/*
- * My_Application_Resource_Autoloader
- */
-class My_Application_Resource_Autoloader extends Zend_Application_Resource_ResourceAbstract
-{
-    /**
-     *
-     * @return My_Application_Resource_Autoloader
-     */
-    public function init()
-    {
-        // init
-        $router = null;
-
-        // オプション情報取得
-        $options = $this->getOptions();
-
-        $moduleLoader = new Zend_Application_Module_Autoloader(array(
-            'basePath' => APPLICATION_PATH,
-            'namespace' => '',
-        ));
-
-        foreach ($options['lists'] as $key => $resource ) {
-            $data = explode(',', $resource);
-            $moduleLoader->addResourceType($key, $data[1], $data[0]);
-        }
-
-        return ;
-    }
-}
-
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>これでいけるはず！！！</p>
-
 <p>■参考URL
-<a href="http://d.hatena.ne.jp/sasezaki/20090415/p1"><a href="http://d.hatena.ne.jp/sasezaki/20090415/p1">http://d.hatena.ne.jp/sasezaki/20090415/p1</a><a></p>
-
-<p>15/p1<a></p>
+<!-- raw HTML omitted --><a href="http://d.hatena.ne.jp/sasezaki/20090415/p1">http://d.hatena.ne.jp/sasezaki/20090415/p1</a><!-- raw HTML omitted --></p>
+<p>15/p1<!-- raw HTML omitted --></p>
 
 			</section>
 		</article>

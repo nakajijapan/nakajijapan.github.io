@@ -2,14 +2,14 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Doctrine の仕様的なもの。(V1.2)">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/02/15/doctrine-%E3%81%AE%E4%BB%95%E6%A7%98%E7%9A%84%E3%81%AA%E3%82%82%E3%81%AEv1.2/" />
 <meta property="go:description" content="カラムのタイプで文字列の型を指定するとき、２５６以上にするとTEXT型になってしまう。
-Account: columns: username: type: string(256)  とりあえず限界が２５５でそれ以降はなぜかTEXT型でした。 なんか設定の意図でもあるのかな＝＝＝＝。。 どう見えてもバグのような気がする。
+とりあえず限界が２５５でそれ以降はなぜかTEXT型でした。 なんか設定の意図でもあるのかな＝＝＝＝。。 どう見えてもバグのような気がする。
 だって普通にvarchar(1024)てやりたい場合で絶対できくるはずなのに。
 ちょっと使えないDoctrine_Cli
 追記：（2月15日） ・CLIコマンドは主キーを「id」にしないとうまいこと機能しない。(ハックすればいいんだけどね！！) ・カラム制限がいろいろある。(ハックすればいいんだけどね！！)" />
@@ -23,7 +23,7 @@ Account: columns: username: type: string(256)  とりあえず限界が２５５
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Doctrine の仕様的なもの。(V1.2)" />
 <meta name="twitter:description" content="カラムのタイプで文字列の型を指定するとき、２５６以上にするとTEXT型になってしまう。
-Account: columns: username: type: string(256)  とりあえず限界が２５５でそれ以降はなぜかTEXT型でした。 なんか設定の意図でもあるのかな＝＝＝＝。。 どう見えてもバグのような気がする。
+とりあえず限界が２５５でそれ以降はなぜかTEXT型でした。 なんか設定の意図でもあるのかな＝＝＝＝。。 どう見えてもバグのような気がする。
 だって普通にvarchar(1024)てやりたい場合で絶対できくるはずなのに。
 ちょっと使えないDoctrine_Cli
 追記：（2月15日） ・CLIコマンドは主キーを「id」にしないとうまいこと機能しない。(ハックすればいいんだけどね！！) ・カラム制限がいろいろある。(ハックすればいいんだけどね！！)" />
@@ -62,22 +62,13 @@ Account: columns: username: type: string(256)  とりあえず限界が２５５
 			<span class="entry-categories">( <a href="/categories/doctrine">Doctrine</a> )</span>
 			<section itemprop="entry-text">
 				<p>カラムのタイプで文字列の型を指定するとき、２５６以上にするとTEXT型になってしまう。</p>
-
-<pre class="brush: php">
-Account:
-  columns:
-    username:
-      type: string(256)
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>とりあえず限界が２５５でそれ以降はなぜかTEXT型でした。
 なんか設定の意図でもあるのかな＝＝＝＝。。
 どう見えてもバグのような気がする。</p>
-
 <p>だって普通にvarchar(1024)てやりたい場合で絶対できくるはずなのに。</p>
-
 <p>ちょっと使えないDoctrine_Cli</p>
-
 <p>追記：（2月15日）
 ・CLIコマンドは主キーを「id」にしないとうまいこと機能しない。(ハックすればいいんだけどね！！)
 ・カラム制限がいろいろある。(ハックすればいいんだけどね！！)</p>

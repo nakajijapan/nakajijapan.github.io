@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[memo]gitflowを導入">
@@ -11,10 +11,10 @@
 <meta property="go:description" content="gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。
 基本的な概念は、ここを参照。 http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html
 ここ
-wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash  まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
-git clone hoge.git hoge git flow init  開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
-# 開発からブランチを切って開発を行う。 git flow feature test start # 何かしらのファイルを修正 git commit -a # 他で開発していれば更新分をマージする git pull origin develop # 開発終了 git flow feature test finish  ここから本番にデプロイするときの設定です。
-git flow release 0.0.1 start git flow release 0." />
+まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
+開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
+ここから本番にデプロイするときの設定です。
+■参照URL https://github.com/nvie/gitflow http://d.hatena.ne.jp/Voluntas/20101223/1293111549" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -27,10 +27,10 @@ git flow release 0.0.1 start git flow release 0." />
 <meta name="twitter:description" content="gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。
 基本的な概念は、ここを参照。 http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html
 ここ
-wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash  まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
-git clone hoge.git hoge git flow init  開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
-# 開発からブランチを切って開発を行う。 git flow feature test start # 何かしらのファイルを修正 git commit -a # 他で開発していれば更新分をマージする git pull origin develop # 開発終了 git flow feature test finish  ここから本番にデプロイするときの設定です。
-git flow release 0.0.1 start git flow release 0." />
+まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
+開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
+ここから本番にデプロイするときの設定です。
+■参照URL https://github.com/nvie/gitflow http://d.hatena.ne.jp/Voluntas/20101223/1293111549" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -66,50 +66,20 @@ git flow release 0.0.1 start git flow release 0." />
 			<span class="entry-categories">( <a href="/categories/linux">Linux</a> )</span>
 			<section itemprop="entry-text">
 				<p>gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。</p>
-
 <p>基本的な概念は、ここを参照。
 <a href="http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html">http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html</a></p>
-
 <p>ここ</p>
-
-<pre class="brush:bash">
-wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。</p>
-
-<pre class="brush:bash">
-git clone hoge.git hoge
-git flow init
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。</p>
-
-<pre class="brush:bash">
-# 開発からブランチを切って開発を行う。
-git flow feature test start
-
-# 何かしらのファイルを修正
-git commit -a
-
-# 他で開発していれば更新分をマージする
-git pull origin develop
-
-# 開発終了
-git flow feature test finish
-
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>ここから本番にデプロイするときの設定です。</p>
-
-<pre class="brush:bash">
-git flow release 0.0.1 start
-git flow release 0.0.1 stop
-
-git push 
-git push --tags
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>■参照URL
 <a href="https://github.com/nvie/gitflow">https://github.com/nvie/gitflow</a>
 <a href="http://d.hatena.ne.jp/Voluntas/20101223/1293111549">http://d.hatena.ne.jp/Voluntas/20101223/1293111549</a></p>

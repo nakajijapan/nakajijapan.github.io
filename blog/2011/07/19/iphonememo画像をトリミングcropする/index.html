@@ -2,14 +2,13 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[iphone][memo]画像をトリミング(crop)する">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/07/19/iphonememo%E7%94%BB%E5%83%8F%E3%82%92%E3%83%88%E3%83%AA%E3%83%9F%E3%83%B3%E3%82%B0crop%E3%81%99%E3%82%8B/" />
-<meta property="go:description" content="関数にしてみました。「CGRect」は画像の座標・大きさを指定できる構造体。 これでCGRectで指定した座標・大きさをimageから取得し、そのUIImage型のポインタを返す。
-// crop -(UIImage*)crop:(UIImage*)image rect:(CGRect)rect { // 画像編集に必要な情報が入った構造体 CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect); // UIimage型に変換 UIImage *retImage = [UIImage imageWithCGImage:imageRef]; // メモリ上に保持しているbitmap情報を解放する CGImageRelease(imageRef); // UIimage型の画像情報を返す return retImage; }  " />
+<meta property="go:description" content="関数にしてみました。「CGRect」は画像の座標・大きさを指定できる構造体。 これでCGRectで指定した座標・大きさをimageから取得し、そのUIImage型のポインタを返す。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -19,8 +18,7 @@
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[iphone][memo]画像をトリミング(crop)する" />
-<meta name="twitter:description" content="関数にしてみました。「CGRect」は画像の座標・大きさを指定できる構造体。 これでCGRectで指定した座標・大きさをimageから取得し、そのUIImage型のポインタを返す。
-// crop -(UIImage*)crop:(UIImage*)image rect:(CGRect)rect { // 画像編集に必要な情報が入った構造体 CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect); // UIimage型に変換 UIImage *retImage = [UIImage imageWithCGImage:imageRef]; // メモリ上に保持しているbitmap情報を解放する CGImageRelease(imageRef); // UIimage型の画像情報を返す return retImage; }  " />
+<meta name="twitter:description" content="関数にしてみました。「CGRect」は画像の座標・大きさを指定できる構造体。 これでCGRectで指定した座標・大きさをimageから取得し、そのUIImage型のポインタを返す。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -57,20 +55,8 @@
 			<section itemprop="entry-text">
 				<p>関数にしてみました。「CGRect」は画像の座標・大きさを指定できる構造体。
 これでCGRectで指定した座標・大きさをimageから取得し、そのUIImage型のポインタを返す。</p>
-
-<pre class="brush: cpp">
-// crop
--(UIImage*)crop:(UIImage*)image rect:(CGRect)rect {
-    // 画像編集に必要な情報が入った構造体
-    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
-    // UIimage型に変換
-    UIImage *retImage = [UIImage imageWithCGImage:imageRef];
-    // メモリ上に保持しているbitmap情報を解放する
-    CGImageRelease(imageRef);
-    // UIimage型の画像情報を返す
-    return retImage;
-}
-</pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 			</section>
 		</article>

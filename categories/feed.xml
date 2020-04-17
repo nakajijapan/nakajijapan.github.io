@@ -9,9 +9,27 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Sun, 08 Sep 2019 22:10:01 +0900</lastBuildDate>
+		<lastBuildDate>Mon, 09 Mar 2020 01:18:53 +0900</lastBuildDate>
 		
 		<atom:link href="/categories/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>JBL</title>
+			<link>http://nakajijapan.github.io/categories/jbl/</link>
+			<pubDate>Mon, 09 Mar 2020 01:18:53 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/jbl/</guid>
+			<description></description>
+		</item>
+		
+		<item>
+			<title>life</title>
+			<link>http://nakajijapan.github.io/categories/life/</link>
+			<pubDate>Mon, 02 Mar 2020 23:33:06 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/life/</guid>
+			<description></description>
+		</item>
 		
 		<item>
 			<title>iOS</title>
@@ -19,6 +37,15 @@
 			<pubDate>Sun, 08 Sep 2019 22:10:01 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/categories/ios/</guid>
+			<description></description>
+		</item>
+		
+		<item>
+			<title>Mac</title>
+			<link>http://nakajijapan.github.io/categories/mac/</link>
+			<pubDate>Thu, 25 Oct 2018 01:08:24 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/mac/</guid>
 			<description></description>
 		</item>
 		
@@ -32,15 +59,6 @@
 		</item>
 		
 		<item>
-			<title>life</title>
-			<link>http://nakajijapan.github.io/categories/life/</link>
-			<pubDate>Sun, 21 Oct 2018 01:08:14 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/life/</guid>
-			<description></description>
-		</item>
-		
-		<item>
 			<title>osx</title>
 			<link>http://nakajijapan.github.io/categories/osx/</link>
 			<pubDate>Wed, 11 Apr 2018 02:39:40 +0900</pubDate>
@@ -50,7 +68,7 @@
 		</item>
 		
 		<item>
-			<title>swift</title>
+			<title>Swift</title>
 			<link>http://nakajijapan.github.io/categories/swift/</link>
 			<pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
 			
@@ -127,24 +145,6 @@
 			<pubDate>Mon, 01 Jul 2013 07:53:00 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/categories/backbonejs/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>CI</title>
-			<link>http://nakajijapan.github.io/categories/ci/</link>
-			<pubDate>Mon, 24 Jun 2013 08:02:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/ci/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>javascript</title>
-			<link>http://nakajijapan.github.io/categories/javascript/</link>
-			<pubDate>Sun, 09 Jun 2013 16:07:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/javascript/</guid>
 			<description></description>
 		</item>
 		

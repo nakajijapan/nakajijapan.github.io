@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="IzumoはDark Modeに対応しました。">
@@ -63,95 +63,75 @@ import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ d
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2018-10-11">October 11, 2018</time></span>
 			<span class="entry-categories">( <a href="/categories/macos">macOS</a> )</span>
 			<section itemprop="entry-text">
-				
-
-<p>IzumoはDark Modeを対応しました。</p>
-
-<p><img src="/images/posts/2018-10-002.png" alt="" />
-<img src="/images/posts/2018-10-001.png" alt="" /></p>
-
+				<p>IzumoはDark Modeを対応しました。</p>
+<p><img src="/images/posts/2018-10-002.png" alt="">
+<img src="/images/posts/2018-10-001.png" alt=""></p>
 <h2 id="作業">作業</h2>
-
 <p>基本的に動画やドキュメントを見ればある程度のことはできるようになります。
 まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。</p>
-
-<p><img src="/images/posts/2018-10-004.png" alt="" />
-<img src="/images/posts/2018-10-005.png" alt="" /></p>
-
+<p><img src="/images/posts/2018-10-004.png" alt="">
+<img src="/images/posts/2018-10-005.png" alt=""></p>
 <p>あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。</p>
-
-<p><img src="/images/posts/2018-10-003.png" alt="" /></p>
-
+<p><img src="/images/posts/2018-10-003.png" alt=""></p>
 <ul>
 <li>updateConstraints</li>
 <li>layout</li>
 <li>draw(_ dirtyRect: NSRect)</li>
 <li>updateLayer</li>
 </ul>
-
 <h2 id="気に食わなかったところ">気に食わなかったところ</h2>
-
 <p><code>NSScroller</code>のデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。
 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）</p>
-
-<p><img src="/images/posts/2018-10-006.png" alt="" /></p>
-
+<p><img src="/images/posts/2018-10-006.png" alt=""></p>
 <p>実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
 
-<pre><code class="language-swift">import Cocoa
-
-class NoteListVerticalScroller: NSScroller {
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListVerticalScroller</span>: NSScroller {
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">draw</span>(<span style="color:#66d9ef">_</span> dirtyRect: NSRect) {
+        <span style="color:#66d9ef">super</span>.draw(dirtyRect)
     }
 
-    override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) {
-        super.drawKnobSlot(in: slotRect, highlight: flag)
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawKnobSlot</span>(<span style="color:#66d9ef">in</span> slotRect: NSRect, highlight flag: Bool) {
+        <span style="color:#66d9ef">super</span>.drawKnobSlot(<span style="color:#66d9ef">in</span>: slotRect, highlight: flag)
 
-        // 背景はリストの背景と同じにする
-        NSColor.defaultBackgroundColor.set()
+        <span style="color:#75715e">// 背景はリストの背景と同じにする</span>
+        NSColor.defaultBackgroundColor.<span style="color:#66d9ef">set</span>()
         slotRect.fill()
 
-        // 同じにすると境界がわからなくなるのでボーダー独自に描くようにする
-        NSColor.defaultScrollerLeft.set()
-        let rect = CGRect(x: 0, y: 0, width: 1, height: slotRect.height)
+        <span style="color:#75715e">// 同じにすると境界がわからなくなるのでボーダー独自に描くようにする</span>
+        NSColor.defaultScrollerLeft.<span style="color:#66d9ef">set</span>()
+        <span style="color:#66d9ef">let</span> rect = CGRect(x: <span style="color:#ae81ff">0</span>, y: <span style="color:#ae81ff">0</span>, width: <span style="color:#ae81ff">1</span>, height: slotRect.height)
         rect.fill()
     }
 }
 
-class NoteListScrollView: NSScrollView {
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListScrollView</span>: NSScrollView {
+    <span style="color:#66d9ef">required</span> <span style="color:#66d9ef">init</span>?(coder: NSCoder) {
+        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(coder: coder)
         verticalScroller = NoteListVerticalScroller(frame: verticalScroller!.frame)
     }
 }
 
-</code></pre>
-
-<h1 id="まとめ">まとめ</h1>
-
+</code></pre></div><h1 id="まとめ">まとめ</h1>
 <p><strong>Darkは正義</strong></p>
-
 <p>とにかくかっこいいし、メモして快適なので我ながら対応してよかった。</p>
-
 <h1 id="reference">Reference</h1>
-
 <ul>
 <li>Dark Mode
-
 <ul>
 <li><a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/">https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Introducing Dark Mode
-
 <ul>
 <li><a href="https://developer.apple.com/videos/play/wwdc2018/210/">https://developer.apple.com/videos/play/wwdc2018/210/</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Advanced Dark Mode.
-
 <ul>
 <li><a href="https://developer.apple.com/videos/play/wwdc2018/218/">https://developer.apple.com/videos/play/wwdc2018/218/</a></li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
 			</section>

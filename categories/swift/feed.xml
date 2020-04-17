@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>swift on おじさんは生きている</title>
+		<title>Swift on おじさんは生きている</title>
 		<link>http://nakajijapan.github.io/categories/swift/</link>
-		<description>Recent content in swift on おじさんは生きている</description>
+		<description>Recent content in Swift on おじさんは生きている</description>
 		<generator>Hugo -- gohugo.io</generator>
 		
 		<language>ja-JP</language>
@@ -20,9 +20,8 @@
 			
 			<guid>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</guid>
 			<description>先日、try! swiftに参加してきた。これで二年連続になる。 自分が興味を持った部分をピックアップしてめも
-Event driven networking for Swift  📝 https://github.com/apple/swift-nio
-SwiftNIO is a cross-platform asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp;amp; clients.   iOSでCharlesを導入する  iOS版が出るのは楽しみだが審査通らなそう JAVAは辛い 設定の手間省かれそう？  Aspect Oriented Programing in Swift  アスペクト指向プログラミング これログ吐き出す時に便そう 構文解析 コンパイル前に色々作業する https://github.com/kishikawakatsumi/SwiftPowerAssert  デジタル信号処理 in Swift  デジタル信号処理の部分ちゃんと理解して実装できるようになりたい フーリエ解析 波形のアニメーション面白そう AVFoundation結構使える？ ちょっと難しい話だった興味があるので再度見直す  UIImageView vs Metal これは純粋に面白かったし、Metalのこともわかった気になった。
-  UIImageView vs Metal [日本語版] #tryswiftconf  from Shuichi Tsutsumi</description>
+Event driven networking for Swift  📝 https://github.com/apple/swift-nio  SwiftNIO is a cross-platform asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp;amp; clients. iOSでCharlesを導入する  iOS版が出るのは楽しみだが審査通らなそう JAVAは辛い 設定の手間省かれそう？  Aspect Oriented Programing in Swift  アスペクト指向プログラミング これログ吐き出す時に便そう 構文解析 コンパイル前に色々作業する https://github.com/kishikawakatsumi/SwiftPowerAssert  デジタル信号処理 in Swift  デジタル信号処理の部分ちゃんと理解して実装できるようになりたい フーリエ解析 波形のアニメーション面白そう AVFoundation結構使える？ ちょっと難しい話だった興味があるので再度見直す  UIImageView vs Metal これは純粋に面白かったし、Metalのこともわかった気になった。
+VisionとCoreGraphicsで顔をデカくする  顔の部分しか取れないから頭は自分である程度解析していかないといけない https://developer.apple.com/documentation/vision https://developer.apple.com/videos/play/wwdc2017/506/  発表見ると確かに顔部分だけですな。    まとめ 毎年発見があり、まだまだ勉強せねばと思うカンファレンスでありました。 他のおじさんたちも元気そうで何より。 いやー楽しかったです。</description>
 		</item>
 		
 		<item>
@@ -35,11 +34,10 @@ SwiftNIO is a cross-platform asynchronous event-driven network application frame
 Swift勉強会 hosted by @nakajijapan from ペパボ
 そんななか、自分も「Swiftに慣れるまで行ったこと」を発表しました。
 ざっくり言うSwiftに慣れるのに以下のことをしてみた献じたことを話しました。
- 公式ドキュメント（を読んだ後に） サンプルアプリをTableViewControllerベースで作成してみたこと 自分のプラグイン(NKJMovieComposer)をSwiftで書き換えてみたこと 気分高ぶってMac OS Xも作成してみたこと  詳しくはスライドをご覧ください。
+公式ドキュメント（を読んだ後に） サンプルアプリをTableViewControllerベースで作成してみたこと 自分のプラグイン(NKJMovieComposer)をSwiftで書き換えてみたこと 気分高ぶってMac OS Xも作成してみたこと  詳しくはスライドをご覧ください。
 Swiftが出たときにSan Franciscoで一心不乱にサンプルアプリプログラム書いてブログ上げようかと思ったけど いろんな人が既にブログに上げていたのでただただGitHubにあげるだけでした。そんなんか いろいろ勉強していくうちにMacアプリもつくれんじゃねーかwで脳内麻痺して書籍を購入してSwiftで作成 してみました。
 起動しとけば単純に画像を定期的に保存するアプリです。 （そのうちに１日で保存した画像をGifアニメのような動画にしてソーシャルにアップする機能作ろうかと計画中） ある程度できたらGeHubにアップ仕様と思います。
 ちなみにこちらの書籍を購入しました。
-
 Macアプリ、知識が溜まって来たらまた記事にします。
 とにかく、Swift勉強会が無事終えてよかったです。 参加してくれたみなさん、そして発表してくれた、@misyobun @hypermkt @kurotaky ありがとうございました！！！</description>
 		</item>
@@ -53,11 +51,7 @@ Macアプリ、知識が溜まって来たらまた記事にします。
 			<description>社内で早速Swift勉強会を開きました。 流れとしては、あのときの動画（クレイグがSwiftを発表したところ）をみんなで１０分程鑑賞してテンションあげてから公式のドキュメントを見ながら、みんなでぺちゃくちゃ話す会をしました。
 はじめに 以下の動画をみてまずざっくりどんなものか概要をつかむ
 https://developer.apple.com/videos/wwdc/2014/?id=101
-A Swift Tour About Swift  Objective-C without the C iOSとOS Xで開発するための開発言語 Ccoa and Cocoa Touch Build with LLVM compiler Optimizer and Autovectorizer ARC memory management Same runtime as Objective-C  Simple Value  let,varで宣言 letは定数、varは変数
-var foo = 33 let foo = 33  格納する値が明白であれば自動できに方が決定される
- 十分でなければ明示的に指定することも可能
-let total = 30 let total = 30.0 let total:Double = 0  初期化に以下のような宣言ができる
-let emptyArray = String[]() let emptyDictionary = Dictionary&amp;lt;String, Float&amp;gt;()  単純な初期化は[] and [:]で省略できる</description>
+A Swift Tour About Swift  Objective-C without the C iOSとOS Xで開発するための開発言語 Ccoa and Cocoa Touch Build with LLVM compiler Optimizer and Autovectorizer ARC memory management Same runtime as Objective-C  Simple Value  let,varで宣言 letは定数、varは変数  var foo = 33 let foo = 33  格納する値が明白であれば自動できに方が決定される 十分でなければ明示的に指定することも可能  let total = 30 let total = 30.0 let total:Double = 0  初期化に以下のような宣言ができる  let emptyArray = String[]() let emptyDictionary = Dictionary&amp;lt;String, Float&amp;gt;()  単純な初期化は[] and [:]で省略できる   let emptyArray = [] let emptyDictionary = [:] Control Flow  どこかでみたような記述でif,switch,for-in,for,while,do-whileできるよ .</description>
 		</item>
 		
 	</channel>

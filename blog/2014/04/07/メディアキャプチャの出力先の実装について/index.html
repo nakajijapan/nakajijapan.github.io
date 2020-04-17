@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="メディアキャプチャの出力先の実装について">
@@ -10,12 +10,11 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/04/07/%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3%E3%81%AE%E5%87%BA%E5%8A%9B%E5%85%88%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" />
 <meta property="go:description" content="AV Foundationを利用して写真の撮影やはたまた動画の撮影を行う場合は、カメラデバイスに接続して映像をリアルタイムに表示させたい場合があるかと思います。
 そんなときはAVCaptureSessionを利用してメディアキャプチャの実装の準備をを行い、入力先・出力先はどうするかという設定を行うのですが、今回はその出力部分について何パターンか方法があったので調べてみました。
-Video Output  AVCaptureMovieFileOutput  ムービーファイルを出力するときに利用する  AVCaptureVideoDataOutput  キャプチャ中のビデオフレームを処理するときに利用する  AVCaptureStillImageOutput  付随するメタデータを使用して静止画像をキャプチャするときに利用する   Audio Output  AVCaptureAudioDataOutput  キャプチャ中のオーディオフレームを処理するときに利用する   使い方 AVCaptureMovieFileOutput ムービーファイルを保存するのに必要な処理を提供してくれるクラス。
+Video Output  AVCaptureMovieFileOutput  ムービーファイルを出力するときに利用する   AVCaptureVideoDataOutput  キャプチャ中のビデオフレームを処理するときに利用する   AVCaptureStillImageOutput  付随するメタデータを使用して静止画像をキャプチャするときに利用する    Audio Output  AVCaptureAudioDataOutput  キャプチャ中のオーディオフレームを処理するときに利用する    使い方 AVCaptureMovieFileOutput ムービーファイルを保存するのに必要な処理を提供してくれるクラス。
 録画するときは
-//録画開始 [captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];  のように始めることができます。
+//録画開始 [captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self]; のように始めることができます。
 必要に応じてAVCaptureFileOutputRecordingDelegateオプションを利用して、各タイミングに応じた処理を行います。
- AVCaptureFileOutputRecordingDelegate
-Delegate Methods – captureOutput:didStartRecordingToOutputFileAtURL:fromConnections: – captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:   前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。
+ AVCaptureFileOutputRecordingDelegate  Delegate Methods – captureOutput:didStartRecordingToOutputFileAtURL:fromConnections: – captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error: 前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。
 AVCaptureStillImageOutput 画像をキャプチャするときに利用して、出力は以下のように実装します。
 AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObject]; [captureStillImageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) { NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer]; UIImage *image = [UIImage imageWithData:data]; ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init]; [library writeImageToSavedPhotosAlbum:image." />
 <meta property="og:site_name" content="おじさんは生きている"/>
@@ -29,12 +28,11 @@ AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObj
 <meta name="twitter:title" content="メディアキャプチャの出力先の実装について" />
 <meta name="twitter:description" content="AV Foundationを利用して写真の撮影やはたまた動画の撮影を行う場合は、カメラデバイスに接続して映像をリアルタイムに表示させたい場合があるかと思います。
 そんなときはAVCaptureSessionを利用してメディアキャプチャの実装の準備をを行い、入力先・出力先はどうするかという設定を行うのですが、今回はその出力部分について何パターンか方法があったので調べてみました。
-Video Output  AVCaptureMovieFileOutput  ムービーファイルを出力するときに利用する  AVCaptureVideoDataOutput  キャプチャ中のビデオフレームを処理するときに利用する  AVCaptureStillImageOutput  付随するメタデータを使用して静止画像をキャプチャするときに利用する   Audio Output  AVCaptureAudioDataOutput  キャプチャ中のオーディオフレームを処理するときに利用する   使い方 AVCaptureMovieFileOutput ムービーファイルを保存するのに必要な処理を提供してくれるクラス。
+Video Output  AVCaptureMovieFileOutput  ムービーファイルを出力するときに利用する   AVCaptureVideoDataOutput  キャプチャ中のビデオフレームを処理するときに利用する   AVCaptureStillImageOutput  付随するメタデータを使用して静止画像をキャプチャするときに利用する    Audio Output  AVCaptureAudioDataOutput  キャプチャ中のオーディオフレームを処理するときに利用する    使い方 AVCaptureMovieFileOutput ムービーファイルを保存するのに必要な処理を提供してくれるクラス。
 録画するときは
-//録画開始 [captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];  のように始めることができます。
+//録画開始 [captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self]; のように始めることができます。
 必要に応じてAVCaptureFileOutputRecordingDelegateオプションを利用して、各タイミングに応じた処理を行います。
- AVCaptureFileOutputRecordingDelegate
-Delegate Methods – captureOutput:didStartRecordingToOutputFileAtURL:fromConnections: – captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:   前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。
+ AVCaptureFileOutputRecordingDelegate  Delegate Methods – captureOutput:didStartRecordingToOutputFileAtURL:fromConnections: – captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error: 前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。
 AVCaptureStillImageOutput 画像をキャプチャするときに利用して、出力は以下のように実装します。
 AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObject]; [captureStillImageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) { NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer]; UIImage *image = [UIImage imageWithData:data]; ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init]; [library writeImageToSavedPhotosAlbum:image." />
 
@@ -71,76 +69,53 @@ AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObj
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2014-04-07">April 07, 2014</time></span>
 			<span class="entry-categories">( <a href="/categories/ios">iOS</a> )</span>
 			<section itemprop="entry-text">
-				
-
-<p><code>AV Foundation</code>を利用して写真の撮影やはたまた動画の撮影を行う場合は、カメラデバイスに接続して映像をリアルタイムに表示させたい場合があるかと思います。</p>
-
-<p><img src="/images/posts/2014-04-06-01.png" alt="AV Foundation" /></p>
-
+				<p><code>AV Foundation</code>を利用して写真の撮影やはたまた動画の撮影を行う場合は、カメラデバイスに接続して映像をリアルタイムに表示させたい場合があるかと思います。</p>
+<p><img src="/images/posts/2014-04-06-01.png" alt="AV Foundation"></p>
 <p>そんなときは<code>AVCaptureSession</code>を利用してメディアキャプチャの実装の準備をを行い、入力先・出力先はどうするかという設定を行うのですが、今回はその出力部分について何パターンか方法があったので調べてみました。</p>
-
 <h3 id="video-output">Video Output</h3>
-
 <ul>
 <li>AVCaptureMovieFileOutput
-
 <ul>
 <li>ムービーファイルを出力するときに利用する</li>
-</ul></li>
+</ul>
+</li>
 <li>AVCaptureVideoDataOutput
-
 <ul>
 <li>キャプチャ中のビデオフレームを処理するときに利用する</li>
-</ul></li>
+</ul>
+</li>
 <li>AVCaptureStillImageOutput
-
 <ul>
 <li>付随するメタデータを使用して静止画像をキャプチャするときに利用する</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="audio-output">Audio Output</h3>
-
 <ul>
 <li>AVCaptureAudioDataOutput
-
 <ul>
 <li>キャプチャ中のオーディオフレームを処理するときに利用する</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="使い方">使い方</h2>
-
 <h3 id="avcapturemoviefileoutput">AVCaptureMovieFileOutput</h3>
-
 <p>ムービーファイルを保存するのに必要な処理を提供してくれるクラス。</p>
-
 <p>録画するときは</p>
-
-<pre><code class="language-obj-c">//録画開始
-[captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
-</code></pre>
-
-<p>のように始めることができます。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c"><span style="color:#75715e">//録画開始
+</span><span style="color:#75715e"></span>[captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
+</code></pre></div><p>のように始めることができます。</p>
 <p>必要に応じて<code>AVCaptureFileOutputRecordingDelegate</code>オプションを利用して、各タイミングに応じた処理を行います。</p>
-
 <ul>
-<li><p>AVCaptureFileOutputRecordingDelegate</p>
-
+<li>AVCaptureFileOutputRecordingDelegate</li>
+</ul>
 <pre><code>Delegate Methods
 
 – captureOutput:didStartRecordingToOutputFileAtURL:fromConnections:
 – captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:
-</code></pre></li>
-</ul>
-
-<p>前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、<code>captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:</code>の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。</p>
-
+</code></pre><p>前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、<code>captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:</code>の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。</p>
 <h4 id="avcapturestillimageoutput">AVCaptureStillImageOutput</h4>
-
 <p>画像をキャプチャするときに利用して、出力は以下のように実装します。</p>
-
 <pre><code>AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObject];
 [captureStillImageOutput captureStillImageAsynchronouslyFromConnection:connection
                                                      completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
@@ -153,37 +128,26 @@ AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObj
                                                                                    NSLog(@&quot;saved&quot;);
                                                                                }];
                                                      }];
-</code></pre>
-
-<h3 id="avcapturevideodataoutput-avcaptureaudiodataoutput">AVCaptureVideoDataOutput, AVCaptureAudioDataOutput</h3>
-
+</code></pre><h3 id="avcapturevideodataoutput-avcaptureaudiodataoutput">AVCaptureVideoDataOutput, AVCaptureAudioDataOutput</h3>
 <p>デリゲートメソッドを利用して非圧縮状態のビデオフレーム情報を提供します。
 そのフレーム情報は<code>CMSampleBufferRef</code>という形式で送信されてきてそれを利用して動画の保存やら編集やらを行うことができます。
 このときにビデオとオーディオは別で処理しないといけません。（デリゲートメソッドが分かれているように）
 主にビデオもオーディオも両方扱うときは<code>– captureOutput:didOutputSampleBuffer:fromConnection:</code>でどちらのメディアなのか区別して処理を行うような実装になります。
 さらに細かい処理を行っていく場合はこちらのクラスを実装しないといけないですね。例えば、リアルタイムに動画を編集したりだとか、Vineみたいにタッチしているときは動画の保存し続けるような処理でしょうか。</p>
-
 <ul>
-<li><p>AVCaptureVideoDataOutputSampleBufferDelegate</p>
-
+<li>AVCaptureVideoDataOutputSampleBufferDelegate</li>
+</ul>
 <pre><code>Managing Sample Buffer Behavior
 – captureOutput:didOutputSampleBuffer:fromConnection:
 – captureOutput:didDropSampleBuffer:fromConnection:
-</code></pre></li>
-
-<li><p>AVCaptureAudioDataOutputSampleBufferDelegat</p>
-
+</code></pre><ul>
+<li>AVCaptureAudioDataOutputSampleBufferDelegat</li>
+</ul>
 <pre><code>Delegate Methods
 – captureOutput:didOutputSampleBuffer:fromConnection:
-</code></pre></li>
-</ul>
-
-<h2 id="まとめ">まとめ</h2>
-
+</code></pre><h2 id="まとめ">まとめ</h2>
 <p>メディアキャプチャの出力先の実装について調べてみました。目的に応じてどれを使うかは選択していけばいいのですが、よりユーザにインタラクティブなインタフェースや体験をさせるにはそれ相応に細かい実装していかなければいけないこともわかりました。何度も言っているかもしれないけどメディア系の実装は大変です。。。</p>
-
 <h2 id="ref">ref</h2>
-
 <ul>
 <li><a href="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/AVFoundationPG.pdf">AV Foundation公式ドキュメント</a></li>
 <li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVCaptureMovieFileOutput_Class/Reference/Reference.html#//apple_ref/occ/cl/AVCaptureMovieFileOutput">AVCaptureMovieFileOutput</a></li>

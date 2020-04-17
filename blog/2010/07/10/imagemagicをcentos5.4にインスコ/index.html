@@ -2,15 +2,15 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="ImageMagicをCentOS5.4にインスコ">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/07/10/imagemagic%E3%82%92centos5.4%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%B3/" />
-<meta property="go:description" content="wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-libs-1.900.1-7.el5.kb.i386.rpm wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-devel-1.900.1-7.el5.kb.i386.rpm rpm -ivh jasper-libs-1.900.1-7.el5.kb.i386.rpm rpm -ivh jasper-devel-1.900.1-7.el5.kb.i386.rpm wget http://www.imagemagick.org/download/linux/CentOS/i386/ImageMagick-6.6.3-0.i386.rpm wget http://image_magick.veidrodis.com/image_magick/linux/CentOS/i386/ImageMagick-devel-6.6.3-0.i386.rpm # rpmをダウンロードしたそのディレクトリ内で実行するとそのパッケージ＋依存性のあるパッケージを自動でやってくれます。 yum install ImageMagic  このときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます vi /etc/yum.conf gpgcheck=1 
-このときｖ2.3がいんすとーるされました。 pecl install imagick 
-php.iniを変更 extension=imagick.so 
+<meta property="go:description" content="このときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます
+このときｖ2.3がいんすとーるされました。
+php.iniを変更
 本当は画像関係のモジュールをいろいろいれないいけないみたいだけど今回はこれで大丈夫でしたです。
 ■参照URL http://mercurius.jp/blog/2010/02/08-113607.html" />
 <meta property="og:site_name" content="おじさんは生きている"/>
@@ -22,9 +22,9 @@ php.iniを変更 extension=imagick.so
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="ImageMagicをCentOS5.4にインスコ" />
-<meta name="twitter:description" content="wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-libs-1.900.1-7.el5.kb.i386.rpm wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-devel-1.900.1-7.el5.kb.i386.rpm rpm -ivh jasper-libs-1.900.1-7.el5.kb.i386.rpm rpm -ivh jasper-devel-1.900.1-7.el5.kb.i386.rpm wget http://www.imagemagick.org/download/linux/CentOS/i386/ImageMagick-6.6.3-0.i386.rpm wget http://image_magick.veidrodis.com/image_magick/linux/CentOS/i386/ImageMagick-devel-6.6.3-0.i386.rpm # rpmをダウンロードしたそのディレクトリ内で実行するとそのパッケージ＋依存性のあるパッケージを自動でやってくれます。 yum install ImageMagic  このときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます vi /etc/yum.conf gpgcheck=1 
-このときｖ2.3がいんすとーるされました。 pecl install imagick 
-php.iniを変更 extension=imagick.so 
+<meta name="twitter:description" content="このときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます
+このときｖ2.3がいんすとーるされました。
+php.iniを変更
 本当は画像関係のモジュールをいろいろいれないいけないみたいだけど今回はこれで大丈夫でしたです。
 ■参照URL http://mercurius.jp/blog/2010/02/08-113607.html" />
 
@@ -61,37 +61,18 @@ php.iniを変更 extension=imagick.so
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2010-07-10">July 10, 2010</time></span>
 			<span class="entry-categories">( <a href="/categories/linux">Linux</a> )</span>
 			<section itemprop="entry-text">
-				<pre class="brush: bash">
-wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-libs-1.900.1-7.el5.kb.i386.rpm
-wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-devel-1.900.1-7.el5.kb.i386.rpm
-rpm -ivh jasper-libs-1.900.1-7.el5.kb.i386.rpm
-rpm -ivh jasper-devel-1.900.1-7.el5.kb.i386.rpm
-
-wget http://www.imagemagick.org/download/linux/CentOS/i386/ImageMagick-6.6.3-0.i386.rpm
-wget http://image_magick.veidrodis.com/image_magick/linux/CentOS/i386/ImageMagick-devel-6.6.3-0.i386.rpm
-
-# rpmをダウンロードしたそのディレクトリ内で実行するとそのパッケージ＋依存性のあるパッケージを自動でやってくれます。
-yum install ImageMagic
-</pre>
-
-<p>このときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます
-<pre class="brush: bash">
-vi /etc/yum.conf
-gpgcheck=1
-</pre></p>
-
-<p>このときｖ2.3がいんすとーるされました。
-<pre class="brush: bash">
-pecl install imagick
-</pre></p>
-
-<p>php.iniを変更
-<pre class="brush: bash">
-extension=imagick.so
-</pre></p>
-
+				<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>このときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>このときｖ2.3がいんすとーるされました。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>php.iniを変更</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>本当は画像関係のモジュールをいろいろいれないいけないみたいだけど今回はこれで大丈夫でしたです。</p>
-
 <p>■参照URL
 <a href="http://mercurius.jp/blog/2010/02/08-113607.html">http://mercurius.jp/blog/2010/02/08-113607.html</a></p>
 

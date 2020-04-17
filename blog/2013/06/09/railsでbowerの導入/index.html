@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="RailsでBowerの導入">
@@ -57,13 +57,9 @@ $ node -v v0.6.19 $ brew install node ==&gt; Upgrading 1 outdated package, with 
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2013-06-09">June 09, 2013</time></span>
 			<span class="entry-categories">( <a href="/categories/javascript">javascript</a> )</span>
 			<section itemprop="entry-text">
-				
-
-<p>javascriptのパッケージ管理がしたくて<code>bower</code>というパッケージ管理ツールを<a href="http://www.frustration.me">http://www.frustration.me</a> にインストールしてみました。
+				<p>javascriptのパッケージ管理がしたくて<code>bower</code>というパッケージ管理ツールをhttp://www.frustration.me にインストールしてみました。
 (ブランチ切って試してみました・・・)</p>
-
 <p>とりあえず、バージョンが古いので最新のものにインストールします。</p>
-
 <pre><code>$ node -v 
 v0.6.19
 
@@ -82,30 +78,17 @@ If you would like to keep your installation of npm instead of
 using the one provided with homebrew, install the formula with
 the `--without-npm` option.
 Error: An unsatisfied requirement failed this build.
-</code></pre>
-
-<p>npm をまずアンインストールしてほしいとのこと</p>
-
+</code></pre><p>npm をまずアンインストールしてほしいとのこと</p>
 <pre><code>$ npm uninstall npm -g
-</code></pre>
-
-<p>再度実行します。</p>
-
+</code></pre><p>再度実行します。</p>
 <pre><code>$ brew upgrade node
 $ node -v
 v0.10.7
-</code></pre>
-
-<p>これで最新版になった。
+</code></pre><p>これで最新版になった。
 次にbowerをインストール</p>
-
 <pre><code>$ npm install -g bower
-</code></pre>
-
-<p>これでインストール完了。</p>
-
+</code></pre><p>これでインストール完了。</p>
 <p>とりえず、検索でどうなるか確認。</p>
-
 <pre><code>bower search backbone
 Search results:
 
@@ -117,13 +100,9 @@ Search results:
 ・
 ・
 ・
-</code></pre>
-
-<p>てな感じでbackboneに関連するプラグインがどどどっと出力される</p>
-
+</code></pre><p>てな感じでbackboneに関連するプラグインがどどどっと出力される</p>
 <p>試しにインストールすると、ホームディレクトリに生成されてしまうので
 アプリごとに管理したいところ</p>
-
 <pre><code>$ bower install jquery
 bower cloning git://github.com/components/jquery.git
 bower cached git://github.com/components/jquery.git
@@ -131,21 +110,15 @@ bower fetching jquery
 bower checking out jquery#2.0.2
 bower copying /Users/pp_kupepo_gattyanmo/.bower/cache/jquery/29cb4373d29144ca260ac7c3997f4381
 bower installing jquery#2.0.2
-</code></pre>
-
-<p>ここからRaisに組み込んでいきます。</p>
-
+</code></pre><p>ここからRaisに組み込んでいきます。</p>
 <pre><code>$ bower init
 name: [frustration]
 version: [0.0.0]
 main file: []
 add current components as dependencies? (y/n): [y] y
 add commonly ignored files to ignore list? (y/n): [y]
-</code></pre>
-
-<p>そうするとカレントディレクトリに以下のファイルが作成されます。
+</code></pre><p>そうするとカレントディレクトリに以下のファイルが作成されます。
 このファイルでプラグインの管理を行います。</p>
-
 <pre><code>{
   &quot;name&quot;: &quot;frustration&quot;,
   &quot;version&quot;: &quot;0.0.0&quot;,
@@ -159,12 +132,9 @@ add commonly ignored files to ignore list? (y/n): [y]
   ]
 }
 
-</code></pre>
-
-<p>現状の設定だとグローバルの設定なのでダウンロードがプロジェクト単位でできないので
+</code></pre><p>現状の設定だとグローバルの設定なのでダウンロードがプロジェクト単位でできないので
 <code>.bowerrc</code>ファイルをプロジェクトディレクトリ直下に保存する。
 デフォルトは<code>~/.bowerrc</code>を参照するようだ。</p>
-
 <pre><code>{
   &quot;directory&quot;: &quot;vendor/assets/javascripts/components&quot;,
   &quot;json&quot;: &quot;bower.json&quot;,
@@ -172,56 +142,38 @@ add commonly ignored files to ignore list? (y/n): [y]
     &quot;https://bower.herokuapp.com&quot;
   ]
 }
-</code></pre>
-
-<p>これで<code>bower install</code>すると指定のディレクトリに保存される。</p>
-
+</code></pre><p>これで<code>bower install</code>すると指定のディレクトリに保存される。</p>
 <h2 id="railsの場合">Railsの場合</h2>
-
 <p><code>application.rb</code>でパスを通るようにする</p>
-
 <pre><code>    # for bower
     config.assets.paths &lt;&lt; Rails.root.join('vendor', 'assets', 'javascripts', 'components')
-</code></pre>
-
-<p><code>applicatio.js</code>でパスの再設定を行う。</p>
-
+</code></pre><p><code>applicatio.js</code>でパスの再設定を行う。</p>
 <pre><code>//= require components/jquery/jquery.js
 //= require components/jquery-ui/ui/jquery-ui.js
-</code></pre>
-
-<p>これでRailsの場合は完了です。</p>
-
+</code></pre><p>これでRailsの場合は完了です。</p>
 <h2 id="所感">所感</h2>
-
 <p>jsもbundlerのように管理できるようになったのは大変便利作業です。
 version上がることごとにサイト確認して<code>wget</code>してこないといけないし、コマンド一発でプラグインの削除・検索・バージョンのアップ・ダウングレードもできてしまうのは進化であるのです。</p>
-
 <p>ですが、まだ</p>
-
 <ul>
 <li>version 管理されていないプラグインある</li>
 <li>本番環境にnodeが入っていない・bowerが使えない</li>
 </ul>
-
 <p>ときがあるのでそこは共存なり、一旦保留なりしたほうが良いかもしれません。。。
 また、後者のときはいけてないけどパッケージも合わせてコミットするのが良いかもしれない。</p>
-
 <h2 id="ref">Ref</h2>
-
 <ul>
 <li>source
-
 <ul>
 <li><a href="https://github.com/bower/bower">https://github.com/bower/bower</a></li>
-</ul></li>
+</ul>
+</li>
 <li>Bower components
-
 <ul>
 <li><a href="http://sindresorhus.com/bower-components/">http://sindresorhus.com/bower-components/</a></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>ここにパッケージが登録されています</p>
 
 			</section>

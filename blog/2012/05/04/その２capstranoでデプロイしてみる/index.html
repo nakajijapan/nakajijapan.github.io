@@ -2,18 +2,13 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[その２]capstranoでデプロイしてみる！！">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2012/05/04/%E3%81%9D%E3%81%AE%EF%BC%92capstrano%E3%81%A7%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/" />
-<meta property="go:description" content="次は実際にソースをリモートに設置させるようにします。
-このコマンドで必要最低限のファイルを自動で作成してくれます。
-$ capify . $ emacs config/deploy.rb  その作成されたファイルを自分の環境に合わせて設定します。 以下だと、gitで管理しているソースをappユーザで配置します。
-set :application, &#34;hogeme&#34; set :repository, &#34;ssh://hogeme.git&#34; # git set :deploy_to, &#34;/var/www/#{application}&#34; set :scm, :git #set :user, &#34;app&#34; set :user, &#34;nakaji&#34; set :use_sudo, false role :web, &#34;hoge.me&#34; role :app, &#34;hoge.me&#34; role :db, &#34;hoge.me&#34;, :primary = true  デプロイの処理を行うコマンドです。
-$ cap deploy:setup  このときリモート側でディレクトリがもろもろ作成されます
-[remote] $ tree . ├── releases └── shared ├── log ├── pids └── system  $ cap deploy:update  [remote] $ tree ." />
+<meta property="go:description" content="" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -23,12 +18,7 @@ $ cap deploy:setup  このときリモート側でディレクトリがもろも
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[その２]capstranoでデプロイしてみる！！" />
-<meta name="twitter:description" content="次は実際にソースをリモートに設置させるようにします。
-このコマンドで必要最低限のファイルを自動で作成してくれます。
-$ capify . $ emacs config/deploy.rb  その作成されたファイルを自分の環境に合わせて設定します。 以下だと、gitで管理しているソースをappユーザで配置します。
-set :application, &#34;hogeme&#34; set :repository, &#34;ssh://hogeme.git&#34; # git set :deploy_to, &#34;/var/www/#{application}&#34; set :scm, :git #set :user, &#34;app&#34; set :user, &#34;nakaji&#34; set :use_sudo, false role :web, &#34;hoge.me&#34; role :app, &#34;hoge.me&#34; role :db, &#34;hoge.me&#34;, :primary = true  デプロイの処理を行うコマンドです。
-$ cap deploy:setup  このときリモート側でディレクトリがもろもろ作成されます
-[remote] $ tree . ├── releases └── shared ├── log ├── pids └── system  $ cap deploy:update  [remote] $ tree ." />
+<meta name="twitter:description" content="" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -63,73 +53,24 @@ $ cap deploy:setup  このときリモート側でディレクトリがもろも
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2012-05-04">May 04, 2012</time></span>
 			<span class="entry-categories">( <a href="/categories/server">Server</a> )</span>
 			<section itemprop="entry-text">
-				<p>次は実際にソースをリモートに設置させるようにします。</p>
-
-<p>このコマンドで必要最低限のファイルを自動で作成してくれます。</p>
-
-<pre class="brush:bash">
-$ capify . 
-$ emacs config/deploy.rb
-</pre>
-
-<p>その作成されたファイルを自分の環境に合わせて設定します。
-以下だと、gitで管理しているソースをappユーザで配置します。</p>
-
-<pre class="brush:bash">
-set :application, "hogeme"
-set :repository,  "ssh://hogeme.git" # git
-set :deploy_to, "/var/www/#{application}"
-set :scm, :git
-
-#set :user, "app"                                                                                                                                                                    
-set :user, "nakaji"
-set :use_sudo, false
-
-role :web, "hoge.me"
-role :app, "hoge.me"
-role :db,  "hoge.me", :primary => true
-</pre>
-
-<p>デプロイの処理を行うコマンドです。</p>
-
-<pre class="brush:bash">
-$ cap deploy:setup
-</pre>
-
-<p>このときリモート側でディレクトリがもろもろ作成されます</p>
-
-<pre class="brush:text">
-[remote] $ tree
-.
-├── releases
-└── shared
-    ├── log
-    ├── pids
-    └── system
-</pre>
-
-<pre class="brush:bash">
-$ cap deploy:update
-</pre>
-
-<pre class="brush:bash">
-[remote] $ tree
-.
-├── current -> /var/www/hogeme/releases/20120228170906
-├── releases
-│   └── 20120228170906
-│       ├── Gemfile
-│       ├── Gemfile.lock
-・
-・
-・
-└── shared
-    ├── log
-    ├── pids
-    └── system
-</pre>
-
-<p>以上。</p>
+				<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 			</section>
 		</article>

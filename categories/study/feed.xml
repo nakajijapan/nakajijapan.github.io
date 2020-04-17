@@ -20,8 +20,8 @@
 			
 			<guid>http://nakajijapan.github.io/blog/2014/02/15/developers-summit-2014/</guid>
 			<description>先週ではありますが、Developers Summit 2014に参加してきました。 サミットが平日だったので全部はみれていませんが、いくつかのステージをみること はできたのでそのメモを記します。
- Developers Summit 2014  http://event.shoeisha.jp/devsumi/20140213/   iOSアプリケーションの継続的デリバリー  発表者  https://event.shoeisha.jp/devsumi/20140213/session/430  発表資料  http://www.slideshare.net/numeha/ios-31199969   どのくらいスピードが必要なのか  iOS１ヶ月で約四回リリース ネックは申請降りるのに７日間必要。。。 1年で１２回のリリース 自分たちのリリースのリズムできてますか？  いつもリリースできる状態にしときましょう!!  継続的デリバリー  ビジネスの主導権を握る為にCIやるんだ!!!    価値のあるソフトウェアをはやく継続的にリリースする
- 徹底的に自動化してきた コード品質のパイプライン  コード取得 -&amp;gt; Git ビルド -&amp;gt; Xcode コード行数 -&amp;gt; SLOCCount 重複コード -&amp;gt; DRY 警告 -&amp;gt; Warnnings   テストにはGHUnitを利用している カバレッジはgcovr  製品品質のパイプライン  実記でのテストが必要 テストフレームワークを同封してビルドしている 自動でipaファイル作成 複数のデバイスに自動でインストール  fruitstrap or Instruments  特定の端末のピンポイントでデプロイする Frankというテストフレーム httpで外部から複数代のios端末を操作 ios7からのTouch問うの操作API禁止 fsdfdsafda sdfsadfsadfd  どうしよう。。。</description>
+ Developers Summit 2014  http://event.shoeisha.jp/devsumi/20140213/    iOSアプリケーションの継続的デリバリー  発表者  https://event.shoeisha.jp/devsumi/20140213/session/430   発表資料  http://www.slideshare.net/numeha/ios-31199969    どのくらいスピードが必要なのか  iOS１ヶ月で約四回リリース ネックは申請降りるのに７日間必要。。。 1年で１２回のリリース 自分たちのリリースのリズムできてますか？  いつもリリースできる状態にしときましょう!!   継続的デリバリー  ビジネスの主導権を握る為にCIやるんだ!!!     価値のあるソフトウェアをはやく継続的にリリースする
+ 徹底的に自動化してきた コード品質のパイプライン  コード取得 -&amp;gt; Git ビルド -&amp;gt; Xcode コード行数 -&amp;gt; SLOCCount 重複コード -&amp;gt; DRY 警告 -&amp;gt; Warnnings   テストにはGHUnitを利用している カバレッジはgcovr  製品品質のパイプライン  実記でのテストが必要 テストフレームワークを同封してビルドしている 自動でipaファイル作成 複数のデバイスに自動でインストール  fruitstrap or Instruments   特定の端末のピンポイントでデプロイする Frankというテストフレーム httpで外部から複数代のios端末を操作 ios7からのTouch問うの操作API禁止 fsdfdsafda sdfsadfsadfd  どうしよう。。。</description>
 		</item>
 		
 	</channel>

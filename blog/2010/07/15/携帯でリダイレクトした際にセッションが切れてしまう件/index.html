@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="携帯でリダイレクトした際にセッションが切れてしまう件。">
@@ -13,15 +13,14 @@
 そう、セッションを引き回していなかったのです。
 「加藤さん事件です。」（レポーター風）
 一応セッション設定チェック
-;----- mobile {----- resources.session.use_only_cookies = false resources.session.use_cookies = false resources.session.use_trans_sid = true ;----- mobile }-----  なんら問題無し。
+なんら問題無し。
 各処理でのサーバ情報ゲット
-[QUERY_STRING] =&gt; [REQUEST_URI] =&gt; /test.php  !? むむむ、URI自体に問題があるのか。
+[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php むむむ、URI自体に問題があるのか。
 そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。
-http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxx だとだめで http://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top  「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
+「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
 RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。
 結構単純なことでした。。
-■参照URL URI - Uniform Resource Identifiers
-iers" />
+■参照URL URI - Uniform Resource Identifiersiers" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -36,15 +35,14 @@ iers" />
 そう、セッションを引き回していなかったのです。
 「加藤さん事件です。」（レポーター風）
 一応セッション設定チェック
-;----- mobile {----- resources.session.use_only_cookies = false resources.session.use_cookies = false resources.session.use_trans_sid = true ;----- mobile }-----  なんら問題無し。
+なんら問題無し。
 各処理でのサーバ情報ゲット
-[QUERY_STRING] =&gt; [REQUEST_URI] =&gt; /test.php  !? むむむ、URI自体に問題があるのか。
+[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php むむむ、URI自体に問題があるのか。
 そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。
-http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxx だとだめで http://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top  「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
+「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
 RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。
 結構単純なことでした。。
-■参照URL URI - Uniform Resource Identifiers
-iers" />
+■参照URL URI - Uniform Resource Identifiersiers" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -80,58 +78,31 @@ iers" />
 			<span class="entry-categories">( <a href="/categories/php">PHP</a> )</span>
 			<section itemprop="entry-text">
 				<p>携帯版ではまってしまったのでメモ</p>
-
 <p>携帯は基本的にはセッションはパラメータで引き回すようにしています。
 しかし、リダイレクト時には自動的にはセッションIDは引き回さないようPHPの仕様でなっています。
 そこで、リダイレクト時にもセッションを引き回せるように手動でセッションを引き回すように処理を
 加えたのですがなぜかリダイレクト先の処理側でセッションが新しく生成されてしまう。</p>
-
 <p>そう、セッションを引き回していなかったのです。</p>
-
 <p>「加藤さん事件です。」（レポーター風）</p>
-
 <p>一応セッション設定チェック</p>
-
-<pre class="brush:text">
-;----- mobile {-----
-resources.session.use_only_cookies      = false
-resources.session.use_cookies           = false
-resources.session.use_trans_sid         = true
-;----- mobile }-----
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>なんら問題無し。</p>
-
 <p>各処理でのサーバ情報ゲット</p>
-
 <pre><code>[QUERY_STRING] =&gt;
 [REQUEST_URI] =&gt; /test.php
 </code></pre>
-
-<h1>!?</h1>
-
+<!-- raw HTML omitted -->
 <p>むむむ、URI自体に問題があるのか。</p>
-
 <p>そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。</p>
-
-<pre class="brush:text">
-http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxx
-
-だとだめで
-
-http://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。</p>
-
 <p>RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。</p>
-
 <p>結構単純なことでした。。</p>
-
 <p>■参照URL
-<a href="http://www.studyinghttp.net/uri">URI - Uniform Resource Identifiers</a></p>
-
-<p>iers</a></p>
+<!-- raw HTML omitted -->URI - Uniform Resource Identifiers<!-- raw HTML omitted --></p>
+<p>iers<!-- raw HTML omitted --></p>
 
 			</section>
 		</article>

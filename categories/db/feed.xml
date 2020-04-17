@@ -24,8 +24,11 @@
 まぁ、そのときの状態。 ①HTTPの入力・出力・内部処理はUTF-8で画面出力自体は問題なく表示される。 ツーことはDBには同じ文字コードで入っているはず。 ②コンソール上でクライアント動かしてSQL打っても表示されない。 ツーことはクライアントの設定かな
 あ、それですね。
 まずはDBの文字コード確認。
-mysql SHOW CREATE DATABASE testdb; +----------+-------------------------------------------------------------------+ | Database | Create Database | +----------+-------------------------------------------------------------------+ | testdb| CREATE DATABASE `testdb` /*!40100 DEFAULT CHARACTER SET utf8 */ | +----------+-------------------------------------------------------------------+ 1 row in set (0.00 sec)  クライアントはどうか
-mysql SHOW VARIABLES LIKE &#39;character\_set\_%&#39;; +--------------------------+--------+ | Variable_name | Value | +--------------------------+--------+ | character_set_client | latin1| | character_set_connection | latin1| | character_set_database | utf8 | | character_set_filesystem | binary | | character_set_results | latin1| | character_set_server | latin1| | character_set_system | utf8 | +--------------------------+--------+ 7 rows in set (0.</description>
+クライアントはどうか
+グーグルちゃんのおかげで設定すべき箇所みつけました。
+設定後の確認
+はいおｋ
+�</description>
 		</item>
 		
 		<item>
@@ -35,7 +38,7 @@ mysql SHOW VARIABLES LIKE &#39;character\_set\_%&#39;; +------------------------
 			
 			<guid>http://nakajijapan.github.io/blog/2010/01/29/db%E3%81%AE%E6%B0%B8%E7%B6%9A%E7%9A%84%E6%8E%A5%E7%B6%9A/</guid>
 			<description>Mysqlの設定していたときにちょっと疑問におもったので調査。
- mysql.max_persistent integer The maximum number of persistent MySQL connections per process. 1プロセスあたりに永続接続できる最大接続数。
+1プロセスあたりに永続接続できる最大接続数。
 ちなみに永続接続っていうのは ・DBのセッションがずっと持ちっぱなしで接続が終了してもセッションは開きっぱなしの状態。 ・もし開いている接続があればそれを使う。
 これだと効率がよくなるね、でもなんかゾンビ化しそう。
 非永続接続は ・DBの接続が終了すればセッションが閉じちゃう感じか。
@@ -46,8 +49,7 @@ mysql SHOW VARIABLES LIKE &#39;character\_set\_%&#39;; +------------------------
 １リクエスト２コネクションになっちゃうわけか
 じゃこの違いってなんだ？ 後者だと普通に考えて効率だよな。前者は一貫性のあるデータ取れたり、トランザクションも統一できるから安全性かな。
 なんか読めてきた。
-http://www.studyinghttp.net/connections http://php.net/manual/ja/features.persistent-connections.php http://php.net/manual/ja/function.mysql-connect.php
-  </description>
+http://www.studyinghttp.net/connectionshttp://php.net/manual/ja/features.persistent-connections.phphttp://php.net/manual/ja/function.mysql-connect.php  </description>
 		</item>
 		
 	</channel>

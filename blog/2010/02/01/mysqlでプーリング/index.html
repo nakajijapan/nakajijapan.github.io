@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Mysqlでプーリング？？">
@@ -12,11 +12,10 @@
 発端は会社でDBの負荷分散のためにプログラムをいじってるみたいで 自分的にはちょっとメンドくせーなとおもいつつ、今までのこと考えてみると PostgresSQLのpg_poolの場合はその辺いろいろやってくれたなぁって感じた。
 そのアプリにコネクションプーリングをいれるかどうかは考えていなくて もし手軽でそんなにコストかかんなきゃ入れてもいいレベルです。
 あ、最初にコネクションプーリングとはって言ってみる。
- * ウェブアプリケーションから DB への接続を開けっ放しにして、接続に必要とされるオーバーヘッドをカットして双方の負荷を下げる。 * ウェブアプリケーションと DB への接続を「使いまわす」ことで、同時接続本数を節約する。 引用：コネクションプーリングの話  んで上記のサイト見てみたら。
- でもどうも MySQL は thread_cache とかを有効にすると(案外しなくてもそうなんだけど)実は接続に必要なオーバーヘッドがアプリケーション総体では無視できる程度の微々たるものだということがベンチマークの結果とかで分かる。それだったら Apache::DBI や CDBI の永続化の機能は OFF にしちゃいましょう...これがコネクションプーリングイラネ、みたいな話。  そんでもって「thread_cache」を調べてみると まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。 そのときにどのくらいスレッドをキャッシュしておくか。 (ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)
+んで上記のサイト見てみたら。
+そんでもって「thread_cache」を調べてみると まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。 そのときにどのくらいスレッドをキャッシュしておくか。 (ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)
 Mysqlの場合は、これで大体のケースいける感じなんかね＝。
-Hatena:yamazさん http://d.hatena.ne.jp/yamaz/20060903
-Pgpool http://www2b.biglobe.ne.jp/~caco/pgpool/" />
+Hatena:yamazさん http://d.hatena.ne.jp/yamaz/20060903Pgpool http://www2b." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -30,11 +29,10 @@ Pgpool http://www2b.biglobe.ne.jp/~caco/pgpool/" />
 発端は会社でDBの負荷分散のためにプログラムをいじってるみたいで 自分的にはちょっとメンドくせーなとおもいつつ、今までのこと考えてみると PostgresSQLのpg_poolの場合はその辺いろいろやってくれたなぁって感じた。
 そのアプリにコネクションプーリングをいれるかどうかは考えていなくて もし手軽でそんなにコストかかんなきゃ入れてもいいレベルです。
 あ、最初にコネクションプーリングとはって言ってみる。
- * ウェブアプリケーションから DB への接続を開けっ放しにして、接続に必要とされるオーバーヘッドをカットして双方の負荷を下げる。 * ウェブアプリケーションと DB への接続を「使いまわす」ことで、同時接続本数を節約する。 引用：コネクションプーリングの話  んで上記のサイト見てみたら。
- でもどうも MySQL は thread_cache とかを有効にすると(案外しなくてもそうなんだけど)実は接続に必要なオーバーヘッドがアプリケーション総体では無視できる程度の微々たるものだということがベンチマークの結果とかで分かる。それだったら Apache::DBI や CDBI の永続化の機能は OFF にしちゃいましょう...これがコネクションプーリングイラネ、みたいな話。  そんでもって「thread_cache」を調べてみると まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。 そのときにどのくらいスレッドをキャッシュしておくか。 (ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)
+んで上記のサイト見てみたら。
+そんでもって「thread_cache」を調べてみると まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。 そのときにどのくらいスレッドをキャッシュしておくか。 (ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)
 Mysqlの場合は、これで大体のケースいける感じなんかね＝。
-Hatena:yamazさん http://d.hatena.ne.jp/yamaz/20060903
-Pgpool http://www2b.biglobe.ne.jp/~caco/pgpool/" />
+Hatena:yamazさん http://d.hatena.ne.jp/yamaz/20060903Pgpool http://www2b." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -70,40 +68,24 @@ Pgpool http://www2b.biglobe.ne.jp/~caco/pgpool/" />
 			<span class="entry-categories">( <a href="/categories/mysql">Mysql</a> )</span>
 			<section itemprop="entry-text">
 				<p>ちょっとサーバがらみでいろいろ調べてたんで自分なりにまとめてみる。</p>
-
 <p>発端は会社でDBの負荷分散のためにプログラムをいじってるみたいで
 自分的にはちょっとメンドくせーなとおもいつつ、今までのこと考えてみると
 PostgresSQLのpg_poolの場合はその辺いろいろやってくれたなぁって感じた。</p>
-
 <p>そのアプリにコネクションプーリングをいれるかどうかは考えていなくて
 もし手軽でそんなにコストかかんなきゃ入れてもいいレベルです。</p>
-
 <p>あ、最初にコネクションプーリングとはって言ってみる。</p>
-
-<blockquote>
-    *   ウェブアプリケーションから DB への接続を開けっ放しにして、接続に必要とされるオーバーヘッドをカットして双方の負荷を下げる。
-    * ウェブアプリケーションと DB への接続を「使いまわす」ことで、同時接続本数を節約する。
-引用：<a href="http://d.hatena.ne.jp/naoya/20060912/1158058322">コネクションプーリングの話</a>
-</blockquote>
-
+<!-- raw HTML omitted -->
 <p>んで上記のサイト見てみたら。</p>
-
-<blockquote>
-でもどうも MySQL は thread_cache とかを有効にすると(案外しなくてもそうなんだけど)実は接続に必要なオーバーヘッドがアプリケーション総体では無視できる程度の微々たるものだということがベンチマークの結果とかで分かる。それだったら Apache::DBI や CDBI の永続化の機能は OFF にしちゃいましょう...これがコネクションプーリングイラネ、みたいな話。
-</blockquote>
-
+<!-- raw HTML omitted -->
 <p>そんでもって「thread_cache」を調べてみると
 まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。
 そのときにどのくらいスレッドをキャッシュしておくか。
 (ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)</p>
-
 <p>Mysqlの場合は、これで大体のケースいける感じなんかね＝。</p>
-
 <p>Hatena:yamazさん
-<a href="http://d.hatena.ne.jp/yamaz/20060903">http://d.hatena.ne.jp/yamaz/20060903</a></p>
-
+<!-- raw HTML omitted --><a href="http://d.hatena.ne.jp/yamaz/20060903">http://d.hatena.ne.jp/yamaz/20060903</a><!-- raw HTML omitted --></p>
 <p>Pgpool
-<a href="http://www2b.biglobe.ne.jp/~caco/pgpool/">http://www2b.biglobe.ne.jp/~caco/pgpool/</a></p>
+<!-- raw HTML omitted --><a href="http://www2b.biglobe.ne.jp/~caco/pgpool/">http://www2b.biglobe.ne.jp/~caco/pgpool/</a><!-- raw HTML omitted --></p>
 
 			</section>
 		</article>

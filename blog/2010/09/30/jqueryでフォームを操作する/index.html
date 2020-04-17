@@ -2,22 +2,21 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="jqueryでフォームを操作する">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/09/30/jquery%E3%81%A7%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%99%E3%82%8B/" />
 <meta property="go:description" content="Jqueryでフォームをいじっちゃいましょう。
-フォーム情報を取得したり設定したり var obj = $(&lsquo;#target&rsquo;); // id指定 var obj = $(&lsquo;.targets&rsquo;); // class指定 var obj = $(&lsquo;input[name=target]&lsquo;); // name指定
-// 選択したオブジェクトにたいしてそれぞれ処理を行う // (例)　ファームを「disabled」にする $(&lsquo;input[name=target]&lsquo;).attr(&lsquo;disabled&rsquo;, true);
-// .each() を利用してみる (上と同じ) $(&lsquo;input[name=target]&lsquo;).each(function(i){ $(this).attr(&lsquo;disabled&rsquo;, true); });
-//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- // value属性の値を取得する //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- var str = $(&lsquo;#target&rsquo;).attr(&lsquo;value&rsquo;); var str = $(&lsquo;#target&rsquo;).val();
-//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- // value属性に値を入力する //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- $(&lsquo;#target&rsquo;).attr({value: str}); $(&lsquo;#target&rsquo;).val(str);
-
-選択したオブジェクとを取得する(input[name=radio]) // get var obj = $(&ldquo;input[name=target]:checked&rdquo;);
+// 選択したオブジェクトにたいしてそれぞれ処理を行う // (例)　ファームを「disabled」にする $(&lsquo;input[name=target]&#39;).attr(&lsquo;disabled&rsquo;, true);
+// .each() を利用してみる (上と同じ) $(&lsquo;input[name=target]&#39;).each(function(i){ $(this).attr(&lsquo;disabled&rsquo;, true); });
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- // value属性の値を取得する //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- var str = $(&#39;#target&rsquo;).attr(&lsquo;value&rsquo;); var str = $(&#39;#target&rsquo;).val();
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- // value属性に値を入力する //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- $(&#39;#target&rsquo;).attr({value: str}); $(&#39;#target&rsquo;).val(str);
 // ＠は正規表現 var obj2 = $(&ldquo;input[@name=target]:checked&rdquo;);
-// ラジオボタンで選択されているオブジェクトを取得する var objRadio = $(&rdquo;:radio[@name=target]:checked&rdquo;);" />
+// ラジオボタンで選択されているオブジェクトを取得する var objRadio = $(&quot;:radio[@name=target]:checked&rdquo;);
+// value属性を取得する console.log(&ldquo;val = &quot; &#43; objRadio .val() ); // 選択肢を増やす $(&#39;#target&rsquo;).append($(&lsquo;&rsquo;).val(&lsquo;1&rsquo;).text(&lsquo;hogehoge&rsquo;));
+所感として「＠」は正規表現を利用して検索してくれるのですが、うまくいかなかったのでつかってません。 なんで動かないかは現在調査チュウ。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -28,15 +27,14 @@
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="jqueryでフォームを操作する" />
 <meta name="twitter:description" content="Jqueryでフォームをいじっちゃいましょう。
-フォーム情報を取得したり設定したり var obj = $(&lsquo;#target&rsquo;); // id指定 var obj = $(&lsquo;.targets&rsquo;); // class指定 var obj = $(&lsquo;input[name=target]&lsquo;); // name指定
-// 選択したオブジェクトにたいしてそれぞれ処理を行う // (例)　ファームを「disabled」にする $(&lsquo;input[name=target]&lsquo;).attr(&lsquo;disabled&rsquo;, true);
-// .each() を利用してみる (上と同じ) $(&lsquo;input[name=target]&lsquo;).each(function(i){ $(this).attr(&lsquo;disabled&rsquo;, true); });
-//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- // value属性の値を取得する //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- var str = $(&lsquo;#target&rsquo;).attr(&lsquo;value&rsquo;); var str = $(&lsquo;#target&rsquo;).val();
-//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- // value属性に値を入力する //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- $(&lsquo;#target&rsquo;).attr({value: str}); $(&lsquo;#target&rsquo;).val(str);
-
-選択したオブジェクとを取得する(input[name=radio]) // get var obj = $(&ldquo;input[name=target]:checked&rdquo;);
+// 選択したオブジェクトにたいしてそれぞれ処理を行う // (例)　ファームを「disabled」にする $(&lsquo;input[name=target]&#39;).attr(&lsquo;disabled&rsquo;, true);
+// .each() を利用してみる (上と同じ) $(&lsquo;input[name=target]&#39;).each(function(i){ $(this).attr(&lsquo;disabled&rsquo;, true); });
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- // value属性の値を取得する //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- var str = $(&#39;#target&rsquo;).attr(&lsquo;value&rsquo;); var str = $(&#39;#target&rsquo;).val();
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- // value属性に値を入力する //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- $(&#39;#target&rsquo;).attr({value: str}); $(&#39;#target&rsquo;).val(str);
 // ＠は正規表現 var obj2 = $(&ldquo;input[@name=target]:checked&rdquo;);
-// ラジオボタンで選択されているオブジェクトを取得する var objRadio = $(&rdquo;:radio[@name=target]:checked&rdquo;);" />
+// ラジオボタンで選択されているオブジェクトを取得する var objRadio = $(&quot;:radio[@name=target]:checked&rdquo;);
+// value属性を取得する console.log(&ldquo;val = &quot; &#43; objRadio .val() ); // 選択肢を増やす $(&#39;#target&rsquo;).append($(&lsquo;&rsquo;).val(&lsquo;1&rsquo;).text(&lsquo;hogehoge&rsquo;));
+所感として「＠」は正規表現を利用して検索してくれるのですが、うまくいかなかったのでつかってません。 なんで動かないかは現在調査チュウ。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -72,61 +70,37 @@
 			<span class="entry-categories">( <a href="/categories/javascript">javascript</a> )</span>
 			<section itemprop="entry-text">
 				<p>Jqueryでフォームをいじっちゃいましょう。</p>
-
-<p><h2>フォーム情報を取得したり設定したり</h2>
-<pre class="brush:javascript">
-var obj = $(&lsquo;#target&rsquo;);  // id指定
-var obj = $(&lsquo;.targets&rsquo;); // class指定
-var obj = $(&lsquo;input[name=target]&lsquo;);  // name指定</p>
-
+<!-- raw HTML omitted -->
 <p>// 選択したオブジェクトにたいしてそれぞれ処理を行う
 // (例)　ファームを「disabled」にする
-$(&lsquo;input[name=target]&lsquo;).attr(&lsquo;disabled&rsquo;, true);</p>
-
+$(&lsquo;input[name=target]').attr(&lsquo;disabled&rsquo;, true);</p>
 <p>// .each() を利用してみる (上と同じ)
-$(&lsquo;input[name=target]&lsquo;).each(function(i){
-    $(this).attr(&lsquo;disabled&rsquo;, true);
+$(&lsquo;input[name=target]').each(function(i){
+$(this).attr(&lsquo;disabled&rsquo;, true);
 });</p>
-
 <p>//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
 // value属性の値を取得する
 //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
-var str = $(&lsquo;#target&rsquo;).attr(&lsquo;value&rsquo;);
-var str = $(&lsquo;#target&rsquo;).val();</p>
-
+var str = $('#target&rsquo;).attr(&lsquo;value&rsquo;);
+var str = $('#target&rsquo;).val();</p>
 <p>//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
 // value属性に値を入力する
 //&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
-$(&lsquo;#target&rsquo;).attr({value: str});
-$(&lsquo;#target&rsquo;).val(str);</p>
-
-<p></pre></p>
-
-<p><h2>選択したオブジェクとを取得する(input[name=radio])</h2>
-<pre class="brush:javascript">
-// get
-var obj = $(&ldquo;input[name=target]:checked&rdquo;);</p>
-
+$('#target&rsquo;).attr({value: str});
+$('#target&rsquo;).val(str);</p>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <p>// ＠は正規表現
 var obj2 = $(&ldquo;input[@name=target]:checked&rdquo;);</p>
-
 <p>// ラジオボタンで選択されているオブジェクトを取得する
-var objRadio = $(&rdquo;:radio[@name=target]:checked&rdquo;);</p>
-
+var objRadio = $(&quot;:radio[@name=target]:checked&rdquo;);</p>
 <p>// value属性を取得する
-console.log(&ldquo;val = &rdquo; + objRadio .val() );
-</pre></p>
-
-<p><h2>選択したオブジェクとを取得する(select])</h2>
-<pre class="brush:javascript">
-var value = $(&lsquo;#target&rsquo;).children(&rsquo;:selected&rsquo;).val();
-var value = $(&lsquo;#target&rsquo;).val(); // これだけで上に同じ</p>
-
+console.log(&ldquo;val = &quot; + objRadio .val() );
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <p>// 選択肢を増やす
-$(&lsquo;#target&rsquo;).append($(&rsquo;<option>&rsquo;).val(&lsquo;1&rsquo;).text(&lsquo;hogehoge&rsquo;));</p>
-
-<p></pre></p>
-
+$('#target&rsquo;).append($(&lsquo;<!-- raw HTML omitted -->&rsquo;).val(&lsquo;1&rsquo;).text(&lsquo;hogehoge&rsquo;));</p>
+<p><!-- raw HTML omitted --></p>
 <p>所感として「＠」は正規表現を利用して検索してくれるのですが、うまくいかなかったのでつかってません。
 なんで動かないかは現在調査チュウ。</p>
 

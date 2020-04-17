@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="DSOでmod_perlをインスコ">
@@ -10,7 +10,7 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/02/10/dso%E3%81%A7mod_perl%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%B3/" />
 <meta property="go:description" content="mod_perをインスコログ
 これダウンロード先 http://perl.apache.org/download/index.html
-# 解答 $ tar zxvf mod_perl-2.0-current.tar.gz $ cd mod_perl-2.0.4/ # モジュールの確認を行う $ httpd -l Compiled in modules: core.c prefork.c http_core.c mod_so.c $ perl Makefile.PL USE_APXS=1 WITH_APXS=/usr/local/apache/bin/apxs EVERYTHING=1 MP_APR_CONFIG=/usr/local/apache/bin/apr-1-config $ make $ make install  $ vi httpd.conf LoadModule perl_module modules/mod_perl.so
+$ vi httpd.conf LoadModule perl_module modules/mod_perl.so
 これでおｋ" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
@@ -23,7 +23,7 @@
 <meta name="twitter:title" content="DSOでmod_perlをインスコ" />
 <meta name="twitter:description" content="mod_perをインスコログ
 これダウンロード先 http://perl.apache.org/download/index.html
-# 解答 $ tar zxvf mod_perl-2.0-current.tar.gz $ cd mod_perl-2.0.4/ # モジュールの確認を行う $ httpd -l Compiled in modules: core.c prefork.c http_core.c mod_so.c $ perl Makefile.PL USE_APXS=1 WITH_APXS=/usr/local/apache/bin/apxs EVERYTHING=1 MP_APR_CONFIG=/usr/local/apache/bin/apr-1-config $ make $ make install  $ vi httpd.conf LoadModule perl_module modules/mod_perl.so
+$ vi httpd.conf LoadModule perl_module modules/mod_perl.so
 これでおｋ" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
@@ -60,31 +60,12 @@
 			<span class="entry-categories">( <a href="/categories/apache">Apache</a> )</span>
 			<section itemprop="entry-text">
 				<p>mod_perをインスコログ</p>
-
 <p>これダウンロード先
 <a href="http://perl.apache.org/download/index.html">http://perl.apache.org/download/index.html</a></p>
-
-<pre class="brush:bash">
-# 解答
-$ tar zxvf mod_perl-2.0-current.tar.gz
-$ cd mod_perl-2.0.4/
- 
-# モジュールの確認を行う
-$ httpd -l
-Compiled in modules:
-  core.c
-  prefork.c
-  http_core.c
-  mod_so.c
-
-$ perl Makefile.PL USE_APXS=1 WITH_APXS=/usr/local/apache/bin/apxs EVERYTHING=1 MP_APR_CONFIG=/usr/local/apache/bin/apr-1-config
-$ make
-$ make install
-</pre>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>$ vi httpd.conf
 LoadModule perl_module modules/mod_perl.so</p>
-
 <p>これでおｋ</p>
 
 			</section>

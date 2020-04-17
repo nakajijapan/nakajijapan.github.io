@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.58.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="IE６における「content-encoding gzip」の問題">
@@ -13,10 +13,10 @@
 その間に調査したこととして、圧縮の通信ていうのもHTTP/1.1からなので 「HTTP/1.1」を設定できるように設定すればいいのかと思ったがどうもそれでも だめだったようだ。
 ということでApacheで圧縮している箇所を探す
 mod_deflateっていう機能で実現してました。
-通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript 
+通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み
 これをコメントアウトして再起動したら、なんら問題はおきなくなった。 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
 あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。
-■参照URL http://sonic64.com/2005-09-14.html mod_deflate" />
+■参照URL http://sonic64." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -31,10 +31,10 @@ mod_deflateっていう機能で実現してました。
 その間に調査したこととして、圧縮の通信ていうのもHTTP/1.1からなので 「HTTP/1.1」を設定できるように設定すればいいのかと思ったがどうもそれでも だめだったようだ。
 ということでApacheで圧縮している箇所を探す
 mod_deflateっていう機能で実現してました。
-通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript 
+通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み
 これをコメントアウトして再起動したら、なんら問題はおきなくなった。 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
 あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。
-■参照URL http://sonic64.com/2005-09-14.html mod_deflate" />
+■参照URL http://sonic64." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -70,31 +70,22 @@ mod_deflateっていう機能で実現してました。
 			<span class="entry-categories">( <a href="/categories/apache">Apache</a> )</span>
 			<section itemprop="entry-text">
 				<p>IE６でいまいちjavascriptが正常に動作しない件</p>
-
 <p>原因はよくわからなかったがIEが「content-encoding gzip」があるレスポンスを
 うまく理解してくれないみたいだ。なのでjavascriptがどうのこうのという話ではなかった。</p>
-
 <p>その間に調査したこととして、圧縮の通信ていうのもHTTP/1.1からなので
 「HTTP/1.1」を設定できるように設定すればいいのかと思ったがどうもそれでも
 だめだったようだ。</p>
-
 <p>ということでApacheで圧縮している箇所を探す</p>
-
 <p>mod_deflateっていう機能で実現してました。</p>
-
-<p>通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み
-<pre class="brush: bash">
-AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
-</pre></p>
-
+<p>通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>これをコメントアウトして再起動したら、なんら問題はおきなくなった。
 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。</p>
-
 <p>あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。</p>
-
 <p>■参照URL
-<a href="Content Negotiation でリクエストに応じて gzip 圧縮ファイルを返す"><a href="http://sonic64.com/2005-09-14.html">http://sonic64.com/2005-09-14.html</a></a>
-<a href="http://httpd.apache.org/docs/2.0/ja/mod/mod_deflate.html">mod_deflate</a></p>
+<!-- raw HTML omitted --><a href="http://sonic64.com/2005-09-14.html">http://sonic64.com/2005-09-14.html</a><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->mod_deflate<!-- raw HTML omitted --></p>
 
 			</section>
 		</article>
