@@ -9,9 +9,18 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Mon, 09 Mar 2020 01:18:53 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 31 May 2020 23:33:06 +0900</lastBuildDate>
 		
 		<atom:link href="/categories/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>life</title>
+			<link>http://nakajijapan.github.io/categories/life/</link>
+			<pubDate>Sun, 31 May 2020 23:33:06 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/life/</guid>
+			<description></description>
+		</item>
 		
 		<item>
 			<title>JBL</title>
@@ -19,15 +28,6 @@
 			<pubDate>Mon, 09 Mar 2020 01:18:53 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/categories/jbl/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>life</title>
-			<link>http://nakajijapan.github.io/categories/life/</link>
-			<pubDate>Mon, 02 Mar 2020 23:33:06 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/life/</guid>
 			<description></description>
 		</item>
 		
