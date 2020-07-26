@@ -9,9 +9,30 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Sun, 31 May 2020 23:33:06 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 23 Jul 2020 22:52:21 +0900</lastBuildDate>
 		
 		<atom:link href="/categories/life/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>メッシュWi-Fi導入した</title>
+			<link>http://nakajijapan.github.io/blog/2020/07/23/%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5wi-fi%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F/</link>
+			<pubDate>Thu, 23 Jul 2020 22:52:21 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/07/23/%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5wi-fi%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+			<description>先日、新しくWiFiルータを購入してネットワーク環境がものすごく改善されたので紹介する。
+なぜ購入した？ 今住んでる家が一軒家で2階建て。ルータは家の都合上二階の端っこに設置しないといけない状況でした。 なので一階のリビングには5Ghz帯は殆どこないで2.4Ghz帯を利用していました。一階に中継機を配置してはいたのですが 劇的な改善にはいたらなかった。
+しかし、仕事を始めたりして常にインターネットをするだけではなく一階ではNetflix(プランはプレミアムで4Kのものもちょくちょく見る)、あとはいろんな家電を繋ぐようになったらものすごく通信状態悪くなり、タイムアウトになったりwifiが切れたりする現象が増えてきた。ルーターや中継機を再起動しても問題解決にはいたらなかった。いろんな機器をはずすというものひとつの手だが家電もリモートで管理したかったのでそれは考えたくない。 1階はとくに繋がらなくなることがちょくちょくあった。
+どれ使ってた？ nuroを契約したときにF660aというものをもらってそのままそれを使っていました。スペックもそんなには悪くはないのだが壁を挟むと一気に弱くなる。24Ghz帯が通ってるとはいえそこまで速度は出ない。ルーターがかなり家の端っこということが痛い。
+ルーター ZXHN F660A
+ 無線LAN下り  1300Mbps   対応規格  11 a/b/g/n/ac    中継機 TP-Link WIFI 無線LAN 中継器 11ac/n/a/g/b 1733 + 800Mbps ビームフォーミング MU-MIMO APモード 3年保証 RE650
+どれ買った 今回購入したのはこれ。
+NETGEAR メッシュWiFi無線LANルーター2台セット Wi-Fi6(11AX) 速度AX6000 トライバンド RBK852 (ルータ―+サテライト) 350㎡ https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM
+簡単に買うほど安くはない。むしろかなり高い方だがこのご時世家で仕事することも増えてきたので投資して問題ないだろうという判断です。 こういうの何かとストレスになるしできるならなくしていきたいところ。
+キーワード 購入するためにルーターの基礎知識が数年前の知識だったので調べてみるといくつか新しい技術が搭載されたものが発売されていて勉強する時間を要してしまった。 世の中どんどん便利になっていくものですな。。。
+ メッシュWi-Fi トライバンド Wi-Fi 6  どのくらい改善されたか 結論から言うと完全に改善された。
+WiFi 6対応で、2402Mbps+2402Mbps+1147Mbpsと謳っていて、もっと良い結果が出るのではないかなと思ってはいたが家電やスマートフォン合わせて10台くらいがつながった状態でこの測度を維持している。 体感的にも全く問題がない使い心地である。
+ トライバンド メッシュ WiFi AX6000 (2402 + 2402 + 1147Mbps)  導入前 作業部屋 2F    number result     1 47 Mbps   2 49 Mbps   3 61 Mbps   4 47 Mbps   ５ 41 Mbps    作業部屋 2F iPhone 11 Pro Max    number result     1 2.</description>
+		</item>
 		
 		<item>
 			<title>家族が増えました</title>
@@ -189,22 +210,6 @@ Hugo  https://gohugo.io/  今年は今年で色々経験していきたいです
 			<guid>http://nakajijapan.github.io/blog/2017/12/31/good-bye-2017/</guid>
 			<description>2017年実績メモ。
 iosdc/iosdc-app  39 closed: change design in qrcode viewcontroller 2017-09-09 38 closed: enable to deselect animation 2017-09-09 35 closed: 申請用 2017-09-02 34 closed: 複数投票できるようにした 2017-09-02 30 closed: 本番データを入れる 2017-08-29 29 closed: Update Yahoo Logo Images 2017-08-29 22 closed: add tab icon (いいもの見つかるまでアイコン追加しといた ![simulat&amp;hellip;) 2017-08-20 21 closed: [WIP] delete debug mode (最後に削除する) 2017-08-19 20 closed: bugfix arround Vote (optimized UI around vote bugfix) 2017-08-19 19 closed: delete HasUserHash (ついでのcarthage update) 2017-08-19 14 closed: connect to server 2017-08-07 11 closed: 投票できるところまで 2017-08-01 7 closed: Introducing Realm (シミュレータの時は常にインサートされる。) 2017-07-09 4 closed: add TalkList and TalkFilter 2017-07-06 2 closed: 投票画面周りの実装 2017-06-19  matthewpalmer/Regift  45 closed: Stop to use the fileprivate (For Swift 4.</description>
-		</item>
-		
-		<item>
-			<title>2016年 振り返りと2017年！</title>
-			<link>http://nakajijapan.github.io/blog/2017/01/01/2016%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A82017%E5%B9%B4/</link>
-			<pubDate>Sun, 01 Jan 2017 14:14:19 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2017/01/01/2016%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A82017%E5%B9%B4/</guid>
-			<description>明けましておめでとうございます！ @nakajijapan です。 去年が怒涛に過ぎていき、気づいたらもう2017年。ぼーっとしていたらもう三日が過ぎていて、気づいたらもう明日は仕事始めです。 それなのにまだ振り返っていなかったので、このブログで振り返っていこうと思う。
-2016年 振り返り 自分にとってこの年はだいぶ濃厚な1人になったのではないか思う。 大きく以下の出来事がありました。
- 入籍して式を挙げた: １０月 Apple Pay導入: １０月 iOSDC2016: ８月 執筆活動で自分の頭をフル回転　後半  式を挙げた この１年の半分はずっとこのことを考えていても過言では無い。 10月には式を挙げる計画で進んでいたのだが日程が近くに連れてまだやらなくていいかと保留にしていたタスクがどんどん決定しなくてはいけない期日になっていく。 それが多くなるだけではなく、夫婦でちゃんと相談しなくてはいけないことが増え始める。大変だったのが予算を削る為に自分で動画（始めと終わりの動画）を 作らなければいけないタスクが辛かった。。あとは仕事面とプライベートで大きなイベントがその時期に被っていたこと。自分が忙しくて奥さんとの結婚の話が できなくてよく喧嘩したのはまだ記憶に新しいです。当日はもうすごい勢いで時が流れてしまいあんまり覚えてないくらいでかなり自分がちゃんとしていたかが不安なところだがやりきりれていたようで一安心。
-Apple Pay これは、日本で初めて導入することで色々不安だったところもあるが、なんとかリリースできてよかった。 エンジニアとしては十分に楽しめるイベントでものすごく楽しめた。会社に圧倒的感謝。ビジネス面ではうーんという感じ。 あと、日本での知見はペパボのエンジニアブログに書き留めて置いたのでよければ見てやってくください。
-iOSDC2016 僕のもう一つの拠り所。日本で初めてのiOSのデベロッパーカンファレンスに運営に携われたこと・発表できたこと。 会社のモバイル人口はそこまで多くはないので寂しい思いがあったのですが、カンファレンスにきてみるとめちゃめちゃいるじゃんといった感じで僕が思っていた以上の人たちが集まっていて驚いた。 そんな同じ属性を持ったエンジニアさんの話を聞けるのは勉強になるのは当然として、酒を交わしながらお話ができるのはとても楽しい。 純粋に楽しいのでこういったイベントには引き続き関わりたい！！！
-執筆活動 普段日常的に文章を書かないので、１日５００文字が限度でしかもその内容の精度が低いものでとても大変だった。 今年も精度上げて頑張っていくつもり。
-エンジニアとして OSS業 頑張ってSwift3にするというのが主なタスク。だけどあまり勧められていないっていうのが現状でした。 もう一つは、個人アプリとしてMacOSアプリ - Sengiriを出せたのは達成感あります。 あと、UIライブラリとしてShariも試行錯誤して作成した。これは普段やってみたいインタラクションが実際にできるようになって嬉しかったのでその勢いで作成したものです。
- 改善したもの  https://github.com/nakajijapan/PhotoSlider https://github.com/nakajijapan/SwiftSampleAppForCollectionView https://github.com/nakajijapan/UIColor-Hex https://github.com/nakajijapan/NKJModalSelector https://github.com/nakajijapan/NKJPhotoSliderController https://github.com/nakajijapan/Shari https://github.com/nakajijapan/teiten https://github.com/nakajijapan/NKJMovieComposer https://github.com/nakajijapan/NKJMultiMovieCaptureView https://github.com/nakajijapan/Kazaguruma https://github.com/nakajijapan/nakajichan https://github.com/matthewpalmer/Regift Sengiri  Mac app 雑誌：Mac Fan 2016年6月号に紹介される      技術系イベント  Shibuya.</description>
 		</item>
 		
 	</channel>

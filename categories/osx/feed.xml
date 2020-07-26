@@ -9,9 +9,22 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Wed, 11 Apr 2018 02:39:40 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 23 Jul 2020 22:52:38 +0900</lastBuildDate>
 		
 		<atom:link href="/categories/osx/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Izumo 1.10.0リリースしました。</title>
+			<link>http://nakajijapan.github.io/blog/2020/07/23/izumo-1.10.0%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<pubDate>Thu, 23 Jul 2020 22:52:38 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/07/23/izumo-1.10.0%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<description>久々にizumoのアップデートです。
+アップデート内容  文字数、行数、作成日、更新日を表示できるようにしました。 画像を投稿できるようにしました。  現状はMacOSのみになっています。 iOSでは参照のみになっているけどできるようにするかも   画像をドロップして任意のディレクトリにほぞんできるようにしました。 ローディング終わらないバグの回収  Screen Shot 画像保存 詳細情報 なぜ 画像を保存できるようにしたのは、ブログを書くときに記事ごとに画像をまとめておきたかったのでできるようにしました。 あとミーティングのメモを残すときに一時的にiPadで記述した絵とか資料を貼って終了してから参考にして文章をまとめるときに 見ながら文章を書きたかった経緯があります。詳細情報に関してはブログとか何らかの技術記事書くときに文字数気にするときがあるのでその目安として表示させるようにしました。
+まとめ 少し便利になったのでよかったら使っていただければ幸せ〜。 macOS iOS
+ってブログ書いてたらバグ見つけた ダークモードiOSだけ対応してなかったので対応します。。。
+追記2020/07/27：対応しました。</description>
+		</item>
 		
 		<item>
 			<title>Izumo Updated to 1.1.1</title>
