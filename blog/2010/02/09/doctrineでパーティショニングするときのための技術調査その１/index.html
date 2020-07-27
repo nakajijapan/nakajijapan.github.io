@@ -9,8 +9,9 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/02/09/doctrine%E3%81%A7%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E6%8A%80%E8%A1%93%E8%AA%BF%E6%9F%BB%E3%81%9D%E3%81%AE%EF%BC%91/" />
 <meta property="go:description" content="パーティショニングしながらDoctrineてつかえるのだろうかとふと思いしらべてみたらあった。 ちょっちバージョンは古いけど
-ここからの引用Creating foreign key is usually good, but there are some situations that we should not use foreign key.
- In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html As the case may be, foreign keys in database will rule out doing application-level-cascading-delete. MySQL outputs warnings when it tries creating foreign keys to some storage engines (e." />
+ここからの引用
+Please add ability not to create foreign key to database before releasing the last LTS version of Doctrine.Creating foreign key is usually good, but there are some situations that we should not use foreign key.
+ In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html As the case may be, foreign keys in database will rule out doing application-level-cascading-delete." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -21,8 +22,9 @@
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Doctrineでパーティショニングするときのための技術調査その１" />
 <meta name="twitter:description" content="パーティショニングしながらDoctrineてつかえるのだろうかとふと思いしらべてみたらあった。 ちょっちバージョンは古いけど
-ここからの引用Creating foreign key is usually good, but there are some situations that we should not use foreign key.
- In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html As the case may be, foreign keys in database will rule out doing application-level-cascading-delete. MySQL outputs warnings when it tries creating foreign keys to some storage engines (e." />
+ここからの引用
+Please add ability not to create foreign key to database before releasing the last LTS version of Doctrine.Creating foreign key is usually good, but there are some situations that we should not use foreign key.
+ In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html As the case may be, foreign keys in database will rule out doing application-level-cascading-delete." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -59,8 +61,9 @@
 			<section itemprop="entry-text">
 				<p>パーティショニングしながらDoctrineてつかえるのだろうかとふと思いしらべてみたらあった。
 ちょっちバージョンは古いけど</p>
-<p><!-- raw HTML omitted -->ここからの引用<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+<p><a href="http://www.doctrine-project.org/jira/browse/DC-51">ここからの引用</a></p>
+<blockquote>
+Please add ability not to create foreign key to database before releasing the last LTS version of Doctrine.
 <p>Creating foreign key is usually good, but there are some situations that we should not use foreign key.</p>
 <ol>
 <li>In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: <a href="http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html">http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html</a></li>
@@ -68,7 +71,7 @@
 <li>MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.g. MyISAM). We have to decrease warnings.</li>
 </ol>
 <p>I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle.</p>
-<!-- raw HTML omitted -->
+</blockquote>
 <p>Mysqlだとパーティショニングするときは外部キーを作成できない。
 だから、Doctrineではそれに代替する機能としてアプリケーションレベルのカスケーディングデリート がある。</p>
 <p>だからそれ使ってよってことか。</p>
@@ -78,8 +81,8 @@
 <p>yamlからSQLにできるのかなー。</p>
 <p>あ、パーティション関係のSQLは別ファイルで置いておいておけばいいか。</p>
 <p>■参考URL
-<!-- raw HTML omitted -->15.5. パーティショニングの制約と制限<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->Doctrine Project<!-- raw HTML omitted --></p>
+<a href="http://dev.mysql.com/doc/refman/5.1/ja/partitioning-limitations.html">15.5. パーティショニングの制約と制限</a>
+<a href="http://www.doctrine-project.org/jira/browse/DC-51">Doctrine Project</a></p>
 
 			</section>
 		</article>

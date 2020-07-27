@@ -9,7 +9,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/12/15/centoszsh%E3%82%92%E3%83%9E%E3%83%AB%E3%83%81%E3%83%90%E3%82%A4%E3%83%88%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E5%95%8F%E9%A1%8C%E3%82%92%E8%A7%A3%E6%B1%BA/" />
 <meta property="go:description" content="最初からバンドルされているzsh(rpm)を利用していたのだけれども、バージョンが低いせいでうまく 日本語がコンソール上で打てなかったので新しいバージョンにインストールしてみた。めも。
-うまくいきました。" />
+wget &#34;http://downloads.sourceforge.net/zsh/zsh-4.3.12.tar.gz?modtime=1225708695&big_mirror=0&#34;./configure --enable-multibyte --enable-localemake installうまくいきました。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -20,7 +20,7 @@
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[centos]zshをマルチバイトコードに対する問題を解決" />
 <meta name="twitter:description" content="最初からバンドルされているzsh(rpm)を利用していたのだけれども、バージョンが低いせいでうまく 日本語がコンソール上で打てなかったので新しいバージョンにインストールしてみた。めも。
-うまくいきました。" />
+wget &#34;http://downloads.sourceforge.net/zsh/zsh-4.3.12.tar.gz?modtime=1225708695&big_mirror=0&#34;./configure --enable-multibyte --enable-localemake installうまくいきました。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -57,8 +57,11 @@
 			<section itemprop="entry-text">
 				<p>最初からバンドルされているzsh(rpm)を利用していたのだけれども、バージョンが低いせいでうまく
 日本語がコンソール上で打てなかったので新しいバージョンにインストールしてみた。めも。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:bash">
+wget "http://downloads.sourceforge.net/zsh/zsh-4.3.12.tar.gz?modtime=1225708695&big_mirror=0"
+./configure --enable-multibyte --enable-locale
+make install
+</pre>
 <p>うまくいきました。</p>
 
 			</section>

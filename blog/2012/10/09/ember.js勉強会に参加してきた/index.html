@@ -8,7 +8,29 @@
 <meta property="og:title" content="Ember.js勉強会に参加してきた。">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2012/10/09/ember.js%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/" />
-<meta property="go:description" content="" />
+<meta property="go:description" content="先日、Ember.js勉強会に参加するために万葉さんにお邪魔してきました。
+JSのフレームワークは他にBackbone.jsしか触れたことが無かったので他の選択肢として参加してみました。
+今回はみんなでチュートリアルを読んでもくもくと作業をしてわかんないところが随時質問でした。
+ですが、自分の力不足（方向音痴。。。）で場所がわからず１時間遅れるという不甲斐ない形となりましたがみんなに追いつこう
+とせっせと作業をこなしたという次第です。
+感想 Ember.Handlebars Class便利な件 印象てきだったのが
+{{view Em.TextField id=&#34;new-todo&#34; placeholder=&#34;What needs to be done?&#34;}}  
+こんなふうにView側のAPIが用意されていて、この記述でイベント処理を諸々やってくれるのはありがたい。
+Backbone.jsだったら通常のHTMLを記述しないといけないし、そもそもテンプレートエンジンてきなものは
+用意されていない。
+カスタマイズしたいときは普通に
+Todos.CreateTodoView = Em.TextField.extend({ insertNewline: function() { var value = this.get(&#39;value&#39;); if (value) { Todos.todosController.createTodo(value); this.set(&#39;value&#39;, &#39;&#39;); } } });  で自分用のViewオブジェクト作ってしまえば良い訳です。
+あ、handlebar.jsっていうテンプレートエンジン利用してるのですね、これ。
+Modelって言うクラスがない？！ MVCフレームワークなのになぜかModelって言うクラスはなくて
+「Ember.Object Class」を継承して作成するっていうのがセオリーらしいです。
+Todos.Todo = Em.Object.extend({ title: null, isDone: false });  調べてみるとサーバと通信するもの機構はないみたいでやるときは、通信部分を
+jQueryとか使って実装しないといけないみたいですね。。。
+http://emberjs.com/api/classes/Ember.Object.html
+Debugging なにかと大変らしい、ログイングの機能は用意されてはいるがなにかとおうのは大変らしい
+まぁ Backbone.jsとくらべるとテンプレートエンジンが結構便利なのでその分最初の前提となる知識は
+必要になってきそうな感じがしました。もちろん通信自体は自前で実装する必要がある？！
+逆をいうとBackbone.jsはREST通信なのでその辺は小回りが聞く感じですかね。
+参考URL  Ember.jsのチュートリアル Ember." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -18,7 +40,29 @@
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Ember.js勉強会に参加してきた。" />
-<meta name="twitter:description" content="" />
+<meta name="twitter:description" content="先日、Ember.js勉強会に参加するために万葉さんにお邪魔してきました。
+JSのフレームワークは他にBackbone.jsしか触れたことが無かったので他の選択肢として参加してみました。
+今回はみんなでチュートリアルを読んでもくもくと作業をしてわかんないところが随時質問でした。
+ですが、自分の力不足（方向音痴。。。）で場所がわからず１時間遅れるという不甲斐ない形となりましたがみんなに追いつこう
+とせっせと作業をこなしたという次第です。
+感想 Ember.Handlebars Class便利な件 印象てきだったのが
+{{view Em.TextField id=&#34;new-todo&#34; placeholder=&#34;What needs to be done?&#34;}}  
+こんなふうにView側のAPIが用意されていて、この記述でイベント処理を諸々やってくれるのはありがたい。
+Backbone.jsだったら通常のHTMLを記述しないといけないし、そもそもテンプレートエンジンてきなものは
+用意されていない。
+カスタマイズしたいときは普通に
+Todos.CreateTodoView = Em.TextField.extend({ insertNewline: function() { var value = this.get(&#39;value&#39;); if (value) { Todos.todosController.createTodo(value); this.set(&#39;value&#39;, &#39;&#39;); } } });  で自分用のViewオブジェクト作ってしまえば良い訳です。
+あ、handlebar.jsっていうテンプレートエンジン利用してるのですね、これ。
+Modelって言うクラスがない？！ MVCフレームワークなのになぜかModelって言うクラスはなくて
+「Ember.Object Class」を継承して作成するっていうのがセオリーらしいです。
+Todos.Todo = Em.Object.extend({ title: null, isDone: false });  調べてみるとサーバと通信するもの機構はないみたいでやるときは、通信部分を
+jQueryとか使って実装しないといけないみたいですね。。。
+http://emberjs.com/api/classes/Ember.Object.html
+Debugging なにかと大変らしい、ログイングの機能は用意されてはいるがなにかとおうのは大変らしい
+まぁ Backbone.jsとくらべるとテンプレートエンジンが結構便利なのでその分最初の前提となる知識は
+必要になってきそうな感じがしました。もちろん通信自体は自前で実装する必要がある？！
+逆をいうとBackbone.jsはREST通信なのでその辺は小回りが聞く感じですかね。
+参考URL  Ember.jsのチュートリアル Ember." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -53,42 +97,62 @@
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2012-10-09">October 09, 2012</time></span>
 			<span class="entry-categories">( <a href="/categories/diary">Diary</a> )</span>
 			<section itemprop="entry-text">
-				<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+				<p><img src="http://emberjs.com/images/about/ember-productivity-sm.png" class="aligncenter" /><br /></p>
+<p>先日、Ember.js勉強会に参加するために万葉さんにお邪魔してきました。</p>
+<p>JSのフレームワークは他にBackbone.jsしか触れたことが無かったので他の選択肢として参加してみました。</p>
+<p>今回はみんなでチュートリアルを読んでもくもくと作業をしてわかんないところが随時質問でした。</p>
+<p><b>ですが</b>、自分の力不足（方向音痴。。。）で場所がわからず１時間遅れるという不甲斐ない形となりましたがみんなに追いつこう</p>
+<p>とせっせと作業をこなしたという次第です。</p>
+<h1>感想</h1>
+<h2>Ember.Handlebars Class便利な件</h2>
+<p>印象てきだったのが</p>
+<pre class="brush:javascript">
+<script type="text/x-handlebars">
+  {{view Em.TextField id="new-todo"
+      placeholder="What needs to be done?"}}
+</script>
+<p></pre></p>
+<p>こんなふうにView側のAPIが用意されていて、この記述でイベント処理を諸々やってくれるのはありがたい。</p>
+<p>Backbone.jsだったら通常のHTMLを記述しないといけないし、そもそもテンプレートエンジンてきなものは</p>
+<p>用意されていない。</p>
+<p>カスタマイズしたいときは普通に</p>
+<pre class="brush:javascript">
+Todos.CreateTodoView = Em.TextField.extend({
+  insertNewline: function() {
+    var value = this.get('value');
+
+    if (value) {
+      Todos.todosController.createTodo(value);
+      this.set('value', '');
+    }
+  }
+});
+</pre>
+<p>で自分用のViewオブジェクト作ってしまえば良い訳です。</p>
+<p>あ、handlebar.jsっていうテンプレートエンジン利用してるのですね、これ。</p>
+<h2>Modelって言うクラスがない？！</h2>
+<p>MVCフレームワークなのになぜかModelって言うクラスはなくて</p>
+<p>「Ember.Object Class」を継承して作成するっていうのがセオリーらしいです。</p>
+<pre class="brush:javascript">
+Todos.Todo = Em.Object.extend({
+  title:  null,
+  isDone: false
+});
+</pre>
+<p>調べてみるとサーバと通信するもの機構はないみたいでやるときは、通信部分を</p>
+<p>jQueryとか使って実装しないといけないみたいですね。。。</p>
+<p>http://emberjs.com/api/classes/Ember.Object.html</p>
+<h2>Debugging</h2>
+<p>なにかと大変らしい、ログイングの機能は用意されてはいるがなにかとおうのは大変らしい</p>
+<h1>まぁ</h1>
+<p>Backbone.jsとくらべるとテンプレートエンジンが結構便利なのでその分最初の前提となる知識は</p>
+<p>必要になってきそうな感じがしました。もちろん通信自体は自前で実装する必要がある？！</p>
+<p>逆をいうとBackbone.jsはREST通信なのでその辺は小回りが聞く感じですかね。</p>
+<h1>参考URL</h1>
+<ul>
+<li><a href="https://github.com/frodsan/emberjs-getting-started">Ember.jsのチュートリアル</a></li>
+<li><a href="https://github.com/frodsan/emberjs-getting-started">Ember.jsのチュートリアル結果</a></li>
+</ul>
 
 			</section>
 		</article>

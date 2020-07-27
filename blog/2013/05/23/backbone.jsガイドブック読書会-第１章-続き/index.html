@@ -11,7 +11,9 @@
 <meta property="go:description" content="Backbone.js読書会１日目 Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）
 そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。
 「Backbone.js ガイドブック」
-Backbone.jsガイドブックはじめは概要なのですらっと。
+
+Backbone.jsガイドブック
+はじめは概要なのですらっと。
 一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。
 var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } ); サンプルみただけだとふーんですよね。僕もいまのところふーんです。
 ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&lsquo;modal&rsquo;)とかで毎回DOMを操作しなくて済む。
@@ -20,6 +22,7 @@ var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ retu
 あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。
 さ。来週もすすめていきますよ。
 追記 洋書は今月末にでるようだ。
+
 Developing Backbone.js Applications" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
@@ -33,7 +36,9 @@ Developing Backbone.js Applications" />
 <meta name="twitter:description" content="Backbone.js読書会１日目 Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）
 そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。
 「Backbone.js ガイドブック」
-Backbone.jsガイドブックはじめは概要なのですらっと。
+
+Backbone.jsガイドブック
+はじめは概要なのですらっと。
 一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。
 var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } ); サンプルみただけだとふーんですよね。僕もいまのところふーんです。
 ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&lsquo;modal&rsquo;)とかで毎回DOMを操作しなくて済む。
@@ -42,6 +47,7 @@ var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ retu
 あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。
 さ。来週もすすめていきますよ。
 追記 洋書は今月末にでるようだ。
+
 Developing Backbone.js Applications" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
@@ -81,7 +87,7 @@ Developing Backbone.js Applications" />
 <p>Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）</p>
 <p>そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。</p>
 <p>「Backbone.js ガイドブック」</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Backbone.jsガイドブック<!-- raw HTML omitted --></p>
+<p><a href="http://www.amazon.co.jp/Backbone-js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E9%AB%98%E6%A9%8B-%E4%BE%91%E4%B9%85/dp/4899773501%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4899773501" target="_blank" title="Backbone.jsガイドブック"><img src="http://ecx.images-amazon.com/images/I/31tI0WaZukL._SL160_.jpg" width="118" height="150" alt="Backbone.jsガイドブック" /></a><br /><a href="http://www.amazon.co.jp/Backbone-js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E9%AB%98%E6%A9%8B-%E4%BE%91%E4%B9%85/dp/4899773501%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4899773501" target="_blank">Backbone.jsガイドブック</a></p>
 <p>はじめは概要なのですらっと。</p>
 <p>一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Parent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>(
@@ -114,7 +120,7 @@ Developing Backbone.js Applications" />
 <p>さ。来週もすすめていきますよ。</p>
 <h2 id="追記">追記</h2>
 <p>洋書は今月末にでるようだ。</p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Developing Backbone.js Applications<!-- raw HTML omitted --></p>
+<p><a href="http://www.amazon.co.jp/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449328253" target="_blank" title="Developing Backbone.js Applications"><img src="http://ecx.images-amazon.com/images/I/5171nmxXQdL._SL160_.jpg" width="114" height="150" alt="Developing Backbone.js Applications" /></a><br /><a href="http://www.amazon.co.jp/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449328253" target="_blank">Developing Backbone.js Applications</a></p>
 
 			</section>
 		</article>

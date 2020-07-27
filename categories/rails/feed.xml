@@ -31,7 +31,9 @@ DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.
 			<pubDate>Sun, 02 Dec 2012 14:28:52 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/12/02/rails%E3%81%A8cookie%E3%81%A7%E3%81%AF%E3%81%BE%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</guid>
-			<description></description>
+			<description>今回Railsで起きた問題、ちと自分の中で迷ったの纏めておく。
+PHPで運用していたものをRuby(Rails)にのせ変えようとしたときに置きました。以前、前の仕様でCookieでカンマ区切りにして保存していた情報があったのですがそれを気にしないでRailsを導入していたら初期表示でサーバエラーになるという問題が発生しました。
+保存していたもの document.cookie = &#34;HOGE=1,,1,1&#34;  どうもRack側で発生していることに気づきましてCookieの文字列を解析している箇所で「;」「,」の二つでハッシュ化していることが原因だとわかりました。# According to RFC 2109: # If multiple cookies satisfy the criteria above, they are ordered in # the Cookie header such that those with more specific Path attributes # precede those with less specific. Ordering with respect to other # attributes (e.g., Domain) is unspecified. Utils.parse_query(string, &#39;;,&#39;).each { |k,v| hash[k] = Array === v ? v.first : v } @env[&#34;rack.request.cookie_string&#34;] = string hash  Rackが悪いのでは？と思っていてけどRFCまわりをよくよく調査してみるとNAME,VALUEにセミコロン、コンマ、空白文字を除いた文字列を指定すべきで、いれるときはエンコードすべき。あと、サーバは将来の互換性のためにカンマも受け入れるべきです。てきなことが記述されていたので間違っていないことは確認しました。とはいっても、サーバエラーにしてクッキー削除してから閲覧してねという訳にもいかないので一時凌ぎとして</description>
 		</item>
 		
 		<item>
@@ -41,7 +43,7 @@ DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.
 			
 			<guid>http://nakajijapan.github.io/blog/2012/06/09/rails%E3%81%A7basic%E8%AA%8D%E8%A8%BC%E3%82%92%E3%81%95%E3%81%9B%E3%82%8B/</guid>
 			<description>Railsで手っ取り早くBASIC認証させるためのメモ
-うん、簡単ですね。Zendのときでもこんなに完結にはかけなかったものです。。
+class BasicController うん、簡単ですね。Zendのときでもこんなに完結にはかけなかったものです。。
 「authenticate_or_request_with_http_basic」すばらしい！！</description>
 		</item>
 		
@@ -54,15 +56,9 @@ DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.
 			<description>勉強がてら構築してみました。以前はrailsのWebサーバはThinで構築していたのですが、 最近流行している「Unicorn」、さらにはフロントにリバースプロキシとHTTP用のサーバ「nginx」 をおいて構築してみることにします。
 仕組みについてはこちらのサイトがよくまとめられていたので概要つかむによいでしょう。
 まずは、nginxのインストールを行います。インストールはあらかじめrpm をインストールしてからyumでインストールし直します。
-一度、デフォルトでnginxで起動するかどうかの確認を行います。「service nginx start」でhttp://hoge.moge にアクセスしてnginx用の画面が表示されていればとりあえずはインストール完了です。
+rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpmyum install nginx一度、デフォルトでnginxで起動するかどうかの確認を行います。「service nginx start」でhttp://hoge.moge にアクセスしてnginx用の画面が表示されていればとりあえずはインストール完了です。
 以下、Unicornがnginx経由でアクセスできるようにするための設定ファイルになります。
-なんか書き方はPerlbalよりわかりやすいようなイメージしました。気のせいかもしれませんが。。。
-次は、Unicornのインストールです。gemでパッケージをインストールします。
-これでおしまい。
-その後、Railsで展開されているコンフィグファイルに設定情報を記述します。
-最後にそれぞれを起動します。
-指定のURLからアクセスして画面がみれれば完成でし！
-□参考URL http://nginx.org/ http://techracho.bpsinc.jp/bps/2010_07_28/2208</description>
+upstream hoge.moge {server unix:/var/www/test/tmp/sockets/unicorn.sock;}server {listen 80;server_name hoge.moge;root /var/www/test/public/;access_log log/access.log;error_log log/error.log;location / {if (-f $request_filename) {break;}# ファイルが存在しなければunicornにproxyするproxy_set_header X-Real-IP $remote_addr;proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;proxy_set_header Host $http_host;proxy_pass http://hoge.moge;}# この記述がないと静的ファイルが表示されなかったlocation ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {expires 1y;}}なんか書き方はPerlbalよりわかりやすいようなイメージしました。気のせいかもしれませんが。。。</description>
 		</item>
 		
 	</channel>

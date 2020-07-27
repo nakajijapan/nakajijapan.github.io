@@ -13,14 +13,15 @@
 そう、セッションを引き回していなかったのです。
 「加藤さん事件です。」（レポーター風）
 一応セッション設定チェック
-なんら問題無し。
+;----- mobile {-----resources.session.use_only_cookies = falseresources.session.use_cookies = falseresources.session.use_trans_sid = true;----- mobile }-----なんら問題無し。
 各処理でのサーバ情報ゲット
-[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php むむむ、URI自体に問題があるのか。
+[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php !?むむむ、URI自体に問題があるのか。
 そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。
-「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
+http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxxだとだめでhttp://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
 RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。
 結構単純なことでした。。
-■参照URL URI - Uniform Resource Identifiersiers" />
+■参照URL URI - Uniform Resource Identifiers
+iers" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -35,14 +36,15 @@ RFCの決まりごと的には最初にqueryの解析を始めるからそれで
 そう、セッションを引き回していなかったのです。
 「加藤さん事件です。」（レポーター風）
 一応セッション設定チェック
-なんら問題無し。
+;----- mobile {-----resources.session.use_only_cookies = falseresources.session.use_cookies = falseresources.session.use_trans_sid = true;----- mobile }-----なんら問題無し。
 各処理でのサーバ情報ゲット
-[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php むむむ、URI自体に問題があるのか。
+[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php !?むむむ、URI自体に問題があるのか。
 そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。
-「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
+http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxxだとだめでhttp://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
 RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。
 結構単純なことでした。。
-■参照URL URI - Uniform Resource Identifiersiers" />
+■参照URL URI - Uniform Resource Identifiers
+iers" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -85,24 +87,34 @@ RFCの決まりごと的には最初にqueryの解析を始めるからそれで
 <p>そう、セッションを引き回していなかったのです。</p>
 <p>「加藤さん事件です。」（レポーター風）</p>
 <p>一応セッション設定チェック</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:text">
+;----- mobile {-----
+resources.session.use_only_cookies      = false
+resources.session.use_cookies           = false
+resources.session.use_trans_sid         = true
+;----- mobile }-----
+</pre>
 <p>なんら問題無し。</p>
 <p>各処理でのサーバ情報ゲット</p>
 <pre><code>[QUERY_STRING] =&gt;
 [REQUEST_URI] =&gt; /test.php
 </code></pre>
-<!-- raw HTML omitted -->
+<h1>!?</h1>
 <p>むむむ、URI自体に問題があるのか。</p>
 <p>そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:text">
+http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxx
+
+だとだめで
+
+http://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top
+</pre>
 <p>「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。</p>
 <p>RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。</p>
 <p>結構単純なことでした。。</p>
 <p>■参照URL
-<!-- raw HTML omitted -->URI - Uniform Resource Identifiers<!-- raw HTML omitted --></p>
-<p>iers<!-- raw HTML omitted --></p>
+<a href="http://www.studyinghttp.net/uri">URI - Uniform Resource Identifiers</a></p>
+<p>iers</a></p>
 
 			</section>
 		</article>

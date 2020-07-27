@@ -10,10 +10,7 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2012/01/31/rails-thin%E3%81%A7%E6%A7%8B%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B-in-scientific-linux/" />
 <meta property="go:description" content="さくらのVPSを借りることになったので早速Ruby&#43;Rails&#43;Thinで構築してみることにします。
 「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。
-これの前提条件として
-が必要になる。
-これでブラウザで画面がみれるようになれば完成です。しかし、Thinとは別にまたUnicornらしきものがでていることを知ったので勉強がてらいれてみることにします。それは後ほど。
-■リファレンス http://www.ruby-lang.org/ja/ http://rubygems.org/ http://beginrescueend.com/ http://code.macournoyer.com/thin/" />
+ the Mongrel parser, the root of Mongrel speed and securityEvent Machine, a network I/O library with extremely high scalability, performance and stabilityRack, a minimal interface between webservers and Ruby frameworks RVMのインストール# bash -s stable 設定情報を追加[[ -s &#34;$HOME/.rvm/scripts/rvm&#34; ]] && . &#34;$HOME/.rvm/scripts/rvm&#34;# rvm install 1.9.3# rvm install 1.9.2# rvm --default use 1.9.3RubyGemsのインストールsudo /usr/local/rvm/bin/ruby setup.rbgem update --systemMysqlのインストールgem install mysql2これの前提条件として" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -25,10 +22,7 @@
 <meta name="twitter:title" content="Rails &#43; Thinで構成してみる in Scientific Linux" />
 <meta name="twitter:description" content="さくらのVPSを借りることになったので早速Ruby&#43;Rails&#43;Thinで構築してみることにします。
 「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。
-これの前提条件として
-が必要になる。
-これでブラウザで画面がみれるようになれば完成です。しかし、Thinとは別にまたUnicornらしきものがでていることを知ったので勉強がてらいれてみることにします。それは後ほど。
-■リファレンス http://www.ruby-lang.org/ja/ http://rubygems.org/ http://beginrescueend.com/ http://code.macournoyer.com/thin/" />
+ the Mongrel parser, the root of Mongrel speed and securityEvent Machine, a network I/O library with extremely high scalability, performance and stabilityRack, a minimal interface between webservers and Ruby frameworks RVMのインストール# bash -s stable 設定情報を追加[[ -s &#34;$HOME/.rvm/scripts/rvm&#34; ]] && . &#34;$HOME/.rvm/scripts/rvm&#34;# rvm install 1.9.3# rvm install 1.9.2# rvm --default use 1.9.3RubyGemsのインストールsudo /usr/local/rvm/bin/ruby setup.rbgem update --systemMysqlのインストールgem install mysql2これの前提条件として" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -65,18 +59,42 @@
 			<section itemprop="entry-text">
 				<p>さくらのVPSを借りることになったので早速Ruby+Rails+Thinで構築してみることにします。</p>
 <p>「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<blockquote> the Mongrel parser, the root of Mongrel speed and security
+Event Machine, a network I/O library with extremely high scalability, performance and stability
+Rack, a minimal interface between webservers and Ruby frameworks </blockquote>
+<h3>RVMのインストール</h3>
+<pre class="brush:bash">
+# bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+</pre>
+<h3>設定情報を追加</h3>
+<pre class="brush:bash">
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+</pre>
+<pre class="brush:bash">
+# rvm  install 1.9.3
+# rvm  install 1.9.2
+# rvm --default use 1.9.3
+</pre>
+<h3>RubyGemsのインストール</h3>
+<pre class="brush:bash">
+sudo /usr/local/rvm/bin/ruby setup.rb
+gem update --system
+</pre>
+<h3>Mysqlのインストール</h3>
+<pre class="brush:bash">
+gem install mysql2
+</pre>
 <p>これの前提条件として</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:bash">
+yum install mysql mysql-server mysql-devel 
+</pre>
 <p>が必要になる。</p>
-<!-- raw HTML omitted -->
+<h3>Thinのインストール：Ruby専用サーバ</h3>
+<pre class="brush:bash">
+gem install execjs
+gem install therubyracer
+gem install thin
+</pre>
 <p>これでブラウザで画面がみれるようになれば完成です。しかし、Thinとは別にまたUnicornらしきものがでていることを知ったので勉強がてらいれてみることにします。それは後ほど。</p>
 <p>■リファレンス
 <a href="http://www.ruby-lang.org/ja/">http://www.ruby-lang.org/ja/</a>

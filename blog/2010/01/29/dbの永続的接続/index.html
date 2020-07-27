@@ -9,7 +9,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/01/29/db%E3%81%AE%E6%B0%B8%E7%B6%9A%E7%9A%84%E6%8E%A5%E7%B6%9A/" />
 <meta property="go:description" content="Mysqlの設定していたときにちょっと疑問におもったので調査。
-1プロセスあたりに永続接続できる最大接続数。
+ mysql.max_persistent integerThe maximum number of persistent MySQL connections perprocess.1プロセスあたりに永続接続できる最大接続数。
 ちなみに永続接続っていうのは ・DBのセッションがずっと持ちっぱなしで接続が終了してもセッションは開きっぱなしの状態。 ・もし開いている接続があればそれを使う。
 これだと効率がよくなるね、でもなんかゾンビ化しそう。
 非永続接続は ・DBの接続が終了すればセッションが閉じちゃう感じか。
@@ -20,7 +20,8 @@
 １リクエスト２コネクションになっちゃうわけか
 じゃこの違いってなんだ？ 後者だと普通に考えて効率だよな。前者は一貫性のあるデータ取れたり、トランザクションも統一できるから安全性かな。
 なんか読めてきた。
-http://www.studyinghttp.net/connectionshttp://php.net/manual/ja/features.persistent-connections.phphttp://php.net/manual/ja/function.mysql-connect.php  " />
+http://www.studyinghttp.net/connections http://php.net/manual/ja/features.persistent-connections.php http://php.net/manual/ja/function.mysql-connect.php
+  " />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -31,7 +32,7 @@ http://www.studyinghttp.net/connectionshttp://php.net/manual/ja/features.persist
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="DBの永続的接続" />
 <meta name="twitter:description" content="Mysqlの設定していたときにちょっと疑問におもったので調査。
-1プロセスあたりに永続接続できる最大接続数。
+ mysql.max_persistent integerThe maximum number of persistent MySQL connections perprocess.1プロセスあたりに永続接続できる最大接続数。
 ちなみに永続接続っていうのは ・DBのセッションがずっと持ちっぱなしで接続が終了してもセッションは開きっぱなしの状態。 ・もし開いている接続があればそれを使う。
 これだと効率がよくなるね、でもなんかゾンビ化しそう。
 非永続接続は ・DBの接続が終了すればセッションが閉じちゃう感じか。
@@ -42,7 +43,8 @@ http://www.studyinghttp.net/connectionshttp://php.net/manual/ja/features.persist
 １リクエスト２コネクションになっちゃうわけか
 じゃこの違いってなんだ？ 後者だと普通に考えて効率だよな。前者は一貫性のあるデータ取れたり、トランザクションも統一できるから安全性かな。
 なんか読めてきた。
-http://www.studyinghttp.net/connectionshttp://php.net/manual/ja/features.persistent-connections.phphttp://php.net/manual/ja/function.mysql-connect.php  " />
+http://www.studyinghttp.net/connections http://php.net/manual/ja/features.persistent-connections.php http://php.net/manual/ja/function.mysql-connect.php
+  " />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -78,7 +80,9 @@ http://www.studyinghttp.net/connectionshttp://php.net/manual/ja/features.persist
 			<span class="entry-categories">( <a href="/categories/db">DB</a> )</span>
 			<section itemprop="entry-text">
 				<p>Mysqlの設定していたときにちょっと疑問におもったので調査。</p>
-<!-- raw HTML omitted -->
+<blockquote>  mysql.max_persistent integer
+	The maximum number of persistent MySQL connections per
+	process.</blockquote>
 <p>1プロセスあたりに永続接続できる最大接続数。</p>
 <p>ちなみに永続接続っていうのは
 ・DBのセッションがずっと持ちっぱなしで接続が終了してもセッションは開きっぱなしの状態。
@@ -95,9 +99,9 @@ http://www.studyinghttp.net/connectionshttp://php.net/manual/ja/features.persist
 <p>じゃこの違いってなんだ？
 後者だと普通に考えて効率だよな。前者は一貫性のあるデータ取れたり、トランザクションも統一できるから安全性かな。</p>
 <p>なんか読めてきた。</p>
-<p><!-- raw HTML omitted --><a href="http://www.studyinghttp.net/connections">http://www.studyinghttp.net/connections</a><!-- raw HTML omitted -->
-<!-- raw HTML omitted --><a href="http://php.net/manual/ja/features.persistent-connections.php">http://php.net/manual/ja/features.persistent-connections.php</a><!-- raw HTML omitted -->
-<!-- raw HTML omitted --><a href="http://php.net/manual/ja/function.mysql-connect.php">http://php.net/manual/ja/function.mysql-connect.php</a><!-- raw HTML omitted --></p>
+<p><a href="http://www.studyinghttp.net/connections"><a href="http://www.studyinghttp.net/connections">http://www.studyinghttp.net/connections</a></a>
+<a href="http://php.net/manual/ja/features.persistent-connections.php"><a href="http://php.net/manual/ja/features.persistent-connections.php">http://php.net/manual/ja/features.persistent-connections.php</a></a>
+<a href="http://php.net/manual/ja/function.mysql-connect.php"><a href="http://php.net/manual/ja/function.mysql-connect.php">http://php.net/manual/ja/function.mysql-connect.php</a></a></p>
 <blockquote>
 </blockquote>
 

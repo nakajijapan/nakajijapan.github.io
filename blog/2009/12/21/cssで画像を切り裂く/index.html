@@ -10,8 +10,9 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2009/12/21/css%E3%81%A7%E7%94%BB%E5%83%8F%E3%82%92%E5%88%87%E3%82%8A%E8%A3%82%E3%81%8F/" />
 <meta property="go:description" content="それぞれ違う画像を決まった大きさにしてそろえたいときどういしようかって考えたときに 最初は「clip」利用してたんだけど、firebugでカーソル当てたときになんか気持ちわるかったので デザイナーさんに助言もらったら「overflow」でいい感じに表示できた。
 ■overflow
-でもoverflow,clip何がどうちがうんだろうかね。
-clipはあれか上下左右で範囲指定できるんだね。なるほど。" />
+でもoverflow,clip何がどうちがうんだろうかね。
+clipはあれか上下左右で範囲指定できるんだね。なるほど。
+http://ykr414.com/css/style05g.shtml" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -23,8 +24,9 @@ clipはあれか上下左右で範囲指定できるんだね。なるほど。"
 <meta name="twitter:title" content="CSSで画像を切り裂く" />
 <meta name="twitter:description" content="それぞれ違う画像を決まった大きさにしてそろえたいときどういしようかって考えたときに 最初は「clip」利用してたんだけど、firebugでカーソル当てたときになんか気持ちわるかったので デザイナーさんに助言もらったら「overflow」でいい感じに表示できた。
 ■overflow
-でもoverflow,clip何がどうちがうんだろうかね。
-clipはあれか上下左右で範囲指定できるんだね。なるほど。" />
+でもoverflow,clip何がどうちがうんだろうかね。
+clipはあれか上下左右で範囲指定できるんだね。なるほど。
+http://ykr414.com/css/style05g.shtml" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -63,12 +65,34 @@ clipはあれか上下左右で範囲指定できるんだね。なるほど。"
 最初は「clip」利用してたんだけど、firebugでカーソル当てたときになんか気持ちわるかったので
 デザイナーさんに助言もらったら「overflow」でいい感じに表示できた。</p>
 <p>■overflow</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div style="position: relative">
+<div style="float: left; overflow: hidden; width: 100px; height: 100px;">
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2009/12/P6290012.JPG" alt="2009122001" />
+</div>
+<div style="float: left; overflow: hidden; width: 100px; height: 100px;">
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2009/12/chara_blood_ph_a.gif" alt="chara_blood_ph_a"/>
+</div>
+<div style="float: left; overflow: hidden; width: 100px; height: 100px;">
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2009/12/SA410089.jpg" alt="2009122001" />
+</div>
+</div>
+<br clear="all">
+<pre class="brush: html">
+<div style="position: relative">
+<div style="float: left; overflow: hidden; width: 100px; height: 100px;">
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2009/12/P6290012.JPG" alt="2009122001" />
+</div>
+<div style="float: left; overflow: hidden; width: 100px; height: 100px;">
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2009/12/chara_blood_ph_a.gif" alt="chara_blood_ph_a"/>
+</div>
+<div style="float: left; overflow: hidden; width: 100px; height: 100px;">
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2009/12/SA410089.jpg" alt="2009122001" />
+</div>
+</div>
+</pre>
 <p>でもoverflow,clip何がどうちがうんだろうかね。</p>
 <p>clipはあれか上下左右で範囲指定できるんだね。なるほど。</p>
-<p><!-- raw HTML omitted --><a href="http://ykr414.com/css/style05g.shtml">http://ykr414.com/css/style05g.shtml</a><!-- raw HTML omitted --></p>
+<p><a href="http://ykr414.com/css/style05g.shtml"><a href="http://ykr414.com/css/style05g.shtml">http://ykr414.com/css/style05g.shtml</a></a></p>
 
 			</section>
 		</article>

@@ -9,9 +9,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/05/12/mysql-bin%E3%81%AE%E3%83%AD%E3%82%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%89%8A%E9%99%A4/" />
 <meta property="go:description" content="ログ情報がたまってたのでけしました。
-■参考URL PURGE MASTER LOGS 構文んでよくよく考えてみて、そもそも設定で変えられるだろうとおもって調べたら 普通にありましたね。
-my.cnfの「log-bin」をコメントアウトでいけた。
-はい、終了" />
+mysql show binary logs;&#43;------------------&#43;-----------&#43;| Log_name | File_size |&#43;------------------&#43;-----------&#43;| mysql-bin.000001 | 125 || mysql-bin.000002 | 125 || mysql-bin.000003 | 125 || mysql-bin.000004 | 241 || mysql-bin.000005 | 511837 || mysql-bin.000006 | 25169036 || mysql-bin.000007 | 33391372 || mysql-bin.000008 | 627 || mysql-bin.000009 | 125 || mysql-bin.000010 | 1778 || mysql-bin.000011 | 61360430 || mysql-bin.000012 | 89547560 || mysql-bin." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -22,9 +20,7 @@ my.cnfの「log-bin」をコメントアウトでいけた。
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Mysql-binのログ情報を削除" />
 <meta name="twitter:description" content="ログ情報がたまってたのでけしました。
-■参考URL PURGE MASTER LOGS 構文んでよくよく考えてみて、そもそも設定で変えられるだろうとおもって調べたら 普通にありましたね。
-my.cnfの「log-bin」をコメントアウトでいけた。
-はい、終了" />
+mysql show binary logs;&#43;------------------&#43;-----------&#43;| Log_name | File_size |&#43;------------------&#43;-----------&#43;| mysql-bin.000001 | 125 || mysql-bin.000002 | 125 || mysql-bin.000003 | 125 || mysql-bin.000004 | 241 || mysql-bin.000005 | 511837 || mysql-bin.000006 | 25169036 || mysql-bin.000007 | 33391372 || mysql-bin.000008 | 627 || mysql-bin.000009 | 125 || mysql-bin.000010 | 1778 || mysql-bin.000011 | 61360430 || mysql-bin.000012 | 89547560 || mysql-bin." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -60,10 +56,34 @@ my.cnfの「log-bin」をコメントアウトでいけた。
 			<span class="entry-categories">( <a href="/categories/mysql">Mysql</a> )</span>
 			<section itemprop="entry-text">
 				<p>ログ情報がたまってたのでけしました。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: bash">
+mysql> show binary logs;
++------------------+-----------+
+| Log_name         | File_size |
++------------------+-----------+
+| mysql-bin.000001 |       125 |
+| mysql-bin.000002 |       125 |
+| mysql-bin.000003 |       125 |
+| mysql-bin.000004 |       241 |
+| mysql-bin.000005 |    511837 |
+| mysql-bin.000006 |  25169036 |
+| mysql-bin.000007 |  33391372 |
+| mysql-bin.000008 |       627 |
+| mysql-bin.000009 |       125 |
+| mysql-bin.000010 |      1778 |
+| mysql-bin.000011 |  61360430 |
+| mysql-bin.000012 |  89547560 |
+| mysql-bin.000013 |  92666202 |
+| mysql-bin.000014 |  98112464 |
+| mysql-bin.000015 |  28846371 |
+| mysql-bin.000016 |       106 |
+| mysql-bin.000017 | 122615971 |
++------------------+-----------+
+17 rows in set (0.02 sec)
+mysql> PURGE MASTER LOGS TO 'mysql-bin.000001';
+</pre>
 <p>■参考URL
-<!-- raw HTML omitted -->PURGE MASTER LOGS 構文<!-- raw HTML omitted --></p>
+<a href="http://ftp.ku.ac.th/pub/mirror/mysql/doc/refman/5.1/ja/purge-master-logs.html">PURGE MASTER LOGS 構文</a></p>
 <p>んでよくよく考えてみて、そもそも設定で変えられるだろうとおもって調べたら
 普通にありましたね。</p>
 <p>my.cnfの「log-bin」をコメントアウトでいけた。</p>

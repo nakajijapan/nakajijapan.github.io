@@ -10,7 +10,7 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/04/09/%E5%8D%B3%E8%88%88%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-svn%E3%81%8B%E3%82%89%E3%81%8A%E3%81%A8%E3%81%97%E3%81%A6%E3%83%BC%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E6%9C%80%E6%96%B0%E3%81%AB%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88%E3%83%BC%E3%81%AE/" />
 <meta property="go:description" content="タイトルの通り。 リモート一括処理したかったのでできないかなーって調べながら実装してたら意外と簡単にいけました。 全くエラー処理なんてものをいっさいしていないという不始末さ故どっかでエラーになるのは確実ですね。。。 リモートで失敗した際のエラー処理っていれられるのかな。まぁやってみないとどうしようもないということで…。
 処理としては、以下の通り。
-re&gt;" />
+SVNから指定のディレクトリ内にファイルをダウンロードするSCPでデータをリモートにある指定したディレクトリにコピー新しい情報リンクを張り替える#!/bin/zshSAVE_DIR=`date &#43;%Y%m%d%H%M%S`SVN_URL=&#39;http://xxx.xxx.xxx.xxx/svn/trunk/&#39;SVN_USER=&#39;nakajijapan&#39;SVN_PASS=&#39;nakajijapan&#39;echo &#39;start&#39; $SAVE_DIR &#39;\n&#39;# svnsvn export $SVN_URL ./$SAVE_DIR/ --username $SVN_USER --password $SVN_PASS# copyecho &#39;\nstart remote server \n&#39;scp -Br ./$SAVE_DIR xxx@xxxxxxxxx:/var/www/xxx/# rm direcho &#39;\nremove dir \n&#39;rm -rf ./$SAVE_DIR# change linkecho &#39;\nchange link \n&#39;ssh remote@nakajijapan.net /bin/rm &#39;/var/www/data/current ; /bin/ln -s /var/www/data/&#39;$SAVE_DIR&#39; /var/www/data/current ; /bin/ls -al /var/www/data/&#39; re&gt;" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -22,7 +22,7 @@ re&gt;" />
 <meta name="twitter:title" content="即興プログラミング　SVNからおとしてーのバージョン最新に切り替えーの。" />
 <meta name="twitter:description" content="タイトルの通り。 リモート一括処理したかったのでできないかなーって調べながら実装してたら意外と簡単にいけました。 全くエラー処理なんてものをいっさいしていないという不始末さ故どっかでエラーになるのは確実ですね。。。 リモートで失敗した際のエラー処理っていれられるのかな。まぁやってみないとどうしようもないということで…。
 処理としては、以下の通り。
-re&gt;" />
+SVNから指定のディレクトリ内にファイルをダウンロードするSCPでデータをリモートにある指定したディレクトリにコピー新しい情報リンクを張り替える#!/bin/zshSAVE_DIR=`date &#43;%Y%m%d%H%M%S`SVN_URL=&#39;http://xxx.xxx.xxx.xxx/svn/trunk/&#39;SVN_USER=&#39;nakajijapan&#39;SVN_PASS=&#39;nakajijapan&#39;echo &#39;start&#39; $SAVE_DIR &#39;\n&#39;# svnsvn export $SVN_URL ./$SAVE_DIR/ --username $SVN_USER --password $SVN_PASS# copyecho &#39;\nstart remote server \n&#39;scp -Br ./$SAVE_DIR xxx@xxxxxxxxx:/var/www/xxx/# rm direcho &#39;\nremove dir \n&#39;rm -rf ./$SAVE_DIR# change linkecho &#39;\nchange link \n&#39;ssh remote@nakajijapan.net /bin/rm &#39;/var/www/data/current ; /bin/ln -s /var/www/data/&#39;$SAVE_DIR&#39; /var/www/data/current ; /bin/ls -al /var/www/data/&#39; re&gt;" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -62,9 +62,36 @@ re&gt;" />
 全くエラー処理なんてものをいっさいしていないという不始末さ故どっかでエラーになるのは確実ですね。。。
 リモートで失敗した際のエラー処理っていれられるのかな。まぁやってみないとどうしようもないということで…。</p>
 <p>処理としては、以下の通り。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<ol>
+	<li>SVNから指定のディレクトリ内にファイルをダウンロードする</li>
+	<li>SCPでデータをリモートにある指定したディレクトリにコピー</li>
+	<li>新しい情報リンクを張り替える</li>
+</ol>
+<pre class="brush: bash">
+#!/bin/zsh
+
+SAVE_DIR=`date +%Y%m%d%H%M%S`
+SVN_URL='http://xxx.xxx.xxx.xxx/svn/trunk/'
+SVN_USER='nakajijapan'
+SVN_PASS='nakajijapan'
+
+echo 'start' $SAVE_DIR '\n'
+
+# svn
+svn export $SVN_URL ./$SAVE_DIR/  --username $SVN_USER --password $SVN_PASS
+
+# copy
+echo '\nstart remote server \n'
+scp -Br ./$SAVE_DIR xxx@xxxxxxxxx:/var/www/xxx/
+
+# rm dir
+echo '\nremove dir \n'
+rm -rf ./$SAVE_DIR
+
+# change link
+echo '\nchange link \n'
+ssh remote@nakajijapan.net /bin/rm '/var/www/data/current ; /bin/ln -s /var/www/data/'$SAVE_DIR' /var/www/data/current ; /bin/ls -al /var/www/data/'
+</pre>
 <p>re&gt;</p>
 
 			</section>

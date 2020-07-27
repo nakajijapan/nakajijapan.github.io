@@ -10,7 +10,8 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/01/09/wordpress_logpi%E3%83%97%E3%83%81%E6%94%B9%E9%80%A0/" />
 <meta property="go:description" content="画像表示したかったのでプチ改造
 ループ中に以下の処理をいれて、画像を小さく表示できるようにした。
-でも画像用のAPIとかほしいよね〜。" />
+// 置換 $message[&#39;description&#39;] = preg_replace(&#34;/img\.logpi\.jp\/(.&#43;)_l\.(jpg|png|gif)\&#34;/&#34;, &#34;img.logpi.jp/$1_m.$2\&#34;
+&#34;, $message[&#39;description&#39;]);でも画像用のAPIとかほしいよね〜。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -22,7 +23,8 @@
 <meta name="twitter:title" content="wordpress_logpiプチ改造" />
 <meta name="twitter:description" content="画像表示したかったのでプチ改造
 ループ中に以下の処理をいれて、画像を小さく表示できるようにした。
-でも画像用のAPIとかほしいよね〜。" />
+// 置換 $message[&#39;description&#39;] = preg_replace(&#34;/img\.logpi\.jp\/(.&#43;)_l\.(jpg|png|gif)\&#34;/&#34;, &#34;img.logpi.jp/$1_m.$2\&#34;
+&#34;, $message[&#39;description&#39;]);でも画像用のAPIとかほしいよね〜。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -59,8 +61,10 @@
 			<section itemprop="entry-text">
 				<p>画像表示したかったのでプチ改造</p>
 <p>ループ中に以下の処理をいれて、画像を小さく表示できるようにした。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: php" >
+// 置換                                                                                                                                                                  
+ $message['description'] = preg_replace("/img\.logpi\.jp\/(.+)_l\.(jpg|png|gif)\">/", "img.logpi.jp/$1_m.$2\"><br>", $message['description']);
+</pre>
 <p>でも画像用のAPIとかほしいよね〜。</p>
 
 			</section>

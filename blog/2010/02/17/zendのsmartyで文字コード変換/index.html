@@ -10,11 +10,7 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/02/17/zend%E3%81%AEsmarty%E3%81%A7%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E5%A4%89%E6%8F%9B/" />
 <meta property="go:description" content="分け合ってUTF-8のデータをンプレート出力時にはデータをSJISに設定する必要がでたのでそのメモ。
 ■動作 HTTP（INPUT）：SJIS 内部（データ、ファイルもろもろ）：UTF-8 HTTP（OUTPUT）：SJIS
-その次は関数の設定
-あとはブートストラップ使ってPHPの設定情報を変更する。
-こんな感じで変換してみた。
-もとにもどすときはapp.iniの設定抜くだけで全部UTF-8になるっすね。
-これでよし。" />
+// My_View_Smarty 内の関数public function __construct($tmplPath = null, $extraParams = array()){// オブジェクト生成$this-_smarty = new Smarty();// テンプレートパス設定if (null !== $tmplPath) {$this-setScriptPath($tmplPath);}// 設定情報をメンバ変数へforeach ($extraParams as $key = $value) {// define functionif (is_array($value)) {foreach ($value as $key2 = $value2) {// 出力時の関数指定if ($key === &#34;outputfilter&#34;) {$this-_smarty-autoload_filters[&#39;output&#39;][] = $value2;}else {$this-_smarty-{$key}[] = $value2;}}}else {$this-_smarty-$key = $value;}}その次は関数の設定" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -26,11 +22,7 @@
 <meta name="twitter:title" content="ZendのSmartyで文字コード変換" />
 <meta name="twitter:description" content="分け合ってUTF-8のデータをンプレート出力時にはデータをSJISに設定する必要がでたのでそのメモ。
 ■動作 HTTP（INPUT）：SJIS 内部（データ、ファイルもろもろ）：UTF-8 HTTP（OUTPUT）：SJIS
-その次は関数の設定
-あとはブートストラップ使ってPHPの設定情報を変更する。
-こんな感じで変換してみた。
-もとにもどすときはapp.iniの設定抜くだけで全部UTF-8になるっすね。
-これでよし。" />
+// My_View_Smarty 内の関数public function __construct($tmplPath = null, $extraParams = array()){// オブジェクト生成$this-_smarty = new Smarty();// テンプレートパス設定if (null !== $tmplPath) {$this-setScriptPath($tmplPath);}// 設定情報をメンバ変数へforeach ($extraParams as $key = $value) {// define functionif (is_array($value)) {foreach ($value as $key2 = $value2) {// 出力時の関数指定if ($key === &#34;outputfilter&#34;) {$this-_smarty-autoload_filters[&#39;output&#39;][] = $value2;}else {$this-_smarty-{$key}[] = $value2;}}}else {$this-_smarty-$key = $value;}}その次は関数の設定" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -70,14 +62,57 @@
 HTTP（INPUT）：SJIS
 内部（データ、ファイルもろもろ）：UTF-8
 HTTP（OUTPUT）：SJIS</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: php">
+// My_View_Smarty 内の関数
+    public function __construct($tmplPath = null, $extraParams = array())
+    {
+        // オブジェクト生成
+        $this->_smarty = new Smarty();
+
+        // テンプレートパス設定
+        if (null !== $tmplPath) {
+            $this->setScriptPath($tmplPath);
+        }
+
+        // 設定情報をメンバ変数へ
+        foreach ($extraParams as $key => $value) {
+
+            // define function
+            if (is_array($value)) {
+                foreach ($value as $key2 => $value2) {
+                    // 出力時の関数指定
+                    if ($key === "outputfilter") {
+                        $this->_smarty->autoload_filters['output'][] = $value2;
+                    }
+                    else {
+                        $this->_smarty->{$key}[] = $value2;
+                    }
+                }
+            }
+            else {
+                $this->_smarty->$key = $value;
+            }
+        }
+</pre>
 <p>その次は関数の設定</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: php">
+
+function smarty_outputfilter_convertSjis($output, &$smarty)
+{
+    return mb_convert_encoding($output, 'SJIS-win', 'UTF-8');
+}
+
+</pre>
 <p>あとはブートストラップ使ってPHPの設定情報を変更する。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: php">
+phpSettings.mbstring.internal_encoding = "UTF-8"
+phpSettings.http_input                 = "UTF-8"
+phpSettings.http_output                = "pass"
+
+; smarty のアウトプットフィルターに関数を登録する
+; 番号指定で複数可能
+resources.viewsmarty.outputfilter.0    = "convertSjis"
+</pre>
 <p>こんな感じで変換してみた。</p>
 <p>もとにもどすときはapp.iniの設定抜くだけで全部UTF-8になるっすね。</p>
 <p>これでよし。</p>

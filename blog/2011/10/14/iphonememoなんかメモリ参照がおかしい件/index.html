@@ -11,11 +11,9 @@
 <meta property="go:description" content="なんか迷ってしまったのです。
 １．NSDataからNSStringに変換して文字列を結合してメンバ変数に入れておく。 ２．他のメソッドからそのメンバ変数を関数に引数にして処理を行う。
 こんな簡単なことを１時間以上のも悩んだ挙げ句結局答えはわからずじまいでした。 いったいなんだったんでしょうか？？？
-test.htest.mこれだとエラーが発生
-NSDataをNSStringに変換したときのメモリ参照がうまくいってなかったのかなと思ってたけど以下の方法で 単純に文字列だけくっつけて見て試した見た。
-そうすると急に固まってしまい、[UIApplication sharedApplication]部分で以下のメッセージが出力された・・・ やっぱ参照方法が悪いみたいなんだね、、、、
-そんでもって、文字列の結合処理は「alertView」のデータを利用するところで行うようにしてみた。
-うまくいった。。。 どういうことでしょうか・・・。" />
+test.h
+#import @interface CameraViewController : UIViewController {IBOutlet UIImageView *imageView;NSString *_imageUrl;}@property (nonatomic, retain) IBOutlet UIImageView *imageView;@property (nonatomic, retain) NSString *_imageUrl;- (IBAction)pushButtonCamera;- (IBAction)pushButtonSaveImage;- (IBAction)pushButtonPostImage;@endtest.m
+@synthesize _imageUrl;- (IBAction)pushButtonPostImage{_imageUrl = [NSString stringWithFormat:@&#34;http:/hogehoge/?s=aaaa&#43;%@%@&#34;, UPLOAD_SERVER_URL, [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];}- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {NSLog(@&#34;%@ が押された&#34;, [alertView buttonTitleAtIndex:buttonIndex]);NSLog(@&#34;buttonIndex = %d&#34;, buttonIndex);// for logpiif (buttonIndex == 1) {[[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]];}}これだとエラーが発生" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -28,11 +26,9 @@ NSDataをNSStringに変換したときのメモリ参照がうまくいってな
 <meta name="twitter:description" content="なんか迷ってしまったのです。
 １．NSDataからNSStringに変換して文字列を結合してメンバ変数に入れておく。 ２．他のメソッドからそのメンバ変数を関数に引数にして処理を行う。
 こんな簡単なことを１時間以上のも悩んだ挙げ句結局答えはわからずじまいでした。 いったいなんだったんでしょうか？？？
-test.htest.mこれだとエラーが発生
-NSDataをNSStringに変換したときのメモリ参照がうまくいってなかったのかなと思ってたけど以下の方法で 単純に文字列だけくっつけて見て試した見た。
-そうすると急に固まってしまい、[UIApplication sharedApplication]部分で以下のメッセージが出力された・・・ やっぱ参照方法が悪いみたいなんだね、、、、
-そんでもって、文字列の結合処理は「alertView」のデータを利用するところで行うようにしてみた。
-うまくいった。。。 どういうことでしょうか・・・。" />
+test.h
+#import @interface CameraViewController : UIViewController {IBOutlet UIImageView *imageView;NSString *_imageUrl;}@property (nonatomic, retain) IBOutlet UIImageView *imageView;@property (nonatomic, retain) NSString *_imageUrl;- (IBAction)pushButtonCamera;- (IBAction)pushButtonSaveImage;- (IBAction)pushButtonPostImage;@endtest.m
+@synthesize _imageUrl;- (IBAction)pushButtonPostImage{_imageUrl = [NSString stringWithFormat:@&#34;http:/hogehoge/?s=aaaa&#43;%@%@&#34;, UPLOAD_SERVER_URL, [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];}- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {NSLog(@&#34;%@ が押された&#34;, [alertView buttonTitleAtIndex:buttonIndex]);NSLog(@&#34;buttonIndex = %d&#34;, buttonIndex);// for logpiif (buttonIndex == 1) {[[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]];}}これだとエラーが発生" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -72,26 +68,75 @@ NSDataをNSStringに変換したときのメモリ参照がうまくいってな
 ２．他のメソッドからそのメンバ変数を関数に引数にして処理を行う。</p>
 <p>こんな簡単なことを１時間以上のも悩んだ挙げ句結局答えはわからずじまいでした。
 いったいなんだったんでしょうか？？？</p>
-<p><!-- raw HTML omitted -->test.h<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->test.m<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><b>test.h</b></p>
+<pre class="brush:cpp">
+#import <UIKit/UIKit.h>
+
+@interface CameraViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate> {
+    IBOutlet UIImageView *imageView;
+    
+    NSString *_imageUrl;
+}
+
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (nonatomic, retain) NSString *_imageUrl;
+
+- (IBAction)pushButtonCamera;
+- (IBAction)pushButtonSaveImage;
+- (IBAction)pushButtonPostImage;
+
+@end
+</pre>
+<p><b>test.m</b></p>
+<pre class="brush:cpp">
+@synthesize _imageUrl;
+- (IBAction)pushButtonPostImage
+{
+    _imageUrl = [NSString stringWithFormat:@"http:/hogehoge/?s=aaaa+%@%@", 
+                 UPLOAD_SERVER_URL, 
+                 [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"%@ が押された", [alertView buttonTitleAtIndex:buttonIndex]);
+    NSLog(@"buttonIndex = %d", buttonIndex);
+
+    // for logpi
+    if (buttonIndex == 1) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]];
+    }
+}
+</pre>
 <p>これだとエラーが発生</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:cpp">
+2011-07-18 11:07:48.357 Urameshiya002[15513:207] -[__NSCFType length]: unrecognized selector sent to instance 0x4e3c5c0
+2011-07-18 11:07:48.374 Urameshiya002[15513:207] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[__NSCFType length]: unrecognized selector sent to instance 0x4e3c5c0'
+</pre>
 <p>NSDataをNSStringに変換したときのメモリ参照がうまくいってなかったのかなと思ってたけど以下の方法で
 単純に文字列だけくっつけて見て試した見た。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: cpp">
+    _imageUrl = [NSString stringWithFormat:@"http:/hogehoge/?s=aaaa+%@%@", 
+                 UPLOAD_SERVER_URL, 
+                 @"test"];
+</pre>
 <p>そうすると急に固まってしまい、[UIApplication sharedApplication]部分で以下のメッセージが出力された・・・
 やっぱ参照方法が悪いみたいなんだね、、、、</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: cpp">
+Thread:1:Program received signal: "EXC_BAD_ACCESS"
+</pre>
 <p>そんでもって、文字列の結合処理は「alertView」のデータを利用するところで行うようにしてみた。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:cpp">
+- (IBAction)pushButtonPostImage
+{
+    _imageUrl = [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        NSString *url = [[NSString alloc] initWithFormat:@"http://logpi.jp/title/232?status=OhMyGod+%@%@", UPLOAD_SERVER_URL, _imageUrl];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    }
+}
+</pre>
 <p>うまくいった。。。
 どういうことでしょうか・・・。</p>
 

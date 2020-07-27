@@ -12,13 +12,9 @@
 ・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。
 このとき利用する方法としてVirtualDocumentRootの設定をします。
 それが以下の設定。
-これによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。 これができると楽なんだなぁと思いました。
+# ディレクトリティブの設定Options -Indexes -MultiViews &#43;ExecCGI -IncludesAllowOverride AllFileETag None# すべてからのホストに対しての設定ServerName %0VirtualDocumentRoot /home/web/%0/public_htmlこれによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。 これができると楽なんだなぁと思いました。
 ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。
-0	the whole name 1	the first part 2	the second part -1	the last part -2	the penultimate part 2&#43;	the second and all subsequent parts -2&#43;	the penultimate and all preceding parts 1&#43; and -1&#43;	the same as 0
-あとディレクティブの設定は別々にディレクトリを分けたのはいいけれど、時には ある特定の条件の時には共通の処理をしたいわがままなときがあるかもしれないような気がします。。。 そのときは指定されたディレクトリ以下をアクセスできるように設定をしてから。「VirtualHost」内で そのプログラムを実行できるようにします。
-こうすると指定のパスの場合だけすべて共通で「index.php」が実行されるようになる。
-Apacheって便利だねー。こんなこともできるなんて最近しりますた。
-DocumentRootVirtualHost大量バーチャルホストの設定/a&gt;" />
+%%	insert a %%p	insert the port number of the virtual host%N.M	insert (part of) the name0	the whole name 1	the first part 2	the second part -1	the last part -2	the penultimate part 2&#43;	the second and all subsequent parts -2&#43;	the penultimate and all preceding parts 1&#43; and -1&#43;	the same as 0" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -32,13 +28,9 @@ DocumentRootVirtualHost大量バーチャルホストの設定/a&gt;" />
 ・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。
 このとき利用する方法としてVirtualDocumentRootの設定をします。
 それが以下の設定。
-これによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。 これができると楽なんだなぁと思いました。
+# ディレクトリティブの設定Options -Indexes -MultiViews &#43;ExecCGI -IncludesAllowOverride AllFileETag None# すべてからのホストに対しての設定ServerName %0VirtualDocumentRoot /home/web/%0/public_htmlこれによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。 これができると楽なんだなぁと思いました。
 ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。
-0	the whole name 1	the first part 2	the second part -1	the last part -2	the penultimate part 2&#43;	the second and all subsequent parts -2&#43;	the penultimate and all preceding parts 1&#43; and -1&#43;	the same as 0
-あとディレクティブの設定は別々にディレクトリを分けたのはいいけれど、時には ある特定の条件の時には共通の処理をしたいわがままなときがあるかもしれないような気がします。。。 そのときは指定されたディレクトリ以下をアクセスできるように設定をしてから。「VirtualHost」内で そのプログラムを実行できるようにします。
-こうすると指定のパスの場合だけすべて共通で「index.php」が実行されるようになる。
-Apacheって便利だねー。こんなこともできるなんて最近しりますた。
-DocumentRootVirtualHost大量バーチャルホストの設定/a&gt;" />
+%%	insert a %%p	insert the port number of the virtual host%N.M	insert (part of) the name0	the whole name 1	the first part 2	the second part -1	the last part -2	the penultimate part 2&#43;	the second and all subsequent parts -2&#43;	the penultimate and all preceding parts 1&#43; and -1&#43;	the same as 0" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -78,14 +70,28 @@ DocumentRootVirtualHost大量バーチャルホストの設定/a&gt;" />
 <p>・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。</p>
 <p>このとき利用する方法としてVirtualDocumentRootの設定をします。</p>
 <p>それが以下の設定。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: text">
+# ディレクトリティブの設定
+<Directory "/var/www/test/public">
+    Options -Indexes -MultiViews +ExecCGI -Includes
+    AllowOverride All
+    FileETag None
+</Directory>
+# すべてからのホストに対しての設定
+<VirtualHost *>
+    ServerName   %0
+    VirtualDocumentRoot /home/web/%0/public_html
+</VirtualHost>
+</pre>
 <p>これによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。
 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。
 これができると楽なんだなぁと思いました。</p>
 <p>ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば
 ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。</p>
-<!-- raw HTML omitted -->
+<blockquote>
+%%	insert a %
+%p	insert the port number of the virtual host
+%N.M	insert (part of) the name
 <p>0	the whole name
 1	the first part
 2	the second part
@@ -94,18 +100,32 @@ DocumentRootVirtualHost大量バーチャルホストの設定/a&gt;" />
 2+	the second and all subsequent parts
 -2+	the penultimate and all preceding parts
 1+ and -1+	the same as 0</p>
-<!-- raw HTML omitted -->
+</blockquote>
 <p>あとディレクティブの設定は別々にディレクトリを分けたのはいいけれど、時には
 ある特定の条件の時には共通の処理をしたいわがままなときがあるかもしれないような気がします。。。
 そのときは指定されたディレクトリ以下をアクセスできるように設定をしてから。「VirtualHost」内で
 そのプログラムを実行できるようにします。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: text">
+# ディレクトリティブの設定
+<Directory "/var/www/test/public">
+    Options -Indexes -MultiViews +ExecCGI -Includes
+    AllowOverride All
+    FileETag None
+</Directory>
+# すべてからのホストに対しての設定
+<VirtualHost *>
+    ServerName   %0
+    VirtualDocumentRoot /home/web/%0/public_html
+
+    RewriteEngine On
+    RewriteRule /path/to/       /var/www/test/public/index.php
+</VirtualHost>
+</pre>
 <p>こうすると指定のパスの場合だけすべて共通で「index.php」が実行されるようになる。</p>
 <p>Apacheって便利だねー。こんなこともできるなんて最近しりますた。</p>
-<p><!-- raw HTML omitted -->DocumentRoot<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->VirtualHost<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->大量バーチャルホストの設定<!-- raw HTML omitted --></p>
+<p><a href="http://httpd.apache.org/docs/2.2/mod/core.html#documentroot">DocumentRoot</a>
+<a href="http://httpd.apache.org/docs/2.2/mod/core.html#virtualhost">VirtualHost</a>
+<a href="http://httpd.apache.org/docs/2.2/vhosts/mass.html">大量バーチャルホストの設定</a></p>
 <p>/a&gt;</p>
 
 			</section>

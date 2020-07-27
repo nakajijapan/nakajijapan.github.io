@@ -22,7 +22,7 @@
 			<description>きになっちゃったのでメモ。
 基本的には同じことなんかな。window.onloadとbody.onload。 なんかこれ読んでたらわからんでもないけど、動作的にはほぼ同じことなんじゃないかな。
 どちらともページの読み込みが完了した後にDOMの解析をし始めることには代わりはない。 そんで以下のような処理をやってみたら、後の処理を上書きして処理されてるみたい。この場合だと 「window.onload」の処理はかき消されて「body.onload」が実行されていた。
-ちなみにDOMを解析している途中にJS実行するならヘッダ内とボディ内に普通処理を実装すると処理は行われる。
+＜html＞window.onload = function(){console.log(&#39;window&#39;);}test＜/html＞ちなみにDOMを解析している途中にJS実行するならヘッダ内とボディ内に普通処理を実装すると処理は行われる。
 �。</description>
 		</item>
 		
@@ -33,9 +33,7 @@
 			
 			<guid>http://nakajijapan.github.io/blog/2010/06/29/javascript%E3%81%A7post%E5%87%A6%E7%90%86%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
 			<description>セキュリティチェックでいろいろ処理を試す機会があってテストコード書くためにjavascriptのみで フォームのデータを作成して（ここではHiddenのパラメータを作成）サブミット処理をさせるものを書いてみました。
-javascriptってなんでもできるんですね。コード内でFormの情報を作成できてしまうなんてバンザイです！！！ あと、最近になってjavascriptでExceptionの処理ができるなんて知りました。 いままで、返り値でエラー処理の対応していたんですが、原因不明なエラーとか発せしたときは、それだけじゃ対処しきれない。そんなときは「throw」されるはずなのでそこで例外処理を行うようにする。
-今回の例だと例外は発生しないけど、勉強がてら実装してみた。
-�。</description>
+function PostSubmit() {this.init();}PostSubmit.prototype = {frmObject : {},init : function() {this.frmObject = document.createElement(&#34;form&#34;);this.frmObject.method = &#34;post&#34;;},add : function(elementname, elementvalue) {var input = document.createElement(&#34;input&#34;);input.type = &#34;hidden&#34;;input.name = elementname;input.value = elementvalue;this.frmObject.appendChild(input);},submit : function(url, targetFrame){try {if (targetFrame) {this.frmObject.target = targetFrame;}}catch (e) { }try {if (url) {this.frmObject.action = url;document.</description>
 		</item>
 		
 		<item>
@@ -44,7 +42,8 @@ javascriptってなんでもできるんですね。コード内でFormの情報
 			<pubDate>Mon, 03 May 2010 14:08:30 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2010/05/03/html5api%E5%85%A5%E9%96%80/</guid>
-			<description>HTML5&amp;amp;API入門いままでの記事で参考にしてた本です。
+			<description>HTML5&amp;amp;API入門
+いままでの記事で参考にしてた本です。
 �。</description>
 		</item>
 		
@@ -56,15 +55,7 @@ javascriptってなんでもできるんですね。コード内でFormの情報
 			<guid>http://nakajijapan.github.io/blog/2010/05/02/fileapi-draganddrop-jquery%E3%81%A7%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E7%94%BB%E5%83%8F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E7%94%BB%E9%9D%A2%E3%81%AB%E6%8F%8F%E7%94%BB%E3%81%99%E3%82%8B/</guid>
 			<description>今回はDrag And Dropしてみます。 ただやるんじゃ面白く無いのでローカルにある複数の画像ファイルをドラッグして画面に表示させるところまでやってみます。
 JSとHTMLはこんな感じ。
-&amp;lt;p id=&amp;quot;desc&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p id=&amp;quot;device&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p id=&amp;quot;rights&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;strong&amp;gt;More EXIF details:&amp;lt;/strong&amp;gt;&amp;lt;dl id=&amp;quot;exif&amp;quot;&amp;gt;&amp;lt;/dl&amp;gt; 方法としては、ドラッグ対象となる要素にイベントを登録して必要とする処理を行わせます。 処理内容は、ドラッグしたファイルからファイル情報を読み込んだ後に画面に描画させます。 基本は前回と同じですね。ファイルの選択からドラッグをできるようにしただけですからね。。。
-大元がこれイベントの登録をしています。
-あと、ドラッグしたファイルを読み込むときには「DataTransfer」という型をドロップしたファイルオブジェクトが情報を持っているのでこれを利用します。
-あとちょっと理由がわからなかったのですがメソッドがthisじゃだめだったのなぜなんだろうか？？？インスタンスかさせてないと認識できない？なのでメソッドを直接指定することにしました。
-だいたいできた。
-■感想 ・重い画像ファイルを一気にドラッグするとブラウザの処理が追いつかないみたいでファイル名が「undefined」になってしまうことがあるね。どうしたらいいものか。 (無理やりsleep()的なものおいておいた方がいいのかな？) ・これも後ろで非同期通信してみる（みたい） ・これだとIE、Chromeだと動かないのでクロスブラウザ的な対策が必要なんだな そもそもIEは「addEventListener」がないからね ・GPSの情報取得してグーグルマップに登録的なことをしたいでげす。
-■デモ■参考サイト Drag &amp;amp; Drop - HTML5 版JavaScript addEventListener()W3C FileAPI in Firefox 3.6Drag and drop file uploading using JavaScript※コード汚かったけど結構参考になりました。ここだとSVGとかXHRとかもつかってアプロード中の処理もやってるからすごい。
-�
-��</description>
+function Nakaji(){//var Nakaji = function(){ //var dropBox = {};//this.init();};Nakaji.prototype = {dropBox : {},//-------------------------// ドラッグ中のマウスカーソルが、要素と重なったときに瞬間に呼び出されるイベント//-------------------------dragEnter : function(event) {$(&#34;#dropbox&#34;).css(&#39;background&#39;, &#39;red&#39;);},//-------------------------// ドラッグ中のマウスカーソルが要素上を横切っている間、断続的に発生するイベント//-------------------------dragLeave : function(event) {$(&#34;#dropbox&#34;).css(&#39;background&#39;, &#39;brue&#39;);},//-------------------------// ドラッグ中のマウスカーソルが要素内から出た時に呼び出されるイベント//-------------------------dragOver : function(event) {event.preventDefault();$(&#34;#dropbox&#34;).css(&#39;background&#39;, &#39;green&#39;);},//-------------------------// ドラッグ時に呼び出されるイベント//-------------------------drop : function(event) {// ドラッグされたデータを取得var dt = event.</description>
 		</item>
 		
 		<item>
@@ -73,20 +64,7 @@ JSとHTMLはこんな感じ。
 			<pubDate>Sun, 02 May 2010 03:44:58 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2010/05/02/filereader-jquery%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E8%A4%87%E6%95%B0%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3%81%9F%E7%94%BB%E5%83%8F%E3%82%92%E7%94%BB%E9%9D%A2%E3%81%AB%E8%A1%A8%E7%A4%BA%E3%81%95%E3%81%9B%E3%82%8B/</guid>
-			<description>HTML５の勉強っす。
-今回はFileRead()を利用してみた。って話。
-まだ策定中のFile APIなのですが、これを利用するとjavascriptからファイル情報や内容を読み込んで アクセスができるようになるみたいですね。例をあげるとファイルをアップロードするときに予め対象の 画像情報を表示させといてから非同期で画像を保存する。的なこと簡単にできてしまうわけです。
-現在はFirefoxでは実装されていてつかえるみたいなのですが、まだChromeで利用できないみたいですね。 ここいらへんで騒いでいます。
-実際、まだ全体的にみても策定中のようで「FileWriter」なんてものもあるらしくてこれが決定！！というわけではない。とのこと。 なので、今後仕様が変わっていってしまうのは大いにあるようです。
-だけどおもしろそうだったのでやってみた。
-まずは、HTMLに
-を記述してから複数ファイルを選択できるようにします。 (この時点でもうフラッシュいらないですね。はい。)
-次は関数を呼ぶ。
-複数選択したとき用にループしてファイルを走査する。
-FileReaderCustomの中身でやっているものは
-できた！！これでボタンを押せば読み込みが始まります。 あとは非同期でデータをPOSTしてやればOK。
-■感想 ・「input」タグのmultiple属性POSTしたらどうなるのかな？ ・ファイルをアップするときになんていうかいい感じに連続的に表示できないかなーっておもった。 ・ロード中の画像はその画像上かどこかに身長情報載せたい。 ・クロスブラウザ対応できたら最高やね。。 ・後ろ側の通信しなきゃね。
-■デモ  </description>
+			<description>// ファイル読み込み用function FileReaderCustom() {};FileReaderCustom.prototype = {setup : function(file, cnt) {var reader = new FileReader();//----------------------// ロード時の処理//----------------------reader.onload = function() {// 表示用タグ生成var divTag = $(document.createElement(&#34;span&#34;));var imgTag = $(document.createElement(&#34;img&#34;));// 出力先var list = $(&#34;#list&#34;);// 各タグの属性情報設定divTag.attr(&#39;id&#39;, &#39;item_&#39; + cnt);divTag.css(&#39;float&#39;, &#39;left&#39;);imgTag.attr({width: 200,height:	200,src: reader.result});// タグをまとめるdivTag.append(imgTag);// 画像タグをリストに追加// 表示時はアニメーションで表示list.append(divTag.fadeIn(5000));};//----------------------// 作成中の処理//----------------------reader.</description>
 		</item>
 		
 	</channel>

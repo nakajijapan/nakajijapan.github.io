@@ -8,7 +8,8 @@
 <meta property="og:title" content="[zend]ZendFrameworkでCSV出力をおこなう方法">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/07/24/zendzendframework%E3%81%A7csv%E5%87%BA%E5%8A%9B%E3%82%92%E3%81%8A%E3%81%93%E3%81%AA%E3%81%86%E6%96%B9%E6%B3%95/" />
-<meta property="go:description" content="突貫工事ではありますが、controllerからデータをCSV出力させるようにさせてみた。" />
+<meta property="go:description" content="突貫工事ではありますが、controllerからデータをCSV出力させるようにさせてみた。
+// csv?if (isset($params[&#39;csvFlg&#39;])) {$this-getResponse()-setHeader(&#39;Content-disposition&#39;,&#39;attachment; filename=&#34;data_&#39;.date(&#39;YmdHis&#39;).&#39;.csv&#34;&#39; )-setHeader(&#39;Content-type&#39;, &#39;test/x-csv&#39;)-sendHeaders();foreach($users as $user) {$this-getResponse()-appendBody( implode(&#39;,&#39;, $user) . &#34;\r\n&#34; );}$this-getResponse()-outputBody();exit;}" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -18,7 +19,8 @@
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[zend]ZendFrameworkでCSV出力をおこなう方法" />
-<meta name="twitter:description" content="突貫工事ではありますが、controllerからデータをCSV出力させるようにさせてみた。" />
+<meta name="twitter:description" content="突貫工事ではありますが、controllerからデータをCSV出力させるようにさせてみた。
+// csv?if (isset($params[&#39;csvFlg&#39;])) {$this-getResponse()-setHeader(&#39;Content-disposition&#39;,&#39;attachment; filename=&#34;data_&#39;.date(&#39;YmdHis&#39;).&#39;.csv&#34;&#39; )-setHeader(&#39;Content-type&#39;, &#39;test/x-csv&#39;)-sendHeaders();foreach($users as $user) {$this-getResponse()-appendBody( implode(&#39;,&#39;, $user) . &#34;\r\n&#34; );}$this-getResponse()-outputBody();exit;}" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -54,9 +56,21 @@
 			<span class="entry-categories">( <a href="/categories/php">PHP</a> )</span>
 			<section itemprop="entry-text">
 				<p>突貫工事ではありますが、controllerからデータをCSV出力させるようにさせてみた。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --></p>
+<pre class="brush: php">
+        // csv?
+        if (isset($params['csvFlg'])) {
+            $this->getResponse()
+                 ->setHeader('Content-disposition','attachment; filename="data_'.date('YmdHis').'.csv"' )
+                 ->setHeader('Content-type', 'test/x-csv')
+                 ->sendHeaders();
+            foreach($users as $user) {
+                $this->getResponse()->appendBody( implode(',', $user) . "\r\n" );
+            }
+            $this->getResponse()->outputBody();
+            exit;
+        }
+</pre>
+<p></pre></p>
 
 			</section>
 		</article>

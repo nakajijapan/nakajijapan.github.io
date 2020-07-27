@@ -8,7 +8,7 @@
 <meta property="og:title" content="即興でsmarty関数を作ってみる">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/02/23/%E5%8D%B3%E8%88%88%E3%81%A7smarty%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B/" />
-<meta property="go:description" content="まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能" />
+<meta property="go:description" content="function smarty_function_my_assign($params, &$smarty){$str=&#34;&#34;;foreach ($params as $key = $value) {if (substr($key, 0, 5) === &#34;value&#34;) {$str .= $value;}}$smarty-assign($params[&#39;var&#39;], $str);}{my_assign var-&#34;_test&#34; value1=&#34;aaaa&#34; value2=&#34;bbbb&#34;}{*aaaabbbb*}{$_test}まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -18,7 +18,7 @@
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="即興でsmarty関数を作ってみる" />
-<meta name="twitter:description" content="まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能" />
+<meta name="twitter:description" content="function smarty_function_my_assign($params, &$smarty){$str=&#34;&#34;;foreach ($params as $key = $value) {if (substr($key, 0, 5) === &#34;value&#34;) {$str .= $value;}}$smarty-assign($params[&#39;var&#39;], $str);}{my_assign var-&#34;_test&#34; value1=&#34;aaaa&#34; value2=&#34;bbbb&#34;}{*aaaabbbb*}{$_test}まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -53,10 +53,27 @@
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2010-02-23">February 23, 2010</time></span>
 			<span class="entry-categories">( <a href="/categories/smarty">Smarty</a> )</span>
 			<section itemprop="entry-text">
-				<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+				<pre class="brush: php">
+function smarty_function_my_assign($params, &$smarty)
+{
+    $str="";
+    foreach ($params as $key => $value) {
+        if (substr($key, 0, 5) === "value") {
+            $str .= $value;
+        }
+    }
+
+    $smarty->assign($params['var'], $str);
+
+}
+</pre>
+<pre class="brush: text">
+{my_assign var-"_test" value1="aaaa"  value2="bbbb"}
+
+{*aaaabbbb*}
+{$_test}
+
+</pre>
 <p>まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能</p>
 
 			</section>

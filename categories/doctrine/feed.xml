@@ -20,7 +20,7 @@
 			
 			<guid>http://nakajijapan.github.io/blog/2010/02/15/doctrine-%E3%81%AE%E4%BB%95%E6%A7%98%E7%9A%84%E3%81%AA%E3%82%82%E3%81%AEv1.2/</guid>
 			<description>カラムのタイプで文字列の型を指定するとき、２５６以上にするとTEXT型になってしまう。
-とりあえず限界が２５５でそれ以降はなぜかTEXT型でした。 なんか設定の意図でもあるのかな＝＝＝＝。。 どう見えてもバグのような気がする。
+Account:columns:username:type: string(256)とりあえず限界が２５５でそれ以降はなぜかTEXT型でした。 なんか設定の意図でもあるのかな＝＝＝＝。。 どう見えてもバグのような気がする。
 だって普通にvarchar(1024)てやりたい場合で絶対できくるはずなのに。
 ちょっと使えないDoctrine_Cli
 追記：（2月15日） ・CLIコマンドは主キーを「id」にしないとうまいこと機能しない。(ハックすればいいんだけどね！！) ・カラム制限がいろいろある。(ハックすればいいんだけどね！！)</description>
@@ -33,8 +33,9 @@
 			
 			<guid>http://nakajijapan.github.io/blog/2010/02/09/doctrine%E3%81%A7%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E6%8A%80%E8%A1%93%E8%AA%BF%E6%9F%BB%E3%81%9D%E3%81%AE%EF%BC%91/</guid>
 			<description>パーティショニングしながらDoctrineてつかえるのだろうかとふと思いしらべてみたらあった。 ちょっちバージョンは古いけど
-ここからの引用Creating foreign key is usually good, but there are some situations that we should not use foreign key.
- In MySQL, partitioning doesn&amp;rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html As the case may be, foreign keys in database will rule out doing application-level-cascading-delete. MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.</description>
+ここからの引用
+Please add ability not to create foreign key to database before releasing the last LTS version of Doctrine.Creating foreign key is usually good, but there are some situations that we should not use foreign key.
+ In MySQL, partitioning doesn&amp;rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html As the case may be, foreign keys in database will rule out doing application-level-cascading-delete.</description>
 		</item>
 		
 		<item>
@@ -46,12 +47,11 @@
 			<description>Doctrineいれてみる　with zendからの続きです。
 では実際にDoctrineで生成されたクラスを利用して データベースの操作を行ってみましょう。
 ユーザデータ一覧取得
-ユーザデータ作成
-ユーザデータ削除
-ユーザデータ変更
-ちょっと応用してみます。 情報取得時にテーブルをJOINして取得します。
-上記処理は、Doctrine独自の書き方でDoctrine側であらかじめ関連づけしといてカラムと繋ぎ合せて 自動でSQLを作成しています。なのでSQLのなかで勝手に「UserGroup」テーブルがジョインされています。
-しかし、この状態だと「UserGroup」テーブルの情報を取りたいとき取得されないみたいだったので 以下にようにして普通に結合させます。</description>
+// user$query = Doctrine_Query::create()-from(&#39;User u&#39;)-orderBy(&#39;u.id&#39;);$lists = $query-execute();ユーザデータ作成
+// user$user = new User();$user-username = &#34;username&#34;$user-password = &#34;password&#34;$user-save();ユーザデータ削除
+//$user = new User();$query = Doctrine_Query::create()-delete(&#34;User u&#34;)-whereIn(&#34;id&#34;, $prms[&#34;delid&#34;]);$delcnt = $query-execute();ユーザデータ変更
+// user$user = Doctrine::getTable(&#39;User&#39;)-find(1);$user-username = &#34;modified_username&#34;$user-password = &#34;modified_password&#34;$user-save();ちょっと応用してみます。 情報取得時にテーブルをJOINして取得します。
+// user and group$query = Doctrine_Query::create()-from(&#39;User u&#39;)-leftJoin(&#39;u.</description>
 		</item>
 		
 		<item>
@@ -63,17 +63,7 @@
 			<description>doctrineを入れてみる。
 久々にPHPでORMらしいツールがでましたね。 Hibernateをインスパイアされたものらしいので結構使えそうかも って思ってインストールしてみました。
 ちなみに今は、ZendFrameworkを使っていたのでそこに組み込んでみることにする。
-まずはダウンロード。
-http://www.doctrine-project.org/download
-ディレクトリ配置は application/data application/data/sql application/data/ficture application/migrations application/schema application/scripts
-ライブラリ関連は「lib」ディレクトリ以下に配置。 library/doctrine/Docrine.php library/doctrine/Docrine
-配置が完了したらindex.phpにdoctrineの設定を記述します。
-本当はBootstrapにプラグインとして組み込めばいいんですけど、本筋じゃないのでここでは割愛。 もっといってみると、この場合負荷の分散になっていなからごねごねしなきゃいけない。
-次はスキーマを作成します。 このスキーマを通してSQLを作成したり、モデルクラスを作成するためのファイルです。
-とりあえず、こんな感じで作ってみます。 ファイル名は「schema.yaml」です。
-※作ってみたのはいいけどテーブル大きくなってきたら大変だなーって思ってたら カレントディレクトリ内のファイルはおいてあれば見に行く仕様になっていたので 一安心でした。
-そこからdoctrineコマンドを通してモデルクラス、並びにSQLを作成してDBに設定を反映させてみます。 この一連の作業がコマンド３発で来てしまうのがうれしいものですね。
-これからはコントローラーで処理してみます。</description>
+Doctrine is an object relational mapper (ORM) for PHP 5.2.3+ that sits on top of a powerful database abstraction layer (DBAL). One of its key features is the option to write database queries in a proprietary object oriented SQL dialect called Doctrine Query Language (DQL), inspired by Hibernates HQL. This provides developers with a powerful alternative to SQL that maintains flexibility without requiring unnecessary code duplication.</description>
 		</item>
 		
 		<item>
@@ -82,7 +72,7 @@ http://www.doctrine-project.org/download
 			<pubDate>Wed, 03 Feb 2010 15:03:45 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2010/02/03/doctrine%E8%AA%BF%E6%9F%BB/</guid>
-			<description></description>
+			<description>What Is Doctrine?View more presentations from Jonathan Wage. </description>
 		</item>
 		
 	</channel>

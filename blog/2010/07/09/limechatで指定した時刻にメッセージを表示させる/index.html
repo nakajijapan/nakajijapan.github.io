@@ -9,7 +9,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/07/09/limechat%E3%81%A7%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%9F%E6%99%82%E5%88%BB%E3%81%AB%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%95%E3%81%9B%E3%82%8B/" />
 <meta property="go:description" content="これだと毎週のある時刻にメッセージを表示する
-補足 以下のメソッドがうまくうごいてくれなかった。なんでだろう。 window.flashTitle(); window.blinkTitle();" />
+/*** 指定した時間にイベントのお知らせメッセージを表示する*　*/var targetChannel = &#34;#channel&#34;;//------------------------------------// 実行時//------------------------------------var ret = 0;function event::onLoad() {ret = setInterval(checkDevMtg, 1000);}//------------------------------------// 時刻チェック//------------------------------------function checkDevMtg(){var date = new Date();// 表示させる時刻（定期的に表示）var targetDay = 2; // 火曜日var targetHour = 15var targetMinute = 50;var targetSecond = 0;var currentDay = date.getDay();var currentHour = date.getHours();var currentMinute = date.getMinutes();var currentSecond = date." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -20,7 +20,7 @@
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="limeChatで指定した時刻にメッセージを表示させる" />
 <meta name="twitter:description" content="これだと毎週のある時刻にメッセージを表示する
-補足 以下のメソッドがうまくうごいてくれなかった。なんでだろう。 window.flashTitle(); window.blinkTitle();" />
+/*** 指定した時間にイベントのお知らせメッセージを表示する*　*/var targetChannel = &#34;#channel&#34;;//------------------------------------// 実行時//------------------------------------var ret = 0;function event::onLoad() {ret = setInterval(checkDevMtg, 1000);}//------------------------------------// 時刻チェック//------------------------------------function checkDevMtg(){var date = new Date();// 表示させる時刻（定期的に表示）var targetDay = 2; // 火曜日var targetHour = 15var targetMinute = 50;var targetSecond = 0;var currentDay = date.getDay();var currentHour = date.getHours();var currentMinute = date.getMinutes();var currentSecond = date." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -56,8 +56,53 @@
 			<span class="entry-categories">( <a href="/categories/limechat">limechat</a> )</span>
 			<section itemprop="entry-text">
 				<p>これだと毎週のある時刻にメッセージを表示する</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:javascript">
+/*
+ *
+ * 指定した時間にイベントのお知らせメッセージを表示する
+ *　
+ */
+var targetChannel = "#channel";
+
+
+//------------------------------------
+// 実行時
+//------------------------------------
+var ret = 0;
+function event::onLoad() {
+    ret = setInterval(checkDevMtg, 1000);
+}
+
+//------------------------------------
+// 時刻チェック
+//------------------------------------
+function checkDevMtg(){
+    var date = new Date();
+    
+    // 表示させる時刻（定期的に表示）
+    var targetDay    = 2;    // 火曜日
+    var targetHour   = 15
+    var targetMinute = 50;
+    var targetSecond = 0;
+
+    var currentDay    = date.getDay();
+    var currentHour   = date.getHours();
+    var currentMinute = date.getMinutes();
+    var currentSecond = date.getSeconds();
+    
+    if (targetDay    == currentDay &&
+        targetHour   == currentHour &&
+        targetMinute == currentMinute &&
+        targetSecond == currentSecond
+    ) {
+        window.flashTitle();
+        window.blinkTitle();
+        send(targetChannel, "==============================================");
+        send(targetChannel, "= ミーティングの時間ですよ！                       =");
+        send(targetChannel, "==============================================");
+    }
+}
+</pre>
 <p>補足
 以下のメソッドがうまくうごいてくれなかった。なんでだろう。
 window.flashTitle();

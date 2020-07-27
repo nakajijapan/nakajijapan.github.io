@@ -9,9 +9,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/06/29/javascript%E3%81%A7post%E5%87%A6%E7%90%86%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/" />
 <meta property="go:description" content="セキュリティチェックでいろいろ処理を試す機会があってテストコード書くためにjavascriptのみで フォームのデータを作成して（ここではHiddenのパラメータを作成）サブミット処理をさせるものを書いてみました。
-javascriptってなんでもできるんですね。コード内でFormの情報を作成できてしまうなんてバンザイです！！！ あと、最近になってjavascriptでExceptionの処理ができるなんて知りました。 いままで、返り値でエラー処理の対応していたんですが、原因不明なエラーとか発せしたときは、それだけじゃ対処しきれない。そんなときは「throw」されるはずなのでそこで例外処理を行うようにする。
-今回の例だと例外は発生しないけど、勉強がてら実装してみた。
-�。" />
+function PostSubmit() {this.init();}PostSubmit.prototype = {frmObject : {},init : function() {this.frmObject = document.createElement(&#34;form&#34;);this.frmObject.method = &#34;post&#34;;},add : function(elementname, elementvalue) {var input = document.createElement(&#34;input&#34;);input.type = &#34;hidden&#34;;input.name = elementname;input.value = elementvalue;this.frmObject.appendChild(input);},submit : function(url, targetFrame){try {if (targetFrame) {this.frmObject.target = targetFrame;}}catch (e) { }try {if (url) {this.frmObject.action = url;document." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -22,9 +20,7 @@ javascriptってなんでもできるんですね。コード内でFormの情報
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="javascriptでPOST処理を実装してみる" />
 <meta name="twitter:description" content="セキュリティチェックでいろいろ処理を試す機会があってテストコード書くためにjavascriptのみで フォームのデータを作成して（ここではHiddenのパラメータを作成）サブミット処理をさせるものを書いてみました。
-javascriptってなんでもできるんですね。コード内でFormの情報を作成できてしまうなんてバンザイです！！！ あと、最近になってjavascriptでExceptionの処理ができるなんて知りました。 いままで、返り値でエラー処理の対応していたんですが、原因不明なエラーとか発せしたときは、それだけじゃ対処しきれない。そんなときは「throw」されるはずなのでそこで例外処理を行うようにする。
-今回の例だと例外は発生しないけど、勉強がてら実装してみた。
-�。" />
+function PostSubmit() {this.init();}PostSubmit.prototype = {frmObject : {},init : function() {this.frmObject = document.createElement(&#34;form&#34;);this.frmObject.method = &#34;post&#34;;},add : function(elementname, elementvalue) {var input = document.createElement(&#34;input&#34;);input.type = &#34;hidden&#34;;input.name = elementname;input.value = elementvalue;this.frmObject.appendChild(input);},submit : function(url, targetFrame){try {if (targetFrame) {this.frmObject.target = targetFrame;}}catch (e) { }try {if (url) {this.frmObject.action = url;document." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -61,8 +57,57 @@ javascriptってなんでもできるんですね。コード内でFormの情報
 			<section itemprop="entry-text">
 				<p>セキュリティチェックでいろいろ処理を試す機会があってテストコード書くためにjavascriptのみで
 フォームのデータを作成して（ここではHiddenのパラメータを作成）サブミット処理をさせるものを書いてみました。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:javascript">
+function PostSubmit() {
+	this.init();
+}
+PostSubmit.prototype = {
+	frmObject : {},
+	
+	init : function() 
+	{
+		this.frmObject = document.createElement("form");
+		this.frmObject.method = "post";
+	},
+	
+	add : function(elementname, elementvalue) 
+	{
+		var input   = document.createElement("input");
+		input.type  = "hidden";
+		input.name  = elementname;
+		input.value = elementvalue;
+		this.frmObject.appendChild(input);
+	},
+	
+	submit : function(url, targetFrame)
+	{
+		try {
+			if (targetFrame) {
+				this.frmObject.target = targetFrame;
+			}
+		}
+		catch (e) { }
+
+		try {
+			if (url) {
+				this.frmObject.action = url;
+				document.body.appendChild(this.frmObject);
+				this.frmObject.submit();
+				return true;
+			} 
+			else { 
+				return false; 
+			}
+		} catch (e) {
+			return false;
+		}
+	}
+}
+
+var frm = new PostSubmit();
+frm.add('hoge', 'monge');
+frm.submit('/add', 'target');
+</pre>
 <p>javascriptってなんでもできるんですね。コード内でFormの情報を作成できてしまうなんてバンザイです！！！
 あと、最近になってjavascriptでExceptionの処理ができるなんて知りました。
 いままで、返り値でエラー処理の対応していたんですが、原因不明なエラーとか発せしたときは、それだけじゃ対処しきれない。そんなときは「throw」されるはずなのでそこで例外処理を行うようにする。</p>

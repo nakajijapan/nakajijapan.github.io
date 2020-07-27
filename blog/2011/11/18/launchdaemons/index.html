@@ -9,7 +9,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/11/18/launchdaemons/" />
 <meta property="go:description" content="ふむふむなんです。
-http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9" />
+Daemon と Agent の違いDaemonOS 起動時に、PID 1 の launched によって起動されるプログラム。Agentユーザ権限で起動する launched によって起動されるプログラム。Agent は GUI インターフェースを持つことができるが、Daemon はそれができない。http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -20,7 +20,7 @@ http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="LaunchDaemons" />
 <meta name="twitter:description" content="ふむふむなんです。
-http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9" />
+Daemon と Agent の違いDaemonOS 起動時に、PID 1 の launched によって起動されるプログラム。Agentユーザ権限で起動する launched によって起動されるプログラム。Agent は GUI インターフェースを持つことができるが、Daemon はそれができない。http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -56,7 +56,15 @@ http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%
 			<span class="entry-categories">( <a href="/categories/mac">Mac</a> )</span>
 			<section itemprop="entry-text">
 				<p>ふむふむなんです。</p>
-<!-- raw HTML omitted -->
+<h2>Daemon と Agent の違い</h2>
+<dl>
+<dt>Daemon</dt>
+<dd>OS 起動時に、PID 1 の launched によって起動されるプログラム。</dd>
+</dl>
+<dl>
+<dt>Agent</dt>
+<dd>ユーザ権限で起動する launched によって起動されるプログラム。Agent は GUI インターフェースを持つことができるが、Daemon はそれができない。</dd>
+</dl>
 <p><a href="http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9">http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9</a></p>
 
 			</section>

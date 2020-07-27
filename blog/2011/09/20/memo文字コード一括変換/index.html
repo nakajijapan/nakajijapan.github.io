@@ -8,7 +8,8 @@
 <meta property="og:title" content="[memo]文字コード一括変換">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/09/20/memo%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E4%B8%80%E6%8B%AC%E5%A4%89%E6%8F%9B/" />
-<meta property="go:description" content="前にも書いたようなそうでないような・・・・。" />
+<meta property="go:description" content="前にも書いたようなそうでないような・・・・。
+#!/bin/shfor read in $*docp $read $read.baknkf -w -Lu $read.bak  $readrm $read.bakdone " />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -18,7 +19,8 @@
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[memo]文字コード一括変換" />
-<meta name="twitter:description" content="前にも書いたようなそうでないような・・・・。" />
+<meta name="twitter:description" content="前にも書いたようなそうでないような・・・・。
+#!/bin/shfor read in $*docp $read $read.baknkf -w -Lu $read.bak  $readrm $read.bakdone " />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -54,8 +56,16 @@
 			<span class="entry-categories">( <a href="/categories/diary">Diary</a> )</span>
 			<section itemprop="entry-text">
 				<p>前にも書いたようなそうでないような・・・・。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: bash">
+#!/bin/sh
+
+for read in $*
+do
+  cp $read $read.bak
+  nkf -w -Lu $read.bak > $read
+  rm  $read.bak
+done
+</pre>
 
 			</section>
 		</article>

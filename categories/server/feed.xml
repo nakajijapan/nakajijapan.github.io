@@ -19,7 +19,12 @@
 			<pubDate>Fri, 04 May 2012 17:43:04 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/05/04/%E3%81%9D%E3%81%AE%EF%BC%92capstrano%E3%81%A7%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
-			<description></description>
+			<description>次は実際にソースをリモートに設置させるようにします。
+このコマンドで必要最低限のファイルを自動で作成してくれます。
+$ capify . $ emacs config/deploy.rb  その作成されたファイルを自分の環境に合わせて設定します。 以下だと、gitで管理しているソースをappユーザで配置します。
+set :application, &#34;hogeme&#34; set :repository, &#34;ssh://hogeme.git&#34; # git set :deploy_to, &#34;/var/www/#{application}&#34; set :scm, :git #set :user, &#34;app&#34; set :user, &#34;nakaji&#34; set :use_sudo, false role :web, &#34;hoge.me&#34; role :app, &#34;hoge.me&#34; role :db, &#34;hoge.me&#34;, :primary = true  デプロイの処理を行うコマンドです。
+$ cap deploy:setup  このときリモート側でディレクトリがもろもろ作成されます
+[remote] $ tree . ├── releases └── shared ├── log ├── pids └── system  $ cap deploy:update  [remote] $ tree .</description>
 		</item>
 		
 	</channel>

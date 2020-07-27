@@ -27,24 +27,15 @@ Pepabo Advent CalendarはやっぱりこれでしょうということでWWDC201
 プレッシャー感高まる 会社の神対応には大変感謝しておりますが、まぁそれと同等のプレッシャーは感じておりまして今以上に何か恩返しせねばという勢いで、まず社内のSNSのハンドルネーム的なものをApple信者会員番号２番にしました。（社内から僕の他に@misyobunという人も参加してもともとAndroidエンジニアだったのが急に寝返って僕よりも早くApple信者に変えていた裏切り者がいるので。。。）
 神恩返しのために 座談会を盛り上げました？ 弊社では業務中に週に一回ずつAndroidとiOSで座談会的な集会が行われています。 いろんなサービスがあるペパボでは、なかなか同じ職種（特にモバイル）の人が一緒に 仕事をする機会がない中で、同じ職種の人が集まって今週どうだったかどか、新しい機種出たね、この実装どうしてるとかを話せる貴重な時間であり、日々ぽよぽよしています。
 CIサーバ構築 モバイル環境でもCI活動ができるようにJenkins運用したり。
-(これはFlat Designの歴史について話した時のつかみみたいなものです。。。)
+ (これはFlat Designの歴史について話した時のつかみみたいなものです。。。)
 プラグインはSimple Theme Pluginを利用しましたCSSを変更しました。 jenkinsをsteve jobsにすることでさらにテンションが上がり、仕事の意欲も高まりました。 自動化してしまうとIRCに結果が流れてくるので、なかなか直接みに行かないものですがなぜか、時々見に行ってしまいます。
 Swiftrisを作成した BLOC - Learn Swiftを題材にSwift勉強しながらテトリス作っちゃおうという教材を利用してみんなで隔週で行いました。
 BGMはこの曲にするとテンションがあがることでしょう。
-iOS8 SDK読書会 まだBeta版なのですが、出た瞬間後輩の@kurotaky, @ryoma_123に懇願して仕事が始まる１時間前に集合して朝練活動を行っております。コードを書きながら進んでいるので遅めですが最近やっとGestureRecognizerの章までいきました。執筆に追いつくことを目標に日々取り組んでおります。
+ iOS8 SDK読書会 Ios 8 Sdk Development: Creating Iphone and Ipad Apps With Swift著者 : Chris AdamsonPragmatic Bookshelf発売日 : 2015-01-25ブクログでレビューを見る» まだBeta版なのですが、出た瞬間後輩の@kurotaky, @ryoma_123に懇願して仕事が始まる１時間前に集合して朝練活動を行っております。コードを書きながら進んでいるので遅めですが最近やっとGestureRecognizerの章までいきました。執筆に追いつくことを目標に日々取り組んでおります。
 IRCに通知するやつ なるべく情報の取得が遅れないようにと話のネタ作りにモバイル関係の記事を流すようにしました。。。主にAndroidとAppleの情報が毎朝流れるようになっています。もっとモバイルに興味もってーーーーーーーという僕の想いの表れです。
 https://github.com/nakajijapan/post-feeds-in-irc
 まだまだだ！ と、なにかと活動してきましたが、まだまだもっと自分ができることはたくさんあるはずだし進化できると思う。 なので、来年は今年以上に技術をさらに掘り下げつつサービスや会社に貢献していくんだ！！と決意。 以下の三つを掘り下げます。
- iPhoneおじさんを掘り下げる モバイルの開発基盤を掘り下げる UI/UXを掘り下げる  その先に神恩返しがあるのではないかと思います。
-以上、自分が決意する記事でした。
-そんな僕たちは モバイルエンジニアを大大大大大募集です！！！！
-30days Album　Androidアプリエンジニア（正社員）
-そして、モバイルエンジニアを大大大大大募集です！！！！
-30days Album　Androidアプリエンジニア（正社員）
-さらに、モバイルエンジニアを大大大大大募集です！！！！
-30days Album　Androidアプリエンジニア（正社員）
-もう一度おまけに、モバイルエンジニアを大大大大大募集です！！！！
-30days Album　Androidアプリエンジニア（正社員）</description>
+ iPhoneおじさんを掘り下げる モバイルの開発基盤を掘り下げる UI/UXを掘り下げる  その先に神恩返しがあるのではないかと思います。</description>
 		</item>
 		
 		<item>
@@ -68,7 +59,22 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Thu, 23 May 2013 23:35:47 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2013/05/23/backbone.js%E8%AA%AD%E6%9B%B8%E4%BC%9A%EF%BC%91%E6%97%A5%E7%9B%AE/</guid>
-			<description></description>
+			<description>Backbone.js読書会１日目 Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）
+そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。
+「Backbone.js ガイドブック」
+
+Backbone.jsガイドブック
+はじめは概要なのですらっと。
+一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } );  サンプルみただけだとふーんですよね。僕もいまのところふーんです。
+ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&#39;modal&#39;)とかで毎回DOMを操作しなくて済む。
+ふと思った訳です。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { modal_template: null, class_m: function(){ this.modal_template = $(&#39;#modal&#39;).html()} } );  こんなかんじ。
+あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。
+さ。来週もすすめていきますよ。
+追記 洋書は今月末にでるようだ。
+
+Developing Backbone.js Applications</description>
 		</item>
 		
 		<item>
@@ -77,7 +83,18 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Mon, 20 May 2013 03:51:20 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2013/05/20/%E6%AC%B2%E6%B1%82%E4%B8%8D%E6%BA%80www.frustration.me%E3%83%95%E3%83%AB%E3%83%AA%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%A2%E3%83%AB%E3%81%8B%E3%81%91%E3%81%9F/</guid>
-			<description></description>
+			<description>欲求不満フルリニューアルかけた。 現在、自分で全て管理している「欲求不満（www.frustration.me）」ですが、数年前 にリリースを行い（ http://blog.nakajijapan.net/?p=2685 ）、デザインのリニューアル、 機能追加が粛々と気の向くままに開発していましたが、ついに３年目にしてソース・デザイン全て リニューアルをかけました。構想は去年の１２月から徐々に着手し始めていまして、年初めにはリニューアル できるものかなと安易にかんがえていたけど（仕様そんなに難しくないしねーてきなのり）なかなか 大変で一部機能を削ぎ落しての妥協リリースになってしまいました。。。無念です。あと、これ要らねーだろう っていうやつは消してますけど。
+見た目は今時風にしたかったので、それっぽくしました。あとは自分の開発モチベーションあげたいので言語をRubyに変更しました。
+内部的には結構細かいことしてまして。
+ デザインをTwitterBootstrapをベースにした ZendFramework(PHP)からRails(Ruby)に対応 jsのフレームワークにBackbone.jsを導入 APIの検索周りの処理をGem化  https://rubygems.org/gems/api_bucket  ユーザの画像一式を全てS3で管理 Paasを導入してsqale.jpで管理するようにした  的なことしています。
+デザイン なんか自分で眺めててあきないようにしたくて、いろんなサイトから参考にしましておこぼれちょうだいしてます。 デザイナ不在なので慣れないコーディングを全て自分やることになりましたが大変勉強になりました。あとTwitterBootstrapがなかったらもっとCSSのコーディングが大変になっていたしそこそこのデザインに鳴らなかったと思います。
+ちなみに初期のデザインはこれ
+
+ちょっとは成長しました。。。
+Paasはsqale.jp( http://sqale.jp ) 
+弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。 インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。
+今後やっていくこと 誰も使わなくても改善していきます！！！！１０年使い続けられる物欲管理サービスになります！！
+ Backbone.jsをもっとフル活用する  もっと動きをjs側に処理を依存させる よろしくない記述が多々あるのでリファクタリングに励みます。  自分でもっと画像作れるようにする  cssでデザインするのには限界ですね  jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。 失われた機能を追加します。。。  </description>
 		</item>
 		
 		<item>
@@ -86,7 +103,8 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Tue, 01 Jan 2013 00:48:29 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2013/01/01/2013/</guid>
-			<description></description>
+			<description>あけましておめでとうございます。
+今年はいいところも悪いところもガツガツとさらけ出していこうと思います!!</description>
 		</item>
 		
 		<item>
@@ -95,7 +113,17 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Tue, 11 Dec 2012 04:37:24 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/12/11/%E8%87%AA%E4%BD%9C%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92gem%E3%81%AB%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B%E3%81%BE%E3%81%A7%E3%81%AB%E8%A1%8C%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</guid>
-			<description></description>
+			<description>自作のライブラリをGemに公開するまでに行ったこと
+欲求不満の利用しているライブラリを別に切り出してGemにしてみました。
+欲求不満は自分が運営している言うなればソーシャルウィッシュリストサービス
+なのですが自分がよく使うAPIを何個も使って商品を登録・管理しています。
+欲求不満  http://frustration.me   しかし、apiはというものそれぞれの仕様でインターフェースが異なるので
+商品情報を管理するときに大変面倒なので自前でクラスを作成して
+インターフェースを統一させてます。そのい一部分をGemで切り出してみました。
+今回使うにあたって簡単インストールできるjewelerを利用してみました。
+gem install jeweler  まずは、あらかじめGitHubでレポジトリを作成しておきます。
+その後、インストール処理。
+jeweler --rspec --create-repo api-bucket [~/Programming/ruby/gem_test] create .gitignore create Rakefile create Gemfile create LICENSE.txt create README.rdoc create .document create lib create lib/api-bucket.rb create spec create spec/spec_helper.rb create spec/api-bucket_spec.rb create .rspec Jeweler has prepared your gem in ./api-bucket Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket bundle install rake version:write rake gemspec  これでGemに必要な一式が入ります。</description>
 		</item>
 		
 		<item>
@@ -104,7 +132,29 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Tue, 09 Oct 2012 20:12:06 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/10/09/ember.js%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
-			<description></description>
+			<description>先日、Ember.js勉強会に参加するために万葉さんにお邪魔してきました。
+JSのフレームワークは他にBackbone.jsしか触れたことが無かったので他の選択肢として参加してみました。
+今回はみんなでチュートリアルを読んでもくもくと作業をしてわかんないところが随時質問でした。
+ですが、自分の力不足（方向音痴。。。）で場所がわからず１時間遅れるという不甲斐ない形となりましたがみんなに追いつこう
+とせっせと作業をこなしたという次第です。
+感想 Ember.Handlebars Class便利な件 印象てきだったのが
+{{view Em.TextField id=&#34;new-todo&#34; placeholder=&#34;What needs to be done?&#34;}}  
+こんなふうにView側のAPIが用意されていて、この記述でイベント処理を諸々やってくれるのはありがたい。
+Backbone.jsだったら通常のHTMLを記述しないといけないし、そもそもテンプレートエンジンてきなものは
+用意されていない。
+カスタマイズしたいときは普通に
+Todos.CreateTodoView = Em.TextField.extend({ insertNewline: function() { var value = this.get(&#39;value&#39;); if (value) { Todos.todosController.createTodo(value); this.set(&#39;value&#39;, &#39;&#39;); } } });  で自分用のViewオブジェクト作ってしまえば良い訳です。
+あ、handlebar.jsっていうテンプレートエンジン利用してるのですね、これ。
+Modelって言うクラスがない？！ MVCフレームワークなのになぜかModelって言うクラスはなくて
+「Ember.Object Class」を継承して作成するっていうのがセオリーらしいです。
+Todos.Todo = Em.Object.extend({ title: null, isDone: false });  調べてみるとサーバと通信するもの機構はないみたいでやるときは、通信部分を
+jQueryとか使って実装しないといけないみたいですね。。。
+http://emberjs.com/api/classes/Ember.Object.html
+Debugging なにかと大変らしい、ログイングの機能は用意されてはいるがなにかとおうのは大変らしい
+まぁ Backbone.jsとくらべるとテンプレートエンジンが結構便利なのでその分最初の前提となる知識は
+必要になってきそうな感じがしました。もちろん通信自体は自前で実装する必要がある？！
+逆をいうとBackbone.jsはREST通信なのでその辺は小回りが聞く感じですかね。
+参考URL  Ember.jsのチュートリアル Ember.</description>
 		</item>
 		
 		<item>
@@ -113,7 +163,16 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Fri, 28 Sep 2012 23:02:27 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/09/28/%E7%A4%BE%E5%86%85%E3%81%A7backbone.js%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description></description>
+			<description>最近、Backbone.jsがにわかに業務やプライベートでBackbone.jsを利用 していきたってことで勉強会を行いました。
+僕が行うときは、だいたいみんなが野次がとばしたり質問できるようにおかしやフランクにして
+お菓子ばらまいたりお菓子を発表者になげたりして話しやすい環境にできて良かったと思います。
+スライドはこれ。
+http://storyboards.jp/controller/1jjgwa
+勉強会を通して思ったのが
+
+■別にそんなにフル活用しなくてよくて、View側のメカニズムを利用するだけでも効果はある ■coffeescript.jsで相乗効果！！ ■「_」はunderscore.jsだったんだ.... ■STORY BOARDSはモデルでのパラメータチェックを行い、そして統一するためにexecjsでクライアント・サーバから同じプログラムを利用したよん♪ ■backbone-rails専念されてるし、勉強になった。 
+ただ、Backbone.jsが正解ではないはずなので、他にも選択肢はある。それにとってかわるようなものを
+どんどん検証していきたいと思う。</description>
 		</item>
 		
 		<item>
@@ -122,7 +181,15 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Mon, 24 Sep 2012 22:05:06 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/09/24/%E4%B8%AD%E5%B3%B6%E6%B8%85%E6%8E%83%E5%B1%80apple%E3%81%AE%E5%AF%A9%E6%9F%BB%E3%81%AB%E8%90%BD%E3%81%A1%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description></description>
+			<description>早速叫ばせていただきます。
+&amp;nbsp;
+案の定、落ちましたね。。。
+&amp;nbsp;
+今回、Appleストアでわいせつや不衛生なものの表現のあるのは落とされるとはわかっていたたもの、
+やはりこのままの世界観でやってほしいという作成者からのちっぽけな期待からうんこという表現を
+削除する以外はそのままのうんこゲームで申請した次第でありまして。
+&amp;nbsp;
+ We found that your app contains content that many audiences would find objectionable, which is not in compliance with the App Store Review Guidelines. Specifically, we noticed the purpose of the game is to clean out feces. Such apps are not appropriate for the App Store. We encourage you to review your app content and evaluate whether you can modify the content to bring it into compliance with the Guidelines.</description>
 		</item>
 		
 		<item>
@@ -131,7 +198,22 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Wed, 19 Sep 2012 23:39:46 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/09/19/%E6%9C%AD%E5%B9%8Cruby%E4%BC%9A%E8%AD%B0%EF%BC%92%EF%BC%90%EF%BC%91%EF%BC%92%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description></description>
+			<description>今回初めてではありますが、札幌Ruby会議２０１２という
+Rubyのカンファレンスに参加してきました。
+１日目 相澤 歩 &#34;Heroku&#34; Herokuはあんまり日本サポートしないのかね。
+そもそもあんまり使っておりませぬが！！
+url  http://sapporo.rubykaigi.org/2012/ja/schedule/details/R01.html  井原 正博 &#34;クックパッドのつくりかた&#34; 概要にもありますが、技術的な話というよりかは開発を裏側で支えるための組織作りについて 話されていました。これ、自分、だいぶ意識たかくなりましたね。崇志！
+印象に残ったのが
+ やりたいことをやりましょう！！！！！！！
+ の言葉です。ただこれだけ言われたとしても何の説得力もありませんが井原さんの話を総じて聞い ていたらすごい納得しました。
+あ、web進化論読んでなかったからよんでみる。
+井原 正博 &#34;クックパッドのつくりかた&#34; ３日目 柴田博志 &#34;Ruby の世界の継続的デリバリ&#34; 弊社の技術基盤整備エンジニアの柴田さん発表でした。
+継続的○○！  意識が低くても大丈夫な仕組み 確実なフィードバックと改善を行える仕組み サイクルタイムの短縮と継続した価値の提供  北海道メモ  八雲町のケンタッキーがうまい  新得町のそばがうまい  小樽の鶏がうまい  自分たちにとってリリースとはなんなんだろう
+みんなで話し合ってみよう
+url http://www.hsbt.org/diary/20120916.html
+村田賢太 &#34;分散 RSpec&#34; 肥大化？したプログラムのテストは時間かかりまくり！！ いろいろ改善してテストの時間を短縮してみた的なお話。
+スペックファイルが7500以上ものテストって全然想像できないんですけど このぐらいの規模になってくるとテストもちゃんと負荷分散してかないと 速いサイクル開発ができなくなってくるのですな。ただただ関心しておりました。
+url  http://mrkn.hatenablog.com/entry/2012/09/16/143941  白土 慧 &#34;Spree で約3ヶ月でイチからEコマースサービスを作るまで&#34; ECサイトをSpreeで開発を行いました！以前はPHPでは作成されていて、発表者が Rails＋Spreeで再構築したようです。そのときの苦労話や心構え。まだちゃんと ソース読まないと本来のSpreeの力が発揮できない（ヒントがソースやソースのコメントあったり するらしいです）！巨人がどうできているかを理解する！！</description>
 		</item>
 		
 		<item>
@@ -143,8 +225,7 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<description>最近いろんな言語であっちこっち開発しているから頭パンクしてきそうな季節ですね。
 意味分からないですね。nakajijapanです。
 簡単にできるといいのにね。まぁでもある意味生のデータを生成しているのでわかりやすいっちゃわかりやすい。 抽象化したやつは後で自分でつくっておこっと。
-今回の処理でいうと同期処理なので実際にiPhoneでユーザがスムーズにストレスなく操作することを考慮にいれると 非同期の処理かましたほうがいいんだけど、それはまた後ほど。
-■参照URL https://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSURLConnection_Class/Reference/Reference.html https://developer.apple.com/library/ios/#documentation/Foundation/Reference/NSURLConnectionDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intf/NSURLConnectionDelegate</description>
+//NSString *query = @&#34;test=hoge&amp;test2=hogehoge&#34;;NSURL *url = [[NSURL alloc] initWithString:@&#34;http://test.hoge/hoge/post.php&#34;];// GETでは使えないCGFloat quality = 100.0;NSData *postImage = [[[NSData alloc] initWithData:UIImageJPEGRepresentation(_imageView.image, quality)] autorelease];// POST用NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: url];[request setHTTPMethod:@&#34;POST&#34;];NSString *boundary = [NSString stringWithString:@&#34;nakajijapan2011&#34;];NSString *contentType = [NSString stringWithFormat:@&#34;multipart/form-data; boundary=%@&#34;,boundary];[request addValue:contentType forHTTPHeaderField: @&#34;Content-Type&#34;];NSMutableData *body = [NSMutableData data];//	name=image dataの設定[body appendData:[[NSString stringWithFormat:@&#34;\r\n--%@\r\n&#34;,boundary] dataUsingEncoding:NSUTF8StringEncoding]];[body appendData:[[NSString stringWithString:@&#34;Content-Disposition: form-data; name=\&#34;</description>
 		</item>
 		
 		<item>
@@ -153,7 +234,10 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Mon, 03 Sep 2012 23:31:25 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/09/03/memoios%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%BF%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%E3%82%92%E4%BD%9C%E3%82%8B/</guid>
-			<description></description>
+			<description>iOSシミュレータをアクティブにして「Command + Control + C」
+プレビューを起動「Command + n」
+メニューで保存でいけた！
+毎回忘れる。</description>
 		</item>
 		
 		<item>
@@ -162,7 +246,17 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Sun, 02 Sep 2012 03:44:57 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/09/02/%E4%B8%AD%E5%B3%B6%E6%B8%85%E6%8E%83%E5%B1%80%E3%81%A8%E3%81%84%E3%81%86%E3%82%A6%E3%83%B3%E3%82%B3%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%92iphone%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
-			<description></description>
+			<description>どーもー。肥だめちゃんです。
+先日ですが、弊社paperboy&amp;amp;co.ではお産合宿といいモノを生み出す企画がございましてそれに参加しました。 その成果としてタイトルのようなものを作成したという次第です。
+デザイナーはイソジンさん（ https://twitter.com/isodine ）で、プログラマは肥だめです。
+以前にも参加していますがプロダクトを作成していましたが、いろいろと考えた結果世間の波が「携帯」と「ゲーム」だろうということでゲームを作ってみようってことになりました。しかもうんこで・・・！！！ただ、それだけだと普通だなっとおもったので排便記録をできた上でのサブ機能としてゲームがあればいいよねって言うスタンスで考えていました。 あと、音姫とかも。（ここから若干カオス気味に・・・）
+こう、なんかトイレできるプラットフォームアプリてきな位置づけにしようとしていましたが自分の力量足らずで排便管理の方まで手が回らず機能を削るというちょっと悔しい結果になりましたが残りの機能は作成することができました！！！
+ですがこの数週間後に「タブログ」さんという方が排便管理アプリで「ウンコのアプリ作ってアップルの審査通ったけど、やっぱりウンコダメと言われリジェクトされた件」(http://tagwak.hateblo.jp/entry/2012/08/08/010406)という記事を読んで心配で一杯になりました。俺らのだそうとしているものはうんこそのものじゃないかと・・・・。ただ、ここまで作成したので出したかったのとデザインまで変更しちゃうと自分たちが納得のいくもじゃなかなるので出来るだけ世界感うんこにさせない努力をしましたがさてどうでしょうかね。
+とりあえず、ソフトクリーム・・・・。いや違う。
+スイーツだ！と。。。。。。
+大丈夫かな。。。
+とりあえず、今申請待ちなので進捗があればまたブログに記載しようかとお思います。
+では！</description>
 		</item>
 		
 		<item>
@@ -171,7 +265,8 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			<pubDate>Mon, 27 Aug 2012 01:01:01 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/blog/2012/08/27/%E3%82%8B%E3%82%8D%E3%81%86%E3%81%AB%E5%89%A3%E5%BF%83%E3%82%92%E3%81%BF%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
-			<description></description>
+			<description>昔からアニメ・マンガをしていた私。 日本で実写化して成功した作品がないせいかこれもそんなたいした映画じゃないだろと多少ながら 小馬鹿にしていたところはありますが、予告編をみてなんだか多少ならずか期待を抱いてしまい、 だめもとでいってまいりました。
+ 日本のチャンバラ映画では１番と勝手に思っている私でした。</description>
 		</item>
 		
 		<item>
@@ -181,7 +276,7 @@ https://github.com/nakajijapan/post-feeds-in-irc
 			
 			<guid>http://nakajijapan.github.io/blog/2012/06/18/rails%E3%83%AD%E3%82%B0%E3%81%AB%E8%89%B2%E4%BB%98%E3%81%91%E3%81%97%E3%81%A6%E5%87%BA%E5%8A%9B%E3%81%95%E3%81%9B%E3%82%8B/</guid>
 			<description>テストコードを書き始める前はじゃんじゃんprintしまくってログをみて実装していたのでガンガン出力されるデバッグ分が 色分けされてないとどうにも見分けがつかない状況だったので色分けできるようにしてみました。
-■参照URL http://api.rubyonrails.org/classes/ActiveSupport/BufferedLogger.html http://blog.rantan.jp/archives/107</description>
+class Loggerclass Formatterdef call(severity, time, progname, msg)msg = msg.to_s.gsub(/(SELECT.+)/, &#34;\033\[1;33m&#34; + &#39;[SQL] \1&#39; + &#34;\033\[0m&#34;)msg = msg.to_s.gsub(/(UPDATE.+)/, &#34;\033\[1;34m&#34; + &#39;[SQL] \1&#39; + &#34;\033\[0m&#34;)msg = msg.to_s.gsub(/(DELETE.+)/, &#34;\033\[1;35m&#34; + &#39;[SQL] \1&#39; + &#34;\033\[0m&#34;)msg = msg.to_s.gsub(/(INSERT.+)/, &#34;\033\[1;32m&#34; + &#39;[SQL] \1&#39; + &#34;\033\[0m&#34;)case severitywhen &#34;FATAL&#34;# \033[#{esc};#{bg};#{fg}m hogehoge \033[0m&#34;#{time.to_s(:db)} \033[1;33;41m[#{severity}]\033[0m #{msg}\n&#34;when &#34;ERROR&#34;&#34;#{time.to_s(:db)} \033[1;33;45m[#{severity}]\033[0m #{msg}\n&#34;when &#34;WARN&#34;&#34;#{time.to_s(:db)} \033[1;30;43m[#{severity}]\033[0m #{msg}\n&#34;when &#34;INFO&#34;&#34;</description>
 		</item>
 		
 	</channel>

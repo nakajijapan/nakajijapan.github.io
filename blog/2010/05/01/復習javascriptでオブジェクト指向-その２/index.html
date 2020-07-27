@@ -8,8 +8,7 @@
 <meta property="og:title" content="[復習]javascriptでオブジェクト指向　その２">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/05/01/%E5%BE%A9%E7%BF%92javascript%E3%81%A7%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91-%E3%81%9D%E3%81%AE%EF%BC%92/" />
-<meta property="go:description" content="さっきの続き。 継承できるようにする。
-まずは、「prototype」で親クラスをインスタンス化する。 オーバライドするメソッドだけ宣言して処理内容を記述する！" />
+<meta property="go:description" content="// クラス作成(擬似)function Test() {};// プロトタイプ宣言Test.prototype = {// メンバ_str : &#34;&#34;,_int : 0,// メソッドgetStr : function () {//処理されてしまうのでコメントアウト//alert( &#34;str = &#34; &#43; this._str );},setStr : function (str) {this._str = str;}};// 小クラスfunction TestChild() {};TestChild.prototype = new Test();TestChild.prototype.setStr = function (str) {this._str = str &#43; &#34;(child)&#34;;}// インスタンス化var str = new TestChild();// setterstr." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -19,8 +18,7 @@
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[復習]javascriptでオブジェクト指向　その２" />
-<meta name="twitter:description" content="さっきの続き。 継承できるようにする。
-まずは、「prototype」で親クラスをインスタンス化する。 オーバライドするメソッドだけ宣言して処理内容を記述する！" />
+<meta name="twitter:description" content="// クラス作成(擬似)function Test() {};// プロトタイプ宣言Test.prototype = {// メンバ_str : &#34;&#34;,_int : 0,// メソッドgetStr : function () {//処理されてしまうのでコメントアウト//alert( &#34;str = &#34; &#43; this._str );},setStr : function (str) {this._str = str;}};// 小クラスfunction TestChild() {};TestChild.prototype = new Test();TestChild.prototype.setStr = function (str) {this._str = str &#43; &#34;(child)&#34;;}// インスタンス化var str = new TestChild();// setterstr." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -55,15 +53,59 @@
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2010-05-01">May 01, 2010</time></span>
 			<span class="entry-categories">( <a href="/categories/diary">Diary</a> )</span>
 			<section itemprop="entry-text">
-				<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --></p>
+				<pre class="brush: html">
+<!DOCTYPE html>
+
+<script src="../jquery-1_4_2.js" type="text/javascript"></script>
+<script>
+
+// クラス作成(擬似)
+function Test() {};
+// プロトタイプ宣言
+Test.prototype = {
+	// メンバ
+	_str : "",
+	_int : 0,
+
+	// メソッド
+	getStr : function () {
+                //処理されてしまうのでコメントアウト
+		//alert( "str = " + this._str );
+	},
+	
+	setStr : function (str) {
+		this._str = str;
+	}
+};
+
+// 小クラス
+function TestChild() {};
+TestChild.prototype = new Test();
+TestChild.prototype.setStr = function (str) {
+	this._str = str + "(child)";
+}
+
+// インスタンス化
+var str = new TestChild();
+
+// setter
+str.setStr('日本語！！');
+
+// getter
+str.getStr();
+
+</script>
+<p></pre></p>
 <p>さっきの続き。
 継承できるようにする。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: html">
+// 小クラス
+function TestChild() {};
+TestChild.prototype = new Test();
+TestChild.prototype.setStr = function (str) {
+	this._str = str + "(child)";
+}
+</pre>
 <p>まずは、「prototype」で親クラスをインスタンス化する。
 オーバライドするメソッドだけ宣言して処理内容を記述する！</p>
 

@@ -8,7 +8,7 @@
 <meta property="og:title" content="tail -f で出力されるログに色づけを行う">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/12/22/tail-f-%E3%81%A7%E5%87%BA%E5%8A%9B%E3%81%95%E3%82%8C%E3%82%8B%E3%83%AD%E3%82%B0%E3%81%AB%E8%89%B2%E3%81%A5%E3%81%91%E3%82%92%E8%A1%8C%E3%81%86/" />
-<meta property="go:description" content="" />
+<meta property="go:description" content="#!/bin/perluse strict;use warnings;while() {s/\[SQL\]/\033\[1;36m$&\033\[0m/g;s/INSERT.&#43;\n/\033\[1;32m$&\033\[0m/g;s/UPDATE.&#43;\n/\033\[1;34m$&\033\[0m/g;s/SELECT.&#43;\n/\033\[1;33m$&\033\[0m/g;print;}tail -f access_log | perl ~/test.pl " />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -18,7 +18,7 @@
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="tail -f で出力されるログに色づけを行う" />
-<meta name="twitter:description" content="" />
+<meta name="twitter:description" content="#!/bin/perluse strict;use warnings;while() {s/\[SQL\]/\033\[1;36m$&\033\[0m/g;s/INSERT.&#43;\n/\033\[1;32m$&\033\[0m/g;s/UPDATE.&#43;\n/\033\[1;34m$&\033\[0m/g;s/SELECT.&#43;\n/\033\[1;33m$&\033\[0m/g;print;}tail -f access_log | perl ~/test.pl " />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -53,10 +53,21 @@
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2010-12-22">December 22, 2010</time></span>
 			<span class="entry-categories">( <a href="/categories/diary">Diary</a> )</span>
 			<section itemprop="entry-text">
-				<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+				<pre class="brush:perl">
+#!/bin/perl
+use strict;
+use warnings;
+while(<>) {
+  s/\[SQL\]/\033\[1;36m$&\033\[0m/g;
+  s/INSERT.+\n/\033\[1;32m$&\033\[0m/g;
+  s/UPDATE.+\n/\033\[1;34m$&\033\[0m/g;
+  s/SELECT.+\n/\033\[1;33m$&\033\[0m/g;
+  print;
+}
+</pre>
+<pre class="blush:bash">
+tail -f access_log | perl ~/test.pl
+</pre>
 
 			</section>
 		</article>

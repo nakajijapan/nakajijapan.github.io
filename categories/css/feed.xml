@@ -21,8 +21,9 @@
 			<guid>http://nakajijapan.github.io/blog/2009/12/21/css%E3%81%A7%E7%94%BB%E5%83%8F%E3%82%92%E5%88%87%E3%82%8A%E8%A3%82%E3%81%8F/</guid>
 			<description>それぞれ違う画像を決まった大きさにしてそろえたいときどういしようかって考えたときに 最初は「clip」利用してたんだけど、firebugでカーソル当てたときになんか気持ちわるかったので デザイナーさんに助言もらったら「overflow」でいい感じに表示できた。
 ■overflow
-でもoverflow,clip何がどうちがうんだろうかね。
-clipはあれか上下左右で範囲指定できるんだね。なるほど。</description>
+でもoverflow,clip何がどうちがうんだろうかね。
+clipはあれか上下左右で範囲指定できるんだね。なるほど。
+http://ykr414.com/css/style05g.shtml</description>
 		</item>
 		
 	</channel>

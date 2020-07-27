@@ -8,10 +8,7 @@
 <meta property="og:title" content="[復習]javascriptでオブジェクト指向">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/04/30/%E5%BE%A9%E7%BF%92javascript%E3%81%A7%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/" />
-<meta property="go:description" content="JavaScriptではクラス-インスタンスという考え方をしません（本当はするけどね）。 オブジェクトは別なオブジェクトを元（プロトタイプ）にして独自の特徴を付加することで存在する、 という考え方をします。このようなオブジェクト指向言語のことを、 プロトタイプベースオブジェクト指向言語（Prototype Based Object Oriented Language）と言います。
-「独自の付加をつけていく」かーーー。
-関数オブジェクトにはプロトタイプがあってそこにどんどん独自の機能を付加していく感じ。
-■参考サイト http://codezine." />
+<meta property="go:description" content="// クラス作成(擬似)function Test() {};// プロトタイプ宣言Test.prototype = {// メンバ_str : &#34;&#34;,_int : 0,// メソッドgetStr : function () {// 実行されるからコメントアウト//alert( &#34;str = &#34; &#43; this._str );},setStr : function (str) {this._str = str;}};// インスタンス化var str = new Test();var str2 = new Test();// setterstr.setStr(&#39;日本語！！&#39;);str._str = str._str &#43; &#34;：メンバ変数に直接追加&#34;;// getterstr." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -21,10 +18,7 @@
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[復習]javascriptでオブジェクト指向" />
-<meta name="twitter:description" content="JavaScriptではクラス-インスタンスという考え方をしません（本当はするけどね）。 オブジェクトは別なオブジェクトを元（プロトタイプ）にして独自の特徴を付加することで存在する、 という考え方をします。このようなオブジェクト指向言語のことを、 プロトタイプベースオブジェクト指向言語（Prototype Based Object Oriented Language）と言います。
-「独自の付加をつけていく」かーーー。
-関数オブジェクトにはプロトタイプがあってそこにどんどん独自の機能を付加していく感じ。
-■参考サイト http://codezine." />
+<meta name="twitter:description" content="// クラス作成(擬似)function Test() {};// プロトタイプ宣言Test.prototype = {// メンバ_str : &#34;&#34;,_int : 0,// メソッドgetStr : function () {// 実行されるからコメントアウト//alert( &#34;str = &#34; &#43; this._str );},setStr : function (str) {this._str = str;}};// インスタンス化var str = new Test();var str2 = new Test();// setterstr.setStr(&#39;日本語！！&#39;);str._str = str._str &#43; &#34;：メンバ変数に直接追加&#34;;// getterstr." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -59,12 +53,49 @@
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2010-04-30">April 30, 2010</time></span>
 			<span class="entry-categories">( <a href="/categories/diary">Diary</a> )</span>
 			<section itemprop="entry-text">
-				<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+				<pre class="brush: html">
+<!DOCTYPE html>
+<html>
+<head></head>
+<script src="../jquery-1_4_2.js" type="text/javascript"></script>
+<script>
+
+// クラス作成(擬似)
+function Test() {};
+// プロトタイプ宣言
+Test.prototype = {
+	// メンバ
+	_str : "",
+	_int : 0,
+
+	// メソッド
+	getStr : function () {
+                // 実行されるからコメントアウト
+		//alert( "str = " + this._str );
+	},
+	
+	setStr : function (str) {
+		this._str = str;
+	}
+};
+
+// インスタンス化
+var str = new Test();
+var str2 = new Test();
+
+// setter
+str.setStr('日本語！！');
+str._str = str._str + "：メンバ変数に直接追加";
+
+// getter
+str.getStr();
+str2.getStr();
+
+
+</script>
+<p></pre></p>
+<h1>■object</h1>
+昔やっていたことをわすれていたので改めてメモです。
 <p>JavaScriptではクラス-インスタンスという考え方をしません（本当はするけどね）。
 オブジェクトは別なオブジェクトを元（プロトタイプ）にして独自の特徴を付加することで存在する、
 という考え方をします。このようなオブジェクト指向言語のことを、
@@ -72,8 +103,8 @@
 <p>「独自の付加をつけていく」かーーー。</p>
 <p>関数オブジェクトにはプロトタイプがあってそこにどんどん独自の機能を付加していく感じ。</p>
 <p>■参考サイト
-<!-- raw HTML omitted --><a href="http://codezine.jp/article/detail/222">http://codezine.jp/article/detail/222</a><!-- raw HTML omitted -->
-<!-- raw HTML omitted --><a href="http://www.atmarkit.co.jp/fdotnet/ajaxjs/ajaxjs04/ajaxjs04_03.html">http://www.atmarkit.co.jp/fdotnet/ajaxjs/ajaxjs04/ajaxjs04_03.html</a><!-- raw HTML omitted --></p>
+<a href="http://codezine.jp/article/detail/222"><a href="http://codezine.jp/article/detail/222">http://codezine.jp/article/detail/222</a></a>
+<a href="http://www.atmarkit.co.jp/fdotnet/ajaxjs/ajaxjs04/ajaxjs04_03.html"><a href="http://www.atmarkit.co.jp/fdotnet/ajaxjs/ajaxjs04/ajaxjs04_03.html">http://www.atmarkit.co.jp/fdotnet/ajaxjs/ajaxjs04/ajaxjs04_03.html</a></a></p>
 
 			</section>
 		</article>

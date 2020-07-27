@@ -9,16 +9,18 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/05/25/ie%EF%BC%96%E3%81%A0%E3%81%A8a%E3%82%BF%E3%82%B0%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6submit%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/" />
 <meta property="go:description" content="IE６だとaタグを利用してごにょごにょしてるとsubmit()処理がうまく動作しない件。
-選択したaaaaaaaaaaこれだとサブミット処理が行われない。最終的にvoid()処理がはいってしまい。結局なにもしないってことにしているのだろうか。
+function func_submit() {document.form.submit();} 選択したaaaaaaaaaa 
+これだとサブミット処理が行われない。最終的にvoid()処理がはいってしまい。結局なにもしないってことにしているのだろうか。
 一応ですがイベントの順番を考えてみる
-この場合だと順番として
+選択したaaaaaaaaaaこの場合だと順番として
 onClick →　href
 でイベントが行われる。
 つまりどうにかしてonClick時点で処理を止めればいいってことになるんでしょうか。
 何もしない処理(void)をさせない。
 つまりは、
-// 「return false; 」をonClickイベント終了前に実行する 選択したaaaaaaaaaaこうするとIE６でも問題なく動作しました。 IEの文句は別にするとして、とりあえず問題が解決されたのでよかったです。調べてみたら結構みなさんもこういう問題に遭遇してるようですね。
-■参照URL http://anosinosaan." />
+function func_submit() {document.form.submit();} // 「return false; 」をonClickイベント終了前に実行する 選択したaaaaaaaaaa 
+こうするとIE６でも問題なく動作しました。 IEの文句は別にするとして、とりあえず問題が解決されたのでよかったです。調べてみたら結構みなさんもこういう問題に遭遇してるようですね。
+■参照URL http://anosinosaan.blog44.fc2.com/blog-entry-50.html" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -29,16 +31,18 @@ onClick →　href
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="IE６だとaタグ利用してsubmit()できない" />
 <meta name="twitter:description" content="IE６だとaタグを利用してごにょごにょしてるとsubmit()処理がうまく動作しない件。
-選択したaaaaaaaaaaこれだとサブミット処理が行われない。最終的にvoid()処理がはいってしまい。結局なにもしないってことにしているのだろうか。
+function func_submit() {document.form.submit();} 選択したaaaaaaaaaa 
+これだとサブミット処理が行われない。最終的にvoid()処理がはいってしまい。結局なにもしないってことにしているのだろうか。
 一応ですがイベントの順番を考えてみる
-この場合だと順番として
+選択したaaaaaaaaaaこの場合だと順番として
 onClick →　href
 でイベントが行われる。
 つまりどうにかしてonClick時点で処理を止めればいいってことになるんでしょうか。
 何もしない処理(void)をさせない。
 つまりは、
-// 「return false; 」をonClickイベント終了前に実行する 選択したaaaaaaaaaaこうするとIE６でも問題なく動作しました。 IEの文句は別にするとして、とりあえず問題が解決されたのでよかったです。調べてみたら結構みなさんもこういう問題に遭遇してるようですね。
-■参照URL http://anosinosaan." />
+function func_submit() {document.form.submit();} // 「return false; 」をonClickイベント終了前に実行する 選択したaaaaaaaaaa 
+こうするとIE６でも問題なく動作しました。 IEの文句は別にするとして、とりあえず問題が解決されたのでよかったです。調べてみたら結構みなさんもこういう問題に遭遇してるようですね。
+■参照URL http://anosinosaan.blog44.fc2.com/blog-entry-50.html" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -74,29 +78,38 @@ onClick →　href
 			<span class="entry-categories">( <a href="/categories/javascript">javascript</a> )</span>
 			<section itemprop="entry-text">
 				<p>IE６だとaタグを利用してごにょごにょしてるとsubmit()処理がうまく動作しない件。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->選択したaaaaaaaaaa<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
+<pre class="brush: html">
+<script>
+function func_submit() {
+    document.form.submit();
+} 
+</script>
+<p><a href="javascript:void(0);" onClick="func_submit();" class="btnDeleteList">選択したaaaaaaaaaa</a>
+</pre></p>
 <p>これだとサブミット処理が行われない。最終的にvoid()処理がはいってしまい。結局なにもしないってことにしているのだろうか。</p>
 <p>一応ですがイベントの順番を考えてみる</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: html">
+<a href="javascript:alert('href');" onClick="alert('onClick'); " class="btnDeleteList">選択したaaaaaaaaaa</a>
+</pre>
 <p>この場合だと順番として</p>
 <p>onClick →　href</p>
 <p>でイベントが行われる。</p>
 <p>つまりどうにかしてonClick時点で処理を止めればいいってことになるんでしょうか。</p>
 <p>何もしない処理(void)をさせない。</p>
 <p>つまりは、</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: html">
+<script>
+function func_submit() {
+    document.form.submit();
+} 
+</script>
 <p>// 「return false; 」をonClickイベント終了前に実行する
-<!-- raw HTML omitted -->選択したaaaaaaaaaa<!-- raw HTML omitted -->
-<!-- raw HTML omitted --></p>
+<a href="javascript:void(0);" onClick="func_submit();return false;" class="btnDeleteList">選択したaaaaaaaaaa</a>
+</pre></p>
 <p>こうするとIE６でも問題なく動作しました。
 IEの文句は別にするとして、とりあえず問題が解決されたのでよかったです。調べてみたら結構みなさんもこういう問題に遭遇してるようですね。</p>
 <p>■参照URL
-<!-- raw HTML omitted --><a href="http://anosinosaan.blog44.fc2.com/blog-entry-50.html">http://anosinosaan.blog44.fc2.com/blog-entry-50.html</a><!-- raw HTML omitted --></p>
+<a href="http://anosinosaan.blog44.fc2.com/blog-entry-50.html"><a href="http://anosinosaan.blog44.fc2.com/blog-entry-50.html">http://anosinosaan.blog44.fc2.com/blog-entry-50.html</a></a></p>
 
 			</section>
 		</article>

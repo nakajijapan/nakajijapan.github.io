@@ -10,14 +10,10 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/10/08/redhat9%E3%81%ABsamba2%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/" />
 <meta property="go:description" content="久々にredhat9をいじったんだな。大学以来だ！
 なんでメモ。開発時にsambaが必要になったので。
-とりあえず、依存関係でエラーが出ないことを祈りつつインストール
-気になった項目だけ調べる
+samba-2.2.11.ja-1.rh9.i386.rpmとりあえず、依存関係でエラーが出ないことを祈りつつインストール
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm[global]workgroup = MYGROUPserver string = Samba Server Version %vhosts allow = 127. 192.168.0.security = userencrypt passwords = Yes[hogehoge]comment = hogehogepath = /var/www/hogehoge/browseable = nowritable = yescreate mode = 0664directory mode = 0775valid users = root,nakajiforce user = nakaji気になった項目だけ調べる
 まずは「security」
-今回は個人用として利用するので「security=user」で問題なし 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。 深くは掘り下げません。
-設定が終了したら今度はユーザのパスワードを設定します。 すでに「useradd」で作成されていること前提です。
-最後に再起動。
-これで指定されたサーバに接続します。アクセスできたら終了です。
-■参考URL Sambaサーバ構築、5つのべからず：2008年版" />
+security=user ユーザー単位でパスワード認証を行うsecurity=ads Active Directoryドメインで認証を行うsecurity=share 共有単位で認証を行うsecurity=server Windows NTもしくはSambaで認証を行うsecurity=domain Windowsドメインで認証を行う今回は個人用として利用するので「security=user」で問題なし 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。 深くは掘り下げません。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -29,14 +25,10 @@
 <meta name="twitter:title" content="redhat9にsamba2をインストール" />
 <meta name="twitter:description" content="久々にredhat9をいじったんだな。大学以来だ！
 なんでメモ。開発時にsambaが必要になったので。
-とりあえず、依存関係でエラーが出ないことを祈りつつインストール
-気になった項目だけ調べる
+samba-2.2.11.ja-1.rh9.i386.rpmとりあえず、依存関係でエラーが出ないことを祈りつつインストール
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm[global]workgroup = MYGROUPserver string = Samba Server Version %vhosts allow = 127. 192.168.0.security = userencrypt passwords = Yes[hogehoge]comment = hogehogepath = /var/www/hogehoge/browseable = nowritable = yescreate mode = 0664directory mode = 0775valid users = root,nakajiforce user = nakaji気になった項目だけ調べる
 まずは「security」
-今回は個人用として利用するので「security=user」で問題なし 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。 深くは掘り下げません。
-設定が終了したら今度はユーザのパスワードを設定します。 すでに「useradd」で作成されていること前提です。
-最後に再起動。
-これで指定されたサーバに接続します。アクセスできたら終了です。
-■参考URL Sambaサーバ構築、5つのべからず：2008年版" />
+security=user ユーザー単位でパスワード認証を行うsecurity=ads Active Directoryドメインで認証を行うsecurity=share 共有単位で認証を行うsecurity=server Windows NTもしくはSambaで認証を行うsecurity=domain Windowsドメインで認証を行う今回は個人用として利用するので「security=user」で問題なし 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。 深くは掘り下げません。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -73,30 +65,61 @@
 			<section itemprop="entry-text">
 				<p>久々にredhat9をいじったんだな。大学以来だ！</p>
 <p>なんでメモ。開発時にsambaが必要になったので。</p>
-<!-- raw HTML omitted -->
+<blockquote>
+samba-2.2.11.ja-1.rh9.i386.rpm
+</blockquote>
 <p>とりあえず、依存関係でエラーが出ないことを祈りつつインストール</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:bash">
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm
+</pre>
+<pre class="brush:bash">
+[global]
+    workgroup = MYGROUP
+    server string = Samba Server Version %v
+    hosts allow = 127. 192.168.0.
+    security = user
+    encrypt passwords = Yes
+
+[hogehoge]
+    comment = hogehoge
+    path = /var/www/hogehoge/
+    browseable = no
+    writable = yes
+    create mode = 0664
+    directory mode = 0775
+    valid users = root,nakaji
+    force user = nakaji
+</pre>
 <p>気になった項目だけ調べる</p>
 <p>まずは「security」</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:bash">
+security=user  	ユーザー単位でパスワード認証を行う
+security=ads 	Active Directoryドメインで認証を行う
+security=share 	共有単位で認証を行う
+security=server 	Windows NTもしくはSambaで認証を行う
+security=domain 	Windowsドメインで認証を行う
+</pre>
 <p>今回は個人用として利用するので「security=user」で問題なし
 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。
 深くは掘り下げません。</p>
-<!-- raw HTML omitted -->
+<ul>
+<ol>security=userを使うケース</ol>
+<li>Sambaをスタンドアロンサーバやドメインコントローラとして使う場合。ただし、スタンドアロンサーバでもsecurity=shareは使わない方がいいでしょう。</li>
+<ol>security=adsを使うケース</ol>
+<li>SambaをWindows Active Directoryドメインのメンバとして使うケース。ただし、この場合にsecurity=server／domainを使うと、Windows Vistaなどから利用できないことがあります。</li>
+</ul>
 <p>設定が終了したら今度はユーザのパスワードを設定します。
 すでに「useradd」で作成されていること前提です。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:bash">
+smbpasswd -a username
+</pre>
 <p>最後に再起動。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:bash">
+service smb restqart
+</pre>
 <p>これで指定されたサーバに接続します。アクセスできたら終了です。</p>
 <p>■参考URL
-<!-- raw HTML omitted -->Sambaサーバ構築、5つのべからず：2008年版<!-- raw HTML omitted --></p>
+<a href="http://www.atmarkit.co.jp/flinux/special/samba_n/samba_nb.html">Sambaサーバ構築、5つのべからず：2008年版</a></p>
 
 			</section>
 		</article>

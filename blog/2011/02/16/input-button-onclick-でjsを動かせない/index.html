@@ -11,8 +11,9 @@
 <meta property="go:description" content="もっと正確に言うとheadタグで作成したオブジェクトが参照できないのである。 しかしうまくいくのもあるんだけどなんなんだろうか。
 よくわからんなー。うーん。
 まずは、動かしたい処理
-そして、HTMLには以下のコードを記述したとする。
-上記のAタグてonclick()した場合うまくいくのだが、inputタグのタイプをbuttonで指定したものに onClick()した場合はうまく動作しなかった。" />
+function hoge() {}hoge.prototype = {moge: function() [ console.log(&#34;test&#34;); }}var hoge = new Hoge();そして、HTMLには以下のコードを記述したとする。
+add
+delete上記のAタグてonclick()した場合うまくいくのだが、inputタグのタイプをbuttonで指定したものに onClick()した場合はうまく動作しなかった。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -25,8 +26,9 @@
 <meta name="twitter:description" content="もっと正確に言うとheadタグで作成したオブジェクトが参照できないのである。 しかしうまくいくのもあるんだけどなんなんだろうか。
 よくわからんなー。うーん。
 まずは、動かしたい処理
-そして、HTMLには以下のコードを記述したとする。
-上記のAタグてonclick()した場合うまくいくのだが、inputタグのタイプをbuttonで指定したものに onClick()した場合はうまく動作しなかった。" />
+function hoge() {}hoge.prototype = {moge: function() [ console.log(&#34;test&#34;); }}var hoge = new Hoge();そして、HTMLには以下のコードを記述したとする。
+add
+delete上記のAタグてonclick()した場合うまくいくのだが、inputタグのタイプをbuttonで指定したものに onClick()した場合はうまく動作しなかった。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -65,11 +67,23 @@
 しかしうまくいくのもあるんだけどなんなんだろうか。</p>
 <p>よくわからんなー。うーん。</p>
 <p>まずは、動かしたい処理</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: javascript">
+function hoge() {}
+hoge.prototype = {
+  moge: function() [ console.log("test"); }
+}
+var hoge = new Hoge();
+</pre>
 <p>そして、HTMLには以下のコードを記述したとする。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: html">
+  <!--うまくJSが動作する-->
+  <a href="javascript:;" onClick="icon.add();" class="button">add</a><br />
+  <a href="javascript:;" onClick="icon.del();">delete</a>
+
+  <!--うまくJSが動作しない-->
+  <input type="button" name="add" onClick="icon.add();" value=" add icon "    class="button" />
+  <input type="button" name="del" onClick="icon.del();" value=" delete icon " class="button" />
+</pre>
 <p>上記のAタグてonclick()した場合うまくいくのだが、inputタグのタイプをbuttonで指定したものに
 onClick()した場合はうまく動作しなかった。</p>
 

@@ -14,9 +14,9 @@
 ということでApacheで圧縮している箇所を探す
 mod_deflateっていう機能で実現してました。
 通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み
-これをコメントアウトして再起動したら、なんら問題はおきなくなった。 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascriptこれをコメントアウトして再起動したら、なんら問題はおきなくなった。 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
 あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。
-■参照URL http://sonic64." />
+■参照URL http://sonic64.com/2005-09-14.html mod_deflate" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -32,9 +32,9 @@ mod_deflateっていう機能で実現してました。
 ということでApacheで圧縮している箇所を探す
 mod_deflateっていう機能で実現してました。
 通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み
-これをコメントアウトして再起動したら、なんら問題はおきなくなった。 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascriptこれをコメントアウトして再起動したら、なんら問題はおきなくなった。 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
 あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。
-■参照URL http://sonic64." />
+■参照URL http://sonic64.com/2005-09-14.html mod_deflate" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -78,14 +78,15 @@ mod_deflateっていう機能で実現してました。
 <p>ということでApacheで圧縮している箇所を探す</p>
 <p>mod_deflateっていう機能で実現してました。</p>
 <p>通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: bash">
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+</pre>
 <p>これをコメントアウトして再起動したら、なんら問題はおきなくなった。
 ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。</p>
 <p>あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。</p>
 <p>■参照URL
-<!-- raw HTML omitted --><a href="http://sonic64.com/2005-09-14.html">http://sonic64.com/2005-09-14.html</a><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->mod_deflate<!-- raw HTML omitted --></p>
+<a href="Content Negotiation でリクエストに応じて gzip 圧縮ファイルを返す"><a href="http://sonic64.com/2005-09-14.html">http://sonic64.com/2005-09-14.html</a></a>
+<a href="http://httpd.apache.org/docs/2.0/ja/mod/mod_deflate.html">mod_deflate</a></p>
 
 			</section>
 		</article>

@@ -11,8 +11,8 @@
 <meta property="go:description" content="会社でのデプロイツールといったらCapistranoのビルドを管理するWebistranoというツールを使って管理して、本番や開発環境に ソースをデプロイする際には大変重宝してます。ボタン一つで指定された複数のサーバへ一気にソースをデプロイなんてできてしまいます。
 とはいえ、裏側が対して分かってないので理解を深めるためにあえてCapistranoを利用してデプロイなんかしてみようと思います。
 とりあえず、作業用ディレクトリ作成してデプロイする内容のファイル「Capfile」を作成します。ここでデプロイするときに必要な作業を記述するみたい。今回はリモートにファイルを置くっていう作業。
-実際に実行してみます。 リモートに指定ファイルが作成されていればOK！ あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
-次はソースを展開してデプロイまでやってみます。
+$ mkdir capistrano && cd capistrano$ emacs Capfileset :user, &#39;nakaji&#39;task :stamp, :hosts = &#34;hoge.me&#34; dorun &#34;touch /var/www/hoge.me/test&#34;end実際に実行してみます。 リモートに指定ファイルが作成されていればOK！ あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
+$ cap stamp* executing `stamp&#39;* executing &#34;touch /var/www/hoge.me/test&#34;servers: [&#34;hoge.me&#34;][hoge.me] executing command[hoge.me] sh -c &#39;touch /var/www/hoge.me/test&#39;command finished in 83ms次はソースを展開してデプロイまでやってみます。
 ■参考URL https://github.com/peritor/webistrano" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
@@ -26,8 +26,8 @@
 <meta name="twitter:description" content="会社でのデプロイツールといったらCapistranoのビルドを管理するWebistranoというツールを使って管理して、本番や開発環境に ソースをデプロイする際には大変重宝してます。ボタン一つで指定された複数のサーバへ一気にソースをデプロイなんてできてしまいます。
 とはいえ、裏側が対して分かってないので理解を深めるためにあえてCapistranoを利用してデプロイなんかしてみようと思います。
 とりあえず、作業用ディレクトリ作成してデプロイする内容のファイル「Capfile」を作成します。ここでデプロイするときに必要な作業を記述するみたい。今回はリモートにファイルを置くっていう作業。
-実際に実行してみます。 リモートに指定ファイルが作成されていればOK！ あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
-次はソースを展開してデプロイまでやってみます。
+$ mkdir capistrano && cd capistrano$ emacs Capfileset :user, &#39;nakaji&#39;task :stamp, :hosts = &#34;hoge.me&#34; dorun &#34;touch /var/www/hoge.me/test&#34;end実際に実行してみます。 リモートに指定ファイルが作成されていればOK！ あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
+$ cap stamp* executing `stamp&#39;* executing &#34;touch /var/www/hoge.me/test&#34;servers: [&#34;hoge.me&#34;][hoge.me] executing command[hoge.me] sh -c &#39;touch /var/www/hoge.me/test&#39;command finished in 83ms次はソースを展開してデプロイまでやってみます。
 ■参考URL https://github.com/peritor/webistrano" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
@@ -67,13 +67,27 @@
 ソースをデプロイする際には大変重宝してます。ボタン一つで指定された複数のサーバへ一気にソースをデプロイなんてできてしまいます。</p>
 <p>とはいえ、裏側が対して分かってないので理解を深めるためにあえてCapistranoを利用してデプロイなんかしてみようと思います。</p>
 <p>とりあえず、作業用ディレクトリ作成してデプロイする内容のファイル「Capfile」を作成します。ここでデプロイするときに必要な作業を記述するみたい。今回はリモートにファイルを置くっていう作業。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:bash">
+$ mkdir capistrano && cd capistrano
+$ emacs Capfile
+
+set :user, 'nakaji'
+task :stamp, :hosts => "hoge.me" do
+  run "touch /var/www/hoge.me/test"
+end
+</pre>
 <p>実際に実行してみます。
 リモートに指定ファイルが作成されていればOK！
 あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:bash">
+$ cap stamp
+  * executing `stamp'
+  * executing "touch /var/www/hoge.me/test"
+    servers: ["hoge.me"]
+    [hoge.me] executing command
+    [hoge.me] sh -c 'touch /var/www/hoge.me/test'
+    command finished in 83ms
+</pre>
 <p>次はソースを展開してデプロイまでやってみます。</p>
 <p>■参考URL
 <a href="https://github.com/peritor/webistrano">https://github.com/peritor/webistrano</a></p>

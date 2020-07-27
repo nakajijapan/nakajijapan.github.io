@@ -10,7 +10,8 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/09/06/svnheteml%E5%8D%B3%E8%88%88%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-svn%E3%81%AE%E3%83%AC%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%B8%80%E7%99%BA%E3%81%A7%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/" />
 <meta property="go:description" content="hetemlでsvnがつかえるなんて初めて知りました。ぐぐってみたらあるんですね。hetemlサマサマです。 ここです！ 噂によるとgitも使える様ですよ！！！
 取り敢えず、今回はsnvで作成用スクリプトを作成してみました。
-以下は実行結果。" />
+#! /bin/bash# arg checkif [ -z $1 ]; thenecho &#34;Please input repository name!&#34;exitfi# /h/o/g/hogehogeの部分は自分で修正してねBASE_DIR=&#34;/home/sites/heteml/users/h/o/g/hogehoge&#34;REPOS_NAME=$1REPOS_PATH=$BASE_DIR/repos/$REPOS_NAMEecho &#34;start = &#34; $REPOS_PATH mkdir -p $REPOS_PATHsvnadmin create $REPOS_PATHsvn mkdir file://$REPOS_PATH/trunk -m &#34;create trunk.&#34;svn mkdir file://$REPOS_PATH/branches -m &#34;create branches.&#34;svn mkdir file://$REPOS_PATH/tags -m &#34;create tags.&#34;以下は実行結果。
+-bash-3.00$ bash ./svn.sh test# 如何結果になりますstart = /home/sites/heteml/users/ｈ/o/g/hogehoge/repos/testリビジョン 1 をコミットしました。リビジョン 2 をコミットしました。リビジョン 3 をコミットしました。# リスト表示-bash-3." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -22,7 +23,8 @@
 <meta name="twitter:title" content="[svn][heteml]即興プログラミング　SVNのレポジトリを一発で作成するスクリプト" />
 <meta name="twitter:description" content="hetemlでsvnがつかえるなんて初めて知りました。ぐぐってみたらあるんですね。hetemlサマサマです。 ここです！ 噂によるとgitも使える様ですよ！！！
 取り敢えず、今回はsnvで作成用スクリプトを作成してみました。
-以下は実行結果。" />
+#! /bin/bash# arg checkif [ -z $1 ]; thenecho &#34;Please input repository name!&#34;exitfi# /h/o/g/hogehogeの部分は自分で修正してねBASE_DIR=&#34;/home/sites/heteml/users/h/o/g/hogehoge&#34;REPOS_NAME=$1REPOS_PATH=$BASE_DIR/repos/$REPOS_NAMEecho &#34;start = &#34; $REPOS_PATH mkdir -p $REPOS_PATHsvnadmin create $REPOS_PATHsvn mkdir file://$REPOS_PATH/trunk -m &#34;create trunk.&#34;svn mkdir file://$REPOS_PATH/branches -m &#34;create branches.&#34;svn mkdir file://$REPOS_PATH/tags -m &#34;create tags.&#34;以下は実行結果。
+-bash-3.00$ bash ./svn.sh test# 如何結果になりますstart = /home/sites/heteml/users/ｈ/o/g/hogehoge/repos/testリビジョン 1 をコミットしました。リビジョン 2 をコミットしました。リビジョン 3 をコミットしました。# リスト表示-bash-3." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -58,14 +60,49 @@
 			<span class="entry-categories">( <a href="/categories/bash">bash</a> )</span>
 			<section itemprop="entry-text">
 				<p>hetemlでsvnがつかえるなんて初めて知りました。ぐぐってみたらあるんですね。hetemlサマサマです。
-<!-- raw HTML omitted -->ここ<!-- raw HTML omitted -->です！
+<a href="http://210.188.214.228/support/manual/svn/mac/">ここ</a>です！
 噂によるとgitも使える様ですよ！！！</p>
 <p>取り敢えず、今回はsnvで作成用スクリプトを作成してみました。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: bash">
+#! /bin/bash
+
+# arg check
+if [ -z $1 ]; then
+    echo "Please input repository name!"
+    exit
+fi
+
+# /h/o/g/hogehogeの部分は自分で修正してね
+BASE_DIR="/home/sites/heteml/users/h/o/g/hogehoge"
+REPOS_NAME=$1
+REPOS_PATH=$BASE_DIR/repos/$REPOS_NAME
+
+echo "start => " $REPOS_PATH 
+
+mkdir -p $REPOS_PATH
+svnadmin create $REPOS_PATH
+svn mkdir file://$REPOS_PATH/trunk -m "create trunk."
+svn mkdir file://$REPOS_PATH/branches -m "create branches."
+svn mkdir file://$REPOS_PATH/tags -m "create tags."
+
+</pre>
 <p>以下は実行結果。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush: bash">
+-bash-3.00$ bash ./svn.sh test
+
+# 如何結果になります
+start =>  /home/sites/heteml/users/ｈ/o/g/hogehoge/repos/test
+
+リビジョン 1 をコミットしました。
+
+リビジョン 2 をコミットしました。
+
+リビジョン 3 をコミットしました。
+
+# リスト表示
+-bash-3.00$ ls  repos/test
+README.txt  conf  dav  db  format  hooks  locks
+</pre>
 
 			</section>
 		</article>

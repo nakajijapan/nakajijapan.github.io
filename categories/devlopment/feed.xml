@@ -22,8 +22,8 @@
 			<description>なんかGUIでいいのないかなぁって思っていたら。
 NetBeansなるもの発見情報としてはおそいんでしょうけどね。。。
 とりあえず、フォントは変更。
-次は空白とタブを表示できるようにする。でこのへんのサイト参考にしてたんだけど なんかうまくプラグインがインストールしてくれなかった。。。６．８だとなんか問題 あるのかな？
-Netbeans org-netbeans-modules-fixtabs.nbmこのへんの書き方</description>
+filename.Consolas=CONSOLA.TTFfilename.Consolas_Bold=CONSOLAB.TTFfilename.Consolas_Italic=CONSOLAI.TTFfilename.Consolas_Bold_Italic=CONSOLAZ.TTF# alphebet と japanese を逆にする# じゃないとまたmonospacedになるみたいです。sequence.monospaced.windows-31j=alphabetic,japanese,dingbats,symbol# modmonospaced.plain.alphabetic=Consolasmonospaced.bold.alphabetic=Consolas Boldmonospaced.italic.alphabetic=Consolas Italicmonospaced.bolditalic.alphabetic=Consolas Bold Italic次は空白とタブを表示できるようにする。でこのへんのサイト参考にしてたんだけど なんかうまくプラグインがインストールしてくれなかった。。。６．８だとなんか問題 あるのかな？
+Netbeans org-netbeans-modules-fixtabs.nbm このへんの書き方</description>
 		</item>
 		
 	</channel>

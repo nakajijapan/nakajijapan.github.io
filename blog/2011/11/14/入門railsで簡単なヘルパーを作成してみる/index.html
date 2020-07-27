@@ -9,8 +9,9 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/11/14/%E5%85%A5%E9%96%80rails%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%AA%E3%83%98%E3%83%AB%E3%83%91%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/" />
 <meta property="go:description" content="viewで使うようのhelperを作成します。
-これじゃスマートじゃないよね。というかもっと簡素化します。
-実際のヘルパーは「app/helpers/appliction_helper.rb」に保存されて以下のように実装すると完了です。" />
+style=&#34;display: none&#34;これじゃスマートじゃないよね。というかもっと簡素化します。
+実際のヘルパーは「app/helpers/appliction_helper.rb」に保存されて以下のように実装すると完了です。
+module ApplicationHelperdef hidden_div_if(condition, attributes = {}, &block)if conditionattributes[&#34;style&#34;] = &#34;display: none&#34;endcontent_tag(&#34;div&#34;, attributes, &block)endend " />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -21,8 +22,9 @@
 <meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[入門]railsで簡単なヘルパーを作成してみる" />
 <meta name="twitter:description" content="viewで使うようのhelperを作成します。
-これじゃスマートじゃないよね。というかもっと簡素化します。
-実際のヘルパーは「app/helpers/appliction_helper.rb」に保存されて以下のように実装すると完了です。" />
+style=&#34;display: none&#34;これじゃスマートじゃないよね。というかもっと簡素化します。
+実際のヘルパーは「app/helpers/appliction_helper.rb」に保存されて以下のように実装すると完了です。
+module ApplicationHelperdef hidden_div_if(condition, attributes = {}, &block)if conditionattributes[&#34;style&#34;] = &#34;display: none&#34;endcontent_tag(&#34;div&#34;, attributes, &block)endend " />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -58,14 +60,29 @@
 			<span class="entry-categories">( <a href="/categories/ruby">Ruby</a> )</span>
 			<section itemprop="entry-text">
 				<p>viewで使うようのhelperを作成します。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:html">
+    <div id="cart-area" <% if @cart.line_items.empty? %>style="display: none"<%end%>>
+      <%= render @cart %>
+    </div>
+</pre>
 <p>これじゃスマートじゃないよね。というかもっと簡素化します。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:html">
+    <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+      <%= render @cart %>
+    <%end%>
+</pre>
 <p>実際のヘルパーは「app/helpers/appliction_helper.rb」に保存されて以下のように実装すると完了です。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="brush:html">
+module ApplicationHelper
+  def hidden_div_if(condition, attributes = {}, &block)
+    if condition
+      attributes["style"] = "display: none"
+    end
+    
+    content_tag("div", attributes, &block)
+  end
+end
+</pre>
 
 			</section>
 		</article>
