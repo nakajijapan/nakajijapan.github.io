@@ -17,7 +17,7 @@
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="[memo]一括ですべてのファイル内の文字列を置換する（ふ～）" />
 <meta name="twitter:description" content="これもどっかでかいたようなそうでないような。。。。
 #!/bin/bash#find . -type f -name &#34;*.html&#34; -exec sed &#39;s/Shift_JIS/UTF-8/g&#39; {} \;for FILE in $*;docp $FILE $FILE.bak;#sed -e &#34;s/Shift_JIS/UTF-8/g&#34; $FILE.bak  $FILE;sed -e &#34;s/EUC-JP/UTF-8/g&#34; $FILE.bak  $FILE;rm $FILE.bakecho &#34;end &#34;$FILEdone " />

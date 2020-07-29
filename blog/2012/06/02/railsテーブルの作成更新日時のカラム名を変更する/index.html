@@ -17,7 +17,7 @@ module ActiveRecord module Timestamp private def timestamp_attributes_for_update
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="[Rails]テーブルの作成更新日時のカラム名を変更する。" />
 <meta name="twitter:description" content="Railsはテーブルを作成するときの決まり事として「created_at」「updated_at」と作成されます。 しかし、既存テのーブル構成を変更しないで作成・更新日時のカラムを利用しようとしたとき不便なものがありますが、 以下の方法を実装すれば、既存のカラムを変更しなくてもそれがRailsもモデル作成・更新日時用のカラムとして 認識させてくれるのです。
 module ActiveRecord module Timestamp private def timestamp_attributes_for_update #:nodoc: [:update_time, :update_date, :updated_at] end def timestamp_attributes_for_create #:nodoc: [:make_time, :create_date, :created_at] end end end  enviroment.rbに記述して再起動すれば反映されているはずです。" />

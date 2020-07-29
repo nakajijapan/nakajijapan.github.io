@@ -18,7 +18,7 @@ $imagick = new Imagick();$imagick-readImage(&#34;./tmp/&#34; . $fileName);$ima
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="ImageMagicでいい感じで正方形のサムネイル画像を作成する" />
 <meta name="twitter:description" content="簡単実装できるんだね。もっと計算してゴニョゴニョするんだと思ってた。
 $imagick = new Imagick();$imagick-readImage(&#34;./tmp/&#34; . $fileName);$imagick-setimageformat(&#39;jpg&#39;);$width = 300;$height = 300;$imagick-cropThumbnailImage(200, 200);$imagick-writeImage(&#34;./tmp/thm_&#34; . $fileName);これが元画像これが処理後の画像うん。いい感じ。

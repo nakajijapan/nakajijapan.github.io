@@ -19,7 +19,7 @@ DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="Update To Rails4" />
 <meta name="twitter:description" content="自分のサービスのRailsのversionがまだ3.2だったので地道にRails4にアップデートしました。 その際に必要になった作業をメモっときます。
 attr_accessible is extracted out of Rails into a gem. E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError) attr_accessibleはRailsから省いてstrong_parametersを利用してとのこと。 振るいものを利用するならprotected_attributesっていうGem使ってね。 しかし、今回はstrong_parametersを記述していきます。

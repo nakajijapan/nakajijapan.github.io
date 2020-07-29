@@ -20,7 +20,7 @@ Resources  AVMutableAudioMix Class AVAudioMixInputParameters Class  " />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="AVAudioMixでオーディオの調節を行う" />
 <meta name="twitter:description" content="先日、心霊動画アプリ「もう一度ご覧いただこう」のアップデートしました。 その修正内容を書き綴ろうと思います。この動画アプリでは、録画した動画の同じタイムライン上にナレーションが入るのですが、あまりに録画した動画がにぎやかすぎるとナレーションがほとんど聞き取れない問題がありました。 対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。AVAudioMix、AVMutableAudioMixInputParametersをうまく利用することで解決しました。
 実装 基本的には対象のメディア情報に対して、オーディオを制御する用のAVMutableAudioMixInputParametersを利用します。

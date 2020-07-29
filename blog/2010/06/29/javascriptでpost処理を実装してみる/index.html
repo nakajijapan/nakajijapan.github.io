@@ -17,7 +17,7 @@ function PostSubmit() {this.init();}PostSubmit.prototype = {frmObject : {},
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="javascriptでPOST処理を実装してみる" />
 <meta name="twitter:description" content="セキュリティチェックでいろいろ処理を試す機会があってテストコード書くためにjavascriptのみで フォームのデータを作成して（ここではHiddenのパラメータを作成）サブミット処理をさせるものを書いてみました。
 function PostSubmit() {this.init();}PostSubmit.prototype = {frmObject : {},init : function() {this.frmObject = document.createElement(&#34;form&#34;);this.frmObject.method = &#34;post&#34;;},add : function(elementname, elementvalue) {var input = document.createElement(&#34;input&#34;);input.type = &#34;hidden&#34;;input.name = elementname;input.value = elementvalue;this.frmObject.appendChild(input);},submit : function(url, targetFrame){try {if (targetFrame) {this.frmObject.target = targetFrame;}}catch (e) { }try {if (url) {this.frmObject.action = url;document." />

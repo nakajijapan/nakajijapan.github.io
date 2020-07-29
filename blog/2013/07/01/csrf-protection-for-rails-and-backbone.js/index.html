@@ -24,7 +24,7 @@ https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="CSRF Protection for Rails and Backbone.js" />
 <meta name="twitter:description" content="欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。 Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷 して送信させるようにしました。
 ちなみに以前はModelにtoJSONメソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので DELETE用にも対応できるよう実装してみた。（Model.destroy時にはtoJSON()を仲介しない）

@@ -29,7 +29,7 @@ iers" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="携帯でリダイレクトした際にセッションが切れてしまう件。" />
 <meta name="twitter:description" content="携帯版ではまってしまったのでメモ
 携帯は基本的にはセッションはパラメータで引き回すようにしています。 しかし、リダイレクト時には自動的にはセッションIDは引き回さないようPHPの仕様でなっています。 そこで、リダイレクト時にもセッションを引き回せるように手動でセッションを引き回すように処理を 加えたのですがなぜかリダイレクト先の処理側でセッションが新しく生成されてしまう。

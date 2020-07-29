@@ -17,7 +17,7 @@
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="[iphone][memo]画像をトリミング(crop)する" />
 <meta name="twitter:description" content="関数にしてみました。「CGRect」は画像の座標・大きさを指定できる構造体。 これでCGRectで指定した座標・大きさをimageから取得し、そのUIImage型のポインタを返す。
 // crop-(UIImage*)crop:(UIImage*)image rect:(CGRect)rect {// 画像編集に必要な情報が入った構造体CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);// UIimage型に変換UIImage *retImage = [UIImage imageWithCGImage:imageRef];// メモリ上に保持しているbitmap情報を解放するCGImageRelease(imageRef);// UIimage型の画像情報を返すreturn retImage;} " />

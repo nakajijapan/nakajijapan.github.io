@@ -16,7 +16,7 @@
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="FileReader(&#43;JQuery)を利用して複数ファイルを選択した画像を画面に表示させる" />
 <meta name="twitter:description" content="// ファイル読み込み用function FileReaderCustom() {};FileReaderCustom.prototype = {setup : function(file, cnt) {var reader = new FileReader();//----------------------// ロード時の処理//----------------------reader.onload = function() {// 表示用タグ生成var divTag = $(document.createElement(&#34;span&#34;));var imgTag = $(document.createElement(&#34;img&#34;));// 出力先var list = $(&#34;#list&#34;);// 各タグの属性情報設定divTag.attr(&#39;id&#39;, &#39;item_&#39; &#43; cnt);divTag.css(&#39;float&#39;, &#39;left&#39;);imgTag.attr({width: 200,height:	200,src: reader.result});// タグをまとめるdivTag.append(imgTag);// 画像タグをリストに追加// 表示時はアニメーションで表示list.append(divTag.fadeIn(5000));};//----------------------// 作成中の処理//----------------------reader." />
 

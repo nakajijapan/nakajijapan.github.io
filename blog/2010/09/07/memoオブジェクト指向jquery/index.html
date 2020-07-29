@@ -17,7 +17,7 @@
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="[memo]オブジェクト指向＋jquery" />
 <meta name="twitter:description" content="いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので それ用に実装方法を書いてみる。
 // クラス的な位置づけvar Nakaji = function(){ // メンバ変数的な位置づけ this.hidden = false; // コンストラクタ的な位置づけthis.setup(); } Nakaji.prototype = { setup: function(){ this.elem = $(&#39;NAKAJIJAPAN!&#39;); this.elem.css(&#34;background&#34;,&#34;#EEEEEE&#34;); $(document.body).append(this.elem.fadeIn(5000)); var self = this; this.elem.click(function(){ if(self.hidden){ self.show(); }else{ self.hide(); } }); }, hide: function(){ this.elem.css(&#34;background&#34;,&#34;#cccccc&#34;); this.hidden = true; }, show: function(){ this.elem.css(&#34;background&#34;,&#34;#000000&#34;); this.hidden = false; } } # document読み込み終了時に開始$(function(){ var nakaji1 = new Nakaji(); var nakaji2 = new Nakaji(); var nakaji3 = new Nakaji(); var nakaji4 = new Nakaji(); var nakaji5 = new Nakaji(); });＜body＞" />

@@ -17,7 +17,7 @@
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="[zend]ZendFrameworkでCSV出力をおこなう方法" />
 <meta name="twitter:description" content="突貫工事ではありますが、controllerからデータをCSV出力させるようにさせてみた。
 // csv?if (isset($params[&#39;csvFlg&#39;])) {$this-getResponse()-setHeader(&#39;Content-disposition&#39;,&#39;attachment; filename=&#34;data_&#39;.date(&#39;YmdHis&#39;).&#39;.csv&#34;&#39; )-setHeader(&#39;Content-type&#39;, &#39;test/x-csv&#39;)-sendHeaders();foreach($users as $user) {$this-getResponse()-appendBody( implode(&#39;,&#39;, $user) . &#34;\r\n&#34; );}$this-getResponse()-outputBody();exit;}" />

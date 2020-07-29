@@ -17,7 +17,7 @@
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary" />
+<meta name="twitter:card"  content="summary_large_image" />
 <meta name="twitter:title" content="limeChatで指定した時刻にメッセージを表示させる" />
 <meta name="twitter:description" content="これだと毎週のある時刻にメッセージを表示する
 /*** 指定した時間にイベントのお知らせメッセージを表示する*　*/var targetChannel = &#34;#channel&#34;;//------------------------------------// 実行時//------------------------------------var ret = 0;function event::onLoad() {ret = setInterval(checkDevMtg, 1000);}//------------------------------------// 時刻チェック//------------------------------------function checkDevMtg(){var date = new Date();// 表示させる時刻（定期的に表示）var targetDay = 2; // 火曜日var targetHour = 15var targetMinute = 50;var targetSecond = 0;var currentDay = date.getDay();var currentHour = date.getHours();var currentMinute = date.getMinutes();var currentSecond = date." />
