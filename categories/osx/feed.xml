@@ -9,9 +9,20 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Thu, 23 Jul 2020 22:52:38 +0900</lastBuildDate>
+		<lastBuildDate>Tue, 11 Aug 2020 03:26:18 +0900</lastBuildDate>
 		
 		<atom:link href="/categories/osx/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Izumoのアイコン変えてみた</title>
+			<link>http://nakajijapan.github.io/blog/2020/08/11/izumo%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E5%A4%89%E3%81%88%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+			<pubDate>Tue, 11 Aug 2020 03:26:18 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/08/11/izumo%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E5%A4%89%E3%81%88%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+			<description>Izumoのアイコン変えてみた
+なぜ変えたのか なんとなくひらべったくてどこまでなんなのかわからなかったから。 ・・・・ていうかそこまで理由はないんだけど、なんとなくです。
+アイコン    before after          ファッション !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);  </description>
+		</item>
 		
 		<item>
 			<title>Izumo 1.10.0リリースしました。</title>

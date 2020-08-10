@@ -9,9 +9,20 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Thu, 23 Jul 2020 22:52:38 +0900</lastBuildDate>
+		<lastBuildDate>Tue, 11 Aug 2020 03:26:18 +0900</lastBuildDate>
 		
 		<atom:link href="/post/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Izumoのアイコン変えてみた</title>
+			<link>http://nakajijapan.github.io/blog/2020/08/11/izumo%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E5%A4%89%E3%81%88%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+			<pubDate>Tue, 11 Aug 2020 03:26:18 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/08/11/izumo%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E5%A4%89%E3%81%88%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+			<description>Izumoのアイコン変えてみた
+なぜ変えたのか なんとなくひらべったくてどこまでなんなのかわからなかったから。 ・・・・ていうかそこまで理由はないんだけど、なんとなくです。
+アイコン    before after          ファッション !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);  </description>
+		</item>
 		
 		<item>
 			<title>Izumo 1.10.0リリースしました。</title>
@@ -218,22 +229,6 @@ import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ d
 Optia (Aprica) 感想 コンパクトと言いながらも結構大きなものなので歩道が無いような細い道だとちょっと危ないかもしれない。二列は以ての外だった。 あと、二輪ででこぼこ道もスイスイ行けるかなと思ったがあまりにもでこぼこしてるとこれまた限界がある。なるべく舗装された道を移動するのが吉。
 あったら便利 アカチャンホンポに来てる人のベビーカーを観察していたら色々カスタマイズされていて、自分も必要そうなのをパクってみました。 一つはフックです。これで買い物袋をかけて移動してる人が結構いました。それに合わせてポーチもつけてる人もいたそれはまた今度にした。 もう一つはジュース入れ。これでスタバの中で飲まなくてもいいし、飲みつつ移動がかなり楽になります。 最後にレインコート。何かと忘れがちなもので案の定自分も購入時にそこは何も考えていなかった。購入特典で付いてきたのはよかった。 基本は雨が降りそうな時にはベビーカーを利用しないのがいいのだがどうしてもというときはつけたほうがいいだろう。少しでも天気に 不安を感じたら持っておくべきもの。
 今後欲しいもの  ベルトカバー 冬用のブランケット ブランケットを止めるもの  参考  ベビーカーの選び方  https://www.aprica.jp/products/babycar/select_babycar/   ベビーカーのカスタマイズ  https://minne.com/ でベビーカーで検索すると結構出てくる    </description>
-		</item>
-		
-		<item>
-			<title>エアコン購入した</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Sat, 22 Sep 2018 03:53:45 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description>エアコン買った。
-現状はリビングに一つエアコンがあり、子供が快適な温度で暮らせるようにずっとリビングに寝させていたのだ。しかし、理想としては子供は寝室で寝かせておきたかったのだがエアコンがなかったので断念していたが自分たちの体調が辛くなってきたのと自分たちのプライベートスペースとして利用したかったり、今後の遊びスペースとするために寝室にもエアコンを設置することにした。
-エアコン購入は初めてで何を購入すればいいのかわからなかったし、メーカをちゃんと比較するほど気力はなかったので家にある王道の？ダイキンのエアコンにすることは決めていた。
-ちなみにもともと住む前から設置されていたのは２０１６年モデルのS36TTES-W、１２畳用のものらしい。
-今回購入したのがAN25VCS-Wだいたい６−８畳のエアコン。
-高い 買いに行って思ったのがエアコンは意外と高い。 型落ちを買おうとしても家電量販だとあんまりなくてかといってネットだと設置工事とか面倒くさい。まぁ生活が楽になってくれればありがたいことですが！
-ちなみに １０万くらいだと？自動フィルター掃除が付いていて ２０万くらい払えばほとんど掃除しなくていい上に色々機能が付加されているらしいがその進化においつていけないのでもうわけわからん。
-エアコンも進化している。</description>
 		</item>
 		
 	</channel>
