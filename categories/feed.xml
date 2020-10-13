@@ -9,9 +9,27 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Tue, 11 Aug 2020 03:26:18 +0900</lastBuildDate>
+		<lastBuildDate>Wed, 14 Oct 2020 02:15:17 +0900</lastBuildDate>
 		
 		<atom:link href="/categories/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>life</title>
+			<link>http://nakajijapan.github.io/categories/life/</link>
+			<pubDate>Wed, 14 Oct 2020 02:15:17 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/life/</guid>
+			<description></description>
+		</item>
+		
+		<item>
+			<title>car</title>
+			<link>http://nakajijapan.github.io/categories/car/</link>
+			<pubDate>Mon, 14 Sep 2020 01:17:57 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/categories/car/</guid>
+			<description></description>
+		</item>
 		
 		<item>
 			<title>osx</title>
@@ -19,15 +37,6 @@
 			<pubDate>Tue, 11 Aug 2020 03:26:18 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/categories/osx/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>life</title>
-			<link>http://nakajijapan.github.io/categories/life/</link>
-			<pubDate>Thu, 23 Jul 2020 22:52:21 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/life/</guid>
 			<description></description>
 		</item>
 		
@@ -136,15 +145,6 @@
 			<pubDate>Tue, 02 Jul 2013 22:30:00 +0900</pubDate>
 			
 			<guid>http://nakajijapan.github.io/categories/ruby/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>backbonejs</title>
-			<link>http://nakajijapan.github.io/categories/backbonejs/</link>
-			<pubDate>Mon, 01 Jul 2013 07:53:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/categories/backbonejs/</guid>
 			<description></description>
 		</item>
 		
