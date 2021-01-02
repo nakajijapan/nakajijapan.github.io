@@ -9,9 +9,149 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Sun, 08 Sep 2019 22:10:01 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 31 Dec 2020 21:55:51 +0900</lastBuildDate>
 		
 		<atom:link href="/post/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>２０２０年振り返り</title>
+			<link>http://nakajijapan.github.io/blog/2020/12/31/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E5%B9%B4%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</link>
+			<pubDate>Thu, 31 Dec 2020 21:55:51 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/12/31/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E5%B9%B4%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</guid>
+			<description>年末なので振り返り。 今年は人生の中で大きなイベントがあり大変忙しい日々を過ごしたと思う。
+月別に振り返る ２月 家と車を購入し、埼玉へ引っ越し。 広い家に住みたかったのでちょっとコストがかかる買い物でしたが、豊かな生活を送りたかったので自分は よかったと思っています。 あと、小生は映画も好きなので家を購入したタイミングでオーディオ環境を一新させました。 センタースピーカーにはこだわってどこにも負けないくらいの大きさにしたと思います、、、
+５月 次男が出産。 コロナ真っ最中であったのでうまく制度を使い、１ヶ月いかないくらいですが休みをもらい育児に専念しました。 最初の一週間は息子と二人だけの生活だったが丸一日息子と向き合った日々だったのでとても印象的だった。 それ以降、育児と仕事の両立が大変になっていく。
+７月 リモート生活が始まって徐々に家のネットワークが重くなってきて仕事できるような状態じゃなくなってきたし、 同時にNetflixとかも見れない状態の負荷だった。そこで今家庭用で発売されている最高のルータを勢いで購入してものすごく改善した。
+７、８月 仕事が徐々に忙しくなる。
+９月 微力ながらiOSDCにスタッフとして参加。
+１０月 ちょっと前に２０００万円問題が出てきて、それがきっかけで資産運用考え始める。 １００歳までどういうお金が必要でいつどのくらい使っていくかで試算してみたり、どのくらい二人で資産運用に回し続けられるのか試算してみたりして お金の流れを可視化させた。お金計算するの楽しい。 資産を徐々に株式に回し始める。
+コロナ 仕事はほとんどリモートで行われるようになった。 インターネットの仕事をしているせいかリモートになっても特に困ることなく仕事ができたように思う。 一つ困ったことは価値観の異なる人間がチームに入った時のコミュニケーションがやっぱり置きてしまってそのフォローがそれなりに考えなければいけなく勉強になったところだ。 あとは、出社時間がなくなったので、その分育児に時間を費やすようになったこれは本当にすごいリモートでよかったなと思う点だなと思っている。 （ただ、残業で帰れないーと言いつつ同僚と飲み会という嘘がつけなくなって少し不便なところはあるがw） できればこれは続けて欲しい。
+まとめ 子供も生まれて二人になって、仕事も忙しくなって本当に時間の使い方にしっかり考えていかないと両立できないようになってきた。 しかも、この状況はこれからも少なくても４年はこれが続くと思うので時間を有効に使っていかないとバランスが崩れてよくない結果を招くことになるので 改善すべきところは改善して次につなげていきたい。</description>
+		</item>
+		
+		<item>
+			<title>Izumoのアイコン変えてみた</title>
+			<link>http://nakajijapan.github.io/blog/2020/08/11/izumo%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E5%A4%89%E3%81%88%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+			<pubDate>Tue, 11 Aug 2020 03:26:18 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/08/11/izumo%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E5%A4%89%E3%81%88%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+			<description>Izumoのアイコン変えてみた
+なぜ変えたのか なんとなくひらべったくてどこまでなんなのかわからなかったから。 ・・・・ていうかそこまで理由はないんだけど、なんとなくです。
+アイコン    before after          ファッション !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;); 
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;); 
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;);</description>
+		</item>
+		
+		<item>
+			<title>Izumo 1.10.0リリースしました。</title>
+			<link>http://nakajijapan.github.io/blog/2020/07/23/izumo-1.10.0%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<pubDate>Thu, 23 Jul 2020 22:52:38 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/07/23/izumo-1.10.0%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<description>久々にizumoのアップデートです。
+アップデート内容  文字数、行数、作成日、更新日を表示できるようにしました。 画像を投稿できるようにしました。  現状はMacOSのみになっています。 iOSでは参照のみになっているけどできるようにするかも  画像をドロップして任意のディレクトリにほぞんできるようにしました。 ローディング終わらないバグの回収  Screen Shot 画像保存 詳細情報 なぜ 画像を保存できるようにしたのは、ブログを書くときに記事ごとに画像をまとめておきたかったのでできるようにしました。 あとミーティングのメモを残すときに一時的にiPadで記述した絵とか資料を貼って終了してから参考にして文章をまとめるときに 見ながら文章を書きたかった経緯があります。詳細情報に関してはブログとか何らかの技術記事書くときに文字数気にするときがあるのでその目安として表示させるようにしました。
+まとめ 少し便利になったのでよかったら使っていただければ幸せ〜。 macOS iOS
+ってブログ書いてたらバグ見つけた ダークモードiOSだけ対応してなかったので対応します。。。
+追記2020/07/27：対応しました。</description>
+		</item>
+		
+		<item>
+			<title>メッシュWi-Fi導入した</title>
+			<link>http://nakajijapan.github.io/blog/2020/07/23/%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5wi-fi%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F/</link>
+			<pubDate>Thu, 23 Jul 2020 22:52:21 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/07/23/%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5wi-fi%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+			<description>先日、新しくWiFiルータを購入してネットワーク環境がものすごく改善されたので紹介する。
+なぜ購入した？ 今住んでる家が一軒家で2階建て。ルータは家の都合上二階の端っこに設置しないといけない状況でした。 なので一階のリビングには5Ghz帯は殆どこないで2.4Ghz帯を利用していました。一階に中継機を配置してはいたのですが 劇的な改善にはいたらなかった。
+しかし、仕事を始めたりして常にインターネットをするだけではなく一階ではNetflix(プランはプレミアムで4Kのものもちょくちょく見る)、あとはいろんな家電を繋ぐようになったらものすごく通信状態悪くなり、タイムアウトになったりwifiが切れたりする現象が増えてきた。ルーターや中継機を再起動しても問題解決にはいたらなかった。いろんな機器をはずすというものひとつの手だが家電もリモートで管理したかったのでそれは考えたくない。 1階はとくに繋がらなくなることがちょくちょくあった。
+どれ使ってた？ nuroを契約したときにF660aというものをもらってそのままそれを使っていました。スペックもそんなには悪くはないのだが壁を挟むと一気に弱くなる。24Ghz帯が通ってるとはいえそこまで速度は出ない。ルーターがかなり家の端っこということが痛い。
+ルーター ZXHN F660A
+ 無線LAN下り  1300Mbps  対応規格  11 a/b/g/n/ac   中継機 TP-Link WIFI 無線LAN 中継器 11ac/n/a/g/b 1733 + 800Mbps ビームフォーミング MU-MIMO APモード 3年保証 RE650
+どれ買った 今回購入したのはこれ。
+NETGEAR メッシュWiFi無線LANルーター2台セット Wi-Fi6(11AX) 速度AX6000 トライバンド RBK852 (ルータ―+サテライト) 350㎡ https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM
+簡単に買うほど安くはない。むしろかなり高い方だがこのご時世家で仕事することも増えてきたので投資して問題ないだろうという判断です。 こういうの何かとストレスになるしできるならなくしていきたいところ。
+キーワード 購入するためにルーターの基礎知識が数年前の知識だったので調べてみるといくつか新しい技術が搭載されたものが発売されていて勉強する時間を要してしまった。 世の中どんどん便利になっていくものですな。。。
+ メッシュWi-Fi トライバンド Wi-Fi 6  どのくらい改善されたか 結論から言うと完全に改善された。
+WiFi 6対応で、2402Mbps+2402Mbps+1147Mbpsと謳っていて、もっと良い結果が出るのではないかなと思ってはいたが家電やスマートフォン合わせて10台くらいがつながった状態でこの測度を維持している。 体感的にも全く問題がない使い心地である。
+ トライバンド メッシュ WiFi AX6000 (2402 + 2402 + 1147Mbps)  導入前 作業部屋 2F    number result     1 47 Mbps   2 49 Mbps   3 61 Mbps   4 47 Mbps   ５ 41 Mbps    作業部屋 2F iPhone 11 Pro Max    number result     1 2.</description>
+		</item>
+		
+		<item>
+			<title>家族が増えました</title>
+			<link>http://nakajijapan.github.io/blog/2020/05/31/%E5%AE%B6%E6%97%8F%E3%81%8C%E5%A2%97%E3%81%88%E3%81%BE%E3%81%97%E3%81%9F/</link>
+			<pubDate>Sun, 31 May 2020 23:33:06 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/05/31/%E5%AE%B6%E6%97%8F%E3%81%8C%E5%A2%97%E3%81%88%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+			<description>息子がまた一人増えました。 ようやく理想の家族構成になりました。 息子一人でけっこう大変だったのに二人になるとこれは想像以上の展開になっていくことが予想されそうです。 とはいえ、これからの生活といい息子たちの成長といい楽しくなっていきそうで何よりです。 やっていき。
+もしよければ、、、 Wish List</description>
+		</item>
+		
+		<item>
+			<title>新居に向けて購入したもの</title>
+			<link>http://nakajijapan.github.io/blog/2020/04/01/%E6%96%B0%E5%B1%85%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE/</link>
+			<pubDate>Wed, 01 Apr 2020 11:12:46 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/04/01/%E6%96%B0%E5%B1%85%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE/</guid>
+			<description>新居に向けて購入したものをめも
+屋内家電 コーヒーメーカー 【スタンダードモデル】デロンギ(DeLonghi)コンパクト全自動コーヒーメーカー ブラック マグニフィカ S カプチーノ スマート ECAM23260SBN  TV OLED65C9PJA 有機ELテレビ LG [65V型 /4K対応 /BS・CS 4Kチューナー内蔵] https://www.lg.com/jp/tv/lg-OLED65C9PJA  壁寄せテレビスタンド WALL ウォール V3 ハイタイプ ウォールナット M05000126  冷蔵庫 NR-F505HPX-W 冷蔵庫 HPXタイプ アルベロホワイト [6ドア /観音開きタイプ /500L]   https://panasonic.jp/reizo/products/NR-F505HPX.html
+掃除機 iRobot 掃除機 ロボット掃除機 2019年発売モデル ルンバ i7+ 自動ゴミ捨て機能  https://www.irobot-jp.com/product/i7/
+炊飯器 〈象印〉 STAN.　IH炊飯ジャー  https://www.zojirushi.co.jp/syohin/stan/product/ricecooker.html#stan_container
+洗濯機 NA-VX700AL-W ドラム式洗濯乾燥機 VXシリーズ クリスタルホワイト [洗濯10.0kg /乾燥6.0kg /ヒートポンプ乾燥 /左開き]  https://panasonic.jp/wash/p-db/NA-VX700AL.html
+トースター BALMUDA The Toaster  https://www.</description>
+		</item>
+		
+		<item>
+			<title>新たなセンタースピーカーがきた</title>
+			<link>http://nakajijapan.github.io/blog/2020/03/09/%E6%96%B0%E3%81%9F%E3%81%AA%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%8C%E3%81%8D%E3%81%9F/</link>
+			<pubDate>Mon, 09 Mar 2020 01:18:53 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/03/09/%E6%96%B0%E3%81%9F%E3%81%AA%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%8C%E3%81%8D%E3%81%9F/</guid>
+			<description>今持ってるセンタースピーカーにとても不満があって他のスピーカーと比べると音圧・音質いろんな面で見劣りする部分があったので購入した。
+購入したもの S2800
+spec サイズ: W(幅)860 mm H(高さ)300 mm D(奥行)300 mm 重量: 27 kg 発売時期: 2004年 ■インピーダンス:6Ω ■許容入力：200W（最大） ■出力音圧レベル：92dB/Ｗ/m ■周波数特性:50Hz～40kHz ■クロスオーバー周波数:2kHz,17kHz  現状、JBLにセンタースピーカーのラインナップが少ない。 もともとそんなに多いほうではなかったが最近ではほとんどなくなり、お手頃に購入できるものしか発売されていない。 ハイスペックなものは現状ない状態だ。なので購入するときは昔のものを検討していた。
+検討していたもの  S2800 LSシリーズのセンタースピーカー TS60  LS &amp;gt; TS60 &amp;gt; s2800
+しかし、昔発売されていて新品はすでに市場に出回っていない。中古もほとんど出回っていない。 だが、偶然にもオーディオショップの中古屋に一つだけおめあてのものが存在していたので即購入した。 家に届いたら、何も考えずに購入したせいで予想以上のでかさのものが届いてしまった。。。でかいし、そんで持って重い。 俺がじいちゃんになったらもはや一人では持てないもになっていること確定である。 ただ、音質は以前のものとは比べるまでもなくとてもよくなっていた。映画を見るときに人の声がはっきりと聞こえるようになったし、 他のスピーカーと引けをたらない音質・音圧になって申し分ない状態だ。
+これはおすすめである。</description>
+		</item>
+		
+		<item>
+			<title>久しぶりに車買った</title>
+			<link>http://nakajijapan.github.io/blog/2020/03/02/%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%AB%E8%BB%8A%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
+			<pubDate>Mon, 02 Mar 2020 23:33:06 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/03/02/%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%AB%E8%BB%8A%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
+			<description>FREED by Honda
+購入したもの Honda - Freed 条件  スライドドア 運転し心地  家に駐車場はあるけれどそこまで広くはなかったのと、子供がこれから開け閉めすること想定すると壁にドアを当てるのでスライドドアは必須という話をしていた。 あとは運転し心地。Freedの他の候補としてトヨタのシエンタにしていたのですが断然Freedでした。僕が印象的だったのがブレーキの掛け方がものすごくしっくりきたこと、毎回かけるから少しでもストレスあると嫌なんですよね。
+保険 東京海上の自動車保険を営業の人に勧められたのでそれに入った。 なるべく安めのプランにしてもらったけど5万だったのでちょっと高め。
+お金がかかる  自動車税 車検 自動車保険 定期的なメンテナンス ガソリン  付属で購入したもの 後部座席で子供が動画を見れるようにするために購入しました。この二つがないとiPadがはめることができないです。
+honda ホンダ freed フリード タブレットホルダー [2016.9～次モデル][ 08U08-E6J-010A ] https://www.amazon.co.jp/dp/B01N65ROYV/ref=cm_sw_r_cp_apip_nmD8XLSrp4Xvj
+HONDA ホンダ 純正 ODYSSEY オデッセイ スマートクリップ 2017.11～仕様変更 08U08-E6J-010 https://www.amazon.co.jp/dp/B0788FD88X/ref=cm_sw_r_cp_apip_dYcMK45HvaMbE
+実際購入してみたけど子供がけるようになってしまったので現在封印しています。
+メモ 昔乗っていた車をメモ
+Civic https://www.honda.co.jp/pressroom/products/auto/civic/civic_1995-09-04/
+免許とってすぐ買ってもらったけどすぐ事故って募集された
+Life https://www.honda.co.jp/auto-archive/life/4door/2003/
+親父にお前はこれでいいと軽自動車を渡された。
+まとめ 家の周りはほとんどお店がないので徒歩、自転車で行くのは結構困難なので車は必要。 それプラスなんてったって家族といろんな思い出が作れる素晴らしい時間と空間を提供しれくれている。 その点でお金を払う分のに十分な代物だ。</description>
+		</item>
+		
+		<item>
+			<title>家を購入した</title>
+			<link>http://nakajijapan.github.io/blog/2020/03/01/%E5%AE%B6%E3%82%92%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
+			<pubDate>Sun, 01 Mar 2020 03:14:55 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2020/03/01/%E5%AE%B6%E3%82%92%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+			<description>なぜ 第一子が生まれたことと第二子が生まれるとのことで子育てするのに今の家だと収納やら生活環境やら大変になってきたのでどこか広いところに引っ越したいなぁというところから始めた
+ もっと広い部屋で豊かな生活をしたい。  ここが重要！！！！  家賃まぁまぁ高いのでなんとかしたい  総合的に見てお金がかかってしまうのでここはなんとかならなかった   条件  駅近  共働き  リビング広め  ２０畳は欲しい  駐車できるスペースがある  車が欲しい  嫁の実家に近い 4LDK 庭  バスケができる🏀  戸建  ２階建  屋上 屋根裏部屋  広い家と庭は遠くに行けばそれなりのものはあるのだがなんせ妻も出産後も仕事がしたいということで駅から遠いところではなくて駅近が必須だったのでそこは最低限の広さがあればいいやという話になった。（マンションの広さ以上のものは欲しかった）結局、庭という庭を作ることはできなかったがまぁしょうがないという感じ。
+妥協したもの  庭  旗竿地だから車と家の間で少し遊べるからそこは妥協した  4LDK  なかなかないね、、、  屋上  なかなかないね、、、  屋根裏部屋
+ なかなかないね、、、
+マンションは？  狭い
+ 高すぎる
+  特に渋谷に近い沿線系なるとそんなに広くないのに高いのでやめました。車買ったらまた手数料かなんかでまた高く マンションは３人家族で住むにはギリギリセーフかなという印象で四人暮らし以上想定していましたので、流石に狭いなぁという印象でした。
+これは僕と妻の何軒か回った上での総意でした。
+都内一軒家は？ たっかすぎる。 自分が調べていたのは東横線でした。なるべく徒歩１０分以内で探していたけどそんな土地はほとんどなくてあったとしてもすごい高い上に３階建で狭い。 遠いけど広そうな家はあったものの辺鄙な場所にあったり、それでも高いものばかりでした。</description>
+		</item>
 		
 		<item>
 			<title>iOSDC JAPAN 2019で「サービスにおけるデザインシステムの構築」について話してきた</title>
@@ -103,132 +243,6 @@ NSPopover  popover.contentViewController = viewController popover.delegate = sel
  updateConstraints layout draw(_ dirtyRect: NSRect) updateLayer  気に食わなかったところ NSScrollerのデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）
 実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。
 import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) } override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) { super.drawKnobSlot(in: slotRect, highlight: flag) // 背景はリストの背景と同じにする NSColor.defaultBackgroundColor.set() slotRect.fill() // 同じにすると境界がわからなくなるのでボーダー独自に描くようにする NSColor.defaultScrollerLeft.set() let rect = CGRect(x: 0, y: 0, width: 1, height: slotRect.height) rect.fill() } } class NoteListScrollView: NSScrollView { required init?</description>
-		</item>
-		
-		<item>
-			<title>サブウーファー買った</title>
-			<link>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
-			<pubDate>Tue, 09 Oct 2018 01:07:47 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
-			<description> http://jbl.harman-japan.co.jp/product.php?id=stage_suba100p
-念願のサブウーファー なのだがリビンングは子供のベッド＆子育てスペースとして使われているので設置不可能。。。 もう少し設置完了までに時間がかかりそう。
-仕様  製品名 STAGE SUB A100P 形式 背面バスレフ、アクティブサブウーファー 構成 250mm径ウーファー 出力 150W(RMS)、300W(Peak) 周波数特性 35Hz ～ 150Hz クロスオーバー周波数 50Hz ～ 150Hz（連続可変） 外形寸法(W x H x D) 335 x 380 x 405（グリル含）mm 本体重量 13.7kg 付属品 スパイク×4、グリル、電源コード（1.8m） 価格 標準価格 \35,000 (税別) / 1本
- </description>
-		</item>
-		
-		<item>
-			<title>ベビーカー購入した</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/24/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Mon, 24 Sep 2018 23:18:18 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/24/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description> そろそろ必要性出てくるかなと思い、ベビーカーを購入した。購入場所は安定のアカチャンホンポで。 ベビーカーにも色々あるようで、自分は新生児から3歳くらいまで一つにしたかったのと最初の頃は対面にし、その後逆にできるように切り替えができるものしたかったので それができるものにした。
-Optia (Aprica) 感想 コンパクトと言いながらも結構大きなものなので歩道が無いような細い道だとちょっと危ないかもしれない。二列は以ての外だった。 あと、二輪ででこぼこ道もスイスイ行けるかなと思ったがあまりにもでこぼこしてるとこれまた限界がある。なるべく舗装された道を移動するのが吉。
-あったら便利 アカチャンホンポに来てる人のベビーカーを観察していたら色々カスタマイズされていて、自分も必要そうなのをパクってみました。 一つはフックです。これで買い物袋をかけて移動してる人が結構いました。それに合わせてポーチもつけてる人もいたそれはまた今度にした。 もう一つはジュース入れ。これでスタバの中で飲まなくてもいいし、飲みつつ移動がかなり楽になります。 最後にレインコート。何かと忘れがちなもので案の定自分も購入時にそこは何も考えていなかった。購入特典で付いてきたのはよかった。 基本は雨が降りそうな時にはベビーカーを利用しないのがいいのだがどうしてもというときはつけたほうがいいだろう。少しでも天気に 不安を感じたら持っておくべきもの。
-今後欲しいもの  ベルトカバー 冬用のブランケット ブランケットを止めるもの  参考  ベビーカーの選び方  https://www.aprica.jp/products/babycar/select_babycar/  ベビーカーのカスタマイズ  https://minne.com/ でベビーカーで検索すると結構出てくる   </description>
-		</item>
-		
-		<item>
-			<title>エアコン購入した</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Sat, 22 Sep 2018 03:53:45 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description>エアコン買った。
-現状はリビングに一つエアコンがあり、子供が快適な温度で暮らせるようにずっとリビングに寝させていたのだ。しかし、理想としては子供は寝室で寝かせておきたかったのだがエアコンがなかったので断念していたが自分たちの体調が辛くなってきたのと自分たちのプライベートスペースとして利用したかったり、今後の遊びスペースとするために寝室にもエアコンを設置することにした。
-エアコン購入は初めてで何を購入すればいいのかわからなかったし、メーカをちゃんと比較するほど気力はなかったので家にある王道の？ダイキンのエアコンにすることは決めていた。
-ちなみにもともと住む前から設置されていたのは２０１６年モデルのS36TTES-W、１２畳用のものらしい。
-今回購入したのがAN25VCS-Wだいたい６−８畳のエアコン。
-高い 買いに行って思ったのがエアコンは意外と高い。 型落ちを買おうとしても家電量販だとあんまりなくてかといってネットだと設置工事とか面倒くさい。まぁ生活が楽になってくれればありがたいことですが！
-ちなみに １０万くらいだと？自動フィルター掃除が付いていて ２０万くらい払えばほとんど掃除しなくていい上に色々機能が付加されているらしいがその進化においつていけないのでもうわけわからん。
-エアコンも進化している。</description>
-		</item>
-		
-		<item>
-			<title>iOSDC 2018 でMarkdownの解析について発表してきた。</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018-%E3%81%A7markdown%E3%81%AE%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
-			<pubDate>Mon, 10 Sep 2018 00:46:52 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018-%E3%81%A7markdown%E3%81%AE%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
-			<description>発表したぞ！
-iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。 発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと 心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。
-発表のタイトルはこちら
-Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
- Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
- 資料  ざっくり解説
-リアルタイムに処理をするために 以下の項目を基点に話を掘り下げていきました。
- カラーリング 入力補佐  カラーリング 一番リアルタイム性を考えなければいけないのが文字を入力した時です。
-最小限の範囲で文字列操作を行う いつ？ まず、、NSTextStorageDelegateのメソッド（以下のメソッド）を使用して取得する必要がありました。 これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。 さらにeditedRangeは複数行の場合があることを考慮に入れる必要があります。
-// MARK: - NSTextStorageDelegate extension TextViewController: NSTextStorageDelegate { func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) { self.editedRange = editedRange } }  何を？ それは変換するべき領域です。以前のコードでeditedRangeを利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。
-  この赤線の部分が一行ずつ抽出して属性を変更していきます。
-どのようにして？ 変換するべき領域を抽出するんですがその時には以下の関数を使うと行の全ての範囲を取得することが可能になります。 ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。
- lineRange   　絵文字 ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.</description>
-		</item>
-		
-		<item>
-			<title>iOSDC Japan 2018で発表します 💪</title>
-			<link>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99/</link>
-			<pubDate>Sat, 25 Aug 2018 17:42:50 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/08/25/iosdc-japan-2018%E3%81%A7%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%BE%E3%81%99/</guid>
-			<description> iOSDC2018 で話すことになりました。 今回、出したのは以下の三つでしたが幸運にも一つ採択されました。よかった。。。 採択されたのはMarkdownをリアルタイムに解析するでIzumoというMarkdown専用のメモアプリを作成するときに 色々考えることがあったのでそのことについて赤裸々に話せればと思います！
-あと、他の二つも結構ガンバ行っているところなのでどこかしらでアウトプットできればと思っています。
-カンファレンスはスタッフとしてほぼいると思いますので、ぜひお声がけしていただければと思います！ 友達になってください！
-採択 Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
- Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
- 不採択 リリース間もないサービスにVIPER+RxSwiftを導入した話  iOSを開発をする上で一度はどんな設計でアプリを開発していったらいいのか考えるかと思います。 私たちはアプリを開発を始めてもうすぐ一年が経とうとするアプリに対してVIPER+RxSwiftを取り入れました。 このトークでは、なぜ、どのようにどこまでしてそれを導入したのか、実際にどうなったか、さらには実際の画面に応じた実装がどうなっているのかを実際のコードを交えながら説明できればと思います。
- マルチデバイス対応＋同期可能なメモアプリを開発した話。  みなさんは業務でも個人でもで、iPhone,iPad,macOS等のマルチデバイスに対応し、同期を行うということはなかなか無いと思います。 私は個人で実際にそれに対応したメモアプリをリリースしました。その中でデバイス間の同期をどのようにして行われているのか。 実際にマルチデバイス(iPhone,iPad,macOS)を対応するにおいて何を考慮しないといけないのかをお話しできればと思います。
- </description>
-		</item>
-		
-		<item>
-			<title>Springアニメーションのテスト</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/28/spring%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%86%E3%82%B9%E3%83%88/</link>
-			<pubDate>Sat, 28 Jul 2018 01:08:11 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/28/spring%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%83%86%E3%82%B9%E3%83%88/</guid>
-			<description> モチベーション macOSでNSIndicatorViewを利用し用としたところ、なぜか背景が透過せずに若干グレイになってしまっていてそれが仕様のようなので自分で作ることにした。 どうせ作るんだったら少し捻ったものにしようと思い、試行錯誤している。
-https://github.com/nakajijapan/CASpringAnimationTest
-CASpringAnimation Springアニメーションの制御がlayerに対して行えるようになります。 このパラメータをうまく設定することで期待しているアニメーションが実現できるようになります。
- mass  質量  initialVelocity  初速度  damping  振動の減衰  stiffness  ばねの弾性力   Example これは実際の大きさになるためのアニメーションにスプリングを加えたものになります。
-let animation = CASpringAnimation(keyPath: &amp;quot;transform.scale&amp;quot;) animation.mass = CGFloat(mass.value) animation.damping = CGFloat(damping.value) animation.stiffness = CGFloat(stiffness.value) animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn) animation.fromValue = 0.6 animation.toValue = 1.0 animation.isRemovedOnCompletion = true animation.fillMode = kCAFillModeForwards animation.duration = CFTimeInterval(duration.value)  Reference  https://developer.apple.com/documentation/quartzcore/caspringanimation https://github.com/MengTo/Spring  </description>
-		</item>
-		
-		<item>
-			<title>Izumo 1.4.0にアップデートしました。</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/26/izumo-1.4.0%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Thu, 26 Jul 2018 00:47:43 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/26/izumo-1.4.0%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>Izumo - Markdown Note tool -のアップデートをしました。
- macOS iOS  macOS  インジケータを表示するようにした。  iOS  インジケータを表示するようにした。 カテゴリ一覧に件数を表示するようにした。  思い インジケータは、本当はユーザに知らせる必要はないものと一見思えるものだが、アプリとの機能として同期ができるものとなっている。 普通に操作していると何もしていないかのような状態になっているので、ユーザに他のデバイスとちゃんと同期をしていますよという安心感を 無意識に認知させるためにある。もちろん目立ってはいけないので操作の邪魔にならないようにさりげないところに小さく置いてある。
-カテゴリ一覧は、あまりに情報が少なく、自分が保存した量がしっかり保存されているのかと確認と安心感を与えるために実装した。
-子供用です !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&amp;ldquo;//suzuri.jp/thirdparty/widgets.js&amp;rdquo;;js.charset=&amp;ldquo;utf-8&amp;rdquo;;fjs.parentNode.insertBefore(js,fjs);}}(document,&amp;ldquo;script&amp;rdquo;,&amp;ldquo;suzuri-widget-script&amp;rdquo;);</description>
-		</item>
-		
-		<item>
-			<title>  👶  第一子生まれました。</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/23/%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Mon, 23 Jul 2018 00:09:27 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/23/%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>第一子生まれました。👶 どうやら、僕らの子供はメンズのようです。
-2018/07/21 予定日から一週間が過ぎて本当に生まれるのかなと、少し疑心暗鬼になりながら過ごしていたが、ついに妻がちょっとした？破水のようなものが始まったといい出した。痛みが少しづつ出たらしいのでこれはきたのか！！！！と思いつつ病院に電話して入院の準備をして今後に備えるようになった。
-自分は一旦帰宅、入院に必要なものを何個か忘れたのでそれを集めて再度病院に行った。その間、妻は診察してもらっていた。 診てもらったところまだ陣痛の初期の段階でこれからという話だった。診察が終わったところで痛みは治まったらしいのでとりあえず今日はないかとおもい、帰りがてら景気付けに夕ご飯に家系のとんこつラーメン、しかもにんにくもりもりを食べて帰宅した。
-さーて勉強するかと思っていたら妻からの電話、途中で看護師さんと交換され、もう生まれるらしいから立ち会うならきてくださいと伝えられた。「え、今日なんだ！！！！😵」とものすごく急でびっくりしていた。
-再度、病院に行く。もう妻は激しい痛みに襲われていて、自分は動揺していたが自分ができることはしようと思い、 痛み出したら背中をさする・お尻を押すことずっと続けていた。あの温厚が妻が興奮している野獣のような状態だったことは印象的だった。 案の定、ニンニクで怒られたことはいうまでもない。（基本的には喋らず行動で。。。）
-2018/07/22 時間は２４：００を超え、もうすぐ佳境という状態だった。 出そうというところで男の人がでてきてその人が来たらものの数分で赤ん坊が出てきた。ぽんって産まれた。 メッッチャおなかおしててこれが最終段階ですることなんだ！意外と原始的だったの覚えてる。 僕は感動し過ぎて言語能力は著しく低下していた。子供を見て、「生きてる」「動いてる」「すごい！」をしばらく言い続けていた。。。 神秘的すぎる。
-ようこそ！ なんだかんだで大変でしたが無事そして元気に生まれてきたことにホッとしております。これからの子育て業かなり大変になりそうですが歯食いしばって頑張っていくぞ。 そして、しばらくは子供👶のことしか考えられないぞ！！！みんなごめん！</description>
-		</item>
-		
-		<item>
-			<title>お祈りしてきた。</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/17/%E3%81%8A%E7%A5%88%E3%82%8A%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
-			<pubDate>Tue, 17 Jul 2018 17:57:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/17/%E3%81%8A%E7%A5%88%E3%82%8A%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
-			<description>今にも生まれそうな奥さんと元気な赤ちゃんが生まれるようお祈りして来た。</description>
 		</item>
 		
 	</channel>
