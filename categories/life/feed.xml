@@ -9,9 +9,21 @@
 		
 		<copyright>nakajijapan All rights reserved.</copyright>
 		
-		<lastBuildDate>Wed, 14 Oct 2020 02:15:17 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 31 Jan 2021 18:45:13 +0900</lastBuildDate>
 		
 		<atom:link href="/categories/life/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>据え置きマイク買ってみた</title>
+			<link>http://nakajijapan.github.io/blog/2021/01/31/%E6%8D%AE%E3%81%88%E7%BD%AE%E3%81%8D%E3%83%9E%E3%82%A4%E3%82%AF%E8%B2%B7%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+			<pubDate>Sun, 31 Jan 2021 18:45:13 +0900</pubDate>
+			
+			<guid>http://nakajijapan.github.io/blog/2021/01/31/%E6%8D%AE%E3%81%88%E7%BD%AE%E3%81%8D%E3%83%9E%E3%82%A4%E3%82%AF%E8%B2%B7%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+			<description>2020年から仕事のほとんどがリモートになった。 ミーティングの際には話すこともあるのでマイクとしてAirPodsを利用していた。 しかし、ミーティングをする機会が徐々にマスにつれて長時間のミーティングやオンライン飲み会だと切れてしまうことが多々増えてきたので据え置きのマイクを購入した。
+材料はこちら audio-technica サイドアドレスマイクロフォン AT2035 https://www.amazon.co.jp/gp/product/B001JERO46/ref=ppx_yo_dt_b_asin_title_o08_s02?ie=UTF8&amp;amp;psc=1
+アーム オーディオインターフェース まとめ アームにしたおかげで机はスッキリしたし、スタンディングしてのミーティングもある程度できるようになったので良かった。
+あと、声が結構きれになったらしいです。</description>
+		</item>
 		
 		<item>
 			<title>ナイキ エア マックス95 アンロックド By You</title>
@@ -205,17 +217,6 @@ USB Type-C™ならケーブル1本で 裏表がなく接続が簡単なUSB Type
  お絵かきがすこぶる楽しい メモにも使える 頭の整理に図をかく時にすぐかける 画面モックをえいやって書くときにデバイスのテンプレートがあるのでそれを元にかける  何よりもお絵かきが楽しい。何かをトレースして書くのうまくなった気がしてとても快感。。。
 Apple Pencil 楽しくて自分を写経してたらウシジマくんになった、、、 pic.twitter.com/OOiTQEfKlo
 &amp;mdash; The old man (@nakajijapan) 2018年4月7日  奥さんが利用していないスキをみて、どんどん使っていこう。</description>
-		</item>
-		
-		<item>
-			<title>こんにちはお久しぶりです初めまして</title>
-			<link>http://nakajijapan.github.io/blog/2018/02/25/%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%81%8A%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%A7%E3%81%99%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6/</link>
-			<pubDate>Sun, 25 Feb 2018 14:14:19 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/02/25/%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%81%8A%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%A7%E3%81%99%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6/</guid>
-			<description>一年ぶりのブログになる。 昨年は、心に余裕がなくてあまりブログをかけていなかったのだけれでも、とはいえ基本的に心に余裕がないので 無理矢理にでもブログを再開するようにした。そう、改めてということもあり静的サイトジェネレートを一新してみた。 OctopressからHUGOにしてみた。デザインはカスタマイズをあとで自分でもできるようになるべきシンプルなものを 探してみたがhugo-zenがよさそうだった。今の所少し不満だが、また数年後にブログ替え時な時期がくるので 焦らずゆっくりやっていこう。
-Hugo  https://gohugo.io/  今年は今年で色々経験していきたいです。
-ではでは</description>
 		</item>
 		
 	</channel>
