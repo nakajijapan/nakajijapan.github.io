@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="即興でZendFrameworkでルーターをプラグイン化">
@@ -11,22 +11,22 @@
 <meta property="go:description" content="最近になってDIコンテナの意味を体で感じ始めてきた今日この頃。僕です。
 今日はzendframeworkのRouerという機能をbootstrapに入れてみます。
 まずRouer用のリソースを作成
-/** My_Application_Resource_Router*/class My_Application_Resource_Router extends Zend_Application_Resource_ResourceAbstract{public function init(){// init$router = null;// オプション情報取得$options = $this-getOptions();// ルータを利用するif ( $options[&#39;use&#39;] == true ) {// フロントコントローラ取得$front = Zend_Controller_Front::getInstance();// ルータ情報を保存する。$routes = new Zend_Config_Ini( $options[&#39;filepath&#39;] , $options[&#39;section&#39;] );$router = $front-getRouter();$router-addConfig($routes, $options[&#39;section&#39;]);}return $router;}}その後にapplication.iniに設定のファイルを読み込ませます。
-resouorce.router.use = trueresouorce.router.filepath = &#34;path/to/&#34;resouorce.router.section = &#34;" />
+/** My_Application_Resource_Router*/class My_Application_Resource_Router extends Zend_Application_Resource_ResourceAbstract{public function init(){// init$router = null;// オプション情報取得$options = $this-&gt;getOptions();// ルータを利用するif ( $options[&#39;use&#39;] == true ) {// フロントコントローラ取得$front = Zend_Controller_Front::getInstance();// ルータ情報を保存する。$routes = new Zend_Config_Ini( $options[&#39;filepath&#39;] , $options[&#39;section&#39;] );$router = $front-&gt;getRouter();$router-&gt;addConfig($routes, $options[&#39;section&#39;]);}return $router;}}その後にapplication.iniに設定のファイルを読み込ませます。
+resouorce.router.use = trueresouorce.router.filepath = &#34;path/to/&#34;resouorce.router.section = &#34;router&#34;一応、これでindex." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="即興でZendFrameworkでルーターをプラグイン化" />
 <meta name="twitter:description" content="最近になってDIコンテナの意味を体で感じ始めてきた今日この頃。僕です。
 今日はzendframeworkのRouerという機能をbootstrapに入れてみます。
 まずRouer用のリソースを作成
-/** My_Application_Resource_Router*/class My_Application_Resource_Router extends Zend_Application_Resource_ResourceAbstract{public function init(){// init$router = null;// オプション情報取得$options = $this-getOptions();// ルータを利用するif ( $options[&#39;use&#39;] == true ) {// フロントコントローラ取得$front = Zend_Controller_Front::getInstance();// ルータ情報を保存する。$routes = new Zend_Config_Ini( $options[&#39;filepath&#39;] , $options[&#39;section&#39;] );$router = $front-getRouter();$router-addConfig($routes, $options[&#39;section&#39;]);}return $router;}}その後にapplication.iniに設定のファイルを読み込ませます。
-resouorce.router.use = trueresouorce.router.filepath = &#34;path/to/&#34;resouorce.router.section = &#34;" />
+/** My_Application_Resource_Router*/class My_Application_Resource_Router extends Zend_Application_Resource_ResourceAbstract{public function init(){// init$router = null;// オプション情報取得$options = $this-&gt;getOptions();// ルータを利用するif ( $options[&#39;use&#39;] == true ) {// フロントコントローラ取得$front = Zend_Controller_Front::getInstance();// ルータ情報を保存する。$routes = new Zend_Config_Ini( $options[&#39;filepath&#39;] , $options[&#39;section&#39;] );$router = $front-&gt;getRouter();$router-&gt;addConfig($routes, $options[&#39;section&#39;]);}return $router;}}その後にapplication.iniに設定のファイルを読み込ませます。
+resouorce.router.use = trueresouorce.router.filepath = &#34;path/to/&#34;resouorce.router.section = &#34;router&#34;一応、これでindex." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

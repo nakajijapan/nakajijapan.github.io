@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[memo]postfixインスコ">
@@ -10,26 +10,26 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/12/22/memopostfix%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%B3/" />
 <meta property="go:description" content="開発用にほしかったので久々にインスコ。めものめも。
 sendmailを削除したあとにpostfixを入れます。
-sudo yum remove sendmailsudo yum install postfix以上で終了。
+sudo yum remove sendmailsudo yum install postfix以上で終了。
 あとは設定ファイルをいじるだけ。
-myhostname = mail.hogehoge.commydomain = hogehoge.commyorigin = $mydomaininet_interfaces = allmydestination = $myhostname, localhost.$mydomain, localhost, $mydomainhome_mailbox = Maildir/smtpd_banner = $myhostname ESMTP unknownテストして送信できていたら完了です！
-mail -s title hoge@momonnga.com以上、変更分でした。メールはアカウントで管理までとかはしないのでこれでおしましです。
+myhostname = mail.hogehoge.commydomain = hogehoge.commyorigin = $mydomaininet_interfaces = allmydestination = $myhostname, localhost.$mydomain, localhost, $mydomainhome_mailbox = Maildir/smtpd_banner = $myhostname ESMTP unknownテストして送信できていたら完了です！
+mail -s title hoge@momonnga.com以上、変更分でした。メールはアカウントで管理までとかはしないのでこれでおしましです。
 次はsmtp-authとdavcotでimap・・・してみよ！（久々に）" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[memo]postfixインスコ" />
 <meta name="twitter:description" content="開発用にほしかったので久々にインスコ。めものめも。
 sendmailを削除したあとにpostfixを入れます。
-sudo yum remove sendmailsudo yum install postfix以上で終了。
+sudo yum remove sendmailsudo yum install postfix以上で終了。
 あとは設定ファイルをいじるだけ。
-myhostname = mail.hogehoge.commydomain = hogehoge.commyorigin = $mydomaininet_interfaces = allmydestination = $myhostname, localhost.$mydomain, localhost, $mydomainhome_mailbox = Maildir/smtpd_banner = $myhostname ESMTP unknownテストして送信できていたら完了です！
-mail -s title hoge@momonnga.com以上、変更分でした。メールはアカウントで管理までとかはしないのでこれでおしましです。
+myhostname = mail.hogehoge.commydomain = hogehoge.commyorigin = $mydomaininet_interfaces = allmydestination = $myhostname, localhost.$mydomain, localhost, $mydomainhome_mailbox = Maildir/smtpd_banner = $myhostname ESMTP unknownテストして送信できていたら完了です！
+mail -s title hoge@momonnga.com以上、変更分でした。メールはアカウントで管理までとかはしないのでこれでおしましです。
 次はsmtp-authとdavcotでimap・・・してみよ！（久々に）" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">

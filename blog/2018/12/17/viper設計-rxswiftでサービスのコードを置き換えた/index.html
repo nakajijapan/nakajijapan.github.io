@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="VIPER設計(&#43;RxSwift)でサービスのコードを置き換えた">
@@ -11,30 +11,30 @@
 <meta property="go:description" content="iOS (その2) Advent Calendar 2018 17日目です！
 本記事はプロダクトのコードをRxSwiftをうまく活用しながらVIPERの設計に置き換えていった話です。
 なぜ置き換えたのか 現在、Polcaをリリースをして一年が立ちました。開発をし始めて二年は経過しました。 自分はリリースして半年が経過しているときに入社したのですが、当初もある程度機能はある状態で、コード量も1万に突破していく頃でした。 自分は開発していく上で下記の問題を抱くようになりました。
- 責務がいたるところに分散している コード量がある程度多くなってきた テストが書きにくい RxSwiftが既に導入されているのでもっと活用したい。そして、ちゃんと使いたい。  そこで、今後開発をしていく上である程度運用しやすい状態にしたい、変えるタイミングとしては今がやりやすいと考え、VIPERの導入に踏み切りました。
+責務がいたるところに分散している コード量がある程度多くなってきた テストが書きにくい RxSwiftが既に導入されているのでもっと活用したい。そして、ちゃんと使いたい。 そこで、今後開発をしていく上である程度運用しやすい状態にしたい、変えるタイミングとしては今がやりやすいと考え、VIPERの導入に踏み切りました。
 VIPERとは そもそもVIPERとはどんなものでしょうか簡単におさらいしていきます。 VIPERはiOSにおけるクリーンアーキテクチャの手法の一つとなり、責務を大きく５つに分けています。 ざっくりまとめると以下の通り。
- View  プレゼンターによって何かを伝える プレゼンターにユーザの入力を受け取る   Interactor  ユースケースによって必要なビジネスロジックが含まれている   Presenter  インタラクタから受け取った、ユーザの入力により受け取った情報を準備するためのロジック   Entity  インタラクたによって利用された基本的なモデルオブジェクトが含まれている   Routing  画面がどの順番で表示されるのかをナビゲーションロジックが含まれている    https://www.objc.io/issues/13-architecture/viper/ 詳細はこちらを参照してください
+View プレゼンターによって何かを伝える プレゼンターにユーザの入力を受け取る Interactor ユースケースによって必要なビジネスロジックが含まれている Presenter インタラクタから受け取った、ユーザの入力により受け取った情報を準備するためのロジック Entity インタラクたによって利用された基本的なモデルオブジェクトが含まれている Routing 画面がどの順番で表示されるのかをナビゲーションロジックが含まれている https://www.objc.io/issues/13-architecture/viper/ 詳細はこちらを参照してください
 どのようにしていったか polcaではVIPERを意識した設計を導入していますが、全てを適用したわけではありません。 Routingの部分はまだ適用していません。それは、今のフェーズで費用対効果あまり感じないように思ったことが一つと 必要に迫られたとしてこれは、後からでもリファクタリングが可能だと思ったからです。
 実装編 ではどのように実装していったか。 まず、Presenterを軸にインターフェースなる部分を作成していきました。ここでは、それぞれの役割が何を伝えて、何を受け取るのかを定義していきます。 Presenterから作成しその引数をprotocolにしていくことでViewControllerの実装をすることなしにビルドであったりテストが可能になるので まずはここから始めています。その後、Presenterを実装しつつ、Interactor、Viewと実装していっています。 別レイヤーのやりとりでは、基本的にはRxSwiftを利用しています。単純なイベントの送受信だったらDriver&lt;Void&gt;であったり 情報の取得時にはSingle&lt;PaginationResponse&lt;ProjectPickup.Project&gt;&gt;を利用し、状況に応じて型を変更して流れを変化させています。
-Presenter protocol WatchedProjectListViewProtocol { var scrollViewReachedBottom: Driver&lt;Void&gt; { get } var refreshTrigger: Driver&lt;Void&gt; { get } } protocol WatchedProjectListInteractorProtocol { func getWatchedProjects(maxID: Int64) -&gt; Single&lt;PaginationResponse&lt;ProjectPickup." />
+Presenter protocol WatchedProjectListViewProtocol { var scrollViewReachedBottom: Driver&lt;Void&gt; { get } var refreshTrigger: Driver&lt;Void&gt; { get } } protocol WatchedProjectListInteractorProtocol { func getWatchedProjects(maxID: Int64) -&gt; Single&lt;PaginationResponse&lt;ProjectPickup.Project&gt;&gt; } class WatchedProjectListPresenter: ProjectListPreseterBase { init(view: WatchedProjectListViewProtocol, interactor: WatchedProjectListInteractorProtocol) { // something } } 一覧を表示する時の情報受け渡しは以下のように実装しています。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="VIPER設計(&#43;RxSwift)でサービスのコードを置き換えた" />
 <meta name="twitter:description" content="iOS (その2) Advent Calendar 2018 17日目です！
 本記事はプロダクトのコードをRxSwiftをうまく活用しながらVIPERの設計に置き換えていった話です。
 なぜ置き換えたのか 現在、Polcaをリリースをして一年が立ちました。開発をし始めて二年は経過しました。 自分はリリースして半年が経過しているときに入社したのですが、当初もある程度機能はある状態で、コード量も1万に突破していく頃でした。 自分は開発していく上で下記の問題を抱くようになりました。
- 責務がいたるところに分散している コード量がある程度多くなってきた テストが書きにくい RxSwiftが既に導入されているのでもっと活用したい。そして、ちゃんと使いたい。  そこで、今後開発をしていく上である程度運用しやすい状態にしたい、変えるタイミングとしては今がやりやすいと考え、VIPERの導入に踏み切りました。
+責務がいたるところに分散している コード量がある程度多くなってきた テストが書きにくい RxSwiftが既に導入されているのでもっと活用したい。そして、ちゃんと使いたい。 そこで、今後開発をしていく上である程度運用しやすい状態にしたい、変えるタイミングとしては今がやりやすいと考え、VIPERの導入に踏み切りました。
 VIPERとは そもそもVIPERとはどんなものでしょうか簡単におさらいしていきます。 VIPERはiOSにおけるクリーンアーキテクチャの手法の一つとなり、責務を大きく５つに分けています。 ざっくりまとめると以下の通り。
- View  プレゼンターによって何かを伝える プレゼンターにユーザの入力を受け取る   Interactor  ユースケースによって必要なビジネスロジックが含まれている   Presenter  インタラクタから受け取った、ユーザの入力により受け取った情報を準備するためのロジック   Entity  インタラクたによって利用された基本的なモデルオブジェクトが含まれている   Routing  画面がどの順番で表示されるのかをナビゲーションロジックが含まれている    https://www.objc.io/issues/13-architecture/viper/ 詳細はこちらを参照してください
+View プレゼンターによって何かを伝える プレゼンターにユーザの入力を受け取る Interactor ユースケースによって必要なビジネスロジックが含まれている Presenter インタラクタから受け取った、ユーザの入力により受け取った情報を準備するためのロジック Entity インタラクたによって利用された基本的なモデルオブジェクトが含まれている Routing 画面がどの順番で表示されるのかをナビゲーションロジックが含まれている https://www.objc.io/issues/13-architecture/viper/ 詳細はこちらを参照してください
 どのようにしていったか polcaではVIPERを意識した設計を導入していますが、全てを適用したわけではありません。 Routingの部分はまだ適用していません。それは、今のフェーズで費用対効果あまり感じないように思ったことが一つと 必要に迫られたとしてこれは、後からでもリファクタリングが可能だと思ったからです。
 実装編 ではどのように実装していったか。 まず、Presenterを軸にインターフェースなる部分を作成していきました。ここでは、それぞれの役割が何を伝えて、何を受け取るのかを定義していきます。 Presenterから作成しその引数をprotocolにしていくことでViewControllerの実装をすることなしにビルドであったりテストが可能になるので まずはここから始めています。その後、Presenterを実装しつつ、Interactor、Viewと実装していっています。 別レイヤーのやりとりでは、基本的にはRxSwiftを利用しています。単純なイベントの送受信だったらDriver&lt;Void&gt;であったり 情報の取得時にはSingle&lt;PaginationResponse&lt;ProjectPickup.Project&gt;&gt;を利用し、状況に応じて型を変更して流れを変化させています。
-Presenter protocol WatchedProjectListViewProtocol { var scrollViewReachedBottom: Driver&lt;Void&gt; { get } var refreshTrigger: Driver&lt;Void&gt; { get } } protocol WatchedProjectListInteractorProtocol { func getWatchedProjects(maxID: Int64) -&gt; Single&lt;PaginationResponse&lt;ProjectPickup." />
+Presenter protocol WatchedProjectListViewProtocol { var scrollViewReachedBottom: Driver&lt;Void&gt; { get } var refreshTrigger: Driver&lt;Void&gt; { get } } protocol WatchedProjectListInteractorProtocol { func getWatchedProjects(maxID: Int64) -&gt; Single&lt;PaginationResponse&lt;ProjectPickup.Project&gt;&gt; } class WatchedProjectListPresenter: ProjectListPreseterBase { init(view: WatchedProjectListViewProtocol, interactor: WatchedProjectListInteractorProtocol) { // something } } 一覧を表示する時の情報受け渡しは以下のように実装しています。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -129,7 +129,7 @@ Presenterから作成しその引数をprotocolにしていくことでViewContr
 別レイヤーのやりとりでは、基本的にはRxSwiftを利用しています。単純なイベントの送受信だったら<code>Driver&lt;Void&gt;</code>であったり
 情報の取得時には<code>Single&lt;PaginationResponse&lt;ProjectPickup.Project&gt;&gt;</code>を利用し、状況に応じて型を変更して流れを変化させています。</p>
 <h3 id="presenter">Presenter</h3>
-<pre><code>protocol WatchedProjectListViewProtocol {
+<pre tabindex="0"><code>protocol WatchedProjectListViewProtocol {
     var scrollViewReachedBottom: Driver&lt;Void&gt; { get }
     var refreshTrigger: Driver&lt;Void&gt; { get }
 }
@@ -144,7 +144,7 @@ class WatchedProjectListPresenter: ProjectListPreseterBase {
     }
 }
 </code></pre><p>一覧を表示する時の情報受け渡しは以下のように実装しています。</p>
-<pre><code>class WatchedProjectListPresenter: ProjectListPreseterBase {
+<pre tabindex="0"><code>class WatchedProjectListPresenter: ProjectListPreseterBase {
    init(view: WatchedProjectListViewProtocol, interactor: WatchedProjectListInteractorProtocol) {
         super.init()
 
@@ -206,7 +206,7 @@ class WatchedProjectListPresenter: ProjectListPreseterBase {
 <p>InteractorではEntityをPresenterに渡すロジックが実装されています。
 ここでは複数Entityに関連したビジネスロジックが含まれており、何を取得して、返すかを決める。
 また、UIから完全に分離されます。（なのでInteractorに関連する実装でUI系のframeworkが入っていると設計を考えるがあるかもしれません。。）</p>
-<pre><code>class WatchedProjectListInteractor: WatchedProjectListInteractorProtocol {
+<pre tabindex="0"><code>class WatchedProjectListInteractor: WatchedProjectListInteractorProtocol {
 
     let projectInfoProvider: ProjectInfoProvider
 
@@ -223,7 +223,7 @@ class WatchedProjectListPresenter: ProjectListPreseterBase {
 から情報を取得する必要がある場合はここで隠蔽すると良さそうです。
 以下にProviderの実際の処理が実装されています。</p>
 <p>PolcaではMoyaという通信処理を抽象化したライブラリを使っていて通信処理を実装しています。</p>
-<pre><code>import Moya
+<pre tabindex="0"><code>import Moya
 import RxSwift
 import RxCocoa
 
@@ -246,18 +246,18 @@ class ProjectInfoProvider: BaseProvider {
 </code></pre><h3 id="entity">Entity</h3>
 <p>Entityはそこまでこだわりのある実装はしていません。Viewがその情報を表示させやすいようにデータ構造作ってあげています。
 基本はDBの構造になっているものがほとんどです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Project</span>: Codable, PaginationResponseProtocol {
-        <span style="color:#66d9ef">var</span> id: Int64 = <span style="color:#ae81ff">0</span>
-        <span style="color:#66d9ef">var</span> user: User
-        <span style="color:#66d9ef">var</span> body = <span style="color:#e6db74">&#34;&#34;</span>
-
-        <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">CodingKeys</span>: String, CodingKey {
-            <span style="color:#66d9ef">case</span> id
-            <span style="color:#66d9ef">case</span> user
-            <span style="color:#66d9ef">case</span> body
-        }
-    }
-</code></pre></div><h3 id="view">View</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Project</span>: Codable, PaginationResponseProtocol {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> id: Int64 = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> user: User
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> body = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">CodingKeys</span>: String, CodingKey {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> id
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> user
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> body
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="view">View</h3>
 <p>ViewではPresenterから受け取った情報・イベントをどのようにしてそれぞれのUIコンポーネントに伝えるかという実装と、Presenterで必要なイベント(どのタイミングで情報取得してもらうのか)という実装をしています。
 行なっていることとしては以下になります。</p>
 <ul>
@@ -277,7 +277,7 @@ class ProjectInfoProvider: BaseProvider {
 </li>
 </ul>
 <p>このロジックをRxSwiftを利用して表現すると情報の流れを段階的に記述していけるので実装しやすく、コードの見通しが良くなります。</p>
-<pre><code>class PickupListViewController: UIViewController, PickupListViewProtocol {
+<pre tabindex="0"><code>class PickupListViewController: UIViewController, PickupListViewProtocol {
 
     private let scrollViewReachedBottomSubject = PublishSubject&lt;Void&gt;()
     var scrollViewReachedBottom: Driver&lt;Void&gt; {

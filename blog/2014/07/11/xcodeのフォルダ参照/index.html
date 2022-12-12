@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Xcodeのフォルダ参照">
@@ -12,22 +12,22 @@
 他と違うのは対象のディレクトリは色が青になっています。
 実際に呼び出すときには通常の呼び出し方法と異なります。リソースファイルの前に指定のディレクトリ名を宣言 する必要があります。
 今回だと以下の感じになります。
-let soundFilePath = NSBundle.mainBundle().pathForResource(&quot;music/sound001&quot;, ofType: &quot;mp3&quot;) musicがディレクトリにあたりますね。
+let soundFilePath = NSBundle.mainBundle().pathForResource(&#34;music/sound001&#34;, ofType: &#34;mp3&#34;) musicがディレクトリにあたりますね。
 これ、何気に便利で、デザイナさんにXcode立ち上げなくても指定のディレクトリおいておくだけで、余計なところを実装せずに済むので 仕事が捗るのではないかと気づいた今日このごろでした。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Xcodeのフォルダ参照" />
 <meta name="twitter:description" content="なにげに今まで知らなかったんですが結構便利だってことに最近気づいたのでメモ。 普段リソースをXcodeに関連づけさせるためにドラッグアンドドロップさせていたのですが、 一旦以下のチェック項目でディレクトリ参照にしてしまえば、これ以降リソースファイルを追加したときに毎度 ドラッグアンドドロップさせなくてよく、自動的に追加されます。
 他と違うのは対象のディレクトリは色が青になっています。
 実際に呼び出すときには通常の呼び出し方法と異なります。リソースファイルの前に指定のディレクトリ名を宣言 する必要があります。
 今回だと以下の感じになります。
-let soundFilePath = NSBundle.mainBundle().pathForResource(&quot;music/sound001&quot;, ofType: &quot;mp3&quot;) musicがディレクトリにあたりますね。
+let soundFilePath = NSBundle.mainBundle().pathForResource(&#34;music/sound001&#34;, ofType: &#34;mp3&#34;) musicがディレクトリにあたりますね。
 これ、何気に便利で、デザイナさんにXcode立ち上げなくても指定のディレクトリおいておくだけで、余計なところを実装せずに済むので 仕事が捗るのではないかと気づいた今日このごろでした。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
@@ -73,7 +73,7 @@ let soundFilePath = NSBundle.mainBundle().pathForResource(&quot;music/sound001&q
 <p>実際に呼び出すときには通常の呼び出し方法と異なります。リソースファイルの前に指定のディレクトリ名を宣言
 する必要があります。</p>
 <p>今回だと以下の感じになります。</p>
-<pre><code>let soundFilePath = NSBundle.mainBundle().pathForResource(&quot;music/sound001&quot;, ofType: &quot;mp3&quot;)
+<pre tabindex="0"><code>let soundFilePath = NSBundle.mainBundle().pathForResource(&#34;music/sound001&#34;, ofType: &#34;mp3&#34;)
 </code></pre><p><code>music</code>がディレクトリにあたりますね。</p>
 <p>これ、何気に便利で、デザイナさんにXcode立ち上げなくても指定のディレクトリおいておくだけで、余計なところを実装せずに済むので
 仕事が捗るのではないかと気づいた今日このごろでした。</p>

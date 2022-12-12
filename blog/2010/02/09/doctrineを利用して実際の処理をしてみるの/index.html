@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Doctrineを利用して実際の処理をしてみるの">
@@ -11,28 +11,28 @@
 <meta property="go:description" content="Doctrineいれてみる　with zendからの続きです。
 では実際にDoctrineで生成されたクラスを利用して データベースの操作を行ってみましょう。
 ユーザデータ一覧取得
-// user$query = Doctrine_Query::create()-from(&#39;User u&#39;)-orderBy(&#39;u.id&#39;);$lists = $query-execute();ユーザデータ作成
-// user$user = new User();$user-username = &#34;username&#34;$user-password = &#34;password&#34;$user-save();ユーザデータ削除
-//$user = new User();$query = Doctrine_Query::create()-delete(&#34;User u&#34;)-whereIn(&#34;id&#34;, $prms[&#34;delid&#34;]);$delcnt = $query-execute();ユーザデータ変更
-// user$user = Doctrine::getTable(&#39;User&#39;)-find(1);$user-username = &#34;modified_username&#34;$user-password = &#34;modified_password&#34;$user-save();ちょっと応用してみます。 情報取得時にテーブルをJOINして取得します。
-// user and group$query = Doctrine_Query::create()-from(&#39;User u&#39;)-leftJoin(&#39;u." />
+// user$query = Doctrine_Query::create()-&gt;from(&#39;User u&#39;)-&gt;orderBy(&#39;u.id&#39;);$lists = $query-&gt;execute();ユーザデータ作成
+// user$user = new User();$user-&gt;username = &#34;username&#34;$user-&gt;password = &#34;password&#34;$user-&gt;save();ユーザデータ削除
+//$user = new User();$query = Doctrine_Query::create()-&gt;delete(&#34;User u&#34;)-&gt;whereIn(&#34;id&#34;, $prms[&#34;delid&#34;]);$delcnt = $query-&gt;execute();ユーザデータ変更
+// user$user = Doctrine::getTable(&#39;User&#39;)-&gt;find(1);$user-&gt;username = &#34;modified_username&#34;$user-&gt;password = &#34;modified_password&#34;$user-&gt;save();ちょっと応用してみます。 情報取得時にテーブルをJOINして取得します。
+// user and group$query = Doctrine_Query::create()-&gt;from(&#39;User u&#39;)-&gt;leftJoin(&#39;u." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Doctrineを利用して実際の処理をしてみるの" />
 <meta name="twitter:description" content="Doctrineいれてみる　with zendからの続きです。
 では実際にDoctrineで生成されたクラスを利用して データベースの操作を行ってみましょう。
 ユーザデータ一覧取得
-// user$query = Doctrine_Query::create()-from(&#39;User u&#39;)-orderBy(&#39;u.id&#39;);$lists = $query-execute();ユーザデータ作成
-// user$user = new User();$user-username = &#34;username&#34;$user-password = &#34;password&#34;$user-save();ユーザデータ削除
-//$user = new User();$query = Doctrine_Query::create()-delete(&#34;User u&#34;)-whereIn(&#34;id&#34;, $prms[&#34;delid&#34;]);$delcnt = $query-execute();ユーザデータ変更
-// user$user = Doctrine::getTable(&#39;User&#39;)-find(1);$user-username = &#34;modified_username&#34;$user-password = &#34;modified_password&#34;$user-save();ちょっと応用してみます。 情報取得時にテーブルをJOINして取得します。
-// user and group$query = Doctrine_Query::create()-from(&#39;User u&#39;)-leftJoin(&#39;u." />
+// user$query = Doctrine_Query::create()-&gt;from(&#39;User u&#39;)-&gt;orderBy(&#39;u.id&#39;);$lists = $query-&gt;execute();ユーザデータ作成
+// user$user = new User();$user-&gt;username = &#34;username&#34;$user-&gt;password = &#34;password&#34;$user-&gt;save();ユーザデータ削除
+//$user = new User();$query = Doctrine_Query::create()-&gt;delete(&#34;User u&#34;)-&gt;whereIn(&#34;id&#34;, $prms[&#34;delid&#34;]);$delcnt = $query-&gt;execute();ユーザデータ変更
+// user$user = Doctrine::getTable(&#39;User&#39;)-&gt;find(1);$user-&gt;username = &#34;modified_username&#34;$user-&gt;password = &#34;modified_password&#34;$user-&gt;save();ちょっと応用してみます。 情報取得時にテーブルをJOINして取得します。
+// user and group$query = Doctrine_Query::create()-&gt;from(&#39;User u&#39;)-&gt;leftJoin(&#39;u." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

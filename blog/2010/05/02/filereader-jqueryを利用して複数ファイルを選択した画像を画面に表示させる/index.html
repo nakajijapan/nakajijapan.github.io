@@ -2,23 +2,41 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="FileReader(&#43;JQuery)を利用して複数ファイルを選択した画像を画面に表示させる">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/05/02/filereader-jquery%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E8%A4%87%E6%95%B0%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3%81%9F%E7%94%BB%E5%83%8F%E3%82%92%E7%94%BB%E9%9D%A2%E3%81%AB%E8%A1%A8%E7%A4%BA%E3%81%95%E3%81%9B%E3%82%8B/" />
-<meta property="go:description" content="// ファイル読み込み用function FileReaderCustom() {};FileReaderCustom.prototype = {setup : function(file, cnt) {var reader = new FileReader();//----------------------// ロード時の処理//----------------------reader.onload = function() {// 表示用タグ生成var divTag = $(document.createElement(&#34;span&#34;));var imgTag = $(document.createElement(&#34;img&#34;));// 出力先var list = $(&#34;#list&#34;);// 各タグの属性情報設定divTag.attr(&#39;id&#39;, &#39;item_&#39; &#43; cnt);divTag.css(&#39;float&#39;, &#39;left&#39;);imgTag.attr({width: 200,height:	200,src: reader.result});// タグをまとめるdivTag.append(imgTag);// 画像タグをリストに追加// 表示時はアニメーションで表示list.append(divTag.fadeIn(5000));};//----------------------// 作成中の処理//----------------------reader." />
+<meta property="go:description" content="&lt;!DOCTYPE html&gt;File API sample(jquery version)read startfile name:file size:HTML５の勉強っす。
+今回はFileRead()を利用してみた。って話。
+まだ策定中のFile APIなのですが、これを利用するとjavascriptからファイル情報や内容を読み込んで アクセスができるようになるみたいですね。例をあげるとファイルをアップロードするときに予め対象の 画像情報を表示させといてから非同期で画像を保存する。的なこと簡単にできてしまうわけです。
+現在はFirefoxでは実装されていてつかえるみたいなのですが、まだChromeで利用できないみたいですね。 ここいらへんで騒いでいます。
+実際、まだ全体的にみても策定中のようで「FileWriter」なんてものもあるらしくてこれが決定！！というわけではない。とのこと。 なので、今後仕様が変わっていってしまうのは大いにあるようです。
+だけどおもしろそうだったのでやってみた。
+まずは、HTMLに
+を記述してから複数ファイルを選択できるようにします。 (この時点でもうフラッシュいらないですね。はい。)
+次は関数を呼ぶ。
+// 読み込み用メソッドfunction readFile() {// タグからファイル情報を読み込むvar files = document.getElementById(&#34;file&#34;).files;// 配列作成var data = new Array();// 選択ファイル分走査するfor (var cnt=0;cnt" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="FileReader(&#43;JQuery)を利用して複数ファイルを選択した画像を画面に表示させる" />
-<meta name="twitter:description" content="// ファイル読み込み用function FileReaderCustom() {};FileReaderCustom.prototype = {setup : function(file, cnt) {var reader = new FileReader();//----------------------// ロード時の処理//----------------------reader.onload = function() {// 表示用タグ生成var divTag = $(document.createElement(&#34;span&#34;));var imgTag = $(document.createElement(&#34;img&#34;));// 出力先var list = $(&#34;#list&#34;);// 各タグの属性情報設定divTag.attr(&#39;id&#39;, &#39;item_&#39; &#43; cnt);divTag.css(&#39;float&#39;, &#39;left&#39;);imgTag.attr({width: 200,height:	200,src: reader.result});// タグをまとめるdivTag.append(imgTag);// 画像タグをリストに追加// 表示時はアニメーションで表示list.append(divTag.fadeIn(5000));};//----------------------// 作成中の処理//----------------------reader." />
+<meta name="twitter:description" content="&lt;!DOCTYPE html&gt;File API sample(jquery version)read startfile name:file size:HTML５の勉強っす。
+今回はFileRead()を利用してみた。って話。
+まだ策定中のFile APIなのですが、これを利用するとjavascriptからファイル情報や内容を読み込んで アクセスができるようになるみたいですね。例をあげるとファイルをアップロードするときに予め対象の 画像情報を表示させといてから非同期で画像を保存する。的なこと簡単にできてしまうわけです。
+現在はFirefoxでは実装されていてつかえるみたいなのですが、まだChromeで利用できないみたいですね。 ここいらへんで騒いでいます。
+実際、まだ全体的にみても策定中のようで「FileWriter」なんてものもあるらしくてこれが決定！！というわけではない。とのこと。 なので、今後仕様が変わっていってしまうのは大いにあるようです。
+だけどおもしろそうだったのでやってみた。
+まずは、HTMLに
+を記述してから複数ファイルを選択できるようにします。 (この時点でもうフラッシュいらないですね。はい。)
+次は関数を呼ぶ。
+// 読み込み用メソッドfunction readFile() {// タグからファイル情報を読み込むvar files = document.getElementById(&#34;file&#34;).files;// 配列作成var data = new Array();// 選択ファイル分走査するfor (var cnt=0;cnt" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

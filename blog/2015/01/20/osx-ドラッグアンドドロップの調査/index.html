@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="OSX ドラッグアンドドロップの調査">
@@ -16,11 +16,11 @@ struct NSDragOperation : RawOptionSetType { init(_ rawValue: UInt) init(rawValue
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="OSX ドラッグアンドドロップの調査" />
 <meta name="twitter:description" content="ドラッギングアンドドロップ関連の調査
 NSDraggingSource プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。 ドラッグ操作中に受け取るメッセージ
@@ -67,13 +67,13 @@ struct NSDragOperation : RawOptionSetType { init(_ rawValue: UInt) init(rawValue
 ドラッグ操作中に受け取るメッセージ</p>
 <h3 id="draggingsession_sourceoperationmaskfordraggingcontext">draggingSession(_:sourceOperationMaskForDraggingContext:)</h3>
 <p>ドラッギングしている状況を教えて、どんなドラッグのタイプを許すか設定します。</p>
-<pre><code>enum NSDraggingContext : Int {
+<pre tabindex="0"><code>enum NSDraggingContext : Int {
 
     case OutsideApplication
     case WithinApplication
 }
 </code></pre><p>ドラッグ操作のマスク。ここでどんな操作を許すのかの種類</p>
-<pre><code>struct NSDragOperation : RawOptionSetType {
+<pre tabindex="0"><code>struct NSDragOperation : RawOptionSetType {
     init(_ rawValue: UInt)
     init(rawValue: UInt)
 
@@ -99,20 +99,20 @@ struct NSDragOperation : RawOptionSetType { init(_ rawValue: UInt) init(rawValue
 <p>スクリーン上でドラッグされているときに呼び出される</p>
 <h2 id="nsdraggingdestination">NSDraggingDestination</h2>
 <p>プロトコルメソッド。実装したViewに対してイベントが呼び出される</p>
-<pre><code>draggingEntered(_:)
+<pre tabindex="0"><code>draggingEntered(_:)
 draggingUpdated(_:)
 draggingEnded(_:)
 draggingExited(_:)
 </code></pre><p>以下は、ドロップ処理の実行要求。
 上記メソッドでドロップ可能と返した状態でこのテキストフィールド上でマウスボタンを放した時に呼び出されます。</p>
-<pre><code>prepareForDragOperation(_:)
+<pre tabindex="0"><code>prepareForDragOperation(_:)
 performDragOperation(_:)
 </code></pre><p>ここでドラッグしたオブジェクトが対象のオブジェクトに対してどうゆう処理をするのかを実装する</p>
 <h2 id="nsdraggingsession">NSDraggingSession</h2>
 <p>ドラッグアンドドロップ関連の処理を提供してくれる。ドラッグ処理中に編集を許可する。</p>
 <h3 id="example">Example</h3>
 <p>以下のようにして対象のオブジェクトを監視する</p>
-<pre><code>var draggingSession:NSDraggingSession = self.beginDraggingSessionWithItems([dragItem], event: theEvent, source: self)
+<pre tabindex="0"><code>var draggingSession:NSDraggingSession = self.beginDraggingSessionWithItems([dragItem], event: theEvent, source: self)
 
 # 失敗したときに画像をもとの位置に戻すかどうか
 draggingSession.animatesToStartingPositionsOnCancelOrFail = true

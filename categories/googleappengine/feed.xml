@@ -1,29 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>GoogleAppEngine on おじさんは生きている</title>
-		<link>http://nakajijapan.github.io/categories/googleappengine/</link>
-		<description>Recent content in GoogleAppEngine on おじさんは生きている</description>
-		<generator>Hugo -- gohugo.io</generator>
-		
-		<language>ja-JP</language>
-		
-		<copyright>nakajijapan All rights reserved.</copyright>
-		
-		<lastBuildDate>Sat, 13 Feb 2010 19:27:22 +0900</lastBuildDate>
-		
-		<atom:link href="/categories/googleappengine/" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>GAE勉強会</title>
-			<link>http://nakajijapan.github.io/blog/2010/02/13/gae%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
-			<pubDate>Sat, 13 Feb 2010 19:27:22 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2010/02/13/gae%E5%8B%89%E5%BC%B7%E4%BC%9A/</guid>
-			<description>GAE勉強会 ※わからないないところもあったので後で調べる予定です。
-内容＜セッション1＞発表者：松尾さん（@tmatsuo）テーマ：「App Engine アンチパターンその他」内容：App Engine でやってはいけないパターンを紹介、その他で小技集の紹介をします。＜セッション2＞ 発表者：ひがやすをさん（@higayasuo） テーマ：「Global Transaction」 内容：Global Transactionを理解するために必要なことを全部お話します。
-セッション１【モデル】インデックスの張り過ぎには注意メタデータにも注意カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストアを節約させる。（そこそこらしい）検索不要なプロパティは、インデックス対象にならないようにPUTする。# beforeclass Bar(db.Model):prop1 = db.StringProperty()after class Bar(db.Model): prop1 = db.StringProperty(false) 【Query】 コンポジットインデックス ソートもインデックスを使用して検索するので注意。 【モジュール】 pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。 appengineの場合は関数の中で必要なモジュールのみimportする
-#import hoge_utilsdef_index(request):# ここでimportしたほうがいいimport hoge_utilsreturn hoge_utils.getQuery();&amp;lt;li&amp;gt;【SDK1.3.1 新機能】&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;&amp;lt;ol&amp;gt; transaction task queuetransactionalTaskQueue→transactionが成功するとTaskQueueが追加される。失敗したときはTaskがQueueに追加されないTaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい同時にさばけるのは２０らしいCursorpagingに使えそうなイメージappstatsRPCのグラフみれたり、どっかでその時点でのコードがみれるmemcacheを利用しているpythonの作者が作成した &amp;lt;/ol&amp;gt;&amp;lt;/li&amp;gt; セッション２　GTX１エンティティ１トランザクションが制約 複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション エンティティグループロック？？</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>GoogleAppEngine  おじさんは生きている</title>
+    <link>http://nakajijapan.github.io/categories/googleappengine/</link>
+    <description>  GoogleAppEngine  おじさんは生きている</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Sat, 13 Feb 2010 19:27:22 +0900</lastBuildDate>
+    <atom:link href="http://nakajijapan.github.io/categories/googleappengine/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GAE勉強会</title>
+      <link>http://nakajijapan.github.io/blog/2010/02/13/gae%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
+      <pubDate>Sat, 13 Feb 2010 19:27:22 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2010/02/13/gae%E5%8B%89%E5%BC%B7%E4%BC%9A/</guid>
+      <description>&lt;p&gt;GAE勉強会
+※わからないないところもあったので後で調べる予定です。&lt;/p&gt;
+&lt;h2&gt;内容&lt;/h2&gt;
+＜セッション1＞
+発表者：松尾さん（@tmatsuo）
+テーマ：「App Engine アンチパターンその他」
+内容：App Engine でやってはいけないパターンを紹介、その他で小技集の紹介をします。
+&lt;p&gt;＜セッション2＞
+発表者：ひがやすをさん（@higayasuo）
+テーマ：「Global Transaction」
+内容：Global Transactionを理解するために必要なことを全部お話します。&lt;/p&gt;
+&lt;h2&gt;セッション１&lt;/h2&gt;
+&lt;ol&gt;
+	&lt;li&gt;【モデル】&lt;/li&gt;
+インデックスの張り過ぎには注意
+メタデータにも注意
+カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。
+過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストア
+を節約させる。（そこそこらしい）
+検索不要なプロパティは、インデックス対象にならないようにPUTする。
+&lt;pre class=&#34;brush:python&#34;&gt;# before
+class Bar(db.Model):
+prop1 = db.StringProperty()
+&lt;h1 id=&#34;after&#34;&gt;after&lt;/h1&gt;
+&lt;p&gt;class Bar(db.Model):
+prop1 = db.StringProperty(false)&lt;/pre&gt;
+&lt;li&gt;【Query】&lt;/li&gt;
+コンポジットインデックス
+ソートもインデックスを使用して検索するので注意。
+&lt;li&gt;【モジュール】&lt;/li&gt;
+pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。
+appengineの場合は関数の中で必要なモジュールのみimportする&lt;/p&gt;
+&lt;pre class=&#34;brush: python&#34;&gt;#import hoge_utils
+
+def_index(request):
+# ここでimportしたほうがいい
+import hoge_utils
+return hoge_utils.getQuery();
+&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;li&amp;gt;【SDK1.3.1 新機能】&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;
+         &amp;lt;ol&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;li&gt;transaction task queue&lt;/li&gt;
+transactionalTaskQueue→transactionが成功するとTaskQueueが追加される。
+失敗したときはTaskがQueueに追加されない
+TaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい
+同時にさばけるのは２０らしい
+&lt;li&gt;Cursor&lt;/li&gt;
+pagingに使えそうなイメージ
+&lt;li&gt;appstats&lt;/li&gt;
+RPCのグラフみれたり、どっかでその時点でのコードがみれる
+memcacheを利用している
+pythonの作者が作成した
+&lt;pre&gt;&lt;code&gt;         &amp;lt;/ol&amp;gt;
+    &amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/ol&gt;
+&lt;h2&gt;セッション２　GTX&lt;/h2&gt;
+&lt;p&gt;１エンティティ１トランザクションが制約
+複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション
+エンティティグループロック？？&lt;/p&gt;
+&lt;p&gt;２相コミット&lt;/p&gt;
+&lt;p&gt;リソースマネージャー（RDBMS）
+トランザクションコーディネータ
+２つのフェーズに分かれる&lt;/p&gt;
+&lt;p&gt;コーディネータが準備してくださいというリクエストを送る
+リソースマネージャーが準備が終了したよっていうリクエストがきた段階でコーディネータが処理を開始する。&lt;/p&gt;
+&lt;p&gt;いずれにせよ極力エンティティは小さくする
+BaseTransaction　＆　 LocalTransaction&lt;/p&gt;
+&lt;blockquote&gt;--通常のDB--
+１ジャーナルの書き出し
+２内部コミット
+３ロールフォワード
+ジャーナルの適用
+ジャーナルからなにをしなければいけなのか聞き出して適用させる
+&lt;p&gt;&amp;ndash;GTX&amp;ndash;
+０ロックの取得
+１ジャーナルの書き出し
+２内部コミット
+３ロールフォワード
+ジャーナルの適用
+ジャーナルからなにをしなければいけなのか聞き出して適用させる
+４ロック解除&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;・自動採番の落とし穴
+データストアでは0.1%ぐらいで不整合がおきるらしい
+サーバ側で１．３．１からリトライしている。
+プログラム側でもやっておいた方が安全だよね&lt;/p&gt;
+&lt;p&gt;・GAEには３０秒ルールがある。&lt;/p&gt;
+&lt;p&gt;・ロックにタイムスタンプがあり
+３０ありだけどグローバルトランザクションIDがあればまだ解除しない
+まだジャーナルの書き出し中の場合とか。。。
+終われば解除。&lt;/p&gt;
+&lt;p&gt;・パフォーマンスが最優先。
+トランザクションが混在するときは気をつける。
+ローカルトランザクションとグローバルトランザクションの混在に気をつける。&lt;/p&gt;
+&lt;h2&gt;感想&lt;/h2&gt;
+まずは、自分のレベルがまだGAEをデプロイした程度でこの勉強会に参加することが
+厳しかったものあり、すべてを理解することが難しかったです。内容としても
+実際にGAEを業務として行い、その結果として身に付いたプラクティスであったり
+だとかある制限の中でどれだけ性能を引き出せるかというものでした。
+&lt;p&gt;付いていけたかどうかかなり不安なものですが、これから勉強していくにあたって
+十分な肥やし？なったのかと思っています。&lt;/p&gt;
+&lt;p&gt;後、クラウド化されたサービスやアプリはどんどん加速化していくのかなと思いました。&lt;/p&gt;
+&lt;p&gt;心の中）
+グリー？がこれだけ研究に研究を重ねているということは、その技術に対してのそれだけの将来性
+を見越しているんだろうなーー。&lt;/p&gt;
+&lt;p&gt;仮にそうなったとしてプログラマやサーバエンジニアは少なからずいままでメソッドやマインドを一新しないと
+いけないんだろうな。&lt;/p&gt;
+&lt;p&gt;簡単なところでいうとクラウド化するってことはデータがいろんなところに混在して、データはどんどん
+いままで以上にLANといったネットワークを超えた通信をしていなかければいけない。だからそういった
+ことも考慮にいれて実装なり構築なりしていかないいけないのかな。今回話にでていたのがトランザクション
+の話だったりGAEなりのデータ構造の設計というのそれに相当していたんだと思うぉ。&lt;/p&gt;
+&lt;p&gt;まぁ将来的に抽象化されるんだろうけどさ・・・・。&lt;/p&gt;
+&lt;p&gt;僕たちはそろそろかわらねばならないステージに来てるんだろうと思う。&lt;/p&gt;
+&lt;h3&gt;用語とか&lt;/h3&gt;
+BigTable
+Google File SystemなどのGoogle インフラの上に作られた分散データベース。
+複数のテーブル群をまとめる、 Relational DB とは違い、テーブルひとつが論理単位となっている。
+&lt;h3&gt;参考URL&lt;/h3&gt;
+&lt;a href=&#34;http://blog.shehas.net/&#34;&gt;Kays daddy&lt;/a&gt;
+&lt;a href=&#34;http://d.hatena.ne.jp/higayasuo/20091110/1257854009&#34;&gt;App EngineのEntitiyGroupを理解しよう&lt;/a&gt;
+&lt;a href=&#34;http://d.hatena.ne.jp/higayasuo/20100210/1265781747&#34;&gt;Google App EngineでGlobal Transaction&lt;/a&gt;
+&lt;a href=&#34;http://satoshi.blogs.com/life/2009/11/unique.html&#34;&gt;Google App Engine入門：Datastore上で「ユニーク制限」を実現する方法&lt;/a&gt;
+</description>
+    </item>
+    
+  </channel>
 </rss>

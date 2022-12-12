@@ -2,31 +2,37 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="objective-c methodもろもろ">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/04/24/objective-c-method%E3%82%82%E3%82%8D%E3%82%82%E3%82%8D/" />
-<meta property="go:description" content="メソッドのプロトタイプ宣言 (返り値の型) メソッド名 例） - (void) sayHello0; // say Hello  ＋：クラスに対するメソッド ー：インスタンスに対するメソッド
+<meta property="go:description" content="メソッドのプロトタイプ宣言(返り値の型) メソッド名 例） - (void) sayHello0; // say Hello ＋：クラスに対するメソッド ー：インスタンスに対するメソッド
 Objective-Cでは、クラスも一つのオブジェクト。 インスタンスを生成する場合は、このクラスのオブジェクトを使って生成する。
- (int) numberOfFiles; // method for returning int (UIWindow *) mostFrontWindow; // method for returning UIWindow object  引数がある場合。
- (返り値) メソッド名 &#43; 引数１の説明：(引数１の型)　引数１の名前 引数２の説明：(引数２の型)　引数２の名前 • • 引数Nの説明：(引数Nの型)　引数Nの名前;  sayMessage(&ldquo;Hello&rdquo;, 1, 2); ↓ [ object sayMessage: &ldquo;Hello&rdquo; speed: 1 pitch: 2 ];
-アクションのメソッド宣言 (IBAction) loadUrl: (id) sender; // read webpage  実はvoid。Interface Builderがらみでこうしているらしい。" />
+(int) numberOfFiles; // method for returning int (UIWindow *) mostFrontWindow; // method for returning UIWindow object 引数がある場合。
+(返り値) メソッド名 &#43; 引数１の説明：(引数１の型)　引数１の名前 引数２の説明：(引数２の型)　引数２の名前 • • 引数Nの説明：(引数Nの型)　引数Nの名前; sayMessage(&ldquo;Hello&rdquo;, 1, 2); ↓ [ object sayMessage: &ldquo;Hello&rdquo; speed: 1 pitch: 2 ];
+アクションのメソッド宣言(IBAction) loadUrl: (id) sender; // read webpage 実はvoid。Interface Builderがらみでこうしているらしい。
+型「id」について これはObject-Cのオブジェクトならなんでも受け付けるというもの。voidのようなもの。
+つながれるものを制限したい場合は、クラスを指定する。
+例） - (IBAction) loadUrl: (UITextField *) sender;" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="objective-c methodもろもろ" />
-<meta name="twitter:description" content="メソッドのプロトタイプ宣言 (返り値の型) メソッド名 例） - (void) sayHello0; // say Hello  ＋：クラスに対するメソッド ー：インスタンスに対するメソッド
+<meta name="twitter:description" content="メソッドのプロトタイプ宣言(返り値の型) メソッド名 例） - (void) sayHello0; // say Hello ＋：クラスに対するメソッド ー：インスタンスに対するメソッド
 Objective-Cでは、クラスも一つのオブジェクト。 インスタンスを生成する場合は、このクラスのオブジェクトを使って生成する。
- (int) numberOfFiles; // method for returning int (UIWindow *) mostFrontWindow; // method for returning UIWindow object  引数がある場合。
- (返り値) メソッド名 &#43; 引数１の説明：(引数１の型)　引数１の名前 引数２の説明：(引数２の型)　引数２の名前 • • 引数Nの説明：(引数Nの型)　引数Nの名前;  sayMessage(&ldquo;Hello&rdquo;, 1, 2); ↓ [ object sayMessage: &ldquo;Hello&rdquo; speed: 1 pitch: 2 ];
-アクションのメソッド宣言 (IBAction) loadUrl: (id) sender; // read webpage  実はvoid。Interface Builderがらみでこうしているらしい。" />
+(int) numberOfFiles; // method for returning int (UIWindow *) mostFrontWindow; // method for returning UIWindow object 引数がある場合。
+(返り値) メソッド名 &#43; 引数１の説明：(引数１の型)　引数１の名前 引数２の説明：(引数２の型)　引数２の名前 • • 引数Nの説明：(引数Nの型)　引数Nの名前; sayMessage(&ldquo;Hello&rdquo;, 1, 2); ↓ [ object sayMessage: &ldquo;Hello&rdquo; speed: 1 pitch: 2 ];
+アクションのメソッド宣言(IBAction) loadUrl: (id) sender; // read webpage 実はvoid。Interface Builderがらみでこうしているらしい。
+型「id」について これはObject-Cのオブジェクトならなんでも受け付けるというもの。voidのようなもの。
+つながれるものを制限したい場合は、クラスを指定する。
+例） - (IBAction) loadUrl: (UITextField *) sender;" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

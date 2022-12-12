@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="ZendFrameworkでBasic認証　既にあるものを利用した編">
@@ -11,24 +11,24 @@
 <meta property="go:description" content="以前、Zendでベーシック認証を自作したエントリーがありましたが、本当は Zendに用意されているプラグインがあるのです。
 なぜ利用しなかったっていうと、Zend側での必須項目としてrealmを必ず 指定しなければいけないのでです。それだとユーザ名とパスワードの認証情報 に対応しないので必ずエラーになってしまいます。
 ベーシック認証としては「Zend_Auth_Adapter_Http_Resolver_File」のクラスが 当てはまるのでしょうね。このクラスに認証に必要なファイルをセットする。 Zendの認証用のAdapterを生成して、このクラスに実際の処理をさせていく感じですかね。
-$config = array(&#39;accept_schemes&#39; = &#39;basic&#39;, // basic認証&#39;realm&#39; = &#39;aaaaa&#39;, // realm(ベーシック認証のフォームに出力されます)&#39;digest_domains&#39; = &#39;/login&#39;, // どのURL以下にベーシック認証をかけるかです。&#39;nonce_timeout&#39; = 3600);$resolver = new Zend_Auth_Adapter_Http_Resolver_File();$resolver-setFile(&#39;passwd.txt&#39;);$adapter = new Zend_Auth_Adapter_Http($config);$adapter-setBasicResolver($resolver)-setRequest($this-getRequest())-setResponse($this-getResponse());$result = $adapter-authenticate();if (!$result-isValid()) {// 認証エラーの場合}passwd.txtは、ドキュメントルート(index.phpがあるところ)からのパスになります。 内容はこんな感じです
-test:aaaaa:hogehogeユーザ名:realm:パスワードrealmはプログラム内で指定したrealmと一致している必要があります。
+$config = array(&#39;accept_schemes&#39; =&gt; &#39;basic&#39;, // basic認証&#39;realm&#39; =&gt; &#39;aaaaa&#39;, // realm(ベーシック認証のフォームに出力されます)&#39;digest_domains&#39; =&gt; &#39;/login&#39;, // どのURL以下にベーシック認証をかけるかです。&#39;nonce_timeout&#39; =&gt; 3600);$resolver = new Zend_Auth_Adapter_Http_Resolver_File();$resolver-&gt;setFile(&#39;passwd.txt&#39;);$adapter = new Zend_Auth_Adapter_Http($config);$adapter-&gt;setBasicResolver($resolver)-&gt;setRequest($this-&gt;getRequest())-&gt;setResponse($this-&gt;getResponse());$result = $adapter-&gt;authenticate();if (!$result-&gt;isValid()) {// 認証エラーの場合}passwd.txtは、ドキュメントルート(index.phpがあるところ)からのパスになります。 内容はこんな感じです
+test:aaaaa:hogehogeユーザ名:realm:パスワードrealmはプログラム内で指定したrealmと一致している必要があります。
 前回書いたものよりだいぶスマートに実装されていますね。感心感心です。 ちょっとわがままいうなら認証機構をもっと昔のにも親和性高くしてほしかったなと思います。
 まぁでも勉強になったのでよしとします。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="ZendFrameworkでBasic認証　既にあるものを利用した編" />
 <meta name="twitter:description" content="以前、Zendでベーシック認証を自作したエントリーがありましたが、本当は Zendに用意されているプラグインがあるのです。
 なぜ利用しなかったっていうと、Zend側での必須項目としてrealmを必ず 指定しなければいけないのでです。それだとユーザ名とパスワードの認証情報 に対応しないので必ずエラーになってしまいます。
 ベーシック認証としては「Zend_Auth_Adapter_Http_Resolver_File」のクラスが 当てはまるのでしょうね。このクラスに認証に必要なファイルをセットする。 Zendの認証用のAdapterを生成して、このクラスに実際の処理をさせていく感じですかね。
-$config = array(&#39;accept_schemes&#39; = &#39;basic&#39;, // basic認証&#39;realm&#39; = &#39;aaaaa&#39;, // realm(ベーシック認証のフォームに出力されます)&#39;digest_domains&#39; = &#39;/login&#39;, // どのURL以下にベーシック認証をかけるかです。&#39;nonce_timeout&#39; = 3600);$resolver = new Zend_Auth_Adapter_Http_Resolver_File();$resolver-setFile(&#39;passwd.txt&#39;);$adapter = new Zend_Auth_Adapter_Http($config);$adapter-setBasicResolver($resolver)-setRequest($this-getRequest())-setResponse($this-getResponse());$result = $adapter-authenticate();if (!$result-isValid()) {// 認証エラーの場合}passwd.txtは、ドキュメントルート(index.phpがあるところ)からのパスになります。 内容はこんな感じです
-test:aaaaa:hogehogeユーザ名:realm:パスワードrealmはプログラム内で指定したrealmと一致している必要があります。
+$config = array(&#39;accept_schemes&#39; =&gt; &#39;basic&#39;, // basic認証&#39;realm&#39; =&gt; &#39;aaaaa&#39;, // realm(ベーシック認証のフォームに出力されます)&#39;digest_domains&#39; =&gt; &#39;/login&#39;, // どのURL以下にベーシック認証をかけるかです。&#39;nonce_timeout&#39; =&gt; 3600);$resolver = new Zend_Auth_Adapter_Http_Resolver_File();$resolver-&gt;setFile(&#39;passwd.txt&#39;);$adapter = new Zend_Auth_Adapter_Http($config);$adapter-&gt;setBasicResolver($resolver)-&gt;setRequest($this-&gt;getRequest())-&gt;setResponse($this-&gt;getResponse());$result = $adapter-&gt;authenticate();if (!$result-&gt;isValid()) {// 認証エラーの場合}passwd.txtは、ドキュメントルート(index.phpがあるところ)からのパスになります。 内容はこんな感じです
+test:aaaaa:hogehogeユーザ名:realm:パスワードrealmはプログラム内で指定したrealmと一致している必要があります。
 前回書いたものよりだいぶスマートに実装されていますね。感心感心です。 ちょっとわがままいうなら認証機構をもっと昔のにも親和性高くしてほしかったなと思います。
 まぁでも勉強になったのでよしとします。" />
 

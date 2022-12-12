@@ -2,23 +2,29 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[復習]javascriptでオブジェクト指向">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/04/30/%E5%BE%A9%E7%BF%92javascript%E3%81%A7%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91/" />
-<meta property="go:description" content="// クラス作成(擬似)function Test() {};// プロトタイプ宣言Test.prototype = {// メンバ_str : &#34;&#34;,_int : 0,// メソッドgetStr : function () {// 実行されるからコメントアウト//alert( &#34;str = &#34; &#43; this._str );},setStr : function (str) {this._str = str;}};// インスタンス化var str = new Test();var str2 = new Test();// setterstr.setStr(&#39;日本語！！&#39;);str._str = str._str &#43; &#34;：メンバ変数に直接追加&#34;;// getterstr." />
+<meta property="go:description" content="&lt;!DOCTYPE html&gt;■object昔やっていたことをわすれていたので改めてメモです。JavaScriptではクラス-インスタンスという考え方をしません（本当はするけどね）。 オブジェクトは別なオブジェクトを元（プロトタイプ）にして独自の特徴を付加することで存在する、 という考え方をします。このようなオブジェクト指向言語のことを、 プロトタイプベースオブジェクト指向言語（Prototype Based Object Oriented Language）と言います。
+「独自の付加をつけていく」かーーー。
+関数オブジェクトにはプロトタイプがあってそこにどんどん独自の機能を付加していく感じ。
+■参考サイト http://codezine.jp/article/detail/222 http://www.atmarkit.co.jp/fdotnet/ajaxjs/ajaxjs04/ajaxjs04_03.html" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[復習]javascriptでオブジェクト指向" />
-<meta name="twitter:description" content="// クラス作成(擬似)function Test() {};// プロトタイプ宣言Test.prototype = {// メンバ_str : &#34;&#34;,_int : 0,// メソッドgetStr : function () {// 実行されるからコメントアウト//alert( &#34;str = &#34; &#43; this._str );},setStr : function (str) {this._str = str;}};// インスタンス化var str = new Test();var str2 = new Test();// setterstr.setStr(&#39;日本語！！&#39;);str._str = str._str &#43; &#34;：メンバ変数に直接追加&#34;;// getterstr." />
+<meta name="twitter:description" content="&lt;!DOCTYPE html&gt;■object昔やっていたことをわすれていたので改めてメモです。JavaScriptではクラス-インスタンスという考え方をしません（本当はするけどね）。 オブジェクトは別なオブジェクトを元（プロトタイプ）にして独自の特徴を付加することで存在する、 という考え方をします。このようなオブジェクト指向言語のことを、 プロトタイプベースオブジェクト指向言語（Prototype Based Object Oriented Language）と言います。
+「独自の付加をつけていく」かーーー。
+関数オブジェクトにはプロトタイプがあってそこにどんどん独自の機能を付加していく感じ。
+■参考サイト http://codezine.jp/article/detail/222 http://www.atmarkit.co.jp/fdotnet/ajaxjs/ajaxjs04/ajaxjs04_03.html" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

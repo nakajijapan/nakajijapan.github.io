@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="ZendFrameworkでベーシック認証を試みる　自作編">
@@ -12,21 +12,21 @@
 流れとしては、
 １． 認証を行う対象のコントローラがリクエストされたら、認証用のリクエストを送信する ２． パスワードファイルは指定されたディレクトリから情報読み込み、そこから認証のチェックを行う ３． 認証できれば当該処理を終了させる ４． 認証できなければ、４０１にする
 今回はプラグイン側で実行することにします。
-/*** My_Controller_Plugin_HttpBasicAuth**/class My_Controller_Plugin_HttpBasicAuth extends Zend_Controller_Plugin_Abstract{/*** Basic認証* * @param Zend_Controller_Request_Abstract $request*/public function dispatchLoopStartup(Zend_Controller_Request_Abstract $request) {// init$server = $this-getRequest()-getServer();$htpasswdFile = &#34;/home/html/public_html/.htpasswd&#34;;// 処理系のアクションか？if (file_exists($htpasswdFile) && is_file($htpasswdFile)) {// init$response = $this-getResponse();$request = $this-getRequest();// htpasswdから情報取得$htpasswds = file($htpasswdFile);// headerから情報取得$authHeader = $request-getHeader(&#39;Authorization&#39;);// 認証情報解析$cryptPass = &#39;&#39;;$cryptUser = &#39;&#39;;if (preg_match(&#39;/Basic (." />
+/*** My_Controller_Plugin_HttpBasicAuth**/class My_Controller_Plugin_HttpBasicAuth extends Zend_Controller_Plugin_Abstract{/*** Basic認証* * @param Zend_Controller_Request_Abstract $request*/public function dispatchLoopStartup(Zend_Controller_Request_Abstract $request) {// init$server = $this-&gt;getRequest()-&gt;getServer();$htpasswdFile = &#34;/home/html/public_html/.htpasswd&#34;;// 処理系のアクションか？if (file_exists($htpasswdFile) && is_file($htpasswdFile)) {// init$response = $this-&gt;getResponse();$request = $this-&gt;getRequest();// htpasswdから情報取得$htpasswds = file($htpasswdFile);// headerから情報取得$authHeader = $request-&gt;getHeader(&#39;Authorization&#39;);// 認証情報解析$cryptPass = &#39;&#39;;$cryptUser = &#39;&#39;;if (preg_match(&#39;/Basic (." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="ZendFrameworkでベーシック認証を試みる　自作編" />
 <meta name="twitter:description" content="わけって、アプリ側（ZendFramework）でもベーシック認証できないかということで調べてみたらありました。
 流れとしては、
 １． 認証を行う対象のコントローラがリクエストされたら、認証用のリクエストを送信する ２． パスワードファイルは指定されたディレクトリから情報読み込み、そこから認証のチェックを行う ３． 認証できれば当該処理を終了させる ４． 認証できなければ、４０１にする
 今回はプラグイン側で実行することにします。
-/*** My_Controller_Plugin_HttpBasicAuth**/class My_Controller_Plugin_HttpBasicAuth extends Zend_Controller_Plugin_Abstract{/*** Basic認証* * @param Zend_Controller_Request_Abstract $request*/public function dispatchLoopStartup(Zend_Controller_Request_Abstract $request) {// init$server = $this-getRequest()-getServer();$htpasswdFile = &#34;/home/html/public_html/.htpasswd&#34;;// 処理系のアクションか？if (file_exists($htpasswdFile) && is_file($htpasswdFile)) {// init$response = $this-getResponse();$request = $this-getRequest();// htpasswdから情報取得$htpasswds = file($htpasswdFile);// headerから情報取得$authHeader = $request-getHeader(&#39;Authorization&#39;);// 認証情報解析$cryptPass = &#39;&#39;;$cryptUser = &#39;&#39;;if (preg_match(&#39;/Basic (." />
+/*** My_Controller_Plugin_HttpBasicAuth**/class My_Controller_Plugin_HttpBasicAuth extends Zend_Controller_Plugin_Abstract{/*** Basic認証* * @param Zend_Controller_Request_Abstract $request*/public function dispatchLoopStartup(Zend_Controller_Request_Abstract $request) {// init$server = $this-&gt;getRequest()-&gt;getServer();$htpasswdFile = &#34;/home/html/public_html/.htpasswd&#34;;// 処理系のアクションか？if (file_exists($htpasswdFile) && is_file($htpasswdFile)) {// init$response = $this-&gt;getResponse();$request = $this-&gt;getRequest();// htpasswdから情報取得$htpasswds = file($htpasswdFile);// headerから情報取得$authHeader = $request-&gt;getHeader(&#39;Authorization&#39;);// 認証情報解析$cryptPass = &#39;&#39;;$cryptUser = &#39;&#39;;if (preg_match(&#39;/Basic (." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

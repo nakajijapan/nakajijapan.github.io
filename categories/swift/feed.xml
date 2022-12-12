@@ -1,58 +1,337 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Swift on おじさんは生きている</title>
-		<link>http://nakajijapan.github.io/categories/swift/</link>
-		<description>Recent content in Swift on おじさんは生きている</description>
-		<generator>Hugo -- gohugo.io</generator>
-		
-		<language>ja-JP</language>
-		
-		<copyright>nakajijapan All rights reserved.</copyright>
-		
-		<lastBuildDate>Thu, 01 Mar 2018 14:35:04 +0900</lastBuildDate>
-		
-		<atom:link href="/categories/swift/" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>2018 try! swift</title>
-			<link>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</link>
-			<pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</guid>
-			<description>先日、try! swiftに参加してきた。これで二年連続になる。 自分が興味を持った部分をピックアップしてめも
-Event driven networking for Swift  📝 https://github.com/apple/swift-nio  SwiftNIO is a cross-platform asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp;amp; clients. iOSでCharlesを導入する  iOS版が出るのは楽しみだが審査通らなそう JAVAは辛い 設定の手間省かれそう？  Aspect Oriented Programing in Swift  アスペクト指向プログラミング これログ吐き出す時に便そう 構文解析 コンパイル前に色々作業する https://github.com/kishikawakatsumi/SwiftPowerAssert  デジタル信号処理 in Swift  デジタル信号処理の部分ちゃんと理解して実装できるようになりたい フーリエ解析 波形のアニメーション面白そう AVFoundation結構使える？ ちょっと難しい話だった興味があるので再度見直す  UIImageView vs Metal これは純粋に面白かったし、Metalのこともわかった気になった。
-  UIImageView vs Metal [日本語版] #tryswiftconf  from Shuichi Tsutsumi  VisionとCoreGraphicsで顔をデカくする  顔の部分しか取れないから頭は自分である程度解析していかないといけない https://developer.</description>
-		</item>
-		
-		<item>
-			<title>Swift勉強会を開催して話してきました。</title>
-			<link>http://nakajijapan.github.io/blog/2014/07/19/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E9%96%8B%E5%82%AC%E3%81%97%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Sat, 19 Jul 2014 20:08:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2014/07/19/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E9%96%8B%E5%82%AC%E3%81%97%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>先日、小さい規模ながらSwfit勉強会を開催しました。
-Swift勉強会 hosted by @nakajijapan from ペパボ
-そんななか、自分も「Swiftに慣れるまで行ったこと」を発表しました。
-ざっくり言うSwiftに慣れるのに以下のことをしてみた献じたことを話しました。
-公式ドキュメント（を読んだ後に） サンプルアプリをTableViewControllerベースで作成してみたこと 自分のプラグイン(NKJMovieComposer)をSwiftで書き換えてみたこと 気分高ぶってMac OS Xも作成してみたこと  詳しくはスライドをご覧ください。
-Swiftが出たときにSan Franciscoで一心不乱にサンプルアプリプログラム書いてブログ上げようかと思ったけど いろんな人が既にブログに上げていたのでただただGitHubにあげるだけでした。そんなんか いろいろ勉強していくうちにMacアプリもつくれんじゃねーかwで脳内麻痺して書籍を購入してSwiftで作成 してみました。
-起動しとけば単純に画像を定期的に保存するアプリです。 （そのうちに１日で保存した画像をGifアニメのような動画にしてソーシャルにアップする機能作ろうかと計画中） ある程度できたらGeHubにアップ仕様と思います。
-ちなみにこちらの書籍を購入しました。
- Macアプリ、知識が溜まって来たらまた記事にします。
-とにかく、Swift勉強会が無事終えてよかったです。 参加してくれたみなさん、そして発表してくれた、@misyobun @hypermkt @kurotaky ありがとうございました！！！</description>
-		</item>
-		
-		<item>
-			<title>Swift勉強会をした</title>
-			<link>http://nakajijapan.github.io/blog/2014/06/10/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E3%81%97%E3%81%9F/</link>
-			<pubDate>Tue, 10 Jun 2014 18:25:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2014/06/10/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E3%81%97%E3%81%9F/</guid>
-			<description>社内で早速Swift勉強会を開きました。 流れとしては、あのときの動画（クレイグがSwiftを発表したところ）をみんなで１０分程鑑賞してテンションあげてから公式のドキュメントを見ながら、みんなでぺちゃくちゃ話す会をしました。
-はじめに 以下の動画をみてまずざっくりどんなものか概要をつかむ
-https://developer.apple.com/videos/wwdc/2014/?id=101
-A Swift Tour About Swift  Objective-C without the C iOSとOS Xで開発するための開発言語 Ccoa and Cocoa Touch Build with LLVM compiler Optimizer and Autovectorizer ARC memory management Same runtime as Objective-C  Simple Value  let,varで宣言 letは定数、varは変数  var foo = 33 let foo = 33  格納する値が明白であれば自動できに方が決定される 十分でなければ明示的に指定することも可能  let total = 30 let total = 30.0 let total:Double = 0  初期化に以下のような宣言ができる  let emptyArray = String[]() let emptyDictionary = Dictionary&amp;lt;String, Float&amp;gt;()  単純な初期化は[] and [:]で省略できる   let emptyArray = [] let emptyDictionary = [:] Control Flow  どこかでみたような記述でif,switch,for-in,for,while,do-whileできるよ .</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Swift  おじさんは生きている</title>
+    <link>http://nakajijapan.github.io/categories/swift/</link>
+    <description>  Swift  おじさんは生きている</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Thu, 01 Mar 2018 14:35:04 +0900</lastBuildDate>
+    <atom:link href="http://nakajijapan.github.io/categories/swift/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2018 try! swift</title>
+      <link>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</link>
+      <pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/03/01/2018-try-swift/</guid>
+      <description>&lt;img src=&#34;https://www.tryswift.co/assets/images/logo_riko_labs_navbar_tokyo.png&#34; /&gt;
+&lt;p&gt;先日、&lt;a href=&#34;https://www.tryswift.co/events/2018/tokyo/en/&#34;&gt;try! swift&lt;/a&gt;に参加してきた。これで二年連続になる。
+自分が興味を持った部分をピックアップしてめも&lt;/p&gt;
+&lt;h2 id=&#34;event-driven-networking-for-swift&#34;&gt;Event driven networking for Swift&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📝&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apple/swift-nio&#34;&gt;https://github.com/apple/swift-nio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SwiftNIO is a cross-platform asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp;amp; clients.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;iosでcharlesを導入する&#34;&gt;iOSでCharlesを導入する&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;iOS版が出るのは楽しみだが審査通らなそう&lt;/li&gt;
+&lt;li&gt;JAVAは辛い&lt;/li&gt;
+&lt;li&gt;設定の手間省かれそう？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;aspect-oriented-programing-in-swift&#34;&gt;Aspect Oriented Programing in Swift&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;アスペクト指向プログラミング&lt;/li&gt;
+&lt;li&gt;これログ吐き出す時に便そう&lt;/li&gt;
+&lt;li&gt;構文解析&lt;/li&gt;
+&lt;li&gt;コンパイル前に色々作業する&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kishikawakatsumi/SwiftPowerAssert&#34;&gt;https://github.com/kishikawakatsumi/SwiftPowerAssert&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;デジタル信号処理-in-swift&#34;&gt;デジタル信号処理 in Swift&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;デジタル信号処理の部分ちゃんと理解して実装できるようになりたい&lt;/li&gt;
+&lt;li&gt;フーリエ解析&lt;/li&gt;
+&lt;li&gt;波形のアニメーション面白そう&lt;/li&gt;
+&lt;li&gt;AVFoundation結構使える？&lt;/li&gt;
+&lt;li&gt;ちょっと難しい話だった興味があるので再度見直す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;uiimageview-vs-metal&#34;&gt;UIImageView vs Metal&lt;/h2&gt;
+&lt;p&gt;これは純粋に面白かったし、Metalのこともわかった気になった。&lt;/p&gt;
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/FoH7FLvwocb0i2&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/t26v0748/uiimageview-vs-metal-tryswiftconf-89586430&#34; title=&#34;UIImageView vs Metal [日本語版] #tryswiftconf&#34; target=&#34;_blank&#34;&gt;UIImageView vs Metal [日本語版] #tryswiftconf&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;https://www.slideshare.net/t26v0748&#34; target=&#34;_blank&#34;&gt;Shuichi Tsutsumi&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+&lt;h2 id=&#34;visionとcoregraphicsで顔をデカくする&#34;&gt;VisionとCoreGraphicsで顔をデカくする&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;顔の部分しか取れないから頭は自分である程度解析していかないといけない&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/documentation/vision&#34;&gt;https://developer.apple.com/documentation/vision&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2017/506/&#34;&gt;https://developer.apple.com/videos/play/wwdc2017/506/&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;発表見ると確かに顔部分だけですな。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;毎年発見があり、まだまだ勉強せねばと思うカンファレンスでありました。
+他のおじさんたちも元気そうで何より。
+いやー楽しかったです。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Swift勉強会を開催して話してきました。</title>
+      <link>http://nakajijapan.github.io/blog/2014/07/19/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E9%96%8B%E5%82%AC%E3%81%97%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sat, 19 Jul 2014 20:08:00 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2014/07/19/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E9%96%8B%E5%82%AC%E3%81%97%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;a9200910f163013106da6eb14261a8ef&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;先日、小さい規模ながらSwfit勉強会を開催しました。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://atnd.org/events/52641&#34;&gt;Swift勉強会 hosted by @nakajijapan from ペパボ&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;そんななか、自分も「Swiftに慣れるまで行ったこと」を発表しました。&lt;/p&gt;
+&lt;p&gt;ざっくり言うSwiftに慣れるのに以下のことをしてみた献じたことを話しました。&lt;/p&gt;
+&lt;ol start=&#34;0&#34;&gt;
+&lt;li&gt;公式ドキュメント（を読んだ後に）&lt;/li&gt;
+&lt;li&gt;サンプルアプリをTableViewControllerベースで作成してみたこと&lt;/li&gt;
+&lt;li&gt;自分のプラグイン(NKJMovieComposer)をSwiftで書き換えてみたこと&lt;/li&gt;
+&lt;li&gt;気分高ぶってMac OS Xも作成してみたこと&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;詳しくはスライドをご覧ください。&lt;/p&gt;
+&lt;p&gt;Swiftが出たときにSan Franciscoで一心不乱にサンプルアプリプログラム書いてブログ上げようかと思ったけど
+いろんな人が既にブログに上げていたのでただただGitHubにあげるだけでした。そんなんか
+いろいろ勉強していくうちにMacアプリもつくれんじゃねーかwで脳内麻痺して書籍を購入してSwiftで作成
+してみました。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2014-07-19-01.png&#34; alt=&#34;swift&#34;&gt;&lt;/p&gt;
+&lt;p&gt;起動しとけば単純に画像を定期的に保存するアプリです。
+（そのうちに１日で保存した画像をGifアニメのような動画にしてソーシャルにアップする機能作ろうかと計画中）
+ある程度できたらGeHubにアップ仕様と思います。&lt;/p&gt;
+&lt;p&gt;ちなみにこちらの書籍を購入しました。&lt;/p&gt;
+&lt;a href=&#34;http://frustration.me/items/5171&#34;&gt;
+  &lt;img src=&#34;http://ecx.images-amazon.com/images/I/41bAmGQ-ljL.jpg&#34; /&gt;
+&lt;/a&gt;
+&lt;p&gt;Macアプリ、知識が溜まって来たらまた記事にします。&lt;/p&gt;
+&lt;p&gt;とにかく、Swift勉強会が無事終えてよかったです。
+参加してくれたみなさん、そして発表してくれた、&lt;a href=&#34;http://twitter.com/misyobun&#34;&gt;@misyobun&lt;/a&gt; &lt;a href=&#34;http://twitter.com/hypermkt&#34;&gt;@hypermkt&lt;/a&gt; &lt;a href=&#34;http://twitter.com/kurotaky&#34;&gt;@kurotaky&lt;/a&gt; ありがとうございました！！！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Swift勉強会をした</title>
+      <link>http://nakajijapan.github.io/blog/2014/06/10/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 10 Jun 2014 18:25:00 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2014/06/10/swift%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%82%92%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;社内で早速Swift勉強会を開きました。
+流れとしては、あのときの動画（クレイグがSwiftを発表したところ）をみんなで１０分程鑑賞してテンションあげてから公式のドキュメントを見ながら、みんなでぺちゃくちゃ話す会をしました。&lt;/p&gt;
+&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;以下の動画をみてまずざっくりどんなものか概要をつかむ&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.apple.com/videos/wwdc/2014/?id=101&#34;&gt;https://developer.apple.com/videos/wwdc/2014/?id=101&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;a-swift-tour&#34;&gt;A Swift Tour&lt;/h1&gt;
+&lt;h2 id=&#34;about-swift&#34;&gt;About Swift&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Objective-C without the C&lt;/li&gt;
+&lt;li&gt;iOSとOS Xで開発するための開発言語&lt;/li&gt;
+&lt;li&gt;Ccoa and Cocoa Touch&lt;/li&gt;
+&lt;li&gt;Build with LLVM compiler&lt;/li&gt;
+&lt;li&gt;Optimizer and Autovectorizer&lt;/li&gt;
+&lt;li&gt;ARC memory management&lt;/li&gt;
+&lt;li&gt;Same runtime as Objective-C&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;simple-value&#34;&gt;Simple Value&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;let&lt;/code&gt;,&lt;code&gt;var&lt;/code&gt;で宣言&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;let&lt;/code&gt;は定数、&lt;code&gt;var&lt;/code&gt;は変数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var foo = 33
+let foo = 33
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;格納する値が明白であれば自動できに方が決定される&lt;/li&gt;
+&lt;li&gt;十分でなければ明示的に指定することも可能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;let total = 30
+let total = 30.0
+let total:Double = 0
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;初期化に以下のような宣言ができる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;let emptyArray = String[]()
+let emptyDictionary = Dictionary&amp;lt;String, Float&amp;gt;()
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;単純な初期化は&lt;code&gt;[] and [:]&lt;/code&gt;で省略できる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+let emptyArray = []
+let emptyDictionary = [:]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;control-flow&#34;&gt;Control Flow&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;どこかでみたような記述でif,switch,for-in,for,while,do-whileできるよ&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;..&lt;/code&gt;で数値の範囲を決定できることができる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var total = 0;
+for i in 0..10 {
+    total += 2
+}
+
+total
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;functions-and-closures&#34;&gt;Functions and Closures&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;考え方は他の言語と同じ。引数があって返り値がある&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func greet(name: String, day: String) -&amp;gt; String {
+  return &amp;#34;Hello \(name), today is \(day)&amp;#34;
+}
+
+greet(&amp;#34;Bob&amp;#34;, &amp;#34;Tuesday&amp;#34;)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Touple
+&lt;ul&gt;
+&lt;li&gt;複数の返り値を返す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func getGasPrices() -&amp;gt; (Double, Double, Double) {
+    return (3.59, 3.69, 3.79)
+}
+getGasPrices()
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;引数を任意で指定することもできます&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func sumOf(numbers:Int...) -&amp;gt; Int
+{
+    var sum = 0
+    for number in numbers {
+        sum += number
+    }
+
+    return sum
+}
+
+
+sumOf()
+
+sumOf(10, 20, 33)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;{}&lt;/code&gt;でクロージャを記述&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;numbers.map({
+    (number: Int) -&amp;gt; Int in
+    let result = 3 * number
+    return result
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以下の記述も同じ意味&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;numbers.map({ number in 3 * number })
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;objects-and-classes&#34;&gt;Objects and Classes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt;で定義&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;init()&lt;/code&gt;はコンストラクタ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;継承は&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class Squre : NamedShape {
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;overrideはfuncの前に&lt;code&gt;override&lt;/code&gt;を宣言する&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;override func init() {
+    super.init()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;インスタンス変数をカスタマイズできる&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;var perimeter: Double {
+    get {
+        return 3.0 * sideLength
+    }
+    set {
+        sideLength = newValue / 3.0
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;メンバ変数に以下の記述,&lt;code&gt;willSet&lt;/code&gt;,&lt;code&gt;didSet&lt;/code&gt;をすることであらかじめ、前処理後処理ができるようになる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class {
+    var triangle: EquilateralTriangle {
+    willSet {
+        square.sideLength = newValue.sideLength
+    }
+    didSet {
+        square.sideLength *= 2
+    }
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;引数に別名を持たせられる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class Counter {
+    var count: Int = 0
+    func incrementBy(amount: Int, numberOfTimes times: Int) {
+        count += amount * times
+    }
+}
+var counter = Counter()
+counter.incrementBy(2, numberOfTimes: 7)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;enumerations-and-structures&#34;&gt;Enumerations and Structures&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;メソッドも作成できる&lt;/li&gt;
+&lt;li&gt;最初に数値を入れておかなければならない&lt;/li&gt;
+&lt;li&gt;後はインクリメントされる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;enum Rank: Int {
+    case Ace = 1
+    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+    case Jack, Queen, King
+    func simpleDescription() -&amp;gt; String {
+        switch self {
+        case .Ace:
+            return &amp;#34;ace&amp;#34;
+        case .Jack:
+            return &amp;#34;jack&amp;#34;
+        case .Queen:
+            return &amp;#34;queen&amp;#34;
+        case .King:
+            return &amp;#34;king&amp;#34;
+        default:
+            return String(self.toRaw())
+        }
+    }
+}
+
+let ace = Rank.Ace
+let aceRawValue = ace.toRaw() # 1
+let name = ace.simpleDescription() # &amp;#34;Ace&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;enumの方で比較しないとだめ&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+        if ace == Rank.Ace {
+            NSLog(&amp;#34;-- ace!!!&amp;#34;)
+        }
+// NG
+//        else if ace == 1 {
+//            NSLog(&amp;#34;-- no ace...&amp;#34;)
+//        }
+&lt;/code&gt;&lt;/pre&gt;&lt;h5 id=&#34;structure&#34;&gt;structure&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;classとほぼ同じ振る舞いをする&lt;/li&gt;
+&lt;li&gt;処理するときは必ずコピーされる, クラスは参照によって処理される&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;protocols-and-extensions&#34;&gt;Protocols and Extensions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;基本的なところはObjective-Cと変わらない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;protocol ExampleProtocol {
+    var simpleDescription: String { get } # readonly
+    mutating func adjust()
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;クラスにも構造体にも組み込める&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;class SimpleClass: ExampleProtocol {
+}
+
+struct SimpleStructure: ExampleProtocol {
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;generics&#34;&gt;Generics&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;型に汎用性を持たせて同じロジックを処理させることができる&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;classes&lt;/code&gt;, &lt;code&gt;enumerations&lt;/code&gt;, &lt;code&gt;structures&lt;/code&gt;で利用できる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;func repeat&amp;lt;T&amp;gt;(item: T, times: Int) -&amp;gt; T[] {
+    var result = T[]()
+    for i in 0..times {
+        result += item
+    }
+    return result
+}
+
+
+repeat(&amp;#34;knock&amp;#34;, 4)
+repeat(333, 3)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;何よりシンプルでモダンな作りになっているのでアプリを作ることがよりいっそう楽しくなること間違い無しですな。
+ただ、いくつか説明できないところがあったので、次の会まで宿題にすることにします。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
 </rss>

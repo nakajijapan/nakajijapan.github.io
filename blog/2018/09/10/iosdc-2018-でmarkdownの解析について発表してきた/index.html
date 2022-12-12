@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="iOSDC 2018 でMarkdownの解析について発表してきた。">
@@ -12,39 +12,45 @@
 iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。 発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと 心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。
 発表のタイトルはこちら
 Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
- Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
- 資料  ざっくり解説
+Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
+資料 ざっくり解説
 リアルタイムに処理をするために 以下の項目を基点に話を掘り下げていきました。
- カラーリング 入力補佐  カラーリング 一番リアルタイム性を考えなければいけないのが文字を入力した時です。
+カラーリング 入力補佐 カラーリング 一番リアルタイム性を考えなければいけないのが文字を入力した時です。
 最小限の範囲で文字列操作を行う いつ？ まず、、NSTextStorageDelegateのメソッド（以下のメソッド）を使用して取得する必要がありました。 これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。 さらにeditedRangeは複数行の場合があることを考慮に入れる必要があります。
 // MARK: - NSTextStorageDelegate extension TextViewController: NSTextStorageDelegate { func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) { self.editedRange = editedRange } } 何を？ それは変換するべき領域です。以前のコードでeditedRangeを利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。
-  この赤線の部分が一行ずつ抽出して属性を変更していきます。
+この赤線の部分が一行ずつ抽出して属性を変更していきます。
 どのようにして？ 変換するべき領域を抽出するんですがその時には以下の関数を使うと行の全ての範囲を取得することが可能になります。 ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。
- lineRange   　絵文字 ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.stringでは各文字コードでカウントすると変わってくることを示しました。それはどういうことなのかなぜそれを意識する必要があるのかという解説をしています。
-また、文字列操作をするときにはNSString、NSRangeを使うことになりますがこの仕様を理解して文字列の操作を行って行くことが重要になってきます。" />
+lineRange 絵文字 ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.stringでは各文字コードでカウントすると変わってくることを示しました。それはどういうことなのかなぜそれを意識する必要があるのかという解説をしています。
+また、文字列操作をするときにはNSString、NSRangeを使うことになりますがこの仕様を理解して文字列の操作を行って行くことが重要になってきます。
+型の内部仕様 なので範囲を指定する時にはUTF16を意識した文字列操作が必要になってきます。
+NSRange(location: 0, length: line.utf16.count) 入力補佐 タブやバックタブや改行による自動インデントとリスト表現を改行しても同じ構造にしておく必要があります。ちなみにIzumoではオプションで自動でするかしないかを選択することができます。
+オートインデント 改行してもリスト構造を復元する タブでの移動 リストの構造を崩さず深くしたりする つまり、以下のイベント時に文字列の操作を必要がありました。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/posts/2018-09-001.jpg" />
+<meta property="og:image" content="images/posts/2018-09-001.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="iOSDC 2018 でMarkdownの解析について発表してきた。" />
 <meta name="twitter:description" content="発表したぞ！
 iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。 発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと 心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。
 発表のタイトルはこちら
 Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
- Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
- 資料  ざっくり解説
+Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
+資料 ざっくり解説
 リアルタイムに処理をするために 以下の項目を基点に話を掘り下げていきました。
- カラーリング 入力補佐  カラーリング 一番リアルタイム性を考えなければいけないのが文字を入力した時です。
+カラーリング 入力補佐 カラーリング 一番リアルタイム性を考えなければいけないのが文字を入力した時です。
 最小限の範囲で文字列操作を行う いつ？ まず、、NSTextStorageDelegateのメソッド（以下のメソッド）を使用して取得する必要がありました。 これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。 さらにeditedRangeは複数行の場合があることを考慮に入れる必要があります。
 // MARK: - NSTextStorageDelegate extension TextViewController: NSTextStorageDelegate { func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) { self.editedRange = editedRange } } 何を？ それは変換するべき領域です。以前のコードでeditedRangeを利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。
-  この赤線の部分が一行ずつ抽出して属性を変更していきます。
+この赤線の部分が一行ずつ抽出して属性を変更していきます。
 どのようにして？ 変換するべき領域を抽出するんですがその時には以下の関数を使うと行の全ての範囲を取得することが可能になります。 ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。
- lineRange   　絵文字 ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.stringでは各文字コードでカウントすると変わってくることを示しました。それはどういうことなのかなぜそれを意識する必要があるのかという解説をしています。
-また、文字列操作をするときにはNSString、NSRangeを使うことになりますがこの仕様を理解して文字列の操作を行って行くことが重要になってきます。" />
+lineRange 絵文字 ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.stringでは各文字コードでカウントすると変わってくることを示しました。それはどういうことなのかなぜそれを意識する必要があるのかという解説をしています。
+また、文字列操作をするときにはNSString、NSRangeを使うことになりますがこの仕様を理解して文字列の操作を行って行くことが重要になってきます。
+型の内部仕様 なので範囲を指定する時にはUTF16を意識した文字列操作が必要になってきます。
+NSRange(location: 0, length: line.utf16.count) 入力補佐 タブやバックタブや改行による自動インデントとリスト表現を改行しても同じ構造にしておく必要があります。ちなみにIzumoではオプションで自動でするかしないかを選択することができます。
+オートインデント 改行してもリスト構造を復元する タブでの移動 リストの構造を崩さず深くしたりする つまり、以下のイベント時に文字列の操作を必要がありました。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -106,7 +112,7 @@ Markdownをリアルタイムに解析する https://fortee.jp/iosdc-japan-2018/
 <p>まず、、<code>NSTextStorageDelegate</code>のメソッド（以下のメソッド）を使用して取得する必要がありました。
 これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。
 さらに<code>editedRange</code>は複数行の場合があることを考慮に入れる必要があります。</p>
-<pre><code>// MARK: - NSTextStorageDelegate
+<pre tabindex="0"><code>// MARK: - NSTextStorageDelegate
 
 extension TextViewController: NSTextStorageDelegate {
     func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
@@ -132,7 +138,7 @@ extension TextViewController: NSTextStorageDelegate {
 <h3 id="型の内部仕様">型の内部仕様</h3>
 <script async class="speakerdeck-embed" data-slide="63" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 <p>なので範囲を指定する時にはUTF16を意識した文字列操作が必要になってきます。</p>
-<pre><code>NSRange(location: 0, length: line.utf16.count)
+<pre tabindex="0"><code>NSRange(location: 0, length: line.utf16.count)
 </code></pre><h2 id="入力補佐">入力補佐</h2>
 <p>タブやバックタブや改行による<code>自動インデント</code>とリスト表現を改行しても同じ構造にしておく必要があります。ちなみにIzumoではオプションで自動でするかしないかを選択することができます。</p>
 <ul>

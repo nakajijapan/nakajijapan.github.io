@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="VirtualDocumentRootを利用可能にさせる">
@@ -11,22 +11,22 @@
 <meta property="go:description" content="大量のドメインを管理するために「VirtualDocumentRoot」つかおうとしてたんだけど別途モジュールを組み込まないといけない みたいだったのでそのメモがわり。
 「mod_vhost_alias」が必要らしい。そこで必要になるのがDSOモジュール。このモジュールがApacheのインストール時に 組み込まれていれば、必要なモジュールをインストールしたいときに再度リコンパイルしなくても済むらしいです。
 自分のApacheはあらかじめ組み込んでおいたので、組み込みたいモジュールのコンパイルだけで済みました。 確かconfigure optionは「&ndash;enable-so」だった。
-# cd /usr/local/src/httpd-2.2.XX/modules/mappers# /usr/local/apache2/bin/apxs -cia mod_vhost_alias.cc : コンパイルi : 出来上がったモジュールをインストールa : 自動的に「httpd.conf」に「LoadModule」ディレクティブを追加※下記のサイトをそのまま引用＆パクリしました。ごめんなさい。。。Apache DSOモジュールの追加方法 (2) 実例
+# cd /usr/local/src/httpd-2.2.XX/modules/mappers# /usr/local/apache2/bin/apxs -cia mod_vhost_alias.cc : コンパイルi : 出来上がったモジュールをインストールa : 自動的に「httpd.conf」に「LoadModule」ディレクティブを追加※下記のサイトをそのまま引用＆パクリしました。ごめんなさい。。。Apache DSOモジュールの追加方法 (2) 実例
 Apxsリファレンス
 /a&gt;" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="VirtualDocumentRootを利用可能にさせる" />
 <meta name="twitter:description" content="大量のドメインを管理するために「VirtualDocumentRoot」つかおうとしてたんだけど別途モジュールを組み込まないといけない みたいだったのでそのメモがわり。
 「mod_vhost_alias」が必要らしい。そこで必要になるのがDSOモジュール。このモジュールがApacheのインストール時に 組み込まれていれば、必要なモジュールをインストールしたいときに再度リコンパイルしなくても済むらしいです。
 自分のApacheはあらかじめ組み込んでおいたので、組み込みたいモジュールのコンパイルだけで済みました。 確かconfigure optionは「&ndash;enable-so」だった。
-# cd /usr/local/src/httpd-2.2.XX/modules/mappers# /usr/local/apache2/bin/apxs -cia mod_vhost_alias.cc : コンパイルi : 出来上がったモジュールをインストールa : 自動的に「httpd.conf」に「LoadModule」ディレクティブを追加※下記のサイトをそのまま引用＆パクリしました。ごめんなさい。。。Apache DSOモジュールの追加方法 (2) 実例
+# cd /usr/local/src/httpd-2.2.XX/modules/mappers# /usr/local/apache2/bin/apxs -cia mod_vhost_alias.cc : コンパイルi : 出来上がったモジュールをインストールa : 自動的に「httpd.conf」に「LoadModule」ディレクティブを追加※下記のサイトをそのまま引用＆パクリしました。ごめんなさい。。。Apache DSOモジュールの追加方法 (2) 実例
 Apxsリファレンス
 /a&gt;" />
 

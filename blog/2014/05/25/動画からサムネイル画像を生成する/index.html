@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="動画からサムネイル画像を生成する">
@@ -10,22 +10,22 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/05/25/%E5%8B%95%E7%94%BB%E3%81%8B%E3%82%89%E3%82%B5%E3%83%A0%E3%83%8D%E3%82%A4%E3%83%AB%E7%94%BB%E5%83%8F%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B/" />
 <meta property="go:description" content="動画のある一部分を画像として取り出したいときがあったので調べてみたら、ドキュメントにそれっぽい記述があったので実装してみました。
 方法としては、以下のメソッドを利用してCMTimeを利用して指定された時間に対する画像を生成します。
- copyCGImageAtTime:actualTime:error:
- 実際に、メソッドにして動くようにしました。
+copyCGImageAtTime:actualTime:error:
+実際に、メソッドにして動くようにしました。
 - (UIImage*)createThumbnailImageWithURL:(NSURL *)movieURL { AVAsset *asset = [[AVURLAsset alloc] initWithURL:[movieURL objectAtIndex:index] options:nil]; if ([asset tracksWithMediaCharacteristic:AVMediaTypeVideo]) { AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset]; Float64 durationSeconds = CMTimeGetSeconds([asset duration]); CMTime midpoint = CMTimeMakeWithSeconds(durationSeconds/2.0, 600); NSError* error = nil; CMTime actualTime; CGImageRef halfWayImageRef = [imageGenerator copyCGImageAtTime:midpoint actualTime:&amp;actualTime error:&amp;error]; if (halfWayImageRef != NULL) { UIImage* image = [[UIImage alloc]initWithCGImage:halfWayImageRef]; // 明示的にリリースしておきます CGImageRelease(halfWayImageRef); return image; } } return nil; } 動画を取り終わった後に、一時的に一覧として残しておきたいときなどに利用できますね。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="動画からサムネイル画像を生成する" />
 <meta name="twitter:description" content="動画のある一部分を画像として取り出したいときがあったので調べてみたら、ドキュメントにそれっぽい記述があったので実装してみました。
 方法としては、以下のメソッドを利用してCMTimeを利用して指定された時間に対する画像を生成します。
- copyCGImageAtTime:actualTime:error:
- 実際に、メソッドにして動くようにしました。
+copyCGImageAtTime:actualTime:error:
+実際に、メソッドにして動くようにしました。
 - (UIImage*)createThumbnailImageWithURL:(NSURL *)movieURL { AVAsset *asset = [[AVURLAsset alloc] initWithURL:[movieURL objectAtIndex:index] options:nil]; if ([asset tracksWithMediaCharacteristic:AVMediaTypeVideo]) { AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset]; Float64 durationSeconds = CMTimeGetSeconds([asset duration]); CMTime midpoint = CMTimeMakeWithSeconds(durationSeconds/2.0, 600); NSError* error = nil; CMTime actualTime; CGImageRef halfWayImageRef = [imageGenerator copyCGImageAtTime:midpoint actualTime:&amp;actualTime error:&amp;error]; if (halfWayImageRef != NULL) { UIImage* image = [[UIImage alloc]initWithCGImage:halfWayImageRef]; // 明示的にリリースしておきます CGImageRelease(halfWayImageRef); return image; } } return nil; } 動画を取り終わった後に、一時的に一覧として残しておきたいときなどに利用できますね。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
@@ -67,7 +67,7 @@
 <p>copyCGImageAtTime:actualTime:error:</p>
 </blockquote>
 <p>実際に、メソッドにして動くようにしました。</p>
-<pre><code>- (UIImage*)createThumbnailImageWithURL:(NSURL *)movieURL
+<pre tabindex="0"><code>- (UIImage*)createThumbnailImageWithURL:(NSURL *)movieURL
 {
     AVAsset *asset = [[AVURLAsset alloc] initWithURL:[movieURL objectAtIndex:index] options:nil];
 

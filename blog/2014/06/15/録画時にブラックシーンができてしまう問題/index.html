@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="録画時にブラックシーンができてしまう問題">
@@ -20,11 +20,11 @@ CFRetain(sampleBuffer); CFRetain(formatDescription); dispatch_async(self.movieWr
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="録画時にブラックシーンができてしまう問題" />
 <meta name="twitter:description" content="WWDC2014に行って来たの話になるのですが、 プライベートでアプリ作成しているときにAV Foundation絡みでわからないところがあったのでAppleのエンジニアさんに質問してきました。
 現象 問題は、自分が作成したNKJMultiMovieCaptureViewでその現象が発生しました。 作成したときの話はこちらになります。 Vine動画のようにタッチしたら録画し、タッチが終了したら(指を離したら)録画を終了し、録画した複数の動画を一つにする仕組みを作成したのですが、 実際作成した動画を見てみると最初のほんの一瞬だけなぜかブラックシーンができてしまいます。
@@ -78,38 +78,38 @@ Vine動画のようにタッチしたら録画し、タッチが終了したら(
 実際作成した動画を見てみると最初のほんの一瞬だけなぜかブラックシーンができてしまいます。</p>
 <p>現状の処理として以下のようなことをしています。</p>
 <h3 id="1-録画開始">1. 録画開始</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">touchesBegan:</span>(NSSet <span style="color:#f92672">*</span>)touches <span style="color:#a6e22e">withEvent:</span>(UIEvent <span style="color:#f92672">*</span>)event
-</code></pre></div><p>タッチイベントで録画の処理を開始します。このときにファイルに対しての書き込み処理を開始します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">[self.assetWriter startWriting];
-[self.assetWriter startSessionAtSourceTime:self.recordStartTime];
-</code></pre></div><h3 id="2-録画">2. 録画</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">touchesBegan:</span>(NSSet <span style="color:#f92672">*</span>)touches <span style="color:#a6e22e">withEvent:</span>(UIEvent <span style="color:#f92672">*</span>)event
+</span></span></code></pre></div><p>タッチイベントで録画の処理を開始します。このときにファイルに対しての書き込み処理を開始します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>[self.assetWriter startWriting];
+</span></span><span style="display:flex;"><span>[self.assetWriter startSessionAtSourceTime:self.recordStartTime];
+</span></span></code></pre></div><h3 id="2-録画">2. 録画</h3>
 <p><code>AVCaptureVideoDataOutputSampleBufferDelegate</code>, <code>AVCaptureAudioDataOutputSampleBufferDelegate</code>をプロトコルとして指定して、
 以下のメソッドで録画の処理を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">captureOutput:</span>(AVCaptureOutput <span style="color:#f92672">*</span>)captureOutput <span style="color:#a6e22e">didOutputSampleBuffer:</span>(CMSampleBufferRef)sampleBuffer <span style="color:#a6e22e">fromConnection:</span>(AVCaptureConnection <span style="color:#f92672">*</span>)connection
-</code></pre></div><p>ざっくりですが、内部でやっていることはCMSampleBufferというフレーム情報が取得でき、それを１秒間に何回も実行されるこのメソッドで<code>AVAssetWriterInput</code>オブジェクトに
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">captureOutput:</span>(AVCaptureOutput <span style="color:#f92672">*</span>)captureOutput <span style="color:#a6e22e">didOutputSampleBuffer:</span>(CMSampleBufferRef)sampleBuffer <span style="color:#a6e22e">fromConnection:</span>(AVCaptureConnection <span style="color:#f92672">*</span>)connection
+</span></span></code></pre></div><p>ざっくりですが、内部でやっていることはCMSampleBufferというフレーム情報が取得でき、それを１秒間に何回も実行されるこのメソッドで<code>AVAssetWriterInput</code>オブジェクトに
 追加処理をしています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">    CFRetain(sampleBuffer);
-    CFRetain(formatDescription);
-    dispatch_async(self.movieWritingQueue, <span style="color:#f92672">^</span>{
-
-        <span style="color:#66d9ef">if</span> (_assetWriter.status <span style="color:#f92672">==</span> AVAssetWriterStatusWriting) {
-
-            <span style="color:#66d9ef">if</span> (assetWriterInput.readyForMoreMediaData) {
-
-                <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>[assetWriterInput appendSampleBuffer:sampleBuffer]) {
-                    NSLog(<span style="color:#e6db74">@&#34;%@&#34;</span>,[self.assetWriter error]);
-                }
-
-            }
-        }
-
-        CFRelease(sampleBuffer);
-        CFRelease(formatDescription);
-    });
-</code></pre></div><h3 id="3-録画終了">3. 録画終了</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    CFRetain(sampleBuffer);
+</span></span><span style="display:flex;"><span>    CFRetain(formatDescription);
+</span></span><span style="display:flex;"><span>    dispatch_async(self.movieWritingQueue, <span style="color:#f92672">^</span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (_assetWriter.status <span style="color:#f92672">==</span> AVAssetWriterStatusWriting) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (assetWriterInput.readyForMoreMediaData) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>[assetWriterInput appendSampleBuffer:sampleBuffer]) {
+</span></span><span style="display:flex;"><span>                    NSLog(<span style="color:#e6db74">@&#34;%@&#34;</span>,[self.assetWriter error]);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        CFRelease(sampleBuffer);
+</span></span><span style="display:flex;"><span>        CFRelease(formatDescription);
+</span></span><span style="display:flex;"><span>    });
+</span></span></code></pre></div><h3 id="3-録画終了">3. 録画終了</h3>
 <p>タッチが終了したら録画終了の処理を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-obj-c" data-lang="obj-c">- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">touchesEnded:</span>(NSSet <span style="color:#f92672">*</span>)touches <span style="color:#a6e22e">withEvent:</span>(UIEvent <span style="color:#f92672">*</span>)event
-</code></pre></div><h2 id="問題">問題</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">touchesEnded:</span>(NSSet <span style="color:#f92672">*</span>)touches <span style="color:#a6e22e">withEvent:</span>(UIEvent <span style="color:#f92672">*</span>)event
+</span></span></code></pre></div><h2 id="問題">問題</h2>
 <p>どうやらスレッドを利用しての保存方法に問題があったようです。</p>
 <h3 id="修正前">修正前</h3>
 <p><img src="/images/posts/2014-06-15_01_avassetwriter.jpg" alt="AVAssetWriter"></p>
@@ -119,16 +119,16 @@ Vine動画のようにタッチしたら録画し、タッチが終了したら(
 <p><img src="/images/posts/2014-06-15_02_avassetwriter.jpg" alt="AVAssetWriter"></p>
 <p>なので録画開始も同じスレッドで順次処理させるようにし、時間の誤差を最小限にしました。こうすることで無事ブラックシーンが無くなりました。</p>
 <p>実際には以下のように修正しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff">     // Record
-     NSLog(@&#34;[Starting to record]&#34;);
-<span style="color:#f92672">-    [self.assetWriter startWriting];
-</span><span style="color:#f92672">-    [self.assetWriter startSessionAtSourceTime:self.recordStartTime];
-</span><span style="color:#f92672"></span><span style="color:#a6e22e">+    dispatch_async(self.movieWritingQueue, ^{
-</span><span style="color:#a6e22e">+        [self.assetWriter startWriting];
-</span><span style="color:#a6e22e">+        [self.assetWriter startSessionAtSourceTime:self.recordStartTime];
-</span><span style="color:#a6e22e">+    });
-</span><span style="color:#a6e22e">+
-</span></code></pre></div><h3 id="まとめ">まとめ</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>     // Record
+</span></span><span style="display:flex;"><span>     NSLog(@&#34;[Starting to record]&#34;);
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-    [self.assetWriter startWriting];
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-    [self.assetWriter startSessionAtSourceTime:self.recordStartTime];
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+    dispatch_async(self.movieWritingQueue, ^{
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        [self.assetWriter startWriting];
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        [self.assetWriter startSessionAtSourceTime:self.recordStartTime];
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    });
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+
+</span></span></span></code></pre></div><h3 id="まとめ">まとめ</h3>
 <p>とはいえ、この実装も完璧というわけではなくてタイミングがずれることはあるとおっしゃっていましたが、
 今のところ発生していないので安心しています。</p>
 <h2 id="参考">参考</h2>

@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="VirtualDocumentRootとか">
@@ -12,25 +12,21 @@
 ・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。
 このとき利用する方法としてVirtualDocumentRootの設定をします。
 それが以下の設定。
-# ディレクトリティブの設定Options -Indexes -MultiViews &#43;ExecCGI -IncludesAllowOverride AllFileETag None# すべてからのホストに対しての設定ServerName %0VirtualDocumentRoot /home/web/%0/public_htmlこれによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。 これができると楽なんだなぁと思いました。
-ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。
-%%	insert a %%p	insert the port number of the virtual host%N.M	insert (part of) the name0	the whole name 1	the first part 2	the second part -1	the last part -2	the penultimate part 2&#43;	the second and all subsequent parts -2&#43;	the penultimate and all preceding parts 1&#43; and -1&#43;	the same as 0" />
+# ディレクトリティブの設定" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="VirtualDocumentRootとか" />
 <meta name="twitter:description" content="Apacheの設定をいじる機会がありましていろいろしることできたのでメモ。 あと考え方もちょびちょび。
 ・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。
 このとき利用する方法としてVirtualDocumentRootの設定をします。
 それが以下の設定。
-# ディレクトリティブの設定Options -Indexes -MultiViews &#43;ExecCGI -IncludesAllowOverride AllFileETag None# すべてからのホストに対しての設定ServerName %0VirtualDocumentRoot /home/web/%0/public_htmlこれによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。 一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。 これができると楽なんだなぁと思いました。
-ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。
-%%	insert a %%p	insert the port number of the virtual host%N.M	insert (part of) the name0	the whole name 1	the first part 2	the second part -1	the last part -2	the penultimate part 2&#43;	the second and all subsequent parts -2&#43;	the penultimate and all preceding parts 1&#43; and -1&#43;	the same as 0" />
+# ディレクトリティブの設定" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="欲求不満(www.frustration.me)フルリニューアルかけた。">
@@ -11,36 +11,32 @@
 <meta property="go:description" content="欲求不満フルリニューアルかけた。 現在、自分で全て管理している「欲求不満（www.frustration.me）」ですが、数年前 にリリースを行い（ http://blog.nakajijapan.net/?p=2685 ）、デザインのリニューアル、 機能追加が粛々と気の向くままに開発していましたが、ついに３年目にしてソース・デザイン全て リニューアルをかけました。構想は去年の１２月から徐々に着手し始めていまして、年初めにはリニューアル できるものかなと安易にかんがえていたけど（仕様そんなに難しくないしねーてきなのり）なかなか 大変で一部機能を削ぎ落しての妥協リリースになってしまいました。。。無念です。あと、これ要らねーだろう っていうやつは消してますけど。
 見た目は今時風にしたかったので、それっぽくしました。あとは自分の開発モチベーションあげたいので言語をRubyに変更しました。
 内部的には結構細かいことしてまして。
- デザインをTwitterBootstrapをベースにした ZendFramework(PHP)からRails(Ruby)に対応 jsのフレームワークにBackbone.jsを導入 APIの検索周りの処理をGem化  https://rubygems.org/gems/api_bucket  ユーザの画像一式を全てS3で管理 Paasを導入してsqale.jpで管理するようにした  的なことしています。
+デザインをTwitterBootstrapをベースにした ZendFramework(PHP)からRails(Ruby)に対応 jsのフレームワークにBackbone.jsを導入 APIの検索周りの処理をGem化 https://rubygems.org/gems/api_bucket ユーザの画像一式を全てS3で管理 Paasを導入してsqale.jpで管理するようにした 的なことしています。
 デザイン なんか自分で眺めててあきないようにしたくて、いろんなサイトから参考にしましておこぼれちょうだいしてます。 デザイナ不在なので慣れないコーディングを全て自分やることになりましたが大変勉強になりました。あとTwitterBootstrapがなかったらもっとCSSのコーディングが大変になっていたしそこそこのデザインに鳴らなかったと思います。
 ちなみに初期のデザインはこれ
-
 ちょっとは成長しました。。。
-Paasはsqale.jp( http://sqale.jp ) 
-弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。 インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。
+Paasはsqale.jp( http://sqale.jp ) 弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。 インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。
 今後やっていくこと 誰も使わなくても改善していきます！！！！１０年使い続けられる物欲管理サービスになります！！
- Backbone.jsをもっとフル活用する  もっと動きをjs側に処理を依存させる よろしくない記述が多々あるのでリファクタリングに励みます。  自分でもっと画像作れるようにする  cssでデザインするのには限界ですね  jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。 失われた機能を追加します。。。  " />
+Backbone.jsをもっとフル活用する もっと動きをjs側に処理を依存させる よろしくない記述が多々あるのでリファクタリングに励みます。 自分でもっと画像作れるようにする cssでデザインするのには限界ですね jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。 失われた機能を追加します。。。 " />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="欲求不満(www.frustration.me)フルリニューアルかけた。" />
 <meta name="twitter:description" content="欲求不満フルリニューアルかけた。 現在、自分で全て管理している「欲求不満（www.frustration.me）」ですが、数年前 にリリースを行い（ http://blog.nakajijapan.net/?p=2685 ）、デザインのリニューアル、 機能追加が粛々と気の向くままに開発していましたが、ついに３年目にしてソース・デザイン全て リニューアルをかけました。構想は去年の１２月から徐々に着手し始めていまして、年初めにはリニューアル できるものかなと安易にかんがえていたけど（仕様そんなに難しくないしねーてきなのり）なかなか 大変で一部機能を削ぎ落しての妥協リリースになってしまいました。。。無念です。あと、これ要らねーだろう っていうやつは消してますけど。
 見た目は今時風にしたかったので、それっぽくしました。あとは自分の開発モチベーションあげたいので言語をRubyに変更しました。
 内部的には結構細かいことしてまして。
- デザインをTwitterBootstrapをベースにした ZendFramework(PHP)からRails(Ruby)に対応 jsのフレームワークにBackbone.jsを導入 APIの検索周りの処理をGem化  https://rubygems.org/gems/api_bucket  ユーザの画像一式を全てS3で管理 Paasを導入してsqale.jpで管理するようにした  的なことしています。
+デザインをTwitterBootstrapをベースにした ZendFramework(PHP)からRails(Ruby)に対応 jsのフレームワークにBackbone.jsを導入 APIの検索周りの処理をGem化 https://rubygems.org/gems/api_bucket ユーザの画像一式を全てS3で管理 Paasを導入してsqale.jpで管理するようにした 的なことしています。
 デザイン なんか自分で眺めててあきないようにしたくて、いろんなサイトから参考にしましておこぼれちょうだいしてます。 デザイナ不在なので慣れないコーディングを全て自分やることになりましたが大変勉強になりました。あとTwitterBootstrapがなかったらもっとCSSのコーディングが大変になっていたしそこそこのデザインに鳴らなかったと思います。
 ちなみに初期のデザインはこれ
-
 ちょっとは成長しました。。。
-Paasはsqale.jp( http://sqale.jp ) 
-弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。 インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。
+Paasはsqale.jp( http://sqale.jp ) 弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。 インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。
 今後やっていくこと 誰も使わなくても改善していきます！！！！１０年使い続けられる物欲管理サービスになります！！
- Backbone.jsをもっとフル活用する  もっと動きをjs側に処理を依存させる よろしくない記述が多々あるのでリファクタリングに励みます。  自分でもっと画像作れるようにする  cssでデザインするのには限界ですね  jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。 失われた機能を追加します。。。  " />
+Backbone.jsをもっとフル活用する もっと動きをjs側に処理を依存させる よろしくない記述が多々あるのでリファクタリングに励みます。 自分でもっと画像作れるようにする cssでデザインするのには限界ですね jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。 失われた機能を追加します。。。 " />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

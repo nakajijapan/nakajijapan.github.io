@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[zend]アプリ側（UTF8）とDB(EUC-JP)の文字コード変換をPDOで行う">
@@ -15,15 +15,15 @@
 対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。 （この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）
 ※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。
 まずは
-abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract{/*** Creates a PDO object and connects to the database.** @return void* @throws Zend_Db_Adapter_Exception*/protected function _connect(){// if we already have a PDO object, no need to re-connect.if ($this-_connection) {return;}// get the dsn first, because some adapters alter the $_pdoType$dsn = $this-_dsn();// check for PDO extensionif (!" />
+abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract{/*** Creates a PDO object and connects to the database.** @return void* @throws Zend_Db_Adapter_Exception*/protected function _connect(){// if we already have a PDO object, no need to re-connect.if ($this-&gt;_connection) {return;}// get the dsn first, because some adapters alter the $_pdoType$dsn = $this-&gt;_dsn();// check for PDO extensionif (!" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[zend]アプリ側（UTF8）とDB(EUC-JP)の文字コード変換をPDOで行う" />
 <meta name="twitter:description" content="システム開発行っていると、なるべく昔の仕様を変更せずに既存リソースを生かしながらも新しい開発行っていかな ければいけない自体が多々ある思われる。
 今回の件でいえば、文字コードの問題。
@@ -32,7 +32,7 @@ abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract
 対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。 （この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）
 ※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。
 まずは
-abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract{/*** Creates a PDO object and connects to the database.** @return void* @throws Zend_Db_Adapter_Exception*/protected function _connect(){// if we already have a PDO object, no need to re-connect.if ($this-_connection) {return;}// get the dsn first, because some adapters alter the $_pdoType$dsn = $this-_dsn();// check for PDO extensionif (!" />
+abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract{/*** Creates a PDO object and connects to the database.** @return void* @throws Zend_Db_Adapter_Exception*/protected function _connect(){// if we already have a PDO object, no need to re-connect.if ($this-&gt;_connection) {return;}// get the dsn first, because some adapters alter the $_pdoType$dsn = $this-&gt;_dsn();// check for PDO extensionif (!" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

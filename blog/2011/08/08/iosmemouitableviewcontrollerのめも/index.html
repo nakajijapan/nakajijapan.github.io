@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[ios][memo]UITableViewControllerのめも。">
@@ -10,19 +10,19 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/08/08/iosmemouitableviewcontroller%E3%81%AE%E3%82%81%E3%82%82/" />
 <meta property="go:description" content="勉強の一環であります。
 実際に実装して間隔つかむ。
-#import @interface RootViewController : UITableViewController {NSMutableArray *arrListSection1;NSMutableArray *arrListSection2;}@property (nonatomic, retain) NSMutableArray *arrListSection1;@property (nonatomic, retain) NSMutableArray *arrListSection2;@end#import &#34;RootViewController.h&#34;@implementation RootViewController@synthesize arrListSection1;@synthesize arrListSection2;- (void)viewDidLoad{[super viewDidLoad];[self.navigationItem setTitle:@&#34;test table&#34;];arrListSection1 = [[NSMutableArray alloc] initWithObjects:@&#34;test1&#34;,@&#34;test2&#34;,@&#34;test3&#34;, nil];arrListSection2 = [[NSMutableArray alloc] initWithObjects:@&#34;test11&#34;,@&#34;test22&#34;,@&#34;test33&#34;, nil];}- (void)viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];}- (void)viewDidAppear:(BOOL)animated{[super viewDidAppear:animated];}- (void)viewWillDisappear:(BOOL)animated{[super viewWillDisappear:animated];}- (void)viewDidDisappear:(BOOL)animated{[super viewDidDisappear:animated];}//----------------------------------------------------------------#pragma mark - TableViewController//----------------------------------------------------------------- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {UIView *view = [[UIView alloc] init];// 背景に画像をセットする view." />
+#import @interface RootViewController : UITableViewController {NSMutableArray *arrListSection1;NSMutableArray *arrListSection2;}@property (nonatomic, retain) NSMutableArray *arrListSection1;@property (nonatomic, retain) NSMutableArray *arrListSection2;@end#import &#34;RootViewController.h&#34;@implementation RootViewController@synthesize arrListSection1;@synthesize arrListSection2;- (void)viewDidLoad{[super viewDidLoad];[self.navigationItem setTitle:@&#34;test table&#34;];arrListSection1 = [[NSMutableArray alloc] initWithObjects:@&#34;test1&#34;,@&#34;test2&#34;,@&#34;test3&#34;, nil];arrListSection2 = [[NSMutableArray alloc] initWithObjects:@&#34;test11&#34;,@&#34;test22&#34;,@&#34;test33&#34;, nil];}- (void)viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];}- (void)viewDidAppear:(BOOL)animated{[super viewDidAppear:animated];}- (void)viewWillDisappear:(BOOL)animated{[super viewWillDisappear:animated];}- (void)viewDidDisappear:(BOOL)animated{[super viewDidDisappear:animated];}//----------------------------------------------------------------#pragma mark - TableViewController//----------------------------------------------------------------- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {UIView *view = [[UIView alloc] init];// 背景に画像をセットする view." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[ios][memo]UITableViewControllerのめも。" />
 <meta name="twitter:description" content="勉強の一環であります。
 実際に実装して間隔つかむ。
-#import @interface RootViewController : UITableViewController {NSMutableArray *arrListSection1;NSMutableArray *arrListSection2;}@property (nonatomic, retain) NSMutableArray *arrListSection1;@property (nonatomic, retain) NSMutableArray *arrListSection2;@end#import &#34;RootViewController.h&#34;@implementation RootViewController@synthesize arrListSection1;@synthesize arrListSection2;- (void)viewDidLoad{[super viewDidLoad];[self.navigationItem setTitle:@&#34;test table&#34;];arrListSection1 = [[NSMutableArray alloc] initWithObjects:@&#34;test1&#34;,@&#34;test2&#34;,@&#34;test3&#34;, nil];arrListSection2 = [[NSMutableArray alloc] initWithObjects:@&#34;test11&#34;,@&#34;test22&#34;,@&#34;test33&#34;, nil];}- (void)viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];}- (void)viewDidAppear:(BOOL)animated{[super viewDidAppear:animated];}- (void)viewWillDisappear:(BOOL)animated{[super viewWillDisappear:animated];}- (void)viewDidDisappear:(BOOL)animated{[super viewDidDisappear:animated];}//----------------------------------------------------------------#pragma mark - TableViewController//----------------------------------------------------------------- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {UIView *view = [[UIView alloc] init];// 背景に画像をセットする view." />
+#import @interface RootViewController : UITableViewController {NSMutableArray *arrListSection1;NSMutableArray *arrListSection2;}@property (nonatomic, retain) NSMutableArray *arrListSection1;@property (nonatomic, retain) NSMutableArray *arrListSection2;@end#import &#34;RootViewController.h&#34;@implementation RootViewController@synthesize arrListSection1;@synthesize arrListSection2;- (void)viewDidLoad{[super viewDidLoad];[self.navigationItem setTitle:@&#34;test table&#34;];arrListSection1 = [[NSMutableArray alloc] initWithObjects:@&#34;test1&#34;,@&#34;test2&#34;,@&#34;test3&#34;, nil];arrListSection2 = [[NSMutableArray alloc] initWithObjects:@&#34;test11&#34;,@&#34;test22&#34;,@&#34;test33&#34;, nil];}- (void)viewWillAppear:(BOOL)animated{[super viewWillAppear:animated];}- (void)viewDidAppear:(BOOL)animated{[super viewDidAppear:animated];}- (void)viewWillDisappear:(BOOL)animated{[super viewWillDisappear:animated];}- (void)viewDidDisappear:(BOOL)animated{[super viewDidDisappear:animated];}//----------------------------------------------------------------#pragma mark - TableViewController//----------------------------------------------------------------- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {UIView *view = [[UIView alloc] init];// 背景に画像をセットする view." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -229,7 +229,7 @@
 
 </pre>
 <p>できたものはこんなもの</p>
-<p><img src="http://blog.nakajijapan.net/wp-content/uploads/2011/07/スクリーンショット（2011-07-24-17.21.29）.png" alt="" title="test" width="396" height="744" class="aligncenter size-full wp-image-2804" /></p>
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2011/07/スクリーンショット（2011-07-24-17.21.29）.png" alt="" title="test" width="396" height="744" class="aligncenter size-full wp-image-2804" />
 <div class="booklog_html"><div class="booklog_html_image" style="float:left;"><a href="http://www.amazon.co.jp/gp/product/4797358106?tag=daichibnejp-22&linkCode=as1" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51Xh3SHkBaL._SL160_.jpg" width="124" height="160" style="border:0;" /></a></div><div class="booklog_html_info" style="float:left;margin-left:10px;"><div class="booklog_html_title" style="margin-bottom:5px;font-size:12px;"><a href="http://www.amazon.co.jp/gp/product/4797358106?tag=daichibnejp-22&linkCode=as1" target="_blank">はじめてのiPhone3プログラミング</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="font-size:10px;">Dave Mark,Jeff LaMarche</div><div class="booklog_html_manufacturer" style="font-size:10px;">ソフトバンククリエイティブ</div><div class="booklog_html_release" style="font-size:10px;">発売日：2009-12-17</div></div><div class="booklog_html_link_amazon" style="margin-bottom:10px;font-size:10px;"><a href="http://booklog.jp/asin/4797358106" target="_blank">ブクログでレビューを見る»</a></div></div><div class="booklog_html_fotter" style="clear:left;"></div><br /></div>
 
 			</section>

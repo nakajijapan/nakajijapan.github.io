@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="rbenvのインストール">
@@ -11,22 +11,22 @@
 <meta property="go:description" content="rubyで新サービスを開発するためにいろいろ技術調査やら実験しているわけでして、試行錯誤しているわけなフェーズな訳です。 とはいうもののなんだかんだしてrubyのバージョンがあがってフレームワークの並に乗れなかったりするのは嫌なので、システム からチョッち上の層でバージョン管理してくれるものあったのでインストールしてみることにします。
 今回はMacからのインストールですが、以前リナックスに同じバージョン管理してくれるRVMをいれていまして 「update」するとめんどくさいという経験談を聞いてちょっと公開してしまいましたがとりあえずはこれで運用しつつ、 Macではrbenvで運用してみることにします。
 でもその前に、久々にMacに入っているサーバやらソフトをbrewでアップデートします。brew入れてから半年もたってないけどもろもろ更新されてるみたいですね。
-# brew update# brew upgrade [~/config]== Upgrading 9 outdated packages, with result:cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6・・・・rbenvのインストール# brew install rbenv# brew install ruby-buildbrewは楽でいいですね。その後に.zshrcに以下の処理を追加します。
-eval &#34;$(rbenv init -)&#34;source ~/.rbenv/completions/rbenv.zshrubyのインストールまずはちょっと前のバージョンをいれてみることにします。# rbenv install 1.9.2-p290# rbenv global 1." />
+# brew update# brew upgrade [~/config]==&gt; Upgrading 9 outdated packages, with result:cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6・・・・rbenvのインストール# brew install rbenv# brew install ruby-buildbrewは楽でいいですね。その後に.zshrcに以下の処理を追加します。
+eval &#34;$(rbenv init -)&#34;source ~/.rbenv/completions/rbenv.zshrubyのインストールまずはちょっと前のバージョンをいれてみることにします。# rbenv install 1.9.2-p290# rbenv global 1.9.2-p290# rbenv rehash# ruby -vruby 1." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="rbenvのインストール" />
 <meta name="twitter:description" content="rubyで新サービスを開発するためにいろいろ技術調査やら実験しているわけでして、試行錯誤しているわけなフェーズな訳です。 とはいうもののなんだかんだしてrubyのバージョンがあがってフレームワークの並に乗れなかったりするのは嫌なので、システム からチョッち上の層でバージョン管理してくれるものあったのでインストールしてみることにします。
 今回はMacからのインストールですが、以前リナックスに同じバージョン管理してくれるRVMをいれていまして 「update」するとめんどくさいという経験談を聞いてちょっと公開してしまいましたがとりあえずはこれで運用しつつ、 Macではrbenvで運用してみることにします。
 でもその前に、久々にMacに入っているサーバやらソフトをbrewでアップデートします。brew入れてから半年もたってないけどもろもろ更新されてるみたいですね。
-# brew update# brew upgrade [~/config]== Upgrading 9 outdated packages, with result:cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6・・・・rbenvのインストール# brew install rbenv# brew install ruby-buildbrewは楽でいいですね。その後に.zshrcに以下の処理を追加します。
-eval &#34;$(rbenv init -)&#34;source ~/.rbenv/completions/rbenv.zshrubyのインストールまずはちょっと前のバージョンをいれてみることにします。# rbenv install 1.9.2-p290# rbenv global 1." />
+# brew update# brew upgrade [~/config]==&gt; Upgrading 9 outdated packages, with result:cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6・・・・rbenvのインストール# brew install rbenv# brew install ruby-buildbrewは楽でいいですね。その後に.zshrcに以下の処理を追加します。
+eval &#34;$(rbenv init -)&#34;source ~/.rbenv/completions/rbenv.zshrubyのインストールまずはちょっと前のバージョンをいれてみることにします。# rbenv install 1.9.2-p290# rbenv global 1.9.2-p290# rbenv rehash# ruby -vruby 1." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

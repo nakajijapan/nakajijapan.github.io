@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="GAE勉強会">
@@ -10,21 +10,21 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/02/13/gae%E5%8B%89%E5%BC%B7%E4%BC%9A/" />
 <meta property="go:description" content="GAE勉強会 ※わからないないところもあったので後で調べる予定です。
 内容＜セッション1＞発表者：松尾さん（@tmatsuo）テーマ：「App Engine アンチパターンその他」内容：App Engine でやってはいけないパターンを紹介、その他で小技集の紹介をします。＜セッション2＞ 発表者：ひがやすをさん（@higayasuo） テーマ：「Global Transaction」 内容：Global Transactionを理解するために必要なことを全部お話します。
-セッション１【モデル】インデックスの張り過ぎには注意メタデータにも注意カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストアを節約させる。（そこそこらしい）検索不要なプロパティは、インデックス対象にならないようにPUTする。# beforeclass Bar(db.Model):prop1 = db.StringProperty()after class Bar(db.Model): prop1 = db.StringProperty(false) 【Query】 コンポジットインデックス ソートもインデックスを使用して検索するので注意。 【モジュール】 pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。 appengineの場合は関数の中で必要なモジュールのみimportする
-#import hoge_utilsdef_index(request):# ここでimportしたほうがいいimport hoge_utilsreturn hoge_utils.getQuery();&lt;li&gt;【SDK1.3.1 新機能】&lt;/li&gt;&lt;li&gt;&lt;ol&gt; transaction task queuetransactionalTaskQueue→transactionが成功するとTaskQueueが追加される。失敗したときはTaskがQueueに追加されないTaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい同時にさばけるのは２０らしいCursorpagingに使えそうなイメージappstatsRPCのグラフみれたり、どっかでその時点でのコードがみれるmemcacheを利用しているpythonの作者が作成した &lt;/ol&gt;&lt;/li&gt; セッション２　GTX１エンティティ１トランザクションが制約 複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション エンティティグループロック？？" />
+セッション１【モデル】インデックスの張り過ぎには注意メタデータにも注意カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストアを節約させる。（そこそこらしい）検索不要なプロパティは、インデックス対象にならないようにPUTする。# beforeclass Bar(db.Model):prop1 = db.StringProperty()after class Bar(db.Model): prop1 = db.StringProperty(false) 【Query】 コンポジットインデックス ソートもインデックスを使用して検索するので注意。 【モジュール】 pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。 appengineの場合は関数の中で必要なモジュールのみimportする
+#import hoge_utilsdef_index(request):# ここでimportしたほうがいいimport hoge_utilsreturn hoge_utils.getQuery();&lt;li&gt;【SDK1.3.1 新機能】&lt;/li&gt;&lt;li&gt;&lt;ol&gt;transaction task queuetransactionalTaskQueue→transactionが成功するとTaskQueueが追加される。失敗したときはTaskがQueueに追加されないTaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい同時にさばけるのは２０らしいCursorpagingに使えそうなイメージappstatsRPCのグラフみれたり、どっかでその時点でのコードがみれるmemcacheを利用しているpythonの作者が作成した&lt;/ol&gt;&lt;/li&gt;セッション２　GTX１エンティティ１トランザクションが制約 複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション エンティティグループロック？？" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="GAE勉強会" />
 <meta name="twitter:description" content="GAE勉強会 ※わからないないところもあったので後で調べる予定です。
 内容＜セッション1＞発表者：松尾さん（@tmatsuo）テーマ：「App Engine アンチパターンその他」内容：App Engine でやってはいけないパターンを紹介、その他で小技集の紹介をします。＜セッション2＞ 発表者：ひがやすをさん（@higayasuo） テーマ：「Global Transaction」 内容：Global Transactionを理解するために必要なことを全部お話します。
-セッション１【モデル】インデックスの張り過ぎには注意メタデータにも注意カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストアを節約させる。（そこそこらしい）検索不要なプロパティは、インデックス対象にならないようにPUTする。# beforeclass Bar(db.Model):prop1 = db.StringProperty()after class Bar(db.Model): prop1 = db.StringProperty(false) 【Query】 コンポジットインデックス ソートもインデックスを使用して検索するので注意。 【モジュール】 pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。 appengineの場合は関数の中で必要なモジュールのみimportする
-#import hoge_utilsdef_index(request):# ここでimportしたほうがいいimport hoge_utilsreturn hoge_utils.getQuery();&lt;li&gt;【SDK1.3.1 新機能】&lt;/li&gt;&lt;li&gt;&lt;ol&gt; transaction task queuetransactionalTaskQueue→transactionが成功するとTaskQueueが追加される。失敗したときはTaskがQueueに追加されないTaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい同時にさばけるのは２０らしいCursorpagingに使えそうなイメージappstatsRPCのグラフみれたり、どっかでその時点でのコードがみれるmemcacheを利用しているpythonの作者が作成した &lt;/ol&gt;&lt;/li&gt; セッション２　GTX１エンティティ１トランザクションが制約 複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション エンティティグループロック？？" />
+セッション１【モデル】インデックスの張り過ぎには注意メタデータにも注意カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストアを節約させる。（そこそこらしい）検索不要なプロパティは、インデックス対象にならないようにPUTする。# beforeclass Bar(db.Model):prop1 = db.StringProperty()after class Bar(db.Model): prop1 = db.StringProperty(false) 【Query】 コンポジットインデックス ソートもインデックスを使用して検索するので注意。 【モジュール】 pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。 appengineの場合は関数の中で必要なモジュールのみimportする
+#import hoge_utilsdef_index(request):# ここでimportしたほうがいいimport hoge_utilsreturn hoge_utils.getQuery();&lt;li&gt;【SDK1.3.1 新機能】&lt;/li&gt;&lt;li&gt;&lt;ol&gt;transaction task queuetransactionalTaskQueue→transactionが成功するとTaskQueueが追加される。失敗したときはTaskがQueueに追加されないTaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい同時にさばけるのは２０らしいCursorpagingに使えそうなイメージappstatsRPCのグラフみれたり、どっかでその時点でのコードがみれるmemcacheを利用しているpythonの作者が作成した&lt;/ol&gt;&lt;/li&gt;セッション２　GTX１エンティティ１トランザクションが制約 複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション エンティティグループロック？？" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

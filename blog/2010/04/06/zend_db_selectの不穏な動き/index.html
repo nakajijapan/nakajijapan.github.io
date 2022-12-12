@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Zend_Db_Selectの不穏な動き">
@@ -10,29 +10,29 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/04/06/zend_db_select%E3%81%AE%E4%B8%8D%E7%A9%8F%E3%81%AA%E5%8B%95%E3%81%8D/" />
 <meta property="go:description" content="最近、こう日記を更新していけども。まぁHDがいかれるやらSATAのコネクタの規格を間違って購入してることやらなんやらほんにゃら。 そろそろ、俺のサーバもクラウドかな。まだやらんけどさ。
 マニュアル上ではこんな感じで記述されていてクラスでもSQL(文字列)でも埋め込める事ができるらしいのだけれど
-$sql1 = $db-select();$sql2 = &#34;SELECT ...&#34;;$select = $db-select()-union(array($sql1, $sql2))-order(&#34;id&#34;);でも実際この通り実装してみるエラー発生、原因としてはどうやらMysql５でZendが吐いたSQLを実行すると エラーが発生する模様。Mysql4ではどうも発生しなかったみたい。Zendの仕様なのかなと思ったので しょうが無く文字列にしてごねごね作成することにした。
-$sql1 = $db-select();$sql2 = &#34;SELECT ...&#34;;$select = $db-select()-union(array(&#34;(&#34;.$sql1-__toString().&#34;)&#34;, &#34;(&#34;.$sql2.&#34;)&#34;))-order(&#34;id&#34;);でも、この書き方腑に落ちないですね。SQLは低レイヤーで抽象化されるべきもの。しかもUNIONするときは括弧で括ったほうが SQL的には推奨されてるはずなんだけどねーー。
+$sql1 = $db-&gt;select();$sql2 = &#34;SELECT ...&#34;;$select = $db-&gt;select()-&gt;union(array($sql1, $sql2))-&gt;order(&#34;id&#34;);でも実際この通り実装してみるエラー発生、原因としてはどうやらMysql５でZendが吐いたSQLを実行すると エラーが発生する模様。Mysql4ではどうも発生しなかったみたい。Zendの仕様なのかなと思ったので しょうが無く文字列にしてごねごね作成することにした。
+$sql1 = $db-&gt;select();$sql2 = &#34;SELECT ...&#34;;$select = $db-&gt;select()-&gt;union(array(&#34;(&#34;.$sql1-&gt;__toString().&#34;)&#34;, &#34;(&#34;.$sql2.&#34;)&#34;))-&gt;order(&#34;id&#34;);でも、この書き方腑に落ちないですね。SQLは低レイヤーで抽象化されるべきもの。しかもUNIONするときは括弧で括ったほうが SQL的には推奨されてるはずなんだけどねーー。
 Mysqlマニュアル
 この辺、いじって括弧で括らせれば問題解決されるかも。でもZendのオリジナルソースいじるの気がひけるなー。 継承したいところだけど結構クラスが入り組んでて大変なことになりかねないのでソースいじったほうがてっとり早いんだろうなー。
 この辺いじる。
-/*** Render UNION query** @param string $sql SQL query* @return string*/protected function _renderUnion($sql){if ($this-_parts[self::UNION]) {$parts = count($this-_parts[self::UNION]);foreach ($this-_parts[self::UNION] as $cnt = $union) {list($target, $type) = $union;if ($target instanceof Zend_Db_Select) {$target = $target-assemble();}// この辺かな//$sql ." />
+/*** Render UNION query** @param string $sql SQL query* @return string*/protected function _renderUnion($sql){if ($this-&gt;_parts[self::UNION]) {$parts = count($this-&gt;_parts[self::UNION]);foreach ($this-&gt;_parts[self::UNION] as $cnt =&gt; $union) {list($target, $type) = $union;if ($target instanceof Zend_Db_Select) {$target = $target-&gt;assemble();}// この辺かな//$sql ." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Zend_Db_Selectの不穏な動き" />
 <meta name="twitter:description" content="最近、こう日記を更新していけども。まぁHDがいかれるやらSATAのコネクタの規格を間違って購入してることやらなんやらほんにゃら。 そろそろ、俺のサーバもクラウドかな。まだやらんけどさ。
 マニュアル上ではこんな感じで記述されていてクラスでもSQL(文字列)でも埋め込める事ができるらしいのだけれど
-$sql1 = $db-select();$sql2 = &#34;SELECT ...&#34;;$select = $db-select()-union(array($sql1, $sql2))-order(&#34;id&#34;);でも実際この通り実装してみるエラー発生、原因としてはどうやらMysql５でZendが吐いたSQLを実行すると エラーが発生する模様。Mysql4ではどうも発生しなかったみたい。Zendの仕様なのかなと思ったので しょうが無く文字列にしてごねごね作成することにした。
-$sql1 = $db-select();$sql2 = &#34;SELECT ...&#34;;$select = $db-select()-union(array(&#34;(&#34;.$sql1-__toString().&#34;)&#34;, &#34;(&#34;.$sql2.&#34;)&#34;))-order(&#34;id&#34;);でも、この書き方腑に落ちないですね。SQLは低レイヤーで抽象化されるべきもの。しかもUNIONするときは括弧で括ったほうが SQL的には推奨されてるはずなんだけどねーー。
+$sql1 = $db-&gt;select();$sql2 = &#34;SELECT ...&#34;;$select = $db-&gt;select()-&gt;union(array($sql1, $sql2))-&gt;order(&#34;id&#34;);でも実際この通り実装してみるエラー発生、原因としてはどうやらMysql５でZendが吐いたSQLを実行すると エラーが発生する模様。Mysql4ではどうも発生しなかったみたい。Zendの仕様なのかなと思ったので しょうが無く文字列にしてごねごね作成することにした。
+$sql1 = $db-&gt;select();$sql2 = &#34;SELECT ...&#34;;$select = $db-&gt;select()-&gt;union(array(&#34;(&#34;.$sql1-&gt;__toString().&#34;)&#34;, &#34;(&#34;.$sql2.&#34;)&#34;))-&gt;order(&#34;id&#34;);でも、この書き方腑に落ちないですね。SQLは低レイヤーで抽象化されるべきもの。しかもUNIONするときは括弧で括ったほうが SQL的には推奨されてるはずなんだけどねーー。
 Mysqlマニュアル
 この辺、いじって括弧で括らせれば問題解決されるかも。でもZendのオリジナルソースいじるの気がひけるなー。 継承したいところだけど結構クラスが入り組んでて大変なことになりかねないのでソースいじったほうがてっとり早いんだろうなー。
 この辺いじる。
-/*** Render UNION query** @param string $sql SQL query* @return string*/protected function _renderUnion($sql){if ($this-_parts[self::UNION]) {$parts = count($this-_parts[self::UNION]);foreach ($this-_parts[self::UNION] as $cnt = $union) {list($target, $type) = $union;if ($target instanceof Zend_Db_Select) {$target = $target-assemble();}// この辺かな//$sql ." />
+/*** Render UNION query** @param string $sql SQL query* @return string*/protected function _renderUnion($sql){if ($this-&gt;_parts[self::UNION]) {$parts = count($this-&gt;_parts[self::UNION]);foreach ($this-&gt;_parts[self::UNION] as $cnt =&gt; $union) {list($target, $type) = $union;if ($target instanceof Zend_Db_Select) {$target = $target-&gt;assemble();}// この辺かな//$sql ." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

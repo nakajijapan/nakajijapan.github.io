@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="rakutenApiはZend_Service_Amazonのようには解析できない">
@@ -10,25 +10,25 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2011/06/01/rakutenapi%E3%81%AFzend_service_amazon%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E3%81%AF%E8%A7%A3%E6%9E%90%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/" />
 <meta property="go:description" content="そういえば、欲求不満で楽天のクラスを作成する時にZend_Service_Amazonと 同じ仕様にしようと考えていました。
 具体的には
-ファイル構成Zend_Service_AmazonZend_Service_Amazon_ItemZend_Service_Amazon_ResultSetZend_Service_Amazon_Image解析方法HttpResuestで情報を取得DOMオブジェクト生成した後にXPATHでDOMを簡単に検索できるようにしてなんちゃらかんちゃら情報の集まりを上記のクラスでまとめてオブジェクトにするだが、rakutenApiの場合は、
-$dom = new DOMDocument();からのXpath経由で情報がいまいち解析ができないようなので単純に取得できないようなので phpの関数「simpleXML」の関数を利用して解析するようにしました。
+ファイル構成Zend_Service_AmazonZend_Service_Amazon_ItemZend_Service_Amazon_ResultSetZend_Service_Amazon_Image解析方法HttpResuestで情報を取得DOMオブジェクト生成した後にXPATHでDOMを簡単に検索できるようにしてなんちゃらかんちゃら情報の集まりを上記のクラスでまとめてオブジェクトにするだが、rakutenApiの場合は、
+$dom = new DOMDocument();からのXpath経由で情報がいまいち解析ができないようなので単純に取得できないようなので phpの関数「simpleXML」の関数を利用して解析するようにしました。
 とりあえず、できたのでよかったです。
-define(&#39;BASE_DIR&#39;, &#34;/hoge/hogehoge&#34;);$ADD_PATH = array(BASE_DIR . &#39;/library/&#39;,BASE_DIR . &#39;/library/Pear/&#39;,get_include_path());set_include_path(implode(PATH_SEPARATOR, $ADD_PATH));require_once(&#34;/home/www.petit.cc/library/Zend/Http/Client.php&#34;);// rakuten$url = &#34;http://api.rakuten.co.jp/rws/3.0/rest?hogehogehoge=hoge&#34;;// http_request$params = array();$client = new Zend_Http_Client($url);$client-setConfig(array(&#39;timeout&#39; = 30));$client-setParameterPost($params);$client-setMethod(Zend_Http_Client::POST);$response = $client-request();// get Body$body = preg_replace(&#34;/(\n|\r\n|\r)/&#34;,&#34;&#34;, $response-getBody());// TESTecho $body;// XML解析$parser = xml_parser_create(&#39;UTF-8&#39;);xml_parse_into_struct($parser,$body,$values);xml_parser_free($parser); var_dump($values);でも、不明なのは ・なんでZendはDOMDocumentで解析して ・rakutenApiの取得した情報はDOMDocumentで解析できなかったのか は未だによくわかっていないのが現状であります。" />
+define(&#39;BASE_DIR&#39;, &#34;/hoge/hogehoge&#34;);$ADD_PATH = array(BASE_DIR . &#39;/library/&#39;,BASE_DIR . &#39;/library/Pear/&#39;,get_include_path());set_include_path(implode(PATH_SEPARATOR, $ADD_PATH));require_once(&#34;/home/www.petit.cc/library/Zend/Http/Client.php&#34;);// rakuten$url = &#34;http://api.rakuten.co.jp/rws/3.0/rest?hogehogehoge=hoge&#34;;// http_request$params = array();$client = new Zend_Http_Client($url);$client-&gt;setConfig(array(&#39;timeout&#39; =&gt; 30));$client-&gt;setParameterPost($params);$client-&gt;setMethod(Zend_Http_Client::POST);$response = $client-&gt;request();// get Body$body = preg_replace(&#34;/(\n|\r\n|\r)/&#34;,&#34;&#34;, $response-&gt;getBody());// TESTecho $body;// XML解析$parser = xml_parser_create(&#39;UTF-8&#39;);xml_parse_into_struct($parser,$body,$values);xml_parser_free($parser); var_dump($values);でも、不明なのは ・なんでZendはDOMDocumentで解析して ・rakutenApiの取得した情報はDOMDocumentで解析できなかったのか は未だによくわかっていないのが現状であります。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="rakutenApiはZend_Service_Amazonのようには解析できない" />
 <meta name="twitter:description" content="そういえば、欲求不満で楽天のクラスを作成する時にZend_Service_Amazonと 同じ仕様にしようと考えていました。
 具体的には
-ファイル構成Zend_Service_AmazonZend_Service_Amazon_ItemZend_Service_Amazon_ResultSetZend_Service_Amazon_Image解析方法HttpResuestで情報を取得DOMオブジェクト生成した後にXPATHでDOMを簡単に検索できるようにしてなんちゃらかんちゃら情報の集まりを上記のクラスでまとめてオブジェクトにするだが、rakutenApiの場合は、
-$dom = new DOMDocument();からのXpath経由で情報がいまいち解析ができないようなので単純に取得できないようなので phpの関数「simpleXML」の関数を利用して解析するようにしました。
+ファイル構成Zend_Service_AmazonZend_Service_Amazon_ItemZend_Service_Amazon_ResultSetZend_Service_Amazon_Image解析方法HttpResuestで情報を取得DOMオブジェクト生成した後にXPATHでDOMを簡単に検索できるようにしてなんちゃらかんちゃら情報の集まりを上記のクラスでまとめてオブジェクトにするだが、rakutenApiの場合は、
+$dom = new DOMDocument();からのXpath経由で情報がいまいち解析ができないようなので単純に取得できないようなので phpの関数「simpleXML」の関数を利用して解析するようにしました。
 とりあえず、できたのでよかったです。
-define(&#39;BASE_DIR&#39;, &#34;/hoge/hogehoge&#34;);$ADD_PATH = array(BASE_DIR . &#39;/library/&#39;,BASE_DIR . &#39;/library/Pear/&#39;,get_include_path());set_include_path(implode(PATH_SEPARATOR, $ADD_PATH));require_once(&#34;/home/www.petit.cc/library/Zend/Http/Client.php&#34;);// rakuten$url = &#34;http://api.rakuten.co.jp/rws/3.0/rest?hogehogehoge=hoge&#34;;// http_request$params = array();$client = new Zend_Http_Client($url);$client-setConfig(array(&#39;timeout&#39; = 30));$client-setParameterPost($params);$client-setMethod(Zend_Http_Client::POST);$response = $client-request();// get Body$body = preg_replace(&#34;/(\n|\r\n|\r)/&#34;,&#34;&#34;, $response-getBody());// TESTecho $body;// XML解析$parser = xml_parser_create(&#39;UTF-8&#39;);xml_parse_into_struct($parser,$body,$values);xml_parser_free($parser); var_dump($values);でも、不明なのは ・なんでZendはDOMDocumentで解析して ・rakutenApiの取得した情報はDOMDocumentで解析できなかったのか は未だによくわかっていないのが現状であります。" />
+define(&#39;BASE_DIR&#39;, &#34;/hoge/hogehoge&#34;);$ADD_PATH = array(BASE_DIR . &#39;/library/&#39;,BASE_DIR . &#39;/library/Pear/&#39;,get_include_path());set_include_path(implode(PATH_SEPARATOR, $ADD_PATH));require_once(&#34;/home/www.petit.cc/library/Zend/Http/Client.php&#34;);// rakuten$url = &#34;http://api.rakuten.co.jp/rws/3.0/rest?hogehogehoge=hoge&#34;;// http_request$params = array();$client = new Zend_Http_Client($url);$client-&gt;setConfig(array(&#39;timeout&#39; =&gt; 30));$client-&gt;setParameterPost($params);$client-&gt;setMethod(Zend_Http_Client::POST);$response = $client-&gt;request();// get Body$body = preg_replace(&#34;/(\n|\r\n|\r)/&#34;,&#34;&#34;, $response-&gt;getBody());// TESTecho $body;// XML解析$parser = xml_parser_create(&#39;UTF-8&#39;);xml_parse_into_struct($parser,$body,$values);xml_parser_free($parser); var_dump($values);でも、不明なのは ・なんでZendはDOMDocumentで解析して ・rakutenApiの取得した情報はDOMDocumentで解析できなかったのか は未だによくわかっていないのが現状であります。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

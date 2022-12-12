@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="redhat9にsamba2をインストール">
@@ -10,25 +10,25 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/10/08/redhat9%E3%81%ABsamba2%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/" />
 <meta property="go:description" content="久々にredhat9をいじったんだな。大学以来だ！
 なんでメモ。開発時にsambaが必要になったので。
-samba-2.2.11.ja-1.rh9.i386.rpmとりあえず、依存関係でエラーが出ないことを祈りつつインストール
-rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm[global]workgroup = MYGROUPserver string = Samba Server Version %vhosts allow = 127. 192.168.0.security = userencrypt passwords = Yes[hogehoge]comment = hogehogepath = /var/www/hogehoge/browseable = nowritable = yescreate mode = 0664directory mode = 0775valid users = root,nakajiforce user = nakaji気になった項目だけ調べる
+samba-2.2.11.ja-1.rh9.i386.rpmとりあえず、依存関係でエラーが出ないことを祈りつつインストール
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm[global]workgroup = MYGROUPserver string = Samba Server Version %vhosts allow = 127. 192.168.0.security = userencrypt passwords = Yes[hogehoge]comment = hogehogepath = /var/www/hogehoge/browseable = nowritable = yescreate mode = 0664directory mode = 0775valid users = root,nakajiforce user = nakaji気になった項目だけ調べる
 まずは「security」
-security=user ユーザー単位でパスワード認証を行うsecurity=ads Active Directoryドメインで認証を行うsecurity=share 共有単位で認証を行うsecurity=server Windows NTもしくはSambaで認証を行うsecurity=domain Windowsドメインで認証を行う今回は個人用として利用するので「security=user」で問題なし 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。 深くは掘り下げません。" />
+security=user ユーザー単位でパスワード認証を行うsecurity=ads Active Directoryドメインで認証を行うsecurity=share 共有単位で認証を行うsecurity=server Windows NTもしくはSambaで認証を行うsecurity=domain Windowsドメインで認証を行う今回は個人用として利用するので「security=user」で問題なし 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。 深くは掘り下げません。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="redhat9にsamba2をインストール" />
 <meta name="twitter:description" content="久々にredhat9をいじったんだな。大学以来だ！
 なんでメモ。開発時にsambaが必要になったので。
-samba-2.2.11.ja-1.rh9.i386.rpmとりあえず、依存関係でエラーが出ないことを祈りつつインストール
-rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm[global]workgroup = MYGROUPserver string = Samba Server Version %vhosts allow = 127. 192.168.0.security = userencrypt passwords = Yes[hogehoge]comment = hogehogepath = /var/www/hogehoge/browseable = nowritable = yescreate mode = 0664directory mode = 0775valid users = root,nakajiforce user = nakaji気になった項目だけ調べる
+samba-2.2.11.ja-1.rh9.i386.rpmとりあえず、依存関係でエラーが出ないことを祈りつつインストール
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm[global]workgroup = MYGROUPserver string = Samba Server Version %vhosts allow = 127. 192.168.0.security = userencrypt passwords = Yes[hogehoge]comment = hogehogepath = /var/www/hogehoge/browseable = nowritable = yescreate mode = 0664directory mode = 0775valid users = root,nakajiforce user = nakaji気になった項目だけ調べる
 まずは「security」
-security=user ユーザー単位でパスワード認証を行うsecurity=ads Active Directoryドメインで認証を行うsecurity=share 共有単位で認証を行うsecurity=server Windows NTもしくはSambaで認証を行うsecurity=domain Windowsドメインで認証を行う今回は個人用として利用するので「security=user」で問題なし 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。 深くは掘り下げません。" />
+security=user ユーザー単位でパスワード認証を行うsecurity=ads Active Directoryドメインで認証を行うsecurity=share 共有単位で認証を行うsecurity=server Windows NTもしくはSambaで認証を行うsecurity=domain Windowsドメインで認証を行う今回は個人用として利用するので「security=user」で問題なし 他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。 深くは掘り下げません。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

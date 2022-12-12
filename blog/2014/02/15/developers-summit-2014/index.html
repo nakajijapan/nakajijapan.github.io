@@ -2,27 +2,33 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Developers Summit 2014">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2014/02/15/developers-summit-2014/" />
 <meta property="go:description" content="先週ではありますが、Developers Summit 2014に参加してきました。 サミットが平日だったので全部はみれていませんが、いくつかのステージをみること はできたのでそのメモを記します。
- Developers Summit 2014  http://event.shoeisha.jp/devsumi/20140213/    iOSアプリケーションの継続的デリバリー  発表者  https://event.shoeisha.jp/devsumi/20140213/session/430   発表資料  http://www.slideshare.net/numeha/ios-31199969    どのくらいスピードが必要なのか  iOS１ヶ月で約四回リリース ネックは申請降りるのに７日間必要。。。 1年で１２回のリリース 自分たちのリリースのリズムできてますか？  いつもリリースできる状態にしときましょう!!   継続的デリバリー  ビジネスの主導権を握る為にCIやるんだ!!!     価値のあるソフトウェアをはやく継続的にリリースする
- 徹底的に自動化してきた コード品質のパイプライン  コード取得 -&gt; Git ビルド -&gt; Xcode コード行数 -&gt; SLOCCount 重複コード -&gt; DRY 警告 -&gt; Warnnings   テストにはGHUnitを利用している カバレッジはgcovr  製品品質のパイプライン  実記でのテストが必要 テストフレームワークを同封してビルドしている 自動でipaファイル作成 複数のデバイスに自動でインストール  fruitstrap or Instruments   特定の端末のピンポイントでデプロイする Frankというテストフレーム httpで外部から複数代のios端末を操作 ios7からのTouch問うの操作API禁止 fsdfdsafda sdfsadfsadfd  どうしよう。。。" />
+Developers Summit 2014 http://event.shoeisha.jp/devsumi/20140213/ iOSアプリケーションの継続的デリバリー 発表者 https://event.shoeisha.jp/devsumi/20140213/session/430 発表資料 http://www.slideshare.net/numeha/ios-31199969 どのくらいスピードが必要なのか iOS１ヶ月で約四回リリース ネックは申請降りるのに７日間必要。。。 1年で１２回のリリース 自分たちのリリースのリズムできてますか？ いつもリリースできる状態にしときましょう!! 継続的デリバリー ビジネスの主導権を握る為にCIやるんだ!!! 価値のあるソフトウェアをはやく継続的にリリースする
+徹底的に自動化してきた コード品質のパイプライン コード取得 -&gt; Git ビルド -&gt; Xcode コード行数 -&gt; SLOCCount 重複コード -&gt; DRY 警告 -&gt; Warnnings テストにはGHUnitを利用している カバレッジはgcovr 製品品質のパイプライン 実記でのテストが必要 テストフレームワークを同封してビルドしている 自動でipaファイル作成 複数のデバイスに自動でインストール fruitstrap or Instruments 特定の端末のピンポイントでデプロイする Frankというテストフレーム httpで外部から複数代のios端末を操作 ios7からのTouch問うの操作API禁止 fsdfdsafda sdfsadfsadfd どうしよう。。。
+解決策としてiOS6専用にしよう iOS7はInstruments経由で操作 ビルドマシン一代につきiOS一代にいれよう テストフレームワークを複数いれられない シングルプロセスでしか動作しないらしい どうしよう。。。
+MacサーバでVMサーバ作って複数台での端末で実装してみたよ 実機のテストにはさまざまなシリーズ・OSバージョンのiPhone,iPadを用意してるらしい エンタープライズすごい！
+Tokyo MotionControl Network Facebook https://www." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Developers Summit 2014" />
 <meta name="twitter:description" content="先週ではありますが、Developers Summit 2014に参加してきました。 サミットが平日だったので全部はみれていませんが、いくつかのステージをみること はできたのでそのメモを記します。
- Developers Summit 2014  http://event.shoeisha.jp/devsumi/20140213/    iOSアプリケーションの継続的デリバリー  発表者  https://event.shoeisha.jp/devsumi/20140213/session/430   発表資料  http://www.slideshare.net/numeha/ios-31199969    どのくらいスピードが必要なのか  iOS１ヶ月で約四回リリース ネックは申請降りるのに７日間必要。。。 1年で１２回のリリース 自分たちのリリースのリズムできてますか？  いつもリリースできる状態にしときましょう!!   継続的デリバリー  ビジネスの主導権を握る為にCIやるんだ!!!     価値のあるソフトウェアをはやく継続的にリリースする
- 徹底的に自動化してきた コード品質のパイプライン  コード取得 -&gt; Git ビルド -&gt; Xcode コード行数 -&gt; SLOCCount 重複コード -&gt; DRY 警告 -&gt; Warnnings   テストにはGHUnitを利用している カバレッジはgcovr  製品品質のパイプライン  実記でのテストが必要 テストフレームワークを同封してビルドしている 自動でipaファイル作成 複数のデバイスに自動でインストール  fruitstrap or Instruments   特定の端末のピンポイントでデプロイする Frankというテストフレーム httpで外部から複数代のios端末を操作 ios7からのTouch問うの操作API禁止 fsdfdsafda sdfsadfsadfd  どうしよう。。。" />
+Developers Summit 2014 http://event.shoeisha.jp/devsumi/20140213/ iOSアプリケーションの継続的デリバリー 発表者 https://event.shoeisha.jp/devsumi/20140213/session/430 発表資料 http://www.slideshare.net/numeha/ios-31199969 どのくらいスピードが必要なのか iOS１ヶ月で約四回リリース ネックは申請降りるのに７日間必要。。。 1年で１２回のリリース 自分たちのリリースのリズムできてますか？ いつもリリースできる状態にしときましょう!! 継続的デリバリー ビジネスの主導権を握る為にCIやるんだ!!! 価値のあるソフトウェアをはやく継続的にリリースする
+徹底的に自動化してきた コード品質のパイプライン コード取得 -&gt; Git ビルド -&gt; Xcode コード行数 -&gt; SLOCCount 重複コード -&gt; DRY 警告 -&gt; Warnnings テストにはGHUnitを利用している カバレッジはgcovr 製品品質のパイプライン 実記でのテストが必要 テストフレームワークを同封してビルドしている 自動でipaファイル作成 複数のデバイスに自動でインストール fruitstrap or Instruments 特定の端末のピンポイントでデプロイする Frankというテストフレーム httpで外部から複数代のios端末を操作 ios7からのTouch問うの操作API禁止 fsdfdsafda sdfsadfsadfd どうしよう。。。
+解決策としてiOS6専用にしよう iOS7はInstruments経由で操作 ビルドマシン一代につきiOS一代にいれよう テストフレームワークを複数いれられない シングルプロセスでしか動作しないらしい どうしよう。。。
+MacサーバでVMサーバ作って複数台での端末で実装してみたよ 実機のテストにはさまざまなシリーズ・OSバージョンのiPhone,iPadを用意してるらしい エンタープライズすごい！
+Tokyo MotionControl Network Facebook https://www." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

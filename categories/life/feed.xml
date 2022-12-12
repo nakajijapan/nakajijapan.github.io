@@ -1,225 +1,1589 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>life on おじさんは生きている</title>
-		<link>http://nakajijapan.github.io/categories/life/</link>
-		<description>Recent content in life on おじさんは生きている</description>
-		<generator>Hugo -- gohugo.io</generator>
-		
-		<language>ja-JP</language>
-		
-		<copyright>nakajijapan All rights reserved.</copyright>
-		
-		<lastBuildDate>Mon, 01 Feb 2021 22:11:23 +0900</lastBuildDate>
-		
-		<atom:link href="/categories/life/" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>２０２０仕事環境　メモ</title>
-			<link>http://nakajijapan.github.io/blog/2021/02/01/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E4%BB%95%E4%BA%8B%E7%92%B0%E5%A2%83-%E3%83%A1%E3%83%A2/</link>
-			<pubDate>Mon, 01 Feb 2021 22:11:23 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2021/02/01/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E4%BB%95%E4%BA%8B%E7%92%B0%E5%A2%83-%E3%83%A1%E3%83%A2/</guid>
-			<description>リモート生活が続いていて色々買い揃えたのでそのメモ
-LG モニター ディスプレイ 43UN700T-B 42.5インチ/4K/HDR対応 LG モニター ディスプレイ 43UD79-B 42.5インチ/4K AUOPLUS 電源タップ タワー式 差し込み口を縦にしたことで机の空間節約になりました。
-audio-technica サイドアドレスマイクロフォン AT2035 ミーティングはAirPods使っていたのですがずっと使っているとバッテリー無くなることが多くなってきたので使うのをやめました。なるべくそのストレスがなくなるようにマイクを設置しました。 アームもよかった。机の場所もスッキリするので。
-オーディオ環境 デノン Denon AVR-X1600H AVサラウンドレシーバー 7.2ch JBL 4312D JBL スピーカー 4312M II BK [ペア] JBL - STAGE A125C/W JBL - Control X 一応ゲーム用の環境でもあるので2階にもそういう音響環境を作る必要があった。持っているゲームが18禁が多いので子供がいるリビングでは禁止という。。</description>
-		</item>
-		
-		<item>
-			<title>据え置きマイク買ってみた</title>
-			<link>http://nakajijapan.github.io/blog/2021/01/31/%E6%8D%AE%E3%81%88%E7%BD%AE%E3%81%8D%E3%83%9E%E3%82%A4%E3%82%AF%E8%B2%B7%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</link>
-			<pubDate>Sun, 31 Jan 2021 18:45:13 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2021/01/31/%E6%8D%AE%E3%81%88%E7%BD%AE%E3%81%8D%E3%83%9E%E3%82%A4%E3%82%AF%E8%B2%B7%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
-			<description>2020年から仕事のほとんどがリモートになった。 ミーティングの際には話すこともあるのでマイクとしてAirPodsを利用していた。 しかし、ミーティングをする機会が徐々にマスにつれて長時間のミーティングやオンライン飲み会だと切れてしまうことが多々増えてきたので据え置きのマイクを購入した。
-材料はこちら audio-technica サイドアドレスマイクロフォン AT2035 https://www.amazon.co.jp/gp/product/B001JERO46/ref=ppx_yo_dt_b_asin_title_o08_s02?ie=UTF8&amp;amp;psc=1
-アーム オーディオインターフェース まとめ アームにしたおかげで机はスッキリしたし、スタンディングしてのミーティングもある程度できるようになったので良かった。
-あと、声が結構きれになったらしいです。</description>
-		</item>
-		
-		<item>
-			<title>２０２０年振り返り</title>
-			<link>http://nakajijapan.github.io/blog/2020/12/31/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E5%B9%B4%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</link>
-			<pubDate>Thu, 31 Dec 2020 21:55:51 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2020/12/31/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E5%B9%B4%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</guid>
-			<description>年末なので振り返り。 今年は人生の中で大きなイベントがあり大変忙しい日々を過ごしたと思う。
-月別に振り返る ２月 家と車を購入し、埼玉へ引っ越し。 広い家に住みたかったのでちょっとコストがかかる買い物でしたが、豊かな生活を送りたかったので自分は よかったと思っています。 あと、小生は映画も好きなので家を購入したタイミングでオーディオ環境を一新させました。 センタースピーカーにはこだわってどこにも負けないくらいの大きさにしたと思います、、、
-５月 次男が出産。 コロナ真っ最中であったのでうまく制度を使い、１ヶ月いかないくらいですが休みをもらい育児に専念しました。 最初の一週間は息子と二人だけの生活だったが丸一日息子と向き合った日々だったのでとても印象的だった。 それ以降、育児と仕事の両立が大変になっていく。
-７月 リモート生活が始まって徐々に家のネットワークが重くなってきて仕事できるような状態じゃなくなってきたし、 同時にNetflixとかも見れない状態の負荷だった。そこで今家庭用で発売されている最高のルータを勢いで購入してものすごく改善した。
-７、８月 仕事が徐々に忙しくなる。
-９月 微力ながらiOSDCにスタッフとして参加。
-１０月 ちょっと前に２０００万円問題が出てきて、それがきっかけで資産運用考え始める。 １００歳までどういうお金が必要でいつどのくらい使っていくかで試算してみたり、どのくらい二人で資産運用に回し続けられるのか試算してみたりして お金の流れを可視化させた。お金計算するの楽しい。 資産を徐々に株式に回し始める。
-コロナ 仕事はほとんどリモートで行われるようになった。 インターネットの仕事をしているせいかリモートになっても特に困ることなく仕事ができたように思う。 一つ困ったことは価値観の異なる人間がチームに入った時のコミュニケーションがやっぱり置きてしまってそのフォローがそれなりに考えなければいけなく勉強になったところだ。 あとは、出社時間がなくなったので、その分育児に時間を費やすようになったこれは本当にすごいリモートでよかったなと思う点だなと思っている。 （ただ、残業で帰れないーと言いつつ同僚と飲み会という嘘がつけなくなって少し不便なところはあるがw） できればこれは続けて欲しい。
-まとめ 子供も生まれて二人になって、仕事も忙しくなって本当に時間の使い方にしっかり考えていかないと両立できないようになってきた。 しかも、この状況はこれからも少なくても４年はこれが続くと思うので時間を有効に使っていかないとバランスが崩れてよくない結果を招くことになるので 改善すべきところは改善して次につなげていきたい。</description>
-		</item>
-		
-		<item>
-			<title>ナイキ エア マックス95 アンロックド By You</title>
-			<link>http://nakajijapan.github.io/blog/2020/10/14/%E3%83%8A%E3%82%A4%E3%82%AD-%E3%82%A8%E3%82%A2-%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B995-%E3%82%A2%E3%83%B3%E3%83%AD%E3%83%83%E3%82%AF%E3%83%89-by-you/</link>
-			<pubDate>Wed, 14 Oct 2020 02:15:17 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2020/10/14/%E3%83%8A%E3%82%A4%E3%82%AD-%E3%82%A8%E3%82%A2-%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B995-%E3%82%A2%E3%83%B3%E3%83%AD%E3%83%83%E3%82%AF%E3%83%89-by-you/</guid>
-			<description>エアマックス狩りが落ち着いたので買いましたhttps://t.co/5t5TVRpQRa
-&amp;mdash; なかじじゃぱん (@nakajijapan) September 29, 2020  エアマックス 無駄にNKJを、、、
-URL https://www.nike.com/jp/u/custom-air-max-95-unlocked-by-you-10000943/8030124736?mid=8030124736&amp;amp;sitesrc=nikebyyoupdp</description>
-		</item>
-		
-		<item>
-			<title>HDDからSSDにした</title>
-			<link>http://nakajijapan.github.io/blog/2020/10/14/hdd%E3%81%8B%E3%82%89ssd%E3%81%AB%E3%81%97%E3%81%9F/</link>
-			<pubDate>Wed, 14 Oct 2020 01:15:28 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2020/10/14/hdd%E3%81%8B%E3%82%89ssd%E3%81%AB%E3%81%97%E3%81%9F/</guid>
-			<description>いままでは4TBのHDD（外付け）を利用していたんですが大きくて場所に困ったり、音がうるさかったり、電源が必要だったりと邪魔でした。 代替案としてはSSDでほとんどのことが解決されるとは思ってはいたものの、2TBの価格が結構高かったので断念していたのですが近年それなりの値段で安くなったので購入に決断しました。
-をAmazonでで購入しました。
-実はもう２TB必要でそれはノートのバックアップに利用していてそこまでクリティカルではにのでまた値段が下がったら購入することにします。
-結果 いい感じです。
- 場所がコンパクト 電源がいらない 小さい 静か  これに限ります。</description>
-		</item>
-		
-		<item>
-			<title>メッシュWi-Fi導入した</title>
-			<link>http://nakajijapan.github.io/blog/2020/07/23/%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5wi-fi%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Thu, 23 Jul 2020 22:52:21 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2020/07/23/%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5wi-fi%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description>先日、新しくWiFiルータを購入してネットワーク環境がものすごく改善されたので紹介する。
-なぜ購入した？ 今住んでる家が一軒家で2階建て。ルータは家の都合上二階の端っこに設置しないといけない状況でした。 なので一階のリビングには5Ghz帯は殆どこないで2.4Ghz帯を利用していました。一階に中継機を配置してはいたのですが 劇的な改善にはいたらなかった。
-しかし、仕事を始めたりして常にインターネットをするだけではなく一階ではNetflix(プランはプレミアムで4Kのものもちょくちょく見る)、あとはいろんな家電を繋ぐようになったらものすごく通信状態悪くなり、タイムアウトになったりwifiが切れたりする現象が増えてきた。ルーターや中継機を再起動しても問題解決にはいたらなかった。いろんな機器をはずすというものひとつの手だが家電もリモートで管理したかったのでそれは考えたくない。 1階はとくに繋がらなくなることがちょくちょくあった。
-どれ使ってた？ nuroを契約したときにF660aというものをもらってそのままそれを使っていました。スペックもそんなには悪くはないのだが壁を挟むと一気に弱くなる。24Ghz帯が通ってるとはいえそこまで速度は出ない。ルーターがかなり家の端っこということが痛い。
-ルーター ZXHN F660A
- 無線LAN下り  1300Mbps   対応規格  11 a/b/g/n/ac    中継機 TP-Link WIFI 無線LAN 中継器 11ac/n/a/g/b 1733 + 800Mbps ビームフォーミング MU-MIMO APモード 3年保証 RE650
-どれ買った 今回購入したのはこれ。
-NETGEAR メッシュWiFi無線LANルーター2台セット Wi-Fi6(11AX) 速度AX6000 トライバンド RBK852 (ルータ―+サテライト) 350㎡ https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM
-簡単に買うほど安くはない。むしろかなり高い方だがこのご時世家で仕事することも増えてきたので投資して問題ないだろうという判断です。 こういうの何かとストレスになるしできるならなくしていきたいところ。
-キーワード 購入するためにルーターの基礎知識が数年前の知識だったので調べてみるといくつか新しい技術が搭載されたものが発売されていて勉強する時間を要してしまった。 世の中どんどん便利になっていくものですな。。。
- メッシュWi-Fi トライバンド Wi-Fi 6  どのくらい改善されたか 結論から言うと完全に改善された。
-WiFi 6対応で、2402Mbps+2402Mbps+1147Mbpsと謳っていて、もっと良い結果が出るのではないかなと思ってはいたが家電やスマートフォン合わせて10台くらいがつながった状態でこの測度を維持している。 体感的にも全く問題がない使い心地である。
- トライバンド メッシュ WiFi AX6000 (2402 + 2402 + 1147Mbps)  導入前 作業部屋 2F    number result     1 47 Mbps   2 49 Mbps   3 61 Mbps   4 47 Mbps   ５ 41 Mbps    作業部屋 2F iPhone 11 Pro Max    number result     1 2.</description>
-		</item>
-		
-		<item>
-			<title>家族が増えました</title>
-			<link>http://nakajijapan.github.io/blog/2020/05/31/%E5%AE%B6%E6%97%8F%E3%81%8C%E5%A2%97%E3%81%88%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Sun, 31 May 2020 23:33:06 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2020/05/31/%E5%AE%B6%E6%97%8F%E3%81%8C%E5%A2%97%E3%81%88%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>息子がまた一人増えました。 ようやく理想の家族構成になりました。 息子一人でけっこう大変だったのに二人になるとこれは想像以上の展開になっていくことが予想されそうです。 とはいえ、これからの生活といい息子たちの成長といい楽しくなっていきそうで何よりです。 やっていき。
-もしよければ、、、 Wish List</description>
-		</item>
-		
-		<item>
-			<title>新居に向けて購入したもの</title>
-			<link>http://nakajijapan.github.io/blog/2020/04/01/%E6%96%B0%E5%B1%85%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE/</link>
-			<pubDate>Wed, 01 Apr 2020 11:12:46 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2020/04/01/%E6%96%B0%E5%B1%85%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE/</guid>
-			<description>新居に向けて購入したものをめも
-屋内家電 コーヒーメーカー 【スタンダードモデル】デロンギ(DeLonghi)コンパクト全自動コーヒーメーカー ブラック マグニフィカ S カプチーノ スマート ECAM23260SBN  TV OLED65C9PJA 有機ELテレビ LG [65V型 /4K対応 /BS・CS 4Kチューナー内蔵] https://www.lg.com/jp/tv/lg-OLED65C9PJA  壁寄せテレビスタンド WALL ウォール V3 ハイタイプ ウォールナット M05000126  冷蔵庫 NR-F505HPX-W 冷蔵庫 HPXタイプ アルベロホワイト [6ドア /観音開きタイプ /500L]   https://panasonic.jp/reizo/products/NR-F505HPX.html
-掃除機 iRobot 掃除機 ロボット掃除機 2019年発売モデル ルンバ i7+ 自動ゴミ捨て機能  https://www.irobot-jp.com/product/i7/
-炊飯器 〈象印〉 STAN.　IH炊飯ジャー  https://www.zojirushi.co.jp/syohin/stan/product/ricecooker.html#stan_container
-洗濯機 NA-VX700AL-W ドラム式洗濯乾燥機 VXシリーズ クリスタルホワイト [洗濯10.0kg /乾燥6.0kg /ヒートポンプ乾燥 /左開き]  https://panasonic.jp/wash/p-db/NA-VX700AL.html
-トースター BALMUDA The Toaster  https://www.</description>
-		</item>
-		
-		<item>
-			<title>久しぶりに車買った</title>
-			<link>http://nakajijapan.github.io/blog/2020/03/02/%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%AB%E8%BB%8A%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
-			<pubDate>Mon, 02 Mar 2020 23:33:06 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2020/03/02/%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%AB%E8%BB%8A%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
-			<description>FREED by Honda
-購入したもの Honda - Freed 条件  スライドドア 運転し心地  家に駐車場はあるけれどそこまで広くはなかったのと、子供がこれから開け閉めすること想定すると壁にドアを当てるのでスライドドアは必須という話をしていた。 あとは運転し心地。Freedの他の候補としてトヨタのシエンタにしていたのですが断然Freedでした。僕が印象的だったのがブレーキの掛け方がものすごくしっくりきたこと、毎回かけるから少しでもストレスあると嫌なんですよね。
-保険 東京海上の自動車保険を営業の人に勧められたのでそれに入った。 なるべく安めのプランにしてもらったけど5万だったのでちょっと高め。
-お金がかかる  自動車税 車検 自動車保険 定期的なメンテナンス ガソリン  付属で購入したもの 後部座席で子供が動画を見れるようにするために購入しました。この二つがないとiPadがはめることができないです。
-honda ホンダ freed フリード タブレットホルダー [2016.9～次モデル][ 08U08-E6J-010A ] https://www.amazon.co.jp/dp/B01N65ROYV/ref=cm_sw_r_cp_apip_nmD8XLSrp4Xvj
-HONDA ホンダ 純正 ODYSSEY オデッセイ スマートクリップ 2017.11～仕様変更 08U08-E6J-010 https://www.amazon.co.jp/dp/B0788FD88X/ref=cm_sw_r_cp_apip_dYcMK45HvaMbE
-実際購入してみたけど子供がけるようになってしまったので現在封印しています。
-メモ 昔乗っていた車をメモ
-Civic https://www.honda.co.jp/pressroom/products/auto/civic/civic_1995-09-04/
-免許とってすぐ買ってもらったけどすぐ事故って募集された
-Life https://www.honda.co.jp/auto-archive/life/4door/2003/
-親父にお前はこれでいいと軽自動車を渡された。
-まとめ 家の周りはほとんどお店がないので徒歩、自転車で行くのは結構困難なので車は必要。 それプラスなんてったって家族といろんな思い出が作れる素晴らしい時間と空間を提供しれくれている。 その点でお金を払う分のに十分な代物だ。</description>
-		</item>
-		
-		<item>
-			<title>家を購入した</title>
-			<link>http://nakajijapan.github.io/blog/2020/03/01/%E5%AE%B6%E3%82%92%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Sun, 01 Mar 2020 03:14:55 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2020/03/01/%E5%AE%B6%E3%82%92%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description>なぜ 第一子が生まれたことと第二子が生まれるとのことで子育てするのに今の家だと収納やら生活環境やら大変になってきたのでどこか広いところに引っ越したいなぁというところから始めた
- もっと広い部屋で豊かな生活をしたい。  ここが重要！！！！   家賃まぁまぁ高いのでなんとかしたい  総合的に見てお金がかかってしまうのでここはなんとかならなかった    条件  駅近  共働き   リビング広め  ２０畳は欲しい   駐車できるスペースがある  車が欲しい   嫁の実家に近い 4LDK 庭  バスケができる🏀   戸建  ２階建   屋上 屋根裏部屋  広い家と庭は遠くに行けばそれなりのものはあるのだがなんせ妻も出産後も仕事がしたいということで駅から遠いところではなくて駅近が必須だったのでそこは最低限の広さがあればいいやという話になった。（マンションの広さ以上のものは欲しかった）結局、庭という庭を作ることはできなかったがまぁしょうがないという感じ。
-妥協したもの  庭  旗竿地だから車と家の間で少し遊べるからそこは妥協した   4LDK  なかなかないね、、、   屋上  なかなかないね、、、   屋根裏部屋  なかなかないね、、、    マンションは？  狭い 高すぎる  特に渋谷に近い沿線系なるとそんなに広くないのに高いのでやめました。車買ったらまた手数料かなんかでまた高く マンションは３人家族で住むにはギリギリセーフかなという印象で四人暮らし以上想定していましたので、流石に狭いなぁという印象でした。</description>
-		</item>
-		
-		<item>
-			<title>お宮参り</title>
-			<link>http://nakajijapan.github.io/blog/2018/10/21/%E3%81%8A%E5%AE%AE%E5%8F%82%E3%82%8A/</link>
-			<pubDate>Sun, 21 Oct 2018 01:08:14 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/10/21/%E3%81%8A%E5%AE%AE%E5%8F%82%E3%82%8A/</guid>
-			<description>お宮参りとは、その土地の守り神である産土神（うぶすながみ）に赤ちゃんの誕生を報告し、健やかな成長を願う意味のある行事のこと。他に「初宮詣（はつみやもうで）」「初宮参り」「産土参り(うぶすなまいり)」と呼ばれる場合もあります。 https://allabout.co.jp/gm/gc/71827/
- 健やかに成長して欲しいのでお宮参りしてきた。 場所は川崎大使。朝早くいったせいかほとんど混んでいなく、すんなりことを終えることができた。 その後は、料亭でお食い初めの儀式、家族の記念写真を撮って終了した。いろんな儀式があって大変だったけど妻が全てやってくれたので助かった。。。
-どうでもいいけどビッグカメラ行きたかったけど完全に疲れたので延期で。。</description>
-		</item>
-		
-		<item>
-			<title>サブウーファー買った</title>
-			<link>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
-			<pubDate>Tue, 09 Oct 2018 01:07:47 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
-			<description>http://jbl.harman-japan.co.jp/product.php?id=stage_suba100p
-念願のサブウーファー なのだがリビンングは子供のベッド＆子育てスペースとして使われているので設置不可能。。。 もう少し設置完了までに時間がかかりそう。
-仕様  製品名	STAGE SUB A100P 形式	背面バスレフ、アクティブサブウーファー 構成	250mm径ウーファー 出力	150W(RMS)、300W(Peak) 周波数特性	35Hz ～ 150Hz クロスオーバー周波数	50Hz ～ 150Hz（連続可変） 外形寸法(W x H x D)	335 x 380 x 405（グリル含）mm 本体重量	13.7kg 付属品	スパイク×4、グリル、電源コード（1.8m） 価格	標準価格 \35,000 (税別) / 1本
- </description>
-		</item>
-		
-		<item>
-			<title>ベビーカー購入した</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/24/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Mon, 24 Sep 2018 23:18:18 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/24/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description>そろそろ必要性出てくるかなと思い、ベビーカーを購入した。購入場所は安定のアカチャンホンポで。 ベビーカーにも色々あるようで、自分は新生児から3歳くらいまで一つにしたかったのと最初の頃は対面にし、その後逆にできるように切り替えができるものしたかったので それができるものにした。
-Optia (Aprica) 感想 コンパクトと言いながらも結構大きなものなので歩道が無いような細い道だとちょっと危ないかもしれない。二列は以ての外だった。 あと、二輪ででこぼこ道もスイスイ行けるかなと思ったがあまりにもでこぼこしてるとこれまた限界がある。なるべく舗装された道を移動するのが吉。
-あったら便利 アカチャンホンポに来てる人のベビーカーを観察していたら色々カスタマイズされていて、自分も必要そうなのをパクってみました。 一つはフックです。これで買い物袋をかけて移動してる人が結構いました。それに合わせてポーチもつけてる人もいたそれはまた今度にした。 もう一つはジュース入れ。これでスタバの中で飲まなくてもいいし、飲みつつ移動がかなり楽になります。 最後にレインコート。何かと忘れがちなもので案の定自分も購入時にそこは何も考えていなかった。購入特典で付いてきたのはよかった。 基本は雨が降りそうな時にはベビーカーを利用しないのがいいのだがどうしてもというときはつけたほうがいいだろう。少しでも天気に 不安を感じたら持っておくべきもの。
-今後欲しいもの  ベルトカバー 冬用のブランケット ブランケットを止めるもの  参考  ベビーカーの選び方  https://www.aprica.jp/products/babycar/select_babycar/   ベビーカーのカスタマイズ  https://minne.com/ でベビーカーで検索すると結構出てくる    </description>
-		</item>
-		
-		<item>
-			<title>エアコン購入した</title>
-			<link>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
-			<pubDate>Sat, 22 Sep 2018 03:53:45 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
-			<description>エアコン買った。
-現状はリビングに一つエアコンがあり、子供が快適な温度で暮らせるようにずっとリビングに寝させていたのだ。しかし、理想としては子供は寝室で寝かせておきたかったのだがエアコンがなかったので断念していたが自分たちの体調が辛くなってきたのと自分たちのプライベートスペースとして利用したかったり、今後の遊びスペースとするために寝室にもエアコンを設置することにした。
-エアコン購入は初めてで何を購入すればいいのかわからなかったし、メーカをちゃんと比較するほど気力はなかったので家にある王道の？ダイキンのエアコンにすることは決めていた。
-ちなみにもともと住む前から設置されていたのは２０１６年モデルのS36TTES-W、１２畳用のものらしい。
-今回購入したのがAN25VCS-Wだいたい６−８畳のエアコン。
-高い 買いに行って思ったのがエアコンは意外と高い。 型落ちを買おうとしても家電量販だとあんまりなくてかといってネットだと設置工事とか面倒くさい。まぁ生活が楽になってくれればありがたいことですが！
-ちなみに １０万くらいだと？自動フィルター掃除が付いていて ２０万くらい払えばほとんど掃除しなくていい上に色々機能が付加されているらしいがその進化においつていけないのでもうわけわからん。
-エアコンも進化している。</description>
-		</item>
-		
-		<item>
-			<title>  👶  第一子生まれました。</title>
-			<link>http://nakajijapan.github.io/blog/2018/07/23/%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</link>
-			<pubDate>Mon, 23 Jul 2018 00:09:27 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2018/07/23/%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</guid>
-			<description>第一子生まれました。👶 どうやら、僕らの子供はメンズのようです。
-2018/07/21 予定日から一週間が過ぎて本当に生まれるのかなと、少し疑心暗鬼になりながら過ごしていたが、ついに妻がちょっとした？破水のようなものが始まったといい出した。痛みが少しづつ出たらしいのでこれはきたのか！！！！と思いつつ病院に電話して入院の準備をして今後に備えるようになった。
-自分は一旦帰宅、入院に必要なものを何個か忘れたのでそれを集めて再度病院に行った。その間、妻は診察してもらっていた。 診てもらったところまだ陣痛の初期の段階でこれからという話だった。診察が終わったところで痛みは治まったらしいのでとりあえず今日はないかとおもい、帰りがてら景気付けに夕ご飯に家系のとんこつラーメン、しかもにんにくもりもりを食べて帰宅した。
-さーて勉強するかと思っていたら妻からの電話、途中で看護師さんと交換され、もう生まれるらしいから立ち会うならきてくださいと伝えられた。「え、今日なんだ！！！！😵」とものすごく急でびっくりしていた。
-再度、病院に行く。もう妻は激しい痛みに襲われていて、自分は動揺していたが自分ができることはしようと思い、 痛み出したら背中をさする・お尻を押すことずっと続けていた。あの温厚が妻が興奮している野獣のような状態だったことは印象的だった。 案の定、ニンニクで怒られたことはいうまでもない。（基本的には喋らず行動で。。。）
-2018/07/22 時間は２４：００を超え、もうすぐ佳境という状態だった。 出そうというところで男の人がでてきてその人が来たらものの数分で赤ん坊が出てきた。ぽんって産まれた。 メッッチャおなかおしててこれが最終段階ですることなんだ！意外と原始的だったの覚えてる。 僕は感動し過ぎて言語能力は著しく低下していた。子供を見て、「生きてる」「動いてる」「すごい！」をしばらく言い続けていた。。。 神秘的すぎる。
-ようこそ！ なんだかんだで大変でしたが無事そして元気に生まれてきたことにホッとしております。これからの子育て業かなり大変になりそうですが歯食いしばって頑張っていくぞ。 そして、しばらくは子供👶のことしか考えられないぞ！！！みんなごめん！</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>life  おじさんは生きている</title>
+    <link>http://nakajijapan.github.io/categories/life/</link>
+    <description>  life  おじさんは生きている</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Mon, 12 Dec 2022 09:11:24 +0900</lastBuildDate>
+    <atom:link href="http://nakajijapan.github.io/categories/life/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PIAZZA株式会社のCTOに就任しました。</title>
+      <link>http://nakajijapan.github.io/blog/2022/12/12/piazza%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%81%AEcto%E3%81%AB%E5%B0%B1%E4%BB%BB%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Mon, 12 Dec 2022 09:11:24 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2022/12/12/piazza%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%81%AEcto%E3%81%AB%E5%B0%B1%E4%BB%BB%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2022/12_004.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.wantedly.com/companies/piazza-hiroba/projects&#34;&gt;https://www.wantedly.com/companies/piazza-hiroba/projects&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;１２月１日付でPIAZZA株式会社に執行役員CTOとして入社することになりました。&lt;/p&gt;
+&lt;h1 id=&#34;なぜ入社したのか&#34;&gt;なぜ入社したのか&lt;/h1&gt;
+&lt;p&gt;きっかけはある問題をきっかけに退職を考え始めていたタイミングで、偶然YOUTRUST経由でお誘いのメッセージがきたことがきっかけです。
+面談・面接をしていく中で求められていること、自分がしたいこと、そしてできることがうまくマッチしました。さらにボードメンバー、特に関わることになるであろうプロダクトメンバーの方ともしっかり話をして行く中で同じ価値観や一緒に（楽しく＆切磋琢磨して）仕事していける人たちと感じたのも強かったです。&lt;/p&gt;
+&lt;h1 id=&#34;何がしたいのか&#34;&gt;何がしたいのか&lt;/h1&gt;
+&lt;p&gt;自分はエンジニア（最近だとモバイル全般に特化）、エンジニアリングマネージャとして、開発部隊の中心で実際の開発作業やマネージメントをするにとどまっていました。次のチャンレンジを考えた時にこのまま技術を極めてアーキテクトとしても道もありましたが、自分の嗜好的に実際に自分で企画して世の中の人にどれだけ使ってくれるか、市場内でのプロダクトの成長というところに重みを置くところがあったので、自分のいままでのキャリアを考慮しつつ、これからはエンジニアという基盤は持ちつつ、経営というところからプロダクト・組織を改善していきたいという気持ちに変化してきました。&lt;/p&gt;
+&lt;h1 id=&#34;何をするのか&#34;&gt;何をするのか&lt;/h1&gt;
+&lt;p&gt;今回は自分はCTOとして関わることになるのですが、一般的にCTO（最高技術責任者）は以下のように定義されています。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;最高技術責任者（さいこうぎじゅつせきにんしゃ、英語: chief technical officer または chief technology officer、略語: CTO）は ビジネス幹部のポジションで、会社における技術的な役割に焦点をあてたものである。研究開発ディレクターの立場を拡張したものとして、アメリカでは1980年代に登場した。
+
+ドットコム時代と、1990年代のコンピュータブームの際に、多くの会社が主要な技術的人物に最高技術責任者という肩書を用いた。MISとITコミュニティはしばしば最高情報責任者(CIO)の同義語として、または、複雑な技術で精通した最高情報責任者の部下として、最高技術責任者という肩書を使った。最高技術責任者の役割は企業、産業の間で様々である。しかし、大体の場合、技術に関連している。以下のような役割が含まれる。
+
+・短期間の（戦略的な）技術的方向性決定
+・研究開発のビジネス的な監督
+・企業内でのソフトウェアの利用
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参照: &lt;a href=&#34;https://ja.wikipedia.org/wiki/%E6%9C%80%E9%AB%98%E6%8A%80%E8%A1%93%E8%B2%AC%E4%BB%BB%E8%80%85&#34;&gt;wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;だいぶ広義でふあっとしていますが、自分としては以下の定義がしっくりきています。&lt;/p&gt;
+&lt;h3 id=&#34;経営戦略の決断スピードに柔軟に対応できるよう技術部側面からからサポートしていき企業全体の収益を高める責任を持つ&#34;&gt;経営戦略の決断、スピードに柔軟に対応できるよう技術部側面からからサポートしていき、企業全体の収益を高める責任を持つ。&lt;/h3&gt;
+&lt;p&gt;なので上のようなことが基本的には求められると思います。とはいえ会社の規模やフェーズによっても責任の内容は変わってくるので、
+入社するにあたって面談面接のなかでヒアリングした時に自分が責任を負うべきところは以下の二つがある思っています。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;エンジニアリングの最終意思決定&lt;/li&gt;
+&lt;li&gt;エンジニア組織の構築&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;エンジニアリングの最終意思決定&#34;&gt;エンジニアリングの最終意思決定&lt;/h2&gt;
+&lt;p&gt;企業にどのような利益をもたらすかを技術的視点に立ち、自社の利益を最大化するために、事業・経営面を含めた視点で俯瞰して技術的判断を行う。
+経営戦略において大きなマイルストーンに向かって計画的に進むこともあれば、その場その場で柔軟に進んでいく時がある。そんなときでも状況（人・もの・金）に応じた技術的決断を決める。
+日々進化する技術へのキャッチアップする状況を構築し、企業が経営戦略をスピードを下げることなく実行し続けるよう、現状そして未来を踏まえ適切な技術判断を行う。&lt;/p&gt;
+&lt;h2 id=&#34;エンジニア組織の構築&#34;&gt;エンジニア組織の構築&lt;/h2&gt;
+&lt;p&gt;現状は一エンジニアとして動いている部分があるが、近い将来経営戦略を加速させていくために、エンジニア組織を構築して今以上に企業価値を高めていく必要がある。そのためには、以下の施策を行う必要がある。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;エンジニア採用&lt;/li&gt;
+&lt;li&gt;エンジニア文化の醸成&lt;/li&gt;
+&lt;li&gt;エンジニアブランディングの強化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;できんの&#34;&gt;できんの？&lt;/h2&gt;
+&lt;p&gt;正直な話、自分がどこまでできるか不安なところは多少なりともありますができるだけ責任を全うできるよう精一杯やっていこうと思っています。
+以上、自分の所信表明でした。&lt;/p&gt;
+&lt;h1 id=&#34;エンジニア採用してます&#34;&gt;エンジニア採用してます！！！！&lt;/h1&gt;
+&lt;p&gt;そんな私であり弊社ですが、プロダクチームの規模を大きくするべく絶賛エンジニア募集しているのでよろしくおねがいします！！！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;採用ページ
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.green-japan.com/company/6783&#34;&gt;https://www.green-japan.com/company/6783&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;そもそも、どんな会社かわからない人もいると思うのでこちらの動画をみるとわかりやすいと思います。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=SSGnfa5dyl0&#34;&gt;地域の人びとが交わる「PIAZZA（ひろば）」を求めて | 晃平 矢野 | TEDxNihonbashi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.about.piazza-life.com/&#34;&gt;コーポレートサイト&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;まずは僕のことから知りたいと思った方はこちらで話しましょう！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://meety.net/matches/UylhrVtpbVwc&#34;&gt;meety&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mac Book Pro M2 をデュアルディスプレイする</title>
+      <link>http://nakajijapan.github.io/blog/2022/11/16/mac-book-pro-m2-%E3%82%92%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E3%81%99%E3%82%8B/</link>
+      <pubDate>Wed, 16 Nov 2022 15:52:51 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2022/11/16/mac-book-pro-m2-%E3%82%92%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC%E3%82%A4%E3%81%99%E3%82%8B/</guid>
+      <description>&lt;p&gt;ドッキングステーション導入しました。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2022/12_001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;ノートが一新されて、M2搭載のMac Book Pro(13 inch)になりました。しかし、現状の機器だと期待通りの仕事環境にならないことになりました。そこでなるべく前回の環境に近づけるべく改善しました。&lt;/p&gt;
+&lt;h1 id=&#34;今までの環境&#34;&gt;今までの環境&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;13インチMacBook Pro&lt;/li&gt;
+&lt;li&gt;映像
+&lt;ul&gt;
+&lt;li&gt;LG モニター（横）&lt;/li&gt;
+&lt;li&gt;LG モニター（縦）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;音声
+&lt;ul&gt;
+&lt;li&gt;AVアンプを通して各スピーカーへ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;その他
+&lt;ul&gt;
+&lt;li&gt;ビルド用のライトニングケーブル&lt;/li&gt;
+&lt;li&gt;キーボード&lt;/li&gt;
+&lt;li&gt;MagicPad（時々充電用）&lt;/li&gt;
+&lt;li&gt;マイク入出力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今まで持っていたノートはM1搭載のMac Book Pro(16 inch)でポートがたくさん存在していたことから特に気していませんでした。しかし、今回のPCは二つしかないので別途考える必要がありました。
+ちなみに「その他」の部分は一つのUSBCに統一できるので一つにできる。&lt;/p&gt;
+&lt;h1 id=&#34;問題&#34;&gt;問題&lt;/h1&gt;
+&lt;p&gt;ノートを変えたことで入力ポートが二つしか無くなってしまったのでこれを考慮しつつ、今までの環境を構築しなければならなかった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;必要なもの
+&lt;ul&gt;
+&lt;li&gt;その他&lt;/li&gt;
+&lt;li&gt;モニター１&lt;/li&gt;
+&lt;li&gt;モニター２&lt;/li&gt;
+&lt;li&gt;電源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;用意したもの&#34;&gt;用意したもの&lt;/h1&gt;
+&lt;p&gt;その弱点を解消するものとしてドッキングステーションなるものを導入しました。&lt;/p&gt;
+&lt;h2 id=&#34;wavlink-usb-c-ultra-5kユニバーサルドッキングステーションデュアル4kドッキングステーション-60w-pd付きhdmiとdisplay-2セットギガビットイーサネットusb-cx2usb-30x4オーディオマイク&#34;&gt;WAVLINK USB-C Ultra 5Kユニバーサルドッキングステーションデュアル4Kドッキングステーション 60W PD付き（HDMIとDisplay ×2セット、ギガビットイーサネット、USB Cx2、USB 3.0x4、オーディオ、マイク）&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2022/12_002.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;製造元リファレンス：WLAMJP2C-UG69PD2-C&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B083332JMB/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;amp;psc=1&#34;&gt;https://www.amazon.co.jp/gp/product/B083332JMB/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;amp;psc=1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2022/12_003.jpg&#34; alt=&#34;&#34;&gt;
+上のように一つUSB-Cから電力、２台分のディスプレイ、複数のポートを同時に接続することができます。
+ただ、アプリが必要であらかじめ「DisplayLink Manager」を公式からダウンロードしてインストールしておく必要があります。これによりディスプレイ接続が一つまでだったものが複数接続できるようになりますし、ディsプレイの回転も対応できます。&lt;/p&gt;
+&lt;p&gt;これにより電源とディスプレイプレイを一つのUSB-Cにまとめることができました。&lt;/p&gt;
+&lt;h1 id=&#34;問題点&#34;&gt;問題点&lt;/h1&gt;
+&lt;p&gt;著作権的なものが付随している動画はこのディスプレイでみることはできませんでしたが、仕事で使うのが主なので特に問題にはなりませんでした。音楽とか聞けなくなるときついですが、、、&lt;/p&gt;
+&lt;h1 id=&#34;メモ&#34;&gt;メモ&lt;/h1&gt;
+&lt;p&gt;この接続方法だとアンプを通して音がでないようで再起動したらAVアンプ経由で音も無事出るようになった&lt;/p&gt;
+&lt;h1 id=&#34;参照&#34;&gt;参照&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bambiman.com/?p=1152&#34;&gt;https://www.bambiman.com/?p=1152&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://iroha-game.com/%E3%80%90m1%E6%90%AD%E8%BC%89mac%E3%81%A7%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%84%E3%80%91m1%E6%90%AD%E8%BC%89mac%E3%81%A72%E6%9E%9A%E3%81%AE%E5%A4%96%E9%83%A8%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC#toc3&#34;&gt;https://iroha-game.com/%E3%80%90m1%E6%90%AD%E8%BC%89mac%E3%81%A7%E4%BD%BF%E3%81%84%E3%81%9F%E3%81%84%E3%80%91m1%E6%90%AD%E8%BC%89mac%E3%81%A72%E6%9E%9A%E3%81%AE%E5%A4%96%E9%83%A8%E3%83%87%E3%82%A3%E3%82%B9%E3%83%97%E3%83%AC#toc3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ナイキ エア ズーム ペガサス 38 By You</title>
+      <link>http://nakajijapan.github.io/blog/2021/09/29/%E3%83%8A%E3%82%A4%E3%82%AD-%E3%82%A8%E3%82%A2-%E3%82%BA%E3%83%BC%E3%83%A0-%E3%83%9A%E3%82%AC%E3%82%B5%E3%82%B9-38-by-you/</link>
+      <pubDate>Wed, 29 Sep 2021 13:54:11 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2021/09/29/%E3%83%8A%E3%82%A4%E3%82%AD-%E3%82%A8%E3%82%A2-%E3%82%BA%E3%83%BC%E3%83%A0-%E3%83%9A%E3%82%AC%E3%82%B5%E3%82%B9-38-by-you/</guid>
+      <description>&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;またNKJ にした &lt;a href=&#34;https://t.co/NGkmwfmmRg&#34;&gt;https://t.co/NGkmwfmmRg&lt;/a&gt;&lt;/p&gt;&amp;mdash; なかじじゃぱん (@nakajijapan) &lt;a href=&#34;https://twitter.com/nakajijapan/status/1443523765845954562?ref_src=twsrc%5Etfw&#34;&gt;September 30, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;h1 id=&#34;エアマックス&#34;&gt;エアマックス&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/03-001.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;無駄にNKJの２代目です、、、&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/03-002.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/03-003.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;url&#34;&gt;URL&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.nike.com/jp/u/custom-nike-air-zoom-pegasus-38-by-you-10001128&#34;&gt;https://www.nike.com/jp/u/custom-nike-air-zoom-pegasus-38-by-you-10001128&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>２０２０仕事環境　メモ</title>
+      <link>http://nakajijapan.github.io/blog/2021/02/01/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E4%BB%95%E4%BA%8B%E7%92%B0%E5%A2%83-%E3%83%A1%E3%83%A2/</link>
+      <pubDate>Mon, 01 Feb 2021 22:11:23 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2021/02/01/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E4%BB%95%E4%BA%8B%E7%92%B0%E5%A2%83-%E3%83%A1%E3%83%A2/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/02-001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/02-002.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;リモート生活が続いていて色々買い揃えたのでそのメモ&lt;/p&gt;
+&lt;h2 id=&#34;lg-モニター-ディスプレイ-43un700t-b-425インチ4khdr対応&#34;&gt;LG モニター ディスプレイ 43UN700T-B 42.5インチ/4K/HDR対応&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B085Y5BB1L?ie=UTF8&amp;psc=1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=af7b4b79fd2ee65b1446ccfb47136f4d&amp;language=ja_JP&amp;ref_=as_li_ss_il&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B085Y5BB1L&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B085Y5BB1L&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;lg-モニター-ディスプレイ-43ud79-b-425インチ4k&#34;&gt;LG モニター ディスプレイ 43UD79-B 42.5インチ/4K&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B071D9MTGQ?ie=UTF8&amp;psc=1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=6a011eba12e0b869b46e5b8cb161f160&amp;language=ja_JP&amp;ref_=as_li_ss_il&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B071D9MTGQ&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B071D9MTGQ&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;auoplus-電源タップ-タワー式&#34;&gt;AUOPLUS 電源タップ タワー式&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B07MXCKJ2D/ref=as_li_ss_il?ie=UTF8&amp;psc=1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=4dd6ded222ff6365f35aa3a48800379a&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B07MXCKJ2D&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B07MXCKJ2D&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;差し込み口を縦にしたことで机の空間節約になりました。&lt;/p&gt;
+&lt;h2 id=&#34;audio-technica-サイドアドレスマイクロフォン-at2035&#34;&gt;audio-technica サイドアドレスマイクロフォン AT2035&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B001JERO46/ref=as_li_ss_il?ie=UTF8&amp;psc=1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=0f0aa91c68c2c42b7b3598cba3844ad4&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B001JERO46&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B001JERO46&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;ミーティングはAirPods使っていたのですがずっと使っているとバッテリー無くなることが多くなってきたので使うのをやめました。なるべくそのストレスがなくなるようにマイクを設置しました。
+アームもよかった。机の場所もスッキリするので。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B001D7UYBO/ref=as_li_ss_il?ie=UTF8&amp;psc=1&amp;linkCode=li2&amp;tag=daichibnejp-22&amp;linkId=9fdda3ac147a56409d585b4b4c1b12ce&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B001D7UYBO&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li2&amp;o=9&amp;a=B001D7UYBO&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;オーディオ環境&#34;&gt;オーディオ環境&lt;/h1&gt;
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/02-003.png&#34; width=&#34;400px&#34; /&gt;
+&lt;h2 id=&#34;デノン-denon-avr-x1600h-avサラウンドレシーバー-72ch&#34;&gt;デノン Denon AVR-X1600H AVサラウンドレシーバー 7.2ch&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B07RL6KH1T/ref=as_li_ss_il?ie=UTF8&amp;psc=1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=8669dcc4d55b11c79162de75aabbabdf&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B07RL6KH1T&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B07RL6KH1T&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jbl-4312d&#34;&gt;JBL 4312D&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/JBL-4312D%EF%BC%881%E6%9C%AC%EF%BC%89Left-3%E3%82%A6%E3%82%A7%E3%82%A4%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC/dp/B000VOAR7G?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;dchild=1&amp;keywords=4312d&amp;qid=1612358035&amp;sr=8-1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=5b99eaabfdf879824d83bd14b59665b5&amp;language=ja_JP&amp;ref_=as_li_ss_il&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B000VOAR7G&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B000VOAR7G&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jbl-スピーカー-4312m-ii-bk-ペア&#34;&gt;JBL スピーカー 4312M II BK [ペア]&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B0064RCK24?ie=UTF8&amp;psc=1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=6b91190101e51e9715c226dd83100bd6&amp;language=ja_JP&amp;ref_=as_li_ss_il&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B0064RCK24&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B0064RCK24&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jbl---stage-a125cw&#34;&gt;JBL - STAGE A125C/W&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/JBL-%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC-JBLA125CW-%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81-%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC2%E5%B9%B4%E4%BF%9D%E8%A8%BC%E4%BB%98%E3%81%8D%E3%80%91/dp/B07FHPRPKP?&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=d9db6690bb52710a167ea99de97054de&amp;language=ja_JP&amp;ref_=as_li_ss_il&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B07FHPRPKP&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B07FHPRPKP&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;jbl---control-x&#34;&gt;JBL - Control X&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/02-004.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;一応ゲーム用の環境でもあるので2階にもそういう音響環境を作る必要があった。持っているゲームが18禁が多いので子供がいるリビングでは禁止という。。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>据え置きマイク買ってみた</title>
+      <link>http://nakajijapan.github.io/blog/2021/01/31/%E6%8D%AE%E3%81%88%E7%BD%AE%E3%81%8D%E3%83%9E%E3%82%A4%E3%82%AF%E8%B2%B7%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Sun, 31 Jan 2021 18:45:13 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2021/01/31/%E6%8D%AE%E3%81%88%E7%BD%AE%E3%81%8D%E3%83%9E%E3%82%A4%E3%82%AF%E8%B2%B7%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>&lt;p&gt;2020年から仕事のほとんどがリモートになった。
+ミーティングの際には話すこともあるのでマイクとしてAirPodsを利用していた。
+しかし、ミーティングをする機会が徐々にマスにつれて長時間のミーティングやオンライン飲み会だと切れてしまうことが多々増えてきたので据え置きのマイクを購入した。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/01-002.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;材料はこちら&#34;&gt;材料はこちら&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2021/01-001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;audio-technica-サイドアドレスマイクロフォン-at2035&#34;&gt;audio-technica サイドアドレスマイクロフォン AT2035&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B001JERO46/ref=ppx_yo_dt_b_asin_title_o08_s02?ie=UTF8&amp;amp;psc=1&#34;&gt;https://www.amazon.co.jp/gp/product/B001JERO46/ref=ppx_yo_dt_b_asin_title_o08_s02?ie=UTF8&amp;amp;psc=1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B001JERO46/ref=as_li_ss_il?ie=UTF8&amp;psc=1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=0f0aa91c68c2c42b7b3598cba3844ad4&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B001JERO46&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B001JERO46&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;アーム&#34;&gt;アーム&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B001D7UYBO/ref=as_li_ss_il?ie=UTF8&amp;psc=1&amp;linkCode=li2&amp;tag=daichibnejp-22&amp;linkId=9fdda3ac147a56409d585b4b4c1b12ce&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B001D7UYBO&amp;Format=_SL160_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li2&amp;o=9&amp;a=B001D7UYBO&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;オーディオインターフェース&#34;&gt;オーディオインターフェース&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/Focusrite-Scarlett-Solo-3rd-%E3%82%AA%E3%83%BC%E3%83%87%E3%82%A3%E3%82%AA%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%95%E3%82%A7%E3%82%A4%E3%82%B9/dp/B07QR6Z1JB?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&amp;dchild=1&amp;keywords=solo+gen&amp;qid=1612346345&amp;sr=8-2&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=02dfb7c249e1072f88310a510af054e9&amp;language=ja_JP&amp;ref_=as_li_ss_il&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B07QR6Z1JB&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B07QR6Z1JB&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;アームにしたおかげで机はスッキリしたし、スタンディングしてのミーティングもある程度できるようになったので良かった。&lt;/p&gt;
+&lt;p&gt;あと、声が結構きれになったらしいです。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>２０２０年振り返り</title>
+      <link>http://nakajijapan.github.io/blog/2020/12/31/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E5%B9%B4%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</link>
+      <pubDate>Thu, 31 Dec 2020 21:55:51 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2020/12/31/%EF%BC%92%EF%BC%90%EF%BC%92%EF%BC%90%E5%B9%B4%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A/</guid>
+      <description>&lt;p&gt;年末なので振り返り。
+今年は人生の中で大きなイベントがあり大変忙しい日々を過ごしたと思う。&lt;/p&gt;
+&lt;h1 id=&#34;月別に振り返る&#34;&gt;月別に振り返る&lt;/h1&gt;
+&lt;h2 id=&#34;２月&#34;&gt;２月&lt;/h2&gt;
+&lt;p&gt;家と車を購入し、埼玉へ引っ越し。
+広い家に住みたかったのでちょっとコストがかかる買い物でしたが、豊かな生活を送りたかったので自分は
+よかったと思っています。
+あと、小生は映画も好きなので家を購入したタイミングでオーディオ環境を一新させました。
+センタースピーカーにはこだわってどこにも負けないくらいの大きさにしたと思います、、、&lt;/p&gt;
+&lt;h2 id=&#34;５月&#34;&gt;５月&lt;/h2&gt;
+&lt;p&gt;次男が出産。
+コロナ真っ最中であったのでうまく制度を使い、１ヶ月いかないくらいですが休みをもらい育児に専念しました。
+最初の一週間は息子と二人だけの生活だったが丸一日息子と向き合った日々だったのでとても印象的だった。
+それ以降、育児と仕事の両立が大変になっていく。&lt;/p&gt;
+&lt;h2 id=&#34;７月&#34;&gt;７月&lt;/h2&gt;
+&lt;p&gt;リモート生活が始まって徐々に家のネットワークが重くなってきて仕事できるような状態じゃなくなってきたし、
+同時にNetflixとかも見れない状態の負荷だった。そこで今家庭用で発売されている最高のルータを勢いで購入してものすごく改善した。&lt;/p&gt;
+&lt;h2 id=&#34;７８月&#34;&gt;７、８月&lt;/h2&gt;
+&lt;p&gt;仕事が徐々に忙しくなる。&lt;/p&gt;
+&lt;h2 id=&#34;９月&#34;&gt;９月&lt;/h2&gt;
+&lt;p&gt;微力ながらiOSDCにスタッフとして参加。&lt;/p&gt;
+&lt;h2 id=&#34;１０月&#34;&gt;１０月&lt;/h2&gt;
+&lt;p&gt;ちょっと前に２０００万円問題が出てきて、それがきっかけで資産運用考え始める。
+１００歳までどういうお金が必要でいつどのくらい使っていくかで試算してみたり、どのくらい二人で資産運用に回し続けられるのか試算してみたりして
+お金の流れを可視化させた。お金計算するの楽しい。
+資産を徐々に株式に回し始める。&lt;/p&gt;
+&lt;h1 id=&#34;コロナ&#34;&gt;コロナ&lt;/h1&gt;
+&lt;p&gt;仕事はほとんどリモートで行われるようになった。
+インターネットの仕事をしているせいかリモートになっても特に困ることなく仕事ができたように思う。
+一つ困ったことは価値観の異なる人間がチームに入った時のコミュニケーションがやっぱり置きてしまってそのフォローがそれなりに考えなければいけなく勉強になったところだ。
+あとは、出社時間がなくなったので、その分育児に時間を費やすようになったこれは本当にすごいリモートでよかったなと思う点だなと思っている。
+（ただ、残業で帰れないーと言いつつ同僚と飲み会という嘘がつけなくなって少し不便なところはあるがw）
+できればこれは続けて欲しい。&lt;/p&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;子供も生まれて二人になって、仕事も忙しくなって本当に時間の使い方にしっかり考えていかないと両立できないようになってきた。
+しかも、この状況はこれからも少なくても４年はこれが続くと思うので時間を有効に使っていかないとバランスが崩れてよくない結果を招くことになるので
+改善すべきところは改善して次につなげていきたい。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ナイキ エア マックス95 アンロックド By You</title>
+      <link>http://nakajijapan.github.io/blog/2020/10/14/%E3%83%8A%E3%82%A4%E3%82%AD-%E3%82%A8%E3%82%A2-%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B995-%E3%82%A2%E3%83%B3%E3%83%AD%E3%83%83%E3%82%AF%E3%83%89-by-you/</link>
+      <pubDate>Wed, 14 Oct 2020 02:15:17 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2020/10/14/%E3%83%8A%E3%82%A4%E3%82%AD-%E3%82%A8%E3%82%A2-%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B995-%E3%82%A2%E3%83%B3%E3%83%AD%E3%83%83%E3%82%AF%E3%83%89-by-you/</guid>
+      <description>&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;エアマックス狩りが落ち着いたので買いました&lt;a href=&#34;https://t.co/5t5TVRpQRa&#34;&gt;https://t.co/5t5TVRpQRa&lt;/a&gt;&lt;/p&gt;&amp;mdash; なかじじゃぱん (@nakajijapan) &lt;a href=&#34;https://twitter.com/nakajijapan/status/1310770486142332934?ref_src=twsrc%5Etfw&#34;&gt;September 29, 2020&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;h1 id=&#34;エアマックス&#34;&gt;エアマックス&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/10-002.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;無駄にNKJを、、、&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/10-003.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;url&#34;&gt;URL&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.nike.com/jp/u/custom-air-max-95-unlocked-by-you-10000943/8030124736?mid=8030124736&amp;amp;sitesrc=nikebyyoupdp&#34;&gt;https://www.nike.com/jp/u/custom-air-max-95-unlocked-by-you-10000943/8030124736?mid=8030124736&amp;amp;sitesrc=nikebyyoupdp&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HDDからSSDにした</title>
+      <link>http://nakajijapan.github.io/blog/2020/10/14/hdd%E3%81%8B%E3%82%89ssd%E3%81%AB%E3%81%97%E3%81%9F/</link>
+      <pubDate>Wed, 14 Oct 2020 01:15:28 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2020/10/14/hdd%E3%81%8B%E3%82%89ssd%E3%81%AB%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;いままでは4TBのHDD（外付け）を利用していたんですが大きくて場所に困ったり、音がうるさかったり、電源が必要だったりと邪魔でした。
+代替案としてはSSDでほとんどのことが解決されるとは思ってはいたものの、2TBの価格が結構高かったので断念していたのですが近年それなりの値段で安くなったので購入に決断しました。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/SanDisk-%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0-%E6%9C%80%E5%A4%A7550MB-%E3%83%87%E3%83%BC%E3%82%BF%E5%BE%A9%E6%97%A7%E3%82%BD%E3%83%95%E3%83%88%E4%BB%98-SDSSDE60-2T00-G25/dp/B078T9SZ3K/ref=as_li_ss_il?_encoding=UTF8&amp;pd_rd_i=B078T9SZ3K&amp;pd_rd_r=5fe4f892-e7b6-424f-9174-8ae605b735c2&amp;pd_rd_w=gKvB7&amp;pd_rd_wg=zx7p5&amp;pf_rd_p=ebed8695-eaff-4620-80d6-932dd48e346c&amp;pf_rd_r=FET1ZGP1NRP4CJJ5FMDC&amp;psc=1&amp;refRID=FET1ZGP1NRP4CJJ5FMDC&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=7545db292093a67b533040ab65d61cbc&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B078T9SZ3K&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B078T9SZ3K&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;をAmazonでで購入しました。&lt;/p&gt;
+&lt;p&gt;実はもう２TB必要でそれはノートのバックアップに利用していてそこまでクリティカルではにのでまた値段が下がったら購入することにします。&lt;/p&gt;
+&lt;h1 id=&#34;結果&#34;&gt;結果&lt;/h1&gt;
+&lt;p&gt;いい感じです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;場所がコンパクト&lt;/li&gt;
+&lt;li&gt;電源がいらない&lt;/li&gt;
+&lt;li&gt;小さい&lt;/li&gt;
+&lt;li&gt;静か&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;これに限ります。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>メッシュWi-Fi導入した</title>
+      <link>http://nakajijapan.github.io/blog/2020/07/23/%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5wi-fi%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F/</link>
+      <pubDate>Thu, 23 Jul 2020 22:52:21 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2020/07/23/%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5wi-fi%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/07-001.png&#34; alt=&#34;orbi&#34;&gt;&lt;/p&gt;
+&lt;p&gt;先日、新しくWiFiルータを購入してネットワーク環境がものすごく改善されたので紹介する。&lt;/p&gt;
+&lt;h1 id=&#34;なぜ購入した&#34;&gt;なぜ購入した？&lt;/h1&gt;
+&lt;p&gt;今住んでる家が一軒家で2階建て。ルータは家の都合上二階の端っこに設置しないといけない状況でした。
+なので一階のリビングには5Ghz帯は殆どこないで2.4Ghz帯を利用していました。一階に中継機を配置してはいたのですが
+劇的な改善にはいたらなかった。&lt;/p&gt;
+&lt;p&gt;しかし、仕事を始めたりして常にインターネットをするだけではなく一階ではNetflix(プランはプレミアムで4Kのものもちょくちょく見る)、あとはいろんな家電を繋ぐようになったらものすごく通信状態悪くなり、タイムアウトになったりwifiが切れたりする現象が増えてきた。ルーターや中継機を再起動しても問題解決にはいたらなかった。いろんな機器をはずすというものひとつの手だが家電もリモートで管理したかったのでそれは考えたくない。
+1階はとくに繋がらなくなることがちょくちょくあった。&lt;/p&gt;
+&lt;h1 id=&#34;どれ使ってた&#34;&gt;どれ使ってた？&lt;/h1&gt;
+&lt;p&gt;nuroを契約したときにF660aというものをもらってそのままそれを使っていました。スペックもそんなには悪くはないのだが壁を挟むと一気に弱くなる。24Ghz帯が通ってるとはいえそこまで速度は出ない。ルーターがかなり家の端っこということが痛い。&lt;/p&gt;
+&lt;h2 id=&#34;ルーター&#34;&gt;ルーター&lt;/h2&gt;
+&lt;p&gt;ZXHN F660A&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;無線LAN下り
+&lt;ul&gt;
+&lt;li&gt;1300Mbps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;対応規格
+&lt;ul&gt;
+&lt;li&gt;11 a/b/g/n/ac&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;中継機&#34;&gt;中継機&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/gp/product/B073FF93SY/ref=as_li_ss_il?ie=UTF8&amp;psc=1&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=61ea78ad8ed2f46d213490d65de4d61c&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B073FF93SY&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B073FF93SY&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/2E7BSsV&#34;&gt;TP-Link WIFI 無線LAN 中継器 11ac/n/a/g/b 1733 + 800Mbps ビームフォーミング MU-MIMO APモード 3年保証 RE650&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;どれ買った&#34;&gt;どれ買った&lt;/h1&gt;
+&lt;p&gt;今回購入したのはこれ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.amazon.co.jp/dp/B0836YKNZW/ref=as_li_ss_il?ie=UTF8&amp;linkCode=li3&amp;tag=daichibnejp-22&amp;linkId=bb997545dae508dddb09110c40cfe1ca&amp;language=ja_JP&#34; target=&#34;_blank&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;ASIN=B0836YKNZW&amp;Format=_SL250_&amp;ID=AsinImage&amp;MarketPlace=JP&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=daichibnejp-22&amp;language=ja_JP&#34; &gt;&lt;/a&gt;&lt;img src=&#34;https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;language=ja_JP&amp;l=li3&amp;o=9&amp;a=B0836YKNZW&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;NETGEAR メッシュWiFi無線LANルーター2台セット Wi-Fi6(11AX) 速度AX6000 トライバンド RBK852 (ルータ―+サテライト) 350㎡ &lt;a href=&#34;https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM&#34;&gt;https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;簡単に買うほど安くはない。むしろかなり高い方だがこのご時世家で仕事することも増えてきたので投資して問題ないだろうという判断です。
+こういうの何かとストレスになるしできるならなくしていきたいところ。&lt;/p&gt;
+&lt;h2 id=&#34;キーワード&#34;&gt;キーワード&lt;/h2&gt;
+&lt;p&gt;購入するためにルーターの基礎知識が数年前の知識だったので調べてみるといくつか新しい技術が搭載されたものが発売されていて勉強する時間を要してしまった。
+世の中どんどん便利になっていくものですな。。。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;メッシュWi-Fi&lt;/li&gt;
+&lt;li&gt;トライバンド&lt;/li&gt;
+&lt;li&gt;Wi-Fi 6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;どのくらい改善されたか&#34;&gt;どのくらい改善されたか&lt;/h1&gt;
+&lt;p&gt;結論から言うと完全に改善された。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;WiFi 6対応で、2402Mbps+2402Mbps+1147Mbps&lt;/code&gt;と謳っていて、もっと良い結果が出るのではないかなと思ってはいたが家電やスマートフォン合わせて10台くらいがつながった状態でこの測度を維持している。
+体感的にも全く問題がない使い心地である。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;トライバンド メッシュ WiFi AX6000 (2402 + 2402 + 1147Mbps)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;導入前&#34;&gt;導入前&lt;/h2&gt;
+&lt;h3 id=&#34;作業部屋-2f&#34;&gt;作業部屋 2F&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;number&lt;/th&gt;
+&lt;th&gt;result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;47 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;49 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;61 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;47 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;５&lt;/td&gt;
+&lt;td&gt;41 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;作業部屋-2f-iphone-11-pro-max&#34;&gt;作業部屋 2F iPhone 11 Pro Max&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;number&lt;/th&gt;
+&lt;th&gt;result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2.2 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;4.4 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;4.6 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;4.8 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;５&lt;/td&gt;
+&lt;td&gt;4.8 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;リビング-1f-iphone-11-pro-max&#34;&gt;リビング 1F iPhone 11 Pro Max&lt;/h3&gt;
+&lt;p&gt;つながるのさえ時間がかかって計測出来ない状況が続いた。
+計測できたとしても&lt;code&gt;作業部屋 2F iPhone 11 Pro Max&lt;/code&gt;と同様のスピード&lt;/p&gt;
+&lt;h2 id=&#34;導入後&#34;&gt;導入後&lt;/h2&gt;
+&lt;h3 id=&#34;作業部屋-2f-1&#34;&gt;作業部屋 2F&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;number&lt;/th&gt;
+&lt;th&gt;result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;410 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;500 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;1500 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;490 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;５&lt;/td&gt;
+&lt;td&gt;500 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;作業部屋-2f-iphone-11-pro-max-1&#34;&gt;作業部屋 2F iPhone 11 Pro Max&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;number&lt;/th&gt;
+&lt;th&gt;result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;85 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;120 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;120 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;150 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;５&lt;/td&gt;
+&lt;td&gt;170 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;作業部屋-2f-iphone-11-pro-max-2&#34;&gt;作業部屋 2F iPhone 11 Pro Max&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;number&lt;/th&gt;
+&lt;th&gt;result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;150 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;200 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;200 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;120 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;５&lt;/td&gt;
+&lt;td&gt;170 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;リビング-1f-iphone-11-pro-max-1&#34;&gt;リビング 1F iPhone 11 Pro Max&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;number&lt;/th&gt;
+&lt;th&gt;result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;150 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;120 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;180 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;150 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;５&lt;/td&gt;
+&lt;td&gt;200 Mbps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;駐車場&#34;&gt;駐車場&lt;/h3&gt;
+&lt;p&gt;余談。普通にインターネットできた！
+なので洗車をしながらオンラインのミュージックをきけました。&lt;/p&gt;
+&lt;h2 id=&#34;配置図&#34;&gt;配置図&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/07-002.png&#34; alt=&#34;配置図&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;高画質な映画をみつつ、別部屋ではzoomで仕事。&lt;/li&gt;
+&lt;li&gt;1軒屋でルータ置き場が家の端にあってつなげるために数枚の壁がある &lt;/li&gt;
+&lt;li&gt;スマートフォンだけじゃなくて家電もつなげてる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ような人にはとてもネットワーク環境は劇的に改善されると思う。また、そこでインターネットを&lt;strong&gt;常に&lt;/strong&gt;利用して生活を送り、仕事をする環境いる身としては、たとえ高価であっても投資をしたほうがより豊かに今後の人生が遅れるのではないかと思う。&lt;/p&gt;
+&lt;h1 id=&#34;参照&#34;&gt;参照&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Orbi WiFi 6 サテライト
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jp.netgear.com/orbi/rbs850.aspx&#34;&gt;https://www.jp.netgear.com/orbi/rbs850.aspx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.watch.impress.co.jp/netgear/review58/&#34;&gt;https://www.watch.impress.co.jp/netgear/review58/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://store.netgear.jp/shopdetail/000000000397/&#34;&gt;https://store.netgear.jp/shopdetail/000000000397/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;使っていたもの
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nuro.jp/pdf/device/manual_ZXHNF660A.pdf&#34;&gt;https://www.nuro.jp/pdf/device/manual_ZXHNF660A.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;記事
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://xtech.nikkei.com/atcl/nxt/column/18/00160/091800064/&#34;&gt;https://xtech.nikkei.com/atcl/nxt/column/18/00160/091800064/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;比較表&#34;&gt;📝　比較表&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/07-003.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>家族が増えました</title>
+      <link>http://nakajijapan.github.io/blog/2020/05/31/%E5%AE%B6%E6%97%8F%E3%81%8C%E5%A2%97%E3%81%88%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sun, 31 May 2020 23:33:06 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2020/05/31/%E5%AE%B6%E6%97%8F%E3%81%8C%E5%A2%97%E3%81%88%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/05-001.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;息子がまた一人増えました。
+ようやく理想の家族構成になりました。
+息子一人でけっこう大変だったのに二人になるとこれは想像以上の展開になっていくことが予想されそうです。
+とはいえ、これからの生活といい息子たちの成長といい楽しくなっていきそうで何よりです。
+やっていき。&lt;/p&gt;
+&lt;p&gt;もしよければ、、、
+&lt;a href=&#34;https://www.amazon.co.jp/baby-reg/--5-2020/1N2G3SFL2E1T8&#34;&gt;Wish List&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>新居に向けて購入したもの</title>
+      <link>http://nakajijapan.github.io/blog/2020/04/01/%E6%96%B0%E5%B1%85%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE/</link>
+      <pubDate>Wed, 01 Apr 2020 11:12:46 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2020/04/01/%E6%96%B0%E5%B1%85%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE/</guid>
+      <description>&lt;p&gt;新居に向けて購入したものをめも&lt;/p&gt;
+&lt;h1 id=&#34;屋内家電&#34;&gt;屋内家電&lt;/h1&gt;
+&lt;h2 id=&#34;コーヒーメーカー&#34;&gt;コーヒーメーカー&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/2VfHSos&#34;&gt;【スタンダードモデル】デロンギ(DeLonghi)コンパクト全自動コーヒーメーカー ブラック マグニフィカ S カプチーノ スマート ECAM23260SBN&lt;/a&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-008.jpg&#34; width=&#34;200&#34;/&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;tv&#34;&gt;TV&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/3ecXXnG&#34;&gt;OLED65C9PJA 有機ELテレビ LG [65V型 /4K対応 /BS・CS 4Kチューナー内蔵]&lt;/a&gt;
+&lt;a href=&#34;https://www.lg.com/jp/tv/lg-OLED65C9PJA&#34;&gt;https://www.lg.com/jp/tv/lg-OLED65C9PJA&lt;/a&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-005.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/2Xl9N9g&#34;&gt;壁寄せテレビスタンド WALL ウォール V3 ハイタイプ ウォールナット M05000126&lt;/a&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-001.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;冷蔵庫&#34;&gt;冷蔵庫&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/3edmHvN&#34;&gt;NR-F505HPX-W 冷蔵庫 HPXタイプ アルベロホワイト [6ドア /観音開きタイプ /500L] &lt;/a&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-004.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://panasonic.jp/reizo/products/NR-F505HPX.html&#34;&gt;https://panasonic.jp/reizo/products/NR-F505HPX.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;掃除機&#34;&gt;掃除機&lt;/h2&gt;
+&lt;p&gt;iRobot 掃除機 ロボット掃除機 2019年発売モデル ルンバ i7+ 自動ゴミ捨て機能
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-016.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;a href=&#34;https://www.irobot-jp.com/product/i7/&#34;&gt;https://www.irobot-jp.com/product/i7/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;炊飯器&#34;&gt;炊飯器&lt;/h2&gt;
+&lt;p&gt;〈象印〉 STAN.　IH炊飯ジャー
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-017.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;a href=&#34;https://www.zojirushi.co.jp/syohin/stan/product/ricecooker.html#stan_container&#34;&gt;https://www.zojirushi.co.jp/syohin/stan/product/ricecooker.html#stan_container&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;洗濯機&#34;&gt;洗濯機&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/2xiO8E0&#34;&gt;NA-VX700AL-W ドラム式洗濯乾燥機 VXシリーズ クリスタルホワイト [洗濯10.0kg /乾燥6.0kg /ヒートポンプ乾燥 /左開き]&lt;/a&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-002.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;a href=&#34;https://panasonic.jp/wash/p-db/NA-VX700AL.html&#34;&gt;https://panasonic.jp/wash/p-db/NA-VX700AL.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;トースター&#34;&gt;トースター&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/2RACVp5&#34;&gt;BALMUDA The Toaster&lt;/a&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-010.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;a href=&#34;https://www.balmuda.com/jp/toaster/&#34;&gt;https://www.balmuda.com/jp/toaster/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;電子レンジ&#34;&gt;電子レンジ&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/3ag84VH&#34;&gt;BALMUDA The Range&lt;/a&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-011.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;a href=&#34;https://www.balmuda.com/jp/range/&#34;&gt;https://www.balmuda.com/jp/range/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;空気清浄機&#34;&gt;空気清浄機&lt;/h2&gt;
+&lt;h3 id=&#34;ki-lx75-シャープ&#34;&gt;KI-LX75 シャープ&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-012.png&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;a href=&#34;https://jp.sharp/kuusei/products/kilx75/&#34;&gt;https://jp.sharp/kuusei/products/kilx75/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;kc-g50-シャープ&#34;&gt;KC-G50 シャープ&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://jp.sharp/kuusei/products/kcg50.html&#34;&gt;https://jp.sharp/kuusei/products/kcg50.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;エアコン&#34;&gt;エアコン&lt;/h2&gt;
+&lt;h3 id=&#34;s71xtrxp-23畳&#34;&gt;S71XTRXP 23畳&lt;/h3&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-013.png&#34; width=&#34;512&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.daikinaircon.com/kabekake/products/rx_series/&#34;&gt;https://www.daikinaircon.com/kabekake/products/rx_series/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;s22xtmxs-6畳&#34;&gt;S22XTMXS 6畳&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-014.png&#34; width=&#34;512&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;a href=&#34;https://www.daikinaircon.com/kabekake/products/mx_series/&#34;&gt;https://www.daikinaircon.com/kabekake/products/mx_series/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;屋外&#34;&gt;屋外&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/3cv28cX&#34;&gt;高圧洗浄機 K 3 サイレント ベランダ（東日本/50HZ地域用）&lt;/a&gt;
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-018.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+
+&lt;a href=&#34;https://www.kaercher.com/jp/home-garden/pressure-washers/k-3-silent-veranda-50-hz-16014480.html&#34;&gt;https://www.kaercher.com/jp/home-garden/pressure-washers/k-3-silent-veranda-50-hz-16014480.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ウルトラフォームセット
+&lt;figure class=&#34;center&#34;&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/04-019.jpg&#34; width=&#34;240&#34;/&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>久しぶりに車買った</title>
+      <link>http://nakajijapan.github.io/blog/2020/03/02/%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%AB%E8%BB%8A%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
+      <pubDate>Mon, 02 Mar 2020 23:33:06 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2020/03/02/%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%AB%E8%BB%8A%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/03-003.jpg&#34; alt=&#34;&#34;&gt;
+&lt;a href=&#34;https://www.honda.co.jp/FREED/&#34;&gt;FREED by Honda&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;購入したもの&#34;&gt;購入したもの&lt;/h1&gt;
+&lt;p&gt;Honda - Freed
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/03-002.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/03-002.jpg&#34; width=400 /&gt;
+&lt;h1 id=&#34;条件&#34;&gt;条件&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;スライドドア&lt;/li&gt;
+&lt;li&gt;運転し心地&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;家に駐車場はあるけれどそこまで広くはなかったのと、子供がこれから開け閉めすること想定すると壁にドアを当てるのでスライドドアは必須という話をしていた。
+あとは運転し心地。Freedの他の候補としてトヨタのシエンタにしていたのですが断然Freedでした。僕が印象的だったのがブレーキの掛け方がものすごくしっくりきたこと、毎回かけるから少しでもストレスあると嫌なんですよね。&lt;/p&gt;
+&lt;h1 id=&#34;保険&#34;&gt;保険&lt;/h1&gt;
+&lt;p&gt;東京海上の自動車保険を営業の人に勧められたのでそれに入った。
+なるべく安めのプランにしてもらったけど5万だったのでちょっと高め。&lt;/p&gt;
+&lt;h1 id=&#34;お金がかかる&#34;&gt;お金がかかる&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;自動車税&lt;/li&gt;
+&lt;li&gt;車検&lt;/li&gt;
+&lt;li&gt;自動車保険&lt;/li&gt;
+&lt;li&gt;定期的なメンテナンス&lt;/li&gt;
+&lt;li&gt;ガソリン&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;付属で購入したもの&#34;&gt;付属で購入したもの&lt;/h1&gt;
+&lt;p&gt;後部座席で子供が動画を見れるようにするために購入しました。この二つがないとiPadがはめることができないです。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/03-004.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;honda ホンダ freed フリード タブレットホルダー [2016.9～次モデル][ 08U08-E6J-010A ] &lt;a href=&#34;https://www.amazon.co.jp/dp/B01N65ROYV/ref=cm_sw_r_cp_apip_nmD8XLSrp4Xvj&#34;&gt;https://www.amazon.co.jp/dp/B01N65ROYV/ref=cm_sw_r_cp_apip_nmD8XLSrp4Xvj&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;HONDA ホンダ 純正 ODYSSEY オデッセイ スマートクリップ 2017.11～仕様変更 08U08-E6J-010 &lt;a href=&#34;https://www.amazon.co.jp/dp/B0788FD88X/ref=cm_sw_r_cp_apip_dYcMK45HvaMbE&#34;&gt;https://www.amazon.co.jp/dp/B0788FD88X/ref=cm_sw_r_cp_apip_dYcMK45HvaMbE&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;実際購入してみたけど子供がけるようになってしまったので現在封印しています。&lt;/p&gt;
+&lt;h1 id=&#34;メモ&#34;&gt;メモ&lt;/h1&gt;
+&lt;p&gt;昔乗っていた車をメモ&lt;/p&gt;
+&lt;h2 id=&#34;civic&#34;&gt;Civic&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/03-005.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.honda.co.jp/pressroom/products/auto/civic/civic_1995-09-04/&#34;&gt;https://www.honda.co.jp/pressroom/products/auto/civic/civic_1995-09-04/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;免許とってすぐ買ってもらったけどすぐ事故って募集された&lt;/p&gt;
+&lt;h2 id=&#34;life&#34;&gt;Life&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/03-006.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.honda.co.jp/auto-archive/life/4door/2003/&#34;&gt;https://www.honda.co.jp/auto-archive/life/4door/2003/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;親父にお前はこれでいいと軽自動車を渡された。&lt;/p&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;家の周りはほとんどお店がないので徒歩、自転車で行くのは結構困難なので車は必要。
+それプラスなんてったって家族といろんな思い出が作れる素晴らしい時間と空間を提供しれくれている。
+その点でお金を払う分のに十分な代物だ。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>家を購入した</title>
+      <link>http://nakajijapan.github.io/blog/2020/03/01/%E5%AE%B6%E3%82%92%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sun, 01 Mar 2020 03:14:55 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2020/03/01/%E5%AE%B6%E3%82%92%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/03-001.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;なぜ&#34;&gt;なぜ&lt;/h1&gt;
+&lt;p&gt;第一子が生まれたことと第二子が生まれるとのことで子育てするのに今の家だと収納やら生活環境やら大変になってきたのでどこか&lt;strong&gt;広い&lt;/strong&gt;ところに引っ越したいなぁというところから始めた&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;もっと広い部屋で豊かな生活をしたい。
+&lt;ul&gt;
+&lt;li&gt;ここが重要！！！！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;家賃まぁまぁ高いのでなんとかしたい
+&lt;ul&gt;
+&lt;li&gt;総合的に見てお金がかかってしまうのでここはなんとかならなかった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;条件&#34;&gt;条件&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;駅近
+&lt;ul&gt;
+&lt;li&gt;共働き&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;リビング広め
+&lt;ul&gt;
+&lt;li&gt;２０畳は欲しい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;駐車できるスペースがある
+&lt;ul&gt;
+&lt;li&gt;車が欲しい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;嫁の実家に近い&lt;/li&gt;
+&lt;li&gt;4LDK&lt;/li&gt;
+&lt;li&gt;庭
+&lt;ul&gt;
+&lt;li&gt;バスケができる🏀&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;戸建
+&lt;ul&gt;
+&lt;li&gt;２階建&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;屋上&lt;/li&gt;
+&lt;li&gt;屋根裏部屋&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;広い家と庭は遠くに行けばそれなりのものはあるのだがなんせ妻も出産後も仕事がしたいということで駅から遠いところではなくて駅近が必須だったのでそこは最低限の広さがあればいいやという話になった。（マンションの広さ以上のものは欲しかった）結局、庭という庭を作ることはできなかったがまぁしょうがないという感じ。&lt;/p&gt;
+&lt;h2 id=&#34;妥協したもの&#34;&gt;妥協したもの&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;庭
+&lt;ul&gt;
+&lt;li&gt;旗竿地だから車と家の間で少し遊べるからそこは妥協した&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;4LDK
+&lt;ul&gt;
+&lt;li&gt;なかなかないね、、、&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;屋上
+&lt;ul&gt;
+&lt;li&gt;なかなかないね、、、&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;屋根裏部屋
+&lt;ul&gt;
+&lt;li&gt;なかなかないね、、、&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;マンションは&#34;&gt;マンションは？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;狭い&lt;/li&gt;
+&lt;li&gt;高すぎる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特に渋谷に近い沿線系なるとそんなに広くないのに高いのでやめました。車買ったらまた手数料かなんかでまた高く
+マンションは３人家族で住むにはギリギリセーフかなという印象で四人暮らし以上想定していましたので、流石に狭いなぁという印象でした。&lt;/p&gt;
+&lt;p&gt;これは僕と妻の何軒か回った上での総意でした。&lt;/p&gt;
+&lt;h2 id=&#34;都内一軒家は&#34;&gt;都内一軒家は？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;たっかすぎる。&lt;/strong&gt;
+自分が調べていたのは東横線でした。なるべく徒歩１０分以内で探していたけどそんな土地はほとんどなくてあったとしてもすごい高い上に３階建で狭い。
+遠いけど広そうな家はあったものの辺鄙な場所にあったり、それでも高いものばかりでした。&lt;/p&gt;
+&lt;h2 id=&#34;ハウスメーカー&#34;&gt;ハウスメーカー&lt;/h2&gt;
+&lt;p&gt;基本坪単価が高い。タマホームとか良心的だけど、いい土地探してくれないし持ってないので却下。&lt;/p&gt;
+&lt;h1 id=&#34;知識&#34;&gt;知識&lt;/h1&gt;
+&lt;p&gt;基本は実際にいろんなところに行って情報取得してきたところが一番でかい。
+それほど本は読まなかった。まぁまぁYoutubeは利用しましたね。&lt;/p&gt;
+&lt;h2 id=&#34;読んだ本&#34;&gt;読んだ本&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;持ち家という病
+購入するといろいろ大変だよ〜というざっくりとしたことがわかった、、、&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ツール&#34;&gt;ツール&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;スーモ&lt;/li&gt;
+&lt;li&gt;HOME&amp;rsquo;s&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;活動メモ&#34;&gt;活動メモ&lt;/h1&gt;
+&lt;p&gt;だいたい２年位かかった&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;住宅展示場に行く
+&lt;ul&gt;
+&lt;li&gt;とりあえずコンクリートはないな&lt;/li&gt;
+&lt;li&gt;一軒家めっちゃいいじゃんて思い始める&lt;/li&gt;
+&lt;li&gt;夢広がる&lt;/li&gt;
+&lt;li&gt;住宅展示場の人は家は作るけど土地はそんなに熱心に探してくれなかった&lt;/li&gt;
+&lt;li&gt;タマホームでそこそこ土地のことも調べてくれて全体的にサービスの印象良かったので一瞬買いそうになった
+&lt;ul&gt;
+&lt;li&gt;妻からのNG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;溝ノ口のマンションの新築があったので見学会に参加する&lt;/li&gt;
+&lt;li&gt;その後数件マンションみる&lt;/li&gt;
+&lt;li&gt;マンションはないなーという話をする&lt;/li&gt;
+&lt;li&gt;大手のハウスメーカーじゃなくて地元の工務店やそれと連携している土地紹介業者を回るようにした
+&lt;ul&gt;
+&lt;li&gt;ハウスメーカーはなんだかんだで高い&lt;/li&gt;
+&lt;li&gt;自分では良さそうと思った土地があって家もある程度設計してもらって見積もりもらう
+&lt;ul&gt;
+&lt;li&gt;妻からのNG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;やっぱなんだかんだでマンションいいんじゃねぇ少し思い始め、再度マンションを回り始める
+&lt;ul&gt;
+&lt;li&gt;やっぱ違うって再認識&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;建売も検討し始める
+&lt;ul&gt;
+&lt;li&gt;それでも都内、渋谷から近い沿線は高い&lt;/li&gt;
+&lt;li&gt;埼玉を検討し始める&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;見つける
+&lt;ul&gt;
+&lt;li&gt;妻からのOK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;契約した会社&#34;&gt;契約した会社&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.polus.co.jp/&#34;&gt;ポラス&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;建売が専門の会社だと思っていたのですがそうではないらしく、それは色々あるサービスのかの一つらしいです。
+グループ会社として存在しているのでメンテナンス・リフォームやらと全て包括してサービス提供しているので
+購入してからも安心してからも頼れるのかなぁという感じです。&lt;/p&gt;
+&lt;p&gt;あと、建売のデザインが他の会社と比べてめっちゃ家族向けに作られてなぁと思って好印象ですか。
+もちろん営業の人も熱心な方でよかったです。&lt;/p&gt;
+&lt;h1 id=&#34;住宅ローン&#34;&gt;住宅ローン&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;何の問題なく審査が通る&lt;/li&gt;
+&lt;li&gt;やること多くて何回かミスって再度提出、、、&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;政府からの補助&#34;&gt;政府からの補助&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;すまい給付金
+&lt;ul&gt;
+&lt;li&gt;対象外だった。しょうがない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;住宅ローン減税
+&lt;ul&gt;
+&lt;li&gt;最大４０万の控除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;次世代住宅ポイント
+&lt;ul&gt;
+&lt;li&gt;結構もらった&lt;/li&gt;
+&lt;li&gt;もらったら分の金額は課税対象になるっぽいので注意&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;１０％になってすぐに購入したので政府からの補助が色々あった&lt;/p&gt;
+&lt;h1 id=&#34;保険&#34;&gt;保険&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;火災保険&lt;/li&gt;
+&lt;li&gt;地震保険&lt;/li&gt;
+&lt;li&gt;管理会社用の保証&lt;/li&gt;
+&lt;li&gt;自動車保険&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;家の保険はいろんな災害のものがパッケージとなって含まれていたので色々カバーされてはいるものの広範囲になればなるほど高くなるというもの。
+水害はハザードマップ見たのとここ数年大きな水害はなかったので入らなかった&lt;/p&gt;
+&lt;h1 id=&#34;税&#34;&gt;税&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;固定資産税&lt;/li&gt;
+&lt;li&gt;自動車税&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;払うしかない、、、&lt;/p&gt;
+&lt;h2 id=&#34;その他の保険&#34;&gt;その他の保険&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;死亡保険&lt;/li&gt;
+&lt;li&gt;医療保険&lt;/li&gt;
+&lt;li&gt;がん保険&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;この辺は変更なしだけど子供が二人になったタイミングでまた考えないといけない。
+学資保険とか、、、、&lt;/p&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;活動を始めてから２年くらいかかってのやっと購入までありつけました。途中喧嘩したり、後半妻が妊娠したりと壁はありましたが自分たちが納得いくものを購入できたので良かったです。
+そこまで高くない家を購入した（家賃の値段も数万くらい安くなった）とはいえ、これからもいろんなところで本当に金は必要になってくるので引き続きお仕事は頑張らないといけない感じです。。。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>お宮参り</title>
+      <link>http://nakajijapan.github.io/blog/2018/10/21/%E3%81%8A%E5%AE%AE%E5%8F%82%E3%82%8A/</link>
+      <pubDate>Sun, 21 Oct 2018 01:08:14 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/10/21/%E3%81%8A%E5%AE%AE%E5%8F%82%E3%82%8A/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;お宮参りとは、その土地の守り神である産土神（うぶすながみ）に赤ちゃんの誕生を報告し、健やかな成長を願う意味のある行事のこと。他に「初宮詣（はつみやもうで）」「初宮参り」「産土参り(うぶすなまいり)」と呼ばれる場合もあります。
+&lt;a href=&#34;https://allabout.co.jp/gm/gc/71827/&#34;&gt;https://allabout.co.jp/gm/gc/71827/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;健やかに成長して欲しいのでお宮参りしてきた。
+場所は川崎大使。朝早くいったせいかほとんど混んでいなく、すんなりことを終えることができた。
+その後は、料亭でお食い初めの儀式、家族の記念写真を撮って終了した。いろんな儀式があって大変だったけど妻が全てやってくれたので助かった。。。&lt;/p&gt;
+&lt;p&gt;どうでもいいけどビッグカメラ行きたかったけど完全に疲れたので延期で。。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-10-008.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>サブウーファー買った</title>
+      <link>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
+      <pubDate>Tue, 09 Oct 2018 01:07:47 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/10/09/%E3%82%B5%E3%83%96%E3%82%A6%E3%83%BC%E3%83%95%E3%82%A1%E3%83%BC%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-10-007.jpg&#34; alt=&#34;&#34;&gt;
+&lt;a href=&#34;http://jbl.harman-japan.co.jp/product.php?id=stage_suba100p&#34;&gt;http://jbl.harman-japan.co.jp/product.php?id=stage_suba100p&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;念願のサブウーファー なのだがリビンングは子供のベッド＆子育てスペースとして使われているので設置不可能。。。
+もう少し設置完了までに時間がかかりそう。&lt;/p&gt;
+&lt;h2 id=&#34;仕様&#34;&gt;仕様&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;製品名	STAGE SUB A100P
+形式	背面バスレフ、アクティブサブウーファー
+構成	250mm径ウーファー
+出力	150W(RMS)、300W(Peak)
+周波数特性	35Hz ～ 150Hz
+クロスオーバー周波数	50Hz ～ 150Hz（連続可変）
+外形寸法(W x H x D)	335 x 380 x 405（グリル含）mm
+本体重量	13.7kg
+付属品	スパイク×4、グリル、電源コード（1.8m）
+価格	標準価格 \35,000 (税別)  / 1本&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ベビーカー購入した</title>
+      <link>http://nakajijapan.github.io/blog/2018/09/24/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
+      <pubDate>Mon, 24 Sep 2018 23:18:18 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/09/24/%E3%83%99%E3%83%93%E3%83%BC%E3%82%AB%E3%83%BC%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;そろそろ必要性出てくるかなと思い、ベビーカーを購入した。購入場所は安定のアカチャンホンポで。
+ベビーカーにも色々あるようで、自分は新生児から3歳くらいまで一つにしたかったのと最初の頃は対面にし、その後逆にできるように切り替えができるものしたかったので
+それができるものにした。&lt;/p&gt;
+&lt;h1 id=&#34;optia-aprica&#34;&gt;Optia (Aprica)&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-09-003.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-09-004.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;感想&#34;&gt;感想&lt;/h1&gt;
+&lt;p&gt;コンパクトと言いながらも結構大きなものなので歩道が無いような細い道だとちょっと危ないかもしれない。二列は以ての外だった。
+あと、二輪ででこぼこ道もスイスイ行けるかなと思ったがあまりにもでこぼこしてるとこれまた限界がある。なるべく舗装された道を移動するのが吉。&lt;/p&gt;
+&lt;h1 id=&#34;あったら便利&#34;&gt;あったら便利&lt;/h1&gt;
+&lt;p&gt;アカチャンホンポに来てる人のベビーカーを観察していたら色々カスタマイズされていて、自分も必要そうなのをパクってみました。
+一つはフックです。これで買い物袋をかけて移動してる人が結構いました。それに合わせてポーチもつけてる人もいたそれはまた今度にした。
+もう一つはジュース入れ。これでスタバの中で飲まなくてもいいし、飲みつつ移動がかなり楽になります。
+最後にレインコート。何かと忘れがちなもので案の定自分も購入時にそこは何も考えていなかった。購入特典で付いてきたのはよかった。
+基本は雨が降りそうな時にはベビーカーを利用しないのがいいのだがどうしてもというときはつけたほうがいいだろう。少しでも天気に
+不安を感じたら持っておくべきもの。&lt;/p&gt;
+&lt;h1 id=&#34;今後欲しいもの&#34;&gt;今後欲しいもの&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;ベルトカバー&lt;/li&gt;
+&lt;li&gt;冬用のブランケット&lt;/li&gt;
+&lt;li&gt;ブランケットを止めるもの&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;ベビーカーの選び方
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.aprica.jp/products/babycar/select_babycar/&#34;&gt;https://www.aprica.jp/products/babycar/select_babycar/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ベビーカーのカスタマイズ
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://minne.com/&#34;&gt;https://minne.com/&lt;/a&gt; で&lt;code&gt;ベビーカー&lt;/code&gt;で検索すると結構出てくる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>エアコン購入した</title>
+      <link>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sat, 22 Sep 2018 03:53:45 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/09/22/%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;エアコン買った。&lt;/p&gt;
+&lt;p&gt;現状はリビングに一つエアコンがあり、子供が快適な温度で暮らせるようにずっとリビングに寝させていたのだ。しかし、理想としては子供は寝室で寝かせておきたかったのだがエアコンがなかったので断念していたが自分たちの体調が辛くなってきたのと自分たちのプライベートスペースとして利用したかったり、今後の遊びスペースとするために寝室にもエアコンを設置することにした。&lt;/p&gt;
+&lt;p&gt;エアコン購入は初めてで何を購入すればいいのかわからなかったし、メーカをちゃんと比較するほど気力はなかったので家にある王道の？ダイキンのエアコンにすることは決めていた。&lt;/p&gt;
+&lt;p&gt;ちなみにもともと住む前から設置されていたのは２０１６年モデルの&lt;code&gt;S36TTES-W&lt;/code&gt;、１２畳用のものらしい。&lt;/p&gt;
+&lt;p&gt;今回購入したのが&lt;code&gt;AN25VCS-W&lt;/code&gt;だいたい６−８畳のエアコン。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-09-005.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a target=&#34;_blank&#34;  href=&#34;https://www.amazon.co.jp/gp/product/B07BMLBHJ1/ref=as_li_tl?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=B07BMLBHJ1&amp;linkCode=as2&amp;tag=daichibnejp-22&amp;linkId=b5ca311495ac798c5a77d1d31b7f096b&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;MarketPlace=JP&amp;ASIN=B07BMLBHJ1&amp;ServiceVersion=20070822&amp;ID=AsinImage&amp;WS=1&amp;Format=_SL250_&amp;tag=daichibnejp-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;//ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;l=am2&amp;o=9&amp;a=B07BMLBHJ1&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;高い&#34;&gt;高い&lt;/h1&gt;
+&lt;p&gt;買いに行って思ったのがエアコンは意外と高い。
+型落ちを買おうとしても家電量販だとあんまりなくてかといってネットだと設置工事とか面倒くさい。まぁ生活が楽になってくれればありがたいことですが！&lt;/p&gt;
+&lt;h1 id=&#34;ちなみに&#34;&gt;ちなみに&lt;/h1&gt;
+&lt;p&gt;１０万くらいだと？自動フィルター掃除が付いていて
+２０万くらい払えばほとんど掃除しなくていい上に色々機能が付加されているらしいがその進化においつていけないのでもうわけわからん。&lt;/p&gt;
+&lt;p&gt;エアコンも進化している。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>  👶  第一子生まれました。</title>
+      <link>http://nakajijapan.github.io/blog/2018/07/23/%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <pubDate>Mon, 23 Jul 2018 00:09:27 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/07/23/%E7%AC%AC%E4%B8%80%E5%AD%90%E7%94%9F%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;第一子生まれました。👶
+どうやら、僕らの子供はメンズのようです。&lt;/p&gt;
+&lt;h2 id=&#34;20180721&#34;&gt;2018/07/21&lt;/h2&gt;
+&lt;p&gt;予定日から一週間が過ぎて本当に生まれるのかなと、少し疑心暗鬼になりながら過ごしていたが、ついに妻がちょっとした？破水のようなものが始まったといい出した。痛みが少しづつ出たらしいのでこれはきたのか！！！！と思いつつ病院に電話して入院の準備をして今後に備えるようになった。&lt;/p&gt;
+&lt;p&gt;自分は一旦帰宅、入院に必要なものを何個か忘れたのでそれを集めて再度病院に行った。その間、妻は診察してもらっていた。
+診てもらったところまだ陣痛の初期の段階でこれからという話だった。診察が終わったところで痛みは治まったらしいのでとりあえず今日はないかとおもい、帰りがてら景気付けに夕ご飯に家系のとんこつラーメン、しかもにんにくもりもりを食べて帰宅した。&lt;/p&gt;
+&lt;p&gt;さーて勉強するかと思っていたら妻からの電話、途中で看護師さんと交換され、もう生まれるらしいから立ち会うならきてくださいと伝えられた。「え、今日なんだ！！！！😵」とものすごく急でびっくりしていた。&lt;/p&gt;
+&lt;p&gt;再度、病院に行く。もう妻は激しい痛みに襲われていて、自分は動揺していたが自分ができることはしようと思い、
+痛み出したら背中をさする・お尻を押すことずっと続けていた。あの温厚が妻が興奮している野獣のような状態だったことは印象的だった。
+案の定、ニンニクで怒られたことはいうまでもない。（基本的には喋らず行動で。。。）&lt;/p&gt;
+&lt;h2 id=&#34;20180722&#34;&gt;2018/07/22&lt;/h2&gt;
+&lt;p&gt;時間は２４：００を超え、もうすぐ佳境という状態だった。
+出そうというところで男の人がでてきてその人が来たらものの数分で赤ん坊が出てきた。ぽんって産まれた。
+メッッチャおなかおしててこれが最終段階ですることなんだ！意外と原始的だったの覚えてる。
+僕は感動し過ぎて言語能力は著しく低下していた。子供を見て、「生きてる」「動いてる」「すごい！」をしばらく言い続けていた。。。
+神秘的すぎる。&lt;/p&gt;
+&lt;h2 id=&#34;ようこそ&#34;&gt;ようこそ！&lt;/h2&gt;
+&lt;p&gt;なんだかんだで大変でしたが無事そして元気に生まれてきたことにホッとしております。これからの子育て業かなり大変になりそうですが歯食いしばって頑張っていくぞ。
+そして、しばらくは子供👶のことしか考えられないぞ！！！みんなごめん！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-07-004.jpg&#34; alt=&#34;01&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>お祈りしてきた。</title>
+      <link>http://nakajijapan.github.io/blog/2018/07/17/%E3%81%8A%E7%A5%88%E3%82%8A%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Tue, 17 Jul 2018 17:57:00 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/07/17/%E3%81%8A%E7%A5%88%E3%82%8A%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/</guid>
+      <description>&lt;p&gt;今にも生まれそうな奥さんと元気な赤ちゃんが生まれるようお祈りして来た。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-07-005.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-07-006.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>家用の液晶モニター 43UD79-B(4K) を買った</title>
+      <link>http://nakajijapan.github.io/blog/2018/07/03/%E5%AE%B6%E7%94%A8%E3%81%AE%E6%B6%B2%E6%99%B6%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC-43ud79-b4k-%E3%82%92%E8%B2%B7%E3%81%A3%E3%81%9F/</link>
+      <pubDate>Tue, 03 Jul 2018 00:02:29 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/07/03/%E5%AE%B6%E7%94%A8%E3%81%AE%E6%B6%B2%E6%99%B6%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC-43ud79-b4k-%E3%82%92%E8%B2%B7%E3%81%A3%E3%81%9F/</guid>
+      <description>&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;仕事道具きた！！！！ &lt;a href=&#34;https://t.co/brobUvxT3v&#34;&gt;pic.twitter.com/brobUvxT3v&lt;/a&gt;&lt;/p&gt;&amp;mdash; The old man (@nakajijapan) &lt;a href=&#34;https://twitter.com/nakajijapan/status/1013320931148587010?ref_src=twsrc%5Etfw&#34;&gt;2018年7月1日&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;会社で同僚が43inchのディスプレイを使っていたので１ヶ月くらい使った結果、良すぎたので家でも購入することにした。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018-07-001.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;なんで買ったの&#34;&gt;なんで買ったの？&lt;/h1&gt;
+&lt;h2 id=&#34;姿勢の矯正&#34;&gt;姿勢の矯正&lt;/h2&gt;
+&lt;p&gt;以前は4KでDellの27inchだったり24inchを使用していたのだが、大分細かいので何かと前かがみになることが多かった。。。
+それが原因でよく腰を壊してしまった。視力と腰の弱さでそのぐらいのサイズが必要となってきたのかもしれない。&lt;/p&gt;
+&lt;h2 id=&#34;家のディスプレイの限界&#34;&gt;家のディスプレイの限界&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;色合いがおかしい
+&lt;ul&gt;
+&lt;li&gt;個人アプリでデザインもしているので実機で確認したりするときに色が微妙に異なることがある&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;映像が頻繁に荒れる&lt;/li&gt;
+&lt;li&gt;そもそも4Kじゃない。４Kじゃないとシミュレータが大きすぎることがある&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;usb-power-delivery&#34;&gt;USB Power Delivery&lt;/h2&gt;
+&lt;p&gt;本当はこれが魅力の一つではあったのだが、これには罠があった。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;USB Type-C™ならケーブル1本で
+裏表がなく接続が簡単なUSB Type-Cでパソコンとモニターを繋げると、ケーブル1本で映像表示とデータ転送ができるオールインワン接続、さらに携帯電話を接続すれば急速充電が可能です。
+
+* パソコンの充電には対応しません。また、携帯電話を接続した場合、映像、データ転送には対応しません。
+充電できるけどパソコン並みの充電はできないとのことでした。
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.lg.com/jp/monitor/lg-43UD79-B&#34;&gt;https://www.lg.com/jp/monitor/lg-43UD79-B&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;パソコンの充電には対応しません。また、携帯電話を接続した場合、映像、データ転送には対応しません。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;ホームページにも記述してあるように、映像＋電源供給もできるとのことなのだがパソコンを充電できるほどのパワーは持っていない。しかも、実際に試してみたらずっと起動しているとノートパソコンの電源がなくなっていった。とほほ。&lt;/p&gt;
+&lt;p&gt;本当にそこまで求めるなら値段ははるがこちらを購入するといいだろう。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LG 32UD99-W
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.lg.com/jp/monitor/lg-32UD99-W&#34;&gt;https://www.lg.com/jp/monitor/lg-32UD99-W&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a target=&#34;_blank&#34;  href=&#34;https://www.amazon.co.jp/gp/offer-listing/B073S5HDGY/ref=as_li_tl?ie=UTF8&amp;camp=247&amp;creative=1211&amp;creativeASIN=B073S5HDGY&amp;linkCode=am2&amp;tag=daichibnejp-22&amp;linkId=3bf3d6ac19b2611cb85c4365a1cdb667&#34;&gt;&lt;img border=&#34;0&#34; src=&#34;//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&amp;MarketPlace=JP&amp;ASIN=B073S5HDGY&amp;ServiceVersion=20070822&amp;ID=AsinImage&amp;WS=1&amp;Format=_SL250_&amp;tag=daichibnejp-22&#34; &gt;&lt;/a&gt;&lt;img src=&#34;//ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&amp;l=am2&amp;o=9&amp;a=B073S5HDGY&#34; width=&#34;1&#34; height=&#34;1&#34; border=&#34;0&#34; alt=&#34;&#34; style=&#34;border:none !important; margin:0px !important;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;これは電源供給に60Wをようしてるので充電できるであろう。&lt;/p&gt;
+&lt;h2 id=&#34;副次的なものとして&#34;&gt;副次的なものとして&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;映画良さそう
+&lt;ul&gt;
+&lt;li&gt;本来の目的である仕事をしなくなりそう。。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ゲーム良さそう
+&lt;ul&gt;
+&lt;li&gt;4KのPS持ってない。。。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ディスプレイなのにおとも出してくれるの
+&lt;ul&gt;
+&lt;li&gt;ノートから音を出すと横から音が伝わるので違和感がある&lt;/li&gt;
+&lt;li&gt;そこそこ音がいい&lt;/li&gt;
+&lt;li&gt;両サイドにあるJBL使えばいいじゃん
+&lt;ul&gt;
+&lt;li&gt;アンプがない。。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;そもそも4kである理由&#34;&gt;そもそも4Kである理由&lt;/h1&gt;
+&lt;p&gt;スマートフォンの解像度が大きくなるにつれて原寸大の大きさでの確認ができずにかならず縮小しないといけない時があった。
+では縮小だとなにがいけないのか。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;デザインが1pointや0.5pointの線の確認とかを毎度拡大して確認しないといけない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;色がぶちる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;のでデザインをちゃんとチェックしたりすると必要になる。&lt;/p&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;電源供給に目を瞑れば、４３インチにしてはお手頃な値段でおじさんには優しい仕事道具であり、休憩がてら映画を見て癒される便利アイテムである。
+本当は会社にも欲しいのだが説得中。。。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Apple Pencil &#43; iPad購入した</title>
+      <link>http://nakajijapan.github.io/blog/2018/04/03/apple-pencil--ipad%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</link>
+      <pubDate>Tue, 03 Apr 2018 02:40:01 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/04/03/apple-pencil--ipad%E8%B3%BC%E5%85%A5%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;iPad + Apple Pencil くるぞ！ &lt;a href=&#34;https://t.co/6FSOUaWmhx&#34;&gt;pic.twitter.com/6FSOUaWmhx&lt;/a&gt;&lt;/p&gt;&amp;mdash; The old man (@nakajijapan) &lt;a href=&#34;https://twitter.com/nakajijapan/status/980806438585999360?ref_src=twsrc%5Etfw&#34;&gt;2018年4月2日&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;先日発表があってApple Pencil対応のiPadが手に入ることになったので購入することにしました。
+最初は共同購入だったのですが&lt;strong&gt;なんだかんだ&lt;/strong&gt;で事実上奥さんのものに。。&lt;/p&gt;
+&lt;p&gt;まぁそれは良いとして、Apple Pencilがとっても良い体験でした。
+僕には以下の要件が満たせているのでもう購入した甲斐があります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;お絵かきがすこぶる楽しい&lt;/li&gt;
+&lt;li&gt;メモにも使える&lt;/li&gt;
+&lt;li&gt;頭の整理に図をかく時にすぐかける&lt;/li&gt;
+&lt;li&gt;画面モックをえいやって書くときにデバイスのテンプレートがあるのでそれを元にかける&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;何よりもお絵かきが楽しい。何かをトレースして書くのうまくなった気がしてとても快感。。。&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;Apple Pencil 楽しくて自分を写経してたらウシジマくんになった、、、 &lt;a href=&#34;https://t.co/OOiTQEfKlo&#34;&gt;pic.twitter.com/OOiTQEfKlo&lt;/a&gt;&lt;/p&gt;&amp;mdash; The old man (@nakajijapan) &lt;a href=&#34;https://twitter.com/nakajijapan/status/982446747396882432?ref_src=twsrc%5Etfw&#34;&gt;2018年4月7日&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;奥さんが利用していないスキをみて、どんどん使っていこう。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>こんにちはお久しぶりです初めまして</title>
+      <link>http://nakajijapan.github.io/blog/2018/02/25/%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%81%8A%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%A7%E3%81%99%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6/</link>
+      <pubDate>Sun, 25 Feb 2018 14:14:19 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/02/25/%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%81%8A%E4%B9%85%E3%81%97%E3%81%B6%E3%82%8A%E3%81%A7%E3%81%99%E5%88%9D%E3%82%81%E3%81%BE%E3%81%97%E3%81%A6/</guid>
+      <description>&lt;p&gt;一年ぶりのブログになる。
+昨年は、心に余裕がなくてあまりブログをかけていなかったのだけれでも、とはいえ基本的に心に余裕がないので
+無理矢理にでもブログを再開するようにした。そう、改めてということもあり静的サイトジェネレートを一新してみた。
+OctopressからHUGOにしてみた。デザインはカスタマイズをあとで自分でもできるようになるべきシンプルなものを
+探してみたが&lt;code&gt;hugo-zen&lt;/code&gt;がよさそうだった。今の所少し不満だが、また数年後にブログ替え時な時期がくるので
+焦らずゆっくりやっていこう。&lt;/p&gt;
+&lt;h3 id=&#34;hugo&#34;&gt;Hugo&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;https://gohugo.io/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今年は今年で色々経験していきたいです。&lt;/p&gt;
+&lt;p&gt;ではでは&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AV spec memo</title>
+      <link>http://nakajijapan.github.io/blog/2018/01/01/av-spec-memo/</link>
+      <pubDate>Mon, 01 Jan 2018 01:36:23 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2018/01/01/av-spec-memo/</guid>
+      <description>&lt;h1 id=&#34;現在&#34;&gt;現在&lt;/h1&gt;
+&lt;h2 id=&#34;tv&#34;&gt;TV&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Panasonic VIERA 42V型地上・BS・110度CSデジタルフルハイビジョンプラズマテレビ TH-42PZ80-K ブラック&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;avアンプ&#34;&gt;AVアンプ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;AVC-4310
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.denon.jp/jp/product/hometheater/avreceivers/avc4310&#34;&gt;https://www.denon.jp/jp/product/hometheater/avreceivers/avc4310&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;spec&#34;&gt;spec&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;定格出力／フロント130W+130W、センター130W、サラウンド130W+130W、サラウンドバック130W+130W（8Ω、20Hz-20kHz、THD0.05%）
+● 実用最大出力／フロント：190W＋190W、センター：190W、サラウンド：190W＋190W、サラウンドバック：190W＋190W（6Ω、JEITA）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;bdプレーヤー&#34;&gt;BDプレーヤー&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OPPO(オッポ) 3D対応 ユニバーサル・ブルーレイプレーヤー BDP-95&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;speaker&#34;&gt;Speaker&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;JBL ミドルサイズ・スタジオモニタースピーカー 4429
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://jbl.harman-japan.co.jp/product.php?id=4429&#34;&gt;http://jbl.harman-japan.co.jp/product.php?id=4429&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;形式	300mm径3ウェイブックシェルフ型
+使用ユニット
+LF300mm径アクアプラス・コーティング・ケブラーコンポジットコーン・ウーファー＜1200FE-8＞HF50mm径アクアプラス・コーティング・ピュアチタン・ダイアフラム・コンプレッション･ドライバー＜175Nd-3＞＋38mm径スロート・バイラジアルホーンUHF19mm径ピュアチタン・ダイアフラム・コンプレッション･ドライバー＜138Nd＞＋10mm径スロート・バイラジアルホーン
+ホーン指向特性
+HF水平100°×垂直40°UHF水平60°×垂直40°
+インピーダンス	6Ω
+許容入力	200W（RMS）
+出力音圧レベル	91dB（2.83V/1m）
+周波数特性	38Hz ～ 45kHz（−6dB）
+低域再生能力	28Hz（-10dB @2π空間）
+クロスオーバー周波数	800Hz（-18dB/oct. LP ; -6dB/oct. HP）、7kHz（-12dB/oct. LP ; -24dB/oct. HP）
+寸法（W×H×D）	400×635×335mm
+重量	32.3kg
+バイワイヤリング&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;JBL 4312D 3ウェイコントロールモニタースピーカー&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;形式:300mm径3ウェイ・ブックシェルフ型
+使用ユニット:
+・LF :300mm径アクアプラス・コーティング・カーブドコーン・ウーファー
+・HF :125mm径コーン・ミッドレンジ
+・UHF:25mm 径ピュアチタン・ドームツイーター
+インピーダンス:6Ω
+許容入力:100W（RMS）
+出力音圧レベル:93dB（2.83V/1m）
+周波数特性:45Hz〜40kHz（−6dB）
+クロスオーバー周波数:2kHz, 5kHz
+寸法:362×597×299mm（グリル含まず）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;STUDIO 520CCH
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://jbl.harman-japan.co.jp/product.php?id=studio520cch&#34;&gt;http://jbl.harman-japan.co.jp/product.php?id=studio520cch&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;形式	2ウェイブックシェルフ型スピーカー
+使用ユニット
+LF100mm径ポリプラスコーン･ウーファー（540J）×2HF25mm径テオネックスダイアフラム･コンプレッション･ドライバー（2414H-1）
+インピーダンス	6Ω
+許容入力	150W
+出力音圧レベル	88dB（2.83V/1m）
+周波数特性	48Hz ～ 40kHz
+クロスオーバー周波数	1.5kHz
+寸法（W×H×D）	555×177×168mm
+重量	7.7kg
+バイワイヤリング	○&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;スタンド&#34;&gt;スタンド&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;HAMILEX スピーカースタンドSB-303&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;以前&#34;&gt;以前&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;DENON/デノン　CDプレーヤー　DCD-1500AE&lt;/li&gt;
+&lt;li&gt;DENON/デノン　プリメインアンプ PMA-1500AE&lt;/li&gt;
+&lt;li&gt;JBL 4312D 3ウェイコントロールモニタースピーカー&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://matome.naver.jp/odai/2134820157278647701&#34;&gt;https://matome.naver.jp/odai/2134820157278647701&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Good bye 2017</title>
+      <link>http://nakajijapan.github.io/blog/2017/12/31/good-bye-2017/</link>
+      <pubDate>Sun, 31 Dec 2017 16:26:46 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2017/12/31/good-bye-2017/</guid>
+      <description>&lt;p&gt;2017年実績メモ。&lt;/p&gt;
+&lt;h3 id=&#34;iosdciosdc-app&#34;&gt;iosdc/iosdc-app&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/39&#34;&gt;39 closed&lt;/a&gt;: change design in qrcode viewcontroller 2017-09-09&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/38&#34;&gt;38 closed&lt;/a&gt;: enable to deselect animation 2017-09-09&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/35&#34;&gt;35 closed&lt;/a&gt;: 申請用 2017-09-02&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/34&#34;&gt;34 closed&lt;/a&gt;: 複数投票できるようにした 2017-09-02&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/30&#34;&gt;30 closed&lt;/a&gt;: 本番データを入れる 2017-08-29&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/29&#34;&gt;29 closed&lt;/a&gt;: Update Yahoo Logo Images 2017-08-29&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/22&#34;&gt;22 closed&lt;/a&gt;: add tab icon (いいもの見つかるまでアイコン追加しといた ![simulat&amp;hellip;) 2017-08-20&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/21&#34;&gt;21 closed&lt;/a&gt;: [WIP] delete debug mode (最後に削除する) 2017-08-19&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/20&#34;&gt;20 closed&lt;/a&gt;: bugfix arround Vote (optimized UI around vote bugfix) 2017-08-19&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/19&#34;&gt;19 closed&lt;/a&gt;: delete HasUserHash (ついでの&lt;code&gt;carthage update&lt;/code&gt;) 2017-08-19&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/14&#34;&gt;14 closed&lt;/a&gt;: connect to server 2017-08-07&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/11&#34;&gt;11 closed&lt;/a&gt;: 投票できるところまで 2017-08-01&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/7&#34;&gt;7 closed&lt;/a&gt;: Introducing Realm (シミュレータの時は常にインサートされる。) 2017-07-09&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/4&#34;&gt;4 closed&lt;/a&gt;: add TalkList and TalkFilter 2017-07-06&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/iosdc/iosdc-app/pull/2&#34;&gt;2 closed&lt;/a&gt;: 投票画面周りの実装 2017-06-19&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;matthewpalmerregift&#34;&gt;matthewpalmer/Regift&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/matthewpalmer/Regift/pull/45&#34;&gt;45 closed&lt;/a&gt;: Stop to use the fileprivate (For Swift 4.) 2017-10-29&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/matthewpalmer/Regift/pull/44&#34;&gt;44 closed&lt;/a&gt;: Use Swift 4 (I migrated the code to the stable version of Swift&amp;hellip;) 2017-10-29&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapanajimi&#34;&gt;nakajijapan/Ajimi&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Ajimi/pull/6&#34;&gt;6 closed&lt;/a&gt;: resized the icon images (I forgot the resizing images&amp;hellip; sh $ file * cam&amp;hellip;) 2017-08-02&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Ajimi/pull/5&#34;&gt;5 closed&lt;/a&gt;: introducing hound 2017-08-02&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Ajimi/pull/4&#34;&gt;4 closed&lt;/a&gt;: can not record main window 2017-08-02&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapanapplepaysampleapp&#34;&gt;nakajijapan/ApplePaySampleApp&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/ApplePaySampleApp/pull/1&#34;&gt;1 closed&lt;/a&gt;: Apple Watch 2017-01-08&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapanapplewatchsampleapp&#34;&gt;nakajijapan/AppleWatchSampleApp&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/AppleWatchSampleApp/pull/1&#34;&gt;1 closed&lt;/a&gt;: For Swift3 2017-01-07&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapancolorhex&#34;&gt;nakajijapan/ColorHex&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/ColorHex/pull/9&#34;&gt;9 closed&lt;/a&gt;: Optimizing swift 3 2017-01-31&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapanizumo&#34;&gt;nakajijapan/Izumo&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Izumo/pull/18&#34;&gt;18 closed&lt;/a&gt;: Drag and Drop 2018-01-01&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Izumo/pull/16&#34;&gt;16 closed&lt;/a&gt;: Ablish textStorage customize 2017-12-25&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Izumo/pull/15&#34;&gt;15 closed&lt;/a&gt;: for iPhone 2017-08-28&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Izumo/pull/14&#34;&gt;14 closed&lt;/a&gt;: sync 2017-08-20&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapankazaguruma&#34;&gt;nakajijapan/Kazaguruma&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Kazaguruma/pull/3&#34;&gt;3 closed&lt;/a&gt;: Swfit3 2017-07-02&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapannkjmoviecomposer&#34;&gt;nakajijapan/NKJMovieComposer&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/NKJMovieComposer/pull/10&#34;&gt;10 closed&lt;/a&gt;: Update API 2017-01-26&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapanphotoslider&#34;&gt;nakajijapan/PhotoSlider&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/93&#34;&gt;93 closed&lt;/a&gt;: Consider the safe area 2017-11-24&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/92&#34;&gt;92 closed&lt;/a&gt;: Use SwiftLint 2017-11-24&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/91&#34;&gt;91 closed&lt;/a&gt;: Switch to Default 2017-11-24&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/84&#34;&gt;84 closed&lt;/a&gt;: Swift 4 2017-06-09&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/83&#34;&gt;83 closed&lt;/a&gt;: Deprecated Dode (Errors occurred like below. &amp;gt; PhotoSlider/Sources/&amp;hellip;) 2017-06-04&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/81&#34;&gt;81 closed&lt;/a&gt;: anable to change number of lines for caption (I enabled changing number of lines for caption. ##&amp;hellip;) 2017-04-03&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/78&#34;&gt;78 closed&lt;/a&gt;: constraints is never used 2017-02-18&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/77&#34;&gt;77 closed&lt;/a&gt;: add swiftlint.yml 2017-02-18&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/76&#34;&gt;76 closed&lt;/a&gt;: use NSLayoutAnchor at ImageView 2017-02-18&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/75&#34;&gt;75 closed&lt;/a&gt;: Refacotring 2017-02-18&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/74&#34;&gt;74 closed&lt;/a&gt;: use NSLayoutAnchor 2017-02-18&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/73&#34;&gt;73 closed&lt;/a&gt;: reduce deprecated API 2017-02-16&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider/pull/70&#34;&gt;70 closed&lt;/a&gt;: specify type (### Heterogenous collection literal could only be &amp;hellip;) 2017-01-09&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapanpodspec_bump&#34;&gt;nakajijapan/podspec_bump&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/podspec_bump/pull/7&#34;&gt;7 closed&lt;/a&gt;: Adjust to the way for cocoapods versioning 2017-10-10&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/podspec_bump/pull/4&#34;&gt;4 closed&lt;/a&gt;: delete the version of restrictions 2017-01-09&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapansengiri&#34;&gt;nakajijapan/Sengiri&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Sengiri/pull/11&#34;&gt;11 closed&lt;/a&gt;: Bugfix 2017-10-31&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Sengiri/pull/9&#34;&gt;9 closed&lt;/a&gt;: Support Multi Display 2017-10-29&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Sengiri/pull/8&#34;&gt;8 closed&lt;/a&gt;: Compression Rate 2017-10-27&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Sengiri/pull/7&#34;&gt;7 closed&lt;/a&gt;: Swift4 2017-10-15&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Sengiri/pull/6&#34;&gt;6 closed&lt;/a&gt;: BugFix Frame info was no data&amp;hellip; 2017-02-09&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Sengiri/pull/5&#34;&gt;5 closed&lt;/a&gt;: Refactoring 2017-01-24&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Sengiri/pull/3&#34;&gt;3 closed&lt;/a&gt;: use selector 2017-01-04&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapanshari&#34;&gt;nakajijapan/Shari&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari/pull/30&#34;&gt;30 closed&lt;/a&gt;: Add .hound.yml 2017-11-24&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari/pull/29&#34;&gt;29 closed&lt;/a&gt;: Use SwiftLint 2017-11-23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari/pull/28&#34;&gt;28 closed&lt;/a&gt;: Use Swift 4 2017-11-23&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari/pull/27&#34;&gt;27 closed&lt;/a&gt;: call viewWillAppear and viewDidAppear 2017-04-11&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari/pull/25&#34;&gt;25 closed&lt;/a&gt;: Refactoring(create common method) 2017-03-26&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari/pull/24&#34;&gt;24 closed&lt;/a&gt;: reborn the life cycle of sourceViewController 2017-03-21&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari/pull/21&#34;&gt;21 closed&lt;/a&gt;: Refactoring 2017-02-20&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari/pull/20&#34;&gt;20 closed&lt;/a&gt;: a weak reference 2017-02-19&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;nakajijapanteiten&#34;&gt;nakajijapan/teiten&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/teiten/pull/24&#34;&gt;24 closed&lt;/a&gt;: Refactoring 2017-02-12&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/teiten/pull/22&#34;&gt;22 closed&lt;/a&gt;: refactoring 2017-02-09&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/teiten/pull/21&#34;&gt;21 closed&lt;/a&gt;: Expression implicitly coerced from &amp;lsquo;NSView?&amp;rsquo; to Any 2017-02-09&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/teiten/pull/20&#34;&gt;20 closed&lt;/a&gt;: supported TouchBar 2017-02-07&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/teiten/pull/19&#34;&gt;19 closed&lt;/a&gt;: Convert to Swift3 2017-02-05&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/teiten/pull/18&#34;&gt;18 closed&lt;/a&gt;: update Podfile 2017-01-26&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016年 振り返りと2017年！</title>
+      <link>http://nakajijapan.github.io/blog/2017/01/01/2016%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A82017%E5%B9%B4/</link>
+      <pubDate>Sun, 01 Jan 2017 14:14:19 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2017/01/01/2016%E5%B9%B4-%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A82017%E5%B9%B4/</guid>
+      <description>&lt;p&gt;明けましておめでとうございます！ @nakajijapan です。
+去年が怒涛に過ぎていき、気づいたらもう2017年。ぼーっとしていたらもう三日が過ぎていて、気づいたらもう明日は仕事始めです。
+それなのにまだ振り返っていなかったので、このブログで振り返っていこうと思う。&lt;/p&gt;
+&lt;h2 id=&#34;2016年-振り返り&#34;&gt;2016年 振り返り&lt;/h2&gt;
+&lt;p&gt;自分にとってこの年はだいぶ濃厚な1人になったのではないか思う。
+大きく以下の出来事がありました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;入籍して式を挙げた: １０月&lt;/li&gt;
+&lt;li&gt;Apple Pay導入: １０月&lt;/li&gt;
+&lt;li&gt;iOSDC2016: ８月&lt;/li&gt;
+&lt;li&gt;執筆活動で自分の頭をフル回転　後半&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;式を挙げた&#34;&gt;式を挙げた&lt;/h3&gt;
+&lt;p&gt;この１年の半分はずっとこのことを考えていても過言では無い。
+10月には式を挙げる計画で進んでいたのだが日程が近くに連れてまだやらなくていいかと保留にしていたタスクがどんどん決定しなくてはいけない期日になっていく。
+それが多くなるだけではなく、夫婦でちゃんと相談しなくてはいけないことが増え始める。大変だったのが予算を削る為に自分で動画（始めと終わりの動画）を
+作らなければいけないタスクが辛かった。。あとは仕事面とプライベートで大きなイベントがその時期に被っていたこと。自分が忙しくて奥さんとの結婚の話が
+できなくてよく喧嘩したのはまだ記憶に新しいです。当日はもうすごい勢いで時が流れてしまいあんまり覚えてないくらいでかなり自分がちゃんとしていたかが不安なところだがやりきりれていたようで一安心。&lt;/p&gt;
+&lt;h3 id=&#34;apple-pay&#34;&gt;Apple Pay&lt;/h3&gt;
+&lt;p&gt;これは、日本で初めて導入することで色々不安だったところもあるが、なんとかリリースできてよかった。
+エンジニアとしては十分に楽しめるイベントでものすごく楽しめた。会社に圧倒的感謝。ビジネス面ではうーんという感じ。
+あと、日本での知見はペパボの&lt;a href=&#34;http://tech.pepabo.com/2016/10/28/apple-pay-in-japan/&#34;&gt;エンジニアブログ&lt;/a&gt;に書き留めて置いたのでよければ見てやってくください。&lt;/p&gt;
+&lt;h3 id=&#34;iosdc2016&#34;&gt;iOSDC2016&lt;/h3&gt;
+&lt;p&gt;僕のもう一つの拠り所。日本で初めてのiOSのデベロッパーカンファレンスに運営に携われたこと・発表できたこと。
+会社のモバイル人口はそこまで多くはないので寂しい思いがあったのですが、カンファレンスにきてみるとめちゃめちゃいるじゃんといった感じで僕が思っていた以上の人たちが集まっていて驚いた。
+そんな同じ属性を持ったエンジニアさんの話を聞けるのは勉強になるのは当然として、酒を交わしながらお話ができるのはとても楽しい。
+純粋に楽しいのでこういったイベントには引き続き関わりたい！！！&lt;/p&gt;
+&lt;h3 id=&#34;執筆活動&#34;&gt;執筆活動&lt;/h3&gt;
+&lt;p&gt;普段日常的に文章を書かないので、１日５００文字が限度でしかもその内容の精度が低いものでとても大変だった。
+今年も精度上げて頑張っていくつもり。&lt;/p&gt;
+&lt;h3 id=&#34;エンジニアとして&#34;&gt;エンジニアとして&lt;/h3&gt;
+&lt;h4 id=&#34;oss業&#34;&gt;OSS業&lt;/h4&gt;
+&lt;p&gt;頑張ってSwift3にするというのが主なタスク。だけどあまり勧められていないっていうのが現状でした。
+もう一つは、個人アプリとして&lt;a href=&#34;https://itunes.apple.com/jp/app/sengiri/id1090331454?mt=12&#34;&gt;MacOSアプリ - Sengiri&lt;/a&gt;を出せたのは達成感あります。
+あと、UIライブラリとして&lt;a href=&#34;https://github.com/nakajijapan/Shari&#34;&gt;Shari&lt;/a&gt;も試行錯誤して作成した。これは普段やってみたいインタラクションが実際にできるようになって嬉しかったのでその勢いで作成したものです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;改善したもの
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/PhotoSlider&#34;&gt;https://github.com/nakajijapan/PhotoSlider&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/SwiftSampleAppForCollectionView&#34;&gt;https://github.com/nakajijapan/SwiftSampleAppForCollectionView&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/UIColor-Hex&#34;&gt;https://github.com/nakajijapan/UIColor-Hex&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/NKJModalSelector&#34;&gt;https://github.com/nakajijapan/NKJModalSelector&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/NKJPhotoSliderController&#34;&gt;https://github.com/nakajijapan/NKJPhotoSliderController&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Shari&#34;&gt;https://github.com/nakajijapan/Shari&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/teiten&#34;&gt;https://github.com/nakajijapan/teiten&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/NKJMovieComposer&#34;&gt;https://github.com/nakajijapan/NKJMovieComposer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/NKJMultiMovieCaptureView&#34;&gt;https://github.com/nakajijapan/NKJMultiMovieCaptureView&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/Kazaguruma&#34;&gt;https://github.com/nakajijapan/Kazaguruma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nakajijapan/nakajichan&#34;&gt;https://github.com/nakajijapan/nakajichan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/matthewpalmer/Regift&#34;&gt;https://github.com/matthewpalmer/Regift&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sengiri
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://itunes.apple.com/jp/app/sengiri/id1090331454?mt=12&#34;&gt;Mac app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://book.mynavi.jp/macfan/detail_summary/id=52770&#34;&gt;雑誌：Mac Fan 2016年6月号&lt;/a&gt;に紹介される&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;技術系イベント&#34;&gt;技術系イベント&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/shibuya-swift/shibuya-swift/wiki/shibuya.swift03&#34;&gt;Shibuya.swift #3&lt;/a&gt;を主催する
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/nakajijapan/sengiri-os-x-application&#34;&gt;Sengiri - OS X Application&lt;/a&gt;の仕組み・紹介をした。
+&lt;ul&gt;
+&lt;li&gt;GIF動画を簡単に録画から作成まで少ない作業で作成できるツール(&lt;a href=&#34;http://sengiri.nakajijapan.net/&#34;&gt;download&lt;/a&gt;)を作成しました&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/shibuya-swift/shibuya-swift/wiki/shibuya.swift04&#34;&gt;Shibuya.swift #4&lt;/a&gt;を主催する
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/nakajijapan/interacting-with-c-apis&#34;&gt;Interacting with C APIs&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;SwiftからCのAPIにアクセス方法についてのエトセトラについて話しました。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://iosdc.jp/2016/&#34;&gt;iOSDC 2016&lt;/a&gt;を運営＆発表した
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/nakajijapan/33sui-mobairuenziniadao&#34;&gt;33歳モバイルエンジニア道&lt;/a&gt;を発表した
+&lt;ul&gt;
+&lt;li&gt;中堅エンジニアのキャリアについてどう生き抜くかという話をした&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shibuya-swift.connpass.com/event/31031/&#34;&gt;Shibuya.swift 第４回&lt;/a&gt;を運営した
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/nakajijapan/interacting-with-c-apis&#34;&gt;Interacting with C APIs&lt;/a&gt;を発表した
+&lt;ul&gt;
+&lt;li&gt;SwiftとCで作成されたライブラリのAPIとどういう実装をしてけばいいのかという話をした&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shibuya-swift.connpass.com/event/39841/&#34;&gt;Shibuya.swift 第５回&lt;/a&gt;を参加した
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/nakajijapan/intarakusiyondezaintoshi-zhuang&#34;&gt;インタラクションデザインと実装&lt;/a&gt;を発表した&lt;/li&gt;
+&lt;li&gt;インタラクションの必要性とminneではどういう実装をしているのかについての話をした&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shibuya-swift.connpass.com/event/42712/&#34;&gt;Shibuya.swift 第６回&lt;/a&gt;に参加した&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;ブログ&#34;&gt;ブログ&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nakajijapan.github.io/blog/2016/03/28/training-camp/&#34;&gt;朝練チームで合宿してきました。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nakajijapan.github.io/blog/2016/03/13/sengiri/&#34;&gt;Macアプリ Sengiri をリリースした。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nakajijapan.github.io/blog/2016/02/17/teiten-update-to-1-1-2/&#34;&gt;Teiten v1.1.2にアップデートした。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nakajijapan.github.io/blog/2016/08/21/iosdc2016/&#34;&gt;iOSDC2016で発表してきた。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tech.pepabo.com/2016/10/28/apple-pay-in-japan/&#34;&gt;日本でのApple Payローンチパートナーに選ばれたminneアプリの開発秘話&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;まとめると&#34;&gt;まとめると&lt;/h3&gt;
+&lt;p&gt;後半に大きなイベントが立て続けにあってなにかを捨てることなくやりきった自分を褒めたいと思います。&lt;/p&gt;
+&lt;h2 id=&#34;2017年&#34;&gt;2017年&lt;/h2&gt;
+&lt;h3 id=&#34;仕事面&#34;&gt;仕事面&lt;/h3&gt;
+&lt;p&gt;去年はプリシパルエンジニアとしてどうやっていくかを悩んでいた年でもありますが、今年は思い悩んだことを実際の行動に落とし込んでヤっていく年だと思っています。
+iOSDC2016で話した内容、&lt;a href=&#34;https://speakerdeck.com/nakajijapan/33sui-mobairuenziniadao&#34;&gt;33歳モバイルエンジニア道&lt;/a&gt;にもありますが、これを具体的タスクに落とし込んでやっていくぞという気持ち。
+まだまだやれる。&lt;/p&gt;
+&lt;h3 id=&#34;個人&#34;&gt;個人&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;今のライブラリを地道にアップデートしていく&lt;/li&gt;
+&lt;li&gt;最近０から作る系のお仕事があまりないのでMacOSとiOSで使えるアプリを作ってみる&lt;/li&gt;
+&lt;li&gt;せっかくApple TVのアプリを作る&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;最後&#34;&gt;最後&lt;/h2&gt;
+&lt;p&gt;去年はガムシャラに進んできて自分の心ここにあらずという感じはあったので来年はもっと自分をもう少し遠くから眺めてゆっくり思考しながら行動していこうと思う。
+無理せずヤってくぞ！&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
 </rss>

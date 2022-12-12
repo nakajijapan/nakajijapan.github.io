@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Backbone.js読書会１日目">
@@ -11,43 +11,39 @@
 <meta property="go:description" content="Backbone.js読書会１日目 Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）
 そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。
 「Backbone.js ガイドブック」
-
 Backbone.jsガイドブック
 はじめは概要なのですらっと。
 一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。
-var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } );  サンプルみただけだとふーんですよね。僕もいまのところふーんです。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } ); サンプルみただけだとふーんですよね。僕もいまのところふーんです。
 ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&#39;modal&#39;)とかで毎回DOMを操作しなくて済む。
 ふと思った訳です。
-var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { modal_template: null, class_m: function(){ this.modal_template = $(&#39;#modal&#39;).html()} } );  こんなかんじ。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { modal_template: null, class_m: function(){ this.modal_template = $(&#39;#modal&#39;).html()} } ); こんなかんじ。
 あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。
 さ。来週もすすめていきますよ。
 追記 洋書は今月末にでるようだ。
-
 Developing Backbone.js Applications" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Backbone.js読書会１日目" />
 <meta name="twitter:description" content="Backbone.js読書会１日目 Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）
 そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。
 「Backbone.js ガイドブック」
-
 Backbone.jsガイドブック
 はじめは概要なのですらっと。
 一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。
-var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } );  サンプルみただけだとふーんですよね。僕もいまのところふーんです。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { class_p: 2, class_m: function(){ return &#39;instance_m&#39;;} } ); サンプルみただけだとふーんですよね。僕もいまのところふーんです。
 ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&#39;modal&#39;)とかで毎回DOMを操作しなくて済む。
 ふと思った訳です。
-var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { modal_template: null, class_m: function(){ this.modal_template = $(&#39;#modal&#39;).html()} } );  こんなかんじ。
+var Parent = Backbone.View.extend( { instance_p: 1, instance_m: function(){ return &#39;instance_m&#39;;} }, { modal_template: null, class_m: function(){ this.modal_template = $(&#39;#modal&#39;).html()} } ); こんなかんじ。
 あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。
 さ。来週もすすめていきますよ。
 追記 洋書は今月末にでるようだ。
-
 Developing Backbone.js Applications" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">

@@ -1,38 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Camera on おじさんは生きている</title>
-		<link>http://nakajijapan.github.io/categories/camera/</link>
-		<description>Recent content in Camera on おじさんは生きている</description>
-		<generator>Hugo -- gohugo.io</generator>
-		
-		<language>ja-JP</language>
-		
-		<copyright>nakajijapan All rights reserved.</copyright>
-		
-		<lastBuildDate>Tue, 31 Aug 2010 03:08:27 +0900</lastBuildDate>
-		
-		<atom:link href="/categories/camera/" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>iPhone　カメラを買いましたが。。。</title>
-			<link>http://nakajijapan.github.io/blog/2010/08/31/iphone-%E3%82%AB%E3%83%A1%E3%83%A9%E3%82%92%E8%B2%B7%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8C/</link>
-			<pubDate>Tue, 31 Aug 2010 03:08:27 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2010/08/31/iphone-%E3%82%AB%E3%83%A1%E3%83%A9%E3%82%92%E8%B2%B7%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8C/</guid>
-			<description>そろそろiPhoneカメラのレンズにも飽きだしていろんな倍率で撮りたくなってきた今日このごろのわたし（ちなみに結構前の話しです）はiPhone用のレンズを購入しました。たしかギズモード・ジャパンだったかもしれません。購入したレンズには広角用とマクロ用の二つが付属されており、どちらの用途を使い分けて撮影することができます。
-本当はね、本当はね、一眼レフカメラが欲しいのですがそんなお金はナイ！！ってポケットに怒られているのでiPhone用のレンズで当分は我慢をしようと思ってます。
-ちなみに下の写真が各レンズでの撮影結果です。
-マクロ撮影版通常ワイド用意外に楽しめているので、飽きるまでやり続けようと思います。</description>
-		</item>
-		
-		<item>
-			<title>【Holga120TLR】２眼レフホルガ　トイカメラ(superheadz)</title>
-			<link>http://nakajijapan.github.io/blog/2010/01/21/holga120tlr%EF%BC%92%E7%9C%BC%E3%83%AC%E3%83%95%E3%83%9B%E3%83%AB%E3%82%AC-%E3%83%88%E3%82%A4%E3%82%AB%E3%83%A1%E3%83%A9superheadz/</link>
-			<pubDate>Thu, 21 Jan 2010 13:56:06 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2010/01/21/holga120tlr%EF%BC%92%E7%9C%BC%E3%83%AC%E3%83%95%E3%83%9B%E3%83%AB%E3%82%AC-%E3%83%88%E3%82%A4%E3%82%AB%E3%83%A1%E3%83%A9superheadz/</guid>
-			<description>これほしいな。。。これってエフェクトつけられないのかな？ </description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Camera  おじさんは生きている</title>
+    <link>http://nakajijapan.github.io/categories/camera/</link>
+    <description>  Camera  おじさんは生きている</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Tue, 31 Aug 2010 03:08:27 +0900</lastBuildDate>
+    <atom:link href="http://nakajijapan.github.io/categories/camera/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>iPhone　カメラを買いましたが。。。</title>
+      <link>http://nakajijapan.github.io/blog/2010/08/31/iphone-%E3%82%AB%E3%83%A1%E3%83%A9%E3%82%92%E8%B2%B7%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8C/</link>
+      <pubDate>Tue, 31 Aug 2010 03:08:27 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2010/08/31/iphone-%E3%82%AB%E3%83%A1%E3%83%A9%E3%82%92%E8%B2%B7%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8C/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2010/08/写真.jpg&#34; alt=&#34;&#34; title=&#34;写真&#34; width=&#34;500&#34; class=&#34;aligncenter size-full wp-image-2353&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;そろそろiPhoneカメラのレンズにも飽きだしていろんな倍率で撮りたくなってきた今日このごろのわたし（ちなみに結構前の話しです）はiPhone用のレンズを購入しました。たしかギズモード・ジャパンだったかもしれません。購入したレンズには広角用とマクロ用の二つが付属されており、どちらの用途を使い分けて撮影することができます。&lt;/p&gt;
+&lt;p&gt;本当はね、本当はね、一眼レフカメラが欲しいのですがそんなお金はナイ！！ってポケットに怒られているのでiPhone用のレンズで当分は我慢をしようと思ってます。&lt;/p&gt;
+&lt;p&gt;ちなみに下の写真が各レンズでの撮影結果です。&lt;/p&gt;
+&lt;h2&gt;マクロ撮影版&lt;/h2&gt;
+&lt;a href=&#34;&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2010/08/IMG_0693.jpg&#34; alt=&#34;&#34; title=&#34;IMG_0693&#34; width=&#34;500&#34; class=&#34;aligncenter size-full wp-image-2352&#34; /&gt;&lt;/a&gt;
+&lt;h2&gt;通常&lt;/h2&gt;
+&lt;a href=&#34;&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2010/08/IMG_0692.jpg&#34; alt=&#34;&#34; title=&#34;IMG_0692&#34; width=&#34;500&#34; class=&#34;aligncenter size-full wp-image-2351&#34; /&gt;&lt;/a&gt;
+&lt;h2&gt;ワイド用&lt;/h2&gt;
+&lt;a href=&#34;&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2010/08/IMG_0691.jpg&#34; alt=&#34;&#34; title=&#34;IMG_0691&#34; width=&#34;500&#34; class=&#34;aligncenter size-full wp-image-2350&#34; /&gt;&lt;/a&gt;
+&lt;p&gt;意外に楽しめているので、飽きるまでやり続けようと思います。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>【Holga120TLR】２眼レフホルガ　トイカメラ(superheadz)</title>
+      <link>http://nakajijapan.github.io/blog/2010/01/21/holga120tlr%EF%BC%92%E7%9C%BC%E3%83%AC%E3%83%95%E3%83%9B%E3%83%AB%E3%82%AC-%E3%83%88%E3%82%A4%E3%82%AB%E3%83%A1%E3%83%A9superheadz/</link>
+      <pubDate>Thu, 21 Jan 2010 13:56:06 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2010/01/21/holga120tlr%EF%BC%92%E7%9C%BC%E3%83%AC%E3%83%95%E3%83%9B%E3%83%AB%E3%82%AC-%E3%83%88%E3%82%A4%E3%82%AB%E3%83%A1%E3%83%A9superheadz/</guid>
+      <description>&lt;img src=&#34;http://ec2.images-amazon.com/images/I/51Yqnb6ydpL._SL500_AA280_.jpg&#34;&gt;
+&lt;a href=&#34;asin:B002HLODEY&#34;&gt;&lt;/a&gt;
+これほしいな。。。
+これってエフェクトつけられないのかな？
+</description>
+    </item>
+    
+  </channel>
 </rss>

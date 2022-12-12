@@ -2,29 +2,29 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Maintainable Javascript読んだ（Part2）">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2013/02/04/maintainable-javascript%E8%AA%AD%E3%82%93%E3%81%A0part2/" />
 <meta property="go:description" content="Maintainable JavascriptNicholas C. ZakasOreilly & Associates Inc発売日：2012-05-31ブクログでレビューを見る»
- Programing Practice 前回の続きです。今回はPart2のメモ。 実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。
-Event Handling  アプリケーションのロジックときり分けよう！ Don&#39;t Pass the Event Object Around(略せなかった・・・)  アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない 処理の透過性が悪くなるし、テストしにくいんだよ！ イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。   Avoid Null Comparisons Detecting Reference Values *どれもobjectが返るから注意
-console.log(typeof {}); // &#34;object&#34; console.log(typeof []); // &#34;object&#34; console.log(typeof new Date()); // &#34;object&#34; console.log(typeof new RegExp()); // &#34;object&#34; console.log(typeof null); // &#34;object&#34;   チェックはインスタンスを見るといい  if (hoge instance Date) { // do something } if (hoge instance Error) { throw value; }  Detecting Arrays Array." />
+Programing Practice 前回の続きです。今回はPart2のメモ。 実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。
+Event Handling アプリケーションのロジックときり分けよう！ Don&#39;t Pass the Event Object Around(略せなかった・・・) アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない 処理の透過性が悪くなるし、テストしにくいんだよ！ イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。 Avoid Null Comparisons Detecting Reference Values *どれもobjectが返るから注意
+console.log(typeof {}); // &#34;object&#34; console.log(typeof []); // &#34;object&#34; console.log(typeof new Date()); // &#34;object&#34; console.log(typeof new RegExp()); // &#34;object&#34; console.log(typeof null); // &#34;object&#34; チェックはインスタンスを見るといい if (hoge instance Date) { // do something } if (hoge instance Error) { throw value; } Detecting Arrays Array." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Maintainable Javascript読んだ（Part2）" />
 <meta name="twitter:description" content="Maintainable JavascriptNicholas C. ZakasOreilly & Associates Inc発売日：2012-05-31ブクログでレビューを見る»
- Programing Practice 前回の続きです。今回はPart2のメモ。 実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。
-Event Handling  アプリケーションのロジックときり分けよう！ Don&#39;t Pass the Event Object Around(略せなかった・・・)  アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない 処理の透過性が悪くなるし、テストしにくいんだよ！ イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。   Avoid Null Comparisons Detecting Reference Values *どれもobjectが返るから注意
-console.log(typeof {}); // &#34;object&#34; console.log(typeof []); // &#34;object&#34; console.log(typeof new Date()); // &#34;object&#34; console.log(typeof new RegExp()); // &#34;object&#34; console.log(typeof null); // &#34;object&#34;   チェックはインスタンスを見るといい  if (hoge instance Date) { // do something } if (hoge instance Error) { throw value; }  Detecting Arrays Array." />
+Programing Practice 前回の続きです。今回はPart2のメモ。 実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。
+Event Handling アプリケーションのロジックときり分けよう！ Don&#39;t Pass the Event Object Around(略せなかった・・・) アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない 処理の透過性が悪くなるし、テストしにくいんだよ！ イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。 Avoid Null Comparisons Detecting Reference Values *どれもobjectが返るから注意
+console.log(typeof {}); // &#34;object&#34; console.log(typeof []); // &#34;object&#34; console.log(typeof new Date()); // &#34;object&#34; console.log(typeof new RegExp()); // &#34;object&#34; console.log(typeof null); // &#34;object&#34; チェックはインスタンスを見るといい if (hoge instance Date) { // do something } if (hoge instance Error) { throw value; } Detecting Arrays Array." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

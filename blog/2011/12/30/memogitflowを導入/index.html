@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[memo]gitflowを導入">
@@ -11,26 +11,26 @@
 <meta property="go:description" content="gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。
 基本的な概念は、ここを参照。 http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html
 ここ
-wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bashまず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
-git clone hoge.git hogegit flow init開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
-# 開発からブランチを切って開発を行う。git flow feature test start# 何かしらのファイルを修正git commit -a# 他で開発していれば更新分をマージするgit pull origin develop# 開発終了git flow feature test finishここから本番にデプロイするときの設定です。
-git flow release 0.0.1 startgit flow release 0." />
+wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bashまず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
+git clone hoge.git hogegit flow init開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
+# 開発からブランチを切って開発を行う。git flow feature test start# 何かしらのファイルを修正git commit -a# 他で開発していれば更新分をマージするgit pull origin develop# 開発終了git flow feature test finishここから本番にデプロイするときの設定です。
+git flow release 0.0.1 startgit flow release 0.0.1 stopgit push git push --tags■参照URL https://github." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[memo]gitflowを導入" />
 <meta name="twitter:description" content="gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。
 基本的な概念は、ここを参照。 http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html
 ここ
-wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bashまず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
-git clone hoge.git hogegit flow init開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
-# 開発からブランチを切って開発を行う。git flow feature test start# 何かしらのファイルを修正git commit -a# 他で開発していれば更新分をマージするgit pull origin develop# 開発終了git flow feature test finishここから本番にデプロイするときの設定です。
-git flow release 0.0.1 startgit flow release 0." />
+wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bashまず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
+git clone hoge.git hogegit flow init開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
+# 開発からブランチを切って開発を行う。git flow feature test start# 何かしらのファイルを修正git commit -a# 他で開発していれば更新分をマージするgit pull origin develop# 開発終了git flow feature test finishここから本番にデプロイするときの設定です。
+git flow release 0.0.1 startgit flow release 0.0.1 stopgit push git push --tags■参照URL https://github." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="storyboadのページ遷移で「custom」を利用してみる">
@@ -11,20 +11,20 @@
 <meta property="go:description" content="普段は「push」か「modal」で実装するけど、場合によっては違う見せ方をしたほうがいい場合があると思います。
 そこで「custom」を利用してページ遷移をもっとインタラクティブに見せる実装を行います。
 まずは「UIStoryboardSegue」なるクラスを継承した「DetailSegue」を作成してみます。
-#import &#34;DetailSegue.h&#34;@implementation DetailSegue- (void)perform {// if either source or destination is nil, stopif (nil == self.sourceViewController || nil == self.destinationViewController) return;UINavigationController *ctrlSrc = [self.sourceViewController navigationController];[UIView beginAnimations:@&#34;fadeOst&#34; context:nil];[UIView setAnimationDuration: 0.1];[UIView setAnimationDelegate:self];[UIView setAnimationDidStopSelector:@selector(animationDidStop)];[[ctrlSrc view] setAlpha: 0.3];[UIView commitAnimations];}// animation end event - (void)animationDidStop {UINavigationController *ctrlSrc = [self.sourceViewController navigationController];[UIView beginAnimations:@&#34;fadeIn&#34; context:nil];[UIView setAnimationDuration: 0.5];[ctrlSrc pushViewController:self.destinationViewController animated:NO];[[ctrlSrc view] setAlpha: 1]; [UIView commitAnimations];}@end次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。" />
+#import &#34;DetailSegue.h&#34;@implementation DetailSegue- (void)perform {// if either source or destination is nil, stopif (nil == self.sourceViewController || nil == self.destinationViewController) return;UINavigationController *ctrlSrc = [self.sourceViewController navigationController];[UIView beginAnimations:@&#34;fadeOst&#34; context:nil];[UIView setAnimationDuration: 0.1];[UIView setAnimationDelegate:self];[UIView setAnimationDidStopSelector:@selector(animationDidStop)];[[ctrlSrc view] setAlpha: 0.3];[UIView commitAnimations];}// animation end event - (void)animationDidStop {UINavigationController *ctrlSrc = [self.sourceViewController navigationController];[UIView beginAnimations:@&#34;fadeIn&#34; context:nil];[UIView setAnimationDuration: 0.5];[ctrlSrc pushViewController:self.destinationViewController animated:NO];[[ctrlSrc view] setAlpha: 1]; [UIView commitAnimations];}@end次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="storyboadのページ遷移で「custom」を利用してみる" />
 <meta name="twitter:description" content="普段は「push」か「modal」で実装するけど、場合によっては違う見せ方をしたほうがいい場合があると思います。
 そこで「custom」を利用してページ遷移をもっとインタラクティブに見せる実装を行います。
 まずは「UIStoryboardSegue」なるクラスを継承した「DetailSegue」を作成してみます。
-#import &#34;DetailSegue.h&#34;@implementation DetailSegue- (void)perform {// if either source or destination is nil, stopif (nil == self.sourceViewController || nil == self.destinationViewController) return;UINavigationController *ctrlSrc = [self.sourceViewController navigationController];[UIView beginAnimations:@&#34;fadeOst&#34; context:nil];[UIView setAnimationDuration: 0.1];[UIView setAnimationDelegate:self];[UIView setAnimationDidStopSelector:@selector(animationDidStop)];[[ctrlSrc view] setAlpha: 0.3];[UIView commitAnimations];}// animation end event - (void)animationDidStop {UINavigationController *ctrlSrc = [self.sourceViewController navigationController];[UIView beginAnimations:@&#34;fadeIn&#34; context:nil];[UIView setAnimationDuration: 0.5];[ctrlSrc pushViewController:self.destinationViewController animated:NO];[[ctrlSrc view] setAlpha: 1]; [UIView commitAnimations];}@end次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。" />
+#import &#34;DetailSegue.h&#34;@implementation DetailSegue- (void)perform {// if either source or destination is nil, stopif (nil == self.sourceViewController || nil == self.destinationViewController) return;UINavigationController *ctrlSrc = [self.sourceViewController navigationController];[UIView beginAnimations:@&#34;fadeOst&#34; context:nil];[UIView setAnimationDuration: 0.1];[UIView setAnimationDelegate:self];[UIView setAnimationDidStopSelector:@selector(animationDidStop)];[[ctrlSrc view] setAlpha: 0.3];[UIView commitAnimations];}// animation end event - (void)animationDidStop {UINavigationController *ctrlSrc = [self.sourceViewController navigationController];[UIView beginAnimations:@&#34;fadeIn&#34; context:nil];[UIView setAnimationDuration: 0.5];[ctrlSrc pushViewController:self.destinationViewController animated:NO];[[ctrlSrc view] setAlpha: 1]; [UIView commitAnimations];}@end次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -99,7 +99,7 @@
 @end
 </pre>
 <p>次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。</p>
-<p><img src="http://blog.nakajijapan.net/wp-content/uploads/2012/01/スクリーンショット-2012-01-02-20.36.10.png" alt="" title="スクリーンショット 2012-01-02 20.36.10" width="544" height="345" class="aligncenter size-full wp-image-3056" /></p>
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2012/01/スクリーンショット-2012-01-02-20.36.10.png" alt="" title="スクリーンショット 2012-01-02 20.36.10" width="544" height="345" class="aligncenter size-full wp-image-3056" />
 <p>今回のアニメーションはfadeInOutを自力で作成しています。</p>
 <p>もっと簡単にアニメーションをするんであれば、「UIView transitionWityView 」の「options」であらかじめ用意されたアニメーションを指定できるので設定するよいかもしれません。</p>
 <pre class="brush:cpp">

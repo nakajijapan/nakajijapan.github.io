@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="自作のライブラリをGemに公開するまでに行ったこと">
@@ -12,33 +12,37 @@
 欲求不満の利用しているライブラリを別に切り出してGemにしてみました。
 欲求不満は自分が運営している言うなればソーシャルウィッシュリストサービス
 なのですが自分がよく使うAPIを何個も使って商品を登録・管理しています。
-欲求不満  http://frustration.me   しかし、apiはというものそれぞれの仕様でインターフェースが異なるので
+欲求不満 http://frustration.me しかし、apiはというものそれぞれの仕様でインターフェースが異なるので
 商品情報を管理するときに大変面倒なので自前でクラスを作成して
 インターフェースを統一させてます。そのい一部分をGemで切り出してみました。
 今回使うにあたって簡単インストールできるjewelerを利用してみました。
-gem install jeweler  まずは、あらかじめGitHubでレポジトリを作成しておきます。
+gem install jeweler まずは、あらかじめGitHubでレポジトリを作成しておきます。
 その後、インストール処理。
-jeweler --rspec --create-repo api-bucket [~/Programming/ruby/gem_test] create .gitignore create Rakefile create Gemfile create LICENSE.txt create README.rdoc create .document create lib create lib/api-bucket.rb create spec create spec/spec_helper.rb create spec/api-bucket_spec.rb create .rspec Jeweler has prepared your gem in ./api-bucket Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket bundle install rake version:write rake gemspec  これでGemに必要な一式が入ります。" />
+jeweler --rspec --create-repo api-bucket [~/Programming/ruby/gem_test] create .gitignore create Rakefile create Gemfile create LICENSE.txt create README.rdoc create .document create lib create lib/api-bucket.rb create spec create spec/spec_helper.rb create spec/api-bucket_spec.rb create .rspec Jeweler has prepared your gem in ./api-bucket Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket bundle install rake version:write rake gemspec これでGemに必要な一式が入ります。
+もろもろライブラリやらテストやらを実装したら、それをbuildして 作成されたGemファイルをRubyGemsにアップロードします。
+gem build api-bucket.gemspec gem push api-bucket-0." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="自作のライブラリをGemに公開するまでに行ったこと" />
 <meta name="twitter:description" content="自作のライブラリをGemに公開するまでに行ったこと
 欲求不満の利用しているライブラリを別に切り出してGemにしてみました。
 欲求不満は自分が運営している言うなればソーシャルウィッシュリストサービス
 なのですが自分がよく使うAPIを何個も使って商品を登録・管理しています。
-欲求不満  http://frustration.me   しかし、apiはというものそれぞれの仕様でインターフェースが異なるので
+欲求不満 http://frustration.me しかし、apiはというものそれぞれの仕様でインターフェースが異なるので
 商品情報を管理するときに大変面倒なので自前でクラスを作成して
 インターフェースを統一させてます。そのい一部分をGemで切り出してみました。
 今回使うにあたって簡単インストールできるjewelerを利用してみました。
-gem install jeweler  まずは、あらかじめGitHubでレポジトリを作成しておきます。
+gem install jeweler まずは、あらかじめGitHubでレポジトリを作成しておきます。
 その後、インストール処理。
-jeweler --rspec --create-repo api-bucket [~/Programming/ruby/gem_test] create .gitignore create Rakefile create Gemfile create LICENSE.txt create README.rdoc create .document create lib create lib/api-bucket.rb create spec create spec/spec_helper.rb create spec/api-bucket_spec.rb create .rspec Jeweler has prepared your gem in ./api-bucket Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket bundle install rake version:write rake gemspec  これでGemに必要な一式が入ります。" />
+jeweler --rspec --create-repo api-bucket [~/Programming/ruby/gem_test] create .gitignore create Rakefile create Gemfile create LICENSE.txt create README.rdoc create .document create lib create lib/api-bucket.rb create spec create spec/spec_helper.rb create spec/api-bucket_spec.rb create .rspec Jeweler has prepared your gem in ./api-bucket Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket bundle install rake version:write rake gemspec これでGemに必要な一式が入ります。
+もろもろライブラリやらテストやらを実装したら、それをbuildして 作成されたGemファイルをRubyGemsにアップロードします。
+gem build api-bucket.gemspec gem push api-bucket-0." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[iphone][memo]なんかメモリ参照がおかしい件">
@@ -12,23 +12,23 @@
 １．NSDataからNSStringに変換して文字列を結合してメンバ変数に入れておく。 ２．他のメソッドからそのメンバ変数を関数に引数にして処理を行う。
 こんな簡単なことを１時間以上のも悩んだ挙げ句結局答えはわからずじまいでした。 いったいなんだったんでしょうか？？？
 test.h
-#import @interface CameraViewController : UIViewController {IBOutlet UIImageView *imageView;NSString *_imageUrl;}@property (nonatomic, retain) IBOutlet UIImageView *imageView;@property (nonatomic, retain) NSString *_imageUrl;- (IBAction)pushButtonCamera;- (IBAction)pushButtonSaveImage;- (IBAction)pushButtonPostImage;@endtest.m
-@synthesize _imageUrl;- (IBAction)pushButtonPostImage{_imageUrl = [NSString stringWithFormat:@&#34;http:/hogehoge/?s=aaaa&#43;%@%@&#34;, UPLOAD_SERVER_URL, [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];}- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {NSLog(@&#34;%@ が押された&#34;, [alertView buttonTitleAtIndex:buttonIndex]);NSLog(@&#34;buttonIndex = %d&#34;, buttonIndex);// for logpiif (buttonIndex == 1) {[[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]];}}これだとエラーが発生" />
+#import @interface CameraViewController : UIViewController {IBOutlet UIImageView *imageView;NSString *_imageUrl;}@property (nonatomic, retain) IBOutlet UIImageView *imageView;@property (nonatomic, retain) NSString *_imageUrl;- (IBAction)pushButtonCamera;- (IBAction)pushButtonSaveImage;- (IBAction)pushButtonPostImage;@endtest.m
+@synthesize _imageUrl;- (IBAction)pushButtonPostImage{_imageUrl = [NSString stringWithFormat:@&#34;http:/hogehoge/?s=aaaa&#43;%@%@&#34;, UPLOAD_SERVER_URL, [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];}- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {NSLog(@&#34;%@ が押された&#34;, [alertView buttonTitleAtIndex:buttonIndex]);NSLog(@&#34;buttonIndex = %d&#34;, buttonIndex);// for logpiif (buttonIndex == 1) {[[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]];}}これだとエラーが発生" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[iphone][memo]なんかメモリ参照がおかしい件" />
 <meta name="twitter:description" content="なんか迷ってしまったのです。
 １．NSDataからNSStringに変換して文字列を結合してメンバ変数に入れておく。 ２．他のメソッドからそのメンバ変数を関数に引数にして処理を行う。
 こんな簡単なことを１時間以上のも悩んだ挙げ句結局答えはわからずじまいでした。 いったいなんだったんでしょうか？？？
 test.h
-#import @interface CameraViewController : UIViewController {IBOutlet UIImageView *imageView;NSString *_imageUrl;}@property (nonatomic, retain) IBOutlet UIImageView *imageView;@property (nonatomic, retain) NSString *_imageUrl;- (IBAction)pushButtonCamera;- (IBAction)pushButtonSaveImage;- (IBAction)pushButtonPostImage;@endtest.m
-@synthesize _imageUrl;- (IBAction)pushButtonPostImage{_imageUrl = [NSString stringWithFormat:@&#34;http:/hogehoge/?s=aaaa&#43;%@%@&#34;, UPLOAD_SERVER_URL, [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];}- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {NSLog(@&#34;%@ が押された&#34;, [alertView buttonTitleAtIndex:buttonIndex]);NSLog(@&#34;buttonIndex = %d&#34;, buttonIndex);// for logpiif (buttonIndex == 1) {[[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]];}}これだとエラーが発生" />
+#import @interface CameraViewController : UIViewController {IBOutlet UIImageView *imageView;NSString *_imageUrl;}@property (nonatomic, retain) IBOutlet UIImageView *imageView;@property (nonatomic, retain) NSString *_imageUrl;- (IBAction)pushButtonCamera;- (IBAction)pushButtonSaveImage;- (IBAction)pushButtonPostImage;@endtest.m
+@synthesize _imageUrl;- (IBAction)pushButtonPostImage{_imageUrl = [NSString stringWithFormat:@&#34;http:/hogehoge/?s=aaaa&#43;%@%@&#34;, UPLOAD_SERVER_URL, [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];}- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {NSLog(@&#34;%@ が押された&#34;, [alertView buttonTitleAtIndex:buttonIndex]);NSLog(@&#34;buttonIndex = %d&#34;, buttonIndex);// for logpiif (buttonIndex == 1) {[[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]];}}これだとエラーが発生" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

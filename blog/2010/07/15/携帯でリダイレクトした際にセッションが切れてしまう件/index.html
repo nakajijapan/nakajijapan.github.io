@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="携帯でリダイレクトした際にセッションが切れてしまう件。">
@@ -13,11 +13,11 @@
 そう、セッションを引き回していなかったのです。
 「加藤さん事件です。」（レポーター風）
 一応セッション設定チェック
-;----- mobile {-----resources.session.use_only_cookies = falseresources.session.use_cookies = falseresources.session.use_trans_sid = true;----- mobile }-----なんら問題無し。
+;----- mobile {-----resources.session.use_only_cookies = falseresources.session.use_cookies = falseresources.session.use_trans_sid = true;----- mobile }-----なんら問題無し。
 各処理でのサーバ情報ゲット
-[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php !?むむむ、URI自体に問題があるのか。
+[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php!?むむむ、URI自体に問題があるのか。
 そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。
-http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxxだとだめでhttp://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
+http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxxだとだめでhttp://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
 RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。
 結構単純なことでした。。
 ■参照URL URI - Uniform Resource Identifiers
@@ -25,22 +25,22 @@ iers" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="携帯でリダイレクトした際にセッションが切れてしまう件。" />
 <meta name="twitter:description" content="携帯版ではまってしまったのでメモ
 携帯は基本的にはセッションはパラメータで引き回すようにしています。 しかし、リダイレクト時には自動的にはセッションIDは引き回さないようPHPの仕様でなっています。 そこで、リダイレクト時にもセッションを引き回せるように手動でセッションを引き回すように処理を 加えたのですがなぜかリダイレクト先の処理側でセッションが新しく生成されてしまう。
 そう、セッションを引き回していなかったのです。
 「加藤さん事件です。」（レポーター風）
 一応セッション設定チェック
-;----- mobile {-----resources.session.use_only_cookies = falseresources.session.use_cookies = falseresources.session.use_trans_sid = true;----- mobile }-----なんら問題無し。
+;----- mobile {-----resources.session.use_only_cookies = falseresources.session.use_cookies = falseresources.session.use_trans_sid = true;----- mobile }-----なんら問題無し。
 各処理でのサーバ情報ゲット
-[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php !?むむむ、URI自体に問題があるのか。
+[QUERY_STRING] =&gt;[REQUEST_URI] =&gt; /test.php!?むむむ、URI自体に問題があるのか。
 そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。
-http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxxだとだめでhttp://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
+http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxxだとだめでhttp://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。
 RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。
 結構単純なことでした。。
 ■参照URL URI - Uniform Resource Identifiers

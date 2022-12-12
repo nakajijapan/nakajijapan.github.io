@@ -2,30 +2,30 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="ImageMagicをCentOS5.4にインスコ">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/07/10/imagemagic%E3%82%92centos5.4%E3%81%AB%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%B3/" />
-<meta property="go:description" content="wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-libs-1.900.1-7.el5.kb.i386.rpmwget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-devel-1.900.1-7.el5.kb.i386.rpmrpm -ivh jasper-libs-1.900.1-7.el5.kb.i386.rpmrpm -ivh jasper-devel-1.900.1-7.el5.kb.i386.rpmwget http://www.imagemagick.org/download/linux/CentOS/i386/ImageMagick-6.6.3-0.i386.rpmwget http://image_magick.veidrodis.com/image_magick/linux/CentOS/i386/ImageMagick-devel-6.6.3-0.i386.rpm# rpmをダウンロードしたそのディレクトリ内で実行するとそのパッケージ＋依存性のあるパッケージを自動でやってくれます。yum install ImageMagicこのときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます
-vi /etc/yum.confgpgcheck=1このときｖ2.3がいんすとーるされました。
-pecl install imagickphp.iniを変更
-extension=imagick.so本当は画像関係のモジュールをいろいろいれないいけないみたいだけど今回はこれで大丈夫でしたです。
+<meta property="go:description" content="wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-libs-1.900.1-7.el5.kb.i386.rpmwget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-devel-1.900.1-7.el5.kb.i386.rpmrpm -ivh jasper-libs-1.900.1-7.el5.kb.i386.rpmrpm -ivh jasper-devel-1.900.1-7.el5.kb.i386.rpmwget http://www.imagemagick.org/download/linux/CentOS/i386/ImageMagick-6.6.3-0.i386.rpmwget http://image_magick.veidrodis.com/image_magick/linux/CentOS/i386/ImageMagick-devel-6.6.3-0.i386.rpm# rpmをダウンロードしたそのディレクトリ内で実行するとそのパッケージ＋依存性のあるパッケージを自動でやってくれます。yum install ImageMagicこのときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます
+vi /etc/yum.confgpgcheck=1このときｖ2.3がいんすとーるされました。
+pecl install imagickphp.iniを変更
+extension=imagick.so本当は画像関係のモジュールをいろいろいれないいけないみたいだけど今回はこれで大丈夫でしたです。
 ■参照URL http://mercurius.jp/blog/2010/02/08-113607.html" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="ImageMagicをCentOS5.4にインスコ" />
-<meta name="twitter:description" content="wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-libs-1.900.1-7.el5.kb.i386.rpmwget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-devel-1.900.1-7.el5.kb.i386.rpmrpm -ivh jasper-libs-1.900.1-7.el5.kb.i386.rpmrpm -ivh jasper-devel-1.900.1-7.el5.kb.i386.rpmwget http://www.imagemagick.org/download/linux/CentOS/i386/ImageMagick-6.6.3-0.i386.rpmwget http://image_magick.veidrodis.com/image_magick/linux/CentOS/i386/ImageMagick-devel-6.6.3-0.i386.rpm# rpmをダウンロードしたそのディレクトリ内で実行するとそのパッケージ＋依存性のあるパッケージを自動でやってくれます。yum install ImageMagicこのときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます
-vi /etc/yum.confgpgcheck=1このときｖ2.3がいんすとーるされました。
-pecl install imagickphp.iniを変更
-extension=imagick.so本当は画像関係のモジュールをいろいろいれないいけないみたいだけど今回はこれで大丈夫でしたです。
+<meta name="twitter:description" content="wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-libs-1.900.1-7.el5.kb.i386.rpmwget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-devel-1.900.1-7.el5.kb.i386.rpmrpm -ivh jasper-libs-1.900.1-7.el5.kb.i386.rpmrpm -ivh jasper-devel-1.900.1-7.el5.kb.i386.rpmwget http://www.imagemagick.org/download/linux/CentOS/i386/ImageMagick-6.6.3-0.i386.rpmwget http://image_magick.veidrodis.com/image_magick/linux/CentOS/i386/ImageMagick-devel-6.6.3-0.i386.rpm# rpmをダウンロードしたそのディレクトリ内で実行するとそのパッケージ＋依存性のあるパッケージを自動でやってくれます。yum install ImageMagicこのときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます
+vi /etc/yum.confgpgcheck=1このときｖ2.3がいんすとーるされました。
+pecl install imagickphp.iniを変更
+extension=imagick.so本当は画像関係のモジュールをいろいろいれないいけないみたいだけど今回はこれで大丈夫でしたです。
 ■参照URL http://mercurius.jp/blog/2010/02/08-113607.html" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">

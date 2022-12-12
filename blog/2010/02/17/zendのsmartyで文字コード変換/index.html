@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="ZendのSmartyで文字コード変換">
@@ -10,19 +10,19 @@
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2010/02/17/zend%E3%81%AEsmarty%E3%81%A7%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E5%A4%89%E6%8F%9B/" />
 <meta property="go:description" content="分け合ってUTF-8のデータをンプレート出力時にはデータをSJISに設定する必要がでたのでそのメモ。
 ■動作 HTTP（INPUT）：SJIS 内部（データ、ファイルもろもろ）：UTF-8 HTTP（OUTPUT）：SJIS
-// My_View_Smarty 内の関数public function __construct($tmplPath = null, $extraParams = array()){// オブジェクト生成$this-_smarty = new Smarty();// テンプレートパス設定if (null !== $tmplPath) {$this-setScriptPath($tmplPath);}// 設定情報をメンバ変数へforeach ($extraParams as $key = $value) {// define functionif (is_array($value)) {foreach ($value as $key2 = $value2) {// 出力時の関数指定if ($key === &#34;outputfilter&#34;) {$this-_smarty-autoload_filters[&#39;output&#39;][] = $value2;}else {$this-_smarty-{$key}[] = $value2;}}}else {$this-_smarty-$key = $value;}}その次は関数の設定" />
+// My_View_Smarty 内の関数public function __construct($tmplPath = null, $extraParams = array()){// オブジェクト生成$this-&gt;_smarty = new Smarty();// テンプレートパス設定if (null !== $tmplPath) {$this-&gt;setScriptPath($tmplPath);}// 設定情報をメンバ変数へforeach ($extraParams as $key =&gt; $value) {// define functionif (is_array($value)) {foreach ($value as $key2 =&gt; $value2) {// 出力時の関数指定if ($key === &#34;outputfilter&#34;) {$this-&gt;_smarty-&gt;autoload_filters[&#39;output&#39;][] = $value2;}else {$this-&gt;_smarty-&gt;{$key}[] = $value2;}}}else {$this-&gt;_smarty-&gt;$key = $value;}}その次は関数の設定" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="ZendのSmartyで文字コード変換" />
 <meta name="twitter:description" content="分け合ってUTF-8のデータをンプレート出力時にはデータをSJISに設定する必要がでたのでそのメモ。
 ■動作 HTTP（INPUT）：SJIS 内部（データ、ファイルもろもろ）：UTF-8 HTTP（OUTPUT）：SJIS
-// My_View_Smarty 内の関数public function __construct($tmplPath = null, $extraParams = array()){// オブジェクト生成$this-_smarty = new Smarty();// テンプレートパス設定if (null !== $tmplPath) {$this-setScriptPath($tmplPath);}// 設定情報をメンバ変数へforeach ($extraParams as $key = $value) {// define functionif (is_array($value)) {foreach ($value as $key2 = $value2) {// 出力時の関数指定if ($key === &#34;outputfilter&#34;) {$this-_smarty-autoload_filters[&#39;output&#39;][] = $value2;}else {$this-_smarty-{$key}[] = $value2;}}}else {$this-_smarty-$key = $value;}}その次は関数の設定" />
+// My_View_Smarty 内の関数public function __construct($tmplPath = null, $extraParams = array()){// オブジェクト生成$this-&gt;_smarty = new Smarty();// テンプレートパス設定if (null !== $tmplPath) {$this-&gt;setScriptPath($tmplPath);}// 設定情報をメンバ変数へforeach ($extraParams as $key =&gt; $value) {// define functionif (is_array($value)) {foreach ($value as $key2 =&gt; $value2) {// 出力時の関数指定if ($key === &#34;outputfilter&#34;) {$this-&gt;_smarty-&gt;autoload_filters[&#39;output&#39;][] = $value2;}else {$this-&gt;_smarty-&gt;{$key}[] = $value2;}}}else {$this-&gt;_smarty-&gt;$key = $value;}}その次は関数の設定" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="IzumoはDark Modeに対応しました。">
@@ -11,22 +11,22 @@
 <meta property="go:description" content="IzumoはDark Modeを対応しました。
 作業 基本的に動画やドキュメントを見ればある程度のことはできるようになります。 まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。
 あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。
- updateConstraints layout draw(_ dirtyRect: NSRect) updateLayer  気に食わなかったところ NSScrollerのデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）
+updateConstraints layout draw(_ dirtyRect: NSRect) updateLayer 気に食わなかったところ NSScrollerのデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）
 実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。
 import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) } override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) { super.drawKnobSlot(in: slotRect, highlight: flag) // 背景はリストの背景と同じにする NSColor.defaultBackgroundColor.set() slotRect.fill() // 同じにすると境界がわからなくなるのでボーダー独自に描くようにする NSColor.defaultScrollerLeft.set() let rect = CGRect(x: 0, y: 0, width: 1, height: slotRect.height) rect.fill() } } class NoteListScrollView: NSScrollView { required init?" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/posts/2018-10-002.png" />
+<meta property="og:image" content="images/posts/2018-10-002.png" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="IzumoはDark Modeに対応しました。" />
 <meta name="twitter:description" content="IzumoはDark Modeを対応しました。
 作業 基本的に動画やドキュメントを見ればある程度のことはできるようになります。 まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。
 あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。
- updateConstraints layout draw(_ dirtyRect: NSRect) updateLayer  気に食わなかったところ NSScrollerのデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）
+updateConstraints layout draw(_ dirtyRect: NSRect) updateLayer 気に食わなかったところ NSScrollerのデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）
 実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。
 import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) } override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) { super.drawKnobSlot(in: slotRect, highlight: flag) // 背景はリストの背景と同じにする NSColor.defaultBackgroundColor.set() slotRect.fill() // 同じにすると境界がわからなくなるのでボーダー独自に描くようにする NSColor.defaultScrollerLeft.set() let rect = CGRect(x: 0, y: 0, width: 1, height: slotRect.height) rect.fill() } } class NoteListScrollView: NSScrollView { required init?" />
 
@@ -84,35 +84,34 @@ import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ d
 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）</p>
 <p><img src="/images/posts/2018-10-006.png" alt=""></p>
 <p>実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListVerticalScroller</span>: NSScroller {
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">draw</span>(<span style="color:#66d9ef">_</span> dirtyRect: NSRect) {
-        <span style="color:#66d9ef">super</span>.draw(dirtyRect)
-    }
-
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawKnobSlot</span>(<span style="color:#66d9ef">in</span> slotRect: NSRect, highlight flag: Bool) {
-        <span style="color:#66d9ef">super</span>.drawKnobSlot(<span style="color:#66d9ef">in</span>: slotRect, highlight: flag)
-
-        <span style="color:#75715e">// 背景はリストの背景と同じにする</span>
-        NSColor.defaultBackgroundColor.<span style="color:#66d9ef">set</span>()
-        slotRect.fill()
-
-        <span style="color:#75715e">// 同じにすると境界がわからなくなるのでボーダー独自に描くようにする</span>
-        NSColor.defaultScrollerLeft.<span style="color:#66d9ef">set</span>()
-        <span style="color:#66d9ef">let</span> rect = CGRect(x: <span style="color:#ae81ff">0</span>, y: <span style="color:#ae81ff">0</span>, width: <span style="color:#ae81ff">1</span>, height: slotRect.height)
-        rect.fill()
-    }
-}
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListScrollView</span>: NSScrollView {
-    <span style="color:#66d9ef">required</span> <span style="color:#66d9ef">init</span>?(coder: NSCoder) {
-        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(coder: coder)
-        verticalScroller = NoteListVerticalScroller(frame: verticalScroller!.frame)
-    }
-}
-
-</code></pre></div><h1 id="まとめ">まとめ</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListVerticalScroller</span>: NSScroller {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">draw</span>(<span style="color:#66d9ef">_</span> dirtyRect: NSRect) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.draw(dirtyRect)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawKnobSlot</span>(<span style="color:#66d9ef">in</span> slotRect: NSRect, highlight flag: Bool) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.drawKnobSlot(<span style="color:#66d9ef">in</span>: slotRect, highlight: flag)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 背景はリストの背景と同じにする</span>
+</span></span><span style="display:flex;"><span>        NSColor.defaultBackgroundColor.<span style="color:#66d9ef">set</span>()
+</span></span><span style="display:flex;"><span>        slotRect.fill()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 同じにすると境界がわからなくなるのでボーダー独自に描くようにする</span>
+</span></span><span style="display:flex;"><span>        NSColor.defaultScrollerLeft.<span style="color:#66d9ef">set</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> rect = CGRect(x: <span style="color:#ae81ff">0</span>, y: <span style="color:#ae81ff">0</span>, width: <span style="color:#ae81ff">1</span>, height: slotRect.height)
+</span></span><span style="display:flex;"><span>        rect.fill()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListScrollView</span>: NSScrollView {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">required</span> <span style="color:#66d9ef">init</span>?(coder: NSCoder) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(coder: coder)
+</span></span><span style="display:flex;"><span>        verticalScroller = NoteListVerticalScroller(frame: verticalScroller!.frame)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="まとめ">まとめ</h1>
 <p><strong>Darkは正義</strong></p>
 <p>とにかくかっこいいし、メモして快適なので我ながら対応してよかった。</p>
 <h1 id="reference">Reference</h1>

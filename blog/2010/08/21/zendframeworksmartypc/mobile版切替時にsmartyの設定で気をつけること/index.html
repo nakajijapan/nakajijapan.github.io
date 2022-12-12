@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[zendframework][smarty]PC/Mobile版切替時にSmartyの設定で気をつけること">
@@ -13,23 +13,23 @@
 当たり前のことだけど、別にしないとだめだよね。
 Smartyのコンパイルファイル(templates_c側)を一緒のディレクトリ・ファイルにしないようにします。 なので携帯版はSMARTY_COMPILE_IDに「_mb」を追加して別管理にしました。
 以下がディレクトリ構造。
----------------- 例 -------------------[root@hoge] # tree templates_ctemplates_c|-- ref| || `-- %%DE| `-- DE7| `-- DE7C2150%%header.html.php`-- ref_mb|`-- %%DE`-- DE7`-- DE7C2150%%header.html.phpSmartyのキャッシュを有効にしたときはまたもう少し考えないといけないな。
+---------------- 例 -------------------[root@hoge] # tree templates_ctemplates_c|-- ref| || `-- %%DE| `-- DE7| `-- DE7C2150%%header.html.php`-- ref_mb|`-- %%DE`-- DE7`-- DE7C2150%%header.html.phpSmartyのキャッシュを有効にしたときはまたもう少し考えないといけないな。
 例えば、日記を新しく作成した場合はどちらとも作成しないといけないね。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[zendframework][smarty]PC/Mobile版切替時にSmartyの設定で気をつけること" />
 <meta name="twitter:description" content="最近ハマったこと。
 携帯版とPC版でテンプレートを切り分けているときにちゃんとテンプレートキャッシュも別で保存しておかないと 最初に表示した画面の状態をずっと保持し続けてしまう。たとえば、PC版で表示したら携帯版で表示しても PC版で表示されてしまう。
 当たり前のことだけど、別にしないとだめだよね。
 Smartyのコンパイルファイル(templates_c側)を一緒のディレクトリ・ファイルにしないようにします。 なので携帯版はSMARTY_COMPILE_IDに「_mb」を追加して別管理にしました。
 以下がディレクトリ構造。
----------------- 例 -------------------[root@hoge] # tree templates_ctemplates_c|-- ref| || `-- %%DE| `-- DE7| `-- DE7C2150%%header.html.php`-- ref_mb|`-- %%DE`-- DE7`-- DE7C2150%%header.html.phpSmartyのキャッシュを有効にしたときはまたもう少し考えないといけないな。
+---------------- 例 -------------------[root@hoge] # tree templates_ctemplates_c|-- ref| || `-- %%DE| `-- DE7| `-- DE7C2150%%header.html.php`-- ref_mb|`-- %%DE`-- DE7`-- DE7C2150%%header.html.phpSmartyのキャッシュを有効にしたときはまたもう少し考えないといけないな。
 例えば、日記を新しく作成した場合はどちらとも作成しないといけないね。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">

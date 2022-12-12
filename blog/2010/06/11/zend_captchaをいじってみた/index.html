@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="zend_captchaをいじってみた">
@@ -14,15 +14,15 @@
 今回はZendのコンポーネントに画像認証用のものがあったのでそれを利用してみることにしました。
 下準備として以下の条件が必要になります。 ・GDは利用できるかどうか ・画像を保存するディレクトリは実行権限が「７」で設定されているか
 早速実装です。以下が画像と承認用のIDを生成する設処理です。
-//-----------------------------------// キャプチャ画像生成//-----------------------------------$imgUrl = &#34;hogehoge&#34;;$imgDir = &#34;hogehoge&#34;;$config = array(&#39;timeout&#39; = 300,&#39;wordLen&#39; = 6,&#39;width&#39; = 110,&#39;height&#39; = 50,&#39;lineNoiseLevel&#39; = 3,&#39;dotNoiseLevel&#39; = 3,&#39;fontSize&#39; = 26,&#39;font&#39; = &#39;/usr/share/fonts/ja/TrueType/kochi-mincho-subst.ttf&#39;,&#39;imgUrl&#39; = $imgUrl,&#39;imgDir&#39; = $imgDir);$captcha = new Zend_Captcha_Image( $config );$captcha-generate(); //command to generate session &#43; create image$this-view-captchaId = $captcha-getId();$this-view-captchaImgTag = $captcha-render(); // generate Image Tag簡単です、設定をちょろちょろしてからインスタンス生成、「generate()」で画像生成。これでロジック部分は終了。" />
+//-----------------------------------// キャプチャ画像生成//-----------------------------------$imgUrl = &#34;hogehoge&#34;;$imgDir = &#34;hogehoge&#34;;$config = array(&#39;timeout&#39; =&gt; 300,&#39;wordLen&#39; =&gt; 6,&#39;width&#39; =&gt; 110,&#39;height&#39; =&gt; 50,&#39;lineNoiseLevel&#39; =&gt; 3,&#39;dotNoiseLevel&#39; =&gt; 3,&#39;fontSize&#39; =&gt; 26,&#39;font&#39; =&gt; &#39;/usr/share/fonts/ja/TrueType/kochi-mincho-subst.ttf&#39;,&#39;imgUrl&#39; =&gt; $imgUrl,&#39;imgDir&#39; =&gt; $imgDir);$captcha = new Zend_Captcha_Image( $config );$captcha-&gt;generate(); //command to generate session &#43; create image$this-&gt;view-&gt;captchaId = $captcha-&gt;getId();$this-&gt;view-&gt;captchaImgTag = $captcha-&gt;render(); // generate Image Tag簡単です、設定をちょろちょろしてからインスタンス生成、「generate()」で画像生成。これでロジック部分は終了。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="zend_captchaをいじってみた" />
 <meta name="twitter:description" content="やっぱ、コメントスパムってなくならないよねーと騒がれるこのご時世。
 対策の一環として一つの施策を行いました。
@@ -30,7 +30,7 @@
 今回はZendのコンポーネントに画像認証用のものがあったのでそれを利用してみることにしました。
 下準備として以下の条件が必要になります。 ・GDは利用できるかどうか ・画像を保存するディレクトリは実行権限が「７」で設定されているか
 早速実装です。以下が画像と承認用のIDを生成する設処理です。
-//-----------------------------------// キャプチャ画像生成//-----------------------------------$imgUrl = &#34;hogehoge&#34;;$imgDir = &#34;hogehoge&#34;;$config = array(&#39;timeout&#39; = 300,&#39;wordLen&#39; = 6,&#39;width&#39; = 110,&#39;height&#39; = 50,&#39;lineNoiseLevel&#39; = 3,&#39;dotNoiseLevel&#39; = 3,&#39;fontSize&#39; = 26,&#39;font&#39; = &#39;/usr/share/fonts/ja/TrueType/kochi-mincho-subst.ttf&#39;,&#39;imgUrl&#39; = $imgUrl,&#39;imgDir&#39; = $imgDir);$captcha = new Zend_Captcha_Image( $config );$captcha-generate(); //command to generate session &#43; create image$this-view-captchaId = $captcha-getId();$this-view-captchaImgTag = $captcha-render(); // generate Image Tag簡単です、設定をちょろちょろしてからインスタンス生成、「generate()」で画像生成。これでロジック部分は終了。" />
+//-----------------------------------// キャプチャ画像生成//-----------------------------------$imgUrl = &#34;hogehoge&#34;;$imgDir = &#34;hogehoge&#34;;$config = array(&#39;timeout&#39; =&gt; 300,&#39;wordLen&#39; =&gt; 6,&#39;width&#39; =&gt; 110,&#39;height&#39; =&gt; 50,&#39;lineNoiseLevel&#39; =&gt; 3,&#39;dotNoiseLevel&#39; =&gt; 3,&#39;fontSize&#39; =&gt; 26,&#39;font&#39; =&gt; &#39;/usr/share/fonts/ja/TrueType/kochi-mincho-subst.ttf&#39;,&#39;imgUrl&#39; =&gt; $imgUrl,&#39;imgDir&#39; =&gt; $imgDir);$captcha = new Zend_Captcha_Image( $config );$captcha-&gt;generate(); //command to generate session &#43; create image$this-&gt;view-&gt;captchaId = $captcha-&gt;getId();$this-&gt;view-&gt;captchaImgTag = $captcha-&gt;render(); // generate Image Tag簡単です、設定をちょろちょろしてからインスタンス生成、「generate()」で画像生成。これでロジック部分は終了。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

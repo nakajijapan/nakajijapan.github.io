@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる">
@@ -20,11 +20,11 @@ $ bundle exec rake batches:total_scores WARNING: Nokogiri was built against LibX
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる" />
 <meta name="twitter:description" content="サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。
 便利だったのがgoogle-drive-rubyで、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。
@@ -73,49 +73,49 @@ $ bundle exec rake batches:total_scores WARNING: Nokogiri was built against LibX
 <p>便利だったのが<a href="https://github.com/gimite/google-drive-ruby">google-drive-ruby</a>で、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。</p>
 <p>実際に<a href="http://www.frustration.me/">www.frustration.me</a>のユーザ数やアイテム数を計測するために使用してみました。</p>
 <p>まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">desc <span style="color:#e6db74">&#34;send score data to google spreadsheet&#34;</span>
-require <span style="color:#e6db74">&#39;google_drive&#39;</span>
-
-namespace <span style="color:#e6db74">:batches</span> <span style="color:#66d9ef">do</span>
-
-  task <span style="color:#e6db74">total_scores</span>: <span style="color:#e6db74">:environment</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>t, args<span style="color:#f92672">|</span>
-    fail <span style="color:#e6db74">&#39;no username&#39;</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_USERNAME&#39;</span><span style="color:#f92672">].</span>blank?
-    fail <span style="color:#e6db74">&#39;no password&#39;</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_PASSWORD&#39;</span><span style="color:#f92672">].</span>blank?
-
-    session <span style="color:#f92672">=</span> <span style="color:#66d9ef">GoogleDrive</span><span style="color:#f92672">.</span>login(<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_USERNAME&#39;</span><span style="color:#f92672">]</span>, <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_PASSWORD&#39;</span><span style="color:#f92672">]</span>)
-    spreadsheet <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>spreadsheet_by_key(<span style="color:#e6db74">&#34;input key name&#34;</span>)
-    worksheet <span style="color:#f92672">=</span> spreadsheet<span style="color:#f92672">.</span>worksheet_by_title(<span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>env)
-    analyze_data <span style="color:#f92672">=</span> {
-      <span style="color:#e6db74">date</span>:           <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span>),
-      <span style="color:#e6db74">users_num</span>:      <span style="color:#66d9ef">User</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
-      <span style="color:#e6db74">items_num</span>:      <span style="color:#66d9ef">Item</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
-      <span style="color:#e6db74">comments_num</span>:   <span style="color:#66d9ef">Comment</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
-      <span style="color:#e6db74">categories_num</span>: <span style="color:#66d9ef">Category</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count
-    }
-    worksheet<span style="color:#f92672">.</span>list<span style="color:#f92672">.</span>push(analyze_data)
-    worksheet<span style="color:#f92672">.</span>save()
-  <span style="color:#66d9ef">end</span>
-
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>これで<code>rake batches:total_scores</code>で実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>desc <span style="color:#e6db74">&#34;send score data to google spreadsheet&#34;</span>
+</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;google_drive&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>namespace <span style="color:#e6db74">:batches</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  task <span style="color:#e6db74">total_scores</span>: <span style="color:#e6db74">:environment</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>t, args<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>    fail <span style="color:#e6db74">&#39;no username&#39;</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_USERNAME&#39;</span><span style="color:#f92672">].</span>blank?
+</span></span><span style="display:flex;"><span>    fail <span style="color:#e6db74">&#39;no password&#39;</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_PASSWORD&#39;</span><span style="color:#f92672">].</span>blank?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    session <span style="color:#f92672">=</span> <span style="color:#66d9ef">GoogleDrive</span><span style="color:#f92672">.</span>login(<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_USERNAME&#39;</span><span style="color:#f92672">]</span>, <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_PASSWORD&#39;</span><span style="color:#f92672">]</span>)
+</span></span><span style="display:flex;"><span>    spreadsheet <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>spreadsheet_by_key(<span style="color:#e6db74">&#34;input key name&#34;</span>)
+</span></span><span style="display:flex;"><span>    worksheet <span style="color:#f92672">=</span> spreadsheet<span style="color:#f92672">.</span>worksheet_by_title(<span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>env)
+</span></span><span style="display:flex;"><span>    analyze_data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">date</span>:           <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">users_num</span>:      <span style="color:#66d9ef">User</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">items_num</span>:      <span style="color:#66d9ef">Item</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">comments_num</span>:   <span style="color:#66d9ef">Comment</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">categories_num</span>: <span style="color:#66d9ef">Category</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    worksheet<span style="color:#f92672">.</span>list<span style="color:#f92672">.</span>push(analyze_data)
+</span></span><span style="display:flex;"><span>    worksheet<span style="color:#f92672">.</span>save()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>これで<code>rake batches:total_scores</code>で実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では</p>
 <p><img src="/images/posts/2013-07-02_01.png" alt="ss"></p>
 <p>な感じでどんどんレコードが追加されていきます。</p>
 <p>便利。</p>
 <p>ただし、注意点があります。今回は<a href="http://sqale.jp">sqale</a>のcronで動かしているのですがログインで以下のように失敗することがあります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ bundle exec rake batches:total_scores
-WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
-rake aborted!
-Authentication failed <span style="color:#66d9ef">for</span> hogehoge@gmail.com: Response code <span style="color:#ae81ff">403</span> <span style="color:#66d9ef">for</span> post https://www.google.com/accounts/ClientLogin: Error<span style="color:#f92672">=</span>BadAuthentication
-Url<span style="color:#f92672">=</span>https://www.google.com/accounts/ServiceLogin?service<span style="color:#f92672">=</span>wise#Email<span style="color:#f92672">=</span>hogehoge%40gmail.com
-Info<span style="color:#f92672">=</span>WebLoginRequired
-/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:93:in <span style="color:#e6db74">`</span>rescue in login<span style="color:#e6db74">&#39;
-</span><span style="color:#e6db74">/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:86:in `login&#39;</span>
-/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:38:in <span style="color:#e6db74">`</span>login<span style="color:#e6db74">&#39;
-</span><span style="color:#e6db74">/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive.rb:18:in `login&#39;</span>
-/home/sqale/current/lib/tasks/scores.rake:10:in <span style="color:#e6db74">`</span>block <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span> levels<span style="color:#f92672">)</span> in &lt;top <span style="color:#f92672">(</span>required<span style="color:#f92672">)</span>&gt;<span style="color:#960050;background-color:#1e0010">&#39;</span>
-Tasks: TOP <span style="color:#f92672">=</span>&gt; batches:total_scores
-<span style="color:#f92672">(</span>See full trace by running task with --trace<span style="color:#f92672">)</span>
-</code></pre></div><p>これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ bundle exec rake batches:total_scores
+</span></span><span style="display:flex;"><span>WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
+</span></span><span style="display:flex;"><span>rake aborted!
+</span></span><span style="display:flex;"><span>Authentication failed <span style="color:#66d9ef">for</span> hogehoge@gmail.com: Response code <span style="color:#ae81ff">403</span> <span style="color:#66d9ef">for</span> post https://www.google.com/accounts/ClientLogin: Error<span style="color:#f92672">=</span>BadAuthentication
+</span></span><span style="display:flex;"><span>Url<span style="color:#f92672">=</span>https://www.google.com/accounts/ServiceLogin?service<span style="color:#f92672">=</span>wise#Email<span style="color:#f92672">=</span>hogehoge%40gmail.com
+</span></span><span style="display:flex;"><span>Info<span style="color:#f92672">=</span>WebLoginRequired
+</span></span><span style="display:flex;"><span>/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:93:in <span style="color:#e6db74">`</span>rescue in login<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:86:in `login&#39;</span>
+</span></span><span style="display:flex;"><span>/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:38:in <span style="color:#e6db74">`</span>login<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive.rb:18:in `login&#39;</span>
+</span></span><span style="display:flex;"><span>/home/sqale/current/lib/tasks/scores.rake:10:in <span style="color:#e6db74">`</span>block <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span> levels<span style="color:#f92672">)</span> in &lt;top <span style="color:#f92672">(</span>required<span style="color:#f92672">)</span>&gt;<span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span><span style="display:flex;"><span>Tasks: TOP <span style="color:#f92672">=</span>&gt; batches:total_scores
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>See full trace by running task with --trace<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。</p>
 <p><img src="/images/posts/2013-07-02_02.png" alt="ss"></p>
 <p>あとはグラフツール使って簡単に見やすくできるのでお手軽&amp;便利メソッドでした。</p>
 <p><img src="/images/posts/2013-07-02_03.png" alt="まだ情報はすくないのであれです">

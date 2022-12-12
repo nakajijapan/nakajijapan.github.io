@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Gem公開にBumpを利用してみた">
@@ -13,30 +13,36 @@ Bumpでやってみる.
 以前はjewelerを使っていたけど、使ってみることにしました。 GitHubみるかぎりなんだかシンプルそう。
 Bump
 https://github.com/gregorym/bump
-gem install bump  gemを作成しときます。
-bundle gem api-bucket  ここで一式のGem公開に必要なファイルが作成されるので、 あとはごにょごにょ作り込む。
-$ rake build api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem $ rake release api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem Tagged v0.0.1 Pushed git commits and tags Pushed api-bucket 0.0.1 to rubygems.org  バージョンアップは
-$ bump minor [master aa84ae1] v0.1.0 1 file changed, 1 insertion(&#43;), 1 deletion(-) Bump version 0.0.1 to 0.1.0  で勝手にコミットまでしてくれる。
-あとは「rake build」でGemファイルを構築して「rake release」でGemにアップ。" />
+gem install bump gemを作成しときます。
+bundle gem api-bucket ここで一式のGem公開に必要なファイルが作成されるので、 あとはごにょごにょ作り込む。
+$ rake build api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem $ rake release api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem Tagged v0.0.1 Pushed git commits and tags Pushed api-bucket 0.0.1 to rubygems.org バージョンアップは
+$ bump minor [master aa84ae1] v0.1.0 1 file changed, 1 insertion(&#43;), 1 deletion(-) Bump version 0.0.1 to 0.1.0 で勝手にコミットまでしてくれる。
+あとは「rake build」でGemファイルを構築して「rake release」でGemにアップ。
+うん
+gemspecファイルとかよくわかんないものまでつくられることないからこっちのほうがシンプルでいいかも。
+ということで、数日問題あって非公開していたapi-bucket( https://rubygems.org/gems/api-bucket )を公開しました。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Gem公開にBumpを利用してみた" />
 <meta name="twitter:description" content="Gemの公開をBumpを利用して公開してみる。
 Bumpでやってみる.
 以前はjewelerを使っていたけど、使ってみることにしました。 GitHubみるかぎりなんだかシンプルそう。
 Bump
 https://github.com/gregorym/bump
-gem install bump  gemを作成しときます。
-bundle gem api-bucket  ここで一式のGem公開に必要なファイルが作成されるので、 あとはごにょごにょ作り込む。
-$ rake build api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem $ rake release api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem Tagged v0.0.1 Pushed git commits and tags Pushed api-bucket 0.0.1 to rubygems.org  バージョンアップは
-$ bump minor [master aa84ae1] v0.1.0 1 file changed, 1 insertion(&#43;), 1 deletion(-) Bump version 0.0.1 to 0.1.0  で勝手にコミットまでしてくれる。
-あとは「rake build」でGemファイルを構築して「rake release」でGemにアップ。" />
+gem install bump gemを作成しときます。
+bundle gem api-bucket ここで一式のGem公開に必要なファイルが作成されるので、 あとはごにょごにょ作り込む。
+$ rake build api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem $ rake release api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem Tagged v0.0.1 Pushed git commits and tags Pushed api-bucket 0.0.1 to rubygems.org バージョンアップは
+$ bump minor [master aa84ae1] v0.1.0 1 file changed, 1 insertion(&#43;), 1 deletion(-) Bump version 0.0.1 to 0.1.0 で勝手にコミットまでしてくれる。
+あとは「rake build」でGemファイルを構築して「rake release」でGemにアップ。
+うん
+gemspecファイルとかよくわかんないものまでつくられることないからこっちのほうがシンプルでいいかも。
+ということで、数日問題あって非公開していたapi-bucket( https://rubygems.org/gems/api-bucket )を公開しました。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">

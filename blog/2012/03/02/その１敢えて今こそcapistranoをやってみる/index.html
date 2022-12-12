@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="[その１]敢えて今こそCapistranoをやってみる">
@@ -11,23 +11,23 @@
 <meta property="go:description" content="会社でのデプロイツールといったらCapistranoのビルドを管理するWebistranoというツールを使って管理して、本番や開発環境に ソースをデプロイする際には大変重宝してます。ボタン一つで指定された複数のサーバへ一気にソースをデプロイなんてできてしまいます。
 とはいえ、裏側が対して分かってないので理解を深めるためにあえてCapistranoを利用してデプロイなんかしてみようと思います。
 とりあえず、作業用ディレクトリ作成してデプロイする内容のファイル「Capfile」を作成します。ここでデプロイするときに必要な作業を記述するみたい。今回はリモートにファイルを置くっていう作業。
-$ mkdir capistrano && cd capistrano$ emacs Capfileset :user, &#39;nakaji&#39;task :stamp, :hosts = &#34;hoge.me&#34; dorun &#34;touch /var/www/hoge.me/test&#34;end実際に実行してみます。 リモートに指定ファイルが作成されていればOK！ あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
-$ cap stamp* executing `stamp&#39;* executing &#34;touch /var/www/hoge.me/test&#34;servers: [&#34;hoge.me&#34;][hoge.me] executing command[hoge.me] sh -c &#39;touch /var/www/hoge.me/test&#39;command finished in 83ms次はソースを展開してデプロイまでやってみます。
+$ mkdir capistrano && cd capistrano$ emacs Capfileset :user, &#39;nakaji&#39;task :stamp, :hosts =&gt; &#34;hoge.me&#34; dorun &#34;touch /var/www/hoge.me/test&#34;end実際に実行してみます。 リモートに指定ファイルが作成されていればOK！ あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
+$ cap stamp* executing `stamp&#39;* executing &#34;touch /var/www/hoge.me/test&#34;servers: [&#34;hoge.me&#34;][hoge.me] executing command[hoge.me] sh -c &#39;touch /var/www/hoge.me/test&#39;command finished in 83ms次はソースを展開してデプロイまでやってみます。
 ■参考URL https://github.com/peritor/webistrano" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="[その１]敢えて今こそCapistranoをやってみる" />
 <meta name="twitter:description" content="会社でのデプロイツールといったらCapistranoのビルドを管理するWebistranoというツールを使って管理して、本番や開発環境に ソースをデプロイする際には大変重宝してます。ボタン一つで指定された複数のサーバへ一気にソースをデプロイなんてできてしまいます。
 とはいえ、裏側が対して分かってないので理解を深めるためにあえてCapistranoを利用してデプロイなんかしてみようと思います。
 とりあえず、作業用ディレクトリ作成してデプロイする内容のファイル「Capfile」を作成します。ここでデプロイするときに必要な作業を記述するみたい。今回はリモートにファイルを置くっていう作業。
-$ mkdir capistrano && cd capistrano$ emacs Capfileset :user, &#39;nakaji&#39;task :stamp, :hosts = &#34;hoge.me&#34; dorun &#34;touch /var/www/hoge.me/test&#34;end実際に実行してみます。 リモートに指定ファイルが作成されていればOK！ あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
-$ cap stamp* executing `stamp&#39;* executing &#34;touch /var/www/hoge.me/test&#34;servers: [&#34;hoge.me&#34;][hoge.me] executing command[hoge.me] sh -c &#39;touch /var/www/hoge.me/test&#39;command finished in 83ms次はソースを展開してデプロイまでやってみます。
+$ mkdir capistrano && cd capistrano$ emacs Capfileset :user, &#39;nakaji&#39;task :stamp, :hosts =&gt; &#34;hoge.me&#34; dorun &#34;touch /var/www/hoge.me/test&#34;end実際に実行してみます。 リモートに指定ファイルが作成されていればOK！ あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
+$ cap stamp* executing `stamp&#39;* executing &#34;touch /var/www/hoge.me/test&#34;servers: [&#34;hoge.me&#34;][hoge.me] executing command[hoge.me] sh -c &#39;touch /var/www/hoge.me/test&#39;command finished in 83ms次はソースを展開してデプロイまでやってみます。
 ■参考URL https://github.com/peritor/webistrano" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">

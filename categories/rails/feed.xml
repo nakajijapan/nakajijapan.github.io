@@ -1,65 +1,312 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Rails on おじさんは生きている</title>
-		<link>http://nakajijapan.github.io/categories/rails/</link>
-		<description>Recent content in Rails on おじさんは生きている</description>
-		<generator>Hugo -- gohugo.io</generator>
-		
-		<language>ja-JP</language>
-		
-		<copyright>nakajijapan All rights reserved.</copyright>
-		
-		<lastBuildDate>Sat, 13 Jul 2013 15:13:00 +0900</lastBuildDate>
-		
-		<atom:link href="/categories/rails/" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Update To Rails4</title>
-			<link>http://nakajijapan.github.io/blog/2013/07/13/update-to-rails4/</link>
-			<pubDate>Sat, 13 Jul 2013 15:13:00 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2013/07/13/update-to-rails4/</guid>
-			<description>自分のサービスのRailsのversionがまだ3.2だったので地道にRails4にアップデートしました。 その際に必要になった作業をメモっときます。
-attr_accessible is extracted out of Rails into a gem. E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError) attr_accessibleはRailsから省いてstrong_parametersを利用してとのこと。 振るいものを利用するならprotected_attributesっていうGem使ってね。 しかし、今回はstrong_parametersを記述していきます。
-とりあえずModelからの排除を行う。
-DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. (called from block in &amp;lt;top (required)&amp;gt; at /private/var/www/frustration/config/environm ents/development.</description>
-		</item>
-		
-		<item>
-			<title>RailsとCookieではまったこと</title>
-			<link>http://nakajijapan.github.io/blog/2012/12/02/rails%E3%81%A8cookie%E3%81%A7%E3%81%AF%E3%81%BE%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</link>
-			<pubDate>Sun, 02 Dec 2012 14:28:52 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2012/12/02/rails%E3%81%A8cookie%E3%81%A7%E3%81%AF%E3%81%BE%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</guid>
-			<description>今回Railsで起きた問題、ちと自分の中で迷ったの纏めておく。
-PHPで運用していたものをRuby(Rails)にのせ変えようとしたときに置きました。以前、前の仕様でCookieでカンマ区切りにして保存していた情報があったのですがそれを気にしないでRailsを導入していたら初期表示でサーバエラーになるという問題が発生しました。
-保存していたもの document.cookie = &#34;HOGE=1,,1,1&#34;  どうもRack側で発生していることに気づきましてCookieの文字列を解析している箇所で「;」「,」の二つでハッシュ化していることが原因だとわかりました。# According to RFC 2109: # If multiple cookies satisfy the criteria above, they are ordered in # the Cookie header such that those with more specific Path attributes # precede those with less specific. Ordering with respect to other # attributes (e.g., Domain) is unspecified. Utils.parse_query(string, &#39;;,&#39;).each { |k,v| hash[k] = Array === v ? v.first : v } @env[&#34;rack.request.cookie_string&#34;] = string hash  Rackが悪いのでは？と思っていてけどRFCまわりをよくよく調査してみるとNAME,VALUEにセミコロン、コンマ、空白文字を除いた文字列を指定すべきで、いれるときはエンコードすべき。あと、サーバは将来の互換性のためにカンマも受け入れるべきです。てきなことが記述されていたので間違っていないことは確認しました。とはいっても、サーバエラーにしてクッキー削除してから閲覧してねという訳にもいかないので一時凌ぎとして</description>
-		</item>
-		
-		<item>
-			<title>RailsでBASIC認証をさせる</title>
-			<link>http://nakajijapan.github.io/blog/2012/06/09/rails%E3%81%A7basic%E8%AA%8D%E8%A8%BC%E3%82%92%E3%81%95%E3%81%9B%E3%82%8B/</link>
-			<pubDate>Sat, 09 Jun 2012 02:58:34 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2012/06/09/rails%E3%81%A7basic%E8%AA%8D%E8%A8%BC%E3%82%92%E3%81%95%E3%81%9B%E3%82%8B/</guid>
-			<description>Railsで手っ取り早くBASIC認証させるためのメモ
-class BasicController うん、簡単ですね。Zendのときでもこんなに完結にはかけなかったものです。。
-「authenticate_or_request_with_http_basic」すばらしい！！</description>
-		</item>
-		
-		<item>
-			<title>「Unicorn &#43; Rails &#43; Nginx」で構築してみる</title>
-			<link>http://nakajijapan.github.io/blog/2012/02/01/unicorn-rails-nginx%E3%81%A7%E6%A7%8B%E7%AF%89%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</link>
-			<pubDate>Wed, 01 Feb 2012 00:21:07 +0900</pubDate>
-			
-			<guid>http://nakajijapan.github.io/blog/2012/02/01/unicorn-rails-nginx%E3%81%A7%E6%A7%8B%E7%AF%89%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
-			<description>勉強がてら構築してみました。以前はrailsのWebサーバはThinで構築していたのですが、 最近流行している「Unicorn」、さらにはフロントにリバースプロキシとHTTP用のサーバ「nginx」 をおいて構築してみることにします。
-仕組みについてはこちらのサイトがよくまとめられていたので概要つかむによいでしょう。
-まずは、nginxのインストールを行います。インストールはあらかじめrpm をインストールしてからyumでインストールし直します。
-rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpmyum install nginx一度、デフォルトでnginxで起動するかどうかの確認を行います。「service nginx start」でhttp://hoge.moge にアクセスしてnginx用の画面が表示されていればとりあえずはインストール完了です。
-以下、Unicornがnginx経由でアクセスできるようにするための設定ファイルになります。
-upstream hoge.moge {server unix:/var/www/test/tmp/sockets/unicorn.sock;}server {listen 80;server_name hoge.moge;root /var/www/test/public/;access_log log/access.log;error_log log/error.log;location / {if (-f $request_filename) {break;}# ファイルが存在しなければunicornにproxyするproxy_set_header X-Real-IP $remote_addr;proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;proxy_set_header Host $http_host;proxy_pass http://hoge.moge;}# この記述がないと静的ファイルが表示されなかったlocation ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {expires 1y;}}なんか書き方はPerlbalよりわかりやすいようなイメージしました。気のせいかもしれませんが。。。</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Rails  おじさんは生きている</title>
+    <link>http://nakajijapan.github.io/categories/rails/</link>
+    <description>  Rails  おじさんは生きている</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <copyright>nakajijapan All rights reserved.</copyright>
+    <lastBuildDate>Sat, 13 Jul 2013 15:13:00 +0900</lastBuildDate>
+    <atom:link href="http://nakajijapan.github.io/categories/rails/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Update To Rails4</title>
+      <link>http://nakajijapan.github.io/blog/2013/07/13/update-to-rails4/</link>
+      <pubDate>Sat, 13 Jul 2013 15:13:00 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2013/07/13/update-to-rails4/</guid>
+      <description>&lt;p&gt;自分のサービスのRailsのversionがまだ&lt;code&gt;3.2&lt;/code&gt;だったので地道にRails4にアップデートしました。
+その際に必要になった作業をメモっときます。&lt;/p&gt;
+&lt;h2 id=&#34;attr_accessible-is-extracted-out-of-rails-into-a-gem&#34;&gt;attr_accessible is extracted out of Rails into a gem.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;attr_accessible&lt;/code&gt;はRailsから省いて&lt;code&gt;strong_parameters&lt;/code&gt;を利用してとのこと。
+振るいものを利用するなら&lt;code&gt;protected_attributes&lt;/code&gt;っていうGem使ってね。
+しかし、今回は&lt;code&gt;strong_parameters&lt;/code&gt;を記述していきます。&lt;/p&gt;
+&lt;p&gt;とりあえずModelからの排除を行う。&lt;/p&gt;
+&lt;h2 id=&#34;deprecation-warning-configwhiny_nils-option-is-deprecated-and-no-longer-works&#34;&gt;DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. (called from block in &amp;lt;top (required)&amp;gt; at /private/var/www/frustration/config/environm
+ents/development.rb:10)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;whiny_nils
+&lt;ul&gt;
+&lt;li&gt;初期化されていないオブジェクトが呼び出させたときに、警告を表示する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-  # Log error messages when you accidentally call methods on nil
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-  config.whiny_nils = true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configeager_load-is-set-to-nil&#34;&gt;config.eager_load is set to nil.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;必須の設定項目増えたので&lt;code&gt;rails new&lt;/code&gt;して作成された環境ファイルを眺めてみる。&lt;/p&gt;
+&lt;h2 id=&#34;the-provided-regular-expression&#34;&gt;The provided regular expression&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;E, [2013-07-04T12:00:26.429744 #7376] ERROR -- : The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline =&amp;gt; true option? (ArgumentError)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;正規表現の処理にもセキュリティが強化されていました。
+一行を考慮したデータのチェック&lt;code&gt;^&lt;/code&gt;なら&lt;code&gt;\A&lt;/code&gt;、&lt;code&gt;$&lt;/code&gt;なら&lt;code&gt;\z&lt;/code&gt;にすると意図したチェックになるよ。
+複数行を考慮してるんだよ！ってときは&lt;code&gt;:multiline =&amp;gt; true&lt;/code&gt;にしてね！&lt;/p&gt;
+&lt;p&gt;自分のValidationは一行のデータを考慮しているので修正します。&lt;/p&gt;
+&lt;h2 id=&#34;you-should-not-use-the-match-method-in-your-router-without-specifying-an-http-method&#34;&gt;You should not use the &lt;code&gt;match&lt;/code&gt; method in your router without specifying an HTTP method.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;E, [2013-07-04T12:07:42.318503 #7626] ERROR -- : You should not use the `match` method in your router without specifying an HTTP method.
+If you want to expose your action to both GET and POST, add `via: [:get, :post]` option.
+If you want to expose your action to GET, use `get` in the router:
+  Instead of: match &amp;#34;controller#action&amp;#34;
+  Do: get &amp;#34;controller#action&amp;#34; (RuntimeError)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;match&lt;/code&gt;の代わりにHTTPメソッドをちゃんと宣言しようぜ！っていうメッセージ。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-  match &amp;#39;home&amp;#39; =&amp;gt; &amp;#39;home#index&amp;#39;, :via =&amp;gt; :get
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+  get &amp;#39;home&amp;#39; =&amp;gt; &amp;#39;home#index&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なかんじで修正。&lt;/p&gt;
+&lt;p&gt;これで起動はうまくいった。strong_parameterによる警告はあるけどこれは後ほど修正することにする。
+その後は、テストを流して全部通す。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;bundle exec rspec spec
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;deprecation-warning-calling-findfirst-is-deprecated&#34;&gt;DEPRECATION WARNING: Calling #find(:first) is deprecated.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DEPRECATION WARNING: Calling #find(:first) is deprecated. Please call #first directly instead. You have also used finder options. These are also deprecated. Please build a scope instead of using finder options. (called from block in create_with_item at /private/var/www/frustration/app/services/service_fuman.rb:51)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以下のような推奨されていない使い方をしていたので修正しました。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Hoge.find(:first, condition: {user_id: @user.id})
+↓
+Hoge.where(user_id: @user.id).first
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;strong_parameter&#34;&gt;strong_parameter&lt;/h2&gt;
+&lt;p&gt;ここはひたすらcontroller側に制限の内容を記述。&lt;/p&gt;
+&lt;p&gt;ホワイトリストとして許可するパラメータを記述していきます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;category_params&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      params&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;require(&lt;span style=&#34;color:#e6db74&#34;&gt;:category&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;permit(&lt;span style=&#34;color:#e6db74&#34;&gt;:user_id&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;:name&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deprecation-warning-you-didnt-set-configsecret_key_base&#34;&gt;DEPRECATION WARNING: You didn&amp;rsquo;t set config.secret_key_base.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DEPRECATION WARNING: You didn&amp;#39;t set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from env_config at /private/var/www/frustration/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/application.rb:141)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;secret_token&lt;/code&gt;はもう推奨されていなくて&lt;code&gt;secret_key_base&lt;/code&gt;に名前が変更されたようです。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;secret_key_base&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;blank?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#66d9ef&#34;&gt;ActiveSupport&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Deprecation&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;warn &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You didn&amp;#39;t set config.secret_key_base. &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Read the upgrade documentation to learn more about this new config option.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; config&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;secret_token&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;blank?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;raise&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You must set config.secret_key_base in your app&amp;#39;s config.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;これですべてテストがうまくいったのでPull Requestを自分に送ってfin.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/nakajijapan/frustrationme_app/pulls&#34;&gt;https://github.com/nakajijapan/frustrationme_app/pulls&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;メジャーバージョンが上がってるということで、新しい機能が追加されたり、機能が廃止されたり、名前が変更されていたりと、いろいろと変更するべき点は多かったですがテストを書いていたので実行させては修正、実行させては修正の連続で効率的に修正作業ができたんじゃないかとおもいます（最終的にはWEB上での確認はしましたが）。&lt;/p&gt;
+&lt;p&gt;あと、今回は規模が小さいし、修正箇所もそんなに多くなかったのでstrong_parametersの部分も変更させてしましましたが、&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gem &amp;#39;strong_parameters&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;であらかじめ3系で実装しておくと細かい粒度で修正できて安心かもしれませんね。&lt;/p&gt;
+&lt;p&gt;さてさて、アップデートできてよかった。。。&lt;/p&gt;
+&lt;h2 id=&#34;ref&#34;&gt;Ref&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.upgradingtorails4.com/&#34;&gt;http://www.upgradingtorails4.com/&lt;/a&gt;
+&lt;a href=&#34;http://railscasts.com/episodes/415-upgrading-to-rails-4?language=ja&amp;amp;view=asciicast&#34;&gt;http://railscasts.com/episodes/415-upgrading-to-rails-4?language=ja&amp;amp;view=asciicast&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RailsとCookieではまったこと</title>
+      <link>http://nakajijapan.github.io/blog/2012/12/02/rails%E3%81%A8cookie%E3%81%A7%E3%81%AF%E3%81%BE%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</link>
+      <pubDate>Sun, 02 Dec 2012 14:28:52 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2012/12/02/rails%E3%81%A8cookie%E3%81%A7%E3%81%AF%E3%81%BE%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/</guid>
+      <description>&lt;p&gt;今回Railsで起きた問題、ちと自分の中で迷ったの纏めておく。&lt;/p&gt;
+&lt;p&gt;PHPで運用していたものをRuby(Rails)にのせ変えようとしたときに置きました。&lt;br &gt;
+以前、前の仕様でCookieでカンマ区切りにして保存していた情報があったのですが&lt;br &gt;
+それを気にしないでRailsを導入していたら初期表示でサーバエラーになるという&lt;br &gt;
+問題が発生しました。&lt;/p&gt;
+&lt;h2&gt;保存していたもの&lt;/h2&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+document.cookie = &#34;HOGE=1,,1,1&#34;
+&lt;/pre&gt;
+&lt;p&gt;どうもRack側で発生していることに気づきましてCookieの文字列を解析している箇所で「;」「,」の&lt;br &gt;
+二つでハッシュ化していることが原因だとわかりました。&lt;br &gt;&lt;/p&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+      # According to RFC 2109:
+      #   If multiple cookies satisfy the criteria above, they are ordered in
+      #   the Cookie header such that those with more specific Path attributes
+      #   precede those with less specific.  Ordering with respect to other
+      #   attributes (e.g., Domain) is unspecified.
+      Utils.parse_query(string, &#39;;,&#39;).each { |k,v| hash[k] = Array === v ? v.first : v }
+      @env[&#34;rack.request.cookie_string&#34;] = string
+      hash
+&lt;/pre&gt;
+&lt;p&gt;Rackが悪いのでは？と思っていてけどRFCまわりをよくよく調査してみるとNAME,VALUEにセミコロン、コンマ、空白文字を&lt;br &gt;
+除いた文字列を指定すべきで、いれるときはエンコードすべき。あと、サーバは将来の互換性のためにカンマも受け入れるべきです。&lt;br &gt;
+てきなことが記述されていたので間違っていないことは確認しました。&lt;br &gt;&lt;/p&gt;
+&lt;p&gt;とはいっても、サーバエラーにしてクッキー削除してから閲覧してねという訳にもいかないので一時凌ぎとして&lt;/p&gt;
+&lt;p&gt;コロンで解析しないようにしました。&lt;/p&gt;
+&lt;h2&gt;修正したこと&lt;/h2&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+# environment.rb
+
+module Rack
+  class Request
+    def cookies
+      hash   = @env[&#34;rack.request.cookie_hash&#34;] ||= {}
+      string = @env[&#34;HTTP_COOKIE&#34;]
+
+      return hash if string == @env[&#34;rack.request.cookie_string&#34;]
+      hash.clear
+
+      Utils.parse_query(string, &#39;;&#39;).each { |k,v| hash[k] = Array === v ? v.first : v}
+
+      @env[&#34;rack.request.cookie_string&#34;] = string
+
+      hash
+    rescue =&gt; error
+      error.message.replace &#34;cannot parse Cookie header: #{error.message}&#34;
+      raise
+    end
+  end
+end
+&lt;/pre&gt;
+&lt;h3&gt;Reference&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;http://www.ietf.org/rfc/rfc2109.txt&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RailsでBASIC認証をさせる</title>
+      <link>http://nakajijapan.github.io/blog/2012/06/09/rails%E3%81%A7basic%E8%AA%8D%E8%A8%BC%E3%82%92%E3%81%95%E3%81%9B%E3%82%8B/</link>
+      <pubDate>Sat, 09 Jun 2012 02:58:34 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2012/06/09/rails%E3%81%A7basic%E8%AA%8D%E8%A8%BC%E3%82%92%E3%81%95%E3%81%9B%E3%82%8B/</guid>
+      <description>&lt;p&gt;Railsで手っ取り早くBASIC認証させるためのメモ&lt;/p&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+class BasicController &lt; ApplicationController
+
+  before_filter :basicauth
+
+  def basicauth
+    name = &#39;hoge&#39;
+    password = &#39;hohohohoho&#39;
+    msg = &#39;please input basic auth&#39;
+    authenticate_or_request_with_http_basic(msg) do |n,p|
+
+      File.open(&#34;#{Rails.root}/public/password.txt&#34;, &#34;r&#34;) {|f|
+        f.each_line do |line|
+          arr = line.split(&#34;:&#34;)
+          name = arr[0]
+          password = arr[1]
+          if n == name &amp;&amp; p.crypt(password[0,2]) == password
+            logger.debug(&#34;ok!!!&#34;)
+          else
+            return false
+          end
+        end
+      }
+    end
+  end
+end
+&lt;/pre&gt;
+&lt;p&gt;うん、簡単ですね。Zendのときでもこんなに完結にはかけなかったものです。。&lt;/p&gt;
+&lt;p&gt;「authenticate_or_request_with_http_basic」すばらしい！！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>「Unicorn &#43; Rails &#43; Nginx」で構築してみる</title>
+      <link>http://nakajijapan.github.io/blog/2012/02/01/unicorn--rails--nginx%E3%81%A7%E6%A7%8B%E7%AF%89%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</link>
+      <pubDate>Wed, 01 Feb 2012 00:21:07 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2012/02/01/unicorn--rails--nginx%E3%81%A7%E6%A7%8B%E7%AF%89%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/</guid>
+      <description>&lt;p&gt;勉強がてら構築してみました。以前はrailsのWebサーバはThinで構築していたのですが、
+最近流行している「Unicorn」、さらにはフロントにリバースプロキシとHTTP用のサーバ「nginx」
+をおいて構築してみることにします。&lt;/p&gt;
+&lt;p&gt;仕組みについては&lt;a href=&#34;http://techracho.jp/?p=2075&#34;&gt;こちら&lt;/a&gt;のサイトがよくまとめられていたので概要つかむによいでしょう。&lt;/p&gt;
+&lt;p&gt;まずは、nginxのインストールを行います。インストールはあらかじめrpm をインストールしてからyumでインストールし直します。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm
+yum install nginx
+&lt;/pre&gt;
+&lt;p&gt;一度、デフォルトでnginxで起動するかどうかの確認を行います。「service nginx start」でhttp://hoge.moge にアクセスしてnginx用の画面が表示されていればとりあえずはインストール完了です。&lt;/p&gt;
+&lt;p&gt;以下、Unicornがnginx経由でアクセスできるようにするための設定ファイルになります。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+upstream hoge.moge {
+    server unix:/var/www/test/tmp/sockets/unicorn.sock;
+}
+
+server {
+  listen 80;
+  server_name hoge.moge;
+
+  root /var/www/test/public/;
+  access_log log/access.log;
+  error_log  log/error.log;
+
+  location / {
+    if (-f $request_filename) {
+        break;
+    }
+    # ファイルが存在しなければunicornにproxyする
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_pass http://hoge.moge;
+  }
+
+  # この記述がないと静的ファイルが表示されなかった
+  location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+    expires 1y;
+  }
+}
+&lt;/pre&gt;
+&lt;p&gt;なんか書き方はPerlbalよりわかりやすいようなイメージしました。気のせいかもしれませんが。。。&lt;/p&gt;
+&lt;p&gt;次は、Unicornのインストールです。gemでパッケージをインストールします。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+gem install unicorn
+&lt;/pre&gt;
+&lt;p&gt;これでおしまい。&lt;/p&gt;
+&lt;p&gt;その後、Railsで展開されているコンフィグファイルに設定情報を記述します。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+vi config/unicorn.conf
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# -*- coding: utf-8 -*-
+# ワーカーの数
+worker_processes 2
+
+# capistrano 用に RAILS_ROOT を指定
+working_directory &#34;/var/www/test/&#34;
+
+# ソケット
+#listen &#39;/tmp/unicorn_of_example.sock&#39;
+#listenFile = working_directory &lt;&lt; &#39;tmp/sockets/unicorn.sock&#39;
+listen  &#39;/var/www/test/tmp/sockets/unicorn.sock&#39;
+
+# ログ
+log = &#39;/var/log/rails/unicorn.log&#39;
+stderr_path File.expand_path(&#39;log/unicorn.log&#39;, ENV[&#39;RAILS_ROOT&#39;])
+stdout_path File.expand_path(&#39;log/unicorn.log&#39;, ENV[&#39;RAILS_ROOT&#39;])
+
+
+# ダウンタイムなくす
+preload_app true
+
+before_fork do |server, worker|
+    defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+
+    old_pid = &#34;#{ server.config[:pid] }.oldbin&#34;
+    unless old_pid == server.pid
+        begin
+            # SIGTTOU だと worker_processes が多いときおかしい気がする
+            Process.kill :QUIT, File.read(old_pid).to_i
+        rescue Errno::ENOENT, Errno::ESRCH
+        end
+    end
+end
+
+after_fork do |server, worker|
+    defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+end
+&lt;/pre&gt;
+&lt;p&gt;最後にそれぞれを起動します。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+unicorn_rails -c config/unicorn.rb -E production -p 5000 -D
+service nginx start
+&lt;/pre&gt;
+&lt;p&gt;指定のURLからアクセスして画面がみれれば完成でし！&lt;/p&gt;
+&lt;p&gt;□参考URL
+&lt;a href=&#34;http://nginx.org/&#34;&gt;http://nginx.org/&lt;/a&gt;
+&lt;a href=&#34;http://techracho.bpsinc.jp/bps/2010_07_28/2208&#34;&gt;http://techracho.bpsinc.jp/bps/2010_07_28/2208&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
 </rss>

@@ -2,25 +2,27 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.105.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Apple Watch App Memo">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2015/05/05/apple-watch-app-memo/" />
 <meta property="go:description" content="折角Apple Watchを購入したので、何かしら作れるようになりたいので、WatchKitのことを雑に自分用にメモした。
-どんな機能があるのか WatchKit App  通常Apple Watchで利用するアプリ 階層型、ページ型がある  Glance  意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。  Notification  iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの  新しく増えたインタラクション  プレス  強く押す感じ    構造  WatchKit App Architecture   通信はWatchKit経由で通信を行う。  InterfaceController  画面はInterfaceControllerなるものごとに管理されている  Life Cycle init  インスタンス化時に呼び出される  awakeWithContext  UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない  willActivate  表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する  アニメーションの変更のときとかかな    didDeactivate  利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される  要素 クラスはこれだけ。" />
+どんな機能があるのか WatchKit App 通常Apple Watchで利用するアプリ 階層型、ページ型がある Glance 意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。 Notification iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの 新しく増えたインタラクション プレス 強く押す感じ 構造 WatchKit App Architecture 通信はWatchKit経由で通信を行う。 InterfaceController 画面はInterfaceControllerなるものごとに管理されている Life Cycle init インスタンス化時に呼び出される awakeWithContext UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない willActivate 表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する アニメーションの変更のときとかかな didDeactivate 利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される 要素 クラスはこれだけ。
+import WatchKit.WKDefines import WatchKit.WKError import WatchKit.WKInterfaceButton import WatchKit.WKInterfaceController import WatchKit.WKInterfaceDate import WatchKit.WKInterfaceDevice import WatchKit.WKInterfaceGroup import WatchKit.WKInterfaceImage import WatchKit.WKInterfaceLabel import WatchKit.WKInterfaceMap import WatchKit.WKInterfaceObject import WatchKit.WKInterfaceSeparator import WatchKit.WKInterfaceSlider import WatchKit." />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/meta_logo.jpg" />
+<meta property="og:image" content="/images/meta_logo.jpg" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
-<meta name="twitter:card"  content="summary_large_image" />
+<meta name="twitter:card"  content="summary" />
 <meta name="twitter:title" content="Apple Watch App Memo" />
 <meta name="twitter:description" content="折角Apple Watchを購入したので、何かしら作れるようになりたいので、WatchKitのことを雑に自分用にメモした。
-どんな機能があるのか WatchKit App  通常Apple Watchで利用するアプリ 階層型、ページ型がある  Glance  意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。  Notification  iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの  新しく増えたインタラクション  プレス  強く押す感じ    構造  WatchKit App Architecture   通信はWatchKit経由で通信を行う。  InterfaceController  画面はInterfaceControllerなるものごとに管理されている  Life Cycle init  インスタンス化時に呼び出される  awakeWithContext  UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない  willActivate  表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する  アニメーションの変更のときとかかな    didDeactivate  利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される  要素 クラスはこれだけ。" />
+どんな機能があるのか WatchKit App 通常Apple Watchで利用するアプリ 階層型、ページ型がある Glance 意味合いの通り、「ちらっ」確認する用の画面。 下スワイプから出現されるもの。 １ページのみ。 Notification iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの 新しく増えたインタラクション プレス 強く押す感じ 構造 WatchKit App Architecture 通信はWatchKit経由で通信を行う。 InterfaceController 画面はInterfaceControllerなるものごとに管理されている Life Cycle init インスタンス化時に呼び出される awakeWithContext UIの更新 ロードされたデータをView側に更新するときに呼び出される コンテキストデータの更新はここで行われることが推奨されるけど、必須ではない willActivate 表示されたときよびだされる Interfaceに対する小さな変更をするときなど利用する アニメーションの変更のときとかかな didDeactivate 利用されなくなった、しばらく経過すると呼び出される ここではInterfaceオブジェクトの変数を変更できない、willActivateが呼び出されるまで無視される 要素 クラスはこれだけ。
+import WatchKit.WKDefines import WatchKit.WKError import WatchKit.WKInterfaceButton import WatchKit.WKInterfaceController import WatchKit.WKInterfaceDate import WatchKit.WKInterfaceDevice import WatchKit.WKInterfaceGroup import WatchKit.WKInterfaceImage import WatchKit.WKInterfaceLabel import WatchKit.WKInterfaceMap import WatchKit.WKInterfaceObject import WatchKit.WKInterfaceSeparator import WatchKit.WKInterfaceSlider import WatchKit." />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -59,20 +61,20 @@
 <p>折角Apple Watchを購入したので、何かしら作れるようになりたいので、WatchKitのことを雑に自分用にメモした。</p>
 <h2 id="どんな機能があるのか">どんな機能があるのか</h2>
 <h3 id="watchkit-app">WatchKit App</h3>
-<p><img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/storyboard_layout_2x.png" width=150 /></p>
+<img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/storyboard_layout_2x.png" width=150 />
 <ul>
 <li>通常Apple Watchで利用するアプリ</li>
 <li>階層型、ページ型がある</li>
 </ul>
 <h3 id="glance">Glance</h3>
-<p><img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/glance_lister_2x.png" width=100 /></p>
+<img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/glance_lister_2x.png" width=100 />
 <ul>
 <li>意味合いの通り、「ちらっ」確認する用の画面。</li>
 <li>下スワイプから出現されるもの。</li>
 <li>１ページのみ。</li>
 </ul>
 <h3 id="notification">Notification</h3>
-<p><img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/shortlook_calendar_2x.png" width="200" /></p>
+<img src="https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/Art/shortlook_calendar_2x.png" width="200" />
 <ul>
 <li>iPhoneのプッシュ通知をApple Watch側から見れるようにしたもの</li>
 </ul>
@@ -124,7 +126,7 @@
 </ul>
 <h2 id="要素">要素</h2>
 <p>クラスはこれだけ。</p>
-<pre><code>import WatchKit.WKDefines
+<pre tabindex="0"><code>import WatchKit.WKDefines
 import WatchKit.WKError
 import WatchKit.WKInterfaceButton
 import WatchKit.WKInterfaceController
