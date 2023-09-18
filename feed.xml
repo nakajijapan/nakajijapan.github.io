@@ -7,8 +7,102 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <copyright>nakajijapan All rights reserved.</copyright>
-    <lastBuildDate>Mon, 04 Sep 2023 10:48:24 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 16 Sep 2023 05:00:51 +0900</lastBuildDate>
     <atom:link href="http://nakajijapan.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>タイヤとホイールを交換した</title>
+      <link>http://nakajijapan.github.io/blog/2023/09/16/%E3%82%BF%E3%82%A4%E3%83%A4%E3%81%A8%E3%83%9B%E3%82%A4%E3%83%BC%E3%83%AB%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%97%E3%81%9F/</link>
+      <pubDate>Sat, 16 Sep 2023 05:00:51 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2023/09/16/%E3%82%BF%E3%82%A4%E3%83%A4%E3%81%A8%E3%83%9B%E3%82%A4%E3%83%BC%E3%83%AB%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%97%E3%81%9F/</guid>
+      <description>&lt;p&gt;タイヤを交換する時期になってきた。
+まだ溝はあって交換にはまだ程遠いのだが以下の要因で交換することに至った。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;タイヤの製造年月日が2019年と4年経過している&lt;/li&gt;
+&lt;li&gt;だいぶひび割れが進行している&lt;/li&gt;
+&lt;li&gt;家族を連れて移動することがほとんどなので安心・安全でいたい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2023/09-01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ホイールは&#34;&gt;ホイールは？&lt;/h2&gt;
+&lt;p&gt;せっかくだしこのタイミングでかっこよくしようと思いまして購入することになりました。
+ただ、本当はディーラーでフリード専用のかっこいいホイールがあるのですが見積もりを取ってもらったら
+タイヤ交換と合わせるとカー用品店で購入するより２倍もしたので断念しました。&lt;/p&gt;
+&lt;h1 id=&#34;どこで購入するか&#34;&gt;どこで購入するか&lt;/h1&gt;
+&lt;p&gt;カー用品店それぞれの特徴をChatGPTで無駄に聞いてみる&lt;/p&gt;
+&lt;h2 id=&#34;honda&#34;&gt;HONDA&lt;/h2&gt;
+&lt;p&gt;言わずもがなディーラーである。&lt;/p&gt;
+&lt;h2 id=&#34;イエローハットyellow-hat&#34;&gt;イエローハット（Yellow Hat）&lt;/h2&gt;
+&lt;p&gt;イエローハットは、日本を拠点とする自動車部品・タイヤ販売店のチェーンです。
+主に自動車用品やタイヤ、バッテリー、オイル、カーアクセサリーなどを販売しています。
+イエローハットは全国に多くの店舗を展開しており、一般消費者から自動車愛好家まで幅広い顧客層に向けてサービスを提供しています。&lt;/p&gt;
+&lt;h2 id=&#34;ジェームズjames&#34;&gt;ジェームズ（James）&lt;/h2&gt;
+&lt;p&gt;&amp;ldquo;ジェームズ&amp;rdquo; という名前だけでは、特定のブランドや企業を指定するのが難しいです。詳細を提供いただければ、特定のジェームズについての情報をお伝えできるかもしれません。ジェームズという名前を持つ多くの企業や製品が存在します。&lt;/p&gt;
+&lt;h2 id=&#34;タイヤ館tire-shop&#34;&gt;タイヤ館（Tire Shop）&lt;/h2&gt;
+&lt;p&gt;&amp;ldquo;タイヤ館&amp;rdquo; という名称も、特定のチェーンや企業を指定するためには追加の情報が必要です。タイヤ館という名前を持つタイヤ専門店や販売店が様々な地域で存在します。特定のタイヤ館に関する情報を提供いただければ、詳細な特徴をお伝えできるかもしれません。&lt;/p&gt;
+&lt;h2 id=&#34;どこにしたの&#34;&gt;どこにしたの？&lt;/h2&gt;
+&lt;p&gt;タイヤ館は遠かったので断念ジェームズは良さそうなホイールがなかったのでこれも断念、ディーラーはあまりにも高すぎたので断念！結果イエローハットになった。&lt;/p&gt;
+&lt;h1 id=&#34;購入したもの&#34;&gt;購入したもの&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;項目&lt;/th&gt;
+&lt;th&gt;費用（円）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;タイヤ（YOKOHAMA Blue earth rv03）&lt;/td&gt;
+&lt;td&gt;80,000円&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;アルミホイール（スポルト クローネ BP）&lt;/td&gt;
+&lt;td&gt;50,000円&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;作業代&lt;/td&gt;
+&lt;td&gt;20,000円&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;謎の割引&lt;/td&gt;
+&lt;td&gt;&lt;span style=&#34;color: red&#34;&gt;-50,000円&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;合計&lt;/td&gt;
+&lt;td&gt;100,000円&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;なかなかのいいお値段となったがディーラーで頼んだら20万くらいだったのでコスパ的にこれで満足かと思う。
+これで車買い替えるまで交換することはないだろうしあったとしてもタイヤのみなのでいいことにしましょう。&lt;/p&gt;
+&lt;h2 id=&#34;タイヤyokohama-bluearth-rv-rv03&#34;&gt;タイヤ：YOKOHAMA BluEarth-RV RV03&lt;/h2&gt;
+&lt;p&gt;前回はただただ普通の夏タイヤだったのですが、今回はミニバン用のタイヤにしてみました。
+&lt;a href=&#34;https://www.y-yokohama.com/product/tire/bluearth_rv03/&#34;&gt;https://www.y-yokohama.com/product/tire/bluearth_rv03/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;夏タイヤ
+&lt;ul&gt;
+&lt;li&gt;オールシーズンタイヤというのもあってこれは割高
+&lt;ul&gt;
+&lt;li&gt;基本関東走るだけで雪道はほぼ走らないのでこれはいらない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ミニバン用
+&lt;ul&gt;
+&lt;li&gt;フリードはコンパクト&lt;strong&gt;ミニバン&lt;/strong&gt;なので&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;横浜タイヤ
+&lt;ul&gt;
+&lt;li&gt;安心・安全のmade in japan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;いい感じになった！！
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2023/09-02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>iOSDC 2023に参加してきました。</title>
