@@ -213,3 +213,18 @@ section[itemprop="entry-text"] blockquote cite {
     color: #888888;
     font-size: 0.9em;
 }
+
+/* Image Tile
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ul.image_tile  {
+  display: flex;
+  justify-content: center;
+}
+
+ul.image_tile li {
+  list-style: none;
+}
+
+ul.image_tile li:nth-child(2) {
+  margin: 0 10px;
+}
