@@ -219,6 +219,7 @@ section[itemprop="entry-text"] blockquote cite {
 ul.image_tile  {
   display: flex;
   justify-content: center;
+  list-style: none;
 }
 
 ul.image_tile li {
