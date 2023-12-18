@@ -82,7 +82,7 @@ AVMutableComposition* mixComposition; AVMutableCompositionTrack* compositionVide
 <li>UIKit(UIIMagePickerController)</li>
 </ul>
 <p>を実装すれば難なく実装できちゃいます。ただ、今回は動画にいろんなエフェクトをいれたいのでもっと細かく制御 できる下の階層のフレームワークを使いました。感覚的に細かい制御できるようになるのでそのぶん面倒くさいのは いうまでもありません。</p>
-<p><img src="/images/posts/2013-10-22_01.png" alt="layer"></p>
+<p><img src="/images/posts/2013/2013-10-22_01.png" alt="layer"></p>
 <p><a href="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html">https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html</a></p>
 <p>では実際にどう実装していけばいいかなのですが、そのために結構なクラスを利用するのでそれぞれざっくり説明していきます。</p>
 <h3 id="avasset">AVAsset</h3>
@@ -160,7 +160,7 @@ AVMutableComposition* mixComposition; AVMutableCompositionTrack* compositionVide
 </span></span><span style="display:flex;"><span>}];
 </span></span></code></pre></div><p>主に利用するクラスを説明しました。これらを駆使して実装すれば簡単な動画の結合ができるようになります。</p>
 <p>だいたいの大枠は以下の図を見ると何となくわかるかもしれませんね。</p>
-<p><img src="/images/posts/2013-10-22_02.png" alt="layer"></p>
+<p><img src="/images/posts/2013/2013-10-22_02.png" alt="layer"></p>
 <p><a href="https://developer.apple.com/library/ios/DOCUMENTATION/AudioVideo/Conceptual/AVFoundationPG/Articles/03_Editing.html">https://developer.apple.com/library/ios/DOCUMENTATION/AudioVideo/Conceptual/AVFoundationPG/Articles/03_Editing.html</a></p>
 <h2 id="まとめ">まとめ</h2>
 <p>どうでしょう。ざっくりとですが動画を結合するのに必要なクラスの説明とどのように実装されていくのかをざっくり 説明しました。本当に最初の方は？？？となってしまうと思いますが実装していくうちに分かってくるようになります。 あとこれ系の情報はあんまりネット上にはないのでしっかりと学びたいもっと動画カスタマイズしたという人がいれば やはり<code>AV Foundation Programming Guide</code>をじっくり読むのが最短だししっかり理解できるとおもいました。あと困った ことがあったら <a href="http://stackoverflow.com/">http://stackoverflow.com/</a> で同じ人が困っているかもしれないのでみるといいです。</p>

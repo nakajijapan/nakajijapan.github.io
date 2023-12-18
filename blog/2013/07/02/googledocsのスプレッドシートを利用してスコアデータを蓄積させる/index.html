@@ -98,7 +98,7 @@ $ bundle exec rake batches:total_scores WARNING: Nokogiri was built against LibX
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span></code></pre></div><p>これで<code>rake batches:total_scores</code>で実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では</p>
-<p><img src="/images/posts/2013-07-02_01.png" alt="ss"></p>
+<p><img src="/images/posts/2013/2013-07-02_01.png" alt="ss"></p>
 <p>な感じでどんどんレコードが追加されていきます。</p>
 <p>便利。</p>
 <p>ただし、注意点があります。今回は<a href="http://sqale.jp">sqale</a>のcronで動かしているのですがログインで以下のように失敗することがあります。</p>
@@ -116,9 +116,9 @@ $ bundle exec rake batches:total_scores WARNING: Nokogiri was built against LibX
 </span></span><span style="display:flex;"><span>Tasks: TOP <span style="color:#f92672">=</span>&gt; batches:total_scores
 </span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>See full trace by running task with --trace<span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。</p>
-<p><img src="/images/posts/2013-07-02_02.png" alt="ss"></p>
+<p><img src="/images/posts/2013/2013-07-02_02.png" alt="ss"></p>
 <p>あとはグラフツール使って簡単に見やすくできるのでお手軽&amp;便利メソッドでした。</p>
-<p><img src="/images/posts/2013-07-02_03.png" alt="まだ情報はすくないのであれです">
+<p><img src="/images/posts/2013/2013-07-02_03.png" alt="まだ情報はすくないのであれです">
 まだ情報は少ないのであれですがどんどん勝手にグラフ化されていくはず！</p>
 
 			</section>

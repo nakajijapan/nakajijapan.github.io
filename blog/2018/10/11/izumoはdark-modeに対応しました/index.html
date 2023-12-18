@@ -17,7 +17,7 @@ import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ d
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
-<meta property="og:image" content="http://nakajijapan.github.io/images/posts/2018-10-002.png" />
+<meta property="og:image" content="http://nakajijapan.github.io/images/posts/2018/2018-10-002.png" />
 
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
@@ -64,15 +64,15 @@ import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ d
 			<span class="entry-categories">( <a href="/categories/macos">macOS</a> )</span>
 			<section itemprop="entry-text">
 				<p>IzumoはDark Modeを対応しました。</p>
-<p><img src="/images/posts/2018-10-002.png" alt="">
-<img src="/images/posts/2018-10-001.png" alt=""></p>
+<p><img src="/images/posts/2018/2018-10-002.png" alt="">
+<img src="/images/posts/2018/2018-10-001.png" alt=""></p>
 <h2 id="作業">作業</h2>
 <p>基本的に動画やドキュメントを見ればある程度のことはできるようになります。
 まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。</p>
-<p><img src="/images/posts/2018-10-004.png" alt="">
-<img src="/images/posts/2018-10-005.png" alt=""></p>
+<p><img src="/images/posts/2018/2018-10-004.png" alt="">
+<img src="/images/posts/2018/2018-10-005.png" alt=""></p>
 <p>あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。</p>
-<p><img src="/images/posts/2018-10-003.png" alt=""></p>
+<p><img src="/images/posts/2018/2018-10-003.png" alt=""></p>
 <ul>
 <li>updateConstraints</li>
 <li>layout</li>
@@ -82,7 +82,7 @@ import Cocoa class NoteListVerticalScroller: NSScroller { override func draw(_ d
 <h2 id="気に食わなかったところ">気に食わなかったところ</h2>
 <p><code>NSScroller</code>のデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。
 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）</p>
-<p><img src="/images/posts/2018-10-006.png" alt=""></p>
+<p><img src="/images/posts/2018/2018-10-006.png" alt=""></p>
 <p>実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
 </span></span><span style="display:flex;"><span>

@@ -112,11 +112,11 @@ Vine動画のようにタッチしたら録画し、タッチが終了したら(
 </span></span></code></pre></div><h2 id="問題">問題</h2>
 <p>どうやらスレッドを利用しての保存方法に問題があったようです。</p>
 <h3 id="修正前">修正前</h3>
-<p><img src="/images/posts/2014-06-15_01_avassetwriter.jpg" alt="AVAssetWriter"></p>
+<p><img src="/images/posts/2014/2014-06-15_01_avassetwriter.jpg" alt="AVAssetWriter"></p>
 <p>録画開始とフレーム情報を保存する処理が別スレッドで行われているせいで微妙にタイミングがずれたフレーム情報を取得してしまっている。
 ここっだと、開始した時間よりも一瞬だけ先のフレーム情報を取得してしまうので最初の一瞬はブラックシーンになります。</p>
 <h3 id="修正後">修正後</h3>
-<p><img src="/images/posts/2014-06-15_02_avassetwriter.jpg" alt="AVAssetWriter"></p>
+<p><img src="/images/posts/2014/2014-06-15_02_avassetwriter.jpg" alt="AVAssetWriter"></p>
 <p>なので録画開始も同じスレッドで順次処理させるようにし、時間の誤差を最小限にしました。こうすることで無事ブラックシーンが無くなりました。</p>
 <p>実際には以下のように修正しています。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span>     // Record
