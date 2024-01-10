@@ -232,5 +232,6 @@ ul.image_tile li {
 }
 ul.image_tile li b {  display: block;}
 ul.image_tile li:nth-child(2) {
+  
   margin: 0 10px;
 }
