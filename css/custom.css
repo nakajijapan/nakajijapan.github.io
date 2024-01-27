@@ -171,7 +171,8 @@ section[itemprop="entry-text"] h3 {
 
 section[itemprop="entry-text"] blockquote {
     position: relative;
-    padding: 30px 15px 30px 15px;
+    padding: 24px 16px 24px 16px;
+    margin: 16px;
     box-sizing: border-box;
     border-radius: 4px;
     font-style: italic;
@@ -188,7 +189,7 @@ section[itemprop="entry-text"] blockquote:before{
     vertical-align: bottom;
     content: "’’";
     color: #cfcfcf;
-    font-size: 32px;
+    font-size: 48px;
     line-height: 1;
 }
 section[itemprop="entry-text"] blockquote:after{
@@ -199,13 +200,13 @@ section[itemprop="entry-text"] blockquote:after{
     vertical-align: middle;
     content: "’’";
     color: #cfcfcf;
-    font-size: 32px;
+    font-size: 48px;
     line-height: 1;
 }
 
 section[itemprop="entry-text"] blockquote p {
     padding: 0;
-    margin: 10px 0;
+    margin: 12px 0;
     line-height: 1.7;
     font-size: 2.8rem;
 }
@@ -223,9 +224,9 @@ ul.image_tile  {
   display: flex;
   justify-content: center;
   list-style: none;
-
-  margin: 0; /* デフォルトのマージンをリセット */
+  margin: 0 0 6px 0; /* デフォルトのマージンをリセット */
   padding: 0; /* デフォルトのパディングをリセット */
+  
 }
 
 ul.image_tile li {
