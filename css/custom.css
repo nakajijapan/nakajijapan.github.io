@@ -175,7 +175,7 @@ section[itemprop="entry-text"] blockquote {
     box-sizing: border-box;
     border-radius: 4px;
     font-style: italic;
-    font-size: 1.6rem;
+    font-size: 2.8rem;
     background: #f8f8f8;
     color: #888888;
 }
@@ -188,7 +188,7 @@ section[itemprop="entry-text"] blockquote:before{
     vertical-align: bottom;
     content: "’’";
     color: #cfcfcf;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 1;
 }
 section[itemprop="entry-text"] blockquote:after{
@@ -199,13 +199,15 @@ section[itemprop="entry-text"] blockquote:after{
     vertical-align: middle;
     content: "’’";
     color: #cfcfcf;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 1;
 }
+
 section[itemprop="entry-text"] blockquote p {
     padding: 0;
     margin: 10px 0;
     line-height: 1.7;
+    font-size: 2.8rem;
 }
 
 section[itemprop="entry-text"] blockquote cite {
