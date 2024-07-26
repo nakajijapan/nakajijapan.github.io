@@ -5,10 +5,10 @@
 <meta name="generator" content="Hugo 0.121.2">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta property="og:title" content="Terraformで社内のインフラ環境(AWS)をコード化する">
+<meta property="og:title" content="Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://nakajijapan.github.io/blog/2024/06/25/terraform-piazza/" />
-<meta property="go:description" content="会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約がありましたが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意しました。この取り組みを通じて得られた知見と成果を共有する。
+<meta property="go:description" content="会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。
 現状 2022年後半時点
 一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。
 さらに、現在のプロダクトの構成は、少し過剰であったり、適切でない部分があるため、見直しが必要だった。さらには、あるミドルウェアを導入予定でもあり、検証するにも安心安全にそして迅速にできるかは不安ポイントであった。
@@ -34,8 +34,8 @@
 <meta name="twitter:card" content="nakajijapan">
 <meta name="twitter:site" content="@nakajijapan">
 <meta name="twitter:card"  content="summary" />
-<meta name="twitter:title" content="Terraformで社内のインフラ環境(AWS)をコード化する" />
-<meta name="twitter:description" content="会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約がありましたが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意しました。この取り組みを通じて得られた知見と成果を共有する。
+<meta name="twitter:title" content="Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する" />
+<meta name="twitter:description" content="会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。
 現状 2022年後半時点
 一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。
 さらに、現在のプロダクトの構成は、少し過剰であったり、適切でない部分があるため、見直しが必要だった。さらには、あるミドルウェアを導入予定でもあり、検証するにも安心安全にそして迅速にできるかは不安ポイントであった。
@@ -61,7 +61,7 @@
 <link rel="stylesheet" href="/css/custom.css">
 <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
 
-<title>Terraformで社内のインフラ環境(AWS)をコード化する - おじさんは生きている</title>
+<title>Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する - おじさんは生きている</title>
 </head>
 <body>
 
@@ -83,12 +83,12 @@
 
 	<main role="main">
 		<article itemscope itemtype="http://schema.org/BlogPosting">
-			<h1 class="entry-title" itemprop="headline">Terraformで社内のインフラ環境(AWS)をコード化する</h1>
+			<h1 class="entry-title" itemprop="headline">Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する</h1>
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2024-06-25">June 25, 2024</time></span>
 			<span class="entry-categories">( <a href="/categories/tech">tech</a> )</span>
 			<section itemprop="entry-text">
 				<p><img src="/images/posts/2024/06-001.png" alt=""></p>
-<p>会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約がありましたが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意しました。この取り組みを通じて得られた知見と成果を共有する。</p>
+<p>会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。</p>
 <h1 id="現状">現状</h1>
 <p>2022年後半時点</p>
 <p>一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。</p>

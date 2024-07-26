@@ -11,12 +11,12 @@
     <atom:link href="http://nakajijapan.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Terraformで社内のインフラ環境(AWS)をコード化する</title>
+      <title>Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する</title>
       <link>http://nakajijapan.github.io/blog/2024/06/25/terraform-piazza/</link>
       <pubDate>Tue, 25 Jun 2024 12:06:56 +0900</pubDate>
       <guid>http://nakajijapan.github.io/blog/2024/06/25/terraform-piazza/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2024/06-001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約がありましたが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意しました。この取り組みを通じて得られた知見と成果を共有する。&lt;/p&gt;
+&lt;p&gt;会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。&lt;/p&gt;
 &lt;h1 id=&#34;現状&#34;&gt;現状&lt;/h1&gt;
 &lt;p&gt;2022年後半時点&lt;/p&gt;
 &lt;p&gt;一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。&lt;/p&gt;
