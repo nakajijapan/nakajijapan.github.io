@@ -7,8 +7,272 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <copyright>nakajijapan All rights reserved.</copyright>
-    <lastBuildDate>Sun, 17 Mar 2024 16:01:33 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jun 2024 12:06:56 +0900</lastBuildDate>
     <atom:link href="http://nakajijapan.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Terraformで社内のインフラ環境(AWS)をコード化する</title>
+      <link>http://nakajijapan.github.io/blog/2024/06/25/terraform-piazza/</link>
+      <pubDate>Tue, 25 Jun 2024 12:06:56 +0900</pubDate>
+      <guid>http://nakajijapan.github.io/blog/2024/06/25/terraform-piazza/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2024/06-001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約がありましたが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意しました。この取り組みを通じて得られた知見と成果を共有する。&lt;/p&gt;
+&lt;h1 id=&#34;現状&#34;&gt;現状&lt;/h1&gt;
+&lt;p&gt;2022年後半時点&lt;/p&gt;
+&lt;p&gt;一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。&lt;/p&gt;
+&lt;p&gt;さらに、現在のプロダクトの構成は、少し過剰であったり、適切でない部分があるため、見直しが必要だった。さらには、あるミドルウェアを導入予定でもあり、検証するにも安心安全にそして迅速にできるかは不安ポイントであった。&lt;/p&gt;
+&lt;h1 id=&#34;課題&#34;&gt;課題&lt;/h1&gt;
+&lt;p&gt;このままにしておくと、以下の課題が発生する可能性が高まる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;時間・費用面でのコスト増加&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;調査に時間がかかる。&lt;/li&gt;
+&lt;li&gt;不要なリソースを放置しているため、無駄な費用がかかる。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;運用負荷の増加&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;構成が複雑化・煩雑化しているため、シンプルに分離しておく必要がある。
+&lt;ul&gt;
+&lt;li&gt;環境を別々にすることで解消する。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;迅速な意思決定の阻害&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;アグレッシブにインフラの検証や新しい環境の構築が行えない。&lt;/li&gt;
+&lt;li&gt;何を削除し、変更すればよいかが分からず、理想の環境にするのが難しい。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;方針&#34;&gt;方針&lt;/h1&gt;
+&lt;p&gt;何を削除し、何を残すべきか、またどれを改善すべきかを判断するためには、現状を正確に把握する必要がある。そのために、以下の手順で進める。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;まず、現在の全ての環境設定をコード化して管理できる状態にする。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;現在、すべての環境が入り混ざっているproduction環境全体を、Infrastructure as Code (IaC)として管理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;次に、新しいAWSアカウントを構築し、現状のプロダクトに必要な環境だけを移行する。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;今ある環境をProductionにする&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Staging構築&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sandbox構築&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Productionにある不要な環境を削除していく。
+&lt;ul&gt;
+&lt;li&gt;Productionにあるstaging環境一式を削除。&lt;/li&gt;
+&lt;li&gt;Productionにあるsandbox環境一式を削除。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;これにより、以下の利点が得られる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;各環境で不要な設定かどうかをチェックし、安心して削除が行える。&lt;/li&gt;
+&lt;li&gt;万が一間違えても、terraformで簡単にリカバリーが可能。&lt;/li&gt;
+&lt;li&gt;新しいサービスを導入する際も、sandboxで何度でも環境を再構築でき、安心して本番に導入できる。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;このようにして、メンバー全員が安心・安全・正確に運用できる状況を作り上げ、最終的に開発スピードを落とすことなくプロダクトを成長させることにコミットできる。&lt;/p&gt;
+&lt;p&gt;そのためにも、まずは、環境をIaC化するところから始めた。&lt;/p&gt;
+&lt;h1 id=&#34;やったこと&#34;&gt;やったこと&lt;/h1&gt;
+&lt;h2 id=&#34;ざっくり把握&#34;&gt;ざっくり把握&lt;/h2&gt;
+&lt;p&gt;基本中の基本ではあるがそれに変わるものがなかったのである程度把握したら、どういうサービスをどのように利用しているのかをドキュメントにまとめたり、アーキテクチャ図にしたりして、徐々に深掘りできる状態にした。&lt;/p&gt;
+&lt;h2 id=&#34;サポート状態を構築する&#34;&gt;サポート状態を構築する&lt;/h2&gt;
+&lt;p&gt;現状のメンバーで誰も把握できていないサービスを利用していたり、設定があったし、僕も完全に運用できる知見が少ないものもあったので以下の状況を構築した&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;徹底的にAWSのテクニカルサポートの人に聞く&lt;/li&gt;
+&lt;li&gt;コンサルしていただくメンバーを業務委託として迎え入れる&lt;/li&gt;
+&lt;li&gt;SREチームを発足して会社のインフラを把握し開発サイドに課題を取り込めるようにしたり、経営サイドに施策実行の提案など行える状態を作る。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;一括でできないかの調査&#34;&gt;一括でできないかの調査&lt;/h2&gt;
+&lt;p&gt;小さい構成ながら４、５年蔑ろにしてきたところはあるのでそれなりに設定はしてある状態。
+一つずつ設定をみて一個ずつimportしていくのは途方もなく時間がかかる。なるべくなら自動化できるところはしていきたい。一気にimportしていきたいところだった。&lt;/p&gt;
+&lt;aside class=&#34;callout&#34;&gt;
+  &lt;p class=&#34;title&#34;&gt;見つけたもの&lt;/p&gt;
+  &lt;p class=&#34;content&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://sfujiwara.hatenablog.com/entry/tfstate-merge&#34;&gt;複数の Terraform state を結合する tfstate-merge を書いて20個以上の state を大統一した - 酒日記 はてな支店&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;しかし、バージョンが現状利用しているものと異なるため、断念。
+tfstateのコピペができなそうだった。&lt;/p&gt;
+  &lt;/p&gt;
+&lt;/aside&gt;
+&lt;h3 id=&#34;代替案&#34;&gt;代替案&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/GoogleCloudPlatform/terraformer&#34;&gt;https://github.com/GoogleCloudPlatform/terraformer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;これを使うとしてみた。
+これは指定したAWSアカウント、サービス別にコードとして一括ですべてコードにおとしこめるところ。
+懸念事項としては落とし込んだ時にtfstateも合わせて作成されるしようになっているところ。
+現状、リモートでtfstateを管理しているので、そちらに反映していかなければならない。
+ここは何かしらの対応が必要だ。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;手順&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;terraformerでコードに落とし込む&lt;/li&gt;
+&lt;li&gt;落とし込まれたコードからterraformのimportブロックを作成する。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;terraform import&lt;/code&gt;を実行して実際に反映させる。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;これでいけそうだ。&lt;/p&gt;
+&lt;h2 id=&#34;コード化&#34;&gt;コード化&lt;/h2&gt;
+&lt;h3 id=&#34;ディレクトリ構成&#34;&gt;ディレクトリ構成&lt;/h3&gt;
+&lt;p&gt;基本構成としては&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AWSアカウント別にまとめる&lt;/li&gt;
+&lt;li&gt;環境別にまとめる&lt;/li&gt;
+&lt;li&gt;moduleはロール別に共通化を行う。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── Gemfile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── README.markdown
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── generate-import-cmd.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── piazza
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── files
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── iam-policy-*.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── iam-policy-*.json.tpl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── modules
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── app
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── app-db
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── constants
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── bastion
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── variables.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── production
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── app
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   │   └── app-db
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── bastion
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── *.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   ├── **no-need-*.tf**
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── variables.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── sandbox
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── staging
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── piazza-life
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── modules
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   │   └── constants
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── production
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│       └── *.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── piazza-payment-production
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── terraform
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ├── README.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    └── boilerplate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── backend.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── main.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── modules
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── provider.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        └── variables.tf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;既存の設定を取り込む&#34;&gt;既存の設定を取り込む&lt;/h3&gt;
+&lt;p&gt;terraformerで出力されたものを解析してimportコマンドとして落とし込む&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;terraformer import aws -r route53 --regions ap-northeast-1  --profile&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; --path-pattern route53
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけだとコードには落とし込んでくれて、便利ではあるものの、これからimport処理をしてリモートにあるtfstateと関連付けを行う必要があった。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# import
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;terraform import aws_subnet.hoge subnet-aaaaaaaa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;terraform import aws_subnet.hoge subnet-aaaaaaaa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;terraform import aws_subnet.hoge subnet-aaaaaaaa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これから実際に反映していくことにするとimportコマンドを大量に売っていくことになる。書いていくのが非常に面倒くさい。
+importするとものによってはかなりの量になってくるのでここは自分でスクリプトを作成してimportブロックを自動で生成するコマンドを生成して一気に関連付けできるようにして対応した。&lt;/p&gt;
+&lt;p&gt;terraformerが生成したリソース名には一定の規則があり、それがIDとして抽出できるので、それが分かれば生成コマンドは簡単に作れます。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ruby bin/generate-import-cmd.rb production/subnet/subnet.tf &amp;gt; import.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cat import.tf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# importブロックが生成される&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;import &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;subnet-xxxxxxxxxxxxxxxxx&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  to &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; aws_subnet.tfer--subnet-xxxxxxxxxxxxxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;import &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;subnet-xxxxxxxxxxxxxxxxx&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  to &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; aws_subnet.tfer--subnet-xxxxxxxxxxxxxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;import &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;subnet-xxxxxxxxxxxxxxxxx&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  to &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; aws_subnet.tfer--subnet-xxxxxxxxxxxxxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;※本当は&lt;code&gt;terraform import&lt;/code&gt;でコマンドを作成していたが途中からimportブロックが利用できるようになったのでそちらを利用するようにした。&lt;/p&gt;
+&lt;p&gt;そもそもterraformerは古いというか開発が去年から止まっていて更新が遅く、aws,terraform公式に追随できていないので出力されたコードが最新とは限らない。少なくとも公式で採用されているimportブロックの方が最新だし更新もある程度頻繁におこなわれている。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;terraformerでの注意点、、、&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;terraformerで吐き出されたコードで以下のことに留意していく必要があった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;リソース名がIDを利用した数字と英語の乱数になっているので可読性にかける&lt;/li&gt;
+&lt;li&gt;ユーザ一覧の設定を一個づつ吐き出してしまう&lt;/li&gt;
+&lt;li&gt;module化は考慮されていない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;したがって、以下の項目を設定する必要があった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可読性のある名前に変更する&lt;/li&gt;
+&lt;li&gt;ループで回せるものは配列にして設定させる&lt;/li&gt;
+&lt;li&gt;module化を行い、共通化する
+&lt;ul&gt;
+&lt;li&gt;この時の方針としてはrole別に共通化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ここは把握しやすくそして変更しやすい状況にしておくためにリファクタリングを行っている。&lt;/p&gt;
+&lt;h3 id=&#34;階層的に情報を参照させる&#34;&gt;階層的に情報を参照させる&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;data &amp;#34;terraform_remote_state&amp;#34; &amp;#34;state&amp;#34; {
+  backend = &amp;#34;s3&amp;#34;
+  config = {
+    bucket = &amp;#34;piazza-tfstate&amp;#34;
+    key    = &amp;#34;piazza/production_v1.0.0.tfstate&amp;#34;
+    region = &amp;#34;ap-northeast-1&amp;#34;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;階層的には全体的な設定を上部階層にあってその下には各ロールの設定が入ったディレクトリが存在します。しかし、terraformの特性上そのディレクトリ内で設定を完結する必要があります。現実問題として各ロールでも上の階層で設定した内容を参照したいことが多々あります。そんなときには上部のような宣言をすれば、他のtfstateを参照することが可能になります。結果上の階層の情報も拾うことができるようになります。使い回しができるようになって便利！&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 参照先
+zone_id = data.terraform_remote_state.state.outputs.route53-zone-main.id
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参照元は参照できるようにするために対象をoutputで宣言しないといけません&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 参照元
+
+output &amp;#34;route53-zone-main&amp;#34; {
+  value = aws_route53_zone.route53-zone-main
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;躓きポイント&#34;&gt;躓きポイント&lt;/h2&gt;
+&lt;h3 id=&#34;ポイント1&#34;&gt;ポイント1&lt;/h3&gt;
+&lt;p&gt;Network Interfaceは設定によって定期的に変わるものがあるのでなるべく管理しないようにした。設定する順番がことなるとエラーになる時があるので &lt;code&gt;depends_on&lt;/code&gt; を利用する&lt;/p&gt;
+&lt;h3 id=&#34;ポイント2&#34;&gt;ポイント2&lt;/h3&gt;
+&lt;p&gt;パスワードは管理したくないので無視するようにした。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  lifecycle &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ignore_changes &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;value&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;秘匿情報をAWS側で管理している場合があるのでそれはGitHubで管理せず、1Passwordで管理して使う時に転換するようにしている。&lt;/p&gt;
+&lt;h2 id=&#34;不要な機能は削除&#34;&gt;不要な機能は削除&lt;/h2&gt;
+&lt;p&gt;最後に、明らかに不要なものは削除する。&lt;/p&gt;
+&lt;p&gt;会社で不要になっているサービスをある程度リストアップできているもがある。もちろんまだ調査しないといけないものもあるが、、、あとは削除していくのみだ。また、Organizationレベルで権限管理や役割別に分けて管理していたAWSアカウントも、利用されていないものは削除した。ただ、一部影響範囲があるものもあったため、ドキュメントを読み、わからないところはAWSのテクニカルサポートに積極的に問い合わせて確認することにした。&lt;/p&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;今回のプロジェクトでは、現状の課題を解決するために、環境全体をコード化（IaC化）し、効率的かつ確実にインフラを管理できる体制を整えた。この取り組みによって、不要なリソースを削除し、環境の複雑化を防ぎ、迅速な意思決定が可能となる基盤を築けと思う。具体的なステップとしては、以下のような手順を踏んでいる。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;現状の把握とIaC化&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;全ての環境をTerraformによりコード化し、現状の構成を完全に把握。&lt;/li&gt;
+&lt;li&gt;その後、必要な環境のみを新しいAWSアカウントに移行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;サポート体制の構築&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;AWSのテクニカルサポートや外部コンサルタントの活用、SREチームの発足などにより、インフラの全体的な把握と改善を推進。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不要な機能の削除&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;AWS Control Towerや不要なサービスを順次削除し、運用負荷を軽減。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;コードのリファクタリング&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;可読性の向上やモジュール化により、管理しやすいコードベースを構築。&lt;/li&gt;
+&lt;li&gt;Terraformerを利用してリソースの自動インポートを行い、効率化を図った。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;これらのステップにより、現状の課題を解決し、環境の管理をより効率的かつ安全に行えるようにしました。今後はこの基盤を活用し、安心・安全にメンバー全員が運用できる体制を整え、開発スピードを維持しながらプロダクトを成長させていければとおもいます。&lt;/p&gt;
+&lt;p&gt;とはいえ、まだまだスタート地点にたった印象です。さらに改善してエンジニアがプロダクトによりコミットできる状況を作っていければと思っています。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>真骨彫製法10th ANNIVERSARYに行ってきた - レビュー</title>
