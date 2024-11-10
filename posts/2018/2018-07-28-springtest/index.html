@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Springアニメーションのテスト">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2018/2018-07-28-springtest/" />
+<meta property="go:description" content="
+モチベーション
+macOSでNSIndicatorViewを利用し用としたところ、なぜか背景が透過せずに若干グレイになってしまっていてそれが仕様のようなので自分で作ることにした。
+どうせ作るんだったら少し捻ったものにしようと思い、試行錯誤している。
+https://github.com/nakajijapan/CASpringAnimationTest
+CASpringAnimation
+Springアニメーションの制御がlayerに対して行えるようになります。
+このパラメータをうまく設定することで期待しているアニメーションが実現できるようになります。
+
+mass
+
+質量
+
+
+initialVelocity
+
+初速度
+
+
+damping
+
+振動の減衰
+
+
+stiffness
+
+ばねの弾性力
+
+
+
+Example
+これは実際の大きさになるためのアニメーションにスプリングを加えたものになります。
+let animation = CASpringAnimation(keyPath: &#34;transform.scale&#34;)
+animation.mass = CGFloat(mass.value)
+animation.damping = CGFloat(damping.value)
+animation.stiffness = CGFloat(stiffness.value)
+
+animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+animation.fromValue = 0.6
+animation.toValue = 1.0
+
+animation.isRemovedOnCompletion = true
+animation.fillMode = kCAFillModeForwards
+animation.duration = CFTimeInterval(duration.value)
+Reference
+
+https://developer.apple.com/documentation/quartzcore/caspringanimation
+https://github.com/MengTo/Spring
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Springアニメーションのテスト" />
+<meta name="twitter:description" content="
+モチベーション
+macOSでNSIndicatorViewを利用し用としたところ、なぜか背景が透過せずに若干グレイになってしまっていてそれが仕様のようなので自分で作ることにした。
+どうせ作るんだったら少し捻ったものにしようと思い、試行錯誤している。
+https://github.com/nakajijapan/CASpringAnimationTest
+CASpringAnimation
+Springアニメーションの制御がlayerに対して行えるようになります。
+このパラメータをうまく設定することで期待しているアニメーションが実現できるようになります。
+
+mass
+
+質量
+
+
+initialVelocity
+
+初速度
+
+
+damping
+
+振動の減衰
+
+
+stiffness
+
+ばねの弾性力
+
+
+
+Example
+これは実際の大きさになるためのアニメーションにスプリングを加えたものになります。
+let animation = CASpringAnimation(keyPath: &#34;transform.scale&#34;)
+animation.mass = CGFloat(mass.value)
+animation.damping = CGFloat(damping.value)
+animation.stiffness = CGFloat(stiffness.value)
+
+animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+animation.fromValue = 0.6
+animation.toValue = 1.0
+
+animation.isRemovedOnCompletion = true
+animation.fillMode = kCAFillModeForwards
+animation.duration = CFTimeInterval(duration.value)
+Reference
+
+https://developer.apple.com/documentation/quartzcore/caspringanimation
+https://github.com/MengTo/Spring
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Springアニメーションのテスト - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Springアニメーションのテスト</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2018-07-28">July 28, 2018</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">ios</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><img src="/images/posts/2018/2018-08-001.gif" alt=""></p>
+<h1 id="モチベーション">モチベーション</h1>
+<p>macOSでNSIndicatorViewを利用し用としたところ、なぜか背景が透過せずに若干グレイになってしまっていてそれが仕様のようなので自分で作ることにした。
+どうせ作るんだったら少し捻ったものにしようと思い、試行錯誤している。</p>
+<p><a href="https://github.com/nakajijapan/CASpringAnimationTest">https://github.com/nakajijapan/CASpringAnimationTest</a></p>
+<h2 id="caspringanimation">CASpringAnimation</h2>
+<p>Springアニメーションの制御がlayerに対して行えるようになります。
+このパラメータをうまく設定することで期待しているアニメーションが実現できるようになります。</p>
+<ul>
+<li>mass
+<ul>
+<li>質量</li>
+</ul>
+</li>
+<li>initialVelocity
+<ul>
+<li>初速度</li>
+</ul>
+</li>
+<li>damping
+<ul>
+<li>振動の減衰</li>
+</ul>
+</li>
+<li>stiffness
+<ul>
+<li>ばねの弾性力</li>
+</ul>
+</li>
+</ul>
+<h3 id="example">Example</h3>
+<p>これは実際の大きさになるためのアニメーションにスプリングを加えたものになります。</p>
+<pre tabindex="0"><code>let animation = CASpringAnimation(keyPath: &#34;transform.scale&#34;)
+animation.mass = CGFloat(mass.value)
+animation.damping = CGFloat(damping.value)
+animation.stiffness = CGFloat(stiffness.value)
+
+animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+animation.fromValue = 0.6
+animation.toValue = 1.0
+
+animation.isRemovedOnCompletion = true
+animation.fillMode = kCAFillModeForwards
+animation.duration = CFTimeInterval(duration.value)
+</code></pre><h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://developer.apple.com/documentation/quartzcore/caspringanimation">https://developer.apple.com/documentation/quartzcore/caspringanimation</a></li>
+<li><a href="https://github.com/MengTo/Spring">https://github.com/MengTo/Spring</a></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

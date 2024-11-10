@@ -1,0 +1,690 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>IPhone on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/iphone/</link>
+        <description>Recent content in IPhone on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sun, 02 Dec 2012 16:43:30 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/iphone/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>中島清掃局リリース致しました</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-12-02_3486/</link>
+            <pubDate>Sun, 02 Dec 2012 16:43:30 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-12-02_3486/</guid>
+            <description>&lt;p&gt;&lt;center&gt;
+&lt;img width=&#34;400px&#34; src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/12/iOSシミュレータのスクリーンショット-2012.11.06-22.54.33.png&#34; /&gt;
+&lt;/center&gt;&lt;/p&gt;
+&lt;p&gt;お待たせ致しました！！！（またせていない）&lt;/p&gt;
+&lt;p&gt;８月にお産で作成し、それ以降Applieの申請で３度も&lt;font color=&#34;red&#34;&gt;Reject&lt;/font&gt;され４度目にしてなんとか&lt;br /&gt;
+１２月にして公開までありつけました。。。。４ヶ月もかかったよ。。&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;本当はうんこスタイルで出したかったのですが、やはり天下のAppleはそんなことはさせなかったようです。でもやはり悔しいところ
+はあったので少しでもうんこの面影を残そうと思ってなんどか申請しました。でもやっぱりだめ。もういっそのこと世界観をガラッと
+変えてうんこを掃除するゲームからゴミを掃除するゲームに無理してしまいました。これはこれでいい感じに仕上がってはいるのですが
+やはりうんこにしたかった。
+&lt;br /&gt;
+まぁ、リリースできたことで一安心です。
+&lt;br /&gt;
+&lt;a href=&#34;http://vacuum.nakajijapan.net/&#34;&gt;ここ&lt;/a&gt;からダウンロードできるので是非&lt;font size=&#34;7&#34;&gt;くそ&lt;/font&gt;ゲーだと実感してください！&lt;/p&gt;
+&lt;h1&gt;ちょとした経緯&lt;/h1&gt;
+&lt;h2&gt;一度目&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/12/icon.png&#34; rel=&#34;lightbox&#34; width=&#34;300px&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br &gt;
+&lt;br &gt;&lt;/p&gt;
+&lt;h3&gt;Reason for reject&lt;/h3&gt;
+&lt;pre&gt;
+We found that your app contains content that many audiences would find objectionable, which is not in compliance with the App Store Review Guidelines.
+
+Specifically, we noticed the purpose of the game is to clean out feces. Such apps are not appropriate for the App Store.
+
+We encourage you to review your app content and evaluate whether you can modify the content to bring it into compliance with the Guidelines.
+&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;
+Appleへの挑戦状です。やっぱりだめでした。うんこはだめなんです。
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>cocos2dで作るiPhone&amp;iPadゲームプログラミングを読んだ</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-08-30_3288/</link>
+            <pubDate>Thu, 30 Aug 2012 02:44:02 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-08-30_3288/</guid>
+            <description>&lt;p&gt;とあるきっかけからゲームを作りたいというなんの根拠もない衝動にかられまして（いや本当はあるのですが）１から本を買って勉強することになったのですが、そのときに読んだ本を紹介します。&lt;/p&gt;
+&lt;div class=&#34;booklog_html&#34;&gt;&lt;div class=&#34;booklog_html_image&#34; style=&#34;float:left;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/cocos2d%E3%81%A7%E4%BD%9C%E3%82%8B-iPhone%EF%BC%86iPad%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-Steffen-Itterheim/dp/4844330411%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844330411&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51gwqeWV-FL._SL160_.jpg&#34; width=&#34;117&#34; height=&#34;150&#34; style=&#34;border:0;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_info&#34; style=&#34;float:left;margin-left:10px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:5px;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/cocos2d%E3%81%A7%E4%BD%9C%E3%82%8B-iPhone%EF%BC%86iPad%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-Steffen-Itterheim/dp/4844330411%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844330411&#34; target=&#34;_blank&#34;&gt;cocos2dで作る iPhone＆iPadゲームプログラミング&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;font-size:80%;&#34;&gt;&lt;a href=&#34;http://booklog.jp/author/Steffen+Itterheim&#34; target=&#34;_blank&#34;&gt;Steffen Itterheim&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;font-size:80%;&#34;&gt;インプレスジャパン&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:80%;&#34;&gt;発売日：2011-06-24&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34; style=&#34;margin-bottom:10px;font-size:80%;&#34;&gt;&lt;a href=&#34;http://booklog.jp/item/1/4844330411&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_fotter&#34; style=&#34;clear:left;&#34;&gt;&lt;/div&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;p&gt;この本はフレームワークのバージョンはちょっと古く今とはことなる部分はありますがバージョンを超えてたいていの基本的なことが学べる代物だと思います。僕が作成したかったのは大雑把にいうとシューティングだったので物理エンジンやタイルマップの章についてはすっとばして読んでいます。
+ただ、大変だったのはサンプルプログラムが読んだものを書きうつすと実行できないので出版社のサイト？からダウンロードしてそのコードをコピペせず写経してわからんものは本に立ち返ってよみかえしたりしてました。&lt;/p&gt;
+&lt;div class=&#34;booklog_html&#34;&gt;&lt;div class=&#34;booklog_html_image&#34; style=&#34;float:left;&#34;&gt;&lt;a href=&#34;http://www.amazon.com/Learn-cocos2d-Development-Apress-ebook/dp/B006CO7ZQ0%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Dbooklogjp-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB006CO7ZQ0&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41KQliRM8iL._SL160_.jpg&#34; width=&#34;120&#34; height=&#34;150&#34; style=&#34;border:0;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_info&#34; style=&#34;float:left;margin-left:10px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:5px;&#34;&gt;&lt;a href=&#34;http://www.amazon.com/Learn-cocos2d-Development-Apress-ebook/dp/B006CO7ZQ0%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Dbooklogjp-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB006CO7ZQ0&#34; target=&#34;_blank&#34;&gt;Learn cocos2d Game Development with iOS 5 (Learn Apress)&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;font-size:80%;&#34;&gt;&lt;a href=&#34;http://booklog.jp/author/Steffen+Itterheim&#34; target=&#34;_blank&#34;&gt;Steffen Itterheim&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;font-size:80%;&#34;&gt;Apress&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:80%;&#34;&gt;発売日：2011-11-09&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34; style=&#34;margin-bottom:10px;font-size:80%;&#34;&gt;&lt;a href=&#34;http://booklog.jp/item/2/B006CO7ZQ0&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_fotter&#34; style=&#34;clear:left;&#34;&gt;&lt;/div&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;p&gt;次にこちらの方は、以前の本の次に出版した本で一番新しい書籍になります。もちろん英語です。
+基本的には同じことが記述されているのですが、xcodeのバージョンアップに伴い多少の実装に変更があったことと
+ゲーム作成するさいに役立つ周辺ツールが変更されてました。自分はこちらで紹介されていたあたらしいツールを
+利用してゲームを作成しています。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.codeandweb.com/texturepacker&#34;&gt;TexturePacker - http://www.codeandweb.com/texturepacker&lt;/a&gt;です。&lt;/p&gt;
+&lt;p&gt;あと、もっとちっちゃなところでいうと以前のサンプルゲームがチープじゃなくなっていますw
+この書籍も全部読んだと言うわけではなくてなにか変更されてるところはないか、新しい知識がないか
+のチェックというスタンスで読みました。&lt;/p&gt;
+&lt;p&gt;以上が紹介です。&lt;/p&gt;
+&lt;p&gt;これを読み終わって、ゲームの実装の終盤に差し迫った時についに&lt;a href=&#34;http://www.cocos2d-iphone.org/archives/2003&#34;&gt;メジャーバージョン&lt;/a&gt;があがりまして困惑しましたがなんとかなりました！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[iphone][memo]なんかメモリ参照がおかしい件</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-10-14_2781/</link>
+            <pubDate>Fri, 14 Oct 2011 00:00:58 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-10-14_2781/</guid>
+            <description>&lt;p&gt;なんか迷ってしまったのです。&lt;/p&gt;
+&lt;p&gt;１．NSDataからNSStringに変換して文字列を結合してメンバ変数に入れておく。
+２．他のメソッドからそのメンバ変数を関数に引数にして処理を行う。&lt;/p&gt;
+&lt;p&gt;こんな簡単なことを１時間以上のも悩んだ挙げ句結局答えはわからずじまいでした。
+いったいなんだったんでしょうか？？？&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;test.h&lt;/b&gt;&lt;/p&gt;
+&lt;pre class=&#34;brush:cpp&#34;&gt;
+#import &lt;UIKit/UIKit.h&gt;
+
+@interface CameraViewController : UIViewController &lt;UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate&gt; {
+    IBOutlet UIImageView *imageView;
+    
+    NSString *_imageUrl;
+}
+
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (nonatomic, retain) NSString *_imageUrl;
+
+- (IBAction)pushButtonCamera;
+- (IBAction)pushButtonSaveImage;
+- (IBAction)pushButtonPostImage;
+
+@end
+&lt;/pre&gt;
+&lt;p&gt;&lt;b&gt;test.m&lt;/b&gt;&lt;/p&gt;
+&lt;pre class=&#34;brush:cpp&#34;&gt;
+@synthesize _imageUrl;
+- (IBAction)pushButtonPostImage
+{
+    _imageUrl = [NSString stringWithFormat:@&#34;http:/hogehoge/?s=aaaa+%@%@&#34;, 
+                 UPLOAD_SERVER_URL, 
+                 [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding]];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@&#34;%@ が押された&#34;, [alertView buttonTitleAtIndex:buttonIndex]);
+    NSLog(@&#34;buttonIndex = %d&#34;, buttonIndex);
+
+    // for logpi
+    if (buttonIndex == 1) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_imageUrl]];
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;これだとエラーが発生&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]海外送金手数料絡みの話だっちゃわい</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-09-13_2878/</link>
+            <pubDate>Tue, 13 Sep 2011 19:45:23 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-09-13_2878/</guid>
+            <description>&lt;p&gt;おれ最近グローバルなんだよね。nakajijapanです。&lt;/p&gt;
+&lt;p&gt;最近売上を気にするようになってから、外国の為替とか手数料とかなんちゃらかんちゃらを気にする用になって以下のサイトを知り合いの方におしえていただきました。外国日本間のお金振込の話です。&lt;/p&gt;
+&lt;p&gt;iPhoneアプリの場合であれば、外国から日本に送金されるのでそこで発生する手数料がきになるところです。&lt;/p&gt;
+&lt;p&gt;■海外送金手数料の比較
+&lt;a href=&#34;http://www.tamasoft.co.jp/ja/fx/index.html&#34;&gt;http://www.tamasoft.co.jp/ja/fx/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;■CityBankにしたよ！
+&lt;a href=&#34;http://d.hatena.ne.jp/s-0samu/20110709/1310192497&#34;&gt;http://d.hatena.ne.jp/s-0samu/20110709/1310192497&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;２５００円なのですね、それプラス為替マージン、受取先で生じる手数料。&lt;/p&gt;
+&lt;p&gt;手数料かかるのはわかっちゃいたけどここまでかかるとは全然意識してなかったです！これはやだ！
+手数料がかからないのは「CityBank」「新生銀行」なのですが、大丈夫なのですかね？？？&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;【追記】&lt;/p&gt;
+&lt;p&gt;結局「CityBank」にしましたよ。僕。これで振込手数料が最小限や！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[iPhoneApp]EINコード取得しなきゃいけなくなった</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-09-09_2874/</link>
+            <pubDate>Fri, 09 Sep 2011 10:30:22 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-09-09_2874/</guid>
+            <description>&lt;p&gt;端的に言うと税金対策しました。&lt;/p&gt;
+&lt;p&gt;私nakajijapanはiPhoneアプリ「おわかりいただけただろうか」っていうiPhoneアプリを出していまして、その売上っていうのはどうなるかって言うとAppleで運営しているサービスから売り上げるので基本はアメリカで売り上げたことになります当然その売上はアメリカの税金が適用されます。そして日本にお金がはいってくるときも税金が発生してきます。&lt;/p&gt;
+&lt;p&gt;でもわたくしnakajijapanは日本で働き、売り上げているので日本の税金でいいのです。
+アメリカからの税金は免除できるということになりますね。なので日本で売上だしてるから税金免除してーっていう書類を提出しなければいけないのですが、その手順として、&lt;/p&gt;
+&lt;p&gt;１．EIN取得
+２．W-8BEN提出&lt;/p&gt;
+&lt;p&gt;をしなければいけないらしいです。&lt;/p&gt;
+&lt;p&gt;ちなみにiTunesConnectでしっかり「アメリカでビジネスしてねーよこんちくしょー」に選択していれば、２だけおこなえばよかったのですが（この書類にサインしてねっていうメールがAppleからくるらしいのです）、適当にすすめてしまったためにこんなめんどくさい作業をしなければいけなくなった次第です。&lt;/p&gt;
+&lt;p&gt;今回は「１」を行いました。&lt;/p&gt;
+&lt;p&gt;そのメモです。&lt;/p&gt;
+&lt;p&gt;■アメリカの国税局
+&lt;a href=&#34;http://www.irs.gov/businesses/small/article/0,,id=97860,00.html&#34;&gt;http://www.irs.gov/businesses/small/article/0,,id=97860,00.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;まずここで書類を落とします。&lt;/p&gt;
+&lt;p&gt;■EINの書類の書き方
+&lt;a href=&#34;http://blog.iphone-studio.com/2008/10/app-storeein.html&#34;&gt;http://blog.iphone-studio.com/2008/10/app-storeein.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ここのサイトを参考にいろいろかきこんでいきました。&lt;/p&gt;
+&lt;p&gt;すべて記入し終えたら、FAXで送信です。書類はファミリーマートで送信しました。
+今回FAXしたのは、「010-1-267-941-1040」です。&lt;/p&gt;
+&lt;p&gt;【メモ】
+・電話番号は「０８０」ー＞「＋８１８０」
+・アメリカの国番号は「１」
+・日本から国際電話するときは「０１０」を最初にプッシュ&lt;/p&gt;
+&lt;p&gt;■電話対応で速攻GETする方法!!
+&lt;a href=&#34;http://d.hatena.ne.jp/htz/20090107&#34;&gt;http://d.hatena.ne.jp/htz/20090107&lt;/a&gt;
+今回電話したのは「010-1-267-941-1099」です。&lt;/p&gt;
+&lt;p&gt;僕はチキンなので電話の対応は会社の同僚にしていただきました！！
+しかし、２０分の激戦の末、失敗におわりました。。。。。&lt;/p&gt;
+&lt;p&gt;・反省点
+「regular phone or speaker phone?」なんのこっちゃ？&lt;/p&gt;
+&lt;p&gt;「Business?」
+「not Business!」
+「違うところに電話して！！」（非営利団体だと思われたんですかね・・・）&lt;/p&gt;
+&lt;p&gt;言いたいこと言いまくって話をやめたほうがすんなり理解してもらえそう。という反省をしつつも再度電話に挑戦しようと思います！！だいたい２０分近く話したり待ち状態になっていたので通話代２０００円は軽く突破したと思います・・・。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]xcode4でアプリ申請</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-08-19_2833/</link>
+            <pubDate>Fri, 19 Aug 2011 03:58:52 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-08-19_2833/</guid>
+            <description>&lt;p&gt;証明書
+provisioning code&lt;/p&gt;
+&lt;p&gt;的なものは作ってある前提の話になります。&lt;/p&gt;
+&lt;p&gt;この次にやらなきゃいけないのはAppleConnectにアプリをアップロードすることです。&lt;/p&gt;
+&lt;p&gt;その前に&lt;/p&gt;
+&lt;p&gt;・setting icon
+iPhone+iPhone(retina)+iPad用に必要なアイコン群の登録をおこないます。
+（自分の場合は、iPhoneアプリの申請だったのでiPadは捨てています）&lt;/p&gt;
+&lt;p&gt;・Build
+アプリのソースコードをビルドして「application.app」てきなファイルを作成させます。&lt;/p&gt;
+&lt;p&gt;・Archive
+アップロードするためにファイルをアーカイブしてます。（多分）
+以上の処理が終わると、オーガナイザーが立ち上がり、次の処理
+が進むようになります。&lt;/p&gt;
+&lt;p&gt;・Validate（オーガナイザ）
+AppleConnectにつなげてアプリの最終チェックをおこないます。&lt;/p&gt;
+&lt;p&gt;・Submit（オーガナイザ）
+AppleConnectにファイル（アプリ）をアップロードします。&lt;/p&gt;
+&lt;p&gt;このときにステータスは「wait for review」&lt;/p&gt;
+&lt;p&gt;その後
+「in review」
+「Processing for Apple Store」
+「Ready for Sale」&lt;/p&gt;
+&lt;p&gt;でようやくリリースにありつけます。&lt;/p&gt;
+&lt;p&gt;2011年８月中旬現在でだいたい一週間程度でリリースまでありつけました。
+今回はrejectがなかったので最短でということなりますが、再度申請とかに
+なってくるともっとかかってくるのでしょうね・・・。&lt;/p&gt;
+&lt;p&gt;□参照URL
+&lt;a href=&#34;http://iphone-app-developer.seesaa.net/article/190448941.html&#34;&gt;http://iphone-app-developer.seesaa.net/article/190448941.html&lt;/a&gt;
+&lt;a href=&#34;http://d.hatena.ne.jp/Kmusiclife/20110630/1309425193&#34;&gt;http://d.hatena.ne.jp/Kmusiclife/20110630/1309425193&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[ios][memo]UITableViewControllerのめも。</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-08-08_2803/</link>
+            <pubDate>Mon, 08 Aug 2011 23:30:26 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-08-08_2803/</guid>
+            <description>&lt;p&gt;勉強の一環であります。&lt;/p&gt;
+&lt;p&gt;実際に実装して間隔つかむ。&lt;/p&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+
+#import &lt;UIKit/UIKit.h&gt;
+
+@interface RootViewController : UITableViewController {
+    NSMutableArray *arrListSection1;
+    NSMutableArray *arrListSection2;
+}
+
+@property (nonatomic, retain) NSMutableArray *arrListSection1;
+@property (nonatomic, retain) NSMutableArray *arrListSection2;
+
+@end
+&lt;/pre&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+#import &#34;RootViewController.h&#34;
+
+@implementation RootViewController
+
+@synthesize arrListSection1;
+@synthesize arrListSection2;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@&#34;test table&#34;];
+    arrListSection1 = [[NSMutableArray alloc] initWithObjects:@&#34;test1&#34;,@&#34;test2&#34;,@&#34;test3&#34;, nil];
+    arrListSection2 = [[NSMutableArray alloc] initWithObjects:@&#34;test11&#34;,@&#34;test22&#34;,@&#34;test33&#34;, nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+//----------------------------------------------------------------
+#pragma mark - TableViewController
+//----------------------------------------------------------------
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+	UIView *view = [[UIView alloc] init];
+	// 背景に画像をセットする 
+	view.backgroundColor = [UIColor blackColor];
+	UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
+	//UIImage *bgImage = [UIImage imageNamed:@&#34;icon.png&#34;];
+	//lbl.backgroundColor = [UIColor colorWithPatternImage: bgImage];
+    lbl.backgroundColor = [UIColor blackColor];
+    lbl.textColor = [UIColor whiteColor];
+
+    if (section == 0) {
+        lbl.text = @&#34;first section&#34;;
+    }
+    else if (section == 1) {
+        lbl.text = @&#34;second section&#34;;
+    }
+	[view addSubview:lbl];
+	[lbl release];
+	return view;
+}
+
+/*
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title = nil;
+    if (section == 0) {
+        title = @&#34;first section&#34;;
+    }
+    else if (section == 1) {
+        title = @&#34;second section&#34;;
+    }
+    return title;
+}
+ */
+// Customize the number of sections in the table view.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger cnt;
+    if (section == 0) {
+        cnt = [arrListSection1 count];
+    }
+    else if (section == 1) {
+        cnt = [arrListSection2 count];
+    }
+    return cnt;
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @&#34;Cell&#34;;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    if (indexPath.section == 0) {
+        NSString *cellValue = [arrListSection1 objectAtIndex:indexPath.row];
+        cell.textLabel.text = cellValue;
+        
+        NSInteger rowNum = [indexPath row];
+        if (rowNum == 0) {
+            
+        }
+        else if (rowNum == 1) {
+            
+        }
+        else if (rowNum == 2) {
+            
+        }
+    }
+    if (indexPath.section == 1) {
+        NSString *cellValue = [arrListSection2 objectAtIndex:indexPath.row];
+        cell.textLabel.text = cellValue;
+    }
+
+    // Configure the cell.
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowNum = [indexPath row];
+    NSLog(@&#34;selected [sec %d][%d]&#34;, indexPath.section, rowNum);
+                        
+}
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn&#39;t have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc that aren&#39;t in use.
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+
+    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+@end
+
+&lt;/pre&gt;
+&lt;p&gt;できたものはこんなもの&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]UIImagePickerControllerに非推奨のメソッドあいr</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-08-08_2818/</link>
+            <pubDate>Mon, 08 Aug 2011 01:44:07 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-08-08_2818/</guid>
+            <description>&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/08/スクリーンショット（2011-08-08-1.39.18）-300x72.png&#34; alt=&#34;&#34; title=&#34;&#34; width=&#34;300&#34; height=&#34;72&#34; class=&#34;aligncenter size-medium wp-image-2819&#34; /&gt;
+&lt;p&gt;Appleのドキュメントをほとんどみていなかったので全然気づきませんでした。&lt;/p&gt;
+&lt;p&gt;非推奨となっていましたのでとりあえず修正してつかわないでおくようにしよう。&lt;/p&gt;
+&lt;pre class=&#34;brush:cpp&#34;&gt;
+ - (void)imagePickerController:(UIImagePickerController*)picker 
+ didFinishPickingImage:(UIImage*)image 
+ editingInfo:(NSDictionary*)editingInfo
+{
+}
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:cpp&#34;&gt;
+- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+}
+&lt;/pre&gt;
+&lt;p&gt;方法はいつもと変わらずです。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[ios]実機でテストしてみようぜ！！(provisioning profileの作成方法)</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-08-02_2812/</link>
+            <pubDate>Tue, 02 Aug 2011 13:15:19 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-08-02_2812/</guid>
+            <description>&lt;p&gt;最近はチュートリアルなんて画期的な機能がついているもので一発で開発機の登録ができました。&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img class=&#34;aligncenter size-medium wp-image-2813&#34; src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/08/37182-812011114518pm-286x300.png&#34; alt=&#34;&#34; /&gt;&lt;img class=&#34;aligncenter size-medium wp-image-2814&#34; src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/08/757378-812011114812pm-300x267.png&#34; alt=&#34;&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;ここで開発機にさせるために必要な&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Provisioning Profile&lt;/li&gt;
+&lt;li&gt;証明書&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;を生成します。&lt;/p&gt;
+&lt;p&gt;profileはオーガナイザを開いて実機に登録させ、証明書はダブルクリックでキーチェーンアクセスに登録させときます。
+最後にXcode-&amp;gt;Project部分でCode Signingなるカテゴリがあるので証明書を選択する。&lt;/p&gt;
+&lt;p&gt;これでいけるはず！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[iphone][memo]画像をトリミング(crop)する</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-07-19_2794/</link>
+            <pubDate>Tue, 19 Jul 2011 01:00:22 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-07-19_2794/</guid>
+            <description>&lt;p&gt;関数にしてみました。「CGRect」は画像の座標・大きさを指定できる構造体。
+これでCGRectで指定した座標・大きさをimageから取得し、そのUIImage型のポインタを返す。&lt;/p&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+// crop
+-(UIImage*)crop:(UIImage*)image rect:(CGRect)rect {
+    // 画像編集に必要な情報が入った構造体
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], rect);
+    // UIimage型に変換
+    UIImage *retImage = [UIImage imageWithCGImage:imageRef];
+    // メモリ上に保持しているbitmap情報を解放する
+    CGImageRelease(imageRef);
+    // UIimage型の画像情報を返す
+    return retImage;
+}
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>[iphone][memo]画像を保存する処理</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-07-18_2779/</link>
+            <pubDate>Mon, 18 Jul 2011 12:02:24 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-07-18_2779/</guid>
+            <description>&lt;p&gt;カメラやライブラリから写真を読み込んで、デバイスに保存する処理。
+だけじゃあれなので、保存後のメッセージを出力する。&lt;/p&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+- (IBAction)pushButtonSaveImage
+{
+    // 画像をデバイスに保存
+    UIImageWriteToSavedPhotosAlbum(_imageView.image, self, nil, nil);
+    
+    // 保存後のメッセージを出力
+    UIAlertView *alert = [[[UIAlertView alloc] 
+                          initWithTitle:@&#34;image saved&#34; 
+                          message:@&#34;どどすこ&#34; 
+                          delegate:self 
+                          cancelButtonTitle:@&#34;いみなし&#34; 
+                          otherButtonTitles:nil] autorelease];
+    [alert show];
+    
+}
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>[iphone][memo]FirstResponder</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-07-18_2763/</link>
+            <pubDate>Mon, 18 Jul 2011 12:01:22 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-07-18_2763/</guid>
+            <description>&lt;p&gt;&lt;b&gt;FirstResponder&lt;/b&gt;
+ユーザのアクションに対して最初に反応するオブジェクト
+入力中のフィールドはFirstResponderなのでこれを放棄することによりキーボードを消すことができます。&lt;/p&gt;
+&lt;p&gt;ユーザが画面で起こした何らかのアクションに対して最初に反応するオブジェクトってこと。
+だからこのオブジェクトを放棄することで反応させなくする（解放する？）、アクションを終了させるって
+ことになるのかな。&lt;/p&gt;
+&lt;p&gt;以下のは「return」ボタンでキーボードを終了させるための処理&lt;/p&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+   return YES;
+}
+&lt;/pre&gt;
+&lt;p&gt;以下のものは、キーボード以外の画面をタップしても終了できるようにするもの。&lt;/p&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+- (IBAction)backgroundTap:(id)sender
+{
+    [field1 resignFirstResponder];
+}
+&lt;/pre&gt;
+&lt;div class=&#34;booklog_html&#34;&gt;&lt;div class=&#34;booklog_html_image&#34; style=&#34;float:left;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4797358106?tag=daichibnejp-22&amp;linkCode=as1&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51Xh3SHkBaL._SL160_.jpg&#34; width=&#34;124&#34; height=&#34;160&#34; style=&#34;border:0;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_info&#34; style=&#34;float:left;margin-left:10px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:5px;font-size:12px;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4797358106?tag=daichibnejp-22&amp;linkCode=as1&#34; target=&#34;_blank&#34;&gt;はじめてのiPhone3プログラミング&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;font-size:10px;&#34;&gt;Dave Mark,Jeff LaMarche&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;font-size:10px;&#34;&gt;ソフトバンククリエイティブ&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:10px;&#34;&gt;発売日：2009-12-17&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34; style=&#34;margin-bottom:10px;font-size:10px;&#34;&gt;&lt;a href=&#34;http://booklog.jp/asin/4797358106&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_fotter&#34; style=&#34;clear:left;&#34;&gt;&lt;/div&gt;&lt;br /&gt;&lt;/div&gt;</description>
+        </item>
+        
+        <item>
+            <title>[iphone]Navigation-based Application からのアプリ(タブビュー)作成めも</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-07-12_2771/</link>
+            <pubDate>Tue, 12 Jul 2011 07:24:09 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-07-12_2771/</guid>
+            <description>&lt;p&gt;作りたいものはタブバーでビュー切り換えする画面を作成したくてある人から教えていただいた作成方法のメモ。&lt;/p&gt;
+&lt;h2&gt;プロジェクト作成&lt;/h2&gt;
+本をベースで作成していくときは、「windows-based Application」で別にrootViewControllerを
+作成してIBでつなぎ合わせていたけど、今回は「navigation-based Application」から作成してみる。
+&lt;h2&gt;プロトコルの追加&lt;/h2&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+@interface RootViewController : UITableViewController {
+&lt;p&gt;}
+&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;から&lt;/p&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+@interface RootViewController : UIViewController {
+
+}
+&lt;/pre&gt;
+&lt;p&gt;にして親のクラスを利用する&lt;/p&gt;
+&lt;h2&gt;不要メソッドの削除&lt;/h2&gt;
+UITableViewControllerから継承されているメソッドが何個かあるのでそれを削除する。
+利用する時にまた実装すればいいだけのこと！
+&lt;h2&gt;IBから不要なオブジェクト削除&lt;/h2&gt;
+ここでもUITableView関連のオブジェクトが存在するのでばしばし削除していく
+&lt;h2&gt;IBでいろいろを当て込む&lt;/h2&gt;
+・Viewを作成してFile&#39;s Ownerのviewに関連づけさせる
+・TabBarを作成
+・[memo]画像はtest@2x.pngとするとretina対応で自動的にこちらの画像にしてくれるらしい
+&lt;h2&gt;InspectorのSimulated Metrics&lt;/h2&gt;
+Top Barを「Navigation Bar」とする。
+&lt;h2&gt;タイトルの表示&lt;/h2&gt;
+viewロード時にタイトルを表示させる
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@&#34;Home&#34;];
+}
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>欲しいもの一覧　iPhone編</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-05-24_2065/</link>
+            <pubDate>Mon, 24 May 2010 23:23:03 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-05-24_2065/</guid>
+            <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;div style=&#34;background-image:url(http://user.calamel.jp/img/affiliate/tag_photo_large_top.gif); width:300px; height:35px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bg.gif) repeat-y; width:260px; margin:0px; padding:0px 20px;&#34;&gt;&lt;div style=&#34;width:260px; text-align:center; background-color:#FFF; margin:0px; padding:0px;&#34;&gt;&lt;a href=&#34;http://calamel.jp/iphone%20%E3%83%8F%E3%83%BC%E3%83%89%E3%82%B1%E3%83%BC%E3%82%B9%2F%E3%82%A2%E3%83%BC%E3%83%88%E3%83%95%E3%83%A9%E3%83%AF%E3%83%BC/item/20844921?afid=monyu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img13.shop-pro.jp/PA01072/329/product/20844921.jpg&#34; width=260 height=260  alt=&#34;iphone ハードケース/アートフラワー&#34; style=&#34;vertical-align:top; margin:0px; padding:0px; border:none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bottom.gif); width:300px; height:25px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;div style=&#34;background-image:url(http://user.calamel.jp/img/affiliate/tag_photo_large_top.gif); width:300px; height:35px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bg.gif) repeat-y; width:260px; margin:0px; padding:0px 20px;&#34;&gt;&lt;div style=&#34;width:260px; text-align:center; background-color:#FFF; margin:0px; padding:0px;&#34;&gt;&lt;a href=&#34;http://calamel.jp/%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97%E3%83%9B%E3%83%AB%E3%83%80%E3%83%BC%28%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%29/item/20859535?afid=monyu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img13.shop-pro.jp/PA01090/439/product/20859535.jpg&#34; width=260 height=260  alt=&#34;デスクトップホルダー(ブラック)&#34; style=&#34;vertical-align:top; margin:0px; padding:0px; border:none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bottom.gif); width:300px; height:25px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;div style=&#34;background-image:url(http://user.calamel.jp/img/affiliate/tag_photo_large_top.gif); width:300px; height:35px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bg.gif) repeat-y; width:260px; margin:0px; padding:0px 20px;&#34;&gt;&lt;div style=&#34;width:260px; text-align:center; background-color:#FFF; margin:0px; padding:0px;&#34;&gt;&lt;a href=&#34;http://calamel.jp/iPhone%E3%82%A2%E3%83%BC%E3%83%88%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8/item/20584626?afid=monyu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img13.shop-pro.jp/PA01072/329/product/20584626.jpg&#34; width=260 height=260  alt=&#34;iPhoneアートオレンジ&#34; style=&#34;vertical-align:top; margin:0px; padding:0px; border:none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bottom.gif); width:300px; height:25px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;div style=&#34;background-image:url(http://user.calamel.jp/img/affiliate/tag_photo_large_top.gif); width:300px; height:35px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bg.gif) repeat-y; width:260px; margin:0px; padding:0px 20px;&#34;&gt;&lt;div style=&#34;width:260px; text-align:center; background-color:#FFF; margin:0px; padding:0px;&#34;&gt;&lt;a href=&#34;http://calamel.jp/Cute%20Is%20What%20We%20Aim%20For%20Rotation%20MusicSkins%2FiPhone%203%E2%80%A6/item/20318958?afid=monyu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img08.shop-pro.jp/PA01031/658/product/20318958.jpg&#34; width=200 height=175  alt=&#34;Cute Is What We Aim For Rotation MusicSkins/iPhone 3G/3GS&#34; style=&#34;vertical-align:top; margin:0px; padding:0px; border:none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bottom.gif); width:300px; height:25px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;div style=&#34;background-image:url(http://user.calamel.jp/img/affiliate/tag_photo_large_top.gif); width:300px; height:35px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bg.gif) repeat-y; width:260px; margin:0px; padding:0px 20px;&#34;&gt;&lt;div style=&#34;width:260px; text-align:center; background-color:#FFF; margin:0px; padding:0px;&#34;&gt;&lt;a href=&#34;http://calamel.jp/Brand%20New%20-%20Deja%20MusicSkins%2FiPhone%203G%2F3GS/item/20318297?afid=monyu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img08.shop-pro.jp/PA01031/658/product/20318297.jpg&#34; width=200 height=175  alt=&#34;Brand New - Deja MusicSkins/iPhone 3G/3GS&#34; style=&#34;vertical-align:top; margin:0px; padding:0px; border:none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bottom.gif); width:300px; height:25px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;div style=&#34;background-image:url(http://user.calamel.jp/img/affiliate/tag_photo_large_top.gif); width:300px; height:35px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bg.gif) repeat-y; width:260px; margin:0px; padding:0px 20px;&#34;&gt;&lt;div style=&#34;width:260px; text-align:center; background-color:#FFF; margin:0px; padding:0px;&#34;&gt;&lt;a href=&#34;http://calamel.jp/Coldplay%20Photo%20MusicSkins%2FiPhone%203G%2F3GS/item/20296797?afid=monyu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img08.shop-pro.jp/PA01031/658/product/20296797.jpg&#34; width=200 height=175  alt=&#34;Coldplay Photo MusicSkins/iPhone 3G/3GS&#34; style=&#34;vertical-align:top; margin:0px; padding:0px; border:none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bottom.gif); width:300px; height:25px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;div style=&#34;background-image:url(http://user.calamel.jp/img/affiliate/tag_photo_large_top.gif); width:300px; height:35px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bg.gif) repeat-y; width:260px; margin:0px; padding:0px 20px;&#34;&gt;&lt;div style=&#34;width:260px; text-align:center; background-color:#FFF; margin:0px; padding:0px;&#34;&gt;&lt;a href=&#34;http://calamel.jp/Drop%20Dead%2C%20Gorgeous%20-%20In%20Vogue%20MusicSkins%2FiPhone%203G%2F%E2%80%A6/item/20293285?afid=monyu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img08.shop-pro.jp/PA01031/658/product/20293285.jpg&#34; width=200 height=175  alt=&#34;Drop Dead, Gorgeous - In Vogue MusicSkins/iPhone 3G/3GS&#34; style=&#34;vertical-align:top; margin:0px; padding:0px; border:none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bottom.gif); width:300px; height:25px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;div style=&#34;background-image:url(http://user.calamel.jp/img/affiliate/tag_photo_large_top.gif); width:300px; height:35px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bg.gif) repeat-y; width:260px; margin:0px; padding:0px 20px;&#34;&gt;&lt;div style=&#34;width:260px; text-align:center; background-color:#FFF; margin:0px; padding:0px;&#34;&gt;&lt;a href=&#34;http://calamel.jp/Sharp%20Shirter%20-%20Robots%20of%20Forever%20MusicSkins%2FiPod%20To%E2%80%A6/item/20246688?afid=monyu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://img08.shop-pro.jp/PA01031/658/product/20246688.jpg&#34; width=200 height=175  alt=&#34;Sharp Shirter - Robots of Forever MusicSkins/iPod Touch 2 &amp;amp;amp; 3&#34; style=&#34;vertical-align:top; margin:0px; padding:0px; border:none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&#34;background:#FFF url(http://user.calamel.jp/img/affiliate/tag_photo_large_bottom.gif); width:300px; height:25px; margin:0px; padding:0px;&#34;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;</description>
+        </item>
+        
+        <item>
+            <title>objective-C 文字列</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-04-24_1896/</link>
+            <pubDate>Sat, 24 Apr 2010 02:58:35 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-04-24_1896/</guid>
+            <description>&lt;p&gt;NSString：インスタンスを生成した後に文字列を変更できない静的な文字列クラス
+NSMutableString：インスタンスを生成した後も文字列を変更できる動的なクラス&lt;/p&gt;
+&lt;blockquote&gt;
+■継承関係
+NSObject
+↓
+NSString
+↓
+NSMutableString
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+■文字列定数
+@”文字列”
+&lt;/blockquote&gt;
+&lt;pre class=&#34;brush: c&#34;&gt;
+NSString* str = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数
+NInteger len = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 (int)
+NUInteger len = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 (unsigned int)
+
+
+// copy
+NSString* str = [ NSString stringWithString: @&#34;Hello&#34; ];
+
+// @&#34;hello&#34;という文字列のインスタンスをstrに代入
+NSString* str = @&#34;hello&#34;;
+NSMutableString* str = [ NSMutableString stringWithString: @&#34;hello&#34; ];
+
+// 書式ありの文字列
+int min = 12;
+NSString str = [ NSString stringWithFormat: @&#34;Time : %d&#34;, min ];
+NSString str = [ NSString stringWithFormat: @&#34;Time : %04d&#34;, min ];
+
+// オブジェクトを代入したい場合は「%@」を記述する
+NSString name = @&#34;nakajijapan&#34;;
+NSString str = [ NSString stringWithFormat: @&#34;Time : %@&#34;, name ];
+
+// debug
+//    コンソールに表示される
+NSString name = @&#34;nakajijapan&#34;
+NSLog( @&#34;My name is %@&#34;, name );
+
+
+// 文字列の連結
+NSString* str1 = @&#34;My name is &#34;;
+NSString* str2 = [ str1 stringByAppendingString : @&#34;nakajijapan.&#34; ];
+
+
+
+// 文字列を一部切り出す
+//    NSRangeは「NSUInteger」を持っている
+NSRange range = {1,3};
+NSString* str = [ @&#34;iPhone&#34; substringWithRange : range ];
+
+&lt;/pre&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

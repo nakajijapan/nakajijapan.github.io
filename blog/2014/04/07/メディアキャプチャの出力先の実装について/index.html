@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="メディアキャプチャの出力先の実装について">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2014/04/07/%E3%83%A1%E3%83%87%E3%82%A3%E3%82%A2%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3%E3%81%AE%E5%87%BA%E5%8A%9B%E5%85%88%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/" />
+<meta property="go:description" content="AV Foundationを利用して写真の撮影やはたまた動画の撮影を行う場合は、カメラデバイスに接続して映像をリアルタイムに表示させたい場合があるかと思います。
+
+そんなときはAVCaptureSessionを利用してメディアキャプチャの実装の準備をを行い、入力先・出力先はどうするかという設定を行うのですが、今回はその出力部分について何パターンか方法があったので調べてみました。
+Video Output
+
+AVCaptureMovieFileOutput
+
+ムービーファイルを出力するときに利用する
+
+
+AVCaptureVideoDataOutput
+
+キャプチャ中のビデオフレームを処理するときに利用する
+
+
+AVCaptureStillImageOutput
+
+付随するメタデータを使用して静止画像をキャプチャするときに利用する
+
+
+
+Audio Output
+
+AVCaptureAudioDataOutput
+
+キャプチャ中のオーディオフレームを処理するときに利用する
+
+
+
+使い方
+AVCaptureMovieFileOutput
+ムービーファイルを保存するのに必要な処理を提供してくれるクラス。
+録画するときは
+//録画開始
+[captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
+のように始めることができます。
+必要に応じてAVCaptureFileOutputRecordingDelegateオプションを利用して、各タイミングに応じた処理を行います。
+
+AVCaptureFileOutputRecordingDelegate
+
+Delegate Methods
+
+– captureOutput:didStartRecordingToOutputFileAtURL:fromConnections:
+– captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:
+前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。
+AVCaptureStillImageOutput
+画像をキャプチャするときに利用して、出力は以下のように実装します。
+AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObject];
+[captureStillImageOutput captureStillImageAsynchronouslyFromConnection:connection
+                                                     completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+                                                         NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                                                         UIImage *image = [UIImage imageWithData:data];
+                                                         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+                                                         [library writeImageToSavedPhotosAlbum:image.CGImage
+                                                                                   orientation:image.imageOrientation
+                                                                               completionBlock:^(NSURL *assetURL, NSError *error) {
+                                                                                   NSLog(@&#34;saved&#34;);
+                                                                               }];
+                                                     }];
+AVCaptureVideoDataOutput, AVCaptureAudioDataOutput
+デリゲートメソッドを利用して非圧縮状態のビデオフレーム情報を提供します。
+そのフレーム情報はCMSampleBufferRefという形式で送信されてきてそれを利用して動画の保存やら編集やらを行うことができます。
+このときにビデオとオーディオは別で処理しないといけません。（デリゲートメソッドが分かれているように）
+主にビデオもオーディオも両方扱うときは– captureOutput:didOutputSampleBuffer:fromConnection:でどちらのメディアなのか区別して処理を行うような実装になります。
+さらに細かい処理を行っていく場合はこちらのクラスを実装しないといけないですね。例えば、リアルタイムに動画を編集したりだとか、Vineみたいにタッチしているときは動画の保存し続けるような処理でしょうか。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="メディアキャプチャの出力先の実装について" />
+<meta name="twitter:description" content="AV Foundationを利用して写真の撮影やはたまた動画の撮影を行う場合は、カメラデバイスに接続して映像をリアルタイムに表示させたい場合があるかと思います。
+
+そんなときはAVCaptureSessionを利用してメディアキャプチャの実装の準備をを行い、入力先・出力先はどうするかという設定を行うのですが、今回はその出力部分について何パターンか方法があったので調べてみました。
+Video Output
+
+AVCaptureMovieFileOutput
+
+ムービーファイルを出力するときに利用する
+
+
+AVCaptureVideoDataOutput
+
+キャプチャ中のビデオフレームを処理するときに利用する
+
+
+AVCaptureStillImageOutput
+
+付随するメタデータを使用して静止画像をキャプチャするときに利用する
+
+
+
+Audio Output
+
+AVCaptureAudioDataOutput
+
+キャプチャ中のオーディオフレームを処理するときに利用する
+
+
+
+使い方
+AVCaptureMovieFileOutput
+ムービーファイルを保存するのに必要な処理を提供してくれるクラス。
+録画するときは
+//録画開始
+[captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
+のように始めることができます。
+必要に応じてAVCaptureFileOutputRecordingDelegateオプションを利用して、各タイミングに応じた処理を行います。
+
+AVCaptureFileOutputRecordingDelegate
+
+Delegate Methods
+
+– captureOutput:didStartRecordingToOutputFileAtURL:fromConnections:
+– captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:
+前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。
+AVCaptureStillImageOutput
+画像をキャプチャするときに利用して、出力は以下のように実装します。
+AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObject];
+[captureStillImageOutput captureStillImageAsynchronouslyFromConnection:connection
+                                                     completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+                                                         NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                                                         UIImage *image = [UIImage imageWithData:data];
+                                                         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+                                                         [library writeImageToSavedPhotosAlbum:image.CGImage
+                                                                                   orientation:image.imageOrientation
+                                                                               completionBlock:^(NSURL *assetURL, NSError *error) {
+                                                                                   NSLog(@&#34;saved&#34;);
+                                                                               }];
+                                                     }];
+AVCaptureVideoDataOutput, AVCaptureAudioDataOutput
+デリゲートメソッドを利用して非圧縮状態のビデオフレーム情報を提供します。
+そのフレーム情報はCMSampleBufferRefという形式で送信されてきてそれを利用して動画の保存やら編集やらを行うことができます。
+このときにビデオとオーディオは別で処理しないといけません。（デリゲートメソッドが分かれているように）
+主にビデオもオーディオも両方扱うときは– captureOutput:didOutputSampleBuffer:fromConnection:でどちらのメディアなのか区別して処理を行うような実装になります。
+さらに細かい処理を行っていく場合はこちらのクラスを実装しないといけないですね。例えば、リアルタイムに動画を編集したりだとか、Vineみたいにタッチしているときは動画の保存し続けるような処理でしょうか。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>メディアキャプチャの出力先の実装について - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">メディアキャプチャの出力先の実装について</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-04-07">April 07, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><code>AV Foundation</code>を利用して写真の撮影やはたまた動画の撮影を行う場合は、カメラデバイスに接続して映像をリアルタイムに表示させたい場合があるかと思います。</p>
+<p><img src="/images/posts/2014/2014-04-06-01.png" alt="AV Foundation"></p>
+<p>そんなときは<code>AVCaptureSession</code>を利用してメディアキャプチャの実装の準備をを行い、入力先・出力先はどうするかという設定を行うのですが、今回はその出力部分について何パターンか方法があったので調べてみました。</p>
+<h3 id="video-output">Video Output</h3>
+<ul>
+<li>AVCaptureMovieFileOutput
+<ul>
+<li>ムービーファイルを出力するときに利用する</li>
+</ul>
+</li>
+<li>AVCaptureVideoDataOutput
+<ul>
+<li>キャプチャ中のビデオフレームを処理するときに利用する</li>
+</ul>
+</li>
+<li>AVCaptureStillImageOutput
+<ul>
+<li>付随するメタデータを使用して静止画像をキャプチャするときに利用する</li>
+</ul>
+</li>
+</ul>
+<h3 id="audio-output">Audio Output</h3>
+<ul>
+<li>AVCaptureAudioDataOutput
+<ul>
+<li>キャプチャ中のオーディオフレームを処理するときに利用する</li>
+</ul>
+</li>
+</ul>
+<h2 id="使い方">使い方</h2>
+<h3 id="avcapturemoviefileoutput">AVCaptureMovieFileOutput</h3>
+<p>ムービーファイルを保存するのに必要な処理を提供してくれるクラス。</p>
+<p>録画するときは</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">//録画開始
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>[captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
+</span></span></code></pre></div><p>のように始めることができます。</p>
+<p>必要に応じて<code>AVCaptureFileOutputRecordingDelegate</code>オプションを利用して、各タイミングに応じた処理を行います。</p>
+<ul>
+<li>AVCaptureFileOutputRecordingDelegate</li>
+</ul>
+<pre tabindex="0"><code>Delegate Methods
+
+– captureOutput:didStartRecordingToOutputFileAtURL:fromConnections:
+– captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:
+</code></pre><p>前者は録画を開始したときに、後者は終了したときに呼び出されるメソッドです。例えば、<code>captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:</code>の時に録画したムービーファイルをデバイスに保存する等の処理が行えることができます。</p>
+<h4 id="avcapturestillimageoutput">AVCaptureStillImageOutput</h4>
+<p>画像をキャプチャするときに利用して、出力は以下のように実装します。</p>
+<pre tabindex="0"><code>AVCaptureConnection *connection = [[captureStillImageOutput connections] lastObject];
+[captureStillImageOutput captureStillImageAsynchronouslyFromConnection:connection
+                                                     completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
+                                                         NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                                                         UIImage *image = [UIImage imageWithData:data];
+                                                         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+                                                         [library writeImageToSavedPhotosAlbum:image.CGImage
+                                                                                   orientation:image.imageOrientation
+                                                                               completionBlock:^(NSURL *assetURL, NSError *error) {
+                                                                                   NSLog(@&#34;saved&#34;);
+                                                                               }];
+                                                     }];
+</code></pre><h3 id="avcapturevideodataoutput-avcaptureaudiodataoutput">AVCaptureVideoDataOutput, AVCaptureAudioDataOutput</h3>
+<p>デリゲートメソッドを利用して非圧縮状態のビデオフレーム情報を提供します。
+そのフレーム情報は<code>CMSampleBufferRef</code>という形式で送信されてきてそれを利用して動画の保存やら編集やらを行うことができます。
+このときにビデオとオーディオは別で処理しないといけません。（デリゲートメソッドが分かれているように）
+主にビデオもオーディオも両方扱うときは<code>– captureOutput:didOutputSampleBuffer:fromConnection:</code>でどちらのメディアなのか区別して処理を行うような実装になります。
+さらに細かい処理を行っていく場合はこちらのクラスを実装しないといけないですね。例えば、リアルタイムに動画を編集したりだとか、Vineみたいにタッチしているときは動画の保存し続けるような処理でしょうか。</p>
+<ul>
+<li>AVCaptureVideoDataOutputSampleBufferDelegate</li>
+</ul>
+<pre tabindex="0"><code>Managing Sample Buffer Behavior
+– captureOutput:didOutputSampleBuffer:fromConnection:
+– captureOutput:didDropSampleBuffer:fromConnection:
+</code></pre><ul>
+<li>AVCaptureAudioDataOutputSampleBufferDelegat</li>
+</ul>
+<pre tabindex="0"><code>Delegate Methods
+– captureOutput:didOutputSampleBuffer:fromConnection:
+</code></pre><h2 id="まとめ">まとめ</h2>
+<p>メディアキャプチャの出力先の実装について調べてみました。目的に応じてどれを使うかは選択していけばいいのですが、よりユーザにインタラクティブなインタフェースや体験をさせるにはそれ相応に細かい実装していかなければいけないこともわかりました。何度も言っているかもしれないけどメディア系の実装は大変です。。。</p>
+<h2 id="ref">ref</h2>
+<ul>
+<li><a href="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/AVFoundationPG.pdf">AV Foundation公式ドキュメント</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVCaptureMovieFileOutput_Class/Reference/Reference.html#//apple_ref/occ/cl/AVCaptureMovieFileOutput">AVCaptureMovieFileOutput</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVCaptureFileOutputRecordingDelegate_Protocol/Reference/Reference.html">AVCaptureFileOutputRecordingDelegate</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVCaptureVideoDataOutput_Class/Reference/Reference.html">AVCaptureVideoDataOutput</a></li>
+<li><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVCaptureVideoDataOutputSampleBufferDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/AVCaptureVideoDataOutputSampleBufferDelegate/captureOutput:didOutputSampleBuffer:fromConnection:">AVCaptureVideoDataOutputSampleBufferDelegate</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/AVFoundation/Reference/AVCaptureAudioDataOutputSampleBufferDelegate_Protocol/Reference/Reference.html">AVCaptureAudioDataOutputSampleBufferDelegate</a></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Doctrineでパーティショニングするときのための技術調査その１">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-02-09_415/" />
+<meta property="go:description" content="パーティショニングしながらDoctrineてつかえるのだろうかとふと思いしらべてみたらあった。
+ちょっちバージョンは古いけど
+ここからの引用
+
+Please add ability not to create foreign key to database before releasing the last LTS version of Doctrine.
+Creating foreign key is usually good, but there are some situations that we should not use foreign key.
+
+In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html
+As the case may be, foreign keys in database will rule out doing application-level-cascading-delete.
+MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.g. MyISAM). We have to decrease warnings.
+
+I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle." />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Doctrineでパーティショニングするときのための技術調査その１" />
+<meta name="twitter:description" content="パーティショニングしながらDoctrineてつかえるのだろうかとふと思いしらべてみたらあった。
+ちょっちバージョンは古いけど
+ここからの引用
+
+Please add ability not to create foreign key to database before releasing the last LTS version of Doctrine.
+Creating foreign key is usually good, but there are some situations that we should not use foreign key.
+
+In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html
+As the case may be, foreign keys in database will rule out doing application-level-cascading-delete.
+MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.g. MyISAM). We have to decrease warnings.
+
+I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle." />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Doctrineでパーティショニングするときのための技術調査その１ - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Doctrineでパーティショニングするときのための技術調査その１</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-02-09">February 09, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/doctrine">Doctrine</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>パーティショニングしながらDoctrineてつかえるのだろうかとふと思いしらべてみたらあった。
+ちょっちバージョンは古いけど</p>
+<p><a href="http://www.doctrine-project.org/jira/browse/DC-51">ここからの引用</a></p>
+<blockquote>
+Please add ability not to create foreign key to database before releasing the last LTS version of Doctrine.
+<p>Creating foreign key is usually good, but there are some situations that we should not use foreign key.</p>
+<ol>
+<li>In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: <a href="http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html">http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html</a></li>
+<li>As the case may be, foreign keys in database will rule out doing application-level-cascading-delete.</li>
+<li>MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.g. MyISAM). We have to decrease warnings.</li>
+</ol>
+<p>I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle.</p>
+</blockquote>
+<p>Mysqlだとパーティショニングするときは外部キーを作成できない。
+だから、Doctrineではそれに代替する機能としてアプリケーションレベルのカスケーディングデリート がある。</p>
+<p>だからそれ使ってよってことか。</p>
+<p>その下が重要で各ストレージエンジンで外部キーを作成しようとするとMySQLはワーニングを出力されてしまう。</p>
+<p>でもまだエラー出ちゃうから減らしますよーっていってるのか。
+α版の時点でパッチも出てるから対処はされてるみたいだね。</p>
+<p>yamlからSQLにできるのかなー。</p>
+<p>あ、パーティション関係のSQLは別ファイルで置いておいておけばいいか。</p>
+<p>■参考URL
+<a href="http://dev.mysql.com/doc/refman/5.1/ja/partitioning-limitations.html">15.5. パーティショニングの制約と制限</a>
+<a href="http://www.doctrine-project.org/jira/browse/DC-51">Doctrine Project</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

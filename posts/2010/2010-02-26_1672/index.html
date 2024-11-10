@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Myｓｑｌのコンソールが文字化ける(こんなことだった)">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-02-26_1672/" />
+<meta property="go:description" content="文字コード関連の話。ここ数年文字コードの話ってあるけどさなかなか統一されないよねっていうことと
+設定箇所がまだ乱立してるのが面倒くさい。
+今だとPHP＋apache＋linux＋mysqlの４つそれぞれせってしないといけないもんね。
+んで今回も少しだけとまどったわけなのです。ほんとにちょっとだけよ。
+まぁ、そのときの状態。
+①HTTPの入力・出力・内部処理はUTF-8で画面出力自体は問題なく表示される。
+ツーことはDBには同じ文字コードで入っているはず。
+②コンソール上でクライアント動かしてSQL打っても表示されない。
+ツーことはクライアントの設定かな
+あ、それですね。
+まずはDBの文字コード確認。
+
+mysql&gt; SHOW CREATE DATABASE testdb;
+&#43;----------&#43;-------------------------------------------------------------------&#43;
+| Database | Create Database                                                   |
+&#43;----------&#43;-------------------------------------------------------------------&#43;
+| testdb| CREATE DATABASE `testdb` /*!40100 DEFAULT CHARACTER SET utf8 */ |
+&#43;----------&#43;-------------------------------------------------------------------&#43;
+1 row in set (0.00 sec)
+
+クライアントはどうか
+
+mysql&gt;  SHOW VARIABLES LIKE &#39;character\_set\_%&#39;;
+&#43;--------------------------&#43;--------&#43;
+| Variable_name            | Value  |
+&#43;--------------------------&#43;--------&#43;
+| character_set_client     | latin1|
+| character_set_connection | latin1|
+| character_set_database   | utf8   |
+| character_set_filesystem | binary |
+| character_set_results    | latin1|
+| character_set_server     | latin1|
+| character_set_system     | utf8   |
+&#43;--------------------------&#43;--------&#43;
+7 rows in set (0.00 sec)
+
+グーグルちゃんのおかげで設定すべき箇所みつけました。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Myｓｑｌのコンソールが文字化ける(こんなことだった)" />
+<meta name="twitter:description" content="文字コード関連の話。ここ数年文字コードの話ってあるけどさなかなか統一されないよねっていうことと
+設定箇所がまだ乱立してるのが面倒くさい。
+今だとPHP＋apache＋linux＋mysqlの４つそれぞれせってしないといけないもんね。
+んで今回も少しだけとまどったわけなのです。ほんとにちょっとだけよ。
+まぁ、そのときの状態。
+①HTTPの入力・出力・内部処理はUTF-8で画面出力自体は問題なく表示される。
+ツーことはDBには同じ文字コードで入っているはず。
+②コンソール上でクライアント動かしてSQL打っても表示されない。
+ツーことはクライアントの設定かな
+あ、それですね。
+まずはDBの文字コード確認。
+
+mysql&gt; SHOW CREATE DATABASE testdb;
+&#43;----------&#43;-------------------------------------------------------------------&#43;
+| Database | Create Database                                                   |
+&#43;----------&#43;-------------------------------------------------------------------&#43;
+| testdb| CREATE DATABASE `testdb` /*!40100 DEFAULT CHARACTER SET utf8 */ |
+&#43;----------&#43;-------------------------------------------------------------------&#43;
+1 row in set (0.00 sec)
+
+クライアントはどうか
+
+mysql&gt;  SHOW VARIABLES LIKE &#39;character\_set\_%&#39;;
+&#43;--------------------------&#43;--------&#43;
+| Variable_name            | Value  |
+&#43;--------------------------&#43;--------&#43;
+| character_set_client     | latin1|
+| character_set_connection | latin1|
+| character_set_database   | utf8   |
+| character_set_filesystem | binary |
+| character_set_results    | latin1|
+| character_set_server     | latin1|
+| character_set_system     | utf8   |
+&#43;--------------------------&#43;--------&#43;
+7 rows in set (0.00 sec)
+
+グーグルちゃんのおかげで設定すべき箇所みつけました。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Myｓｑｌのコンソールが文字化ける(こんなことだった) - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Myｓｑｌのコンソールが文字化ける(こんなことだった)</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-02-26">February 26, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/db">DB</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>文字コード関連の話。ここ数年文字コードの話ってあるけどさなかなか統一されないよねっていうことと
+設定箇所がまだ乱立してるのが面倒くさい。
+今だとPHP＋apache＋linux＋mysqlの４つそれぞれせってしないといけないもんね。</p>
+<p>んで今回も少しだけとまどったわけなのです。ほんとにちょっとだけよ。</p>
+<p>まぁ、そのときの状態。
+①HTTPの入力・出力・内部処理はUTF-8で画面出力自体は問題なく表示される。
+ツーことはDBには同じ文字コードで入っているはず。
+②コンソール上でクライアント動かしてSQL打っても表示されない。
+ツーことはクライアントの設定かな</p>
+<p>あ、それですね。</p>
+<p>まずはDBの文字コード確認。</p>
+<pre class="brush: bash">
+mysql> SHOW CREATE DATABASE testdb;
++----------+-------------------------------------------------------------------+
+| Database | Create Database                                                   |
++----------+-------------------------------------------------------------------+
+| testdb| CREATE DATABASE `testdb` /*!40100 DEFAULT CHARACTER SET utf8 */ |
++----------+-------------------------------------------------------------------+
+1 row in set (0.00 sec)
+</pre>
+<p>クライアントはどうか</p>
+<pre class="brush: bash">
+mysql>  SHOW VARIABLES LIKE 'character\_set\_%';
++--------------------------+--------+
+| Variable_name            | Value  |
++--------------------------+--------+
+| character_set_client     | latin1|
+| character_set_connection | latin1|
+| character_set_database   | utf8   |
+| character_set_filesystem | binary |
+| character_set_results    | latin1|
+| character_set_server     | latin1|
+| character_set_system     | utf8   |
++--------------------------+--------+
+7 rows in set (0.00 sec)
+</pre>
+<p>グーグルちゃんのおかげで設定すべき箇所みつけました。</p>
+<pre class="brush: text">
+# char set
+default-character-set = utf8
+
+# サーバのエンコードを引き継ぐらしい
+skip-character-set-client-handshake
+</pre>
+<p>設定後の確認</p>
+<pre class="brush: bash">
+mysql>  SHOW VARIABLES LIKE 'character\_set\_%';
++--------------------------+--------+
+| Variable_name            | Value  |
++--------------------------+--------+
+| character_set_client     | utf8   |
+| character_set_connection | utf8   |
+| character_set_database   | utf8   |
+| character_set_filesystem | binary |
+| character_set_results    | utf8   |
+| character_set_server     | utf8   |
+| character_set_system     | utf8   |
++--------------------------+--------+
+7 rows in set (0.00 sec)
+</pre>
+<p>はいおｋ</p>
+<p>�</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

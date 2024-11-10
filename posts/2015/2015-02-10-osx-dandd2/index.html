@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="自作のアプリから他のWindowに画像をドラッグする">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2015/2015-02-10-osx-dandd2/" />
+<meta property="go:description" content="タイトルの通り。たとえば、自作アプリで生成された画像をそのままGitHubにドロップして画像を登録する。
+っていうことをできるようにしたい。だけど前回の記事だとどうしてもドロップする機能が実装できなくて
+困っていたのですができる方法が見つかったので記録しておく。
+結論からいうとNSTableViewをうまく利用することでできるようになった。
+公式ドキュメント
+にもあるのですが、Draggingの操作があらかじめ用意されていてすくない実装で目的のことができるようになります。
+Setup
+NSTableViewは初期化されていることは前提で、それ以外で必要な設定を説明します。
+let types = [NSImage.imagePasteboardTypes()]
+tableView.registerForDraggedTypes(types)
+これはドロップできるデータのデータのタイプを指定します。
+この場合だと画像の種類を指定しています。
+tableView.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)
+これは、ドラッグできる操作の種類、他のWindowにもドラッグできるかどうかも指定できます。
+この場合だとファイルのコピーを他のWindowにドロップします。
+ドラッグの種類はここ
+にすべて記述してあります。
+NSTableViewDataSource
+今回は一つだけ表示できればいいので要素を一つのみ表示する処理をします。
+// MARK: - NSTableViewDataSource
+
+func numberOfRowsInTableView(tableView: NSTableView) -&gt; Int {
+    return 1
+}
+
+func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -&gt; NSView? {
+    var view = tableView.makeViewWithIdentifier(&#34;imageCell&#34;, owner: self) as NSView
+
+    self.entity = Entity()
+    var imageView = view.viewWithTag(1) as NSImageView
+    imageView.image = self.entity.image
+
+    return view
+}
+
+func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -&gt; NSPasteboardWriting? {
+     return self.entity
+}
+データを管理するEntityを作成
+TableViewを扱うというとはCellが必要になってそこに描画するデータが必要になります。
+今回はそのデータを管理するクラスを作成して、そこにドラッグするデータを保持します。
+さらにそのデータをドロップしたときの処理もNSPasteboardWritingを宣言して実装していきます。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="自作のアプリから他のWindowに画像をドラッグする" />
+<meta name="twitter:description" content="タイトルの通り。たとえば、自作アプリで生成された画像をそのままGitHubにドロップして画像を登録する。
+っていうことをできるようにしたい。だけど前回の記事だとどうしてもドロップする機能が実装できなくて
+困っていたのですができる方法が見つかったので記録しておく。
+結論からいうとNSTableViewをうまく利用することでできるようになった。
+公式ドキュメント
+にもあるのですが、Draggingの操作があらかじめ用意されていてすくない実装で目的のことができるようになります。
+Setup
+NSTableViewは初期化されていることは前提で、それ以外で必要な設定を説明します。
+let types = [NSImage.imagePasteboardTypes()]
+tableView.registerForDraggedTypes(types)
+これはドロップできるデータのデータのタイプを指定します。
+この場合だと画像の種類を指定しています。
+tableView.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)
+これは、ドラッグできる操作の種類、他のWindowにもドラッグできるかどうかも指定できます。
+この場合だとファイルのコピーを他のWindowにドロップします。
+ドラッグの種類はここ
+にすべて記述してあります。
+NSTableViewDataSource
+今回は一つだけ表示できればいいので要素を一つのみ表示する処理をします。
+// MARK: - NSTableViewDataSource
+
+func numberOfRowsInTableView(tableView: NSTableView) -&gt; Int {
+    return 1
+}
+
+func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -&gt; NSView? {
+    var view = tableView.makeViewWithIdentifier(&#34;imageCell&#34;, owner: self) as NSView
+
+    self.entity = Entity()
+    var imageView = view.viewWithTag(1) as NSImageView
+    imageView.image = self.entity.image
+
+    return view
+}
+
+func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -&gt; NSPasteboardWriting? {
+     return self.entity
+}
+データを管理するEntityを作成
+TableViewを扱うというとはCellが必要になってそこに描画するデータが必要になります。
+今回はそのデータを管理するクラスを作成して、そこにドラッグするデータを保持します。
+さらにそのデータをドロップしたときの処理もNSPasteboardWritingを宣言して実装していきます。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>自作のアプリから他のWindowに画像をドラッグする - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">自作のアプリから他のWindowに画像をドラッグする</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2015-02-10">February 10, 2015</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/macos">macOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>タイトルの通り。たとえば、自作アプリで生成された画像をそのままGitHubにドロップして画像を登録する。
+っていうことをできるようにしたい。だけど前回の記事だとどうしてもドロップする機能が実装できなくて
+困っていたのですができる方法が見つかったので記録しておく。</p>
+<p>結論からいうと<code>NSTableView</code>をうまく利用することでできるようになった。</p>
+<p><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/index.html#//apple_ref/occ/instm/NSTableViiew">公式ドキュメント</a>
+にもあるのですが、Draggingの操作があらかじめ用意されていてすくない実装で目的のことができるようになります。</p>
+<h3 id="setup">Setup</h3>
+<p><code>NSTableView</code>は初期化されていることは前提で、それ以外で必要な設定を説明します。</p>
+<pre tabindex="0"><code>let types = [NSImage.imagePasteboardTypes()]
+tableView.registerForDraggedTypes(types)
+</code></pre><p>これはドロップできるデータのデータのタイプを指定します。
+この場合だと画像の種類を指定しています。</p>
+<pre tabindex="0"><code>tableView.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)
+</code></pre><p>これは、ドラッグできる操作の種類、他のWindowにもドラッグできるかどうかも指定できます。
+この場合だとファイルのコピーを他のWindowにドロップします。</p>
+<p>ドラッグの種類は<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSDraggingInfo_Protocol/#//apple_ref/c/tdef/NSDragOperation">ここ</a>
+にすべて記述してあります。</p>
+<h3 id="nstableviewdatasource">NSTableViewDataSource</h3>
+<p>今回は一つだけ表示できればいいので要素を一つのみ表示する処理をします。</p>
+<pre tabindex="0"><code>// MARK: - NSTableViewDataSource
+
+func numberOfRowsInTableView(tableView: NSTableView) -&gt; Int {
+    return 1
+}
+
+func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -&gt; NSView? {
+    var view = tableView.makeViewWithIdentifier(&#34;imageCell&#34;, owner: self) as NSView
+
+    self.entity = Entity()
+    var imageView = view.viewWithTag(1) as NSImageView
+    imageView.image = self.entity.image
+
+    return view
+}
+
+func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -&gt; NSPasteboardWriting? {
+     return self.entity
+}
+</code></pre><h3 id="データを管理するentityを作成">データを管理するEntityを作成</h3>
+<p>TableViewを扱うというとはCellが必要になってそこに描画するデータが必要になります。
+今回はそのデータを管理するクラスを作成して、そこにドラッグするデータを保持します。
+さらにそのデータをドロップしたときの処理も<code>NSPasteboardWriting</code>を宣言して実装していきます。</p>
+<pre tabindex="0"><code>Class Entity: NSObject, NSPasteboardWriting {
+
+
+    (..snip..)
+
+
+    var fileURL:NSURL!
+
+    // MARK: - NSPasteboardWriting
+
+    func writableTypesForPasteboard(pasteboard: NSPasteboard!) -&gt; [AnyObject]! {
+        return self.fileURL.writableTypesForPasteboard(pasteboard)
+    }
+
+    func pasteboardPropertyListForType(type: String!) -&gt; AnyObject! {
+        return self.fileURL.pasteboardPropertyListForType(type)
+    }
+
+    func writinOptionsForType(type: String!, pasteboard: NSPasteboard!) -&gt; NSPasteboardWritingOptions {
+        return self.fileURL.writingOptionsForType(type, pasteboard: pasteboard)
+    }
+}
+</code></pre><p>ここではファイルのパスをPasteboardにファイルURLのデータをどの型でどのオブジェクトを返すのかを実装しています。
+NSURLがNSPasteboardWritingの実装をしてくれているのでそのまま返せば問題ありません。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>これで画像をドラッグしてFinder等にドロップして画像を保存することが可能になりました。
+今回は<code>NSTableView</code>を利用して目的を実現できましたが、まわりくどいやりかたしなくてもできそうな気はぬぐいきれないのです。
+単純にNSView側にドラッグとドロップの処理実装できればシンプルになりそうな気がした今日この頃です。それができると信じて
+調査したんだけどリタイヤしたのが前回の記事の話でした。</p>
+<h2 id="参考">参考</h2>
+<p>- <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/index.html#//apple_ref/occ/instm/NSTableViiew">NSTableView</a></p>
+<ul>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSDraggingInfo_Protocol/#//apple_ref/c/tdef/NSDragOperation">NSDragOperation</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSDraggingSession_Class/#//apple_ref/occ/instp/NSDraggingSession/draggingLocation">NSDraggingSession</a></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

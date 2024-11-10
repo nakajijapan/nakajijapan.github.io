@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="objective-C 文字列">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-04-24_1896/" />
+<meta property="go:description" content="NSString：インスタンスを生成した後に文字列を変更できない静的な文字列クラス
+NSMutableString：インスタンスを生成した後も文字列を変更できる動的なクラス
+
+■継承関係
+NSObject
+↓
+NSString
+↓
+NSMutableString
+
+
+■文字列定数
+@”文字列”
+
+
+NSString* str = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数
+NInteger len = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 (int)
+NUInteger len = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 (unsigned int)
+
+
+// copy
+NSString* str = [ NSString stringWithString: @&#34;Hello&#34; ];
+
+// @&#34;hello&#34;という文字列のインスタンスをstrに代入
+NSString* str = @&#34;hello&#34;;
+NSMutableString* str = [ NSMutableString stringWithString: @&#34;hello&#34; ];
+
+// 書式ありの文字列
+int min = 12;
+NSString str = [ NSString stringWithFormat: @&#34;Time : %d&#34;, min ];
+NSString str = [ NSString stringWithFormat: @&#34;Time : %04d&#34;, min ];
+
+// オブジェクトを代入したい場合は「%@」を記述する
+NSString name = @&#34;nakajijapan&#34;;
+NSString str = [ NSString stringWithFormat: @&#34;Time : %@&#34;, name ];
+
+// debug
+//    コンソールに表示される
+NSString name = @&#34;nakajijapan&#34;
+NSLog( @&#34;My name is %@&#34;, name );
+
+
+// 文字列の連結
+NSString* str1 = @&#34;My name is &#34;;
+NSString* str2 = [ str1 stringByAppendingString : @&#34;nakajijapan.&#34; ];
+
+
+
+// 文字列を一部切り出す
+//    NSRangeは「NSUInteger」を持っている
+NSRange range = {1,3};
+NSString* str = [ @&#34;iPhone&#34; substringWithRange : range ];
+
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="objective-C 文字列" />
+<meta name="twitter:description" content="NSString：インスタンスを生成した後に文字列を変更できない静的な文字列クラス
+NSMutableString：インスタンスを生成した後も文字列を変更できる動的なクラス
+
+■継承関係
+NSObject
+↓
+NSString
+↓
+NSMutableString
+
+
+■文字列定数
+@”文字列”
+
+
+NSString* str = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数
+NInteger len = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 (int)
+NUInteger len = [ @&#34;ABC&#34; length ] // &#34;ABC&#34;の文字数 (unsigned int)
+
+
+// copy
+NSString* str = [ NSString stringWithString: @&#34;Hello&#34; ];
+
+// @&#34;hello&#34;という文字列のインスタンスをstrに代入
+NSString* str = @&#34;hello&#34;;
+NSMutableString* str = [ NSMutableString stringWithString: @&#34;hello&#34; ];
+
+// 書式ありの文字列
+int min = 12;
+NSString str = [ NSString stringWithFormat: @&#34;Time : %d&#34;, min ];
+NSString str = [ NSString stringWithFormat: @&#34;Time : %04d&#34;, min ];
+
+// オブジェクトを代入したい場合は「%@」を記述する
+NSString name = @&#34;nakajijapan&#34;;
+NSString str = [ NSString stringWithFormat: @&#34;Time : %@&#34;, name ];
+
+// debug
+//    コンソールに表示される
+NSString name = @&#34;nakajijapan&#34;
+NSLog( @&#34;My name is %@&#34;, name );
+
+
+// 文字列の連結
+NSString* str1 = @&#34;My name is &#34;;
+NSString* str2 = [ str1 stringByAppendingString : @&#34;nakajijapan.&#34; ];
+
+
+
+// 文字列を一部切り出す
+//    NSRangeは「NSUInteger」を持っている
+NSRange range = {1,3};
+NSString* str = [ @&#34;iPhone&#34; substringWithRange : range ];
+
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>objective-C 文字列 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">objective-C 文字列</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-04-24">April 24, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/iphone">iPhone</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>NSString：インスタンスを生成した後に文字列を変更できない静的な文字列クラス
+NSMutableString：インスタンスを生成した後も文字列を変更できる動的なクラス</p>
+<blockquote>
+■継承関係
+NSObject
+↓
+NSString
+↓
+NSMutableString
+</blockquote>
+<blockquote>
+■文字列定数
+@”文字列”
+</blockquote>
+<pre class="brush: c">
+NSString* str = [ @"ABC" length ] // "ABC"の文字数
+NInteger len = [ @"ABC" length ] // "ABC"の文字数 (int)
+NUInteger len = [ @"ABC" length ] // "ABC"の文字数 (unsigned int)
+
+
+// copy
+NSString* str = [ NSString stringWithString: @"Hello" ];
+
+// @"hello"という文字列のインスタンスをstrに代入
+NSString* str = @"hello";
+NSMutableString* str = [ NSMutableString stringWithString: @"hello" ];
+
+// 書式ありの文字列
+int min = 12;
+NSString str = [ NSString stringWithFormat: @"Time : %d", min ];
+NSString str = [ NSString stringWithFormat: @"Time : %04d", min ];
+
+// オブジェクトを代入したい場合は「%@」を記述する
+NSString name = @"nakajijapan";
+NSString str = [ NSString stringWithFormat: @"Time : %@", name ];
+
+// debug
+//    コンソールに表示される
+NSString name = @"nakajijapan"
+NSLog( @"My name is %@", name );
+
+
+// 文字列の連結
+NSString* str1 = @"My name is ";
+NSString* str2 = [ str1 stringByAppendingString : @"nakajijapan." ];
+
+
+
+// 文字列を一部切り出す
+//    NSRangeは「NSUInteger」を持っている
+NSRange range = {1,3};
+NSString* str = [ @"iPhone" substringWithRange : range ];
+
+</pre>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

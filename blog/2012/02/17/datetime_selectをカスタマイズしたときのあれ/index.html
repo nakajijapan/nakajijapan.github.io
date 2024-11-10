@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="datetime_selectをカスタマイズしたときのあれ">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2012/02/17/datetime_select%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%97%E3%81%9F%E3%81%A8%E3%81%8D%E3%81%AE%E3%81%82%E3%82%8C/" />
+<meta property="go:description" content="なんか神経使った。Railsはいちいちつまずく。
+デフォルトだとロケールも英語になっていてなんの問題もないけど、フォーマット変更したり、日本語にしたりするとさらに追加の設定が必要になったのでめも。
+最初はデフォルトのロケールを日本語にしているとエラーが発生してたので調査しました。
+yaml側でどうも解析できていないみたいだったのでboot.rbに明示的に記述を足してライブラリを読み込めるように
+しました。
+
+# confg/application.rb
+config.i18n.default_locale = :ja
+
+
+# config/boot.rb
+require &#39;yaml&#39; # この行を追加
+YAML::ENGINE.yamler= &#39;syck&#39; # この行を追加
+
+そんでもって日付のフォーマットを変更してみる
+
+# config/locale/ja.yml
+ja:
+  date:
+    order: [ :year, :month, :day ]
+  datetime:
+    order: [ :year, :month, :day, :hour, :min ]
+
+
+# views/hoge/_form.html.erb
+&lt;%= f.datetime_select :disp_date, :use_month_numbers =&gt; true %&gt;
+
+うまくいきました。
+■参考URL
+http://stackoverflow.com/questions/7045137/rake-tasks-from-cron-uninitialized-constant-yamlengine" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="datetime_selectをカスタマイズしたときのあれ" />
+<meta name="twitter:description" content="なんか神経使った。Railsはいちいちつまずく。
+デフォルトだとロケールも英語になっていてなんの問題もないけど、フォーマット変更したり、日本語にしたりするとさらに追加の設定が必要になったのでめも。
+最初はデフォルトのロケールを日本語にしているとエラーが発生してたので調査しました。
+yaml側でどうも解析できていないみたいだったのでboot.rbに明示的に記述を足してライブラリを読み込めるように
+しました。
+
+# confg/application.rb
+config.i18n.default_locale = :ja
+
+
+# config/boot.rb
+require &#39;yaml&#39; # この行を追加
+YAML::ENGINE.yamler= &#39;syck&#39; # この行を追加
+
+そんでもって日付のフォーマットを変更してみる
+
+# config/locale/ja.yml
+ja:
+  date:
+    order: [ :year, :month, :day ]
+  datetime:
+    order: [ :year, :month, :day, :hour, :min ]
+
+
+# views/hoge/_form.html.erb
+&lt;%= f.datetime_select :disp_date, :use_month_numbers =&gt; true %&gt;
+
+うまくいきました。
+■参考URL
+http://stackoverflow.com/questions/7045137/rake-tasks-from-cron-uninitialized-constant-yamlengine" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>datetime_selectをカスタマイズしたときのあれ - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">datetime_selectをカスタマイズしたときのあれ</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-02-17">February 17, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ruby">Ruby</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>なんか神経使った。Railsはいちいちつまずく。
+デフォルトだとロケールも英語になっていてなんの問題もないけど、フォーマット変更したり、日本語にしたりするとさらに追加の設定が必要になったのでめも。</p>
+<p>最初はデフォルトのロケールを日本語にしているとエラーが発生してたので調査しました。
+yaml側でどうも解析できていないみたいだったのでboot.rbに明示的に記述を足してライブラリを読み込めるように
+しました。</p>
+<pre class="brush:ruby">
+# confg/application.rb
+config.i18n.default_locale = :ja
+</pre>
+<pre class="brush:ruby">
+# config/boot.rb
+require 'yaml' # この行を追加
+YAML::ENGINE.yamler= 'syck' # この行を追加
+</pre>
+<p>そんでもって日付のフォーマットを変更してみる</p>
+<pre class="brush:ruby">
+# config/locale/ja.yml
+ja:
+  date:
+    order: [ :year, :month, :day ]
+  datetime:
+    order: [ :year, :month, :day, :hour, :min ]
+</pre>
+<pre class="brush:ruby">
+# views/hoge/_form.html.erb
+<%= f.datetime_select :disp_date, :use_month_numbers => true %>
+</pre>
+<p>うまくいきました。</p>
+<p>■参考URL
+<a href="http://stackoverflow.com/questions/7045137/rake-tasks-from-cron-uninitialized-constant-yamlengine">http://stackoverflow.com/questions/7045137/rake-tasks-from-cron-uninitialized-constant-yamlengine</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

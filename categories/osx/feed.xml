@@ -1,0 +1,198 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Osx on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/osx/</link>
+        <description>Recent content in Osx on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Tue, 11 Aug 2020 03:26:18 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/osx/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Izumoのアイコン変えてみた</title>
+            <link>http://nakajijapan.github.io/posts/2020/2020-08-01-izumo/</link>
+            <pubDate>Tue, 11 Aug 2020 03:26:18 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2020/2020-08-01-izumo/</guid>
+            <description>&lt;p&gt;Izumoのアイコン変えてみた&lt;/p&gt;
+&lt;h1 id=&#34;なぜ変えたのか&#34;&gt;なぜ変えたのか&lt;/h1&gt;
+&lt;p&gt;なんとなくひらべったくてどこまでなんなのかわからなかったから。
+・・・・ていうかそこまで理由はないんだけど、なんとなくです。&lt;/p&gt;
+&lt;h1 id=&#34;アイコン&#34;&gt;アイコン&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;before&lt;/th&gt;
+          &lt;th&gt;after&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/08-002.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/08-001.png&#34; alt=&#34;&#34;&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;ファッション&#34;&gt;ファッション&lt;/h1&gt;
+&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);&lt;/script&gt;
+&lt;div class=&#34;suzuri-widget-product&#34; data-suzuri-product-id=&#34;10735076&#34; data-suzuri-item-variant-id=&#34;682&#34;&gt;&lt;a href=&#34;https://suzuri.jp/nakajijapan/4625363/t-shirt/s/mixgray&#34;&gt;&lt;img src=&#34;https://d1q9av5b648rmv.cloudfront.net/v3/323x323/t-shirt/s/mixgray/front/4625363/1597085390-2520x2992.png.jpg?h=b8b0b47f11c420450d722714c37d96e88d95629c&amp;amp;printed=true&#34; width=&#34;323&#34; height=&#34;323&#34;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);&lt;/script&gt;
+&lt;div class=&#34;suzuri-widget-product&#34; data-suzuri-product-id=&#34;10275016&#34; data-suzuri-item-variant-id=&#34;2&#34;&gt;&lt;a href=&#34;https://suzuri.jp/nakajijapan/4438479/t-shirt/s/black&#34;&gt;&lt;img src=&#34;https://d1q9av5b648rmv.cloudfront.net/v3/323x323/t-shirt/s/black/front/4438479/1596104600-2520x2992.png.jpg?h=020b80905e07c84f83b3a82cb0ea2804c3ef0ba0&amp;amp;printed=true&#34; width=&#34;323&#34; height=&#34;323&#34;&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;script&gt;!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=&#34;//suzuri.jp/thirdparty/widgets.js&#34;;js.charset=&#34;utf-8&#34;;fjs.parentNode.insertBefore(js,fjs);}}(document,&#34;script&#34;,&#34;suzuri-widget-script&#34;);&lt;/script&gt;
+&lt;div class=&#34;suzuri-widget-product&#34; data-suzuri-product-id=&#34;10275052&#34; data-suzuri-item-variant-id=&#34;606&#34;&gt;&lt;a href=&#34;https://suzuri.jp/nakajijapan/4438495/sticker/m/white&#34;&gt;&lt;img src=&#34;https://d1q9av5b648rmv.cloudfront.net/v3/323x323/sticker/m/white/4438495/1596104377-1043x1045.png.jpg?h=11a509062d1e166b9d3c6090c3d6a4baaff1970a&amp;amp;printed=true&#34; width=&#34;323&#34; height=&#34;323&#34;&gt;&lt;/a&gt;&lt;/div&gt;</description>
+        </item>
+        
+        <item>
+            <title>Izumo 1.10.0リリースしました。</title>
+            <link>http://nakajijapan.github.io/posts/2020/2020-07-23-izumo/</link>
+            <pubDate>Thu, 23 Jul 2020 22:52:38 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2020/2020-07-23-izumo/</guid>
+            <description>&lt;p&gt;久々にizumoのアップデートです。&lt;/p&gt;
+&lt;h1 id=&#34;アップデート内容&#34;&gt;アップデート内容&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;文字数、行数、作成日、更新日を表示できるようにしました。&lt;/li&gt;
+&lt;li&gt;画像を投稿できるようにしました。
+&lt;ul&gt;
+&lt;li&gt;現状はMacOSのみになっています。&lt;/li&gt;
+&lt;li&gt;iOSでは参照のみになっているけどできるようにするかも&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;画像をドロップして任意のディレクトリにほぞんできるようにしました。&lt;/li&gt;
+&lt;li&gt;ローディング終わらないバグの回収&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;screen-shot&#34;&gt;Screen Shot&lt;/h1&gt;
+&lt;h2 id=&#34;画像保存&#34;&gt;画像保存&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/07-006.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;詳細情報&#34;&gt;詳細情報&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/07-004.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;なぜ&#34;&gt;なぜ&lt;/h1&gt;
+&lt;p&gt;画像を保存できるようにしたのは、ブログを書くときに記事ごとに画像をまとめておきたかったのでできるようにしました。
+あとミーティングのメモを残すときに一時的にiPadで記述した絵とか資料を貼って終了してから参考にして文章をまとめるときに
+見ながら文章を書きたかった経緯があります。詳細情報に関してはブログとか何らかの技術記事書くときに文字数気にするときがあるのでその目安として表示させるようにしました。&lt;/p&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;少し便利になったのでよかったら使っていただければ幸せ〜。
+&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://itunes.apple.com/us/app/izumo/id1281895938?mt=12&#34;&gt;macOS&lt;/a&gt;
+&lt;a href=&#34;https://itunes.apple.com/us/app/izumo/id1281897347?mt=8&#34;&gt;iOS&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;ってブログ書いてたらバグ見つけた&#34;&gt;ってブログ書いてたらバグ見つけた&lt;/h1&gt;
+&lt;p&gt;ダークモードiOSだけ対応してなかったので対応します。。。&lt;/p&gt;
+&lt;p&gt;追記2020/07/27：対応しました。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Izumo Updated to 1.1.1</title>
+            <link>http://nakajijapan.github.io/posts/2018/2018-04-10-izumo-updated-to-1-1-1/</link>
+            <pubDate>Wed, 11 Apr 2018 02:39:40 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2018/2018-04-10-izumo-updated-to-1-1-1/</guid>
+            <description>&lt;p&gt;Izumoアップデートしました。&lt;/p&gt;
+&lt;p&gt;改善内容は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;いくつかのマークダウン形式のハイライトをサポートしました。&lt;/li&gt;
+&lt;li&gt;テキスト編集に対する設定を変更できるようにしました。
+&lt;ul&gt;
+&lt;li&gt;自動インデントに対応しました。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-04-001.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ショートカットもなんこか追加しました。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-04-002.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;タブをスペースに変更できるようにしました。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-04-003.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;てな感じです。&lt;/p&gt;
+&lt;h2 id=&#34;今後の予定&#34;&gt;今後の予定&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ボールドの色・デザインを変更&lt;/li&gt;
+&lt;li&gt;ショートカットキーの追加&lt;/li&gt;
+&lt;li&gt;アンドゥ機能&lt;/li&gt;
+&lt;li&gt;Deleteタグ&lt;/li&gt;
+&lt;/ul&gt;</description>
+        </item>
+        
+        <item>
+            <title>Izumo - markdown note tool - をリリースしました。</title>
+            <link>http://nakajijapan.github.io/posts/2018/2018-03-25-izumo-released/</link>
+            <pubDate>Sun, 25 Mar 2018 17:58:22 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2018/2018-03-25-izumo-released/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-03-25-01.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;izumo-just-released&#34;&gt;Izumo Just Released!!!!&lt;/h1&gt;
+&lt;p&gt;先日、&lt;code&gt;Izumo - markdown note tool&lt;/code&gt;のmacOS版をリリースしました。&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;ja&#34; dir=&#34;ltr&#34;&gt;一年越しの個人アプリ。長かったわー&lt;a href=&#34;https://t.co/qbI5qij8Aw&#34;&gt;https://t.co/qbI5qij8Aw&lt;/a&gt;&lt;/p&gt;&amp;mdash; The old man (@nakajijapan) &lt;a href=&#34;https://twitter.com/nakajijapan/status/973369093049864192?ref_src=twsrc%5Etfw&#34;&gt;2018年3月13日&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;そして、本日iOS版もリリースすることになりました。簡単に説明するとマルチデバイスで同期可能なマークダウン用のノートアプリです。&lt;/p&gt;
+&lt;h2 id=&#34;izumoの説明&#34;&gt;Izumoの説明&lt;/h2&gt;
+&lt;p&gt;Izumo is とてもシンプルなマークダウン専用メモアプリです。
+AppleIDを持っていれば、いろんなデバイスでデータの共有ができるようになります。
+macOSアプリ専用のアプリ、Izumoをを利用すればPCでもnoteの編集・保存ができます。
+無料で全ての機能が利用できます。&lt;/p&gt;
+&lt;h2 id=&#34;機能&#34;&gt;機能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;マークダウンをサポート&lt;/li&gt;
+&lt;li&gt;フォントスタイルの調整&lt;/li&gt;
+&lt;li&gt;iCloudを利用してMacアプリとバックグラウンドで同期ができる
+&lt;ul&gt;
+&lt;li&gt;（あらかじめApple IDでログインしておく必要があります）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;多くのメモから特定のメモを検索することができます。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;おすすめする人&#34;&gt;おすすめする人&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;テキストリッチにはしなくていいけどマークダウンでメモをしたい人&lt;/li&gt;
+&lt;li&gt;いろんなデバイスでnoteを編集・保存したい人&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;早速ですが、よかったら使ってください。。。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#39;https://itunes.apple.com/us/app/izumo/id1281895938?mt=12&#39;&gt;&lt;img src=&#34;http://izumo.nakajijapan.net/images/download.svg&#34; width=auto height=&#34;52&#34; /&gt;&lt;/a&gt;
+&lt;a href=&#39;https://itunes.apple.com/jp/app/izumo/id1281897347?mt=8&#39;&gt;&lt;img src=&#34;http://izumo.nakajijapan.net/images/download-ios.svg&#34; width=auto height=&#34;52&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;izumo&#34;&gt;Izumo?&lt;/h1&gt;
+&lt;p&gt;マルチデバイス対応　⏩　クラウド　⏩　雲　⏩　出雲　⏩　Izumo!&lt;/p&gt;
+&lt;p&gt;特にひねりもなく。。。&lt;/p&gt;
+&lt;h1 id=&#34;なぜ作ったのか&#34;&gt;なぜ作ったのか&lt;/h1&gt;
+&lt;p&gt;世の中には様々なノートツールがあります。Appleのnotesを筆頭にBear,DayOne,CotEditorなどがあげられるかと思います。
+しかしながら、自分に最適なツールはありませんでした。何が不満だったかというと、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;なるべくシンプルなやつ〜&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;マークダウン表現をリッチにせずにただ色づけされされる&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;マルチデバイス対応（同期ができる）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;とい自分の個人アプリでここまでかかったのうことで、ないなら作ろうと思って作ってみました。ということで2017年3月くらいか構想やら実験やらを初めて今に至ります。&lt;/p&gt;
+&lt;h1 id=&#34;やったこと&#34;&gt;やったこと&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;CloudKitを利用したデータ同期
+&lt;ul&gt;
+&lt;li&gt;データ同期・ネットワーク周りの実装・テストはなかなか大変だ。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;文章のリアルタイム編集
+&lt;ul&gt;
+&lt;li&gt;Markdownに変換してくれるライブラリはあるもののリアルタイムに変換してくれるものはなかったので自前で実装。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;以前に調査したやつ&#34;&gt;以前に調査したやつ&lt;/h3&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;d8e6af5394f545f5be9c42d9b19fde2f&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;8680d4d00aa80132acd15e86903014cd&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;h1 id=&#34;最後に&#34;&gt;最後に&lt;/h1&gt;
+&lt;p&gt;初めて同じプロダクトで両方のデバイスをサポートしたのは初めててで、ものすごく苦労することが多かったのですが、なんとか無事リリースできたのでとりあえずはよかったです。。。一年という期間は個人アプリを作る中であまりにも長い期間でモチベーションを上げ続けるにはものすごく辛い期間だったかなと思います。どれだけ他のアプリ使おっかなと思ったことか。せっかくここまでできたからといつも心に秘めてなんとか持ちこたえられました。
+リリースしたと言ってもまだまだバグがあるしやることはあるのでゆっくりと広い心で見守っていただければと思います。
+もし、僕もこういうの欲しかった。バグ直して欲しい。僕のことが何を持ってか好きな方がいれば、支援していただければと思います。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

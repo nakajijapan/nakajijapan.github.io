@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="札幌Ruby会議２０１２に参加してきました。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2012/09/19/%E6%9C%AD%E5%B9%8Cruby%E4%BC%9A%E8%AD%B0%EF%BC%92%EF%BC%90%EF%BC%91%EF%BC%92%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%BE%E3%81%97%E3%81%9F/" />
+<meta property="go:description" content="
+今回初めてではありますが、札幌Ruby会議２０１２という
+Rubyのカンファレンスに参加してきました。
+１日目
+相澤 歩 &#34;Heroku&#34;
+Herokuはあんまり日本サポートしないのかね。
+そもそもあんまり使っておりませぬが！！
+url
+
+http://sapporo.rubykaigi.org/2012/ja/schedule/details/R01.html
+
+井原 正博 &#34;クックパッドのつくりかた&#34;
+概要にもありますが、技術的な話というよりかは開発を裏側で支えるための組織作りについて
+話されていました。これ、自分、だいぶ意識たかくなりましたね。崇志！
+印象に残ったのが
+
+  やりたいことをやりましょう！！！！！！！
+
+の言葉です。ただこれだけ言われたとしても何の説得力もありませんが井原さんの話を総じて聞い
+ていたらすごい納得しました。
+あ、web進化論読んでなかったからよんでみる。
+井原 正博 &#34;クックパッドのつくりかた&#34;
+３日目
+柴田博志 &#34;Ruby の世界の継続的デリバリ&#34;
+弊社の技術基盤整備エンジニアの柴田さん発表でした。
+継続的○○！
+
+意識が低くても大丈夫な仕組み
+確実なフィードバックと改善を行える仕組み
+サイクルタイムの短縮と継続した価値の提供
+
+北海道メモ
+
+八雲町のケンタッキーがうまい  
+新得町のそばがうまい  
+小樽の鶏がうまい
+
+自分たちにとってリリースとはなんなんだろう
+みんなで話し合ってみよう
+url
+http://www.hsbt.org/diary/20120916.html
+村田賢太 &#34;分散 RSpec&#34;
+肥大化？したプログラムのテストは時間かかりまくり！！
+いろいろ改善してテストの時間を短縮してみた的なお話。
+スペックファイルが7500以上ものテストって全然想像できないんですけど
+このぐらいの規模になってくるとテストもちゃんと負荷分散してかないと
+速いサイクル開発ができなくなってくるのですな。ただただ関心しておりました。
+url
+
+http://mrkn.hatenablog.com/entry/2012/09/16/143941
+
+白土 慧 &#34;Spree で約3ヶ月でイチからEコマースサービスを作るまで&#34;
+ECサイトをSpreeで開発を行いました！以前はPHPでは作成されていて、発表者が
+Rails＋Spreeで再構築したようです。そのときの苦労話や心構え。まだちゃんと
+ソース読まないと本来のSpreeの力が発揮できない（ヒントがソースやソースのコメントあったり
+するらしいです）！巨人がどうできているかを理解する！！
+spreeメモ
+
+https://github.com/spree/spree  
+railsのengineで利用されている  
+実際コード読まないとわからない・・・  
+1.1.0 -&gt; 1.2.0で仕組みがらっとかわった
+
+テスト
+
+spreeのモデルでモックを作るのはすごい大変-&gt;インテグレーションテストを行っている  
+開発、spreeの仕様・構造で足引っ張られる？  
+どんどん鳴らし、そしてspreeから話していってる  
+ある部分からモデルを作成してからそれにひもづくものを  
+テーブル構造・設計を学んでいくのは大切でその仕様に耐えうるビジネスなのか、それを利用すべきものなのかしっかり考えてから導入するべき
+
+角谷 信太郎 &#34;DCI and the application builds our mental models&#34;
+DCI (Data, Context and Interaction)
+
+オブジェクト指向アプリケーションに対する「パラダイム」のひとつ
+
+url
+
+http://kakutani.com/20120916.html#p01
+
+ちょっと勉強不足のせいかあまり、理解できませんでした。。。肥大かしたモデルに対して解決する一つのアプローチ！！
+それがData, Context, Interaction。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="札幌Ruby会議２０１２に参加してきました。" />
+<meta name="twitter:description" content="
+今回初めてではありますが、札幌Ruby会議２０１２という
+Rubyのカンファレンスに参加してきました。
+１日目
+相澤 歩 &#34;Heroku&#34;
+Herokuはあんまり日本サポートしないのかね。
+そもそもあんまり使っておりませぬが！！
+url
+
+http://sapporo.rubykaigi.org/2012/ja/schedule/details/R01.html
+
+井原 正博 &#34;クックパッドのつくりかた&#34;
+概要にもありますが、技術的な話というよりかは開発を裏側で支えるための組織作りについて
+話されていました。これ、自分、だいぶ意識たかくなりましたね。崇志！
+印象に残ったのが
+
+  やりたいことをやりましょう！！！！！！！
+
+の言葉です。ただこれだけ言われたとしても何の説得力もありませんが井原さんの話を総じて聞い
+ていたらすごい納得しました。
+あ、web進化論読んでなかったからよんでみる。
+井原 正博 &#34;クックパッドのつくりかた&#34;
+３日目
+柴田博志 &#34;Ruby の世界の継続的デリバリ&#34;
+弊社の技術基盤整備エンジニアの柴田さん発表でした。
+継続的○○！
+
+意識が低くても大丈夫な仕組み
+確実なフィードバックと改善を行える仕組み
+サイクルタイムの短縮と継続した価値の提供
+
+北海道メモ
+
+八雲町のケンタッキーがうまい  
+新得町のそばがうまい  
+小樽の鶏がうまい
+
+自分たちにとってリリースとはなんなんだろう
+みんなで話し合ってみよう
+url
+http://www.hsbt.org/diary/20120916.html
+村田賢太 &#34;分散 RSpec&#34;
+肥大化？したプログラムのテストは時間かかりまくり！！
+いろいろ改善してテストの時間を短縮してみた的なお話。
+スペックファイルが7500以上ものテストって全然想像できないんですけど
+このぐらいの規模になってくるとテストもちゃんと負荷分散してかないと
+速いサイクル開発ができなくなってくるのですな。ただただ関心しておりました。
+url
+
+http://mrkn.hatenablog.com/entry/2012/09/16/143941
+
+白土 慧 &#34;Spree で約3ヶ月でイチからEコマースサービスを作るまで&#34;
+ECサイトをSpreeで開発を行いました！以前はPHPでは作成されていて、発表者が
+Rails＋Spreeで再構築したようです。そのときの苦労話や心構え。まだちゃんと
+ソース読まないと本来のSpreeの力が発揮できない（ヒントがソースやソースのコメントあったり
+するらしいです）！巨人がどうできているかを理解する！！
+spreeメモ
+
+https://github.com/spree/spree  
+railsのengineで利用されている  
+実際コード読まないとわからない・・・  
+1.1.0 -&gt; 1.2.0で仕組みがらっとかわった
+
+テスト
+
+spreeのモデルでモックを作るのはすごい大変-&gt;インテグレーションテストを行っている  
+開発、spreeの仕様・構造で足引っ張られる？  
+どんどん鳴らし、そしてspreeから話していってる  
+ある部分からモデルを作成してからそれにひもづくものを  
+テーブル構造・設計を学んでいくのは大切でその仕様に耐えうるビジネスなのか、それを利用すべきものなのかしっかり考えてから導入するべき
+
+角谷 信太郎 &#34;DCI and the application builds our mental models&#34;
+DCI (Data, Context and Interaction)
+
+オブジェクト指向アプリケーションに対する「パラダイム」のひとつ
+
+url
+
+http://kakutani.com/20120916.html#p01
+
+ちょっと勉強不足のせいかあまり、理解できませんでした。。。肥大かしたモデルに対して解決する一つのアプローチ！！
+それがData, Context, Interaction。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>札幌Ruby会議２０１２に参加してきました。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">札幌Ruby会議２０１２に参加してきました。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-09-19">September 19, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><img src="http://blog.nakajijapan.net/wp-content/uploads/2012/09/-e1348065456150.jpg" alt="札幌Ruby会議2012" title="札幌Ruby会議2012" class="aligncenter size-full wp-image-3383" /></p>
+<p>今回初めてではありますが、<a href="http://sapporo.rubykaigi.org/2012/ja/index.html">札幌Ruby会議２０１２</a>という<br />
+Rubyのカンファレンスに参加してきました。</p>
+<h1>１日目</h1>
+<h2>相澤 歩 "Heroku"</h2>
+<p>Herokuはあんまり日本サポートしないのかね。</p>
+<p>そもそもあんまり使っておりませぬが！！</p>
+<h3>url</h3>
+<ul>
+<li>http://sapporo.rubykaigi.org/2012/ja/schedule/details/R01.html</li>
+</ul>
+<h2>井原 正博 "クックパッドのつくりかた"</h2>
+<p>概要にもありますが、技術的な話というよりかは開発を裏側で支えるための組織作りについて
+話されていました。これ、自分、だいぶ意識たかくなりましたね。崇志！</p>
+<p>印象に残ったのが</p>
+<blockquote>
+  <p>やりたいことをやりましょう！！！！！！！</p>
+</blockquote>
+<p>の言葉です。ただこれだけ言われたとしても何の説得力もありませんが井原さんの話を総じて聞い
+ていたらすごい納得しました。</p>
+<p>あ、web進化論読んでなかったからよんでみる。</p>
+<h2>井原 正博 "クックパッドのつくりかた"</h2>
+<h1>３日目</h1>
+<h2>柴田博志 "Ruby の世界の継続的デリバリ"</h2>
+<p>弊社の技術基盤整備エンジニアの柴田さん発表でした。</p>
+<h3>継続的○○！</h3>
+<ul>
+<li>意識が低くても大丈夫な仕組み</li>
+<li>確実なフィードバックと改善を行える仕組み</li>
+<li>サイクルタイムの短縮と継続した価値の提供</li>
+</ul>
+<h3>北海道メモ</h3>
+<ul>
+<li>八雲町のケンタッキーがうまい  </li>
+<li>新得町のそばがうまい  </li>
+<li>小樽の鶏がうまい</li>
+</ul>
+<p>自分たちにとってリリースとはなんなんだろう<br />
+みんなで話し合ってみよう</p>
+<h3>url</h3>
+<p>http://www.hsbt.org/diary/20120916.html</p>
+<h2>村田賢太 "分散 RSpec"</h2>
+<p>肥大化？したプログラムのテストは時間かかりまくり！！
+いろいろ改善してテストの時間を短縮してみた的なお話。</p>
+<p>スペックファイルが7500以上ものテストって全然想像できないんですけど
+このぐらいの規模になってくるとテストもちゃんと負荷分散してかないと
+速いサイクル開発ができなくなってくるのですな。ただただ関心しておりました。</p>
+<h3>url</h3>
+<ul>
+<li>http://mrkn.hatenablog.com/entry/2012/09/16/143941</li>
+</ul>
+<h2>白土 慧 "Spree で約3ヶ月でイチからEコマースサービスを作るまで"</h2>
+<p>ECサイトをSpreeで開発を行いました！以前はPHPでは作成されていて、発表者が
+Rails＋Spreeで再構築したようです。そのときの苦労話や心構え。まだちゃんと
+ソース読まないと本来のSpreeの力が発揮できない（ヒントがソースやソースのコメントあったり
+するらしいです）！巨人がどうできているかを理解する！！</p>
+<h3>spreeメモ</h3>
+<ul>
+<li>https://github.com/spree/spree  </li>
+<li>railsのengineで利用されている  </li>
+<li>実際コード読まないとわからない・・・  </li>
+<li>1.1.0 -> 1.2.0で仕組みがらっとかわった</li>
+</ul>
+<h3>テスト</h3>
+<ul>
+<li>spreeのモデルでモックを作るのはすごい大変->インテグレーションテストを行っている  </li>
+<li>開発、spreeの仕様・構造で足引っ張られる？  </li>
+<li>どんどん鳴らし、そしてspreeから話していってる  </li>
+<li>ある部分からモデルを作成してからそれにひもづくものを  </li>
+<li>テーブル構造・設計を学んでいくのは大切でその仕様に耐えうるビジネスなのか、それを利用すべきものなのかしっかり考えてから導入するべき</li>
+</ul>
+<h2>角谷 信太郎 "DCI and the application builds our mental models"</h2>
+<h3>DCI (Data, Context and Interaction)</h3>
+<ul>
+<li>オブジェクト指向アプリケーションに対する「パラダイム」のひとつ</li>
+</ul>
+<h3>url</h3>
+<ul>
+<li>http://kakutani.com/20120916.html#p01</li>
+</ul>
+<p>ちょっと勉強不足のせいかあまり、理解できませんでした。。。肥大かしたモデルに対して解決する一つのアプローチ！！
+それがData, Context, Interaction。</p>
+<h1>まとめ</h1>
+<p>ちょっと視野を広げてみたらこんなにもみなさんが違う状況、立場、ステージでコードを書いているんだと身にしみました。
+Aboutに以下のようなことが記述されていたように自分もいろいろ思うところがあり、大変考えさせる３日間です！</p>
+<p>とはいえ、自分がまだまだ勉強不足なところも露呈したのでもっと勉強していこう。</p>
+<blockquote>
+  <p>誰とコードを書いているのか、どうしてコードを書いているのか、どうやってコードを書いているのか。
+  カンファレンスから帰るときに、参加した人たちが自分にとってのコードを書くという活動について、いろんなことを
+  感じながら帰ってもらえるような、そんな場所にしたいと考えています。</p>
+  <p>http://sapporo.rubykaigi.org/2012/ja/about.html</p>
+</blockquote>
+<p>最後に、このような貴重な経験をさせいただきましてありがとうがざいました！また参加します！</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

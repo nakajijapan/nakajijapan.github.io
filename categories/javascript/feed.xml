@@ -1,0 +1,779 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Javascript on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/javascript/</link>
+        <description>Recent content in Javascript on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sun, 09 Jun 2013 16:07:00 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/javascript/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>RailsでBowerの導入</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-06-09-install-bower/</link>
+            <pubDate>Sun, 09 Jun 2013 16:07:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-06-09-install-bower/</guid>
+            <description>&lt;p&gt;javascriptのパッケージ管理がしたくて&lt;code&gt;bower&lt;/code&gt;というパッケージ管理ツールをhttp://www.frustration.me にインストールしてみました。
+(ブランチ切って試してみました・・・)&lt;/p&gt;
+&lt;p&gt;とりあえず、バージョンが古いので最新のものにインストールします。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ node -v 
+v0.6.19
+
+
+$ brew install node
+
+==&amp;gt; Upgrading 1 outdated package, with result:
+node 0.10.7
+==&amp;gt; Upgrading node
+Beginning with 0.8.0, this recipe now comes with npm.
+It appears you already have npm installed at /usr/local/lib/node_modules/npm.
+To use the npm that comes with this recipe, first uninstall npm with
+`npm uninstall npm -g`, then run this command again.
+
+If you would like to keep your installation of npm instead of
+using the one provided with homebrew, install the formula with
+the `--without-npm` option.
+Error: An unsatisfied requirement failed this build.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;npm をまずアンインストールしてほしいとのこと&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>自作でモーダル画面つくってみた</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-03-13_3599/</link>
+            <pubDate>Wed, 13 Mar 2013 08:02:16 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-03-13_3599/</guid>
+            <description>&lt;p&gt;世の中にはごまんとそういうプラグイン的なものあるけど、自分用にごにょごにょしたいのと勉強がてら作成してみました。&lt;/p&gt;
+&lt;p&gt;用意するものとしては以下の通りです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jquery.js(1.9.1)&lt;/li&gt;
+&lt;li&gt;TwitterBootStrap(1.3)
+&lt;ul&gt;
+&lt;li&gt;form.css(フォーム関係一式あれば大丈夫)&lt;/li&gt;
+&lt;li&gt;bootstrap.jp&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;html&lt;/h2&gt;
+&lt;pre class=&#34;brush:html&#34;&gt;
+&lt;h1&gt;テスト&lt;/h1&gt;
+&lt;button onClick=&#34;$(&#39;#create_fuman&#39;).SimpleModal().open();&#34; id=&#39;show_modal&#39;&gt;ほげ&lt;/button&gt;
+
+&lt;div class=&#34;modal_conteiner&#34; id=&#34;create_fuman&#34;&gt;
+  &lt;div class=&#34;header&#34;&gt;
+    &lt;h2&gt;Add&lt;/h2&gt;
+    &lt;a href=&#34;#&#34; class=&#34;right&#34; onclick=&#34;next();&#34;&gt;
+      &lt;div&gt;X&lt;/div&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;body&#34;&gt;
+
+    &lt;h4&gt;Status&lt;/h4&gt;
+    &lt;div class=&#34;btn-group&#34; data-toggle=&#34;buttons-radio&#34;&gt;
+      &lt;button type=&#34;button&#34; class=&#34;btn btn-primary&#34;&gt;ほしいよ&lt;/button&gt;
+      &lt;button type=&#34;button&#34; class=&#34;btn btn-primary&#34;&gt;もっている&lt;/button&gt;
+      &lt;button type=&#34;button&#34; class=&#34;btn btn-primary&#34;&gt;もっている&lt;/button&gt;
+      &lt;button type=&#34;button&#34; class=&#34;btn btn-primary&#34;&gt;もっている&lt;/button&gt;
+      &lt;button type=&#34;button&#34; class=&#34;btn btn-primary&#34;&gt;もっている&lt;/button&gt;
+      &lt;button type=&#34;button&#34; class=&#34;btn btn-primary&#34;&gt;いらない&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;h4&gt;Category&lt;/h4&gt;
+    &lt;div&gt;
+      &lt;select id=&#34;category&#34; name=&#34;category&#34;&gt;&lt;option value=&#34;1&#34;&gt;name_0&lt;/option&gt;
+      &lt;option value=&#34;2&#34;&gt;name_1&lt;/option&gt;
+      &lt;option value=&#34;3&#34;&gt;name_2&lt;/option&gt;
+      &lt;option value=&#34;4&#34;&gt;name_3&lt;/option&gt;
+      &lt;option value=&#34;5&#34;&gt;name_4&lt;/option&gt;
+      &lt;option value=&#34;6&#34;&gt;name_5&lt;/option&gt;
+      &lt;option value=&#34;7&#34;&gt;name_6&lt;/option&gt;
+      &lt;option value=&#34;8&#34;&gt;name_7&lt;/option&gt;
+      &lt;option value=&#34;9&#34;&gt;name_8&lt;/option&gt;
+      &lt;option value=&#34;10&#34;&gt;name_9&lt;/option&gt;&lt;/select&gt;
+    &lt;/div&gt;
+    &lt;br /&gt;
+    &lt;div class=&#34;actions&#34;&gt;
+      &lt;button class=&#34;btn create&#34; data-product_code=&#34;B00AFEG4IS&#34; name=&#34;button&#34; type=&#34;button&#34;&gt;登録する&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;footer&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;modal_overlay&#34; class=&#34;visible&#34;&gt;&lt;/div&gt;
+
+&lt;/pre&gt;
+&lt;h2&gt;css&lt;/h2&gt;
+&lt;pre class=&#34;brush:css&#34;&gt;
+.modal_conteiner {
+  display: none;
+  position: fixed;
+  z-index: 1025;
+  left: 50%;
+  top: 50%;
+  width: 550px;
+  height: 350px;
+
+  margin-left: -300px;
+  margin-top: -150px;
+
+  padding: 0px;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 0px 0px 10px #333;
+  border-radius: 6px;
+  over-flow: auto;
+
+}
+.modal_conteiner .header{
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #DDD;
+  background-color: whitesmoke;
+}
+.modal_conteiner .header a.right{
+  border-radius: 0 6px 0 0;
+  position: absolute;
+  z-index: 1;
+  top:     0px;
+  right:   0;
+  bottom:  0;
+  display: block;
+  width:   60px;
+  height:  60px;
+
+  font-size: 20px;
+
+  border-left: 1px solid rgba(34, 25, 25, 0.15);
+  box-shadow: inset 0 1px 2px white;
+  /* text-indent: -9999px; */
+}
+.modal_conteiner .header a:hover.right{
+  background-color: #ddd;
+}
+.modal_conteiner .header a.right div{
+  text-align: center;
+  top: 10px;
+  position: relative;
+  font-size: 30px;
+}
+.modal_conteiner .header h2{
+  height:  50px;
+  margin: 0;
+  padding: 10px 0 0 10px;
+}
+
+.modal_conteiner .body{
+  margin: 10px;
+  top: -10px;
+  position: relative;
+  padding-top: 10px
+}
+.modal_conteiner .body .btn-group &gt; .btn {
+  height: 50px;
+}
+.modal_conteiner .footer{
+
+}
+#modal_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  opacity: 0.85;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  filter: alpha(opacity=80);
+}
+#modal_overlay.visible{
+  display: none;
+}
+&lt;/pre&gt;
+&lt;h2&gt;javascript&lt;/h2&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+//----------------------------------------------
+// モーダル画面の表示
+//----------------------------------------------
+(function($) {
+  $.SimpleModal = function(element, options) {
+
+      var defaults = {
+        target: &#39;&#39;,
+        continue_overlay: false,
+        close_callback: function() {}
+      }
+      var plugin = this;
+      plugin.options = $.fn.extend(defaults, options);
+
+      //---------------------------
+      // init
+      //---------------------------
+      plugin.init = function() {
+        _this = element;
+        return plugin;
+      }
+
+      //---------------------------
+      // close
+      //---------------------------
+      plugin.close = function() {
+        // init
+        options = plugin.options;
+
+        var callback = function(){};
+        if(options.continue_overlay == false) {
+          callback = function(){
+            $(&#39;#modal_overlay&#39;).fadeOut(1000, options.close_callback);
+          }
+        }
+        else {
+          callback = options.close_callback;
+        }
+
+        $(_this).animate({top: &#34;+=300px&#34;, opacity: 0}, 500,
+          function(){
+            setTimeout(function(){
+              callback();
+            }, 1000);
+          }
+        )
+        .animate({top: &#34;-1000px&#34;}, 0);
+
+        return this;
+      }
+
+      //---------------------------
+      // cancel
+      //---------------------------
+      plugin.cancel = function() {
+        // init
+        options = plugin.options;
+
+        var callback = function(){
+          $(&#39;#modal_overlay&#39;).fadeOut(1000, options.close_callback);
+        }
+
+        $(_this).animate({top: &#34;-=300px&#34;, opacity: 0}, 500, callback).animate({top: &#34;-1000px&#34;}, 0);;
+        console.log(&#39;delay&#39;);
+
+        return this;
+      }
+
+      //---------------------------
+      // open
+      //---------------------------
+      plugin.open = function() {
+        // init
+        options = plugin.options;
+
+        $(this).css(&#39;opacity&#39;, 0);
+
+        if(options.continue_overlay == false) {
+          $(&#39;#modal_overlay&#39;).fadeIn(300, function(){
+            $(_this).css({&#39;display&#39;: &#39;block&#39;, top: &#39;-100px&#39;});
+            $(_this).animate({top: &#34;50%&#34;, opacity: 1}, 500);
+          });
+        }
+        else {
+          $(_this).css({&#39;display&#39;: &#39;block&#39;, top: &#39;-100px&#39;});
+          $(_this).animate({top: &#34;50%&#34;, opacity: 1}, 500);
+        }
+      }
+
+      plugin.init();
+  }
+
+  $.fn.SimpleModal = function(options) {
+    var plugin = new $.SimpleModal(this, options);
+    plugin.init();
+    return plugin;
+  }
+})(jQuery);
+&lt;/pre&gt;
+&lt;h2&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;こんな感じで完成。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Maintainable Javascript読んだ（Part2）</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-02-04_3579/</link>
+            <pubDate>Mon, 04 Feb 2013 02:25:31 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-02-04_3579/</guid>
+            <description>&lt;div class=&#34;booklog_html&#34;&gt;&lt;div class=&#34;booklog_html_image&#34; style=&#34;float:left;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Maintainable-Javascript-Nicholas-C-Zakas/dp/1449327680%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449327680&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51ALZ8tWE8L._SL160_.jpg&#34; width=&#34;113&#34; height=&#34;150&#34; style=&#34;border:0;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_info&#34; style=&#34;float:left;margin-left:10px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:5px;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Maintainable-Javascript-Nicholas-C-Zakas/dp/1449327680%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449327680&#34; target=&#34;_blank&#34;&gt;Maintainable Javascript&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;font-size:80%;&#34;&gt;&lt;a href=&#34;http://booklog.jp/author/Nicholas+C.+Zakas&#34; target=&#34;_blank&#34;&gt;Nicholas C. Zakas&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;font-size:80%;&#34;&gt;Oreilly &amp; Associates Inc&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:80%;&#34;&gt;発売日：2012-05-31&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34; style=&#34;margin-bottom:10px;font-size:80%;&#34;&gt;&lt;a href=&#34;http://booklog.jp/item/1/1449327680&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_fotter&#34; style=&#34;clear:left;&#34;&gt;&lt;/div&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;h1&gt;Programing Practice&lt;/h1&gt;
+&lt;p&gt;前回の続きです。今回はPart2のメモ。
+実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。&lt;/p&gt;
+&lt;h2&gt;Event Handling&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;アプリケーションのロジックときり分けよう！&lt;/li&gt;
+&lt;li&gt;Don&#39;t Pass the Event Object Around(略せなかった・・・)
+&lt;ul&gt;
+&lt;li&gt;アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない&lt;/li&gt;
+&lt;li&gt;処理の透過性が悪くなるし、テストしにくいんだよ！
+イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Avoid Null Comparisons&lt;/h2&gt;
+&lt;h3&gt;Detecting Reference Values&lt;/h3&gt;
+&lt;p&gt;*どれもobjectが返るから注意&lt;/p&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+console.log(typeof {}); // &#34;object&#34;
+console.log(typeof []); // &#34;object&#34;
+console.log(typeof new Date()); // &#34;object&#34;
+console.log(typeof new RegExp()); // &#34;object&#34;
+console.log(typeof null); // &#34;object&#34;
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;チェックはインスタンスを見るといい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+if (hoge instance Date) {
+  // do something
+}
+if (hoge instance Error) {
+  throw value;
+}
+&lt;/pre&gt;
+&lt;h3&gt;Detecting Arrays&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Array.isArray()&lt;/code&gt;ていう便利メソッドがあるけど対応しているブラウザがまだ最新なので
+昔のブラウザを補完した実装がいいよね！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Maintainable Javascriptを読んだ</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-01-07_3564/</link>
+            <pubDate>Mon, 07 Jan 2013 00:36:05 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-01-07_3564/</guid>
+            <description>&lt;div class=&#34;booklog_html&#34;&gt;&lt;div class=&#34;booklog_html_image&#34; style=&#34;float:left;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Maintainable-Javascript-Nicholas-C-Zakas/dp/1449327680%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449327680&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51ALZ8tWE8L._SL160_.jpg&#34; width=&#34;113&#34; height=&#34;150&#34; style=&#34;border:0;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_info&#34; style=&#34;float:left;margin-left:10px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:5px;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Maintainable-Javascript-Nicholas-C-Zakas/dp/1449327680%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449327680&#34; target=&#34;_blank&#34;&gt;Maintainable Javascript&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;font-size:80%;&#34;&gt;&lt;a href=&#34;http://booklog.jp/author/Nicholas+C.+Zakas&#34; target=&#34;_blank&#34;&gt;Nicholas C. Zakas&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;font-size:80%;&#34;&gt;Oreilly &amp; Associates Inc&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:80%;&#34;&gt;発売日：2012-05-31&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34; style=&#34;margin-bottom:10px;font-size:80%;&#34;&gt;&lt;a href=&#34;http://booklog.jp/item/1/1449327680&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_fotter&#34; style=&#34;clear:left;&#34;&gt;&lt;/div&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;p&gt;javascriptは以前からいろいろ実装していたものの、なんとは無しに実装していたが運用しやすいコードってどんなもんだろうな。どういう気概でやってるのだろうと思ってこの本を読んでみました。&lt;/p&gt;
+&lt;p&gt;だいたい大きく纏めると&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Style Guidlines&lt;/li&gt;
+&lt;li&gt;Programming Practice&lt;/li&gt;
+&lt;li&gt;Automation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;で構成されています。今回はその「Style Guildlines」についてぼやいていこうと思います。
+だいたい言っていることは他の言語でも通ずるところがあったのでしっくり腹に落とし込めた気がします。あと、「Style Guidlines」に関してはおすすめだけじゃなくてなんでこういう書き方いいのかを説明されているので納得いくものがありました。「Programming Practice
+」は結構知らないことが多々あったのでちょっと実用性があるかは疑問なものもあったけど勉強になったと思います。&lt;/p&gt;
+&lt;h2&gt;Basic formatting&lt;/h2&gt;
+&lt;p&gt;コードのインデントや変数名・関数名の決め方がこんな書き方がいいよという紹介から始まり、変数の型について説明されていた。&lt;/p&gt;
+&lt;p&gt;特にnullとundefinedで細かく説明されていたのでメモ。&lt;/p&gt;
+&lt;h3&gt;null&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;変数宣言の際には初期化しようね&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+var hoge = null;
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;期待されていないオブジェクトだったりしたときはnullを返す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+function getPerson(){
+  if (condition) {
+    return new Person();
+  }
+  else {
+    return null;
+  }
+}
+
+var person = getPerson();
+if (person !== null) {
+  doSomething();
+}
+&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;引数に設定（供給）されたかどうかをnullでチェックしないで！
+この関数に技術的に間違っているわけじゃないけどそういう想定で&lt;br /&gt;
+やるとあとで大変なことになるからやらんほうがいいのかな。&lt;br /&gt;
+（すこしわかってない）  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+function hoge(arg1, arg2) {
+  if (arg2 != null) {
+    doSomething();
+  }
+}
+&lt;/pre&gt;
+&lt;h3&gt;undefined&lt;/h3&gt;
+&lt;p&gt;基本的にこれは混乱を招くものなので使わないようにしよう！と筆者は書いていた&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>node.jsでもろもろ設定</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-04-12_2703/</link>
+            <pubDate>Tue, 12 Apr 2011 10:26:34 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-04-12_2703/</guid>
+            <description>&lt;p&gt;インストール&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+wget http://nodejs.org/dist/node-v0.4.5.tar.gz
+tar zxvf node-v0.4.5.tar.gz
+cd node-v0.4.5
+./configure
+make 
+make install
+&lt;/pre&gt;
+&lt;p&gt;ライブラリ関連のモジュールをインストール&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+curl http://npmjs.org/install.sh | sh
+
+npm install mysql
+npm install express
+npm install ejs
+ &lt;/pre&gt;
+&lt;p&gt;テストプログラムをListen状態にしておいてGETで情報が取得できるか確認する。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+node test.js
+
+curl http://127.0.0.1:8124
+&lt;/pre&gt;
+&lt;h2&gt;参考URL&lt;/h2&gt;
+http://sakuratan.biz/archives/3101
+http://expressjs.com/
+http://nodejs.org/</description>
+        </item>
+        
+        <item>
+            <title>input button onClick でJSを動かせない！</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-02-16_2674/</link>
+            <pubDate>Wed, 16 Feb 2011 03:48:05 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-02-16_2674/</guid>
+            <description>&lt;p&gt;もっと正確に言うとheadタグで作成したオブジェクトが参照できないのである。
+しかしうまくいくのもあるんだけどなんなんだろうか。&lt;/p&gt;
+&lt;p&gt;よくわからんなー。うーん。&lt;/p&gt;
+&lt;p&gt;まずは、動かしたい処理&lt;/p&gt;
+&lt;pre class=&#34;brush: javascript&#34;&gt;
+function hoge() {}
+hoge.prototype = {
+  moge: function() [ console.log(&#34;test&#34;); }
+}
+var hoge = new Hoge();
+&lt;/pre&gt;
+&lt;p&gt;そして、HTMLには以下のコードを記述したとする。&lt;/p&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+  &lt;!--うまくJSが動作する--&gt;
+  &lt;a href=&#34;javascript:;&#34; onClick=&#34;icon.add();&#34; class=&#34;button&#34;&gt;add&lt;/a&gt;&lt;br /&gt;
+  &lt;a href=&#34;javascript:;&#34; onClick=&#34;icon.del();&#34;&gt;delete&lt;/a&gt;
+
+  &lt;!--うまくJSが動作しない--&gt;
+  &lt;input type=&#34;button&#34; name=&#34;add&#34; onClick=&#34;icon.add();&#34; value=&#34; add icon &#34;    class=&#34;button&#34; /&gt;
+  &lt;input type=&#34;button&#34; name=&#34;del&#34; onClick=&#34;icon.del();&#34; value=&#34; delete icon &#34; class=&#34;button&#34; /&gt;
+&lt;/pre&gt;
+&lt;p&gt;上記のAタグてonclick()した場合うまくいくのだが、inputタグのタイプをbuttonで指定したものに
+onClick()した場合はうまく動作しなかった。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>jqueryでフォームを操作する</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-09-30_2446/</link>
+            <pubDate>Thu, 30 Sep 2010 17:18:04 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-09-30_2446/</guid>
+            <description>&lt;p&gt;Jqueryでフォームをいじっちゃいましょう。&lt;/p&gt;
+&lt;h2&gt;フォーム情報を取得したり設定したり&lt;/h2&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+var obj = $(&#39;#target&#39;);  // id指定
+var obj = $(&#39;.targets&#39;); // class指定
+var obj = $(&#39;input[name=target]&#39;);  // name指定
+&lt;p&gt;// 選択したオブジェクトにたいしてそれぞれ処理を行う
+// (例)　ファームを「disabled」にする
+$(&amp;lsquo;input[name=target]&amp;rsquo;).attr(&amp;lsquo;disabled&amp;rsquo;, true);&lt;/p&gt;
+&lt;p&gt;// .each() を利用してみる (上と同じ)
+$(&amp;lsquo;input[name=target]&amp;rsquo;).each(function(i){
+$(this).attr(&amp;lsquo;disabled&amp;rsquo;, true);
+});&lt;/p&gt;
+&lt;p&gt;//&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-
+// value属性の値を取得する
+//&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-
+var str = $(&amp;rsquo;#target&amp;rsquo;).attr(&amp;lsquo;value&amp;rsquo;);
+var str = $(&amp;rsquo;#target&amp;rsquo;).val();&lt;/p&gt;
+&lt;p&gt;//&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-
+// value属性に値を入力する
+//&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-
+$(&amp;rsquo;#target&amp;rsquo;).attr({value: str});
+$(&amp;rsquo;#target&amp;rsquo;).val(str);&lt;/p&gt;
+&lt;p&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;h2&gt;選択したオブジェクとを取得する(input[name=radio])&lt;/h2&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+// get
+var obj = $(&#34;input[name=target]:checked&#34;);
+&lt;p&gt;// ＠は正規表現
+var obj2 = $(&amp;ldquo;input[@name=target]:checked&amp;rdquo;);&lt;/p&gt;
+&lt;p&gt;// ラジオボタンで選択されているオブジェクトを取得する
+var objRadio = $(&amp;quot;:radio[@name=target]:checked&amp;quot;);&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[jquery]window.onloadを複数実行させたい</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-09-29_2440/</link>
+            <pubDate>Wed, 29 Sep 2010 00:43:58 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-09-29_2440/</guid>
+            <description>&lt;p&gt;いいんかな。&lt;/p&gt;
+&lt;p&gt;規模が大きくなってくるとJSファイルだんだん増えてきて処理もそれなりに分割しなくちゃいけなくなる。
+onloadインベントも共通の処理はあるけど、各処理（フレームワークでいうとコントローラごととか）でも
+固有の処理を行いときがあります。しかも運用しやすい？用にファイルは分割して分けときたい。&lt;/p&gt;
+&lt;p&gt;jqueryちゃんは優秀ですね。&lt;/p&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://nakajijapan.github.io/fileA.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://nakajijapan.github.io/fileB.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;pre class=&#34;brush: javascript&#34;&gt;
+// file A (common)
+$(document).ready(function(){
+    alert(&#39;a&#39;);
+});
+&lt;/pre&gt;
+&lt;pre class=&#34;brush: javascript&#34;&gt;
+// file B
+$(document).ready(function(){
+    alert(&#39;b&#39;);
+});
+&lt;/pre&gt;
+&lt;p&gt;Aは全体で使う共通の処理、Bは各処理で行う処理。
+こうすることで&lt;b&gt;ほぼ&lt;/b&gt;onloadと同じタイミングで両方とも実行してくれることになります。
+ただ、CSS読み込むときにはあらかじめCSSファイルを読み込んでおくことと、画像ファイルを全部
+読み込み終わるまで「.ready」は実行されないことに注意。
+jqueryのドキュメント結構勉強になった。&lt;/p&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;!-- other --&gt;
+$(document).ready(handler)
+$().ready(handler) (this is not recommended)
+$(handler)
+&lt;/pre&gt;
+&lt;p&gt;■参照URL
+&lt;a href=&#34;http://api.jquery.com/ready/&#34;&gt;jquery document&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]オブジェクト指向＋jquery</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-09-07_1939/</link>
+            <pubDate>Tue, 07 Sep 2010 21:24:20 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-09-07_1939/</guid>
+            <description>&lt;p&gt;いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので
+それ用に実装方法を書いてみる。&lt;/p&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;script src=&#34;../jquery-1_4_2.js&#34; type=&#34;text/javascript&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+// クラス的な位置づけ
+var Nakaji = function(){ 
+    // メンバ変数的な位置づけ 
+    this.hidden = false; 
+
+    // コンストラクタ的な位置づけ
+    this.setup(); 
+} 
+Nakaji.prototype = { 
+    setup: function(){ 
+        this.elem = $(&#39;&lt;div class=&#34;nakajijapan&#34;&gt;NAKAJIJAPAN!&lt;/div&gt;&#39;); 
+        this.elem.css(&#34;background&#34;,&#34;#EEEEEE&#34;); 
+        $(document.body).append(this.elem.fadeIn(5000)); 
+        var self = this; 
+        
+        this.elem.click(function(){ 
+            if(self.hidden){ 
+                self.show(); 
+            }else{ 
+                self.hide(); 
+            } 
+        }); 
+    }, 
+    hide: function(){ 
+        this.elem.css(&#34;background&#34;,&#34;#cccccc&#34;); 
+        this.hidden = true; 
+    }, 
+    show: function(){ 
+        this.elem.css(&#34;background&#34;,&#34;#000000&#34;); 
+        this.hidden = false; 
+    } 
+} 
+
+# document読み込み終了時に開始
+$(function(){ 
+    var nakaji1 = new Nakaji(); 
+    var nakaji2 = new Nakaji(); 
+    var nakaji3 = new Nakaji(); 
+    var nakaji4 = new Nakaji(); 
+    var nakaji5 = new Nakaji(); 
+});
+
+&lt;/script&gt;
+&lt;p&gt;＜body＞&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[limeChat]RSS情報を定期的に読み込んで新着情報のみをぶっこぬく</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-09-02_2347/</link>
+            <pubDate>Thu, 02 Sep 2010 02:37:51 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-09-02_2347/</guid>
+            <description>&lt;pre class=&#34;brush: javascript&#34;&gt;
+
+var targetChannel = &#34;#project&#34;;
+var fileName = &#34;projectSvnRevision.txt&#34;;
+//------------------------------------
+// 実行時
+//------------------------------------
+var ret = 0;
+function event::onLoad() {
+    ret = setInterval(getRssForDev, 1000 * 60 * 10); // by 10 min
+    //ret = setInterval(getRssForDev, 1000 * 6); // by 1 min( for test)
+}
+
+//------------------------------------
+// 時刻チェック
+//------------------------------------
+function getRssForDev()
+{
+    var lines = load_textfile_array( fileName );
+    var currentRevision = parseInt( lines[0] );
+    var req = new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;);
+    if (req) {
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) {
+                var s = req.responseText;
+
+                // 2回のタイトル削除
+                s.match(/＜title＞(.*)＜\/title＞/);
+                s = RegExp.rightContext;
+                s.match(/＜title＞(.*)＜\/title＞/);
+                s = RegExp.rightContext;
+                
+                for (var i=0; i&lt;100; i++) {
+                    if (!s.match(/＜title＞(.*)＜\/title＞/)) {
+                        break;
+                    }
+                    s = RegExp.rightContext;
+                    var title = RegExp.$1;
+                    
+                    var ret = title.match(/(\d+):/);
+                    //var revision = ret[0];
+                    var revision = RegExp.$1;
+                    //var revision = &#34;&#34;;
+
+                    s.match(/＜dc:creator＞(.*)＜\/dc:creator＞/);
+                    s = RegExp.rightContext;
+                    var creator = RegExp.$1;
+                    
+                    s.match(/＜link＞(.*)＜\/link＞/);
+                    s = RegExp.rightContext;
+                    var link = RegExp.$1;
+                    
+                    s.match(/＜pubDate＞(.*)＜\/pubDate＞/);
+                    s = RegExp.rightContext;
+                    var pubDate = RegExp.$1;
+                    
+                    // RSSの最大値を保持しておく
+                    if (i == 0) {
+                        maxRevision = revision;
+                    }
+                    
+                    if (currentRevision &lt; revision) {
+                        send(targetChannel, &#34;====================&#34;);
+                        send(targetChannel, &#34;TITLE   : &#34; + title);
+                        send(targetChannel, &#34;CREATER : &#34; + creator);
+                        send(targetChannel, &#34;PUBDATE : &#34; + pubDate);
+                        send(targetChannel, &#34;LINK    : &#34; + link);
+                     }
+                    else {
+                        break;
+                    }
+                    
+                }
+                
+                write_file_string(fileName, maxRevision);
+            }
+        }
+    }
+    // ここに読み取りたいURIを記載
+    var url = &#39;http://hogehoge.com/rss&#39;; 
+
+    req.open(&#39;get&#39;, url, true);
+    req.send(&#39;&#39;);
+}
+
+//--------------------------------------------
+// ファイル読み込み
+//--------------------------------------------
+function load_textfile_array( file_name  ){
+  lines = new Array();
+  d_file = openFile( file_name , true );
+    while ( s = d_file.readLine() ) {
+      lines[lines.length] = s;
+    }
+  d_file.close();
+  return lines;
+}
+
+//--------------------------------------------
+// ファイル書き込み
+//--------------------------------------------
+function write_file_string( file_name, string  ){
+    file = openFile( file_name , false );
+    file.write(string); 
+    file.truncate();
+    file.close();
+}
+&lt;/pre&gt;
+&lt;p&gt;これでイけると思うよ。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>IE６だとaタグ利用してsubmit()できない</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-05-25_2086/</link>
+            <pubDate>Tue, 25 May 2010 12:05:55 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-05-25_2086/</guid>
+            <description>&lt;p&gt;IE６だとaタグを利用してごにょごにょしてるとsubmit()処理がうまく動作しない件。&lt;/p&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;script&gt;
+function func_submit() {
+    document.form.submit();
+} 
+&lt;/script&gt;
+&lt;p&gt;&lt;a href=&#34;javascript:void(0);&#34; onClick=&#34;func_submit();&#34; class=&#34;btnDeleteList&#34;&gt;選択したaaaaaaaaaa&lt;/a&gt;
+&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;これだとサブミット処理が行われない。最終的にvoid()処理がはいってしまい。結局なにもしないってことにしているのだろうか。&lt;/p&gt;
+&lt;p&gt;一応ですがイベントの順番を考えてみる&lt;/p&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;a href=&#34;javascript:alert(&#39;href&#39;);&#34; onClick=&#34;alert(&#39;onClick&#39;); &#34; class=&#34;btnDeleteList&#34;&gt;選択したaaaaaaaaaa&lt;/a&gt;
+&lt;/pre&gt;
+&lt;p&gt;この場合だと順番として&lt;/p&gt;
+&lt;p&gt;onClick →　href&lt;/p&gt;
+&lt;p&gt;でイベントが行われる。&lt;/p&gt;
+&lt;p&gt;つまりどうにかしてonClick時点で処理を止めればいいってことになるんでしょうか。&lt;/p&gt;
+&lt;p&gt;何もしない処理(void)をさせない。&lt;/p&gt;
+&lt;p&gt;つまりは、&lt;/p&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;script&gt;
+function func_submit() {
+    document.form.submit();
+} 
+&lt;/script&gt;
+&lt;p&gt;// 「return false; 」をonClickイベント終了前に実行する
+&lt;a href=&#34;javascript:void(0);&#34; onClick=&#34;func_submit();return false;&#34; class=&#34;btnDeleteList&#34;&gt;選択したaaaaaaaaaa&lt;/a&gt;
+&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;こうするとIE６でも問題なく動作しました。
+IEの文句は別にするとして、とりあえず問題が解決されたのでよかったです。調べてみたら結構みなさんもこういう問題に遭遇してるようですね。&lt;/p&gt;
+&lt;p&gt;■参照URL
+&lt;a href=&#34;http://anosinosaan.blog44.fc2.com/blog-entry-50.html&#34;&gt;&lt;a href=&#34;http://anosinosaan.blog44.fc2.com/blog-entry-50.html&#34;&gt;http://anosinosaan.blog44.fc2.com/blog-entry-50.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

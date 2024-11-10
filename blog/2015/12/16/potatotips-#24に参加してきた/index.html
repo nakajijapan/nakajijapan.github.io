@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="potatotips #24に参加してきた">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2015/12/16/potatotips-%2324%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/" />
+<meta property="go:description" content="potatotips (iOS/Android開発Tips共有会) 第24回にブログ枠として参加してきたのでそのメモに綴ります！
+今回はGoodpatchさん主催での開催となりました。
+
+iOSでテーマ(着せ替え)機能を実装した時のTips
+
+Goodpatchの重田さん
+
+UIAppearanceの話
+
+tvOSでWebSocketを使う
+    tvOSでWebSocketを使う  from Tomoki Hasegawa 
+デジタルサーカスの長谷川さん
+
+Apple TVの話
+AppleTVのサーバ通信
+WEB API?
+
+もっとリアルタイムにしたい
+
+
+APNs？
+WebSocket?
+
+Starscreamが良かった
+
+Pure Swift!
+
+
+
+
+
+iOS7をサポート対象外にして開発を健全化する
+
+@shoby さん
+
+iOS 7をサポート対象外にして健全にする
+ユーザにOSのアップデートを促す
+最終互換バージョンを提供する
+著名なアプリが対象外にしている！！！！！
+
+xcconfigで複数ターゲットのビルド設定をまとめる
+@k_katsumi さん
+
+
+Univy targets for multiple platforms into one target
+メルカリは言語ごとにターゲット作ってる
+複数管理する方法
+keychainaccess
+
+v2.1 コピーすればios7でも使える
+
+
+どうやるか
+
+configuration file使ってる
+
+base.xcconfig
+
+全部デプロイ面とターゲットを利用している
+
+
+Debug.xcconfig
+Release.xcconfig
+
+
+
+
+＊で設定すると便利
+BuildSettingExtractor使うと便利
+
+Enhancements with 3D Touch
+    Enhancements with 3D Touch  from Satoshi Ohki 
+Goodpatch の @roothybrid7 さん" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="potatotips #24に参加してきた" />
+<meta name="twitter:description" content="potatotips (iOS/Android開発Tips共有会) 第24回にブログ枠として参加してきたのでそのメモに綴ります！
+今回はGoodpatchさん主催での開催となりました。
+
+iOSでテーマ(着せ替え)機能を実装した時のTips
+
+Goodpatchの重田さん
+
+UIAppearanceの話
+
+tvOSでWebSocketを使う
+    tvOSでWebSocketを使う  from Tomoki Hasegawa 
+デジタルサーカスの長谷川さん
+
+Apple TVの話
+AppleTVのサーバ通信
+WEB API?
+
+もっとリアルタイムにしたい
+
+
+APNs？
+WebSocket?
+
+Starscreamが良かった
+
+Pure Swift!
+
+
+
+
+
+iOS7をサポート対象外にして開発を健全化する
+
+@shoby さん
+
+iOS 7をサポート対象外にして健全にする
+ユーザにOSのアップデートを促す
+最終互換バージョンを提供する
+著名なアプリが対象外にしている！！！！！
+
+xcconfigで複数ターゲットのビルド設定をまとめる
+@k_katsumi さん
+
+
+Univy targets for multiple platforms into one target
+メルカリは言語ごとにターゲット作ってる
+複数管理する方法
+keychainaccess
+
+v2.1 コピーすればios7でも使える
+
+
+どうやるか
+
+configuration file使ってる
+
+base.xcconfig
+
+全部デプロイ面とターゲットを利用している
+
+
+Debug.xcconfig
+Release.xcconfig
+
+
+
+
+＊で設定すると便利
+BuildSettingExtractor使うと便利
+
+Enhancements with 3D Touch
+    Enhancements with 3D Touch  from Satoshi Ohki 
+Goodpatch の @roothybrid7 さん" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>potatotips #24に参加してきた - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">potatotips #24に参加してきた</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2015-12-16">December 16, 2015</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><a href="http://connpass.com/event/23065/">potatotips (iOS/Android開発Tips共有会) 第24回</a>にブログ枠として参加してきたのでそのメモに綴ります！
+今回はGoodpatchさん主催での開催となりました。</p>
+<p><img src="/images/posts/2015/2015-12-16-05.jpg" alt=""></p>
+<h2 id="iosでテーマ着せ替え機能を実装した時のtips">iOSでテーマ(着せ替え)機能を実装した時のTips</h2>
+<script async class="speakerdeck-embed" data-id="d1c3cc8a35dd4366b573d69ebe926c70" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<p>Goodpatchの重田さん</p>
+<ul>
+<li>UIAppearanceの話</li>
+</ul>
+<h2 id="tvosでwebsocketを使う">tvOSでWebSocketを使う</h2>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/aFlPe40wvAwbNT" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/hasegawatomoki/tvoswebsocket" title="tvOSでWebSocketを使う" target="_blank">tvOSでWebSocketを使う</a> </strong> from <strong><a href="//www.slideshare.net/hasegawatomoki" target="_blank">Tomoki Hasegawa</a></strong> </div>
+<p>デジタルサーカスの長谷川さん</p>
+<ul>
+<li>Apple TVの話</li>
+<li>AppleTVのサーバ通信</li>
+<li>WEB API?
+<ul>
+<li>もっとリアルタイムにしたい</li>
+</ul>
+</li>
+<li>APNs？</li>
+<li>WebSocket?
+<ul>
+<li>Starscreamが良かった
+<ul>
+<li>Pure Swift!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="ios7をサポート対象外にして開発を健全化する">iOS7をサポート対象外にして開発を健全化する</h2>
+<script async class="speakerdeck-embed" data-id="0bd92e03f3714c389936de4535f104c1" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<p>@shoby さん</p>
+<ul>
+<li>iOS 7をサポート対象外にして健全にする</li>
+<li>ユーザにOSのアップデートを促す</li>
+<li>最終互換バージョンを提供する</li>
+<li>著名なアプリが対象外にしている！！！！！</li>
+</ul>
+<h2 id="xcconfigで複数ターゲットのビルド設定をまとめる">xcconfigで複数ターゲットのビルド設定をまとめる</h2>
+<p>@k_katsumi さん</p>
+<script async class="speakerdeck-embed" data-id="7192f21150ea49bc858305f69640a5f5" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<ul>
+<li>Univy targets for multiple platforms into one target</li>
+<li>メルカリは言語ごとにターゲット作ってる</li>
+<li>複数管理する方法</li>
+<li>keychainaccess
+<ul>
+<li>v2.1 コピーすればios7でも使える</li>
+</ul>
+</li>
+<li>どうやるか
+<ul>
+<li>configuration file使ってる
+<ul>
+<li>base.xcconfig
+<ul>
+<li>全部デプロイ面とターゲットを利用している</li>
+</ul>
+</li>
+<li>Debug.xcconfig</li>
+<li>Release.xcconfig</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>＊で設定すると便利</li>
+<li>BuildSettingExtractor使うと便利</li>
+</ul>
+<h2 id="enhancements-with-3d-touch">Enhancements with 3D Touch</h2>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/zwXhhkTd8TV58I" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/satsv/enhancements-with-3d-touch" title="Enhancements with 3D Touch" target="_blank">Enhancements with 3D Touch</a> </strong> from <strong><a href="//www.slideshare.net/satsv" target="_blank">Satoshi Ohki</a></strong> </div>
+<p>Goodpatch の @roothybrid7 さん</p>
+<ul>
+<li>Enhancements with 3D touch</li>
+<li>導入した話</li>
+<li>なぜ？
+<ul>
+<li>プロトタイプのプレビューをすぐみたい</li>
+</ul>
+</li>
+<li>3D touch
+<ul>
+<li>Home Screen</li>
+<li>Quick Actions</li>
+<li>Peek and Pop</li>
+</ul>
+</li>
+<li>Blurによりうきあがる量いいの指定</li>
+<li>タッチしたポイント（location）から算出</li>
+</ul>
+<h2 id="on-demand-resourcesを意識したコンテンツ制作">On Demand Resourcesを意識したコンテンツ制作</h2>
+<script async class="speakerdeck-embed" data-id="671dcfe617844e66b9dc3ae6bb01eb15" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<p>ユビレジの @nolili さん</p>
+<ul>
+<li>try!</li>
+<li>昔のアプリをtvOS対応した話</li>
+<li>サーバのリソース入れ替えよう！！ -&gt; ダメ</li>
+<li>住めてのアセットがそれ追っていること</li>
+<li>適切なタグが振られていること</li>
+<li>どこでユーザをまあたせていいのか
+<ul>
+<li>初回起動時にオフラインのユーザがどの段階までコンテンツにアクセスrすrのかSubmit時の意トラブル発覚は辛い</li>
+<li>TestFlightでテストする</li>
+</ul>
+</li>
+<li>ドキュメントあるからそこみるといい</li>
+</ul>
+<h2 id="whats-new-in-swift3">What&rsquo;s new in Swift3</h2>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/56xqM4tz5IVjxi" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/toyship/whats-new-swift3" title="What&#x27;s new Swift3" target="_blank">What&#x27;s new Swift3</a> </strong> from <strong><a href="//www.slideshare.net/toyship" target="_blank">toyship</a></strong> </div>
+<p>@TachibanaKaoru さん</p>
+<ul>
+<li>Swiftの話
+<ul>
+<li>try! Swiftの紹介</li>
+</ul>
+</li>
+<li>Swift Evolution</li>
+<li>今後のSwiftのレビューを振り返る</li>
+<li>Swift 2.2</li>
+<li>春にリリースされるバグ修正、実装の品質向上</li>
+<li>コード互換性あり</li>
+<li>3.0リリースに見据えてwarningを表示するようになる</li>
+<li>3.0
+<ul>
+<li>2016年秋に出る予定</li>
+<li>3.0で対応しないこと</li>
+<li>Proposalレポジトリ</li>
+</ul>
+</li>
+</ul>
+<h2 id="enumrate">enumrate</h2>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/eAV50QiffweLgZ" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/motokinarita7/enumerate" title="Enumerate" target="_blank">Enumerate</a> </strong> from <strong><a href="//www.slideshare.net/motokinarita7" target="_blank">Motoki Narita</a></strong> </div>
+<p>ネクスト の @mo_to_44 さん</p>
+<ul>
+<li>enumarateはどう実装されているのか</li>
+<li><code>.gyb</code></li>
+<li>Generate Your Boilerplate</li>
+<li>Swiftのプロジェクトで使われいてるテンプレート形式</li>
+<li>GeneratorTypeプロトコル</li>
+<li>EnumerateSequence</li>
+</ul>
+<h2 id="感想">感想</h2>
+<ul>
+<li>ブログ枠だったけど次回はトーク枠で参加したいですね。</li>
+<li>企画・主催してくださったグッドパッチさんに鬼感謝です！！！！！！</li>
+<li>Goodpatchさんの<a href="http://qiita.com/advent-calendar/2015/goodpatch">アドベントカレンダー</a>があるようです！</li>
+</ul>
+<h2 id="次回">次回</h2>
+<p>次回開催はFringe81さんで<a href="http://connpass.com/event/24223/">potatotips</a>を行うそうです！！！！</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

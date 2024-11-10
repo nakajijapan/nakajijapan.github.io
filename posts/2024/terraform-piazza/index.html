@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2024/terraform-piazza/" />
+<meta property="go:description" content="
+会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。
+現状
+2022年後半時点
+一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。
+さらに、現在のプロダクトの構成は、少し過剰であったり、適切でない部分があるため、見直しが必要だった。さらには、あるミドルウェアを導入予定でもあり、検証するにも安心安全にそして迅速にできるかは不安ポイントであった。
+課題
+このままにしておくと、以下の課題が発生する可能性が高まる。
+
+時間・費用面でのコスト増加
+
+調査に時間がかかる。
+不要なリソースを放置しているため、無駄な費用がかかる。
+
+
+運用負荷の増加
+
+構成が複雑化・煩雑化しているため、シンプルに分離しておく必要がある。
+
+環境を別々にすることで解消する。
+
+
+
+
+迅速な意思決定の阻害
+
+アグレッシブにインフラの検証や新しい環境の構築が行えない。
+何を削除し、変更すればよいかが分からず、理想の環境にするのが難しい。
+
+
+
+方針
+何を削除し、何を残すべきか、またどれを改善すべきかを判断するためには、現状を正確に把握する必要がある。そのために、以下の手順で進める。
+
+まず、現在の全ての環境設定をコード化して管理できる状態にする。
+
+
+現在、すべての環境が入り混ざっているproduction環境全体を、Infrastructure as Code (IaC)として管理。
+
+
+次に、新しいAWSアカウントを構築し、現状のプロダクトに必要な環境だけを移行する。
+
+今ある環境をProductionにする
+Staging構築
+Sandbox構築
+Productionにある不要な環境を削除していく。
+
+Productionにあるstaging環境一式を削除。
+Productionにあるsandbox環境一式を削除。
+
+
+
+
+
+これにより、以下の利点が得られる。
+
+各環境で不要な設定かどうかをチェックし、安心して削除が行える。
+万が一間違えても、terraformで簡単にリカバリーが可能。
+新しいサービスを導入する際も、sandboxで何度でも環境を再構築でき、安心して本番に導入できる。
+
+このようにして、メンバー全員が安心・安全・正確に運用できる状況を作り上げ、最終的に開発スピードを落とすことなくプロダクトを成長させることにコミットできる。
+そのためにも、まずは、環境をIaC化するところから始めた。
+やったこと
+ざっくり把握
+基本中の基本ではあるがそれに変わるものがなかったのである程度把握したら、どういうサービスをどのように利用しているのかをドキュメントにまとめたり、アーキテクチャ図にしたりして、徐々に深掘りできる状態にした。
+サポート状態を構築する
+現状のメンバーで誰も把握できていないサービスを利用していたり、設定があったし、僕も完全に運用できる知見が少ないものもあったので以下の状況を構築した
+
+徹底的にAWSのテクニカルサポートの人に聞く
+コンサルしていただくメンバーを業務委託として迎え入れる
+SREチームを発足して会社のインフラを把握し開発サイドに課題を取り込めるようにしたり、経営サイドに施策実行の提案など行える状態を作る。
+
+一括でできないかの調査
+小さい構成ながら４、５年蔑ろにしてきたところはあるのでそれなりに設定はしてある状態。
+一つずつ設定をみて一個ずつimportしていくのは途方もなく時間がかかる。なるべくなら自動化できるところはしていきたい。一気にimportしていきたいところだった。
+
+  見つけたもの
+  
+複数の Terraform state を結合する tfstate-merge を書いて20個以上の state を大統一した - 酒日記 はてな支店
+しかし、バージョンが現状利用しているものと異なるため、断念。
+tfstateのコピペができなそうだった。
+  
+
+代替案
+https://github.com/GoogleCloudPlatform/terraformer
+これを使うとしてみた。
+これは指定したAWSアカウント、サービス別にコードとして一括ですべてコードにおとしこめるところ。
+懸念事項としては落とし込んだ時にtfstateも合わせて作成されるしようになっているところ。
+現状、リモートでtfstateを管理しているので、そちらに反映していかなければならない。
+ここは何かしらの対応が必要だ。
+手順
+
+terraformerでコードに落とし込む
+落とし込まれたコードからterraformのimportブロックを作成する。
+terraform importを実行して実際に反映させる。
+
+これでいけそうだ。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="images/posts/2024/06-001.png" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する" />
+<meta name="twitter:description" content="
+会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。
+現状
+2022年後半時点
+一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。
+さらに、現在のプロダクトの構成は、少し過剰であったり、適切でない部分があるため、見直しが必要だった。さらには、あるミドルウェアを導入予定でもあり、検証するにも安心安全にそして迅速にできるかは不安ポイントであった。
+課題
+このままにしておくと、以下の課題が発生する可能性が高まる。
+
+時間・費用面でのコスト増加
+
+調査に時間がかかる。
+不要なリソースを放置しているため、無駄な費用がかかる。
+
+
+運用負荷の増加
+
+構成が複雑化・煩雑化しているため、シンプルに分離しておく必要がある。
+
+環境を別々にすることで解消する。
+
+
+
+
+迅速な意思決定の阻害
+
+アグレッシブにインフラの検証や新しい環境の構築が行えない。
+何を削除し、変更すればよいかが分からず、理想の環境にするのが難しい。
+
+
+
+方針
+何を削除し、何を残すべきか、またどれを改善すべきかを判断するためには、現状を正確に把握する必要がある。そのために、以下の手順で進める。
+
+まず、現在の全ての環境設定をコード化して管理できる状態にする。
+
+
+現在、すべての環境が入り混ざっているproduction環境全体を、Infrastructure as Code (IaC)として管理。
+
+
+次に、新しいAWSアカウントを構築し、現状のプロダクトに必要な環境だけを移行する。
+
+今ある環境をProductionにする
+Staging構築
+Sandbox構築
+Productionにある不要な環境を削除していく。
+
+Productionにあるstaging環境一式を削除。
+Productionにあるsandbox環境一式を削除。
+
+
+
+
+
+これにより、以下の利点が得られる。
+
+各環境で不要な設定かどうかをチェックし、安心して削除が行える。
+万が一間違えても、terraformで簡単にリカバリーが可能。
+新しいサービスを導入する際も、sandboxで何度でも環境を再構築でき、安心して本番に導入できる。
+
+このようにして、メンバー全員が安心・安全・正確に運用できる状況を作り上げ、最終的に開発スピードを落とすことなくプロダクトを成長させることにコミットできる。
+そのためにも、まずは、環境をIaC化するところから始めた。
+やったこと
+ざっくり把握
+基本中の基本ではあるがそれに変わるものがなかったのである程度把握したら、どういうサービスをどのように利用しているのかをドキュメントにまとめたり、アーキテクチャ図にしたりして、徐々に深掘りできる状態にした。
+サポート状態を構築する
+現状のメンバーで誰も把握できていないサービスを利用していたり、設定があったし、僕も完全に運用できる知見が少ないものもあったので以下の状況を構築した
+
+徹底的にAWSのテクニカルサポートの人に聞く
+コンサルしていただくメンバーを業務委託として迎え入れる
+SREチームを発足して会社のインフラを把握し開発サイドに課題を取り込めるようにしたり、経営サイドに施策実行の提案など行える状態を作る。
+
+一括でできないかの調査
+小さい構成ながら４、５年蔑ろにしてきたところはあるのでそれなりに設定はしてある状態。
+一つずつ設定をみて一個ずつimportしていくのは途方もなく時間がかかる。なるべくなら自動化できるところはしていきたい。一気にimportしていきたいところだった。
+
+  見つけたもの
+  
+複数の Terraform state を結合する tfstate-merge を書いて20個以上の state を大統一した - 酒日記 はてな支店
+しかし、バージョンが現状利用しているものと異なるため、断念。
+tfstateのコピペができなそうだった。
+  
+
+代替案
+https://github.com/GoogleCloudPlatform/terraformer
+これを使うとしてみた。
+これは指定したAWSアカウント、サービス別にコードとして一括ですべてコードにおとしこめるところ。
+懸念事項としては落とし込んだ時にtfstateも合わせて作成されるしようになっているところ。
+現状、リモートでtfstateを管理しているので、そちらに反映していかなければならない。
+ここは何かしらの対応が必要だ。
+手順
+
+terraformerでコードに落とし込む
+落とし込まれたコードからterraformのimportブロックを作成する。
+terraform importを実行して実際に反映させる。
+
+これでいけそうだ。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2024-06-25">June 25, 2024</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/tech">tech</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><img src="/images/posts/2024/06-001.png" alt=""></p>
+<p>会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。</p>
+<h1 id="現状">現状</h1>
+<p>2022年後半時点</p>
+<p>一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。</p>
+<p>さらに、現在のプロダクトの構成は、少し過剰であったり、適切でない部分があるため、見直しが必要だった。さらには、あるミドルウェアを導入予定でもあり、検証するにも安心安全にそして迅速にできるかは不安ポイントであった。</p>
+<h1 id="課題">課題</h1>
+<p>このままにしておくと、以下の課題が発生する可能性が高まる。</p>
+<ul>
+<li><strong>時間・費用面でのコスト増加</strong>
+<ul>
+<li>調査に時間がかかる。</li>
+<li>不要なリソースを放置しているため、無駄な費用がかかる。</li>
+</ul>
+</li>
+<li><strong>運用負荷の増加</strong>
+<ul>
+<li>構成が複雑化・煩雑化しているため、シンプルに分離しておく必要がある。
+<ul>
+<li>環境を別々にすることで解消する。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>迅速な意思決定の阻害</strong>
+<ul>
+<li>アグレッシブにインフラの検証や新しい環境の構築が行えない。</li>
+<li>何を削除し、変更すればよいかが分からず、理想の環境にするのが難しい。</li>
+</ul>
+</li>
+</ul>
+<h1 id="方針">方針</h1>
+<p>何を削除し、何を残すべきか、またどれを改善すべきかを判断するためには、現状を正確に把握する必要がある。そのために、以下の手順で進める。</p>
+<ol>
+<li>まず、現在の全ての環境設定をコード化して管理できる状態にする。</li>
+</ol>
+<ul>
+<li>現在、すべての環境が入り混ざっているproduction環境全体を、Infrastructure as Code (IaC)として管理。</li>
+</ul>
+<ol start="2">
+<li>次に、新しいAWSアカウントを構築し、現状のプロダクトに必要な環境だけを移行する。
+<ul>
+<li><strong>今ある環境をProductionにする</strong></li>
+<li><strong>Staging構築</strong></li>
+<li><strong>Sandbox構築</strong></li>
+<li>Productionにある不要な環境を削除していく。
+<ul>
+<li>Productionにあるstaging環境一式を削除。</li>
+<li>Productionにあるsandbox環境一式を削除。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>これにより、以下の利点が得られる。</p>
+<ul>
+<li>各環境で不要な設定かどうかをチェックし、安心して削除が行える。</li>
+<li>万が一間違えても、terraformで簡単にリカバリーが可能。</li>
+<li>新しいサービスを導入する際も、sandboxで何度でも環境を再構築でき、安心して本番に導入できる。</li>
+</ul>
+<p>このようにして、メンバー全員が安心・安全・正確に運用できる状況を作り上げ、最終的に開発スピードを落とすことなくプロダクトを成長させることにコミットできる。</p>
+<p>そのためにも、まずは、環境をIaC化するところから始めた。</p>
+<h1 id="やったこと">やったこと</h1>
+<h2 id="ざっくり把握">ざっくり把握</h2>
+<p>基本中の基本ではあるがそれに変わるものがなかったのである程度把握したら、どういうサービスをどのように利用しているのかをドキュメントにまとめたり、アーキテクチャ図にしたりして、徐々に深掘りできる状態にした。</p>
+<h2 id="サポート状態を構築する">サポート状態を構築する</h2>
+<p>現状のメンバーで誰も把握できていないサービスを利用していたり、設定があったし、僕も完全に運用できる知見が少ないものもあったので以下の状況を構築した</p>
+<ul>
+<li>徹底的にAWSのテクニカルサポートの人に聞く</li>
+<li>コンサルしていただくメンバーを業務委託として迎え入れる</li>
+<li>SREチームを発足して会社のインフラを把握し開発サイドに課題を取り込めるようにしたり、経営サイドに施策実行の提案など行える状態を作る。</li>
+</ul>
+<h2 id="一括でできないかの調査">一括でできないかの調査</h2>
+<p>小さい構成ながら４、５年蔑ろにしてきたところはあるのでそれなりに設定はしてある状態。
+一つずつ設定をみて一個ずつimportしていくのは途方もなく時間がかかる。なるべくなら自動化できるところはしていきたい。一気にimportしていきたいところだった。</p>
+<aside class="callout">
+  <p class="title">見つけたもの</p>
+  <p class="content">
+<p><a href="https://sfujiwara.hatenablog.com/entry/tfstate-merge">複数の Terraform state を結合する tfstate-merge を書いて20個以上の state を大統一した - 酒日記 はてな支店</a></p>
+<p>しかし、バージョンが現状利用しているものと異なるため、断念。
+tfstateのコピペができなそうだった。</p>
+  </p>
+</aside>
+<h3 id="代替案">代替案</h3>
+<p><a href="https://github.com/GoogleCloudPlatform/terraformer">https://github.com/GoogleCloudPlatform/terraformer</a></p>
+<p>これを使うとしてみた。
+これは指定したAWSアカウント、サービス別にコードとして一括ですべてコードにおとしこめるところ。
+懸念事項としては落とし込んだ時にtfstateも合わせて作成されるしようになっているところ。
+現状、リモートでtfstateを管理しているので、そちらに反映していかなければならない。
+ここは何かしらの対応が必要だ。</p>
+<p><strong>手順</strong></p>
+<ol>
+<li>terraformerでコードに落とし込む</li>
+<li>落とし込まれたコードからterraformのimportブロックを作成する。</li>
+<li><code>terraform import</code>を実行して実際に反映させる。</li>
+</ol>
+<p>これでいけそうだ。</p>
+<h2 id="コード化">コード化</h2>
+<h3 id="ディレクトリ構成">ディレクトリ構成</h3>
+<p>基本構成としては</p>
+<ul>
+<li>AWSアカウント別にまとめる</li>
+<li>環境別にまとめる</li>
+<li>moduleはロール別に共通化を行う。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── Gemfile
+</span></span><span style="display:flex;"><span>├── README.markdown
+</span></span><span style="display:flex;"><span>├── bin
+</span></span><span style="display:flex;"><span>│   ├── generate-import-cmd.rb
+</span></span><span style="display:flex;"><span>│   └── lib
+</span></span><span style="display:flex;"><span>├── piazza
+</span></span><span style="display:flex;"><span>│   ├── files
+</span></span><span style="display:flex;"><span>│   │   ├── iam-policy-*.json
+</span></span><span style="display:flex;"><span>│   │   └── iam-policy-*.json.tpl
+</span></span><span style="display:flex;"><span>│   ├── modules
+</span></span><span style="display:flex;"><span>│   │   ├── app
+</span></span><span style="display:flex;"><span>│   │   ├── app-db
+</span></span><span style="display:flex;"><span>│   │   ├── constants
+</span></span><span style="display:flex;"><span>│   │   ├── bastion
+</span></span><span style="display:flex;"><span>│   │   └── variables.tf
+</span></span><span style="display:flex;"><span>│   ├── production
+</span></span><span style="display:flex;"><span>│   │   ├── app
+</span></span><span style="display:flex;"><span>│   │   │   └── app-db
+</span></span><span style="display:flex;"><span>│   │   ├── bastion
+</span></span><span style="display:flex;"><span>│   │   ├── *.tf
+</span></span><span style="display:flex;"><span>│   │   ├── **no-need-*.tf**
+</span></span><span style="display:flex;"><span>│   │   └── variables.tf
+</span></span><span style="display:flex;"><span>│   ├── sandbox
+</span></span><span style="display:flex;"><span>│   └── staging
+</span></span><span style="display:flex;"><span>├── piazza-life
+</span></span><span style="display:flex;"><span>│   ├── modules
+</span></span><span style="display:flex;"><span>│   │   └── constants
+</span></span><span style="display:flex;"><span>│   └── production
+</span></span><span style="display:flex;"><span>│       └── *.tf
+</span></span><span style="display:flex;"><span>├── piazza-payment-production
+</span></span><span style="display:flex;"><span>└── terraform
+</span></span><span style="display:flex;"><span>    ├── README.md
+</span></span><span style="display:flex;"><span>    └── boilerplate
+</span></span><span style="display:flex;"><span>        ├── backend.tf
+</span></span><span style="display:flex;"><span>        ├── main.tf
+</span></span><span style="display:flex;"><span>        ├── modules
+</span></span><span style="display:flex;"><span>        ├── provider.tf
+</span></span><span style="display:flex;"><span>        └── variables.tf
+</span></span></code></pre></div><h3 id="既存の設定を取り込む">既存の設定を取り込む</h3>
+<p>terraformerで出力されたものを解析してimportコマンドとして落とし込む</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>terraformer import aws -r route53 --regions ap-northeast-1  --profile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> --path-pattern route53
+</span></span></code></pre></div><p>これだけだとコードには落とし込んでくれて、便利ではあるものの、これからimport処理をしてリモートにあるtfstateと関連付けを行う必要があった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># import
+</span></span><span style="display:flex;"><span>terraform import aws_subnet.hoge subnet-aaaaaaaa
+</span></span><span style="display:flex;"><span>terraform import aws_subnet.hoge subnet-aaaaaaaa
+</span></span><span style="display:flex;"><span>terraform import aws_subnet.hoge subnet-aaaaaaaa
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>これから実際に反映していくことにするとimportコマンドを大量に売っていくことになる。書いていくのが非常に面倒くさい。
+importするとものによってはかなりの量になってくるのでここは自分でスクリプトを作成してimportブロックを自動で生成するコマンドを生成して一気に関連付けできるようにして対応した。</p>
+<p>terraformerが生成したリソース名には一定の規則があり、それがIDとして抽出できるので、それが分かれば生成コマンドは簡単に作れます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ruby bin/generate-import-cmd.rb production/subnet/subnet.tf &gt; import.tf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ cat import.tf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># importブロックが生成される</span>
+</span></span><span style="display:flex;"><span>import <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;subnet-xxxxxxxxxxxxxxxxx&#34;</span>
+</span></span><span style="display:flex;"><span>  to <span style="color:#f92672">=</span> aws_subnet.tfer--subnet-xxxxxxxxxxxxxxxxx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>import <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;subnet-xxxxxxxxxxxxxxxxx&#34;</span>
+</span></span><span style="display:flex;"><span>  to <span style="color:#f92672">=</span> aws_subnet.tfer--subnet-xxxxxxxxxxxxxxxxx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>import <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;subnet-xxxxxxxxxxxxxxxxx&#34;</span>
+</span></span><span style="display:flex;"><span>  to <span style="color:#f92672">=</span> aws_subnet.tfer--subnet-xxxxxxxxxxxxxxxxx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span></code></pre></div><p>※本当は<code>terraform import</code>でコマンドを作成していたが途中からimportブロックが利用できるようになったのでそちらを利用するようにした。</p>
+<p>そもそもterraformerは古いというか開発が去年から止まっていて更新が遅く、aws,terraform公式に追随できていないので出力されたコードが最新とは限らない。少なくとも公式で採用されているimportブロックの方が最新だし更新もある程度頻繁におこなわれている。</p>
+<p><strong>terraformerでの注意点、、、</strong></p>
+<p>terraformerで吐き出されたコードで以下のことに留意していく必要があった。</p>
+<ul>
+<li>リソース名がIDを利用した数字と英語の乱数になっているので可読性にかける</li>
+<li>ユーザ一覧の設定を一個づつ吐き出してしまう</li>
+<li>module化は考慮されていない</li>
+</ul>
+<p>したがって、以下の項目を設定する必要があった。</p>
+<ul>
+<li>可読性のある名前に変更する</li>
+<li>ループで回せるものは配列にして設定させる</li>
+<li>module化を行い、共通化する
+<ul>
+<li>この時の方針としてはrole別に共通化</li>
+</ul>
+</li>
+</ul>
+<p>ここは把握しやすくそして変更しやすい状況にしておくためにリファクタリングを行っている。</p>
+<h3 id="階層的に情報を参照させる">階層的に情報を参照させる</h3>
+<pre tabindex="0"><code>data &#34;terraform_remote_state&#34; &#34;state&#34; {
+  backend = &#34;s3&#34;
+  config = {
+    bucket = &#34;piazza-tfstate&#34;
+    key    = &#34;piazza/production_v1.0.0.tfstate&#34;
+    region = &#34;ap-northeast-1&#34;
+  }
+}
+</code></pre><p>階層的には全体的な設定を上部階層にあってその下には各ロールの設定が入ったディレクトリが存在する。しかし、terraformの特性上そのディレクトリ内で設定を完結する必要があります。現実問題として各ロールでも上の階層で設定した内容を参照したいことが多々あります。そんなときには上部のような宣言をすれば、他のtfstateを参照することが可能になります。結果上の階層の情報も拾うことができるようになります。使い回しができるようになって便利！</p>
+<pre tabindex="0"><code># 参照先
+zone_id = data.terraform_remote_state.state.outputs.route53-zone-main.id
+</code></pre><p>参照元は参照できるようにするために対象をoutputで宣言しないといけません</p>
+<pre tabindex="0"><code># 参照元
+
+output &#34;route53-zone-main&#34; {
+  value = aws_route53_zone.route53-zone-main
+}
+</code></pre><h2 id="躓きポイント">躓きポイント</h2>
+<h3 id="ポイント1">ポイント1</h3>
+<p>Network Interfaceは設定によって定期的に変わるものがあるのでなるべく管理しないようにした。設定する順番がことなるとエラーになる時があるので <code>depends_on</code> を利用する</p>
+<h3 id="ポイント2">ポイント2</h3>
+<p>パスワードは管理したくないので無視するようにした。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  lifecycle <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    ignore_changes <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>value<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>秘匿情報をAWS側で管理している場合があるのでそれはGitHubで管理せず、1Passwordで管理して使う時に転換するようにしている。</p>
+<h2 id="不要な機能は削除">不要な機能は削除</h2>
+<p>最後に、明らかに不要なものは削除する。</p>
+<p>会社で不要になっているサービスをある程度リストアップできているもがある。もちろんまだ調査しないといけないものもあるが、、、あとは削除していくのみだ。また、Organizationレベルで権限管理や役割別に分けて管理していたAWSアカウントも、利用されていないものは削除した。ただ、一部影響範囲があるものもあったため、ドキュメントを読み、わからないところはAWSのテクニカルサポートに積極的に問い合わせて確認することにした。</p>
+<h1 id="まとめ">まとめ</h1>
+<p>今回のプロジェクトでは、現状の課題を解決するために、環境全体をコード化（IaC化）し、効率的かつ確実にインフラを管理できる体制を整えた。この取り組みによって、不要なリソースを削除し、環境の複雑化を防ぎ、迅速な意思決定が可能となる基盤を築けと思う。具体的なステップとしては、以下のような手順を踏んでいる。</p>
+<ol>
+<li><strong>現状の把握とIaC化</strong>
+<ul>
+<li>全ての環境をTerraformによりコード化し、現状の構成を完全に把握。</li>
+<li>その後、必要な環境のみを新しいAWSアカウントに移行。</li>
+</ul>
+</li>
+<li><strong>サポート体制の構築</strong>
+<ul>
+<li>AWSのテクニカルサポートや外部コンサルタントの活用、SREチームの発足などにより、インフラの全体的な把握と改善を推進。</li>
+</ul>
+</li>
+<li><strong>不要な機能の削除</strong>
+<ul>
+<li>AWS Control Towerや不要なサービスを順次削除し、運用負荷を軽減。</li>
+</ul>
+</li>
+<li><strong>コードのリファクタリング</strong>
+<ul>
+<li>可読性の向上やモジュール化により、管理しやすいコードベースを構築。</li>
+<li>Terraformerを利用してリソースの自動インポートを行い、効率化を図った。</li>
+</ul>
+</li>
+</ol>
+<p>これらのステップにより、現状の課題を解決し、環境の管理をより効率的かつ安全に行えるようにした。今後はこの基盤を活用し、安心・安全にメンバー全員が運用できる体制を整え、開発スピードを維持しながらプロダクトを成長させていければとおもいます。</p>
+<p>とはいえ、まだまだスタート地点にたった印象です。さらに改善してエンジニアがプロダクトによりコミットできる状況を作っていければと思っています。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

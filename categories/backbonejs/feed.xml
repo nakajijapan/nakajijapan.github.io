@@ -1,0 +1,246 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Backbonejs on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/backbonejs/</link>
+        <description>Recent content in Backbonejs on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Mon, 01 Jul 2013 07:53:00 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/backbonejs/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>CSRF Protection for Rails and Backbone.js</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-07-01-csrf-protection/</link>
+            <pubDate>Mon, 01 Jul 2013 07:53:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-07-01-csrf-protection/</guid>
+            <description>&lt;p&gt;欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。
+Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷
+して送信させるようにしました。&lt;/p&gt;
+&lt;p&gt;ちなみに以前はModelに&lt;code&gt;toJSON&lt;/code&gt;メソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので
+DELETE用にも対応できるよう実装してみた。（&lt;code&gt;Model.destroy&lt;/code&gt;時には&lt;code&gt;toJSON()&lt;/code&gt;を仲介しない）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-------------------------------------------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Sync&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-------------------------------------------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Backbone&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;_sync&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Backbone&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;sync&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Backbone&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;sync&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;create&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;update&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;options_csrf&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;headers&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;X-CSRF-Token&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;BackboneFrustration&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Model&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;csrf_token&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;extend&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#a6e22e&#34;&gt;options_csrf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Backbone&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;_sync&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;メソッドをオーバーライドしてHEADERに&lt;code&gt;X−CSRF-Token&lt;/code&gt;を付加して親処理に渡す。&lt;code&gt;BackboneFrustration.Model.csrf_token()&lt;/code&gt;は
+単純にフォームからCSRF用のtokenを取得しているだけです。これでajax通信のときはtokenを無視して処理をするようなその場しのぎな実装をせずになりました。&lt;/p&gt;
+&lt;p&gt;以下のような処理撲滅です。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;protect_from_forgery &lt;span style=&#34;color:#e6db74&#34;&gt;except&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;:craete&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;この修正で問題なく動作しているので適用させました。&lt;/p&gt;
+&lt;p&gt;ところでRails用のgemで&lt;code&gt;backbone-rails&lt;/code&gt;なんてものがありましてそこのコードを
+見ていたらだいたい同じことをしていたのであらかじめこれを参考にして勉強すれば良かったと思いました。とほほ。。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js&#34;&gt;https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;とりあえず、これで一安心。&lt;/p&gt;
+&lt;h2 id=&#34;実際の修正箇所&#34;&gt;実際の修正箇所&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/nakajijapan/frustrationme_app/pull/25/files&#34;&gt;https://github.com/nakajijapan/frustrationme_app/pull/25/files&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Backbone.jsガイドブック読書会 第２章</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-06-13-backbone-guidebook03/</link>
+            <pubDate>Thu, 13 Jun 2013 10:56:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-06-13-backbone-guidebook03/</guid>
+            <description>&lt;p&gt;前回の続きです。１章ではBackboneの基礎的な知識を読んでいきましたが、次は実際に使われるオブジェクトの説明。
+Backboneで利用される重要な３つのモデルModel, Coolection, Viewの説明（役割・使い方）でした。&lt;/p&gt;
+&lt;p&gt;概要と話題になったことをメモろうと思います。&lt;/p&gt;
+&lt;h2 id=&#34;model&#34;&gt;Model&lt;/h2&gt;
+&lt;p&gt;データを扱う方法を提供するもの。
+View側で実際にデータがどう扱われているかは気にしない。 -&amp;gt; viewとの分離
+これがjavascriptで使えちゃう。&lt;/p&gt;
+&lt;h3 id=&#34;提供するもの&#34;&gt;提供するもの&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;保持&lt;/li&gt;
+&lt;li&gt;検証&lt;/li&gt;
+&lt;li&gt;アクセス制御&lt;/li&gt;
+&lt;li&gt;保存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;validationをどうするか&#34;&gt;Validationをどうするか&lt;/h3&gt;
+&lt;p&gt;サーバサイドでもクライアントサイドでも実装しなくちゃいけなくなるのは大変だよね。って話をした。
+場合によりけりだろうけど。そこまでのアクセスを気にしなきゃ。検証はサーバサイドで全て任せて
+その結果を画面に表示。は二重管理せずに済むよね。ユーザにリアルタイムに検証結果を表示させたいとき
+とかはクライアント側でも利用するよねーという話をした。&lt;/p&gt;
+&lt;p&gt;ちなみに欲求不満(&lt;a href=&#34;http://www.frustration.me&#34;&gt;http://www.frustration.me&lt;/a&gt;)ではサーバサイドでもチェックできるようクラスを用意して
+それを継承して処理が動作するようになっている。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-------------------------------------------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Model&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-------------------------------------------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;BackboneFrustration&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Model&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Backbone&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Model&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;initialize&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;attributes&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;on&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;,   &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;defaultErrorHandler&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;on&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;invalid&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;defaultErrorHandler&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;defaultErrorHandler&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;model&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;object&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;statusText&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;alert&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Intal Server Error&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;string&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#a6e22e&#34;&gt;alert&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;collecation&#34;&gt;Collecation&lt;/h2&gt;
+&lt;p&gt;複数のモデルを管理するためのオブジェクト。それ自体にデータはない。
+Underscoreの配列操作に由来した関数群があるのでそれ使うと便利という話。
+each(),pluck(),invoke()等のよく使いそうな便利メソッドの紹介があった。&lt;/p&gt;
+&lt;h2 id=&#34;view&#34;&gt;View&lt;/h2&gt;
+&lt;p&gt;BackboneにおけるViewは二つの役割を持っているという話。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Viewとして、「適切にDOMツリーを構築する」&lt;/li&gt;
+&lt;li&gt;Controllerとして、「そのDOMツリーで起ったDOMイベントを処理する」&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前者でいうと&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Model,Collectionを利用してデータの操作して、保存を行ったり、新しいViewを構築する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;後者でいうと&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DOMのイベントハンドリングはView内でちゃんとやろう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;なのかなと感じた。&lt;/p&gt;
+&lt;p&gt;あと、Underscoreのテンプレートエンジンの話が出てきて、また記法覚えるの辛かったのでERBの記法に似た&lt;a href=&#34;http://embeddedjs.com/&#34;&gt;EJS&lt;/a&gt;を利用したいのですが余裕があるのでこちらに移行してみるのありだと思いました。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Backbone.jsガイドブック読書会 第１章 続き</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-05-30-backbone-guidebook01/</link>
+            <pubDate>Thu, 30 May 2013 00:12:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-05-30-backbone-guidebook01/</guid>
+            <description>&lt;p&gt;第１章の続き&lt;/p&gt;
+&lt;p&gt;Eventsあたりのところから&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Eventsが提供しているインタフェースはオブザーバパターンを駆使してオブジェクト間の結合を「疎」に保たせている&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;と記述されている。&lt;/p&gt;
+&lt;h2 id=&#34;オブザーバパターンとは&#34;&gt;オブザーバパターンとは&lt;/h2&gt;
+&lt;p&gt;購読者と発行者と呼ばれるオブジェクトが存在する。
+発行者が購読者のメソッドを直接呼び出す代わりに、購読者は発行者
+のイベントを購読する。イベントが発生したらそれを購読している
+オブジェクトに通知される。&lt;/p&gt;
+&lt;p&gt;発行者はだれが購読してるのか知らずに済む。&lt;/p&gt;
+&lt;p&gt;イベント駆動開発の技法。&lt;/p&gt;
+&lt;p&gt;詳細はここが分かりやすい。
+&lt;a href=&#34;http://www.techscore.com/tech/DesignPattern/Observer.html/&#34;&gt;http://www.techscore.com/tech/DesignPattern/Observer.html/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;backbonejsでいう購読者と発行者&#34;&gt;Backbone.jsでいう購読者と発行者&lt;/h3&gt;
+&lt;p&gt;これを以下のようにして考えるとわかりやすい&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;購読者: View&lt;/li&gt;
+&lt;li&gt;発行者 : Model&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Modelはだれが購読してるかしらなくていい、イベントを通知してあげればいいんです。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# viewの中で
+var entry = new Entry();
+entry.on(&amp;#39;change&amp;#39;, this.render());
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;メディエータパターン&#34;&gt;メディエータパターン&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;複数オブジェクトの間を取り持つ仲介者と鳴るオブジェクトを用意し、オブジェクト間の連動の詳細をその仲介者に持たせる
+個々のオブジェクトの独自性を高める&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;内容は理解できたけど、使いどころまだピンときていない。&lt;/p&gt;
+&lt;p&gt;ここに詳しく記述されていた。
+&lt;a href=&#34;http://www.techscore.com/tech/DesignPattern/Mediator.html/&#34;&gt;http://www.techscore.com/tech/DesignPattern/Mediator.html/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;コラムでのまめ知識&#34;&gt;コラムでのまめ知識&lt;/h2&gt;
+&lt;p&gt;メモリーリークの問題から&lt;code&gt;on() off()&lt;/code&gt;ではなくて &lt;code&gt;listenTo() stopListening()&lt;/code&gt;を利用するといい
+v1.0からはView#remove()内部でstopListening() ViewではlistenToしてるので大丈夫！&lt;/p&gt;
+&lt;h2 id=&#34;underscorejs&#34;&gt;Underscore.js&lt;/h2&gt;
+&lt;p&gt;便利関数の紹介だった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;_.debounce()
+&lt;ul&gt;
+&lt;li&gt;一定時間イベントが発生しなかったときに処理を実行する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;_.throtte()
+&lt;ul&gt;
+&lt;li&gt;コールバックの実行頻度をさげる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;_.delay()
+&lt;ul&gt;
+&lt;li&gt;処理を遅らせる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;_.defer()
+&lt;ul&gt;
+&lt;li&gt;コールバック関数の中で最後に実行されることを保証する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記二つの関数は今にも使えそうな便利関数だったので導入していきたいな。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://underscorejs.org/&#34;&gt;http://underscorejs.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;見る限り処理を便利＆スマートにしてくれるのでカジュアルにこれだけ導入でもありかもしれない。&lt;/p&gt;
+&lt;p&gt;さて来週からは第二章ですよ。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Backbone.jsガイドブック読書会 第１章 続き</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-05-23-backbone-guidebook00/</link>
+            <pubDate>Thu, 23 May 2013 00:12:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-05-23-backbone-guidebook00/</guid>
+            <description>&lt;h2 id=&#34;backbonejs読書会１日目&#34;&gt;Backbone.js読書会１日目&lt;/h2&gt;
+&lt;p&gt;Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）&lt;/p&gt;
+&lt;p&gt;そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。&lt;/p&gt;
+&lt;p&gt;「Backbone.js ガイドブック」&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/Backbone-js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E9%AB%98%E6%A9%8B-%E4%BE%91%E4%B9%85/dp/4899773501%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4899773501&#34; target=&#34;_blank&#34; title=&#34;Backbone.jsガイドブック&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/31tI0WaZukL._SL160_.jpg&#34; width=&#34;118&#34; height=&#34;150&#34; alt=&#34;Backbone.jsガイドブック&#34; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/Backbone-js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E9%AB%98%E6%A9%8B-%E4%BE%91%E4%B9%85/dp/4899773501%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4899773501&#34; target=&#34;_blank&#34;&gt;Backbone.jsガイドブック&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;はじめは概要なのですらっと。&lt;/p&gt;
+&lt;p&gt;一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Parent&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Backbone&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;View&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;extend&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;instance_p&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;instance_m&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(){ &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;instance_m&amp;#39;&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;class_p&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;class_m&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(){ &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;instance_m&amp;#39;&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;サンプルみただけだとふーんですよね。僕もいまのところふーんです。&lt;/p&gt;
+&lt;p&gt;ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&amp;lsquo;modal&amp;rsquo;)とかで毎回DOMを操作しなくて済む。&lt;/p&gt;
+&lt;p&gt;ふと思った訳です。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Parent&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Backbone&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;View&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;extend&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;instance_p&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;instance_m&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(){ &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;instance_m&amp;#39;&lt;/span&gt;;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;modal_template&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;class_m&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;(){ &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;modal_template&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;$&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;#modal&amp;#39;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;html&lt;/span&gt;()}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなかんじ。&lt;/p&gt;
+&lt;p&gt;あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。&lt;/p&gt;
+&lt;p&gt;さ。来週もすすめていきますよ。&lt;/p&gt;
+&lt;h2 id=&#34;追記&#34;&gt;追記&lt;/h2&gt;
+&lt;p&gt;洋書は今月末にでるようだ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449328253&#34; target=&#34;_blank&#34; title=&#34;Developing Backbone.js Applications&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/5171nmxXQdL._SL160_.jpg&#34; width=&#34;114&#34; height=&#34;150&#34; alt=&#34;Developing Backbone.js Applications&#34; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449328253&#34; target=&#34;_blank&#34;&gt;Developing Backbone.js Applications&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

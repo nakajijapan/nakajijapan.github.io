@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="RubyHiroba">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2013/2013-06-02-rubyhiroba/" />
+<meta property="go:description" content="    サービスをRailsにした話  from Daichi Nakajima 
+RubyHirobaでLTに参加してきまして自分のサービスのことについて話してきました。
+以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。
+やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが
+反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）
+perlにしろrubyにしろテストがあるのは大変心強いし、安心します。
+たとえ、最新のRailsにのせ変えたとしてもテストがない時点でもう技術的負債。前のコードと何ら変わりはない。
+まぁ作成した時点負債は負債なんだけどその劣化速度は抑えられるはず。
+まだまだリニューアルは続きますが、引き続きがんばります。
+そして裏で支えていただいた@hsbt氏には感謝の意を隠しきれないであります。。。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="RubyHiroba" />
+<meta name="twitter:description" content="    サービスをRailsにした話  from Daichi Nakajima 
+RubyHirobaでLTに参加してきまして自分のサービスのことについて話してきました。
+以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。
+やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが
+反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）
+perlにしろrubyにしろテストがあるのは大変心強いし、安心します。
+たとえ、最新のRailsにのせ変えたとしてもテストがない時点でもう技術的負債。前のコードと何ら変わりはない。
+まぁ作成した時点負債は負債なんだけどその劣化速度は抑えられるはず。
+まだまだリニューアルは続きますが、引き続きがんばります。
+そして裏で支えていただいた@hsbt氏には感謝の意を隠しきれないであります。。。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>RubyHiroba - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">RubyHiroba</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-06-05">June 05, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ruby">Ruby</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <iframe src="http://www.slideshare.net/slideshow/embed_code/22314337" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/nakajijapan/2013-lt" title="サービスをRailsにした話" target="_blank">サービスをRailsにした話</a> </strong> from <strong><a href="http://www.slideshare.net/nakajijapan" target="_blank">Daichi Nakajima</a></strong> </div>
+<p><a href="http://rubyhiroba.org/2013/">RubyHiroba</a>でLTに参加してきまして自分のサービスのことについて話してきました。
+以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。
+やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが
+反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）</p>
+<p>perlにしろrubyにしろテストがあるのは大変心強いし、安心します。
+たとえ、最新のRailsにのせ変えたとしてもテストがない時点でもう技術的負債。前のコードと何ら変わりはない。
+まぁ作成した時点負債は負債なんだけどその劣化速度は抑えられるはず。</p>
+<p>まだまだリニューアルは続きますが、引き続きがんばります。</p>
+<p>そして裏で支えていただいた@hsbt氏には感謝の意を隠しきれないであります。。。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

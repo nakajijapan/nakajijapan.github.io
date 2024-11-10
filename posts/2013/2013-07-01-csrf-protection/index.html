@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="CSRF Protection for Rails and Backbone.js">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2013/2013-07-01-csrf-protection/" />
+<meta property="go:description" content="欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。
+Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷
+して送信させるようにしました。
+ちなみに以前はModelにtoJSONメソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので
+DELETE用にも対応できるよう実装してみた。（Model.destroy時にはtoJSON()を仲介しない）
+#-------------------------------------------
+# Sync
+#-------------------------------------------
+Backbone._sync = Backbone.sync
+Backbone.sync = (method, model, options) -&gt;
+  if method == &#39;create&#39; || method == &#39;update&#39; || method == &#39;delete&#39;
+    options_csrf =
+      headers:
+        &#39;X-CSRF-Token&#39;: BackboneFrustration.Model.csrf_token()
+
+    _.extend(
+      options,
+      options_csrf
+    )
+
+  return Backbone._sync(method, model, options)
+メソッドをオーバーライドしてHEADERにX−CSRF-Tokenを付加して親処理に渡す。BackboneFrustration.Model.csrf_token()は
+単純にフォームからCSRF用のtokenを取得しているだけです。これでajax通信のときはtokenを無視して処理をするようなその場しのぎな実装をせずになりました。
+以下のような処理撲滅です。
+protect_from_forgery except: :craete 
+この修正で問題なく動作しているので適用させました。
+ところでRails用のgemでbackbone-railsなんてものがありましてそこのコードを
+見ていたらだいたい同じことをしていたのであらかじめこれを参考にして勉強すれば良かったと思いました。とほほ。。
+https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js
+とりあえず、これで一安心。
+実際の修正箇所
+https://github.com/nakajijapan/frustrationme_app/pull/25/files" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="CSRF Protection for Rails and Backbone.js" />
+<meta name="twitter:description" content="欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。
+Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷
+して送信させるようにしました。
+ちなみに以前はModelにtoJSONメソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので
+DELETE用にも対応できるよう実装してみた。（Model.destroy時にはtoJSON()を仲介しない）
+#-------------------------------------------
+# Sync
+#-------------------------------------------
+Backbone._sync = Backbone.sync
+Backbone.sync = (method, model, options) -&gt;
+  if method == &#39;create&#39; || method == &#39;update&#39; || method == &#39;delete&#39;
+    options_csrf =
+      headers:
+        &#39;X-CSRF-Token&#39;: BackboneFrustration.Model.csrf_token()
+
+    _.extend(
+      options,
+      options_csrf
+    )
+
+  return Backbone._sync(method, model, options)
+メソッドをオーバーライドしてHEADERにX−CSRF-Tokenを付加して親処理に渡す。BackboneFrustration.Model.csrf_token()は
+単純にフォームからCSRF用のtokenを取得しているだけです。これでajax通信のときはtokenを無視して処理をするようなその場しのぎな実装をせずになりました。
+以下のような処理撲滅です。
+protect_from_forgery except: :craete 
+この修正で問題なく動作しているので適用させました。
+ところでRails用のgemでbackbone-railsなんてものがありましてそこのコードを
+見ていたらだいたい同じことをしていたのであらかじめこれを参考にして勉強すれば良かったと思いました。とほほ。。
+https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js
+とりあえず、これで一安心。
+実際の修正箇所
+https://github.com/nakajijapan/frustrationme_app/pull/25/files" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>CSRF Protection for Rails and Backbone.js - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">CSRF Protection for Rails and Backbone.js</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-07-01">July 01, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/backbonejs">backbonejs</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>欲求不満では内部でBackbone.jsを利用しているのですが、セキュリティ強化のためにCSRF対策を施しました。
+Railsを利用しているときはCSRF用のtokenを発行しているのでそれをBackbone.jsで通信するさいに情報を負荷
+して送信させるようにしました。</p>
+<p>ちなみに以前はModelに<code>toJSON</code>メソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので
+DELETE用にも対応できるよう実装してみた。（<code>Model.destroy</code>時には<code>toJSON()</code>を仲介しない）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">-------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Sync</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">-------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">_sync</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">sync</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">sync</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">method</span>, <span style="color:#a6e22e">model</span>, <span style="color:#a6e22e">options</span>) <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">method</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;create&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">method</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;update&#39;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">method</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;delete&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">options_csrf</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;X-CSRF-Token&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">BackboneFrustration</span>.<span style="color:#a6e22e">Model</span>.<span style="color:#a6e22e">csrf_token</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">extend</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">options</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">options_csrf</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">_sync</span>(<span style="color:#a6e22e">method</span>, <span style="color:#a6e22e">model</span>, <span style="color:#a6e22e">options</span>)
+</span></span></code></pre></div><p>メソッドをオーバーライドしてHEADERに<code>X−CSRF-Token</code>を付加して親処理に渡す。<code>BackboneFrustration.Model.csrf_token()</code>は
+単純にフォームからCSRF用のtokenを取得しているだけです。これでajax通信のときはtokenを無視して処理をするようなその場しのぎな実装をせずになりました。</p>
+<p>以下のような処理撲滅です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>protect_from_forgery <span style="color:#e6db74">except</span>: <span style="color:#e6db74">:craete</span> 
+</span></span></code></pre></div><p>この修正で問題なく動作しているので適用させました。</p>
+<p>ところでRails用のgemで<code>backbone-rails</code>なんてものがありましてそこのコードを
+見ていたらだいたい同じことをしていたのであらかじめこれを参考にして勉強すれば良かったと思いました。とほほ。。</p>
+<p><a href="https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js">https://github.com/codebrew/backbone-rails/blob/master/vendor/assets/javascripts/backbone_rails_sync.js</a></p>
+<p>とりあえず、これで一安心。</p>
+<h2 id="実際の修正箇所">実際の修正箇所</h2>
+<p><a href="https://github.com/nakajijapan/frustrationme_app/pull/25/files">https://github.com/nakajijapan/frustrationme_app/pull/25/files</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

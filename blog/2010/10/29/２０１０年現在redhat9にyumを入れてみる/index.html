@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="２０１０年現在、redhat9にyumを入れてみる。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/10/29/%EF%BC%92%EF%BC%90%EF%BC%91%EF%BC%90%E5%B9%B4%E7%8F%BE%E5%9C%A8redhat9%E3%81%AByum%E3%82%92%E5%85%A5%E3%82%8C%E3%81%A6%E3%81%BF%E3%82%8B/" />
+<meta property="go:description" content="
+wget http://ftp.kddilabs.jp/Linux/packages/fedora.legacy/redhat/9/updates/i386/gnupg-1.2.1-9.i386.rpm
+wget http://ftp.kddilabs.jp/Linux/packages/fedora.legacy/redhat/9/legacy-utils/i386/yum-2.0.5-0.9.2.legacy.noarch.rpm
+rpm -ivh gnupg-1.2.1-9.i386.rpm
+rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+
+wget http://dag.wieers.com/rpm/packages/rpmforge-release/rpmforge-release-0.3.6-1.rh9.rf.i386.rpm
+rpm -ivh rpmforge-release-0.3.6-1.rh9.rf.i386.rpm
+
+
+
+# ここで依存性エラーが出てしまいインストールできませんでした
+#rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+wget http://dag.wieers.com/packages/RPM-GPG-KEY.dag.txt
+wget http://dag.wieers.com/packages/RPM-GPG-KEY.dag.txt
+rpm --import RPM-GPG-KEY.dag.txt
+wget http://packages.sw.be/libxml2/libxml2-python-2.6.16-1.0.rh9.rf.i386.rpm
+
+
+wget http://packages.sw.be/libxml2/libxml2-2.6.16-1.0.rh9.rf.i386.rpm
+wget http://packages.sw.be/libxml2/libxml2-devel-2.6.16-1.0.rh9.rf.i386.rpm
+wget ftp://ftp.muug.mb.ca/mirror/redhat/redhat/linux/9/en/os/i386/RedHat/RPMS/zlib-devel-1.1.4-8.i386.rpm
+
+rpm -ivh zlib-devel-1.1.4-8.i386.rpm
+rpm -ivh libxml2-*
+rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+vi /etc/yum.conf
+
+
+[rpmforge]
+name = Red Hat $releasever - RPMforge.net - dag
+baseurl = http://apt.sw.be/redhat/9/en/$basearch/dag
+mirrorlist = http://apt.sw.be/redhat/9/en/mirrors-rpmforge
+#mirrorlist = file:///etc/yum.repos.d/mirrors-rpmforge
+enabled = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
+gpgcheck = 1
+
+■参考サイト
+http://d.hatena.ne.jp/onering/20080708/1215517963" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="２０１０年現在、redhat9にyumを入れてみる。" />
+<meta name="twitter:description" content="
+wget http://ftp.kddilabs.jp/Linux/packages/fedora.legacy/redhat/9/updates/i386/gnupg-1.2.1-9.i386.rpm
+wget http://ftp.kddilabs.jp/Linux/packages/fedora.legacy/redhat/9/legacy-utils/i386/yum-2.0.5-0.9.2.legacy.noarch.rpm
+rpm -ivh gnupg-1.2.1-9.i386.rpm
+rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+
+wget http://dag.wieers.com/rpm/packages/rpmforge-release/rpmforge-release-0.3.6-1.rh9.rf.i386.rpm
+rpm -ivh rpmforge-release-0.3.6-1.rh9.rf.i386.rpm
+
+
+
+# ここで依存性エラーが出てしまいインストールできませんでした
+#rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+wget http://dag.wieers.com/packages/RPM-GPG-KEY.dag.txt
+wget http://dag.wieers.com/packages/RPM-GPG-KEY.dag.txt
+rpm --import RPM-GPG-KEY.dag.txt
+wget http://packages.sw.be/libxml2/libxml2-python-2.6.16-1.0.rh9.rf.i386.rpm
+
+
+wget http://packages.sw.be/libxml2/libxml2-2.6.16-1.0.rh9.rf.i386.rpm
+wget http://packages.sw.be/libxml2/libxml2-devel-2.6.16-1.0.rh9.rf.i386.rpm
+wget ftp://ftp.muug.mb.ca/mirror/redhat/redhat/linux/9/en/os/i386/RedHat/RPMS/zlib-devel-1.1.4-8.i386.rpm
+
+rpm -ivh zlib-devel-1.1.4-8.i386.rpm
+rpm -ivh libxml2-*
+rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+vi /etc/yum.conf
+
+
+[rpmforge]
+name = Red Hat $releasever - RPMforge.net - dag
+baseurl = http://apt.sw.be/redhat/9/en/$basearch/dag
+mirrorlist = http://apt.sw.be/redhat/9/en/mirrors-rpmforge
+#mirrorlist = file:///etc/yum.repos.d/mirrors-rpmforge
+enabled = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
+gpgcheck = 1
+
+■参考サイト
+http://d.hatena.ne.jp/onering/20080708/1215517963" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>２０１０年現在、redhat9にyumを入れてみる。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">２０１０年現在、redhat9にyumを入れてみる。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-10-29">October 29, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/linux">Linux</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <pre class="brush:bash">
+wget http://ftp.kddilabs.jp/Linux/packages/fedora.legacy/redhat/9/updates/i386/gnupg-1.2.1-9.i386.rpm
+wget http://ftp.kddilabs.jp/Linux/packages/fedora.legacy/redhat/9/legacy-utils/i386/yum-2.0.5-0.9.2.legacy.noarch.rpm
+rpm -ivh gnupg-1.2.1-9.i386.rpm
+rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+
+wget http://dag.wieers.com/rpm/packages/rpmforge-release/rpmforge-release-0.3.6-1.rh9.rf.i386.rpm
+rpm -ivh rpmforge-release-0.3.6-1.rh9.rf.i386.rpm
+
+</pre>
+<pre class="brush:bash">
+# ここで依存性エラーが出てしまいインストールできませんでした
+#rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+wget http://dag.wieers.com/packages/RPM-GPG-KEY.dag.txt
+wget http://dag.wieers.com/packages/RPM-GPG-KEY.dag.txt
+rpm --import RPM-GPG-KEY.dag.txt
+wget http://packages.sw.be/libxml2/libxml2-python-2.6.16-1.0.rh9.rf.i386.rpm
+</pre>
+<pre class="brush:bash">
+wget http://packages.sw.be/libxml2/libxml2-2.6.16-1.0.rh9.rf.i386.rpm
+wget http://packages.sw.be/libxml2/libxml2-devel-2.6.16-1.0.rh9.rf.i386.rpm
+wget ftp://ftp.muug.mb.ca/mirror/redhat/redhat/linux/9/en/os/i386/RedHat/RPMS/zlib-devel-1.1.4-8.i386.rpm
+
+rpm -ivh zlib-devel-1.1.4-8.i386.rpm
+rpm -ivh libxml2-*
+rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+vi /etc/yum.conf
+</pre>
+<pre class="brush:bash">
+[rpmforge]
+name = Red Hat $releasever - RPMforge.net - dag
+baseurl = http://apt.sw.be/redhat/9/en/$basearch/dag
+mirrorlist = http://apt.sw.be/redhat/9/en/mirrors-rpmforge
+#mirrorlist = file:///etc/yum.repos.d/mirrors-rpmforge
+enabled = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
+gpgcheck = 1
+</pre>
+<p>■参考サイト
+<a href="http://d.hatena.ne.jp/onering/20080708/1215517963"><a href="http://d.hatena.ne.jp/onering/20080708/1215517963">http://d.hatena.ne.jp/onering/20080708/1215517963</a></a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

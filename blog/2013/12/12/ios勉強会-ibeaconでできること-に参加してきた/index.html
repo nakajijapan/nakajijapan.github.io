@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="iOS勉強会 iBeaconでできること　に参加してきた">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2013/12/12/ios%E5%8B%89%E5%BC%B7%E4%BC%9A-ibeacon%E3%81%A7%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%93%E3%81%A8-%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/" />
+<meta property="go:description" content="Developer&rsquo;s IOさんが主催する勉強会に参加してきました。
+http://connpass.com/event/4225/
+iOS7の発表がでてからiBeaconに興味を持ち出して、このにゅ〜てくのろじ〜を面白いことにつかえないかと調査していたのですが、今回もっと知識を深めるべく勉強会にさんかしてきました。そのメモを残しておこうと思います。
+【初級】iBeaconの基礎のキ
+開発者以外にひとでも分かるようにiBeaconというものをざっくり説明してました。
+iBeaconとは
+
+BLEを利用している
+Bluetooth onにしないといけない
+CoreLocation.framework
+iOS7がインストールされるからってBLEが利用されるわけではない
+
+iOS7 &#43; BLEが利用できるっていうのが重要
+
+
+
+ざっくり定義すると
+BLEを利用したAppleの距離と領域観測のサービス
+です。
+利用したサービス
+
+AppleStore
+
+テーブルに近づくとiPhoneの紹介や下取りの情報が表示される
+
+
+Macy&rsquo;s
+
+入店検知してクーポンの取得、おすすめ商品の紹介
+O2O施策としてだいぶ確率されているようです
+
+
+スマポ
+
+来店ポイントがたまる
+日本でしっかりベジネスにしているサービスですね
+
+
+MLB
+
+入場用のバーコード
+point
+クーポン
+本日の対戦情報を表示してくれる
+自分の座席情報を教えてくれる
+とはいえ、現在まだベータ運用しているらしく、本番運用はまだのようですね
+
+
+
+よく利用される用語
+
+Beacon
+
+電子情報を受信して現在情報を知る電子機器のことをいうらしい
+
+http://e-words.jp/w/E38393E383BCE382B3E383B3.html
+
+
+
+
+BLE
+
+2.4GHz の無線を使った近距離無線通信規格
+少ない電池でもいままでよりも長くバッテリーが持つようにつくられている
+
+
+Advertise
+
+アドバタイズ：ある機器が別の機器に管理情報を伝達すること
+proximity UUID（企業）
+major（建物）
+minor（フロア）
+
+
+リージョン監視
+
+領域の入出チェック（虜域観測）
+リージョン=UUID
+出るイベントはドキュメント情報は２０秒っぽいが実際は３０秒かかるっぽい
+
+
+Ranging
+
+エリア内のBeaconの情報を取得（距離推定）
+Beacon距離
+
+proximity
+
+距離判定は４つとれる
+相対的に変わる
+
+
+accuracy
+
+位置情報取得の精度を指定
+もちろん精度が良いほど正確だが電池の量も多い
+領域はだいたいのもの
+
+
+rssi
+
+Received Signal Strength Indication
+無線通信機器が受信する信号の強度を測定するための回路または信号
+
+
+
+
+
+
+電波法！！！！
+
+技適マークがついていない無線機は電波法違反らしい
+estimoteのビーコン端末は日本実運用すると電波法違反になるぽいですね
+
+
+
+iBeaconを使ってみよう
+iBeaconアプリの作り方を二つのキーワードで説明しています。
+以下の二つをもとに実装を行っていく" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="iOS勉強会 iBeaconでできること　に参加してきた" />
+<meta name="twitter:description" content="Developer&rsquo;s IOさんが主催する勉強会に参加してきました。
+http://connpass.com/event/4225/
+iOS7の発表がでてからiBeaconに興味を持ち出して、このにゅ〜てくのろじ〜を面白いことにつかえないかと調査していたのですが、今回もっと知識を深めるべく勉強会にさんかしてきました。そのメモを残しておこうと思います。
+【初級】iBeaconの基礎のキ
+開発者以外にひとでも分かるようにiBeaconというものをざっくり説明してました。
+iBeaconとは
+
+BLEを利用している
+Bluetooth onにしないといけない
+CoreLocation.framework
+iOS7がインストールされるからってBLEが利用されるわけではない
+
+iOS7 &#43; BLEが利用できるっていうのが重要
+
+
+
+ざっくり定義すると
+BLEを利用したAppleの距離と領域観測のサービス
+です。
+利用したサービス
+
+AppleStore
+
+テーブルに近づくとiPhoneの紹介や下取りの情報が表示される
+
+
+Macy&rsquo;s
+
+入店検知してクーポンの取得、おすすめ商品の紹介
+O2O施策としてだいぶ確率されているようです
+
+
+スマポ
+
+来店ポイントがたまる
+日本でしっかりベジネスにしているサービスですね
+
+
+MLB
+
+入場用のバーコード
+point
+クーポン
+本日の対戦情報を表示してくれる
+自分の座席情報を教えてくれる
+とはいえ、現在まだベータ運用しているらしく、本番運用はまだのようですね
+
+
+
+よく利用される用語
+
+Beacon
+
+電子情報を受信して現在情報を知る電子機器のことをいうらしい
+
+http://e-words.jp/w/E38393E383BCE382B3E383B3.html
+
+
+
+
+BLE
+
+2.4GHz の無線を使った近距離無線通信規格
+少ない電池でもいままでよりも長くバッテリーが持つようにつくられている
+
+
+Advertise
+
+アドバタイズ：ある機器が別の機器に管理情報を伝達すること
+proximity UUID（企業）
+major（建物）
+minor（フロア）
+
+
+リージョン監視
+
+領域の入出チェック（虜域観測）
+リージョン=UUID
+出るイベントはドキュメント情報は２０秒っぽいが実際は３０秒かかるっぽい
+
+
+Ranging
+
+エリア内のBeaconの情報を取得（距離推定）
+Beacon距離
+
+proximity
+
+距離判定は４つとれる
+相対的に変わる
+
+
+accuracy
+
+位置情報取得の精度を指定
+もちろん精度が良いほど正確だが電池の量も多い
+領域はだいたいのもの
+
+
+rssi
+
+Received Signal Strength Indication
+無線通信機器が受信する信号の強度を測定するための回路または信号
+
+
+
+
+
+
+電波法！！！！
+
+技適マークがついていない無線機は電波法違反らしい
+estimoteのビーコン端末は日本実運用すると電波法違反になるぽいですね
+
+
+
+iBeaconを使ってみよう
+iBeaconアプリの作り方を二つのキーワードで説明しています。
+以下の二つをもとに実装を行っていく" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>iOS勉強会 iBeaconでできること　に参加してきた - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">iOS勉強会 iBeaconでできること　に参加してきた</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-12-12">December 12, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>Developer&rsquo;s IOさんが主催する勉強会に参加してきました。
+<a href="http://connpass.com/event/4225/">http://connpass.com/event/4225/</a></p>
+<p>iOS7の発表がでてから<code>iBeacon</code>に興味を持ち出して、このにゅ〜てくのろじ〜を面白いことにつかえないかと調査していたのですが、今回もっと知識を深めるべく勉強会にさんかしてきました。そのメモを残しておこうと思います。</p>
+<h1 id="初級ibeaconの基礎のキ">【初級】iBeaconの基礎のキ</h1>
+<p>開発者以外にひとでも分かるようにiBeaconというものをざっくり説明してました。</p>
+<h2 id="ibeaconとは">iBeaconとは</h2>
+<ul>
+<li>BLEを利用している</li>
+<li>Bluetooth onにしないといけない</li>
+<li>CoreLocation.framework</li>
+<li>iOS7がインストールされるからってBLEが利用されるわけではない
+<ul>
+<li>iOS7 + BLEが利用できるっていうのが重要</li>
+</ul>
+</li>
+</ul>
+<p>ざっくり定義すると</p>
+<p><code>BLEを利用したAppleの距離と領域観測のサービス</code></p>
+<p>です。</p>
+<h2 id="利用したサービス">利用したサービス</h2>
+<ul>
+<li>AppleStore
+<ul>
+<li>テーブルに近づくとiPhoneの紹介や下取りの情報が表示される</li>
+</ul>
+</li>
+<li>Macy&rsquo;s
+<ul>
+<li>入店検知してクーポンの取得、おすすめ商品の紹介</li>
+<li>O2O施策としてだいぶ確率されているようです</li>
+</ul>
+</li>
+<li>スマポ
+<ul>
+<li>来店ポイントがたまる</li>
+<li>日本でしっかりベジネスにしているサービスですね</li>
+</ul>
+</li>
+<li>MLB
+<ul>
+<li>入場用のバーコード</li>
+<li>point</li>
+<li>クーポン</li>
+<li>本日の対戦情報を表示してくれる</li>
+<li>自分の座席情報を教えてくれる</li>
+<li>とはいえ、現在まだベータ運用しているらしく、本番運用はまだのようですね</li>
+</ul>
+</li>
+</ul>
+<h2 id="よく利用される用語">よく利用される用語</h2>
+<ul>
+<li>Beacon
+<ul>
+<li>電子情報を受信して現在情報を知る電子機器のことをいうらしい
+<ul>
+<li><a href="http://e-words.jp/w/E38393E383BCE382B3E383B3.html">http://e-words.jp/w/E38393E383BCE382B3E383B3.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BLE
+<ul>
+<li>2.4GHz の無線を使った近距離無線通信規格</li>
+<li>少ない電池でもいままでよりも長くバッテリーが持つようにつくられている</li>
+</ul>
+</li>
+<li>Advertise
+<ul>
+<li>アドバタイズ：ある機器が別の機器に管理情報を伝達すること</li>
+<li>proximity UUID（企業）</li>
+<li>major（建物）</li>
+<li>minor（フロア）</li>
+</ul>
+</li>
+<li>リージョン監視
+<ul>
+<li>領域の入出チェック（虜域観測）</li>
+<li>リージョン=UUID</li>
+<li>出るイベントはドキュメント情報は２０秒っぽいが実際は３０秒かかるっぽい</li>
+</ul>
+</li>
+<li>Ranging
+<ul>
+<li>エリア内のBeaconの情報を取得（距離推定）</li>
+<li>Beacon距離
+<ul>
+<li>proximity
+<ul>
+<li>距離判定は４つとれる</li>
+<li>相対的に変わる</li>
+</ul>
+</li>
+<li>accuracy
+<ul>
+<li>位置情報取得の精度を指定</li>
+<li>もちろん精度が良いほど正確だが電池の量も多い</li>
+<li>領域はだいたいのもの</li>
+</ul>
+</li>
+<li>rssi
+<ul>
+<li>Received Signal Strength Indication</li>
+<li>無線通信機器が受信する信号の強度を測定するための回路または信号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>電波法！！！！
+<ul>
+<li>技適マークがついていない無線機は電波法違反らしい</li>
+<li>estimoteのビーコン端末は日本実運用すると電波法違反になるぽいですね</li>
+</ul>
+</li>
+</ul>
+<h2 id="ibeaconを使ってみよう">iBeaconを使ってみよう</h2>
+<p>iBeaconアプリの作り方を二つのキーワードで説明しています。
+以下の二つをもとに実装を行っていく</p>
+<ul>
+<li>
+<p>距離観測（Ranging）</p>
+<ul>
+<li>各Beaconとの距離を約１秒おきに監視する</li>
+<li>それぞれの領域をみる</li>
+</ul>
+</li>
+<li>
+<p>領域観測のた仕様</p>
+<ul>
+<li>Beaconグループで作成される領域</li>
+</ul>
+</li>
+<li>
+<p>uuidgen
+ビーコン端末に固有のID振らないといけないのでコマンドを利用して生成したりできます</p>
+</li>
+</ul>
+<pre tabindex="0"><code>$ uuidgen
+8649794A-0C6C-4D82-99F2-7084D6C231B1
+</code></pre><h1 id="beaconアプリの作り方">Beaconアプリの作り方</h1>
+<p>具体的にコードレベルでどんな風に作成されるのか、ハマりどころを説明していただきました。</p>
+<ul>
+<li>具体的に実装がでてきたコード
+<ul>
+<li><a href="https://github.com/suwa-yuki/BeaconSample">https://github.com/suwa-yuki/BeaconSample</a></li>
+</ul>
+</li>
+<li>ハマりどころ
+<ul>
+<li>startMonitoringForRegionはバックグラウンドおk</li>
+</ul>
+</li>
+</ul>
+<h1 id="ltで話されたことメモ">LTで話されたことメモ</h1>
+<ul>
+<li>Androidでの確認はほぼできない
+<ul>
+<li>Nexus5だと大丈夫</li>
+<li>あとは海外の端末を輸入する</li>
+<li>iPhoneは無論OK</li>
+</ul>
+</li>
+</ul>
+<h1 id="まとめ">まとめ</h1>
+<p>今回はiBeaconを使って開発する為の基本知識をベースとした勉強会でたくさん学ばしていいただきました。
+まだまだ勉強不足なところはあるけれど、今回の勉強会でだいぶもやもやしていたところが解消したので次の開発に活かそうと思います。
+しかし、つい先日estimoteのbeacon端末を購入したのですが技適マークがついていないのは残念です。。。ビジネスで
+利用するとしたらまた別の端末（日本の電波法に準拠したハード製品）を購入してやらないとだめですね。。。</p>
+<h1 id="参考スライド">参考スライド</h1>
+<p><a href="http://www.slideshare.net/RikitakeOohashi/i-beacon-29135007">http://www.slideshare.net/RikitakeOohashi/i-beacon-29135007</a>
+<a href="http://www.slideshare.net/yuki0211s/i-beacon-29135560">http://www.slideshare.net/yuki0211s/i-beacon-29135560</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

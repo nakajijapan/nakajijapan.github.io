@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="自作でモーダル画面つくってみた">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2013/2013-03-13_3599/" />
+<meta property="go:description" content="世の中にはごまんとそういうプラグイン的なものあるけど、自分用にごにょごにょしたいのと勉強がてら作成してみました。
+用意するものとしては以下の通りです。
+
+jquery.js(1.9.1)
+TwitterBootStrap(1.3)
+
+form.css(フォーム関係一式あれば大丈夫)
+bootstrap.jp
+
+
+html
+
+テスト
+ほげ
+
+
+  
+    Add
+    
+      X
+    
+  
+
+  
+
+    Status
+    
+      ほしいよ
+      もっている
+      もっている
+      もっている
+      もっている
+      いらない
+    
+
+    Category
+    
+      name_0
+      name_1
+      name_2
+      name_3
+      name_4
+      name_5
+      name_6
+      name_7
+      name_8
+      name_9
+    
+    
+    
+      登録する
+    
+  
+
+  
+
+
+
+
+css
+
+.modal_conteiner {
+  display: none;
+  position: fixed;
+  z-index: 1025;
+  left: 50%;
+  top: 50%;
+  width: 550px;
+  height: 350px;
+
+  margin-left: -300px;
+  margin-top: -150px;
+
+  padding: 0px;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 0px 0px 10px #333;
+  border-radius: 6px;
+  over-flow: auto;
+
+}
+.modal_conteiner .header{
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #DDD;
+  background-color: whitesmoke;
+}
+.modal_conteiner .header a.right{
+  border-radius: 0 6px 0 0;
+  position: absolute;
+  z-index: 1;
+  top:     0px;
+  right:   0;
+  bottom:  0;
+  display: block;
+  width:   60px;
+  height:  60px;
+
+  font-size: 20px;
+
+  border-left: 1px solid rgba(34, 25, 25, 0.15);
+  box-shadow: inset 0 1px 2px white;
+  /* text-indent: -9999px; */
+}
+.modal_conteiner .header a:hover.right{
+  background-color: #ddd;
+}
+.modal_conteiner .header a.right div{
+  text-align: center;
+  top: 10px;
+  position: relative;
+  font-size: 30px;
+}
+.modal_conteiner .header h2{
+  height:  50px;
+  margin: 0;
+  padding: 10px 0 0 10px;
+}
+
+.modal_conteiner .body{
+  margin: 10px;
+  top: -10px;
+  position: relative;
+  padding-top: 10px
+}
+.modal_conteiner .body .btn-group &gt; .btn {
+  height: 50px;
+}
+.modal_conteiner .footer{
+
+}
+#modal_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  opacity: 0.85;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  filter: alpha(opacity=80);
+}
+#modal_overlay.visible{
+  display: none;
+}
+
+javascript
+
+//----------------------------------------------
+// モーダル画面の表示
+//----------------------------------------------
+(function($) {
+  $.SimpleModal = function(element, options) {
+
+      var defaults = {
+        target: &#39;&#39;,
+        continue_overlay: false,
+        close_callback: function() {}
+      }
+      var plugin = this;
+      plugin.options = $.fn.extend(defaults, options);
+
+      //---------------------------
+      // init
+      //---------------------------
+      plugin.init = function() {
+        _this = element;
+        return plugin;
+      }
+
+      //---------------------------
+      // close
+      //---------------------------
+      plugin.close = function() {
+        // init
+        options = plugin.options;
+
+        var callback = function(){};
+        if(options.continue_overlay == false) {
+          callback = function(){
+            $(&#39;#modal_overlay&#39;).fadeOut(1000, options.close_callback);
+          }
+        }
+        else {
+          callback = options.close_callback;
+        }
+
+        $(_this).animate({top: &#34;&#43;=300px&#34;, opacity: 0}, 500,
+          function(){
+            setTimeout(function(){
+              callback();
+            }, 1000);
+          }
+        )
+        .animate({top: &#34;-1000px&#34;}, 0);
+
+        return this;
+      }
+
+      //---------------------------
+      // cancel
+      //---------------------------
+      plugin.cancel = function() {
+        // init
+        options = plugin.options;
+
+        var callback = function(){
+          $(&#39;#modal_overlay&#39;).fadeOut(1000, options.close_callback);
+        }
+
+        $(_this).animate({top: &#34;-=300px&#34;, opacity: 0}, 500, callback).animate({top: &#34;-1000px&#34;}, 0);;
+        console.log(&#39;delay&#39;);
+
+        return this;
+      }
+
+      //---------------------------
+      // open
+      //---------------------------
+      plugin.open = function() {
+        // init
+        options = plugin.options;
+
+        $(this).css(&#39;opacity&#39;, 0);
+
+        if(options.continue_overlay == false) {
+          $(&#39;#modal_overlay&#39;).fadeIn(300, function(){
+            $(_this).css({&#39;display&#39;: &#39;block&#39;, top: &#39;-100px&#39;});
+            $(_this).animate({top: &#34;50%&#34;, opacity: 1}, 500);
+          });
+        }
+        else {
+          $(_this).css({&#39;display&#39;: &#39;block&#39;, top: &#39;-100px&#39;});
+          $(_this).animate({top: &#34;50%&#34;, opacity: 1}, 500);
+        }
+      }
+
+      plugin.init();
+  }
+
+  $.fn.SimpleModal = function(options) {
+    var plugin = new $.SimpleModal(this, options);
+    plugin.init();
+    return plugin;
+  }
+})(jQuery);
+
+まとめ
+こんな感じで完成。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="自作でモーダル画面つくってみた" />
+<meta name="twitter:description" content="世の中にはごまんとそういうプラグイン的なものあるけど、自分用にごにょごにょしたいのと勉強がてら作成してみました。
+用意するものとしては以下の通りです。
+
+jquery.js(1.9.1)
+TwitterBootStrap(1.3)
+
+form.css(フォーム関係一式あれば大丈夫)
+bootstrap.jp
+
+
+html
+
+テスト
+ほげ
+
+
+  
+    Add
+    
+      X
+    
+  
+
+  
+
+    Status
+    
+      ほしいよ
+      もっている
+      もっている
+      もっている
+      もっている
+      いらない
+    
+
+    Category
+    
+      name_0
+      name_1
+      name_2
+      name_3
+      name_4
+      name_5
+      name_6
+      name_7
+      name_8
+      name_9
+    
+    
+    
+      登録する
+    
+  
+
+  
+
+
+
+
+css
+
+.modal_conteiner {
+  display: none;
+  position: fixed;
+  z-index: 1025;
+  left: 50%;
+  top: 50%;
+  width: 550px;
+  height: 350px;
+
+  margin-left: -300px;
+  margin-top: -150px;
+
+  padding: 0px;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 0px 0px 10px #333;
+  border-radius: 6px;
+  over-flow: auto;
+
+}
+.modal_conteiner .header{
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #DDD;
+  background-color: whitesmoke;
+}
+.modal_conteiner .header a.right{
+  border-radius: 0 6px 0 0;
+  position: absolute;
+  z-index: 1;
+  top:     0px;
+  right:   0;
+  bottom:  0;
+  display: block;
+  width:   60px;
+  height:  60px;
+
+  font-size: 20px;
+
+  border-left: 1px solid rgba(34, 25, 25, 0.15);
+  box-shadow: inset 0 1px 2px white;
+  /* text-indent: -9999px; */
+}
+.modal_conteiner .header a:hover.right{
+  background-color: #ddd;
+}
+.modal_conteiner .header a.right div{
+  text-align: center;
+  top: 10px;
+  position: relative;
+  font-size: 30px;
+}
+.modal_conteiner .header h2{
+  height:  50px;
+  margin: 0;
+  padding: 10px 0 0 10px;
+}
+
+.modal_conteiner .body{
+  margin: 10px;
+  top: -10px;
+  position: relative;
+  padding-top: 10px
+}
+.modal_conteiner .body .btn-group &gt; .btn {
+  height: 50px;
+}
+.modal_conteiner .footer{
+
+}
+#modal_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  opacity: 0.85;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  filter: alpha(opacity=80);
+}
+#modal_overlay.visible{
+  display: none;
+}
+
+javascript
+
+//----------------------------------------------
+// モーダル画面の表示
+//----------------------------------------------
+(function($) {
+  $.SimpleModal = function(element, options) {
+
+      var defaults = {
+        target: &#39;&#39;,
+        continue_overlay: false,
+        close_callback: function() {}
+      }
+      var plugin = this;
+      plugin.options = $.fn.extend(defaults, options);
+
+      //---------------------------
+      // init
+      //---------------------------
+      plugin.init = function() {
+        _this = element;
+        return plugin;
+      }
+
+      //---------------------------
+      // close
+      //---------------------------
+      plugin.close = function() {
+        // init
+        options = plugin.options;
+
+        var callback = function(){};
+        if(options.continue_overlay == false) {
+          callback = function(){
+            $(&#39;#modal_overlay&#39;).fadeOut(1000, options.close_callback);
+          }
+        }
+        else {
+          callback = options.close_callback;
+        }
+
+        $(_this).animate({top: &#34;&#43;=300px&#34;, opacity: 0}, 500,
+          function(){
+            setTimeout(function(){
+              callback();
+            }, 1000);
+          }
+        )
+        .animate({top: &#34;-1000px&#34;}, 0);
+
+        return this;
+      }
+
+      //---------------------------
+      // cancel
+      //---------------------------
+      plugin.cancel = function() {
+        // init
+        options = plugin.options;
+
+        var callback = function(){
+          $(&#39;#modal_overlay&#39;).fadeOut(1000, options.close_callback);
+        }
+
+        $(_this).animate({top: &#34;-=300px&#34;, opacity: 0}, 500, callback).animate({top: &#34;-1000px&#34;}, 0);;
+        console.log(&#39;delay&#39;);
+
+        return this;
+      }
+
+      //---------------------------
+      // open
+      //---------------------------
+      plugin.open = function() {
+        // init
+        options = plugin.options;
+
+        $(this).css(&#39;opacity&#39;, 0);
+
+        if(options.continue_overlay == false) {
+          $(&#39;#modal_overlay&#39;).fadeIn(300, function(){
+            $(_this).css({&#39;display&#39;: &#39;block&#39;, top: &#39;-100px&#39;});
+            $(_this).animate({top: &#34;50%&#34;, opacity: 1}, 500);
+          });
+        }
+        else {
+          $(_this).css({&#39;display&#39;: &#39;block&#39;, top: &#39;-100px&#39;});
+          $(_this).animate({top: &#34;50%&#34;, opacity: 1}, 500);
+        }
+      }
+
+      plugin.init();
+  }
+
+  $.fn.SimpleModal = function(options) {
+    var plugin = new $.SimpleModal(this, options);
+    plugin.init();
+    return plugin;
+  }
+})(jQuery);
+
+まとめ
+こんな感じで完成。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>自作でモーダル画面つくってみた - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">自作でモーダル画面つくってみた</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-03-13">March 13, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/javascript">javascript</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>世の中にはごまんとそういうプラグイン的なものあるけど、自分用にごにょごにょしたいのと勉強がてら作成してみました。</p>
+<p>用意するものとしては以下の通りです。</p>
+<ul>
+<li>jquery.js(1.9.1)</li>
+<li>TwitterBootStrap(1.3)
+<ul>
+<li>form.css(フォーム関係一式あれば大丈夫)</li>
+<li>bootstrap.jp</li>
+</ul></li>
+</ul>
+<h2>html</h2>
+<pre class="brush:html">
+<h1>テスト</h1>
+<button onClick="$('#create_fuman').SimpleModal().open();" id='show_modal'>ほげ</button>
+
+<div class="modal_conteiner" id="create_fuman">
+  <div class="header">
+    <h2>Add</h2>
+    <a href="#" class="right" onclick="next();">
+      <div>X</div>
+    </a>
+  </div>
+
+  <div class="body">
+
+    <h4>Status</h4>
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button type="button" class="btn btn-primary">ほしいよ</button>
+      <button type="button" class="btn btn-primary">もっている</button>
+      <button type="button" class="btn btn-primary">もっている</button>
+      <button type="button" class="btn btn-primary">もっている</button>
+      <button type="button" class="btn btn-primary">もっている</button>
+      <button type="button" class="btn btn-primary">いらない</button>
+    </div>
+
+    <h4>Category</h4>
+    <div>
+      <select id="category" name="category"><option value="1">name_0</option>
+      <option value="2">name_1</option>
+      <option value="3">name_2</option>
+      <option value="4">name_3</option>
+      <option value="5">name_4</option>
+      <option value="6">name_5</option>
+      <option value="7">name_6</option>
+      <option value="8">name_7</option>
+      <option value="9">name_8</option>
+      <option value="10">name_9</option></select>
+    </div>
+    <br />
+    <div class="actions">
+      <button class="btn create" data-product_code="B00AFEG4IS" name="button" type="button">登録する</button>
+    </div>
+  </div>
+
+  <div class="footer"></div>
+</div>
+<div id="modal_overlay" class="visible"></div>
+
+</pre>
+<h2>css</h2>
+<pre class="brush:css">
+.modal_conteiner {
+  display: none;
+  position: fixed;
+  z-index: 1025;
+  left: 50%;
+  top: 50%;
+  width: 550px;
+  height: 350px;
+
+  margin-left: -300px;
+  margin-top: -150px;
+
+  padding: 0px;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 0px 0px 10px #333;
+  border-radius: 6px;
+  over-flow: auto;
+
+}
+.modal_conteiner .header{
+  border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid #DDD;
+  background-color: whitesmoke;
+}
+.modal_conteiner .header a.right{
+  border-radius: 0 6px 0 0;
+  position: absolute;
+  z-index: 1;
+  top:     0px;
+  right:   0;
+  bottom:  0;
+  display: block;
+  width:   60px;
+  height:  60px;
+
+  font-size: 20px;
+
+  border-left: 1px solid rgba(34, 25, 25, 0.15);
+  box-shadow: inset 0 1px 2px white;
+  /* text-indent: -9999px; */
+}
+.modal_conteiner .header a:hover.right{
+  background-color: #ddd;
+}
+.modal_conteiner .header a.right div{
+  text-align: center;
+  top: 10px;
+  position: relative;
+  font-size: 30px;
+}
+.modal_conteiner .header h2{
+  height:  50px;
+  margin: 0;
+  padding: 10px 0 0 10px;
+}
+
+.modal_conteiner .body{
+  margin: 10px;
+  top: -10px;
+  position: relative;
+  padding-top: 10px
+}
+.modal_conteiner .body .btn-group > .btn {
+  height: 50px;
+}
+.modal_conteiner .footer{
+
+}
+#modal_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  opacity: 0.85;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  filter: alpha(opacity=80);
+}
+#modal_overlay.visible{
+  display: none;
+}
+</pre>
+<h2>javascript</h2>
+<pre class="brush:javascript">
+//----------------------------------------------
+// モーダル画面の表示
+//----------------------------------------------
+(function($) {
+  $.SimpleModal = function(element, options) {
+
+      var defaults = {
+        target: '',
+        continue_overlay: false,
+        close_callback: function() {}
+      }
+      var plugin = this;
+      plugin.options = $.fn.extend(defaults, options);
+
+      //---------------------------
+      // init
+      //---------------------------
+      plugin.init = function() {
+        _this = element;
+        return plugin;
+      }
+
+      //---------------------------
+      // close
+      //---------------------------
+      plugin.close = function() {
+        // init
+        options = plugin.options;
+
+        var callback = function(){};
+        if(options.continue_overlay == false) {
+          callback = function(){
+            $('#modal_overlay').fadeOut(1000, options.close_callback);
+          }
+        }
+        else {
+          callback = options.close_callback;
+        }
+
+        $(_this).animate({top: "+=300px", opacity: 0}, 500,
+          function(){
+            setTimeout(function(){
+              callback();
+            }, 1000);
+          }
+        )
+        .animate({top: "-1000px"}, 0);
+
+        return this;
+      }
+
+      //---------------------------
+      // cancel
+      //---------------------------
+      plugin.cancel = function() {
+        // init
+        options = plugin.options;
+
+        var callback = function(){
+          $('#modal_overlay').fadeOut(1000, options.close_callback);
+        }
+
+        $(_this).animate({top: "-=300px", opacity: 0}, 500, callback).animate({top: "-1000px"}, 0);;
+        console.log('delay');
+
+        return this;
+      }
+
+      //---------------------------
+      // open
+      //---------------------------
+      plugin.open = function() {
+        // init
+        options = plugin.options;
+
+        $(this).css('opacity', 0);
+
+        if(options.continue_overlay == false) {
+          $('#modal_overlay').fadeIn(300, function(){
+            $(_this).css({'display': 'block', top: '-100px'});
+            $(_this).animate({top: "50%", opacity: 1}, 500);
+          });
+        }
+        else {
+          $(_this).css({'display': 'block', top: '-100px'});
+          $(_this).animate({top: "50%", opacity: 1}, 500);
+        }
+      }
+
+      plugin.init();
+  }
+
+  $.fn.SimpleModal = function(options) {
+    var plugin = new $.SimpleModal(this, options);
+    plugin.init();
+    return plugin;
+  }
+})(jQuery);
+</pre>
+<h2>まとめ</h2>
+<p>こんな感じで完成。</p>
+<p>イメージはこんな感じになります。</p>
+<p><img src="https://f.cloud.github.com/assets/193569/248347/016b5f48-8b09-11e2-94dd-417e6b4fdad0.png" width="500" /></p>
+<p>デザインはTwitterBootstrapを利用してそれっぽい感じにしてみた。<br />
+動きはPintarest風に動かして上からでたり、したに隠れたり動くようにした。<br />
+callbackはまだCloseしたときにしか処理させてないけど、徐々に追加していこう。</p>
+<p>あと連続してモーダルを表示するときは以下のようにすると実現できた。</p>
+<pre class="brush:javascript">
+function next() {
+
+  // 表示させるHTML領域
+  $('#create_fuman').SimpleModal({
+    continue_overlay: true,
+    close_callback: function(e){
+
+      // closeしたときに新しいモーダルを表示させる
+      $('#complete_fuman').SimpleModal({continue_overlay: true}).open();
+    }
+  }).close();
+}
+</pre>
+<p>プラグインあるとそれを何も意識しないで利用しちゃうけど、自分でなんだかんだいいながら作るのものまた一興でした。</p>
+<h3>Ref</h3>
+<ul>
+<li><a href="http://www.malsup.com/jquery/block/">BlockUI</a></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

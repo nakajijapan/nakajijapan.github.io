@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="IRKit &#43; iBeacon">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2014/2014-03-29-irkit-plus-ibeacon/" />
+<meta property="go:description" content="先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして
+自宅で活用できるものを作ってみました。
+IRKit
+
+Estimote Beacons
+
+仕様としては、
+
+beaconに近づいたら（家に帰ってきたら）テレビをつける
+beaconから離れたら（外出したら）テレビを消す
+
+ってことを試してみました。
+下準備
+まずはそれぞれのライブラリを追加してpod installする。
+SDKのインストール。
+target &#34;irkit_ibeacon&#34; do
+  pod &#39;IRKit&#39;, :git =&gt; &#39;https://github.com/irkit/ios-sdk.git&#39;
+  pod &#39;EstimoteSDK&#39;
+end
+frameworkの追加。
+CoreLocation.framework
+CoreBluetooth.framework
+IRKit
+ここでは、IRKit SDKを利用してシグナルを登録してテーブルのセルにボタンを追加する処理を行います。
+- (void)viewDidLoad
+{
+
+(snip..)
+
+    // find IRKit
+    if ([IRKit sharedInstance].countOfReadyPeripherals == 0) {
+        IRNewPeripheralViewController *vc = [[IRNewPeripheralViewController alloc] init];
+        vc.delegate = self;
+        [self presentViewController:vc
+                           animated:YES
+                         completion:^{
+                             NSLog(@&#34;presented&#34;);
+                         }];
+
+
+    }
+
+    IRSignals *tmpSignals = [[IRSignals alloc] init];
+
+    // and add a signal to the collection
+    [tmpSignals loadFromStandardUserDefaultsKey:@&#34;xxxxxxxxxxxxxxxxxxxxxx&#34;];
+
+    for (int i = 0; i &lt; [[tmpSignals signals] count]; i&#43;&#43;) {
+        NSLog(@&#34;%@&#34;, [[tmpSignals signals] objectAtIndex:i]);
+    }
+
+}
+IRNewPeripheralViewControllerDelegateで信号の登録が終了したときに呼ばれるメソッドの実装を行います。
+ここでは、ハード側で学習が完了した信号をNSUserDefault側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="IRKit &#43; iBeacon" />
+<meta name="twitter:description" content="先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして
+自宅で活用できるものを作ってみました。
+IRKit
+
+Estimote Beacons
+
+仕様としては、
+
+beaconに近づいたら（家に帰ってきたら）テレビをつける
+beaconから離れたら（外出したら）テレビを消す
+
+ってことを試してみました。
+下準備
+まずはそれぞれのライブラリを追加してpod installする。
+SDKのインストール。
+target &#34;irkit_ibeacon&#34; do
+  pod &#39;IRKit&#39;, :git =&gt; &#39;https://github.com/irkit/ios-sdk.git&#39;
+  pod &#39;EstimoteSDK&#39;
+end
+frameworkの追加。
+CoreLocation.framework
+CoreBluetooth.framework
+IRKit
+ここでは、IRKit SDKを利用してシグナルを登録してテーブルのセルにボタンを追加する処理を行います。
+- (void)viewDidLoad
+{
+
+(snip..)
+
+    // find IRKit
+    if ([IRKit sharedInstance].countOfReadyPeripherals == 0) {
+        IRNewPeripheralViewController *vc = [[IRNewPeripheralViewController alloc] init];
+        vc.delegate = self;
+        [self presentViewController:vc
+                           animated:YES
+                         completion:^{
+                             NSLog(@&#34;presented&#34;);
+                         }];
+
+
+    }
+
+    IRSignals *tmpSignals = [[IRSignals alloc] init];
+
+    // and add a signal to the collection
+    [tmpSignals loadFromStandardUserDefaultsKey:@&#34;xxxxxxxxxxxxxxxxxxxxxx&#34;];
+
+    for (int i = 0; i &lt; [[tmpSignals signals] count]; i&#43;&#43;) {
+        NSLog(@&#34;%@&#34;, [[tmpSignals signals] objectAtIndex:i]);
+    }
+
+}
+IRNewPeripheralViewControllerDelegateで信号の登録が終了したときに呼ばれるメソッドの実装を行います。
+ここでは、ハード側で学習が完了した信号をNSUserDefault側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>IRKit &#43; iBeacon - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">IRKit &#43; iBeacon</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-03-29">March 29, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>先日IRKitとEstimote Beaconsを購入しまして、せっかくなんでこの二つ合わせてなにかできないかなーと思いまして
+自宅で活用できるものを作ってみました。</p>
+<h4 id="irkit">IRKit</h4>
+<p><a href="http://www.amazon.co.jp/IRKit-001-IRKit-iPhone-iPad%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%A4%96%E5%87%BA%E5%85%88%E3%81%8B%E3%82%89%E3%82%A8%E3%82%A2%E3%82%B3%E3%83%B3%E7%AD%89%E3%81%AE%E5%AE%B6%E9%9B%BB%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%A7%E3%81%8D%E3%82%8B%E5%AD%A6%E7%BF%92%E3%83%AA%E3%83%A2%E3%82%B3%E3%83%B3/dp/B00H91KK26%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00H91KK26" target="_blank" title="IRKit - iPhone,iPadを使って外出先からエアコン等の家電を操作できる学習リモコン"><img src="http://ecx.images-amazon.com/images/I/31HuSy3ACXL.jpg" width="500" height="356" alt="IRKit - iPhone,iPadを使って外出先からエアコン等の家電を操作できる学習リモコン" /></a></p>
+<h4 id="estimote-beacons">Estimote Beacons</h4>
+<iframe src="//instagram.com/p/iDTqkYMR1I/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+<p>仕様としては、</p>
+<ul>
+<li>beaconに近づいたら（家に帰ってきたら）テレビをつける</li>
+<li>beaconから離れたら（外出したら）テレビを消す</li>
+</ul>
+<p>ってことを試してみました。</p>
+<h2 id="下準備">下準備</h2>
+<p>まずはそれぞれのライブラリを追加して<code>pod install</code>する。</p>
+<p>SDKのインストール。</p>
+<pre tabindex="0"><code>target &#34;irkit_ibeacon&#34; do
+  pod &#39;IRKit&#39;, :git =&gt; &#39;https://github.com/irkit/ios-sdk.git&#39;
+  pod &#39;EstimoteSDK&#39;
+end
+</code></pre><p>frameworkの追加。</p>
+<pre tabindex="0"><code>CoreLocation.framework
+CoreBluetooth.framework
+</code></pre><h2 id="irkit-1">IRKit</h2>
+<p>ここでは、IRKit SDKを利用してシグナルを登録してテーブルのセルにボタンを追加する処理を行います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidLoad</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(snip..)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// find IRKit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> ([IRKit sharedInstance].countOfReadyPeripherals <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        IRNewPeripheralViewController <span style="color:#f92672">*</span>vc <span style="color:#f92672">=</span> [[IRNewPeripheralViewController alloc] init];
+</span></span><span style="display:flex;"><span>        vc.delegate <span style="color:#f92672">=</span> self;
+</span></span><span style="display:flex;"><span>        [self presentViewController:vc
+</span></span><span style="display:flex;"><span>                           animated:YES
+</span></span><span style="display:flex;"><span>                         completion:<span style="color:#f92672">^</span>{
+</span></span><span style="display:flex;"><span>                             NSLog(<span style="color:#e6db74">@&#34;presented&#34;</span>);
+</span></span><span style="display:flex;"><span>                         }];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#f92672">*</span>tmpSignals <span style="color:#f92672">=</span> [[IRSignals alloc] init];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// and add a signal to the collection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    [tmpSignals loadFromStandardUserDefaultsKey:<span style="color:#e6db74">@&#34;xxxxxxxxxxxxxxxxxxxxxx&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> [[tmpSignals signals] count]; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#e6db74">@&#34;%@&#34;</span>, [[tmpSignals signals] objectAtIndex:i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>IRNewPeripheralViewControllerDelegate</code>で信号の登録が終了したときに呼ばれるメソッドの実装を行います。
+ここでは、ハード側で学習が完了した信号を<code>NSUserDefault</code>側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">#pragma mark - IRNewPeripheralViewControllerDelegate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">newSignalViewController:</span>(IRNewSignalViewController <span style="color:#f92672">*</span>)viewController
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">didFinishWithSignal:</span>(IRSignal <span style="color:#f92672">*</span>)signal {
+</span></span><span style="display:flex;"><span>    NSLog( <span style="color:#e6db74">@&#34;signal: %@&#34;</span>, signal );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (signal) {
+</span></span><span style="display:flex;"><span>        [_datasource addSignalsObject:signal];
+</span></span><span style="display:flex;"><span>        [_datasource.signals saveToStandardUserDefaultsWithKey:<span style="color:#e6db74">@&#34;SIGNALS&#34;</span>];
+</span></span><span style="display:flex;"><span>        [self.tableView reloadData];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    [self dismissViewControllerAnimated:YES
+</span></span><span style="display:flex;"><span>                             completion:<span style="color:#f92672">^</span>{
+</span></span><span style="display:flex;"><span>                                 NSLog(<span style="color:#e6db74">@&#34;dismissed&#34;</span>);
+</span></span><span style="display:flex;"><span>                             }];
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#pragma mark - IRNewSignalViewControllerDelegate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">newPeripheralViewController:</span>(IRNewPeripheralViewController <span style="color:#f92672">*</span>)viewController
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">didFinishWithPeripheral:</span>(IRPeripheral <span style="color:#f92672">*</span>)peripheral {
+</span></span><span style="display:flex;"><span>    NSLog( <span style="color:#e6db74">@&#34;peripheral: %@&#34;</span>, peripheral );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [self dismissViewControllerAnimated:YES
+</span></span><span style="display:flex;"><span>                             completion:<span style="color:#f92672">^</span>{
+</span></span><span style="display:flex;"><span>                                 NSLog(<span style="color:#e6db74">@&#34;dismissed&#34;</span>);
+</span></span><span style="display:flex;"><span>                             }];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>登録した信号を実行するときは以下のような実装で呼び出せるようになります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">tableView:</span>(UITableView <span style="color:#f92672">*</span>)tableView <span style="color:#a6e22e">didSelectRowAtIndexPath:</span>(NSIndexPath <span style="color:#f92672">*</span>)indexPath {
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#e6db74">@&#34;indexPath: %@&#34;</span>, indexPath);
+</span></span><span style="display:flex;"><span>    [tableView deselectRowAtIndexPath:indexPath
+</span></span><span style="display:flex;"><span>                             animated:YES];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#f92672">*</span>signal <span style="color:#f92672">=</span> [_datasource objectAtIndex:indexPath.row];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [signal sendWithCompletion:<span style="color:#f92672">^</span>(NSError <span style="color:#f92672">*</span>error) {
+</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#e6db74">@&#34;sent error: %@&#34;</span>, error);
+</span></span><span style="display:flex;"><span>    }];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="ibeacon">iBeacon</h2>
+<p>ここでは、ビーコンで領域を観測し出たか入ったかを監視して、IRKitに信号を送る処理を行います。</p>
+<p>まず、<code>ESTBeaconManager</code>をインスタンス化して<code>startMonitoringForRegion:</code> で監視を開始します。
+<code>startRangingBeaconsInRegion:</code>で距離の観測を開始します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidLoad</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(snip...)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    self.beaconManager <span style="color:#f92672">=</span> [[ESTBeaconManager alloc] init];
+</span></span><span style="display:flex;"><span>    self.beaconManager.delegate <span style="color:#f92672">=</span> self;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ESTBeaconRegion <span style="color:#f92672">*</span>region <span style="color:#f92672">=</span> [[ESTBeaconRegion alloc] initWithProximityUUID:MY_ESTIMOTE_PROXIMITY_UUID
+</span></span><span style="display:flex;"><span>                                                                       major:<span style="color:#ae81ff">36605</span>
+</span></span><span style="display:flex;"><span>                                                                       minor:<span style="color:#ae81ff">43679</span>
+</span></span><span style="display:flex;"><span>                                                                  identifier:<span style="color:#e6db74">@&#34;EstimoteSampleRegion&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [self.beaconManager startMonitoringForRegion:region];
+</span></span><span style="display:flex;"><span>    [self.beaconManager startRangingBeaconsInRegion:region];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>位置情報を利用した領域観測の方法と同様に、ビーコン領域の出入りのイベントをハンドリングします。その処理内でIRKitへ信号の送信する処理を実行します。
+メソッドとしては、<code>locationManager:didEnterRegion:</code>と、<code>locationManager:didExitRegion:</code>をハンドリングして処理を行います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>-(<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">beaconManager:</span>(ESTBeaconManager <span style="color:#f92672">*</span>)manager <span style="color:#a6e22e">didEnterRegion:</span>(ESTBeaconRegion <span style="color:#f92672">*</span>)region
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#f92672">*</span>signals <span style="color:#f92672">=</span> [[IRSignals alloc] init];
+</span></span><span style="display:flex;"><span>    [signals loadFromStandardUserDefaultsKey:<span style="color:#e6db74">@&#34;SIGNALS&#34;</span>];
+</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#f92672">*</span>signal <span style="color:#f92672">=</span> [signals objectAtIndex:<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (signal) {
+</span></span><span style="display:flex;"><span>        [signal sendWithCompletion:<span style="color:#f92672">^</span>(NSError <span style="color:#f92672">*</span>error) {
+</span></span><span style="display:flex;"><span>            [self say:[NSString  stringWithFormat:<span style="color:#e6db74">@&#34;%@を実行しました。&#34;</span>, signal.name]];
+</span></span><span style="display:flex;"><span>        }];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#e6db74">@&#34;beaconの近くに入りました。&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-(<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">beaconManager:</span>(ESTBeaconManager <span style="color:#f92672">*</span>)manager <span style="color:#a6e22e">didExitRegion:</span>(ESTBeaconRegion <span style="color:#f92672">*</span>)region
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#f92672">*</span>signals <span style="color:#f92672">=</span> [[IRSignals alloc] init];
+</span></span><span style="display:flex;"><span>    [signals loadFromStandardUserDefaultsKey:<span style="color:#e6db74">@&#34;SIGNALS&#34;</span>];
+</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#f92672">*</span>signal <span style="color:#f92672">=</span> [signals objectAtIndex:<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (signal) {
+</span></span><span style="display:flex;"><span>        [signal sendWithCompletion:<span style="color:#f92672">^</span>(NSError <span style="color:#f92672">*</span>error) {
+</span></span><span style="display:flex;"><span>            [self say:[NSString  stringWithFormat:<span style="color:#e6db74">@&#34;%@を実行しました。&#34;</span>, signal.name]];
+</span></span><span style="display:flex;"><span>        }];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#e6db74">@&#34;beaconから離れました。&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>これで上記の仕様が実現できます。
+今回の実装はまだIRKitにしてもEstimote Beaconsにしてもさわりの部分しか実装していないのですが、他の仕様も合わせたりするとまだまだ面白いことでできるかと思います。
+最近、生活が変わるような技術がどんどんでてきていて楽しいですね♪（ただハードを購入しなきゃいけないのでお金がかかってしまいますがw）
+まだまだこれからも、生活を変えるような技術がでてくると思うのでそれキャッチアップして試せるものは試していこうと思います！！</p>
+<p>Enjoy Technology!!!</p>
+<h2 id="ref">Ref</h2>
+<ul>
+<li><a href="http://getirkit.com/">IRKit</a></li>
+<li><a href="http://estimote.com/">Estimote Beacons</a></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

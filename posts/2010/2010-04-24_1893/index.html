@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="objective-c methodもろもろ">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-04-24_1893/" />
+<meta property="go:description" content="メソッドのプロトタイプ宣言
+
+(返り値の型) メソッド名
+例） - (void) sayHello0; // say Hello
+
+＋：クラスに対するメソッド
+ー：インスタンスに対するメソッド
+Objective-Cでは、クラスも一つのオブジェクト。
+インスタンスを生成する場合は、このクラスのオブジェクトを使って生成する。
+
+(int)  numberOfFiles; // method for returning int
+(UIWindow *) mostFrontWindow; // method for returning UIWindow object
+
+引数がある場合。
+
+(返り値)  メソッド名 &#43; 引数１の説明：(引数１の型)　引数１の名前
+引数２の説明：(引数２の型)　引数２の名前
+•
+•
+引数Nの説明：(引数Nの型)　引数Nの名前;
+
+sayMessage(&ldquo;Hello&rdquo;, 1, 2);
+↓
+[ object sayMessage: &ldquo;Hello&rdquo;
+speed: 1
+pitch: 2
+];
+アクションのメソッド宣言
+
+(IBAction) loadUrl: (id) sender; // read webpage
+
+実はvoid。Interface Builderがらみでこうしているらしい。
+型「id」について
+これはObject-Cのオブジェクトならなんでも受け付けるというもの。voidのようなもの。
+つながれるものを制限したい場合は、クラスを指定する。
+例） - (IBAction) loadUrl: (UITextField *) sender;" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="objective-c methodもろもろ" />
+<meta name="twitter:description" content="メソッドのプロトタイプ宣言
+
+(返り値の型) メソッド名
+例） - (void) sayHello0; // say Hello
+
+＋：クラスに対するメソッド
+ー：インスタンスに対するメソッド
+Objective-Cでは、クラスも一つのオブジェクト。
+インスタンスを生成する場合は、このクラスのオブジェクトを使って生成する。
+
+(int)  numberOfFiles; // method for returning int
+(UIWindow *) mostFrontWindow; // method for returning UIWindow object
+
+引数がある場合。
+
+(返り値)  メソッド名 &#43; 引数１の説明：(引数１の型)　引数１の名前
+引数２の説明：(引数２の型)　引数２の名前
+•
+•
+引数Nの説明：(引数Nの型)　引数Nの名前;
+
+sayMessage(&ldquo;Hello&rdquo;, 1, 2);
+↓
+[ object sayMessage: &ldquo;Hello&rdquo;
+speed: 1
+pitch: 2
+];
+アクションのメソッド宣言
+
+(IBAction) loadUrl: (id) sender; // read webpage
+
+実はvoid。Interface Builderがらみでこうしているらしい。
+型「id」について
+これはObject-Cのオブジェクトならなんでも受け付けるというもの。voidのようなもの。
+つながれるものを制限したい場合は、クラスを指定する。
+例） - (IBAction) loadUrl: (UITextField *) sender;" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>objective-c methodもろもろ - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">objective-c methodもろもろ</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-04-24">April 24, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/iphone">iPhone</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <h2>メソッドのプロトタイプ宣言</h2>
+<ul>
+<li>(返り値の型) メソッド名
+例） - (void) sayHello0; // say Hello</li>
+</ul>
+<p>＋：クラスに対するメソッド
+ー：インスタンスに対するメソッド</p>
+<p>Objective-Cでは、クラスも一つのオブジェクト。
+インスタンスを生成する場合は、このクラスのオブジェクトを使って生成する。</p>
+<ul>
+<li>(int)  numberOfFiles; // method for returning int</li>
+<li>(UIWindow *) mostFrontWindow; // method for returning UIWindow object</li>
+</ul>
+<p>引数がある場合。</p>
+<ul>
+<li>(返り値)  メソッド名 + 引数１の説明：(引数１の型)　引数１の名前
+引数２の説明：(引数２の型)　引数２の名前
+•
+•
+引数Nの説明：(引数Nの型)　引数Nの名前;</li>
+</ul>
+<p>sayMessage(&ldquo;Hello&rdquo;, 1, 2);
+↓
+[ object sayMessage: &ldquo;Hello&rdquo;
+speed: 1
+pitch: 2
+];</p>
+<h2>アクションのメソッド宣言</h2>
+<ul>
+<li>(IBAction) loadUrl: (id) sender; // read webpage</li>
+</ul>
+<p>実はvoid。Interface Builderがらみでこうしているらしい。</p>
+<p>型「id」について
+これはObject-Cのオブジェクトならなんでも受け付けるというもの。voidのようなもの。</p>
+<p>つながれるものを制限したい場合は、クラスを指定する。</p>
+<p>例） - (IBAction) loadUrl: (UITextField *) sender;</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

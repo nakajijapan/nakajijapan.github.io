@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="rakutenApiはZend_Service_Amazonのようには解析できない">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2011/06/01/rakutenapi%E3%81%AFzend_service_amazon%E3%81%AE%E3%82%88%E3%81%86%E3%81%AB%E3%81%AF%E8%A7%A3%E6%9E%90%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84/" />
+<meta property="go:description" content="そういえば、欲求不満で楽天のクラスを作成する時にZend_Service_Amazonと
+同じ仕様にしようと考えていました。
+具体的には
+ファイル構成
+
+Zend_Service_Amazon
+Zend_Service_Amazon_Item
+Zend_Service_Amazon_ResultSet
+Zend_Service_Amazon_Image
+
+解析方法
+
+HttpResuestで情報を取得
+DOMオブジェクト生成した後にXPATHでDOMを簡単に検索できるようにしてなんちゃらかんちゃら
+情報の集まりを上記のクラスでまとめてオブジェクトにする
+
+だが、rakutenApiの場合は、
+
+$dom = new DOMDocument();
+
+からのXpath経由で情報がいまいち解析ができないようなので単純に取得できないようなので
+phpの関数「simpleXML」の関数を利用して解析するようにしました。
+とりあえず、できたのでよかったです。
+
+define(&#39;BASE_DIR&#39;,      &#34;/hoge/hogehoge&#34;);
+
+$ADD_PATH = array(
+    BASE_DIR . &#39;/library/&#39;,
+    BASE_DIR . &#39;/library/Pear/&#39;,
+    get_include_path()
+);
+set_include_path(implode(PATH_SEPARATOR, $ADD_PATH));
+require_once(&#34;/home/www.petit.cc/library/Zend/Http/Client.php&#34;);
+
+// rakuten
+$url = &#34;http://api.rakuten.co.jp/rws/3.0/rest?hogehogehoge=hoge&#34;;
+
+// http_request
+$params = array();
+$client = new Zend_Http_Client($url);
+$client-&gt;setConfig(array(&#39;timeout&#39; =&gt; 30));
+$client-&gt;setParameterPost($params);
+$client-&gt;setMethod(Zend_Http_Client::POST);
+$response = $client-&gt;request();
+
+// get Body
+$body = preg_replace(&#34;/(\n|\r\n|\r)/&#34;,&#34;&#34;, $response-&gt;getBody());
+// TEST
+echo $body;
+
+// XML解析
+$parser = xml_parser_create(&#39;UTF-8&#39;);
+xml_parse_into_struct($parser,$body,$values);
+xml_parser_free($parser); 
+var_dump($values);
+
+でも、不明なのは
+・なんでZendはDOMDocumentで解析して
+・rakutenApiの取得した情報はDOMDocumentで解析できなかったのか
+は未だによくわかっていないのが現状であります。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="rakutenApiはZend_Service_Amazonのようには解析できない" />
+<meta name="twitter:description" content="そういえば、欲求不満で楽天のクラスを作成する時にZend_Service_Amazonと
+同じ仕様にしようと考えていました。
+具体的には
+ファイル構成
+
+Zend_Service_Amazon
+Zend_Service_Amazon_Item
+Zend_Service_Amazon_ResultSet
+Zend_Service_Amazon_Image
+
+解析方法
+
+HttpResuestで情報を取得
+DOMオブジェクト生成した後にXPATHでDOMを簡単に検索できるようにしてなんちゃらかんちゃら
+情報の集まりを上記のクラスでまとめてオブジェクトにする
+
+だが、rakutenApiの場合は、
+
+$dom = new DOMDocument();
+
+からのXpath経由で情報がいまいち解析ができないようなので単純に取得できないようなので
+phpの関数「simpleXML」の関数を利用して解析するようにしました。
+とりあえず、できたのでよかったです。
+
+define(&#39;BASE_DIR&#39;,      &#34;/hoge/hogehoge&#34;);
+
+$ADD_PATH = array(
+    BASE_DIR . &#39;/library/&#39;,
+    BASE_DIR . &#39;/library/Pear/&#39;,
+    get_include_path()
+);
+set_include_path(implode(PATH_SEPARATOR, $ADD_PATH));
+require_once(&#34;/home/www.petit.cc/library/Zend/Http/Client.php&#34;);
+
+// rakuten
+$url = &#34;http://api.rakuten.co.jp/rws/3.0/rest?hogehogehoge=hoge&#34;;
+
+// http_request
+$params = array();
+$client = new Zend_Http_Client($url);
+$client-&gt;setConfig(array(&#39;timeout&#39; =&gt; 30));
+$client-&gt;setParameterPost($params);
+$client-&gt;setMethod(Zend_Http_Client::POST);
+$response = $client-&gt;request();
+
+// get Body
+$body = preg_replace(&#34;/(\n|\r\n|\r)/&#34;,&#34;&#34;, $response-&gt;getBody());
+// TEST
+echo $body;
+
+// XML解析
+$parser = xml_parser_create(&#39;UTF-8&#39;);
+xml_parse_into_struct($parser,$body,$values);
+xml_parser_free($parser); 
+var_dump($values);
+
+でも、不明なのは
+・なんでZendはDOMDocumentで解析して
+・rakutenApiの取得した情報はDOMDocumentで解析できなかったのか
+は未だによくわかっていないのが現状であります。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>rakutenApiはZend_Service_Amazonのようには解析できない - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">rakutenApiはZend_Service_Amazonのようには解析できない</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-06-01">June 01, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>そういえば、欲求不満で楽天のクラスを作成する時にZend_Service_Amazonと
+同じ仕様にしようと考えていました。</p>
+<p>具体的には</p>
+<h3>ファイル構成</h3>
+<ol>
+<li>Zend_Service_Amazon</li>
+<li>Zend_Service_Amazon_Item</li>
+<li>Zend_Service_Amazon_ResultSet</li>
+<li>Zend_Service_Amazon_Image</li>
+</ol>
+<h3>解析方法</h3>
+<ol>
+<li>HttpResuestで情報を取得</li>
+<li>DOMオブジェクト生成した後にXPATHでDOMを簡単に検索できるようにしてなんちゃらかんちゃら</li>
+<li>情報の集まりを上記のクラスでまとめてオブジェクトにする</li>
+</ol>
+<p>だが、rakutenApiの場合は、</p>
+<pre class="blush:php">
+$dom = new DOMDocument();
+</pre>
+<p>からのXpath経由で情報がいまいち解析ができないようなので単純に取得できないようなので
+phpの関数「simpleXML」の関数を利用して解析するようにしました。</p>
+<p>とりあえず、できたのでよかったです。</p>
+<pre class="blush:php">
+define('BASE_DIR',      "/hoge/hogehoge");
+
+$ADD_PATH = array(
+    BASE_DIR . '/library/',
+    BASE_DIR . '/library/Pear/',
+    get_include_path()
+);
+set_include_path(implode(PATH_SEPARATOR, $ADD_PATH));
+require_once("/home/www.petit.cc/library/Zend/Http/Client.php");
+
+// rakuten
+$url = "http://api.rakuten.co.jp/rws/3.0/rest?hogehogehoge=hoge";
+
+// http_request
+$params = array();
+$client = new Zend_Http_Client($url);
+$client->setConfig(array('timeout' => 30));
+$client->setParameterPost($params);
+$client->setMethod(Zend_Http_Client::POST);
+$response = $client->request();
+
+// get Body
+$body = preg_replace("/(\n|\r\n|\r)/","", $response->getBody());
+// TEST
+echo $body;
+
+// XML解析
+$parser = xml_parser_create('UTF-8');
+xml_parse_into_struct($parser,$body,$values);
+xml_parser_free($parser); 
+var_dump($values);
+</pre>
+<p>でも、不明なのは
+・なんでZendはDOMDocumentで解析して
+・rakutenApiの取得した情報はDOMDocumentで解析できなかったのか
+は未だによくわかっていないのが現状であります。</p>
+<h3>参考URL</h3>
+<a href="http://www.w3.org/TR/xpath/">http://www.w3.org/TR/xpath/</a>
+<a href="http://logic.moo.jp/memo.php/archive/723">http://logic.moo.jp/memo.php/archive/723</a>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Bash on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/bash/</link>
+        <description>Recent content in Bash on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Tue, 03 Jan 2012 04:03:36 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/bash/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>[memo]指定ファイル一括削除</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-01-03_3035/</link>
+            <pubDate>Tue, 03 Jan 2012 04:03:36 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-01-03_3035/</guid>
+            <description>&lt;pre class=&#34;brush:bash&#34;&gt;
+find ./ -type d -name &#34;.svn&#34;  -exec rm -rf {} \;
+&lt;/pre&gt;
+&lt;p&gt;いっつもおもうんだけど「\」ってなんなんだろね。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]複数のファイル内の文字列を一括で置換する</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-12-21_2579/</link>
+            <pubDate>Tue, 21 Dec 2010 00:44:11 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-12-21_2579/</guid>
+            <description>&lt;pre &#34;brush:bash&#34;&gt;
+find . -type f -name &#34;*.php&#34; -exec sed -i.bak &#39;s/Hoge_/Moge_/g&#39; {} \; 
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>[svn][heteml]即興プログラミング　SVNのレポジトリを一発で作成するスクリプト</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-09-06_2368/</link>
+            <pubDate>Mon, 06 Sep 2010 01:28:52 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-09-06_2368/</guid>
+            <description>&lt;p&gt;hetemlでsvnがつかえるなんて初めて知りました。ぐぐってみたらあるんですね。hetemlサマサマです。
+&lt;a href=&#34;http://210.188.214.228/support/manual/svn/mac/&#34;&gt;ここ&lt;/a&gt;です！
+噂によるとgitも使える様ですよ！！！&lt;/p&gt;
+&lt;p&gt;取り敢えず、今回はsnvで作成用スクリプトを作成してみました。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+#! /bin/bash
+
+# arg check
+if [ -z $1 ]; then
+    echo &#34;Please input repository name!&#34;
+    exit
+fi
+
+# /h/o/g/hogehogeの部分は自分で修正してね
+BASE_DIR=&#34;/home/sites/heteml/users/h/o/g/hogehoge&#34;
+REPOS_NAME=$1
+REPOS_PATH=$BASE_DIR/repos/$REPOS_NAME
+
+echo &#34;start =&gt; &#34; $REPOS_PATH 
+
+mkdir -p $REPOS_PATH
+svnadmin create $REPOS_PATH
+svn mkdir file://$REPOS_PATH/trunk -m &#34;create trunk.&#34;
+svn mkdir file://$REPOS_PATH/branches -m &#34;create branches.&#34;
+svn mkdir file://$REPOS_PATH/tags -m &#34;create tags.&#34;
+
+&lt;/pre&gt;
+&lt;p&gt;以下は実行結果。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+-bash-3.00$ bash ./svn.sh test
+
+# 如何結果になります
+start =&gt;  /home/sites/heteml/users/ｈ/o/g/hogehoge/repos/test
+
+リビジョン 1 をコミットしました。
+
+リビジョン 2 をコミットしました。
+
+リビジョン 3 をコミットしました。
+
+# リスト表示
+-bash-3.00$ ls  repos/test
+README.txt  conf  dav  db  format  hooks  locks
+&lt;/pre&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

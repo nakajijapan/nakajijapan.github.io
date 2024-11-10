@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="iPhoneアプリ作成への道 初歩の初歩　僕は復習するんだの巻">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/04/21/iphone%E3%82%A2%E3%83%97%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%B8%E3%81%AE%E9%81%93-%E5%88%9D%E6%AD%A9%E3%81%AE%E5%88%9D%E6%AD%A9-%E5%83%95%E3%81%AF%E5%BE%A9%E7%BF%92%E3%81%99%E3%82%8B%E3%82%93%E3%81%A0%E3%81%AE%E5%B7%BB/" />
+<meta property="go:description" content="忠告しておこう。これはただのメモ。
+■iPhone OSの４つのレイヤー
+Cocoa Touch
+Media
+Core Services
+Core OS
+上に行くほどUIに近く、遠いほどハードよりなレイヤ。
+■application スタイル
+生産性型(Productivity)
+一覧からそれぞれをタップし、何らかの作業を行っていくもの
+ユーティリティ型(Utility)
+画面遷移もなく単純な機能を提供するもの(天気や地図)
+没入型(Immersive)
+ゲームやメディアプレーヤーのようにスクリーン表示するためのもの
+■Objective-C
+iPhoneアプリ作成時に利用される言語
+詳細：http://ja.wikipedia.org/wiki/Objective-C
+
+Cに進んだC&#43;&#43;とは異なり、C & Object Systemという考え方であり、ある意味二つの言語が混在した状態にある。プログラマは問題領域に合わせて双方を使い分けることができるため、お互いの利点を活かしやすいのが特徴である。
+言語全体としてはCの完全上位互換であり、if/for/whileなどの制御文や、intなどのスカラー型、関数記法、宣言・代入といった基本的な文法はCに準拠する。
+一方オブジェクトシステムはSmalltalkの概念をほぼそのまま借用したもので、動的型のクラス型オブジェクト指向ランタイムを持ち、メッセージパッシングにより動作する。このことからしばしば「インラインでCの書けるSmalltalk」または「インラインでSmalltalkの書けるC」などと呼ばれる。
+最大の特徴はオブジェクトシステムが完全に動的という点で、実行時のクラス拡張、オブジェクト汎用型idの導入により型によらない動的配列・辞書など、インタプリタに近い記述力をもつことである。実際にコードそのものはネイティブコンパイルされるものの、動作原理はほぼインタプリタに近く、コンパイラ型言語としてはまれな柔軟性を発揮する。
+したがって、C側から見れば一種のスクリプトインタプリタが乗っているような状態であり、逆にオブジェクトシステムからはOS機能や膨大なC言語資源を直接利用可能なインターフェースが備わっているといえる。また仮想マシンを持たずに済むため、取り回しも良い。Objective-C特有のこの形態は双方のメリットが明確で、実用面での使い勝手が非常に優れている。この特性に着目したのがNEXTSTEPで、UNIXとの互換性と先進的なオブジェクト指向環境の両立に成功し、その後のOS設計に大きな影響を与えることとなった。
+後続言語への影響としては、特にJavaの基礎設計にその姿を見ることができる（SunがOPENSTEPに関わっていたことと関係がある）。
+
+とりあえず、以下の文章もwikipedia引用です
+
+// クラスの定義
+@interface MyObject : NSObject {
+    int val;
+    id obj;
+}
+ 
+&#43; (void)classMethod:(id)arg;  // クラスメソッド
+- (id)method:(NSObject*)arg1 with:(int)arg2;  // インスタンスメソッド。arg1は型付き
+@end
+ 
+// 実装
+@implementation MyObject
+&#43; (void)classMethod:(id)arg {
+    // some operation
+}
+ 
+- (id)method:(NSObject*)arg1 with:(int)args2 {
+    return obj;
+}
+ 
+// 典型的なinit
+- (id)init {
+    self = [super init]; // スーパークラスの呼びだし
+    if(self != nil) {
+        val = 1;
+        obj = [[SomeClass alloc] init];
+    }
+    return self;
+}
+ 
+// deallocは自身のリソースを解放してからスーパークラスに回す
+- (void)dealloc
+{
+    [obj release];
+    [super dealloc];
+}
+@end
+
+こう、なんていうか、いまいちぱっとしないな。この書き方。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="iPhoneアプリ作成への道 初歩の初歩　僕は復習するんだの巻" />
+<meta name="twitter:description" content="忠告しておこう。これはただのメモ。
+■iPhone OSの４つのレイヤー
+Cocoa Touch
+Media
+Core Services
+Core OS
+上に行くほどUIに近く、遠いほどハードよりなレイヤ。
+■application スタイル
+生産性型(Productivity)
+一覧からそれぞれをタップし、何らかの作業を行っていくもの
+ユーティリティ型(Utility)
+画面遷移もなく単純な機能を提供するもの(天気や地図)
+没入型(Immersive)
+ゲームやメディアプレーヤーのようにスクリーン表示するためのもの
+■Objective-C
+iPhoneアプリ作成時に利用される言語
+詳細：http://ja.wikipedia.org/wiki/Objective-C
+
+Cに進んだC&#43;&#43;とは異なり、C & Object Systemという考え方であり、ある意味二つの言語が混在した状態にある。プログラマは問題領域に合わせて双方を使い分けることができるため、お互いの利点を活かしやすいのが特徴である。
+言語全体としてはCの完全上位互換であり、if/for/whileなどの制御文や、intなどのスカラー型、関数記法、宣言・代入といった基本的な文法はCに準拠する。
+一方オブジェクトシステムはSmalltalkの概念をほぼそのまま借用したもので、動的型のクラス型オブジェクト指向ランタイムを持ち、メッセージパッシングにより動作する。このことからしばしば「インラインでCの書けるSmalltalk」または「インラインでSmalltalkの書けるC」などと呼ばれる。
+最大の特徴はオブジェクトシステムが完全に動的という点で、実行時のクラス拡張、オブジェクト汎用型idの導入により型によらない動的配列・辞書など、インタプリタに近い記述力をもつことである。実際にコードそのものはネイティブコンパイルされるものの、動作原理はほぼインタプリタに近く、コンパイラ型言語としてはまれな柔軟性を発揮する。
+したがって、C側から見れば一種のスクリプトインタプリタが乗っているような状態であり、逆にオブジェクトシステムからはOS機能や膨大なC言語資源を直接利用可能なインターフェースが備わっているといえる。また仮想マシンを持たずに済むため、取り回しも良い。Objective-C特有のこの形態は双方のメリットが明確で、実用面での使い勝手が非常に優れている。この特性に着目したのがNEXTSTEPで、UNIXとの互換性と先進的なオブジェクト指向環境の両立に成功し、その後のOS設計に大きな影響を与えることとなった。
+後続言語への影響としては、特にJavaの基礎設計にその姿を見ることができる（SunがOPENSTEPに関わっていたことと関係がある）。
+
+とりあえず、以下の文章もwikipedia引用です
+
+// クラスの定義
+@interface MyObject : NSObject {
+    int val;
+    id obj;
+}
+ 
+&#43; (void)classMethod:(id)arg;  // クラスメソッド
+- (id)method:(NSObject*)arg1 with:(int)arg2;  // インスタンスメソッド。arg1は型付き
+@end
+ 
+// 実装
+@implementation MyObject
+&#43; (void)classMethod:(id)arg {
+    // some operation
+}
+ 
+- (id)method:(NSObject*)arg1 with:(int)args2 {
+    return obj;
+}
+ 
+// 典型的なinit
+- (id)init {
+    self = [super init]; // スーパークラスの呼びだし
+    if(self != nil) {
+        val = 1;
+        obj = [[SomeClass alloc] init];
+    }
+    return self;
+}
+ 
+// deallocは自身のリソースを解放してからスーパークラスに回す
+- (void)dealloc
+{
+    [obj release];
+    [super dealloc];
+}
+@end
+
+こう、なんていうか、いまいちぱっとしないな。この書き方。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>iPhoneアプリ作成への道 初歩の初歩　僕は復習するんだの巻 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">iPhoneアプリ作成への道 初歩の初歩　僕は復習するんだの巻</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-04-21">April 21, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/iphone">iPhone</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>忠告しておこう。これはただのメモ。</p>
+<p>■iPhone OSの４つのレイヤー
+Cocoa Touch
+Media
+Core Services
+Core OS</p>
+<p>上に行くほどUIに近く、遠いほどハードよりなレイヤ。</p>
+<p>■application スタイル
+生産性型(Productivity)
+一覧からそれぞれをタップし、何らかの作業を行っていくもの
+ユーティリティ型(Utility)
+画面遷移もなく単純な機能を提供するもの(天気や地図)
+没入型(Immersive)
+ゲームやメディアプレーヤーのようにスクリーン表示するためのもの</p>
+<p>■Objective-C
+iPhoneアプリ作成時に利用される言語
+詳細：<a href="http://ja.wikipedia.org/wiki/Objective-C"><a href="http://ja.wikipedia.org/wiki/Objective-C">http://ja.wikipedia.org/wiki/Objective-C</a></a></p>
+<blockquote>
+Cに進んだC++とは異なり、C & Object Systemという考え方であり、ある意味二つの言語が混在した状態にある。プログラマは問題領域に合わせて双方を使い分けることができるため、お互いの利点を活かしやすいのが特徴である。
+<p>言語全体としてはCの完全上位互換であり、if/for/whileなどの制御文や、intなどのスカラー型、関数記法、宣言・代入といった基本的な文法はCに準拠する。</p>
+<p>一方オブジェクトシステムはSmalltalkの概念をほぼそのまま借用したもので、動的型のクラス型オブジェクト指向ランタイムを持ち、メッセージパッシングにより動作する。このことからしばしば「インラインでCの書けるSmalltalk」または「インラインでSmalltalkの書けるC」などと呼ばれる。</p>
+<p>最大の特徴はオブジェクトシステムが完全に動的という点で、実行時のクラス拡張、オブジェクト汎用型idの導入により型によらない動的配列・辞書など、インタプリタに近い記述力をもつことである。実際にコードそのものはネイティブコンパイルされるものの、動作原理はほぼインタプリタに近く、コンパイラ型言語としてはまれな柔軟性を発揮する。</p>
+<p>したがって、C側から見れば一種のスクリプトインタプリタが乗っているような状態であり、逆にオブジェクトシステムからはOS機能や膨大なC言語資源を直接利用可能なインターフェースが備わっているといえる。また仮想マシンを持たずに済むため、取り回しも良い。Objective-C特有のこの形態は双方のメリットが明確で、実用面での使い勝手が非常に優れている。この特性に着目したのがNEXTSTEPで、UNIXとの互換性と先進的なオブジェクト指向環境の両立に成功し、その後のOS設計に大きな影響を与えることとなった。</p>
+<p>後続言語への影響としては、特にJavaの基礎設計にその姿を見ることができる（SunがOPENSTEPに関わっていたことと関係がある）。</p>
+</blockquote>
+<p>とりあえず、以下の文章もwikipedia引用です</p>
+<pre class="brush: c">
+// クラスの定義
+@interface MyObject : NSObject {
+    int val;
+    id obj;
+}
+ 
++ (void)classMethod:(id)arg;  // クラスメソッド
+- (id)method:(NSObject*)arg1 with:(int)arg2;  // インスタンスメソッド。arg1は型付き
+@end
+ 
+// 実装
+@implementation MyObject
++ (void)classMethod:(id)arg {
+    // some operation
+}
+ 
+- (id)method:(NSObject*)arg1 with:(int)args2 {
+    return obj;
+}
+ 
+// 典型的なinit
+- (id)init {
+    self = [super init]; // スーパークラスの呼びだし
+    if(self != nil) {
+        val = 1;
+        obj = [[SomeClass alloc] init];
+    }
+    return self;
+}
+ 
+// deallocは自身のリソースを解放してからスーパークラスに回す
+- (void)dealloc
+{
+    [obj release];
+    [super dealloc];
+}
+@end
+</pre>
+<p>こう、なんていうか、いまいちぱっとしないな。この書き方。</p>
+<p>慣れるしか無い事実。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

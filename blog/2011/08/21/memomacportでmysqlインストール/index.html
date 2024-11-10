@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[memo]macportでmysqlインストール">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2011/08/21/memomacport%E3%81%A7mysql%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/" />
+<meta property="go:description" content="インストール
+
+sudo port install mysql5-server
+
+Mysql初期化
+
+sudo -u mysql mysql_install_db5
+
+Mysql起動
+
+sudo /opt/local/share/mysql5/mysql/mysql.server start
+
+Mysql自動起動設定
+
+# -wは設定ファイルが無効になっていても,Disableが有っても読み、ファイルのDisableを削除します。
+sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist
+
+自動起動設定は「init.d」的な機能は利用していないので迷ってしまいましたよ。BSDベースはちょっとわからんです。
+my.cnfの移動
+
+sudo cp /opt/local/share/mysql5/mysql/my-small.cnf /opt/local/etc/mysql5/my.cnf
+
+■参照URL
+http://macwiki.sourceforge.jp/wiki/index.php/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/launchctl" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[memo]macportでmysqlインストール" />
+<meta name="twitter:description" content="インストール
+
+sudo port install mysql5-server
+
+Mysql初期化
+
+sudo -u mysql mysql_install_db5
+
+Mysql起動
+
+sudo /opt/local/share/mysql5/mysql/mysql.server start
+
+Mysql自動起動設定
+
+# -wは設定ファイルが無効になっていても,Disableが有っても読み、ファイルのDisableを削除します。
+sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist
+
+自動起動設定は「init.d」的な機能は利用していないので迷ってしまいましたよ。BSDベースはちょっとわからんです。
+my.cnfの移動
+
+sudo cp /opt/local/share/mysql5/mysql/my-small.cnf /opt/local/etc/mysql5/my.cnf
+
+■参照URL
+http://macwiki.sourceforge.jp/wiki/index.php/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/launchctl" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[memo]macportでmysqlインストール - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[memo]macportでmysqlインストール</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-08-21">August 21, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <h3>インストール</h3>
+<pre class="brush:bash">
+sudo port install mysql5-server
+</pre>
+<h3>Mysql初期化</h3>
+<pre class="brush:bash">
+sudo -u mysql mysql_install_db5
+</pre>
+<h3>Mysql起動</h3>
+<pre class="brush:bash">
+sudo /opt/local/share/mysql5/mysql/mysql.server start
+</pre>
+<h3>Mysql自動起動設定</h3>
+<pre class="brush:bash">
+# -wは設定ファイルが無効になっていても,Disableが有っても読み、ファイルのDisableを削除します。
+sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist
+</pre>
+<p>自動起動設定は「init.d」的な機能は利用していないので迷ってしまいましたよ。BSDベースはちょっとわからんです。</p>
+<h3>my.cnfの移動</h3>
+<pre class="brush:bash">
+sudo cp /opt/local/share/mysql5/mysql/my-small.cnf /opt/local/etc/mysql5/my.cnf
+</pre>
+<p>■参照URL
+<a href="http://macwiki.sourceforge.jp/wiki/index.php/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/launchctl">http://macwiki.sourceforge.jp/wiki/index.php/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/launchctl</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="即興プログラミング　SVNからおとしてーのバージョン最新に切り替えーの。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/04/09/%E5%8D%B3%E8%88%88%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-svn%E3%81%8B%E3%82%89%E3%81%8A%E3%81%A8%E3%81%97%E3%81%A6%E3%83%BC%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E6%9C%80%E6%96%B0%E3%81%AB%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88%E3%83%BC%E3%81%AE/" />
+<meta property="go:description" content="タイトルの通り。
+リモート一括処理したかったのでできないかなーって調べながら実装してたら意外と簡単にいけました。
+全くエラー処理なんてものをいっさいしていないという不始末さ故どっかでエラーになるのは確実ですね。。。
+リモートで失敗した際のエラー処理っていれられるのかな。まぁやってみないとどうしようもないということで…。
+処理としては、以下の通り。
+
+	SVNから指定のディレクトリ内にファイルをダウンロードする
+	SCPでデータをリモートにある指定したディレクトリにコピー
+	新しい情報リンクを張り替える
+
+
+#!/bin/zsh
+
+SAVE_DIR=`date &#43;%Y%m%d%H%M%S`
+SVN_URL=&#39;http://xxx.xxx.xxx.xxx/svn/trunk/&#39;
+SVN_USER=&#39;nakajijapan&#39;
+SVN_PASS=&#39;nakajijapan&#39;
+
+echo &#39;start&#39; $SAVE_DIR &#39;\n&#39;
+
+# svn
+svn export $SVN_URL ./$SAVE_DIR/  --username $SVN_USER --password $SVN_PASS
+
+# copy
+echo &#39;\nstart remote server \n&#39;
+scp -Br ./$SAVE_DIR xxx@xxxxxxxxx:/var/www/xxx/
+
+# rm dir
+echo &#39;\nremove dir \n&#39;
+rm -rf ./$SAVE_DIR
+
+# change link
+echo &#39;\nchange link \n&#39;
+ssh remote@nakajijapan.net /bin/rm &#39;/var/www/data/current ; /bin/ln -s /var/www/data/&#39;$SAVE_DIR&#39; /var/www/data/current ; /bin/ls -al /var/www/data/&#39;
+
+re&gt;" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="即興プログラミング　SVNからおとしてーのバージョン最新に切り替えーの。" />
+<meta name="twitter:description" content="タイトルの通り。
+リモート一括処理したかったのでできないかなーって調べながら実装してたら意外と簡単にいけました。
+全くエラー処理なんてものをいっさいしていないという不始末さ故どっかでエラーになるのは確実ですね。。。
+リモートで失敗した際のエラー処理っていれられるのかな。まぁやってみないとどうしようもないということで…。
+処理としては、以下の通り。
+
+	SVNから指定のディレクトリ内にファイルをダウンロードする
+	SCPでデータをリモートにある指定したディレクトリにコピー
+	新しい情報リンクを張り替える
+
+
+#!/bin/zsh
+
+SAVE_DIR=`date &#43;%Y%m%d%H%M%S`
+SVN_URL=&#39;http://xxx.xxx.xxx.xxx/svn/trunk/&#39;
+SVN_USER=&#39;nakajijapan&#39;
+SVN_PASS=&#39;nakajijapan&#39;
+
+echo &#39;start&#39; $SAVE_DIR &#39;\n&#39;
+
+# svn
+svn export $SVN_URL ./$SAVE_DIR/  --username $SVN_USER --password $SVN_PASS
+
+# copy
+echo &#39;\nstart remote server \n&#39;
+scp -Br ./$SAVE_DIR xxx@xxxxxxxxx:/var/www/xxx/
+
+# rm dir
+echo &#39;\nremove dir \n&#39;
+rm -rf ./$SAVE_DIR
+
+# change link
+echo &#39;\nchange link \n&#39;
+ssh remote@nakajijapan.net /bin/rm &#39;/var/www/data/current ; /bin/ln -s /var/www/data/&#39;$SAVE_DIR&#39; /var/www/data/current ; /bin/ls -al /var/www/data/&#39;
+
+re&gt;" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>即興プログラミング　SVNからおとしてーのバージョン最新に切り替えーの。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">即興プログラミング　SVNからおとしてーのバージョン最新に切り替えーの。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-04-09">April 09, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>タイトルの通り。
+リモート一括処理したかったのでできないかなーって調べながら実装してたら意外と簡単にいけました。
+全くエラー処理なんてものをいっさいしていないという不始末さ故どっかでエラーになるのは確実ですね。。。
+リモートで失敗した際のエラー処理っていれられるのかな。まぁやってみないとどうしようもないということで…。</p>
+<p>処理としては、以下の通り。</p>
+<ol>
+	<li>SVNから指定のディレクトリ内にファイルをダウンロードする</li>
+	<li>SCPでデータをリモートにある指定したディレクトリにコピー</li>
+	<li>新しい情報リンクを張り替える</li>
+</ol>
+<pre class="brush: bash">
+#!/bin/zsh
+
+SAVE_DIR=`date +%Y%m%d%H%M%S`
+SVN_URL='http://xxx.xxx.xxx.xxx/svn/trunk/'
+SVN_USER='nakajijapan'
+SVN_PASS='nakajijapan'
+
+echo 'start' $SAVE_DIR '\n'
+
+# svn
+svn export $SVN_URL ./$SAVE_DIR/  --username $SVN_USER --password $SVN_PASS
+
+# copy
+echo '\nstart remote server \n'
+scp -Br ./$SAVE_DIR xxx@xxxxxxxxx:/var/www/xxx/
+
+# rm dir
+echo '\nremove dir \n'
+rm -rf ./$SAVE_DIR
+
+# change link
+echo '\nchange link \n'
+ssh remote@nakajijapan.net /bin/rm '/var/www/data/current ; /bin/ln -s /var/www/data/'$SAVE_DIR' /var/www/data/current ; /bin/ls -al /var/www/data/'
+</pre>
+<p>re&gt;</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

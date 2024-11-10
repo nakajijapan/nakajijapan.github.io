@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Introducing CloudKit">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2014/08/23/introducing-cloudkit/" />
+<meta property="go:description" content="
+CloudKit Strage
+WWDC2014でiOS8からの新しい機能であるCloudKitについて調べたよという話です。
+次に自分がリリースするプロダクトのバックエンドを実験がてらParseでやろうとしていたのですが、
+CloudKitのほうが便利そうだったのと、何かときめきを感じるものがあったのでCloudKitを選定して実装する方向
+にはなったのです。しかし、情報はというとサンプルプログラムとただドキュメントがあるんだけでした
+ので自分なりに調べてどういう実装をしたらいいのかというのを調査して、一部まとめたお話です。
+せっかくなのでpotatotips #8でも共有させていただきました。
+
+簡単に話すと以下のような内容になっています。
+
+簡単にCloudKitの説明
+CRUDで実装した場合、どんな実装になるのか
+ページング処理の話
+要調査内容
+感想
+
+補足なのですがCKSubscriptionも試してみたのでご参考までに。
+CKSubscription
+サーバ上での変更を追跡するのに利用されます。
+例えば、何かのレコードに変更があった場合にPush通知を送信できたりします。
+実際のコードは以下のようなもの。
+
+// #1
+        let truePredicate = NSPredicate(value: true)
+        let itemSubscription = CKSubscription(
+            recordType: &#34;Items&#34;,
+            predicate: truePredicate,
+            options: CKSubscriptionOptions.FiresOnRecordCreation
+        )
+// #2
+        let notification = CKNotificationInfo()
+        notification.alertBody = &#34;Item Add&#34;
+        itemSubscription.notificationInfo = notification
+
+// #3
+        self.publicDatabase.saveSubscription(
+            itemSubscription,
+            completionHandler: { (subscription:CKSubscription!, error:NSError!) -&gt; Void in
+
+                if error != nil {
+                    println(&#34;An error occured in \(error.description)&#34;)
+                }
+
+                // do something
+
+            }
+        )
+＃1
+CKSubscriptionを指定されたレコードタイプに条件(NSPredicate)を指定してインスタンス化します。
+CKQueryぽいですね。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Introducing CloudKit" />
+<meta name="twitter:description" content="
+CloudKit Strage
+WWDC2014でiOS8からの新しい機能であるCloudKitについて調べたよという話です。
+次に自分がリリースするプロダクトのバックエンドを実験がてらParseでやろうとしていたのですが、
+CloudKitのほうが便利そうだったのと、何かときめきを感じるものがあったのでCloudKitを選定して実装する方向
+にはなったのです。しかし、情報はというとサンプルプログラムとただドキュメントがあるんだけでした
+ので自分なりに調べてどういう実装をしたらいいのかというのを調査して、一部まとめたお話です。
+せっかくなのでpotatotips #8でも共有させていただきました。
+
+簡単に話すと以下のような内容になっています。
+
+簡単にCloudKitの説明
+CRUDで実装した場合、どんな実装になるのか
+ページング処理の話
+要調査内容
+感想
+
+補足なのですがCKSubscriptionも試してみたのでご参考までに。
+CKSubscription
+サーバ上での変更を追跡するのに利用されます。
+例えば、何かのレコードに変更があった場合にPush通知を送信できたりします。
+実際のコードは以下のようなもの。
+
+// #1
+        let truePredicate = NSPredicate(value: true)
+        let itemSubscription = CKSubscription(
+            recordType: &#34;Items&#34;,
+            predicate: truePredicate,
+            options: CKSubscriptionOptions.FiresOnRecordCreation
+        )
+// #2
+        let notification = CKNotificationInfo()
+        notification.alertBody = &#34;Item Add&#34;
+        itemSubscription.notificationInfo = notification
+
+// #3
+        self.publicDatabase.saveSubscription(
+            itemSubscription,
+            completionHandler: { (subscription:CKSubscription!, error:NSError!) -&gt; Void in
+
+                if error != nil {
+                    println(&#34;An error occured in \(error.description)&#34;)
+                }
+
+                // do something
+
+            }
+        )
+＃1
+CKSubscriptionを指定されたレコードタイプに条件(NSPredicate)を指定してインスタンス化します。
+CKQueryぽいですね。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Introducing CloudKit - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Introducing CloudKit</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-08-23">August 23, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><img src="https://developer.apple.com/icloud/images/cloudkit.png" alt=""></p>
+<p><a href="https://developer.apple.com/icloud/documentation/cloudkit-storage/">CloudKit Strage</a></p>
+<p>WWDC2014でiOS8からの新しい機能であるCloudKitについて調べたよという話です。</p>
+<p>次に自分がリリースするプロダクトのバックエンドを実験がてらParseでやろうとしていたのですが、
+CloudKitのほうが便利そうだったのと、何かときめきを感じるものがあったのでCloudKitを選定して実装する方向
+にはなったのです。しかし、情報はというとサンプルプログラムとただドキュメントがあるんだけでした
+ので自分なりに調べてどういう実装をしたらいいのかというのを調査して、一部まとめたお話です。</p>
+<p>せっかくなので<a href="https://github.com/potatotips/potatotips/wiki/potatotips-8">potatotips #8</a>でも共有させていただきました。</p>
+<script async class="speakerdeck-embed" data-id="8680d4d00aa80132acd15e86903014cd" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<p>簡単に話すと以下のような内容になっています。</p>
+<ul>
+<li>簡単にCloudKitの説明</li>
+<li>CRUDで実装した場合、どんな実装になるのか</li>
+<li>ページング処理の話</li>
+<li>要調査内容</li>
+<li>感想</li>
+</ul>
+<p>補足なのですが<code>CKSubscription</code>も試してみたのでご参考までに。</p>
+<h2 id="cksubscription">CKSubscription</h2>
+<p>サーバ上での変更を追跡するのに利用されます。
+例えば、何かのレコードに変更があった場合にPush通知を送信できたりします。
+実際のコードは以下のようなもの。</p>
+<pre tabindex="0"><code>
+// #1
+        let truePredicate = NSPredicate(value: true)
+        let itemSubscription = CKSubscription(
+            recordType: &#34;Items&#34;,
+            predicate: truePredicate,
+            options: CKSubscriptionOptions.FiresOnRecordCreation
+        )
+// #2
+        let notification = CKNotificationInfo()
+        notification.alertBody = &#34;Item Add&#34;
+        itemSubscription.notificationInfo = notification
+
+// #3
+        self.publicDatabase.saveSubscription(
+            itemSubscription,
+            completionHandler: { (subscription:CKSubscription!, error:NSError!) -&gt; Void in
+
+                if error != nil {
+                    println(&#34;An error occured in \(error.description)&#34;)
+                }
+
+                // do something
+
+            }
+        )
+</code></pre><h3 id="1">＃1</h3>
+<p>CKSubscriptionを指定されたレコードタイプに条件(NSPredicate)を指定してインスタンス化します。
+CKQueryぽいですね。</p>
+<h3 id="2">＃2</h3>
+<p>ここでは通知メッセージの設定を行っています。</p>
+<h3 id="3">＃3</h3>
+<p>ここでSubscriptionの変更をサーバにリクエストします。
+これで完了です。削除したい場合は<code>deleteSubscriptionWithID</code>を利用すれば削除が適用されます。</p>
+<p>こんな感じで実装は完了です。</p>
+<h2 id="cloudkitを使ってみての感想">CloudKitを使ってみての感想</h2>
+<p>爆速でバックエンドが構築されるのでアプリに集中したい人にとってはかなりおすすめですね。
+だいたいの機能は揃っているので簡単なアプリを作成するんであればこれでいいかもしれません。
+引き続きwatchしていきます。</p>
+<p>ちなみに、スレイドにも書いたんですが、Macで使うとMacデベロッパープログラムを契約しないと
+利用できなかったので発表が終わった瞬間に購入しました。。。。</p>
+<blockquote class="twitter-tweet" lang="ja"><p>Mac Developer Program 購入しました。 <a href="https://twitter.com/hashtag/potatotips?src=hash">#potatotips</a> <a href="http://t.co/lbYe8FYzJc">pic.twitter.com/lbYe8FYzJc</a></p>&mdash; nakajijapan (@nakajijapan) <a href="https://twitter.com/nakajijapan/statuses/502072810622054400">2014, 8月 20</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>そんな夏休みの自由研究話でした。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

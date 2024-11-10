@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="メッシュWi-Fi導入した">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2020/2020-07-20-orbi/" />
+<meta property="go:description" content="
+先日、新しくWiFiルータを購入してネットワーク環境がものすごく改善されたので紹介する。
+なぜ購入した？
+今住んでる家が一軒家で2階建て。ルータは家の都合上二階の端っこに設置しないといけない状況でした。
+なので一階のリビングには5Ghz帯は殆どこないで2.4Ghz帯を利用していました。一階に中継機を配置してはいたのですが
+劇的な改善にはいたらなかった。
+しかし、仕事を始めたりして常にインターネットをするだけではなく一階ではNetflix(プランはプレミアムで4Kのものもちょくちょく見る)、あとはいろんな家電を繋ぐようになったらものすごく通信状態悪くなり、タイムアウトになったりwifiが切れたりする現象が増えてきた。ルーターや中継機を再起動しても問題解決にはいたらなかった。いろんな機器をはずすというものひとつの手だが家電もリモートで管理したかったのでそれは考えたくない。
+1階はとくに繋がらなくなることがちょくちょくあった。
+どれ使ってた？
+nuroを契約したときにF660aというものをもらってそのままそれを使っていました。スペックもそんなには悪くはないのだが壁を挟むと一気に弱くなる。24Ghz帯が通ってるとはいえそこまで速度は出ない。ルーターがかなり家の端っこということが痛い。
+ルーター
+ZXHN F660A
+
+無線LAN下り
+
+1300Mbps
+
+
+対応規格
+
+11 a/b/g/n/ac
+
+
+
+中継機
+
+TP-Link WIFI 無線LAN 中継器 11ac/n/a/g/b 1733 &#43; 800Mbps ビームフォーミング MU-MIMO APモード 3年保証 RE650
+どれ買った
+今回購入したのはこれ。
+
+NETGEAR メッシュWiFi無線LANルーター2台セット Wi-Fi6(11AX) 速度AX6000 トライバンド RBK852 (ルータ―&#43;サテライト) 350㎡ https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM
+簡単に買うほど安くはない。むしろかなり高い方だがこのご時世家で仕事することも増えてきたので投資して問題ないだろうという判断です。
+こういうの何かとストレスになるしできるならなくしていきたいところ。
+キーワード
+購入するためにルーターの基礎知識が数年前の知識だったので調べてみるといくつか新しい技術が搭載されたものが発売されていて勉強する時間を要してしまった。
+世の中どんどん便利になっていくものですな。。。
+
+メッシュWi-Fi
+トライバンド
+Wi-Fi 6
+
+どのくらい改善されたか
+結論から言うと完全に改善された。
+WiFi 6対応で、2402Mbps&#43;2402Mbps&#43;1147Mbpsと謳っていて、もっと良い結果が出るのではないかなと思ってはいたが家電やスマートフォン合わせて10台くらいがつながった状態でこの測度を維持している。
+体感的にも全く問題がない使い心地である。
+
+トライバンド メッシュ WiFi AX6000 (2402 &#43; 2402 &#43; 1147Mbps)
+
+導入前
+作業部屋 2F
+
+  
+      
+          number
+          result
+      
+  
+  
+      
+          1
+          47 Mbps
+      
+      
+          2
+          49 Mbps
+      
+      
+          3
+          61 Mbps
+      
+      
+          4
+          47 Mbps
+      
+      
+          ５
+          41 Mbps
+      
+  
+
+作業部屋 2F iPhone 11 Pro Max
+
+  
+      
+          number
+          result
+      
+  
+  
+      
+          1
+          2.2 Mbps
+      
+      
+          2
+          4.4 Mbps
+      
+      
+          3
+          4.6 Mbps
+      
+      
+          4
+          4.8 Mbps
+      
+      
+          ５
+          4.8 Mbps
+      
+  
+
+リビング 1F iPhone 11 Pro Max
+つながるのさえ時間がかかって計測出来ない状況が続いた。
+計測できたとしても作業部屋 2F iPhone 11 Pro Maxと同様のスピード" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="メッシュWi-Fi導入した" />
+<meta name="twitter:description" content="
+先日、新しくWiFiルータを購入してネットワーク環境がものすごく改善されたので紹介する。
+なぜ購入した？
+今住んでる家が一軒家で2階建て。ルータは家の都合上二階の端っこに設置しないといけない状況でした。
+なので一階のリビングには5Ghz帯は殆どこないで2.4Ghz帯を利用していました。一階に中継機を配置してはいたのですが
+劇的な改善にはいたらなかった。
+しかし、仕事を始めたりして常にインターネットをするだけではなく一階ではNetflix(プランはプレミアムで4Kのものもちょくちょく見る)、あとはいろんな家電を繋ぐようになったらものすごく通信状態悪くなり、タイムアウトになったりwifiが切れたりする現象が増えてきた。ルーターや中継機を再起動しても問題解決にはいたらなかった。いろんな機器をはずすというものひとつの手だが家電もリモートで管理したかったのでそれは考えたくない。
+1階はとくに繋がらなくなることがちょくちょくあった。
+どれ使ってた？
+nuroを契約したときにF660aというものをもらってそのままそれを使っていました。スペックもそんなには悪くはないのだが壁を挟むと一気に弱くなる。24Ghz帯が通ってるとはいえそこまで速度は出ない。ルーターがかなり家の端っこということが痛い。
+ルーター
+ZXHN F660A
+
+無線LAN下り
+
+1300Mbps
+
+
+対応規格
+
+11 a/b/g/n/ac
+
+
+
+中継機
+
+TP-Link WIFI 無線LAN 中継器 11ac/n/a/g/b 1733 &#43; 800Mbps ビームフォーミング MU-MIMO APモード 3年保証 RE650
+どれ買った
+今回購入したのはこれ。
+
+NETGEAR メッシュWiFi無線LANルーター2台セット Wi-Fi6(11AX) 速度AX6000 トライバンド RBK852 (ルータ―&#43;サテライト) 350㎡ https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM
+簡単に買うほど安くはない。むしろかなり高い方だがこのご時世家で仕事することも増えてきたので投資して問題ないだろうという判断です。
+こういうの何かとストレスになるしできるならなくしていきたいところ。
+キーワード
+購入するためにルーターの基礎知識が数年前の知識だったので調べてみるといくつか新しい技術が搭載されたものが発売されていて勉強する時間を要してしまった。
+世の中どんどん便利になっていくものですな。。。
+
+メッシュWi-Fi
+トライバンド
+Wi-Fi 6
+
+どのくらい改善されたか
+結論から言うと完全に改善された。
+WiFi 6対応で、2402Mbps&#43;2402Mbps&#43;1147Mbpsと謳っていて、もっと良い結果が出るのではないかなと思ってはいたが家電やスマートフォン合わせて10台くらいがつながった状態でこの測度を維持している。
+体感的にも全く問題がない使い心地である。
+
+トライバンド メッシュ WiFi AX6000 (2402 &#43; 2402 &#43; 1147Mbps)
+
+導入前
+作業部屋 2F
+
+  
+      
+          number
+          result
+      
+  
+  
+      
+          1
+          47 Mbps
+      
+      
+          2
+          49 Mbps
+      
+      
+          3
+          61 Mbps
+      
+      
+          4
+          47 Mbps
+      
+      
+          ５
+          41 Mbps
+      
+  
+
+作業部屋 2F iPhone 11 Pro Max
+
+  
+      
+          number
+          result
+      
+  
+  
+      
+          1
+          2.2 Mbps
+      
+      
+          2
+          4.4 Mbps
+      
+      
+          3
+          4.6 Mbps
+      
+      
+          4
+          4.8 Mbps
+      
+      
+          ５
+          4.8 Mbps
+      
+  
+
+リビング 1F iPhone 11 Pro Max
+つながるのさえ時間がかかって計測出来ない状況が続いた。
+計測できたとしても作業部屋 2F iPhone 11 Pro Maxと同様のスピード" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>メッシュWi-Fi導入した - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">メッシュWi-Fi導入した</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2020-07-23">July 23, 2020</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/life">life</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><img src="/images/posts/2020/07-001.png" alt="orbi"></p>
+<p>先日、新しくWiFiルータを購入してネットワーク環境がものすごく改善されたので紹介する。</p>
+<h1 id="なぜ購入した">なぜ購入した？</h1>
+<p>今住んでる家が一軒家で2階建て。ルータは家の都合上二階の端っこに設置しないといけない状況でした。
+なので一階のリビングには5Ghz帯は殆どこないで2.4Ghz帯を利用していました。一階に中継機を配置してはいたのですが
+劇的な改善にはいたらなかった。</p>
+<p>しかし、仕事を始めたりして常にインターネットをするだけではなく一階ではNetflix(プランはプレミアムで4Kのものもちょくちょく見る)、あとはいろんな家電を繋ぐようになったらものすごく通信状態悪くなり、タイムアウトになったりwifiが切れたりする現象が増えてきた。ルーターや中継機を再起動しても問題解決にはいたらなかった。いろんな機器をはずすというものひとつの手だが家電もリモートで管理したかったのでそれは考えたくない。
+1階はとくに繋がらなくなることがちょくちょくあった。</p>
+<h1 id="どれ使ってた">どれ使ってた？</h1>
+<p>nuroを契約したときにF660aというものをもらってそのままそれを使っていました。スペックもそんなには悪くはないのだが壁を挟むと一気に弱くなる。24Ghz帯が通ってるとはいえそこまで速度は出ない。ルーターがかなり家の端っこということが痛い。</p>
+<h2 id="ルーター">ルーター</h2>
+<p>ZXHN F660A</p>
+<ul>
+<li>無線LAN下り
+<ul>
+<li>1300Mbps</li>
+</ul>
+</li>
+<li>対応規格
+<ul>
+<li>11 a/b/g/n/ac</li>
+</ul>
+</li>
+</ul>
+<h2 id="中継機">中継機</h2>
+<p><a href="https://www.amazon.co.jp/gp/product/B073FF93SY/ref=as_li_ss_il?ie=UTF8&psc=1&linkCode=li3&tag=daichibnejp-22&linkId=61ea78ad8ed2f46d213490d65de4d61c&language=ja_JP" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B073FF93SY&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=daichibnejp-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&language=ja_JP&l=li3&o=9&a=B073FF93SY" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+<p><a href="https://amzn.to/2E7BSsV">TP-Link WIFI 無線LAN 中継器 11ac/n/a/g/b 1733 + 800Mbps ビームフォーミング MU-MIMO APモード 3年保証 RE650</a></p>
+<h1 id="どれ買った">どれ買った</h1>
+<p>今回購入したのはこれ。</p>
+<p><a href="https://www.amazon.co.jp/dp/B0836YKNZW/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=daichibnejp-22&linkId=bb997545dae508dddb09110c40cfe1ca&language=ja_JP" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0836YKNZW&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=daichibnejp-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=daichibnejp-22&language=ja_JP&l=li3&o=9&a=B0836YKNZW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+<p>NETGEAR メッシュWiFi無線LANルーター2台セット Wi-Fi6(11AX) 速度AX6000 トライバンド RBK852 (ルータ―+サテライト) 350㎡ <a href="https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM">https://www.amazon.co.jp/dp/B0836YKNZW/ref=cm_sw_r_cp_api_i_ipugFbSE9TBHM</a></p>
+<p>簡単に買うほど安くはない。むしろかなり高い方だがこのご時世家で仕事することも増えてきたので投資して問題ないだろうという判断です。
+こういうの何かとストレスになるしできるならなくしていきたいところ。</p>
+<h2 id="キーワード">キーワード</h2>
+<p>購入するためにルーターの基礎知識が数年前の知識だったので調べてみるといくつか新しい技術が搭載されたものが発売されていて勉強する時間を要してしまった。
+世の中どんどん便利になっていくものですな。。。</p>
+<ul>
+<li>メッシュWi-Fi</li>
+<li>トライバンド</li>
+<li>Wi-Fi 6</li>
+</ul>
+<h1 id="どのくらい改善されたか">どのくらい改善されたか</h1>
+<p>結論から言うと完全に改善された。</p>
+<p><code>WiFi 6対応で、2402Mbps+2402Mbps+1147Mbps</code>と謳っていて、もっと良い結果が出るのではないかなと思ってはいたが家電やスマートフォン合わせて10台くらいがつながった状態でこの測度を維持している。
+体感的にも全く問題がない使い心地である。</p>
+<ul>
+<li>トライバンド メッシュ WiFi AX6000 (2402 + 2402 + 1147Mbps)</li>
+</ul>
+<h2 id="導入前">導入前</h2>
+<h3 id="作業部屋-2f">作業部屋 2F</h3>
+<table>
+  <thead>
+      <tr>
+          <th>number</th>
+          <th>result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>47 Mbps</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>49 Mbps</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>61 Mbps</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>47 Mbps</td>
+      </tr>
+      <tr>
+          <td>５</td>
+          <td>41 Mbps</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="作業部屋-2f-iphone-11-pro-max">作業部屋 2F iPhone 11 Pro Max</h3>
+<table>
+  <thead>
+      <tr>
+          <th>number</th>
+          <th>result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>2.2 Mbps</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>4.4 Mbps</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>4.6 Mbps</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>4.8 Mbps</td>
+      </tr>
+      <tr>
+          <td>５</td>
+          <td>4.8 Mbps</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="リビング-1f-iphone-11-pro-max">リビング 1F iPhone 11 Pro Max</h3>
+<p>つながるのさえ時間がかかって計測出来ない状況が続いた。
+計測できたとしても<code>作業部屋 2F iPhone 11 Pro Max</code>と同様のスピード</p>
+<h2 id="導入後">導入後</h2>
+<h3 id="作業部屋-2f-1">作業部屋 2F</h3>
+<table>
+  <thead>
+      <tr>
+          <th>number</th>
+          <th>result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>410 Mbps</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>500 Mbps</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>1500 Mbps</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>490 Mbps</td>
+      </tr>
+      <tr>
+          <td>５</td>
+          <td>500 Mbps</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="作業部屋-2f-iphone-11-pro-max-1">作業部屋 2F iPhone 11 Pro Max</h3>
+<table>
+  <thead>
+      <tr>
+          <th>number</th>
+          <th>result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>85 Mbps</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>120 Mbps</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>120 Mbps</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>150 Mbps</td>
+      </tr>
+      <tr>
+          <td>５</td>
+          <td>170 Mbps</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="作業部屋-2f-iphone-11-pro-max-2">作業部屋 2F iPhone 11 Pro Max</h3>
+<table>
+  <thead>
+      <tr>
+          <th>number</th>
+          <th>result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>150 Mbps</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>200 Mbps</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>200 Mbps</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>120 Mbps</td>
+      </tr>
+      <tr>
+          <td>５</td>
+          <td>170 Mbps</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="リビング-1f-iphone-11-pro-max-1">リビング 1F iPhone 11 Pro Max</h3>
+<table>
+  <thead>
+      <tr>
+          <th>number</th>
+          <th>result</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>150 Mbps</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>120 Mbps</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>180 Mbps</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>150 Mbps</td>
+      </tr>
+      <tr>
+          <td>５</td>
+          <td>200 Mbps</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="駐車場">駐車場</h3>
+<p>余談。普通にインターネットできた！
+なので洗車をしながらオンラインのミュージックをきけました。</p>
+<h2 id="配置図">配置図</h2>
+<p><img src="/images/posts/2020/07-002.png" alt="配置図"></p>
+<h1 id="まとめ">まとめ</h1>
+<ul>
+<li>高画質な映画をみつつ、別部屋ではzoomで仕事。</li>
+<li>1軒屋でルータ置き場が家の端にあってつなげるために数枚の壁がある </li>
+<li>スマートフォンだけじゃなくて家電もつなげてる</li>
+</ul>
+<p>ような人にはとてもネットワーク環境は劇的に改善されると思う。また、そこでインターネットを<strong>常に</strong>利用して生活を送り、仕事をする環境いる身としては、たとえ高価であっても投資をしたほうがより豊かに今後の人生が遅れるのではないかと思う。</p>
+<h1 id="参照">参照</h1>
+<ul>
+<li>Orbi WiFi 6 サテライト
+<ul>
+<li><a href="https://www.jp.netgear.com/orbi/rbs850.aspx">https://www.jp.netgear.com/orbi/rbs850.aspx</a></li>
+<li><a href="https://www.watch.impress.co.jp/netgear/review58/">https://www.watch.impress.co.jp/netgear/review58/</a></li>
+<li><a href="https://store.netgear.jp/shopdetail/000000000397/">https://store.netgear.jp/shopdetail/000000000397/</a></li>
+</ul>
+</li>
+<li>使っていたもの
+<ul>
+<li><a href="https://www.nuro.jp/pdf/device/manual_ZXHNF660A.pdf">https://www.nuro.jp/pdf/device/manual_ZXHNF660A.pdf</a></li>
+</ul>
+</li>
+<li>記事
+<ul>
+<li><a href="https://xtech.nikkei.com/atcl/nxt/column/18/00160/091800064/">https://xtech.nikkei.com/atcl/nxt/column/18/00160/091800064/</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="比較表">📝　比較表</h4>
+<p><img src="/images/posts/2020/07-003.png" alt=""></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

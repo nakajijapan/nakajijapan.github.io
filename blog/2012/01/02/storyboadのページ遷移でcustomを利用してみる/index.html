@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="storyboadのページ遷移で「custom」を利用してみる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2012/01/02/storyboad%E3%81%AE%E3%83%9A%E3%83%BC%E3%82%B8%E9%81%B7%E7%A7%BB%E3%81%A7custom%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B/" />
+<meta property="go:description" content="普段は「push」か「modal」で実装するけど、場合によっては違う見せ方をしたほうがいい場合があると思います。
+そこで「custom」を利用してページ遷移をもっとインタラクティブに見せる実装を行います。
+まずは「UIStoryboardSegue」なるクラスを継承した「DetailSegue」を作成してみます。
+
+#import &#34;DetailSegue.h&#34;
+
+@implementation DetailSegue
+
+
+- (void)perform {
+    
+    // if either source or destination is nil, stop
+    if (nil == self.sourceViewController || nil == self.destinationViewController) return;
+    
+    UINavigationController *ctrlSrc = [self.sourceViewController navigationController];
+
+    [UIView beginAnimations:@&#34;fadeOst&#34; context:nil];
+    [UIView setAnimationDuration: 0.1];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
+    [[ctrlSrc view] setAlpha: 0.3];
+    
+    [UIView commitAnimations];
+}
+// animation end event 
+- (void)animationDidStop {
+    UINavigationController *ctrlSrc = [self.sourceViewController navigationController];
+    
+    [UIView beginAnimations:@&#34;fadeIn&#34; context:nil];
+    [UIView setAnimationDuration: 0.5];
+    
+    [ctrlSrc pushViewController:self.destinationViewController animated:NO];
+    [[ctrlSrc view] setAlpha: 1];    
+    [UIView commitAnimations];
+}
+
+@end
+
+次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="storyboadのページ遷移で「custom」を利用してみる" />
+<meta name="twitter:description" content="普段は「push」か「modal」で実装するけど、場合によっては違う見せ方をしたほうがいい場合があると思います。
+そこで「custom」を利用してページ遷移をもっとインタラクティブに見せる実装を行います。
+まずは「UIStoryboardSegue」なるクラスを継承した「DetailSegue」を作成してみます。
+
+#import &#34;DetailSegue.h&#34;
+
+@implementation DetailSegue
+
+
+- (void)perform {
+    
+    // if either source or destination is nil, stop
+    if (nil == self.sourceViewController || nil == self.destinationViewController) return;
+    
+    UINavigationController *ctrlSrc = [self.sourceViewController navigationController];
+
+    [UIView beginAnimations:@&#34;fadeOst&#34; context:nil];
+    [UIView setAnimationDuration: 0.1];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
+    [[ctrlSrc view] setAlpha: 0.3];
+    
+    [UIView commitAnimations];
+}
+// animation end event 
+- (void)animationDidStop {
+    UINavigationController *ctrlSrc = [self.sourceViewController navigationController];
+    
+    [UIView beginAnimations:@&#34;fadeIn&#34; context:nil];
+    [UIView setAnimationDuration: 0.5];
+    
+    [ctrlSrc pushViewController:self.destinationViewController animated:NO];
+    [[ctrlSrc view] setAlpha: 1];    
+    [UIView commitAnimations];
+}
+
+@end
+
+次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>storyboadのページ遷移で「custom」を利用してみる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">storyboadのページ遷移で「custom」を利用してみる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-01-02">January 02, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/objective-c">Objective-C</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>普段は「push」か「modal」で実装するけど、場合によっては違う見せ方をしたほうがいい場合があると思います。</p>
+<p>そこで「custom」を利用してページ遷移をもっとインタラクティブに見せる実装を行います。</p>
+<p>まずは「UIStoryboardSegue」なるクラスを継承した「DetailSegue」を作成してみます。</p>
+<pre class="brush:cpp">
+#import "DetailSegue.h"
+
+@implementation DetailSegue
+
+
+- (void)perform {
+    
+    // if either source or destination is nil, stop
+    if (nil == self.sourceViewController || nil == self.destinationViewController) return;
+    
+    UINavigationController *ctrlSrc = [self.sourceViewController navigationController];
+
+    [UIView beginAnimations:@"fadeOst" context:nil];
+    [UIView setAnimationDuration: 0.1];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
+    [[ctrlSrc view] setAlpha: 0.3];
+    
+    [UIView commitAnimations];
+}
+// animation end event 
+- (void)animationDidStop {
+    UINavigationController *ctrlSrc = [self.sourceViewController navigationController];
+    
+    [UIView beginAnimations:@"fadeIn" context:nil];
+    [UIView setAnimationDuration: 0.5];
+    
+    [ctrlSrc pushViewController:self.destinationViewController animated:NO];
+    [[ctrlSrc view] setAlpha: 1];    
+    [UIView commitAnimations];
+}
+
+@end
+</pre>
+<p>次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。</p>
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2012/01/スクリーンショット-2012-01-02-20.36.10.png" alt="" title="スクリーンショット 2012-01-02 20.36.10" width="544" height="345" class="aligncenter size-full wp-image-3056" />
+<p>今回のアニメーションはfadeInOutを自力で作成しています。</p>
+<p>もっと簡単にアニメーションをするんであれば、「UIView transitionWityView 」の「options」であらかじめ用意されたアニメーションを指定できるので設定するよいかもしれません。</p>
+<pre class="brush:cpp">
+    [UIView transitionWithView:src.navigationController.view duration:0.8
+                       options:UIViewAnimationOptionTransitionCurlUp
+                    animations:^{
+                        [src.navigationController pushViewController:dst animated:NO];
+                    }
+                    completion:NULL];
+</pre>
+<p>■参考
+<a href="https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40006926-CH3-SW83">https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/doc/uid/TP40006926-CH3-SW83</a>
+<a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIView_Class/UIView/UIView.html">http://developer.apple.com/library/ios/#documentation/uikit/reference/UIView_Class/UIView/UIView.html</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

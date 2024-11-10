@@ -1,0 +1,93 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Service on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/service/</link>
+        <description>Recent content in Service on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Mon, 14 Nov 2011 03:30:15 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/service/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>frustration.meをリニューアルしました。</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-11-14_2978/</link>
+            <pubDate>Mon, 14 Nov 2011 03:30:15 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-11-14_2978/</guid>
+            <description>&lt;p&gt;&lt;img class=&#34;size-large wp-image-2980&#34; title=&#34;frustration&#34; src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/11/fc3c14ffc34e98930df69029214fee12-1024x808.png&#34; alt=&#34;&#34; width=&#34;584&#34; height=&#34;460&#34; class=&#34;aligncenter&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;さぁさぁさぁさぁ、欲求不満はリニューアルをやっちゃいましたよ！
+いや、これからは&lt;font size=&#34;7&#34;&gt;「frustration」！！&lt;/font&gt;て呼ぶことにします。え？そんなことどうでもいいって？
+あらそうですか。&lt;/p&gt;
+&lt;p&gt;今回はつもりつもったデザインの不評を払拭すべく、あるデザイナさんにお声をかけて作成していただく形となりました。
+デザインするにあたって世界観を伝えることになったのですが、まぁほとんどが擬音語の連続で意味不明だと思いますがなんとか伝えることができ予想以上のものに仕上げていただきました！！本当にありがとう！！&lt;/p&gt;
+&lt;p&gt;このリニューアルの時点で機能は前とほぼ変わらずです。&lt;/p&gt;
+&lt;p&gt;が、このリニューアル日記を書こう書こうとおもっていたら新しい機能を作り終わっていたという結果に至ってしまい。
+ちゃんと別に告知できなかったのが自分なりに結構くやしのであります。。。。&lt;/p&gt;
+&lt;p&gt;ということで以下の機能を追加しました。&lt;/p&gt;
+&lt;p&gt;□機能追加　その１
+検索のAPIに「iTunes」検索をできるようにしました。
+「music video」で検索して、登録したものにサンプル動画があればその場で見れるようにしました。
+（ただ無意味にやりたかっただけです。へへ。）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/11/スクリーンショット-2011-11-14-1.09.00.png&#34; alt=&#34;&#34; title=&#34;menu&#34; width=&#34;719&#34; height=&#34;192&#34; class=&#34;aligncenter size-full wp-image-2989&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/11/スクリーンショット-2011-11-14-1.17.48.png&#34; alt=&#34;&#34; title=&#34;itunes&#34; width=&#34;701&#34; height=&#34;623&#34; class=&#34;aligncenter size-full wp-image-2991&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;□機能追加　その２
+検索のAPIを利用せずに自分で欲求のアイテムを登録できるようにしました。
+欲しいものがAPIにないものはこれを利用してください！
+例えば、「夏の思いで2011」を欲してもいいし、「中学校の振られた思いで」を捨てても良いと思います！！&lt;/p&gt;
+&lt;p&gt;さぁ物欲をログるような感じでどんどん登録してみてくださいな！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://frustration.me&#34;&gt;「frustration.me」&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>「欲求不満」というサービスを作ってみたんですよ。</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-03-25_2685/</link>
+            <pubDate>Fri, 25 Mar 2011 02:12:43 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-03-25_2685/</guid>
+            <description>&lt;p&gt;ヒーーーーッヒッヒッヒッヒ！でけた！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.frustration.me&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/03/2011-03-25-1.51.43）-e1300985688193.png&#34; alt=&#34;frustration&#34; title=&#34;欲求不満&#34; width=&#34;600&#34; class=&#34;aligncenter size-full wp-image-2687&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;何を思ったか、自分のどうしようもない欲をかき集めたくて管理したくて切なくて&lt;/p&gt;
+&lt;p&gt;・・・・そんなことができるサービスを作ってみたのです。&lt;/p&gt;
+&lt;p&gt;とはいってもネーミングからしてなんのこっちゃ！！エロサイトか！と思われますが全然そうじゃなくて、
+日頃から常日頃発生する「あのパソコンほしい！」「あーこの映画みたいな」「靴下ねーな」他愛もない
+欲求を集めて管理してしまおうというサービスです。&lt;/p&gt;
+&lt;p&gt;欲求を登録した時点であなたは満たされていない状況ですから欲求不満となるわけなんです。
+登録すればするほどどんどんどんどん欲求不満になってしまうわけです。&lt;/p&gt;
+&lt;p&gt;自分のもっているものを管理するでもまぁいいですね。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://frustration.me/signup/&#34;&gt;ここ&lt;/a&gt;でユーザ登録ができるようになっていまして、ログインすればサービスが利用できるようになっています。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.frustration.me/signup&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/03/2011-03-25-2.20.20）-e1300987304479.png&#34; alt=&#34;frustration&#34; title=&#34;欲求不満&#34; width=&#34;600&#34; height=&#34;327&#34; class=&#34;aligncenter size-full wp-image-2695&#34; /&gt;&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>【お産合宿】サービスリリース立ち上げました？！→「殉職刑事」</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-08-03_2299/</link>
+            <pubDate>Tue, 03 Aug 2010 11:26:09 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-08-03_2299/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;http://junshoku.info/&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2010/08/Image3.jpg&#34; alt=&#34;&#34; title=&#34;Image3&#34; width=&#34;500&#34;  class=&#34;aligncenter size-full wp-image-2300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自分が働いている会社がありまして&lt;/p&gt;
+&lt;p&gt;その会社でなにかを生み出すという&lt;a href=&#34;http://www.paperboy.co.jp/next/osan4/&#34;&gt;お産合宿&lt;/a&gt;という企画がありまして&lt;/p&gt;
+&lt;p&gt;そこに白鳥ナカジ子(nakajijapan所属)という人がいまして&lt;/p&gt;
+&lt;p&gt;レイバンとして参戦することになったらしいです。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.nakajijapan.net/wp-content/uploads/2010/08/Image4.jpg&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2010/08/Image4.jpg&#34; alt=&#34;&#34; title=&#34;Image4&#34; width=&#34;462&#34; class=&#34;aligncenter size-full wp-image-2304&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;すったもんだがあったらしく無事完成したらしいですよ。&lt;/p&gt;
+&lt;p&gt;自分の殉職理由がわかっちゃうという超画期的で斬新なこのサービス！！
+ただそれだけでなくなんとあの有名なTwitterと連携してるんです！&lt;/p&gt;
+&lt;p&gt;その名も&lt;font size=&#34;7&#34;&gt;「殉職刑事」&lt;/font&gt;！！&lt;/p&gt;
+&lt;p&gt;３０秒後にはあきてると思いますが、騙されたと思ってやってみてください。&lt;/p&gt;
+&lt;p&gt;３０秒後にはあきてると思います。。。。。&lt;/p&gt;
+&lt;p&gt;■お産合宿
+&lt;a href=&#34;http://www.paperboy.co.jp/next/osan4/&#34;&gt;&lt;a href=&#34;http://www.paperboy.co.jp/next/osan4/&#34;&gt;http://www.paperboy.co.jp/next/osan4/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

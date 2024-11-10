@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="redhat9にsamba2をインストール">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-10-08_2501/" />
+<meta property="go:description" content="久々にredhat9をいじったんだな。大学以来だ！
+なんでメモ。開発時にsambaが必要になったので。
+
+samba-2.2.11.ja-1.rh9.i386.rpm
+
+とりあえず、依存関係でエラーが出ないことを祈りつつインストール
+
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm
+
+
+[global]
+    workgroup = MYGROUP
+    server string = Samba Server Version %v
+    hosts allow = 127. 192.168.0.
+    security = user
+    encrypt passwords = Yes
+
+[hogehoge]
+    comment = hogehoge
+    path = /var/www/hogehoge/
+    browseable = no
+    writable = yes
+    create mode = 0664
+    directory mode = 0775
+    valid users = root,nakaji
+    force user = nakaji
+
+気になった項目だけ調べる
+まずは「security」
+
+security=user  	ユーザー単位でパスワード認証を行う
+security=ads 	Active Directoryドメインで認証を行う
+security=share 	共有単位で認証を行う
+security=server 	Windows NTもしくはSambaで認証を行う
+security=domain 	Windowsドメインで認証を行う
+
+今回は個人用として利用するので「security=user」で問題なし
+他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。
+深くは掘り下げません。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="redhat9にsamba2をインストール" />
+<meta name="twitter:description" content="久々にredhat9をいじったんだな。大学以来だ！
+なんでメモ。開発時にsambaが必要になったので。
+
+samba-2.2.11.ja-1.rh9.i386.rpm
+
+とりあえず、依存関係でエラーが出ないことを祈りつつインストール
+
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm
+
+
+[global]
+    workgroup = MYGROUP
+    server string = Samba Server Version %v
+    hosts allow = 127. 192.168.0.
+    security = user
+    encrypt passwords = Yes
+
+[hogehoge]
+    comment = hogehoge
+    path = /var/www/hogehoge/
+    browseable = no
+    writable = yes
+    create mode = 0664
+    directory mode = 0775
+    valid users = root,nakaji
+    force user = nakaji
+
+気になった項目だけ調べる
+まずは「security」
+
+security=user  	ユーザー単位でパスワード認証を行う
+security=ads 	Active Directoryドメインで認証を行う
+security=share 	共有単位で認証を行う
+security=server 	Windows NTもしくはSambaで認証を行う
+security=domain 	Windowsドメインで認証を行う
+
+今回は個人用として利用するので「security=user」で問題なし
+他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。
+深くは掘り下げません。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>redhat9にsamba2をインストール - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">redhat9にsamba2をインストール</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-10-08">October 08, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/linux">Linux</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>久々にredhat9をいじったんだな。大学以来だ！</p>
+<p>なんでメモ。開発時にsambaが必要になったので。</p>
+<blockquote>
+samba-2.2.11.ja-1.rh9.i386.rpm
+</blockquote>
+<p>とりあえず、依存関係でエラーが出ないことを祈りつつインストール</p>
+<pre class="brush:bash">
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm
+</pre>
+<pre class="brush:bash">
+[global]
+    workgroup = MYGROUP
+    server string = Samba Server Version %v
+    hosts allow = 127. 192.168.0.
+    security = user
+    encrypt passwords = Yes
+
+[hogehoge]
+    comment = hogehoge
+    path = /var/www/hogehoge/
+    browseable = no
+    writable = yes
+    create mode = 0664
+    directory mode = 0775
+    valid users = root,nakaji
+    force user = nakaji
+</pre>
+<p>気になった項目だけ調べる</p>
+<p>まずは「security」</p>
+<pre class="brush:bash">
+security=user  	ユーザー単位でパスワード認証を行う
+security=ads 	Active Directoryドメインで認証を行う
+security=share 	共有単位で認証を行う
+security=server 	Windows NTもしくはSambaで認証を行う
+security=domain 	Windowsドメインで認証を行う
+</pre>
+<p>今回は個人用として利用するので「security=user」で問題なし
+他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。
+深くは掘り下げません。</p>
+<ul>
+<ol>security=userを使うケース</ol>
+<li>Sambaをスタンドアロンサーバやドメインコントローラとして使う場合。ただし、スタンドアロンサーバでもsecurity=shareは使わない方がいいでしょう。</li>
+<ol>security=adsを使うケース</ol>
+<li>SambaをWindows Active Directoryドメインのメンバとして使うケース。ただし、この場合にsecurity=server／domainを使うと、Windows Vistaなどから利用できないことがあります。</li>
+</ul>
+<p>設定が終了したら今度はユーザのパスワードを設定します。
+すでに「useradd」で作成されていること前提です。</p>
+<pre class="brush:bash">
+smbpasswd -a username
+</pre>
+<p>最後に再起動。</p>
+<pre class="brush:bash">
+service smb restqart
+</pre>
+<p>これで指定されたサーバに接続します。アクセスできたら終了です。</p>
+<p>■参考URL
+<a href="http://www.atmarkit.co.jp/flinux/special/samba_n/samba_nb.html">Sambaサーバ構築、5つのべからず：2008年版</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

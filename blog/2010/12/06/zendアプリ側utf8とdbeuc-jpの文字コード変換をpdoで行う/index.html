@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[zend]アプリ側（UTF8）とDB(EUC-JP)の文字コード変換をPDOで行う">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/12/06/zend%E3%82%A2%E3%83%97%E3%83%AA%E5%81%B4utf8%E3%81%A8dbeuc-jp%E3%81%AE%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89%E5%A4%89%E6%8F%9B%E3%82%92pdo%E3%81%A7%E8%A1%8C%E3%81%86/" />
+<meta property="go:description" content="システム開発行っていると、なるべく昔の仕様を変更せずに既存リソースを生かしながらも新しい開発行っていかな
+ければいけない自体が多々ある思われる。
+今回の件でいえば、文字コードの問題。
+システム側からみたら文字コードなんていっそのこと統一したほうが何も考えないで楽なんだけど、そうも
+いってられず昔の文字コードをどう利用していくかを考えなければいけないときがある。
+理想としてはすべてUTF-8にしたかったがそうはいかない。DBがEUC－JPだからだ。
+DB・アプリ間でのインターフェースでそれぞれ変換する必要がある。
+対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。
+（この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）
+※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。
+まずは
+
+abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract
+{
+    /**
+     * Creates a PDO object and connects to the database.
+     *
+     * @return void
+     * @throws Zend_Db_Adapter_Exception
+     */
+    protected function _connect()
+    {
+        // if we already have a PDO object, no need to re-connect.
+        if ($this-&gt;_connection) {
+            return;
+        }
+
+        // get the dsn first, because some adapters alter the $_pdoType
+        $dsn = $this-&gt;_dsn();
+
+        // check for PDO extension
+        if (!extension_loaded(&#39;pdo&#39;)) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception(&#39;The PDO extension is required for this adapter but the extension is not loaded&#39;);
+        }
+
+        // check the PDO driver is available
+        if (!in_array($this-&gt;_pdoType, PDO::getAvailableDrivers())) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception(&#39;The &#39; . $this-&gt;_pdoType . &#39; driver is not currently installed&#39;);
+        }
+
+        // create PDO connection
+        $q = $this-&gt;_profiler-&gt;queryStart(&#39;connect&#39;, Zend_Db_Profiler::CONNECT);
+
+        // add the persistence flag if we find it in our config array
+        if (isset($this-&gt;_config[&#39;persistent&#39;]) && ($this-&gt;_config[&#39;persistent&#39;] == true)) {
+            $this-&gt;_config[&#39;driver_options&#39;][PDO::ATTR_PERSISTENT] = true;
+        }
+
+        try {
+            $this-&gt;_connection = new PDOCSTM(
+                $dsn,
+                $this-&gt;_config[&#39;username&#39;],
+                $this-&gt;_config[&#39;password&#39;],
+                $this-&gt;_config[&#39;driver_options&#39;]
+            );
+
+            $this-&gt;_profiler-&gt;queryEnd($q);
+
+            // set the PDO connection to perform case-folding on array keys, or not
+            $this-&gt;_connection-&gt;setAttribute(PDO::ATTR_CASE, $this-&gt;_caseFolding);
+
+            // always use exceptions.
+            $this-&gt;_connection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch (PDOException $e) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception($e-&gt;getMessage(), $e-&gt;getCode(), $e);
+        }
+
+    }
+
+}
+
+なんてものを作成します。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[zend]アプリ側（UTF8）とDB(EUC-JP)の文字コード変換をPDOで行う" />
+<meta name="twitter:description" content="システム開発行っていると、なるべく昔の仕様を変更せずに既存リソースを生かしながらも新しい開発行っていかな
+ければいけない自体が多々ある思われる。
+今回の件でいえば、文字コードの問題。
+システム側からみたら文字コードなんていっそのこと統一したほうが何も考えないで楽なんだけど、そうも
+いってられず昔の文字コードをどう利用していくかを考えなければいけないときがある。
+理想としてはすべてUTF-8にしたかったがそうはいかない。DBがEUC－JPだからだ。
+DB・アプリ間でのインターフェースでそれぞれ変換する必要がある。
+対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。
+（この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）
+※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。
+まずは
+
+abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract
+{
+    /**
+     * Creates a PDO object and connects to the database.
+     *
+     * @return void
+     * @throws Zend_Db_Adapter_Exception
+     */
+    protected function _connect()
+    {
+        // if we already have a PDO object, no need to re-connect.
+        if ($this-&gt;_connection) {
+            return;
+        }
+
+        // get the dsn first, because some adapters alter the $_pdoType
+        $dsn = $this-&gt;_dsn();
+
+        // check for PDO extension
+        if (!extension_loaded(&#39;pdo&#39;)) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception(&#39;The PDO extension is required for this adapter but the extension is not loaded&#39;);
+        }
+
+        // check the PDO driver is available
+        if (!in_array($this-&gt;_pdoType, PDO::getAvailableDrivers())) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception(&#39;The &#39; . $this-&gt;_pdoType . &#39; driver is not currently installed&#39;);
+        }
+
+        // create PDO connection
+        $q = $this-&gt;_profiler-&gt;queryStart(&#39;connect&#39;, Zend_Db_Profiler::CONNECT);
+
+        // add the persistence flag if we find it in our config array
+        if (isset($this-&gt;_config[&#39;persistent&#39;]) && ($this-&gt;_config[&#39;persistent&#39;] == true)) {
+            $this-&gt;_config[&#39;driver_options&#39;][PDO::ATTR_PERSISTENT] = true;
+        }
+
+        try {
+            $this-&gt;_connection = new PDOCSTM(
+                $dsn,
+                $this-&gt;_config[&#39;username&#39;],
+                $this-&gt;_config[&#39;password&#39;],
+                $this-&gt;_config[&#39;driver_options&#39;]
+            );
+
+            $this-&gt;_profiler-&gt;queryEnd($q);
+
+            // set the PDO connection to perform case-folding on array keys, or not
+            $this-&gt;_connection-&gt;setAttribute(PDO::ATTR_CASE, $this-&gt;_caseFolding);
+
+            // always use exceptions.
+            $this-&gt;_connection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch (PDOException $e) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception($e-&gt;getMessage(), $e-&gt;getCode(), $e);
+        }
+
+    }
+
+}
+
+なんてものを作成します。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[zend]アプリ側（UTF8）とDB(EUC-JP)の文字コード変換をPDOで行う - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[zend]アプリ側（UTF8）とDB(EUC-JP)の文字コード変換をPDOで行う</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-12-06">December 06, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/php">PHP</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>システム開発行っていると、なるべく昔の仕様を変更せずに既存リソースを生かしながらも新しい開発行っていかな
+ければいけない自体が多々ある思われる。</p>
+<p>今回の件でいえば、文字コードの問題。</p>
+<p>システム側からみたら文字コードなんていっそのこと統一したほうが何も考えないで楽なんだけど、そうも
+いってられず昔の文字コードをどう利用していくかを考えなければいけないときがある。</p>
+<p>理想としてはすべてUTF-8にしたかったがそうはいかない。DBがEUC－JPだからだ。
+DB・アプリ間でのインターフェースでそれぞれ変換する必要がある。</p>
+<p>対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。
+（この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）</p>
+<p>※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。</p>
+<p>まずは</p>
+<pre class="brush:php">
+abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract
+{
+    /**
+     * Creates a PDO object and connects to the database.
+     *
+     * @return void
+     * @throws Zend_Db_Adapter_Exception
+     */
+    protected function _connect()
+    {
+        // if we already have a PDO object, no need to re-connect.
+        if ($this->_connection) {
+            return;
+        }
+
+        // get the dsn first, because some adapters alter the $_pdoType
+        $dsn = $this->_dsn();
+
+        // check for PDO extension
+        if (!extension_loaded('pdo')) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once 'Zend/Db/Adapter/Exception.php';
+            throw new Zend_Db_Adapter_Exception('The PDO extension is required for this adapter but the extension is not loaded');
+        }
+
+        // check the PDO driver is available
+        if (!in_array($this->_pdoType, PDO::getAvailableDrivers())) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once 'Zend/Db/Adapter/Exception.php';
+            throw new Zend_Db_Adapter_Exception('The ' . $this->_pdoType . ' driver is not currently installed');
+        }
+
+        // create PDO connection
+        $q = $this->_profiler->queryStart('connect', Zend_Db_Profiler::CONNECT);
+
+        // add the persistence flag if we find it in our config array
+        if (isset($this->_config['persistent']) && ($this->_config['persistent'] == true)) {
+            $this->_config['driver_options'][PDO::ATTR_PERSISTENT] = true;
+        }
+
+        try {
+            $this->_connection = new PDOCSTM(
+                $dsn,
+                $this->_config['username'],
+                $this->_config['password'],
+                $this->_config['driver_options']
+            );
+
+            $this->_profiler->queryEnd($q);
+
+            // set the PDO connection to perform case-folding on array keys, or not
+            $this->_connection->setAttribute(PDO::ATTR_CASE, $this->_caseFolding);
+
+            // always use exceptions.
+            $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch (PDOException $e) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once 'Zend/Db/Adapter/Exception.php';
+            throw new Zend_Db_Adapter_Exception($e->getMessage(), $e->getCode(), $e);
+        }
+
+    }
+
+}
+</pre>
+<p>なんてものを作成します。</p>
+<p>実際変更したところといえば、</p>
+<pre class="brush:php">
+# その１
+$this->_connection = new PDOCSTM();
+</pre>
+<p>あとは、PDOを継承して実装したクラスを記述しておしまいです。
+これでほぼ取得や更新両方SQLを変換することができます。</p>
+<pre class="brush:php">
+class PDOCSTM extends PDO {
+    public function __construct($dsn, $username="", $password="", $driver_options=array()) {
+        parent::__construct($dsn, $username, $password, $driver_options);
+        $this->setAttribute(PDO::ATTR_STATEMENT_CLASS, array('STMT', array($this)));
+    }
+}
+class STMT extends PDOStatement {
+    public $dbh;
+    protected function __construct($dbh) {
+        $this->dbh = $dbh;
+    }
+    function fetch($option=PDO::FETCH_ASSOC) {
+        $row = parent::fetch($option);
+        foreach ($row as $key=>$val) {
+            # その１
+            $row[$key] = mb_convert_encoding($val, "UTF-8", "EUC-JP");
+        }
+        return $row;
+    }
+    function fetchAll($option=PDO::FETCH_ASSOC) {
+        $rows = parent::fetchAll($option);
+        foreach ($rows as $key => $row) {
+            foreach ($row as $crm => $val) {
+                # その２
+                $rows[$key][$crm] = mb_convert_encoding($val, "UTF-8", "EUC-JP");
+            }
+        }
+        return $rows;
+    }
+    function execute($params=array()) {
+        if (APPLICATION_ENV !== "production") {
+            if (!preg_match("/SELECT/", $this->queryString)) {
+                error_log("[SQL] " . $this->queryString . " Array::" . print_r($params,true));
+            }
+            else {
+                error_log("[SQL] " . $this->queryString);
+            }
+            if (!empty($params)) {
+                # その３
+                $params = App_Array::getEncodedData($params, "EUC-JP", "UTF-8");
+            }
+        }
+        return parent::execute($params);
+    }
+}
+</pre>
+<p>ちなみに「App_Array()」は配列のデータを再帰的に文字コード変換させてます。</p>
+<pre class="brush:php">
+                # その３
+                $params = App_Array::getEncodedData($params, "EUC-JP", "UTF-8");
+</pre>
+<p></pre></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

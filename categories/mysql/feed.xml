@@ -1,0 +1,91 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Mysql on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/mysql/</link>
+        <description>Recent content in Mysql on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Wed, 12 May 2010 10:19:50 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/mysql/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Mysql-binのログ情報を削除</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-05-12_2002/</link>
+            <pubDate>Wed, 12 May 2010 10:19:50 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-05-12_2002/</guid>
+            <description>&lt;p&gt;ログ情報がたまってたのでけしました。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+mysql&gt; show binary logs;
++------------------+-----------+
+| Log_name         | File_size |
++------------------+-----------+
+| mysql-bin.000001 |       125 |
+| mysql-bin.000002 |       125 |
+| mysql-bin.000003 |       125 |
+| mysql-bin.000004 |       241 |
+| mysql-bin.000005 |    511837 |
+| mysql-bin.000006 |  25169036 |
+| mysql-bin.000007 |  33391372 |
+| mysql-bin.000008 |       627 |
+| mysql-bin.000009 |       125 |
+| mysql-bin.000010 |      1778 |
+| mysql-bin.000011 |  61360430 |
+| mysql-bin.000012 |  89547560 |
+| mysql-bin.000013 |  92666202 |
+| mysql-bin.000014 |  98112464 |
+| mysql-bin.000015 |  28846371 |
+| mysql-bin.000016 |       106 |
+| mysql-bin.000017 | 122615971 |
++------------------+-----------+
+17 rows in set (0.02 sec)
+mysql&gt; PURGE MASTER LOGS TO &#39;mysql-bin.000001&#39;;
+&lt;/pre&gt;
+&lt;p&gt;■参考URL
+&lt;a href=&#34;http://ftp.ku.ac.th/pub/mirror/mysql/doc/refman/5.1/ja/purge-master-logs.html&#34;&gt;PURGE MASTER LOGS 構文&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Mysqlでプーリング？？</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-01_400/</link>
+            <pubDate>Mon, 01 Feb 2010 17:38:10 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-01_400/</guid>
+            <description>&lt;p&gt;ちょっとサーバがらみでいろいろ調べてたんで自分なりにまとめてみる。&lt;/p&gt;
+&lt;p&gt;発端は会社でDBの負荷分散のためにプログラムをいじってるみたいで
+自分的にはちょっとメンドくせーなとおもいつつ、今までのこと考えてみると
+PostgresSQLのpg_poolの場合はその辺いろいろやってくれたなぁって感じた。&lt;/p&gt;
+&lt;p&gt;そのアプリにコネクションプーリングをいれるかどうかは考えていなくて
+もし手軽でそんなにコストかかんなきゃ入れてもいいレベルです。&lt;/p&gt;
+&lt;p&gt;あ、最初にコネクションプーリングとはって言ってみる。&lt;/p&gt;
+&lt;blockquote&gt;
+    *   ウェブアプリケーションから DB への接続を開けっ放しにして、接続に必要とされるオーバーヘッドをカットして双方の負荷を下げる。
+    * ウェブアプリケーションと DB への接続を「使いまわす」ことで、同時接続本数を節約する。
+引用：&lt;a href=&#34;http://d.hatena.ne.jp/naoya/20060912/1158058322&#34;&gt;コネクションプーリングの話&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;んで上記のサイト見てみたら。&lt;/p&gt;
+&lt;blockquote&gt;
+でもどうも MySQL は thread_cache とかを有効にすると(案外しなくてもそうなんだけど)実は接続に必要なオーバーヘッドがアプリケーション総体では無視できる程度の微々たるものだということがベンチマークの結果とかで分かる。それだったら Apache::DBI や CDBI の永続化の機能は OFF にしちゃいましょう...これがコネクションプーリングイラネ、みたいな話。
+&lt;/blockquote&gt;
+&lt;p&gt;そんでもって「thread_cache」を調べてみると
+まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。
+そのときにどのくらいスレッドをキャッシュしておくか。
+(ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)&lt;/p&gt;
+&lt;p&gt;Mysqlの場合は、これで大体のケースいける感じなんかね＝。&lt;/p&gt;
+&lt;p&gt;Hatena:yamazさん
+&lt;a href=&#34;http://d.hatena.ne.jp/yamaz/20060903&#34;&gt;&lt;a href=&#34;http://d.hatena.ne.jp/yamaz/20060903&#34;&gt;http://d.hatena.ne.jp/yamaz/20060903&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Pgpool
+&lt;a href=&#34;http://www2b.biglobe.ne.jp/~caco/pgpool/&#34;&gt;&lt;a href=&#34;http://www2b.biglobe.ne.jp/~caco/pgpool/&#34;&gt;http://www2b.biglobe.ne.jp/~caco/pgpool/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

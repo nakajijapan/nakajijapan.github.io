@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[その１]敢えて今こそCapistranoをやってみる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2012/2012-03-02_3195/" />
+<meta property="go:description" content="会社でのデプロイツールといったらCapistranoのビルドを管理するWebistranoというツールを使って管理して、本番や開発環境に
+ソースをデプロイする際には大変重宝してます。ボタン一つで指定された複数のサーバへ一気にソースをデプロイなんてできてしまいます。
+とはいえ、裏側が対して分かってないので理解を深めるためにあえてCapistranoを利用してデプロイなんかしてみようと思います。
+とりあえず、作業用ディレクトリ作成してデプロイする内容のファイル「Capfile」を作成します。ここでデプロイするときに必要な作業を記述するみたい。今回はリモートにファイルを置くっていう作業。
+
+$ mkdir capistrano && cd capistrano
+$ emacs Capfile
+
+set :user, &#39;nakaji&#39;
+task :stamp, :hosts =&gt; &#34;hoge.me&#34; do
+  run &#34;touch /var/www/hoge.me/test&#34;
+end
+
+実際に実行してみます。
+リモートに指定ファイルが作成されていればOK！
+あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
+
+$ cap stamp
+  * executing `stamp&#39;
+  * executing &#34;touch /var/www/hoge.me/test&#34;
+    servers: [&#34;hoge.me&#34;]
+    [hoge.me] executing command
+    [hoge.me] sh -c &#39;touch /var/www/hoge.me/test&#39;
+    command finished in 83ms
+
+次はソースを展開してデプロイまでやってみます。
+■参考URL
+https://github.com/peritor/webistrano" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[その１]敢えて今こそCapistranoをやってみる" />
+<meta name="twitter:description" content="会社でのデプロイツールといったらCapistranoのビルドを管理するWebistranoというツールを使って管理して、本番や開発環境に
+ソースをデプロイする際には大変重宝してます。ボタン一つで指定された複数のサーバへ一気にソースをデプロイなんてできてしまいます。
+とはいえ、裏側が対して分かってないので理解を深めるためにあえてCapistranoを利用してデプロイなんかしてみようと思います。
+とりあえず、作業用ディレクトリ作成してデプロイする内容のファイル「Capfile」を作成します。ここでデプロイするときに必要な作業を記述するみたい。今回はリモートにファイルを置くっていう作業。
+
+$ mkdir capistrano && cd capistrano
+$ emacs Capfile
+
+set :user, &#39;nakaji&#39;
+task :stamp, :hosts =&gt; &#34;hoge.me&#34; do
+  run &#34;touch /var/www/hoge.me/test&#34;
+end
+
+実際に実行してみます。
+リモートに指定ファイルが作成されていればOK！
+あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。
+
+$ cap stamp
+  * executing `stamp&#39;
+  * executing &#34;touch /var/www/hoge.me/test&#34;
+    servers: [&#34;hoge.me&#34;]
+    [hoge.me] executing command
+    [hoge.me] sh -c &#39;touch /var/www/hoge.me/test&#39;
+    command finished in 83ms
+
+次はソースを展開してデプロイまでやってみます。
+■参考URL
+https://github.com/peritor/webistrano" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[その１]敢えて今こそCapistranoをやってみる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[その１]敢えて今こそCapistranoをやってみる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-03-02">March 02, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>会社でのデプロイツールといったらCapistranoのビルドを管理するWebistranoというツールを使って管理して、本番や開発環境に
+ソースをデプロイする際には大変重宝してます。ボタン一つで指定された複数のサーバへ一気にソースをデプロイなんてできてしまいます。</p>
+<p>とはいえ、裏側が対して分かってないので理解を深めるためにあえてCapistranoを利用してデプロイなんかしてみようと思います。</p>
+<p>とりあえず、作業用ディレクトリ作成してデプロイする内容のファイル「Capfile」を作成します。ここでデプロイするときに必要な作業を記述するみたい。今回はリモートにファイルを置くっていう作業。</p>
+<pre class="brush:bash">
+$ mkdir capistrano && cd capistrano
+$ emacs Capfile
+
+set :user, 'nakaji'
+task :stamp, :hosts => "hoge.me" do
+  run "touch /var/www/hoge.me/test"
+end
+</pre>
+<p>実際に実行してみます。
+リモートに指定ファイルが作成されていればOK！
+あ、sshで接続しにいくので公開鍵の設定はあらかじめ設定しておいてくださいな。</p>
+<pre class="brush:bash">
+$ cap stamp
+  * executing `stamp'
+  * executing "touch /var/www/hoge.me/test"
+    servers: ["hoge.me"]
+    [hoge.me] executing command
+    [hoge.me] sh -c 'touch /var/www/hoge.me/test'
+    command finished in 83ms
+</pre>
+<p>次はソースを展開してデプロイまでやってみます。</p>
+<p>■参考URL
+<a href="https://github.com/peritor/webistrano">https://github.com/peritor/webistrano</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

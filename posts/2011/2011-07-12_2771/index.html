@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[iphone]Navigation-based Application からのアプリ(タブビュー)作成めも">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2011/2011-07-12_2771/" />
+<meta property="go:description" content="作りたいものはタブバーでビュー切り換えする画面を作成したくてある人から教えていただいた作成方法のメモ。
+プロジェクト作成
+本をベースで作成していくときは、「windows-based Application」で別にrootViewControllerを
+作成してIBでつなぎ合わせていたけど、今回は「navigation-based Application」から作成してみる。
+プロトコルの追加
+
+@interface RootViewController : UITableViewController {
+}
+
+から
+
+@interface RootViewController : UIViewController {
+
+}
+
+にして親のクラスを利用する
+不要メソッドの削除
+UITableViewControllerから継承されているメソッドが何個かあるのでそれを削除する。
+利用する時にまた実装すればいいだけのこと！
+IBから不要なオブジェクト削除
+ここでもUITableView関連のオブジェクトが存在するのでばしばし削除していく
+IBでいろいろを当て込む
+・Viewを作成してFile&#39;s Ownerのviewに関連づけさせる
+・TabBarを作成
+・[memo]画像はtest@2x.pngとするとretina対応で自動的にこちらの画像にしてくれるらしい
+InspectorのSimulated Metrics
+Top Barを「Navigation Bar」とする。
+タイトルの表示
+viewロード時にタイトルを表示させる
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@&#34;Home&#34;];
+}
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[iphone]Navigation-based Application からのアプリ(タブビュー)作成めも" />
+<meta name="twitter:description" content="作りたいものはタブバーでビュー切り換えする画面を作成したくてある人から教えていただいた作成方法のメモ。
+プロジェクト作成
+本をベースで作成していくときは、「windows-based Application」で別にrootViewControllerを
+作成してIBでつなぎ合わせていたけど、今回は「navigation-based Application」から作成してみる。
+プロトコルの追加
+
+@interface RootViewController : UITableViewController {
+}
+
+から
+
+@interface RootViewController : UIViewController {
+
+}
+
+にして親のクラスを利用する
+不要メソッドの削除
+UITableViewControllerから継承されているメソッドが何個かあるのでそれを削除する。
+利用する時にまた実装すればいいだけのこと！
+IBから不要なオブジェクト削除
+ここでもUITableView関連のオブジェクトが存在するのでばしばし削除していく
+IBでいろいろを当て込む
+・Viewを作成してFile&#39;s Ownerのviewに関連づけさせる
+・TabBarを作成
+・[memo]画像はtest@2x.pngとするとretina対応で自動的にこちらの画像にしてくれるらしい
+InspectorのSimulated Metrics
+Top Barを「Navigation Bar」とする。
+タイトルの表示
+viewロード時にタイトルを表示させる
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@&#34;Home&#34;];
+}
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[iphone]Navigation-based Application からのアプリ(タブビュー)作成めも - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[iphone]Navigation-based Application からのアプリ(タブビュー)作成めも</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-07-12">July 12, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/iphone">iPhone</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>作りたいものはタブバーでビュー切り換えする画面を作成したくてある人から教えていただいた作成方法のメモ。</p>
+<h2>プロジェクト作成</h2>
+本をベースで作成していくときは、「windows-based Application」で別にrootViewControllerを
+作成してIBでつなぎ合わせていたけど、今回は「navigation-based Application」から作成してみる。
+<h2>プロトコルの追加</h2>
+<pre class="brush: cpp">
+@interface RootViewController : UITableViewController {
+<p>}
+</pre></p>
+<p>から</p>
+<pre class="brush: cpp">
+@interface RootViewController : UIViewController {
+
+}
+</pre>
+<p>にして親のクラスを利用する</p>
+<h2>不要メソッドの削除</h2>
+UITableViewControllerから継承されているメソッドが何個かあるのでそれを削除する。
+利用する時にまた実装すればいいだけのこと！
+<h2>IBから不要なオブジェクト削除</h2>
+ここでもUITableView関連のオブジェクトが存在するのでばしばし削除していく
+<h2>IBでいろいろを当て込む</h2>
+・Viewを作成してFile's Ownerのviewに関連づけさせる
+・TabBarを作成
+・[memo]画像はtest@2x.pngとするとretina対応で自動的にこちらの画像にしてくれるらしい
+<h2>InspectorのSimulated Metrics</h2>
+Top Barを「Navigation Bar」とする。
+<h2>タイトルの表示</h2>
+viewロード時にタイトルを表示させる
+<pre class="brush: cpp">
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@"Home"];
+}
+</pre>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

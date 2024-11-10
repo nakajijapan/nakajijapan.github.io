@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2015/11/03/teiten-1.3.0%E3%81%AB%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%A2%E3%83%83%E3%83%97-%E5%8B%95%E7%94%BB%E3%82%92%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%97%E3%81%9F/" />
+<meta property="go:description" content="
+Teitenのバージョンアップを行いました。
+バージョンアップ内容は以下の内容です。
+
+動画にその時の時間を加えました。
+指定された時間ごとに３秒動画を撮ってそれを結合できるようにしました。
+
+もっと監視っぷりを高めたくこの更新を行いました。
+
+処理内容
+
+動画を保存する
+保存された動画を結合する
+動画には録画された時間帯を表示させておく
+
+動画を保存する
+今まで出力に
+
+AVCaptureStillImageOutput
+
+を利用していたが新たな出力先に
+
+AVCaptureMovieFileOutput
+
+を登録した。
+保存された動画を結合する
+以前自分が作成したプラグインNKJMovieComposerでさくっと実装した
+let movieComposition = NKJMovieComposer()
+movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height)
+
+for i in 0..&lt;self.files.count {
+
+    let beforeTimeDuration = movieComposition.currentTimeDuration
+    let moviePath = self.files[i]
+
+    // movie
+    let movieURL = NSURL(fileURLWithPath: moviePath)
+    //let layerInstruction = movieComposition.addVideo(movieURL)
+    _ = movieComposition.addVideo(movieURL)
+
+    (snip...)
+}
+動画には録画された時間帯を表示させておく
+時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。
+動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。
+// today
+let dateFormatter = NSDateFormatter()
+dateFormatter.dateFormat = &#34;yyyy/MM/dd HH:mm&#34;
+
+// text layer
+let textLayer = CATextLayer()
+textLayer.frame = CGRect(x: self.size.width - 400.0 - 10.0, y: 10.0, width: 400.0, height: 52.0)
+textLayer.string = dateFormatter.stringFromDate(self.dates[i])
+textLayer.fontSize = 48.0
+textLayer.alignmentMode = kCAAlignmentRight
+textLayer.foregroundColor = NSColor.whiteColor().CGColor
+textLayer.shouldRasterize = true
+textLayer.opacity = 0.0
+layerRoot.addSublayer(textLayer)
+
+// animation
+let offsetTimeDuration = CMTimeSubtract(movieComposition.currentTimeDuration, beforeTimeDuration)
+let animation = CABasicAnimation(keyPath: &#34;opacity&#34;)
+animation.beginTime     = (i == 0) ? AVCoreAnimationBeginTimeAtZero : CMTimeGetSeconds(beforeTimeDuration)
+animation.duration      = CMTimeGetSeconds(offsetTimeDuration)
+animation.repeatCount   = 1
+animation.autoreverses  = false
+animation.fromValue     = NSNumber(float: 1.0)
+animation.toValue       = NSNumber(float: 1.0)
+animation.removedOnCompletion = false
+textLayer.addAnimation(animation, forKey:&#34;hide&#34;)
+最後はそのアニメーションをAVVideoCompositionCoreAnimationToolを使ってVideo Compositionに登録する。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした" />
+<meta name="twitter:description" content="
+Teitenのバージョンアップを行いました。
+バージョンアップ内容は以下の内容です。
+
+動画にその時の時間を加えました。
+指定された時間ごとに３秒動画を撮ってそれを結合できるようにしました。
+
+もっと監視っぷりを高めたくこの更新を行いました。
+
+処理内容
+
+動画を保存する
+保存された動画を結合する
+動画には録画された時間帯を表示させておく
+
+動画を保存する
+今まで出力に
+
+AVCaptureStillImageOutput
+
+を利用していたが新たな出力先に
+
+AVCaptureMovieFileOutput
+
+を登録した。
+保存された動画を結合する
+以前自分が作成したプラグインNKJMovieComposerでさくっと実装した
+let movieComposition = NKJMovieComposer()
+movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height)
+
+for i in 0..&lt;self.files.count {
+
+    let beforeTimeDuration = movieComposition.currentTimeDuration
+    let moviePath = self.files[i]
+
+    // movie
+    let movieURL = NSURL(fileURLWithPath: moviePath)
+    //let layerInstruction = movieComposition.addVideo(movieURL)
+    _ = movieComposition.addVideo(movieURL)
+
+    (snip...)
+}
+動画には録画された時間帯を表示させておく
+時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。
+動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。
+// today
+let dateFormatter = NSDateFormatter()
+dateFormatter.dateFormat = &#34;yyyy/MM/dd HH:mm&#34;
+
+// text layer
+let textLayer = CATextLayer()
+textLayer.frame = CGRect(x: self.size.width - 400.0 - 10.0, y: 10.0, width: 400.0, height: 52.0)
+textLayer.string = dateFormatter.stringFromDate(self.dates[i])
+textLayer.fontSize = 48.0
+textLayer.alignmentMode = kCAAlignmentRight
+textLayer.foregroundColor = NSColor.whiteColor().CGColor
+textLayer.shouldRasterize = true
+textLayer.opacity = 0.0
+layerRoot.addSublayer(textLayer)
+
+// animation
+let offsetTimeDuration = CMTimeSubtract(movieComposition.currentTimeDuration, beforeTimeDuration)
+let animation = CABasicAnimation(keyPath: &#34;opacity&#34;)
+animation.beginTime     = (i == 0) ? AVCoreAnimationBeginTimeAtZero : CMTimeGetSeconds(beforeTimeDuration)
+animation.duration      = CMTimeGetSeconds(offsetTimeDuration)
+animation.repeatCount   = 1
+animation.autoreverses  = false
+animation.fromValue     = NSNumber(float: 1.0)
+animation.toValue       = NSNumber(float: 1.0)
+animation.removedOnCompletion = false
+textLayer.addAnimation(animation, forKey:&#34;hide&#34;)
+最後はそのアニメーションをAVVideoCompositionCoreAnimationToolを使ってVideo Compositionに登録する。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2015-11-03">November 03, 2015</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/macos">macOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <img src="https://github.com/nakajijapan/teiten/raw/master/Icons/Icon-256.png" width="300" />
+<p><a href="http://teiten.nakajijapan.net/">Teiten</a>のバージョンアップを行いました。</p>
+<p>バージョンアップ内容は以下の内容です。</p>
+<ul>
+<li>動画にその時の時間を加えました。</li>
+<li>指定された時間ごとに３秒動画を撮ってそれを結合できるようにしました。</li>
+</ul>
+<p>もっと監視っぷりを高めたくこの更新を行いました。</p>
+<iframe width="800" height="400" src="https://www.youtube.com/embed/WIT30fkJn6s" frameborder="0" allowfullscreen></iframe>
+<h2 id="処理内容">処理内容</h2>
+<ul>
+<li>動画を保存する</li>
+<li>保存された動画を結合する</li>
+<li>動画には録画された時間帯を表示させておく</li>
+</ul>
+<h3 id="動画を保存する">動画を保存する</h3>
+<p>今まで出力に</p>
+<ul>
+<li>AVCaptureStillImageOutput</li>
+</ul>
+<p>を利用していたが新たな出力先に</p>
+<ul>
+<li>AVCaptureMovieFileOutput</li>
+</ul>
+<p>を登録した。</p>
+<h3 id="保存された動画を結合する">保存された動画を結合する</h3>
+<p>以前自分が作成したプラグイン<a href="">NKJMovieComposer</a>でさくっと実装した</p>
+<pre tabindex="0"><code>let movieComposition = NKJMovieComposer()
+movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height)
+
+for i in 0..&lt;self.files.count {
+
+    let beforeTimeDuration = movieComposition.currentTimeDuration
+    let moviePath = self.files[i]
+
+    // movie
+    let movieURL = NSURL(fileURLWithPath: moviePath)
+    //let layerInstruction = movieComposition.addVideo(movieURL)
+    _ = movieComposition.addVideo(movieURL)
+
+    (snip...)
+}
+</code></pre><h3 id="動画には録画された時間帯を表示させておく">動画には録画された時間帯を表示させておく</h3>
+<p>時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。
+動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。</p>
+<pre tabindex="0"><code>// today
+let dateFormatter = NSDateFormatter()
+dateFormatter.dateFormat = &#34;yyyy/MM/dd HH:mm&#34;
+
+// text layer
+let textLayer = CATextLayer()
+textLayer.frame = CGRect(x: self.size.width - 400.0 - 10.0, y: 10.0, width: 400.0, height: 52.0)
+textLayer.string = dateFormatter.stringFromDate(self.dates[i])
+textLayer.fontSize = 48.0
+textLayer.alignmentMode = kCAAlignmentRight
+textLayer.foregroundColor = NSColor.whiteColor().CGColor
+textLayer.shouldRasterize = true
+textLayer.opacity = 0.0
+layerRoot.addSublayer(textLayer)
+
+// animation
+let offsetTimeDuration = CMTimeSubtract(movieComposition.currentTimeDuration, beforeTimeDuration)
+let animation = CABasicAnimation(keyPath: &#34;opacity&#34;)
+animation.beginTime     = (i == 0) ? AVCoreAnimationBeginTimeAtZero : CMTimeGetSeconds(beforeTimeDuration)
+animation.duration      = CMTimeGetSeconds(offsetTimeDuration)
+animation.repeatCount   = 1
+animation.autoreverses  = false
+animation.fromValue     = NSNumber(float: 1.0)
+animation.toValue       = NSNumber(float: 1.0)
+animation.removedOnCompletion = false
+textLayer.addAnimation(animation, forKey:&#34;hide&#34;)
+</code></pre><p>最後はそのアニメーションを<code>AVVideoCompositionCoreAnimationTool</code>を使ってVideo Compositionに登録する。</p>
+<pre tabindex="0"><code>// animation
+movieComposition.videoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: layerVideo, inLayer: layerRoot)
+</code></pre><p>これで上記にある動画は実現できた。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>今回は既存の知識で何とかできたのでそれほど技術的に達成感はないものの、動画ネタはまだ自分の中でまだまだ冷めてないことがわかった。また、何か面白そうなことがあれば試していきたいと思う。
+監視最高。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

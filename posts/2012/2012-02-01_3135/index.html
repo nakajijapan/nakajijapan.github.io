@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="「Unicorn &#43; Rails &#43; Nginx」で構築してみる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2012/2012-02-01_3135/" />
+<meta property="go:description" content="勉強がてら構築してみました。以前はrailsのWebサーバはThinで構築していたのですが、
+最近流行している「Unicorn」、さらにはフロントにリバースプロキシとHTTP用のサーバ「nginx」
+をおいて構築してみることにします。
+仕組みについてはこちらのサイトがよくまとめられていたので概要つかむによいでしょう。
+まずは、nginxのインストールを行います。インストールはあらかじめrpm をインストールしてからyumでインストールし直します。
+
+rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm
+yum install nginx
+
+一度、デフォルトでnginxで起動するかどうかの確認を行います。「service nginx start」でhttp://hoge.moge にアクセスしてnginx用の画面が表示されていればとりあえずはインストール完了です。
+以下、Unicornがnginx経由でアクセスできるようにするための設定ファイルになります。
+
+upstream hoge.moge {
+    server unix:/var/www/test/tmp/sockets/unicorn.sock;
+}
+
+server {
+  listen 80;
+  server_name hoge.moge;
+
+  root /var/www/test/public/;
+  access_log log/access.log;
+  error_log  log/error.log;
+
+  location / {
+    if (-f $request_filename) {
+        break;
+    }
+    # ファイルが存在しなければunicornにproxyする
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_pass http://hoge.moge;
+  }
+
+  # この記述がないと静的ファイルが表示されなかった
+  location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]&#43;)?$ {
+    expires 1y;
+  }
+}
+
+なんか書き方はPerlbalよりわかりやすいようなイメージしました。気のせいかもしれませんが。。。
+次は、Unicornのインストールです。gemでパッケージをインストールします。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="「Unicorn &#43; Rails &#43; Nginx」で構築してみる" />
+<meta name="twitter:description" content="勉強がてら構築してみました。以前はrailsのWebサーバはThinで構築していたのですが、
+最近流行している「Unicorn」、さらにはフロントにリバースプロキシとHTTP用のサーバ「nginx」
+をおいて構築してみることにします。
+仕組みについてはこちらのサイトがよくまとめられていたので概要つかむによいでしょう。
+まずは、nginxのインストールを行います。インストールはあらかじめrpm をインストールしてからyumでインストールし直します。
+
+rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm
+yum install nginx
+
+一度、デフォルトでnginxで起動するかどうかの確認を行います。「service nginx start」でhttp://hoge.moge にアクセスしてnginx用の画面が表示されていればとりあえずはインストール完了です。
+以下、Unicornがnginx経由でアクセスできるようにするための設定ファイルになります。
+
+upstream hoge.moge {
+    server unix:/var/www/test/tmp/sockets/unicorn.sock;
+}
+
+server {
+  listen 80;
+  server_name hoge.moge;
+
+  root /var/www/test/public/;
+  access_log log/access.log;
+  error_log  log/error.log;
+
+  location / {
+    if (-f $request_filename) {
+        break;
+    }
+    # ファイルが存在しなければunicornにproxyする
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_pass http://hoge.moge;
+  }
+
+  # この記述がないと静的ファイルが表示されなかった
+  location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]&#43;)?$ {
+    expires 1y;
+  }
+}
+
+なんか書き方はPerlbalよりわかりやすいようなイメージしました。気のせいかもしれませんが。。。
+次は、Unicornのインストールです。gemでパッケージをインストールします。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>「Unicorn &#43; Rails &#43; Nginx」で構築してみる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">「Unicorn &#43; Rails &#43; Nginx」で構築してみる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-02-01">February 01, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/rails">Rails</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>勉強がてら構築してみました。以前はrailsのWebサーバはThinで構築していたのですが、
+最近流行している「Unicorn」、さらにはフロントにリバースプロキシとHTTP用のサーバ「nginx」
+をおいて構築してみることにします。</p>
+<p>仕組みについては<a href="http://techracho.jp/?p=2075">こちら</a>のサイトがよくまとめられていたので概要つかむによいでしょう。</p>
+<p>まずは、nginxのインストールを行います。インストールはあらかじめrpm をインストールしてからyumでインストールし直します。</p>
+<pre class="brush:bash">
+rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm
+yum install nginx
+</pre>
+<p>一度、デフォルトでnginxで起動するかどうかの確認を行います。「service nginx start」でhttp://hoge.moge にアクセスしてnginx用の画面が表示されていればとりあえずはインストール完了です。</p>
+<p>以下、Unicornがnginx経由でアクセスできるようにするための設定ファイルになります。</p>
+<pre class="brush:bash">
+upstream hoge.moge {
+    server unix:/var/www/test/tmp/sockets/unicorn.sock;
+}
+
+server {
+  listen 80;
+  server_name hoge.moge;
+
+  root /var/www/test/public/;
+  access_log log/access.log;
+  error_log  log/error.log;
+
+  location / {
+    if (-f $request_filename) {
+        break;
+    }
+    # ファイルが存在しなければunicornにproxyする
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_pass http://hoge.moge;
+  }
+
+  # この記述がないと静的ファイルが表示されなかった
+  location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+    expires 1y;
+  }
+}
+</pre>
+<p>なんか書き方はPerlbalよりわかりやすいようなイメージしました。気のせいかもしれませんが。。。</p>
+<p>次は、Unicornのインストールです。gemでパッケージをインストールします。</p>
+<pre class="brush:bash">
+gem install unicorn
+</pre>
+<p>これでおしまい。</p>
+<p>その後、Railsで展開されているコンフィグファイルに設定情報を記述します。</p>
+<pre class="brush:bash">
+vi config/unicorn.conf
+</pre>
+<pre class="brush:bash">
+# -*- coding: utf-8 -*-
+# ワーカーの数
+worker_processes 2
+
+# capistrano 用に RAILS_ROOT を指定
+working_directory "/var/www/test/"
+
+# ソケット
+#listen '/tmp/unicorn_of_example.sock'
+#listenFile = working_directory << 'tmp/sockets/unicorn.sock'
+listen  '/var/www/test/tmp/sockets/unicorn.sock'
+
+# ログ
+log = '/var/log/rails/unicorn.log'
+stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
+stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
+
+
+# ダウンタイムなくす
+preload_app true
+
+before_fork do |server, worker|
+    defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+
+    old_pid = "#{ server.config[:pid] }.oldbin"
+    unless old_pid == server.pid
+        begin
+            # SIGTTOU だと worker_processes が多いときおかしい気がする
+            Process.kill :QUIT, File.read(old_pid).to_i
+        rescue Errno::ENOENT, Errno::ESRCH
+        end
+    end
+end
+
+after_fork do |server, worker|
+    defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+end
+</pre>
+<p>最後にそれぞれを起動します。</p>
+<pre class="brush:bash">
+unicorn_rails -c config/unicorn.rb -E production -p 5000 -D
+service nginx start
+</pre>
+<p>指定のURLからアクセスして画面がみれれば完成でし！</p>
+<p>□参考URL
+<a href="http://nginx.org/">http://nginx.org/</a>
+<a href="http://techracho.bpsinc.jp/bps/2010_07_28/2208">http://techracho.bpsinc.jp/bps/2010_07_28/2208</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

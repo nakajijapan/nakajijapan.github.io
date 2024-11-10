@@ -1,0 +1,382 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Html on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/html/</link>
+        <description>Recent content in Html on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Tue, 28 Sep 2010 23:57:28 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/html/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>window.onloadとbody.onload</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-09-28_2433/</link>
+            <pubDate>Tue, 28 Sep 2010 23:57:28 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-09-28_2433/</guid>
+            <description>&lt;p&gt;きになっちゃったのでメモ。&lt;/p&gt;
+&lt;p&gt;基本的には同じことなんかな。window.onloadとbody.onload。
+なんか&lt;a href=&#34;http://www5d.biglobe.ne.jp/~y0ka/2006-12-07-1.html&#34;&gt;これ&lt;/a&gt;読んでたらわからんでもないけど、動作的にはほぼ同じことなんじゃないかな。&lt;/p&gt;
+&lt;p&gt;どちらともページの読み込みが完了した後にDOMの解析をし始めることには代わりはない。
+そんで以下のような処理をやってみたら、後の処理を上書きして処理されてるみたい。この場合だと
+「window.onload」の処理はかき消されて「body.onload」が実行されていた。&lt;/p&gt;
+&lt;pre class=&#34;brush:html&#34;&gt;
+＜html＞
+&lt;head&gt;
+&lt;script&gt;
+window.onload = function(){
+    console.log(&#39;window&#39;);
+}
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload=&#34;console.log(&#39;body&#39;);&#34;&gt;
+&lt;h1&gt;test&lt;/h1&gt;
+&lt;/body&gt;
+＜/html＞
+&lt;/pre&gt;
+&lt;p&gt;ちなみにDOMを解析している途中にJS実行するならヘッダ内とボディ内に普通処理を実装すると処理は行われる。&lt;/p&gt;
+&lt;p&gt;�。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>javascriptでPOST処理を実装してみる</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-06-29_2140/</link>
+            <pubDate>Tue, 29 Jun 2010 01:25:19 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-06-29_2140/</guid>
+            <description>&lt;p&gt;セキュリティチェックでいろいろ処理を試す機会があってテストコード書くためにjavascriptのみで
+フォームのデータを作成して（ここではHiddenのパラメータを作成）サブミット処理をさせるものを書いてみました。&lt;/p&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+function PostSubmit() {
+	this.init();
+}
+PostSubmit.prototype = {
+	frmObject : {},
+	
+	init : function() 
+	{
+		this.frmObject = document.createElement(&#34;form&#34;);
+		this.frmObject.method = &#34;post&#34;;
+	},
+	
+	add : function(elementname, elementvalue) 
+	{
+		var input   = document.createElement(&#34;input&#34;);
+		input.type  = &#34;hidden&#34;;
+		input.name  = elementname;
+		input.value = elementvalue;
+		this.frmObject.appendChild(input);
+	},
+	
+	submit : function(url, targetFrame)
+	{
+		try {
+			if (targetFrame) {
+				this.frmObject.target = targetFrame;
+			}
+		}
+		catch (e) { }
+
+		try {
+			if (url) {
+				this.frmObject.action = url;
+				document.body.appendChild(this.frmObject);
+				this.frmObject.submit();
+				return true;
+			} 
+			else { 
+				return false; 
+			}
+		} catch (e) {
+			return false;
+		}
+	}
+}
+
+var frm = new PostSubmit();
+frm.add(&#39;hoge&#39;, &#39;monge&#39;);
+frm.submit(&#39;/add&#39;, &#39;target&#39;);
+&lt;/pre&gt;
+&lt;p&gt;javascriptってなんでもできるんですね。コード内でFormの情報を作成できてしまうなんてバンザイです！！！
+あと、最近になってjavascriptでExceptionの処理ができるなんて知りました。
+いままで、返り値でエラー処理の対応していたんですが、原因不明なエラーとか発せしたときは、それだけじゃ対処しきれない。そんなときは「throw」されるはずなのでそこで例外処理を行うようにする。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>HTML5&amp;API入門</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-05-03_1971/</link>
+            <pubDate>Mon, 03 May 2010 14:08:30 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-05-03_1971/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4822284220?tag=daichibnejp-22&amp;linkCode=as1&#34; target=&#34;_blank&#34; title=&#34;HTML5&amp;API入門&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51JUuyJBMpL._SL160_.jpg&#34; width=&#34;124&#34; height=&#34;160&#34; alt=&#34;HTML5&amp;API入門&#34; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/4822284220?tag=daichibnejp-22&amp;linkCode=as1&#34; target=&#34;_blank&#34;&gt;HTML5&amp;amp;API入門&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;いままでの記事で参考にしてた本です。&lt;/p&gt;
+&lt;p&gt;�。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>FileApi &#43; DragAndDrop &#43; JQueryでドロップした画像ファイルを画面に描画する</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-05-02_1954/</link>
+            <pubDate>Sun, 02 May 2010 13:00:04 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-05-02_1954/</guid>
+            <description>&lt;p&gt;今回はDrag And Dropしてみます。
+ただやるんじゃ面白く無いのでローカルにある複数の画像ファイルをドラッグして画面に表示させるところまでやってみます。&lt;/p&gt;
+&lt;p&gt;JSとHTMLはこんな感じ。&lt;/p&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;script&gt;
+&lt;script&gt;
+function Nakaji(){
+//var Nakaji = function(){ 
+	//var dropBox = {};
+	//this.init();
+};
+Nakaji.prototype = {
+	dropBox : {},
+
+	//-------------------------
+	// ドラッグ中のマウスカーソルが、要素と重なったときに瞬間に呼び出されるイベント
+	//-------------------------
+	dragEnter : function(event) 
+	{
+    	$(&#34;#dropbox&#34;).css(&#39;background&#39;, &#39;red&#39;);
+	},
+    
+    //-------------------------
+    // ドラッグ中のマウスカーソルが要素上を横切っている間、断続的に発生するイベント
+    //-------------------------
+	dragLeave : function(event) 
+	{
+		$(&#34;#dropbox&#34;).css(&#39;background&#39;, &#39;brue&#39;);
+    },
+	
+	//-------------------------
+	// ドラッグ中のマウスカーソルが要素内から出た時に呼び出されるイベント
+	//-------------------------
+    dragOver : function(event) 
+    {
+    	event.preventDefault();
+    	$(&#34;#dropbox&#34;).css(&#39;background&#39;, &#39;green&#39;);
+    },
+    
+    
+    //-------------------------
+    // ドラッグ時に呼び出されるイベント
+    //-------------------------
+    drop : function(event) {
+		
+		// ドラッグされたデータを取得
+		var dt    = event.dataTransfer;
+		var files = dt.files;
+		var count  = files.length;
+
+		// ドロップを処理したら、イベントのバブリングを防ぐ
+    	event.stopPropagation();
+    	
+    	// デフォルト動作をキャンセルする？
+    	event.preventDefault();
+
+		// ドラッグされたファイル分走査
+		for (var i = 0; i &lt; count; i++) {
+			var file = files[i];
+			var reader = new FileReader();
+			
+			reader.name = file.name,
+			reader.index = i,
+			reader.file = file;
+													
+			// thisじゃだめなのはなぜ？？？？
+			// メソッドの登録
+			reader.addEventListener(&#34;loadend&#34;, Nakaji.prototype.buildImageListItem, false);
+			
+			// ファイルをdataURL形式で読み取る
+			reader.readAsDataURL(file);
+		}
+    },
+
+    //-------------------------
+    // ドラッグ時に呼び出されるイベント
+    //-------------------------
+    buildImageListItem : function(event)
+    {
+    	var imgTag = $(document.createElement(&#34;img&#34;));
+    	var divTag = $(document.createElement(&#34;div&#34;));
+		var name = event.target.name;
+		var data = event.target.result;
+		var index = event.target.index;
+		var file = event.target.file;
+
+		divTag.css(&#39;float&#39;, &#39;left&#39;);
+		divTag.attr(&#39;id&#39;, &#39;item_&#39; + index);
+        imgTag.attr({
+        		width: 	200,
+        		height:	200,
+        		src: 	data
+        	});
+
+		// 先頭に追加
+        $(&#34;#bag&#34;).prepend(divTag.append(imgTag.fadeIn(2000)));
+
+        // TEST
+        elem = $(&#39;&lt;div class=&#34;nakajijapan&#34;&gt;&lt;h2&gt;なんかはいった!(&#39; + name + &#39;)&lt;/h2&gt;&lt;/div&gt;&#39;); 
+        $(&#34;#log&#34;).prepend(elem.fadeIn(1000)); 
+    }
+}
+
+function init() {
+		dandd = new Nakaji();
+
+		window.addEventListener(&#34;dragenter&#34;, dandd.dragEnter, false);
+		window.addEventListener(&#34;dragleave&#34;, dandd.dragLeave, false);
+    	
+    	var dropBox = {};
+		dropBox = document.getElementById(&#34;dropbox&#34;);
+		dropBox.addEventListener(&#34;dragover&#34;, dandd.dragOver, false);
+		dropBox.addEventListener(&#34;drop&#34;, dandd.drop, true);
+}
+
+
+
+// ロード時に処理を追加
+window.addEventListener(&#34;load&#34;, init, false);
+
+&lt;/script&gt;
+&lt;h1&gt;Drag and Drop&lt;/h1&gt;
+&lt;div id= &#34;dropbox&#34;&gt;
+	Drop　Here！！
+&lt;/div&gt;
+&lt;div id=&#34;bag&#34;&gt;
+&lt;/div&gt;
+&lt;br style=&#34;clear:both;&#34;&gt;
+&lt;div id=&#34;log&#34;&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exifbox&#34;&gt;
+    &lt;em id=&#34;introExif&#34;&gt;EXIF Data from the JPEG file:&lt;/em&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p id=&amp;quot;desc&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p id=&amp;quot;device&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;p id=&amp;quot;rights&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;
+&amp;lt;strong&amp;gt;More EXIF details:&amp;lt;/strong&amp;gt;
+&amp;lt;dl id=&amp;quot;exif&amp;quot;&amp;gt;&amp;lt;/dl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/pre&gt;
+&lt;p&gt;方法としては、ドラッグ対象となる要素にイベントを登録して必要とする処理を行わせます。
+処理内容は、ドラッグしたファイルからファイル情報を読み込んだ後に画面に描画させます。
+基本は前回と同じですね。ファイルの選択からドラッグをできるようにしただけですからね。。。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>FileReader(&#43;JQuery)を利用して複数ファイルを選択した画像を画面に表示させる</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-05-02_1940/</link>
+            <pubDate>Sun, 02 May 2010 03:44:58 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-05-02_1940/</guid>
+            <description>&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;!DOCTYPE html&gt;
+
+&lt;script src=&#34;../jquery-1_4_2.js&#34; type=&#34;text/javascript&#34;&gt;&lt;/script&gt;
+&lt;script&gt;
+// ファイル読み込み用
+function FileReaderCustom() {};
+FileReaderCustom.prototype = {
+	setup : function(file, cnt) {
+	    var reader = new FileReader();
+
+        //----------------------
+        // ロード時の処理
+        //----------------------
+	    reader.onload = function() {
+	        
+	        // 表示用タグ生成
+	        var divTag = $(document.createElement(&#34;span&#34;));
+	        var imgTag = $(document.createElement(&#34;img&#34;));
+	        
+	        // 出力先
+	        var list   = $(&#34;#list&#34;);
+	        
+	        // 各タグの属性情報設定
+	        divTag.attr(&#39;id&#39;, &#39;item_&#39; + cnt);
+	        divTag.css(&#39;float&#39;, &#39;left&#39;);
+	        imgTag.attr({
+	        		width: 	200,
+	        		height:	200,
+	        		src: 	reader.result
+	        	});
+
+            // タグをまとめる
+	        divTag.append(imgTag);
+            
+            // 画像タグをリストに追加
+            // 表示時はアニメーションで表示
+	        list.append(divTag.fadeIn(5000));
+	    };
+	    
+	    //----------------------
+	    // 作成中の処理
+	    //----------------------
+	    reader.onprogress = function() {
+	        var msg = document.getElementById(&#39;msg&#39;);
+	        msg.textContent = &#34;loading ....&#34; + file.name;
+	    };
+	    
+	    //----------------------
+	    // ロード終了時の処理
+	    //----------------------
+	    reader.onloadend = function() {
+	        var msg = document.getElementById(&#39;msg&#39;);
+	        while(msg.firstChild) {
+	            msg.removeChild(msg.firstChild);
+	        }
+	    };
+	    
+	    // ファイル内容を読み取りdataURL形式で読み取るんだってさ
+	    reader.readAsDataURL(file, &#34;UTF-8&#34;);
+	}
+};
+
+
+// 読み込み用メソッド
+function readFile() {
+    // タグからファイル情報を読み込む
+    var files = document.getElementById(&#34;file&#34;).files;
+    
+    // 配列作成
+	var data = new Array();
+    
+    // 選択ファイル分走査する
+    for (var cnt=0;cnt&lt;files.length;cnt++) {
+        // インスタンス作成
+        data[cnt] = new FileReaderCustom();
+        
+        // 表示処理
+        data[cnt].setup(files[cnt], cnt);
+    }
+}
+
+&lt;/script&gt;
+&lt;body&gt;
+&lt;h1&gt;File API sample(jquery version)&lt;/h1&gt;
+&lt;input type=&#34;file&#34; id=&#34;file&#34; type=&#34;file&#34; multiple=&#34;true&#34;&gt;
+&lt;button onclick=&#34;readFile()&#34;&gt;read start&lt;/button&gt;
+&lt;div&gt;
+    file name:&lt;span id=&#34;fileName&#34;&gt;&lt;/span&gt;
+    file size:&lt;span id=&#34;fileSize&#34;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div id=&#34;msg&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;list&#34;&gt;
+&lt;/div&gt;
+&lt;/pre&gt;
+&lt;p&gt;HTML５の勉強っす。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

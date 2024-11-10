@@ -1,0 +1,40 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Web on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/web/</link>
+        <description>Recent content in Web on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sun, 05 Jun 2011 19:06:22 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/web/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>欲求不満のChromeアプリ公開してみた。</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-06-05_2720/</link>
+            <pubDate>Sun, 05 Jun 2011 19:06:22 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-06-05_2720/</guid>
+            <description>&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/06/スクリーンショット（2011-06-05-18.59.26）.png&#34; alt=&#34;欲求不満&#34; title=&#34;欲求不満&#34; width=&#34;700&#34; /&gt;
+&lt;p&gt;&lt;b&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/iobjgdkkfkanhfgnjnbbdbkcpgeckddo?hl=ja&#34;&gt;欲求不満Chromeアプリ&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;なんか最近はやってみるみたいだからチョッパやで作ってだしてみました。&lt;/p&gt;
+&lt;p&gt;うん、べつにたいしたことはしていないですよ。
+なので、とりあえずはギガンティックαバージョンです。（ごめんなさい）&lt;/p&gt;
+&lt;p&gt;もっとブラウザのネイティブな処理をつかっておもしろいことできたらと
+思っているので勉強がてらもっとアプリ的なものを作ります。&lt;/p&gt;
+&lt;p&gt;作るコンセプトは「リアルタイム」と「暇つぶし」かな。
+いろいろ渦巻いている情報を無駄に見ることができたり、無駄に視覚的にしたり、みてるやつほんと暇なんじゃねーかって言う感じのものです。&lt;/p&gt;
+&lt;p&gt;あ、hostedじゃなくていいかもしれない。&lt;/p&gt;
+&lt;p&gt;ということで今後も地道にやっていこうっと！&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

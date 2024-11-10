@@ -1,0 +1,43 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Photoshop on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/photoshop/</link>
+        <description>Recent content in Photoshop on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sun, 13 Feb 2011 03:11:38 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/photoshop/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>[PhotoshopCS5]画像のリサイズ・スライスの方法（基本やで！）</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-02-13_2660/</link>
+            <pubDate>Sun, 13 Feb 2011 03:11:38 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-02-13_2660/</guid>
+            <description>&lt;p&gt;時代遅れのメモ。購入したはいいものの基本的なことができない！！
+しかも、ちょっとさぼるとすぐ忘れる痴呆症のおじさんですのでざっくりメモしておこうと思う。&lt;/p&gt;
+&lt;p&gt;項目たくさんあるのだけれど、覚えてしまうと簡単です。&lt;/p&gt;
+&lt;ol type=&#34;1&#34;&gt;
+&lt;li&gt;リサイズする&lt;/li&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/02/resize001.png&#34; width=&#34;400px&#34;&gt;
+&lt;li&gt;スライスする&lt;/li&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/02/resize002.png&#34; width=&#34;400px&#34;&gt;
+&lt;li&gt;スライスする&lt;/li&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/02/resize003.png&#34; width=&#34;400px&#34;&gt;
+&lt;/ol&gt;
+&lt;h3&gt;参考URL&lt;/h3&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://help.adobe.com/ja_JP/photoshop/cs/using/WS6F81C45F-2AC0-4685-8FFD-DBA374BF21CD.html&#34;&gt;コンテンツに応じた拡大・縮小&lt;/a&gt;
+&lt;a target=&#34;_blank&#34; href=&#34;http://help.adobe.com/ja_JP/photoshop/cs/using/WS6033C2CF-1CCB-4806-8B23-36255555CC1Ca.html&#34;&gt;ユーザー定義スライスの移動、サイズ変更およびスナップ&lt;/a&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

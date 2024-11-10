@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Mac奮闘記(MacPort編)">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2009/2009-11-25_16/" />
+<meta property="go:description" content="ディストリビューションによってApacheのディレクトリ配置は結構違うもの。
+勝手に自分でインストールするのも自分がわかるところにインスコできるのは
+いいのよね。でもここはパッケージ管理で自動インスコこのマシン自体は
+サーバ管理が主じゃなくてプログラミングすることが主だからそこにいちいち
+こだわってられないのよねん。
+…まぁ結局Apacheの設定必要になってくるんだけどね。そんときはそんときで。
+後、いろいろと初めてなので冒険心です。
+余談ですが、昔のリナックスのパッケージ管理は結構なほどに面倒でしたね。
+まだyumもないころパッケージいちいち自分で依存性のあるものダウンロード
+してはちょこちょこやって、んでそこでもまた依存性があって挙げ句の果てに
+それは競合してるだなんていわれる始末。面倒くさいからひとまず強制インスコ。
+それでも元々のアプリがインスコできなくて…ひどかったなぁ。
+期待してます！！
+まずはここにいってユーザ登録。
+https://connect.apple.com
+そこからここでMacPortsをダウンロードする。自分はMac OS X 10.6
+なのでそれ用のものをダウンロード。
+http://svn.macosforge.org/repository/macports/downloads/
+と思ったら10.6用のパッケージがなかった。。。
+http://distfiles.macports.org/MacPorts/
+まず実行してみる。
+■インストールされてるパッケージの一覧表示
+# sudo port installed
+# sudo port installed
+
+No ports are installed.
+
+うーん、既存のものは別なのね。普通にインストールされてるだけなのかな？
+■パッケージの検索
+
+
+# sudo port search zsh
+zsh @4.2.7 (shells)
+ Zsh is a UNIX command interpreter (shell)
+
+
+zsh-devel @4.3.10 (shells)
+ Zsh is a UNIX command interpreter (shell)
+
+
+Found 2 ports.
+
+■インスコ
+
+# sudo port install zsh-devel
+variantsの仕組み
+パッケージごとにインスコするときの追加オプションが選べて、自分でいろいろとカスタマイズしてインスコできるらしい。
+■varients一覧表示" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Mac奮闘記(MacPort編)" />
+<meta name="twitter:description" content="ディストリビューションによってApacheのディレクトリ配置は結構違うもの。
+勝手に自分でインストールするのも自分がわかるところにインスコできるのは
+いいのよね。でもここはパッケージ管理で自動インスコこのマシン自体は
+サーバ管理が主じゃなくてプログラミングすることが主だからそこにいちいち
+こだわってられないのよねん。
+…まぁ結局Apacheの設定必要になってくるんだけどね。そんときはそんときで。
+後、いろいろと初めてなので冒険心です。
+余談ですが、昔のリナックスのパッケージ管理は結構なほどに面倒でしたね。
+まだyumもないころパッケージいちいち自分で依存性のあるものダウンロード
+してはちょこちょこやって、んでそこでもまた依存性があって挙げ句の果てに
+それは競合してるだなんていわれる始末。面倒くさいからひとまず強制インスコ。
+それでも元々のアプリがインスコできなくて…ひどかったなぁ。
+期待してます！！
+まずはここにいってユーザ登録。
+https://connect.apple.com
+そこからここでMacPortsをダウンロードする。自分はMac OS X 10.6
+なのでそれ用のものをダウンロード。
+http://svn.macosforge.org/repository/macports/downloads/
+と思ったら10.6用のパッケージがなかった。。。
+http://distfiles.macports.org/MacPorts/
+まず実行してみる。
+■インストールされてるパッケージの一覧表示
+# sudo port installed
+# sudo port installed
+
+No ports are installed.
+
+うーん、既存のものは別なのね。普通にインストールされてるだけなのかな？
+■パッケージの検索
+
+
+# sudo port search zsh
+zsh @4.2.7 (shells)
+ Zsh is a UNIX command interpreter (shell)
+
+
+zsh-devel @4.3.10 (shells)
+ Zsh is a UNIX command interpreter (shell)
+
+
+Found 2 ports.
+
+■インスコ
+
+# sudo port install zsh-devel
+variantsの仕組み
+パッケージごとにインスコするときの追加オプションが選べて、自分でいろいろとカスタマイズしてインスコできるらしい。
+■varients一覧表示" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Mac奮闘記(MacPort編) - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Mac奮闘記(MacPort編)</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2009-11-25">November 25, 2009</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/mac">Mac</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>ディストリビューションによってApacheのディレクトリ配置は結構違うもの。</p>
+<p>勝手に自分でインストールするのも自分がわかるところにインスコできるのは</p>
+<p>いいのよね。でもここはパッケージ管理で自動インスコこのマシン自体は</p>
+<p>サーバ管理が主じゃなくてプログラミングすることが主だからそこにいちいち</p>
+<p>こだわってられないのよねん。</p>
+<p>…まぁ結局Apacheの設定必要になってくるんだけどね。そんときはそんときで。</p>
+<p>後、いろいろと初めてなので冒険心です。</p>
+<p>余談ですが、昔のリナックスのパッケージ管理は結構なほどに面倒でしたね。</p>
+<p>まだyumもないころパッケージいちいち自分で依存性のあるものダウンロード</p>
+<p>してはちょこちょこやって、んでそこでもまた依存性があって挙げ句の果てに</p>
+<p>それは競合してるだなんていわれる始末。面倒くさいからひとまず強制インスコ。</p>
+<p>それでも元々のアプリがインスコできなくて…ひどかったなぁ。</p>
+<p>期待してます！！</p>
+<p>まずはここにいってユーザ登録。</p>
+<p><a class="wp-caption" href="https://connect.apple.com" target="_blank"><a href="https://connect.apple.com">https://connect.apple.com</a></a></p>
+<p>そこからここでMacPortsをダウンロードする。自分はMac OS X 10.6</p>
+<p>なのでそれ用のものをダウンロード。</p>
+<p><a class="wp-caption" href="http://svn.macosforge.org/repository/macports/downloads/" target="_blank"><a href="http://svn.macosforge.org/repository/macports/downloads/">http://svn.macosforge.org/repository/macports/downloads/</a></a></p>
+<p>と思ったら10.6用のパッケージがなかった。。。</p>
+<p><a class="wp-caption" href="http://distfiles.macports.org/MacPorts/" target="_blank"><a href="http://distfiles.macports.org/MacPorts/">http://distfiles.macports.org/MacPorts/</a></a></p>
+<p>まず実行してみる。</p>
+<p><strong>■インストールされてるパッケージの一覧表</strong><strong>示</strong></p>
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 227px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;"># sudo port installed</div>
+<blockquote># sudo port installed
+<div>
+<div>No ports are installed.</div>
+</div></blockquote>
+<div>うーん、既存のものは別なのね。普通にインストールされてるだけなのかな？</div>
+<div><strong>■パッケージの検索</strong></div>
+<div><strong>
+<blockquote>
+<div># <span style="font-weight: normal;">sudo port search zsh</span></div>
+<div><span style="font-weight: normal;">zsh @4.2.7 (shells)</span></div>
+<div><span style="font-weight: normal;"> Zsh is a UNIX command interpreter (shell)</span></div>
+<div><span style="font-weight: normal;">
+</span></div>
+<div><span style="font-weight: normal;">zsh-devel @4.3.10 (shells)</span></div>
+<div><span style="font-weight: normal;"> Zsh is a UNIX command interpreter (shell)</span></div>
+<div><span style="font-weight: normal;">
+</span></div>
+<div><span style="font-weight: normal;">Found 2 ports.</span></div></blockquote>
+</strong></div>
+<div><strong>■インスコ</strong></div>
+<blockquote>
+<div># sudo port install zsh-devel</div></blockquote>
+<h3>variantsの仕組み</h3>
+パッケージごとにインスコするときの追加オプションが選べて、自分でいろいろとカスタマイズしてインスコできるらしい。
+<p><strong>■varients一覧表示</strong></p>
+<blockquote># port variants zsh-devel
+<p>zsh-devel has the variants:</p>
+<p>darwin_8: Platform variant, selected automatically</p>
+<p>doc: Install extra documentation</p>
+<p>examples: Install configuration examples</p>
+<p>mp_completion: Install port(1) completion file</p>
+<p>pcre: Add regular expressions support in builtin functions through PCRE</p>
+<p>universal: Build for multiple architectures</blockquote></p>
+<div><strong>■variantsを付加してインスコ</strong></div>
+<div><strong>
+<blockquote>
+<div><span style="font-weight: normal;"># sudo port install zsh-devel +dp_completion +utf8</span></div></blockquote>
+</strong>
+<p>後は今度やる</p>
+<p>■アップグレード</p>
+<p>■アンインストール</p>
+<p>■パッケージのinactiveとactive</p>
+<p>実際に削除はしないで機能を停止だけさせるらしい。一時的に無効化。</p>
+<p>manみたらもう少しあったね</p>
+<blockquote>o   uninstalled: ports in the ports tree(s) that aren't installed.
+<p>o   outdated: installed ports that are out of date with respect to their current version/revision in</p>
+<p>the ports tree(s)</p>
+<p>o   obsolete: set of ports that are installed but no longer exist in any port tree</blockquote></p>
+<div>outdated:インストールされたportsのなかで推奨された日付のものではないもの？</div>
+obsolete:もはや管理外のもの
+<p>って感じ。</div></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

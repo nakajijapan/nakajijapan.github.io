@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Technology of Etsy">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2015/12/16/technology-of-etsy/" />
+<meta property="go:description" content="初めまして, @nakajijapanです。
+この記事はiOS Adovent Calendar 2015の16日目の記事になります。
+今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。
+どんなインタラクションかというと作品のの個数を決めるときにドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような
+インタラクションを実現しています。
+
+カートで在庫や作品の色を決めるときに表現されます。
+
+transitionで現在の画面を多少縮小させる
+画面の半分までTableViewが表示される
+
+Cellをタップしたら閉じる
+
+
+NavigationBarのような部分をパンすることで最後までTableViewが表示されるようになる
+
+パンしている間、縮小した画面はそれに合わせてリアルタイムに変化する
+
+
+
+これは、少ない選択肢の時はTableViewを半分だけ表示すれば事足りるのだが、その半分におさまらない場合はパンすることでさらに見ることができるようになるという仕組み？かと思います。
+これがいいのは、ユーザの細かいフェーズでインタラクションを実現できることだと思います。
+
+選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる
+
+後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる
+
+
+選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる
+
+上記と同じなのだが、さらに本当にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている
+
+
+
+試してみたこと
+では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのがUIPercentDrivenInteractiveTransitionを利用した方法です。
+これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して
+行われてしまうのですがUIPercentDrivenInteractiveTransitionを利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体はUIViewControllerAnimatorTransitioningプロトコルを利用したアニメーションクラスを実装することで実現できます。
+しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中からUIPercentDrivenInteractiveTransitionを利用してパンしながらリアルタイムにアニメーションをすることができませんでした。
+どのように作成したの
+では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。
+あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。
+func transitionBackgroundView(degree: CGFloat, location:CGPoint) {
+
+    let overlayView = self.parentView!.viewWithTag(920)!
+    let imageView = overlayView.viewWithTag(910) as! UIImageView
+    let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0)
+    let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1)
+    imageView.layer.removeAllAnimations()
+    imageView.layer.transform = transform
+    imageView.setNeedsLayout()
+    imageView.layoutIfNeeded()
+
+}
+イベントはUIPanGestureRecognizerを利用すれば実現できます。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Technology of Etsy" />
+<meta name="twitter:description" content="初めまして, @nakajijapanです。
+この記事はiOS Adovent Calendar 2015の16日目の記事になります。
+今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。
+どんなインタラクションかというと作品のの個数を決めるときにドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような
+インタラクションを実現しています。
+
+カートで在庫や作品の色を決めるときに表現されます。
+
+transitionで現在の画面を多少縮小させる
+画面の半分までTableViewが表示される
+
+Cellをタップしたら閉じる
+
+
+NavigationBarのような部分をパンすることで最後までTableViewが表示されるようになる
+
+パンしている間、縮小した画面はそれに合わせてリアルタイムに変化する
+
+
+
+これは、少ない選択肢の時はTableViewを半分だけ表示すれば事足りるのだが、その半分におさまらない場合はパンすることでさらに見ることができるようになるという仕組み？かと思います。
+これがいいのは、ユーザの細かいフェーズでインタラクションを実現できることだと思います。
+
+選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる
+
+後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる
+
+
+選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる
+
+上記と同じなのだが、さらに本当にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている
+
+
+
+試してみたこと
+では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのがUIPercentDrivenInteractiveTransitionを利用した方法です。
+これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して
+行われてしまうのですがUIPercentDrivenInteractiveTransitionを利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体はUIViewControllerAnimatorTransitioningプロトコルを利用したアニメーションクラスを実装することで実現できます。
+しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中からUIPercentDrivenInteractiveTransitionを利用してパンしながらリアルタイムにアニメーションをすることができませんでした。
+どのように作成したの
+では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。
+あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。
+func transitionBackgroundView(degree: CGFloat, location:CGPoint) {
+
+    let overlayView = self.parentView!.viewWithTag(920)!
+    let imageView = overlayView.viewWithTag(910) as! UIImageView
+    let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0)
+    let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1)
+    imageView.layer.removeAllAnimations()
+    imageView.layer.transform = transform
+    imageView.setNeedsLayout()
+    imageView.layoutIfNeeded()
+
+}
+イベントはUIPanGestureRecognizerを利用すれば実現できます。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Technology of Etsy - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Technology of Etsy</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2015-12-16">December 16, 2015</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>初めまして, <a href="https://twitter.com/nakajijapan">@nakajijapan</a>です。</p>
+<p>この記事は<a href="http://qiita.com/advent-calendar/2015/ios">iOS Adovent Calendar 2015</a>の16日目の記事になります。</p>
+<p>今日のネタはEtsyの気になるインタラクションがあったので試してみようと思ったのですが、ネットを探してもなかったものなので見よう見まねで作成してみました。
+どんなインタラクションかというと作品のの個数を決めるときにドラムロールで選択するのが通常だと思うのですが、Etsyの場合は一工夫しているようで以下のような
+インタラクションを実現しています。</p>
+<p><img src="/images/posts/2015/2015-12-17-02.gif" alt=""></p>
+<p>カートで在庫や作品の色を決めるときに表現されます。</p>
+<ul>
+<li>transitionで現在の画面を多少縮小させる</li>
+<li>画面の半分までTableViewが表示される
+<ul>
+<li>Cellをタップしたら閉じる</li>
+</ul>
+</li>
+<li>NavigationBarのような部分をパンすることで最後までTableViewが表示されるようになる
+<ul>
+<li>パンしている間、縮小した画面はそれに合わせてリアルタイムに変化する</li>
+</ul>
+</li>
+</ul>
+<p>これは、少ない選択肢の時はTableViewを半分だけ表示すれば事足りるのだが、その半分におさまらない場合はパンすることでさらに見ることができるようになるという仕組み？かと思います。
+これがいいのは、ユーザの細かいフェーズでインタラクションを実現できることだと思います。</p>
+<ul>
+<li>選択肢が少ない場合は半分だけ表示されれば、画面遷移を完全にすることなく選択できる
+<ul>
+<li>後ろにタップした画面を表示させることで何のための選択肢なのか視覚的に伝えることができる</li>
+</ul>
+</li>
+<li>選択肢が多かったとしても、メジャーに選択されるものを最初の半分で表示させといて、それ以外にも選択する必要がある場合は完全に広げることで選択が可能になる
+<ul>
+<li>上記と同じなのだが、さらに<strong>本当</strong>にもっと他の選択肢が必要になった時にのみに全体表示せるようにしている</li>
+</ul>
+</li>
+</ul>
+<h2 id="試してみたこと">試してみたこと</h2>
+<p>では、このインタラクションを見てどのように実装してくのかを考えたときに真っ先に思いついたのが<code>UIPercentDrivenInteractiveTransition</code>を利用した方法です。
+これはあるViewControllerからあるViewControllerへ遷移する時のアニメーションを手動で管理する方法です。通常のアニメーションだと最初から最後まで一貫して
+行われてしまうのですが<code>UIPercentDrivenInteractiveTransition</code>を利用することで、例えばパンしている間は、画面を閉じるアニメーションをリアルタイムに制御できるようになるということです。アニメーション自体は<code>UIViewControllerAnimatorTransitioning</code>プロトコルを利用したアニメーションクラスを実装することで実現できます。
+しかし、これだと画面を開くときに最初は通常のアニメーションを行い途中で止めて、途中から<code>UIPercentDrivenInteractiveTransition</code>を利用してパンしながらリアルタイムにアニメーションをすることができませんでした。</p>
+<h2 id="どのように作成したの">どのように作成したの</h2>
+<p>では、どう実現させたかというと遷移前のViewController.viewに遷移先のViewController.viewをaddSubviewすることで実現できました。いたってシンプル。
+あとリアルタイムに背景を形状を変化させる処理は以下のようにして実装しました。</p>
+<pre tabindex="0"><code>func transitionBackgroundView(degree: CGFloat, location:CGPoint) {
+
+    let overlayView = self.parentView!.viewWithTag(920)!
+    let imageView = overlayView.viewWithTag(910) as! UIImageView
+    let scale = self.map(location.y, inMin: 0, inMax: UIScreen.mainScreen().bounds.height, outMin: 0.90, outMax: 1.0)
+    let transform : CATransform3D = CATransform3DMakeScale(scale, scale, 1)
+    imageView.layer.removeAllAnimations()
+    imageView.layer.transform = transform
+    imageView.setNeedsLayout()
+    imageView.layoutIfNeeded()
+
+}
+</code></pre><p>イベントは<code>UIPanGestureRecognizer</code>を利用すれば実現できます。</p>
+<pre tabindex="0"><code>let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: &#34;pan:&#34;)
+self.navigationBar.addGestureRecognizer(panGestureRecognizer)
+</code></pre><p>実際以下のような感じになりました。</p>
+<p><img src="/images/posts/2015/2015-12-17-01.gif" alt=""></p>
+<h2 id="まとめ">まとめ</h2>
+<p>今回はEtsyの気になるインタラクションを真似して実装してみるという実験を行う話でした。
+もちろん、これが正しいとは限らないんですが、別の手段があれば是非教えて欲しいものです。
+とりあえず、技術的にはできるようになったしこれはこれでよしとしたいと思います。今回ソースは
+まだ公開できないのですが今年中にはCocoaPodsにして出そうかと思います。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

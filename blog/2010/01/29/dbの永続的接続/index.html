@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="DBの永続的接続">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/01/29/db%E3%81%AE%E6%B0%B8%E7%B6%9A%E7%9A%84%E6%8E%A5%E7%B6%9A/" />
+<meta property="go:description" content="Mysqlの設定していたときにちょっと疑問におもったので調査。
+  mysql.max_persistent integer
+	The maximum number of persistent MySQL connections per
+	process.
+1プロセスあたりに永続接続できる最大接続数。
+ちなみに永続接続っていうのは
+・DBのセッションがずっと持ちっぱなしで接続が終了してもセッションは開きっぱなしの状態。
+・もし開いている接続があればそれを使う。
+これだと効率がよくなるね、でもなんかゾンビ化しそう。
+非永続接続は
+・DBの接続が終了すればセッションが閉じちゃう感じか。
+そんでもって上記の設定だと1プロセスに待ち状態の接続を最大なん個もたせるかか。
+例えば、永続接続は、１リクエストでmysql_connect()を2回接続すると2個のセッションが確立されるのでは
+なくてすでに最初で接続済みのものを利用する。条件はまったく同じ接続先の場合（詳細割愛)。
+１リクエスト１コネクション
+非永続だと
+１リクエスト２コネクションになっちゃうわけか
+じゃこの違いってなんだ？
+後者だと普通に考えて効率だよな。前者は一貫性のあるデータ取れたり、トランザクションも統一できるから安全性かな。
+なんか読めてきた。
+http://www.studyinghttp.net/connections
+http://php.net/manual/ja/features.persistent-connections.php
+http://php.net/manual/ja/function.mysql-connect.php
+
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="DBの永続的接続" />
+<meta name="twitter:description" content="Mysqlの設定していたときにちょっと疑問におもったので調査。
+  mysql.max_persistent integer
+	The maximum number of persistent MySQL connections per
+	process.
+1プロセスあたりに永続接続できる最大接続数。
+ちなみに永続接続っていうのは
+・DBのセッションがずっと持ちっぱなしで接続が終了してもセッションは開きっぱなしの状態。
+・もし開いている接続があればそれを使う。
+これだと効率がよくなるね、でもなんかゾンビ化しそう。
+非永続接続は
+・DBの接続が終了すればセッションが閉じちゃう感じか。
+そんでもって上記の設定だと1プロセスに待ち状態の接続を最大なん個もたせるかか。
+例えば、永続接続は、１リクエストでmysql_connect()を2回接続すると2個のセッションが確立されるのでは
+なくてすでに最初で接続済みのものを利用する。条件はまったく同じ接続先の場合（詳細割愛)。
+１リクエスト１コネクション
+非永続だと
+１リクエスト２コネクションになっちゃうわけか
+じゃこの違いってなんだ？
+後者だと普通に考えて効率だよな。前者は一貫性のあるデータ取れたり、トランザクションも統一できるから安全性かな。
+なんか読めてきた。
+http://www.studyinghttp.net/connections
+http://php.net/manual/ja/features.persistent-connections.php
+http://php.net/manual/ja/function.mysql-connect.php
+
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>DBの永続的接続 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">DBの永続的接続</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-01-29">January 29, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/db">DB</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>Mysqlの設定していたときにちょっと疑問におもったので調査。</p>
+<blockquote>  mysql.max_persistent integer
+	The maximum number of persistent MySQL connections per
+	process.</blockquote>
+<p>1プロセスあたりに永続接続できる最大接続数。</p>
+<p>ちなみに永続接続っていうのは
+・DBのセッションがずっと持ちっぱなしで接続が終了してもセッションは開きっぱなしの状態。
+・もし開いている接続があればそれを使う。</p>
+<p>これだと効率がよくなるね、でもなんかゾンビ化しそう。</p>
+<p>非永続接続は
+・DBの接続が終了すればセッションが閉じちゃう感じか。</p>
+<p>そんでもって上記の設定だと1プロセスに待ち状態の接続を最大なん個もたせるかか。</p>
+<p>例えば、永続接続は、１リクエストでmysql_connect()を2回接続すると2個のセッションが確立されるのでは
+なくてすでに最初で接続済みのものを利用する。条件はまったく同じ接続先の場合（詳細割愛)。</p>
+<p>１リクエスト１コネクション</p>
+<p>非永続だと</p>
+<p>１リクエスト２コネクションになっちゃうわけか</p>
+<p>じゃこの違いってなんだ？
+後者だと普通に考えて効率だよな。前者は一貫性のあるデータ取れたり、トランザクションも統一できるから安全性かな。</p>
+<p>なんか読めてきた。</p>
+<p><a href="http://www.studyinghttp.net/connections"><a href="http://www.studyinghttp.net/connections">http://www.studyinghttp.net/connections</a></a>
+<a href="http://php.net/manual/ja/features.persistent-connections.php"><a href="http://php.net/manual/ja/features.persistent-connections.php">http://php.net/manual/ja/features.persistent-connections.php</a></a>
+<a href="http://php.net/manual/ja/function.mysql-connect.php"><a href="http://php.net/manual/ja/function.mysql-connect.php">http://php.net/manual/ja/function.mysql-connect.php</a></a></p>
+<blockquote>
+</blockquote>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

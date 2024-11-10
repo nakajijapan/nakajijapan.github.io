@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Doctrineいれてみる　with zend">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-02-07_408/" />
+<meta property="go:description" content="doctrineを入れてみる。
+久々にPHPでORMらしいツールがでましたね。
+Hibernateをインスパイアされたものらしいので結構使えそうかも
+って思ってインストールしてみました。
+ちなみに今は、ZendFrameworkを使っていたのでそこに組み込んでみることにする。
+
+Doctrine is an object relational mapper (ORM) for PHP 5.2.3&#43; that sits on top of a powerful database abstraction layer (DBAL). One of its key features is the option to write database queries in a proprietary object oriented SQL dialect called Doctrine Query Language (DQL), inspired by Hibernates HQL. This provides developers with a powerful alternative to SQL that maintains flexibility without requiring unnecessary code duplication.
+まずはダウンロード。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Doctrineいれてみる　with zend" />
+<meta name="twitter:description" content="doctrineを入れてみる。
+久々にPHPでORMらしいツールがでましたね。
+Hibernateをインスパイアされたものらしいので結構使えそうかも
+って思ってインストールしてみました。
+ちなみに今は、ZendFrameworkを使っていたのでそこに組み込んでみることにする。
+
+Doctrine is an object relational mapper (ORM) for PHP 5.2.3&#43; that sits on top of a powerful database abstraction layer (DBAL). One of its key features is the option to write database queries in a proprietary object oriented SQL dialect called Doctrine Query Language (DQL), inspired by Hibernates HQL. This provides developers with a powerful alternative to SQL that maintains flexibility without requiring unnecessary code duplication.
+まずはダウンロード。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Doctrineいれてみる　with zend - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Doctrineいれてみる　with zend</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-02-07">February 07, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/doctrine">Doctrine</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>doctrineを入れてみる。</p>
+<p>久々にPHPでORMらしいツールがでましたね。
+Hibernateをインスパイアされたものらしいので結構使えそうかも
+って思ってインストールしてみました。</p>
+<p>ちなみに今は、ZendFrameworkを使っていたのでそこに組み込んでみることにする。</p>
+<blockquote>
+Doctrine is an object relational mapper (ORM) for PHP 5.2.3+ that sits on top of a powerful database abstraction layer (DBAL). One of its key features is the option to write database queries in a proprietary object oriented SQL dialect called Doctrine Query Language (DQL), inspired by Hibernates HQL. This provides developers with a powerful alternative to SQL that maintains flexibility without requiring unnecessary code duplication.</blockquote>
+<p>まずはダウンロード。</p>
+<p><a href="http://www.doctrine-project.org/download">http://www.doctrine-project.org/download</a></p>
+<p>ディレクトリ配置は
+application/data
+application/data/sql
+application/data/ficture
+application/migrations
+application/schema
+application/scripts</p>
+<p>ライブラリ関連は「lib」ディレクトリ以下に配置。
+library/doctrine/Docrine.php
+library/doctrine/Docrine</p>
+<p>配置が完了したらindex.phpにdoctrineの設定を記述します。</p>
+<pre class="brush: php" >
+/-----------------------------------------------------------
+// setting Doctrine
+//-----------------------------------------------------------
+/*
+ * Set super-global data
+ */
+Doctrine_Manager::connection("mysql://user:pass@192.168.0.10/dbname");
+
+/*
+ * Configure Doctrine
+ */
+Zend_Registry::set('doctrine_config', array(
+        'data_fixtures_path'    =>  APPLICATION_PATH . '/doctrine/data/fixtures',
+        'models_path'                  =>  APPLICATION_PATH . '/models',
+        'migrations_path'          =>  APPLICATION_PATH . '/doctrine/migrations',
+        'sql_path'                        =>  APPLICATION_PATH . '/doctrine/data/sql',
+        'yaml_schema_path'        =>  APPLICATION_PATH . '/doctrine/schema'
+        ));
+</pre>
+<p>本当はBootstrapにプラグインとして組み込めばいいんですけど、本筋じゃないのでここでは割愛。
+もっといってみると、この場合負荷の分散になっていなからごねごねしなきゃいけない。</p>
+<p>次はスキーマを作成します。
+このスキーマを通してSQLを作成したり、モデルクラスを作成するためのファイルです。</p>
+<p>とりあえず、こんな感じで作ってみます。
+ファイル名は「schema.yaml」です。</p>
+<pre class="brush: text">
+User:
+  columns:
+    username: string(256)
+    password: string(256)
+  relations:
+    Groups:
+      class: Group
+      refClass: UserGroup
+      foreignAlias: Users
+
+Phonenumber:
+  columns:
+    user_id: integer
+    phonenumber: string(26)
+  relations:
+    User:
+      foreignAlias: Phonenumbers
+      onDelete: CASCADE
+
+Group:
+  tableName: groups
+  columns:
+     name: string(256)
+
+UserGroup:
+  columns:
+    user_id:
+      type: integer
+      primary: true
+    group_id:
+      type: integer
+      primary: true
+  relations:
+    User:
+      foreignAlias: UserGroups
+      onDelete: CASCADE
+    Group:
+      foreignAlias: UserGroups
+      onDelete: CASCADE
+</pre>
+<p>※作ってみたのはいいけどテーブル大きくなってきたら大変だなーって思ってたら
+カレントディレクトリ内のファイルはおいてあれば見に行く仕様になっていたので
+一安心でした。</p>
+<p>そこからdoctrineコマンドを通してモデルクラス、並びにSQLを作成してDBに設定を反映させてみます。
+この一連の作業がコマンド３発で来てしまうのがうれしいものですね。</p>
+<pre class="brush: bash">
+# ./doctrine-cli.php generate-models-yaml
+generate-models-yaml - Generated models successfully from YAML schema
+# ./doctrine-cli.php generate-sql 
+generate-sql - Generated SQL successfully for models
+# ./doctrine-cli.php create-tables 
+create-tables - 
+</pre>
+<p>これからはコントローラーで処理してみます。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

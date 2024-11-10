@@ -1,0 +1,37 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Vagrant on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/vagrant/</link>
+        <description>Recent content in Vagrant on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Fri, 28 Feb 2014 20:34:00 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/vagrant/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Vagrant勉強会でLTした</title>
+            <link>http://nakajijapan.github.io/posts/2014/2014-02-28-vagrant-tips/</link>
+            <pubDate>Fri, 28 Feb 2014 20:34:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2014/2014-02-28-vagrant-tips/</guid>
+            <description>&lt;p&gt;社内でVagrant勉強会があったので参加・発表してきました。&lt;/p&gt;
+&lt;p&gt;あるサービスのVagrant化を進めていて、エンジニアは当然のことデザイナさんでもローカルで開発できるように環境をそろえていた時に苦労したちょっとしたTipsを発表しました。まぁちょっとしたことなのですが、はまると何時間もはまるときあるのでこういう機会があると大変助かります。。。&lt;/p&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;dc857f2082a0013107e95ea41e86eac8&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;僕の他にも公開しているメンバーがいるのでご紹介します。
+こちらのブログにもリンクがあるので他の人の資料にもたどりつけると思います。&lt;/p&gt;
+&lt;h3 id=&#34;うづらudzuraさん&#34;&gt;うづら(udzura)さん&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;http://udzura.hatenablog.jp/entry/2014/02/28/140957&#34;&gt;http://udzura.hatenablog.jp/entry/2014/02/28/140957&lt;/a&gt;
+(アフェリエイトおじさんです。。。)&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[入門][はじめ１]railsをインスコ、そこまで！">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2011/2011-10-04_2928/" />
+<meta property="go:description" content="
+# 1.9.2が入りました
+brew install ruby
+
+
+[nakajijapan] #sudo ruby setup.rb                                                                                                                                   [~/Programming/rubygems-1.8.10]
+Password:
+RubyGems 1.8.10 installed
+
+== 1.8.10 / 2011-08-25
+
+RubyGems 1.8.10 contains a security fix that prevents malicious gems from
+executing code when their specification is loaded.  See
+https://github.com/rubygems/rubygems/pull/165 for details.
+
+* 5 bug fixes:
+
+  * RubyGems escapes strings in ruby-format specs using #dump instead of #to_s
+    and %q to prevent code injection.  Issue #165 by Postmodern
+  * RubyGems attempt to activate the psych gem now to obtain bugfixes from
+    psych.
+  * Gem.dir has been restored to the front of Gem.path.  Fixes remaining
+    problem with Issue #115
+  * Fixed Syck DefaultKey infecting ruby-format specifications.
+  * `gem uninstall a b` no longer stops if gem &#34;a&#34; is not installed.
+
+
+------------------------------------------------------------------------------
+
+最後にrailsのインストールを行う。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[入門][はじめ１]railsをインスコ、そこまで！" />
+<meta name="twitter:description" content="
+# 1.9.2が入りました
+brew install ruby
+
+
+[nakajijapan] #sudo ruby setup.rb                                                                                                                                   [~/Programming/rubygems-1.8.10]
+Password:
+RubyGems 1.8.10 installed
+
+== 1.8.10 / 2011-08-25
+
+RubyGems 1.8.10 contains a security fix that prevents malicious gems from
+executing code when their specification is loaded.  See
+https://github.com/rubygems/rubygems/pull/165 for details.
+
+* 5 bug fixes:
+
+  * RubyGems escapes strings in ruby-format specs using #dump instead of #to_s
+    and %q to prevent code injection.  Issue #165 by Postmodern
+  * RubyGems attempt to activate the psych gem now to obtain bugfixes from
+    psych.
+  * Gem.dir has been restored to the front of Gem.path.  Fixes remaining
+    problem with Issue #115
+  * Fixed Syck DefaultKey infecting ruby-format specifications.
+  * `gem uninstall a b` no longer stops if gem &#34;a&#34; is not installed.
+
+
+------------------------------------------------------------------------------
+
+最後にrailsのインストールを行う。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[入門][はじめ１]railsをインスコ、そこまで！ - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[入門][はじめ１]railsをインスコ、そこまで！</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-10-04">October 04, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/mac">Mac</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <pre class="brush:bash">
+# 1.9.2が入りました
+brew install ruby
+</pre>
+<pre class="brush:bash">
+[nakajijapan] #sudo ruby setup.rb                                                                                                                                   [~/Programming/rubygems-1.8.10]
+Password:
+RubyGems 1.8.10 installed
+
+== 1.8.10 / 2011-08-25
+
+RubyGems 1.8.10 contains a security fix that prevents malicious gems from
+executing code when their specification is loaded.  See
+https://github.com/rubygems/rubygems/pull/165 for details.
+
+* 5 bug fixes:
+
+  * RubyGems escapes strings in ruby-format specs using #dump instead of #to_s
+    and %q to prevent code injection.  Issue #165 by Postmodern
+  * RubyGems attempt to activate the psych gem now to obtain bugfixes from
+    psych.
+  * Gem.dir has been restored to the front of Gem.path.  Fixes remaining
+    problem with Issue #115
+  * Fixed Syck DefaultKey infecting ruby-format specifications.
+  * `gem uninstall a b` no longer stops if gem "a" is not installed.
+
+
+------------------------------------------------------------------------------
+</pre>
+<p>最後にrailsのインストールを行う。</p>
+<pre class="brush:bash">
+sudo gem install rails
+
+・
+・
+Installing ri documentation for rails-3.1.0...
+file 'lib' not found
+Installing RDoc documentation for rails-3.1.0...
+file 'lib' not found
+</pre>
+<p>エラーが発生しました。なのでエラーになった箇所の部分を無視するようにします。</p>
+<pre class="brush:bash">
+[nakajijapan] #sudo gem install rails --no-ri --no-rdoc                                                                                                                                  [/var/www]
+Successfully installed rails-3.1.0
+1 gem installed
+</pre>
+<p>といいつつなぜかインストールされていない。railsコマンドを打っても思うように出力してくれなかった。</p>
+<p>・・・・・結果は凡ミスでした。実はこんなところにあれができてたんですね。</p>
+<pre class="brush:bash">
+# brew経由でいろいろインスコしているためここになります
+cd /usr/local/bin/
+ln -s /usr/local/lib/ruby/gems/1.9.1/gems/rails-3.1.0/bin/rails rails
+</pre>
+<p>もともとあったコマンドを実行していてうまく動作していなかったみたいでした。</p>
+<p>無事完了しました！</p>
+<p>■参照URL
+<a href="http://rubyonrails.org/download">http://rubyonrails.org/download</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="brewでhttpdをインストール">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2011/2011-10-09_2918/" />
+<meta property="go:description" content="なぜなんだろうかbrewでhttpdがすんなりはいってくれない。
+Formula (パッケージ(のようなもの)を定義するRubyファイル) が別途作成しなければいけないらしいよ。
+このアプリをインストールしてみることにします。
+
+brew create http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz
+
+自動的にエディタが起動されて編集しろと促されます。
+
+require &#39;formula&#39;
+
+class Httpd &lt; Formula
+  url &#39;http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz&#39;
+  homepage &#39;&#39;
+  md5 &#39;b24ca6db942a4f8e57c357e5e3058d31&#39;
+
+  # depends_on &#39;cmake&#39;
+
+  def install
+    #system &#34;./configure&#34;, &#34;--disable-debug&#34;, &#34;--disable-dependency-tracking&#34;,
+    #                      &#34;--prefix=#{prefix}&#34;
+    # system &#34;cmake . #{std_cmake_parameters}&#34;
+    system &#34;./configure&#34;, *args
+    system &#34;make&#34;
+    system &#34;make install&#34;
+  end
+
+  def test
+    # This test will fail and we won&#39;t accept that! It&#39;s enough to just
+    # replace &#34;false&#34; with the main program this formula installs, but
+    # it&#39;d be nice if you were more thorough. Test the test with
+    # `brew test httpd`. Remove this comment before submitting
+    # your pull request!
+    system &#34;false&#34;
+  end
+
+  def args
+      return [&#34;--prefix=#{prefix}&#34;,&#34;--disable-debug&#34;,&#34;--disable-dependency-tracking&#34;,&#34;--enable-so&#34;,&#34;--enable-rewrite&#34;,&#34;--mandir=#{man}&#34;,]
+  end
+end
+
+インストール開始します。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="brewでhttpdをインストール" />
+<meta name="twitter:description" content="なぜなんだろうかbrewでhttpdがすんなりはいってくれない。
+Formula (パッケージ(のようなもの)を定義するRubyファイル) が別途作成しなければいけないらしいよ。
+このアプリをインストールしてみることにします。
+
+brew create http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz
+
+自動的にエディタが起動されて編集しろと促されます。
+
+require &#39;formula&#39;
+
+class Httpd &lt; Formula
+  url &#39;http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz&#39;
+  homepage &#39;&#39;
+  md5 &#39;b24ca6db942a4f8e57c357e5e3058d31&#39;
+
+  # depends_on &#39;cmake&#39;
+
+  def install
+    #system &#34;./configure&#34;, &#34;--disable-debug&#34;, &#34;--disable-dependency-tracking&#34;,
+    #                      &#34;--prefix=#{prefix}&#34;
+    # system &#34;cmake . #{std_cmake_parameters}&#34;
+    system &#34;./configure&#34;, *args
+    system &#34;make&#34;
+    system &#34;make install&#34;
+  end
+
+  def test
+    # This test will fail and we won&#39;t accept that! It&#39;s enough to just
+    # replace &#34;false&#34; with the main program this formula installs, but
+    # it&#39;d be nice if you were more thorough. Test the test with
+    # `brew test httpd`. Remove this comment before submitting
+    # your pull request!
+    system &#34;false&#34;
+  end
+
+  def args
+      return [&#34;--prefix=#{prefix}&#34;,&#34;--disable-debug&#34;,&#34;--disable-dependency-tracking&#34;,&#34;--enable-so&#34;,&#34;--enable-rewrite&#34;,&#34;--mandir=#{man}&#34;,]
+  end
+end
+
+インストール開始します。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>brewでhttpdをインストール - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">brewでhttpdをインストール</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-10-09">October 09, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/mac">Mac</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>なぜなんだろうかbrewでhttpdがすんなりはいってくれない。
+Formula (パッケージ(のようなもの)を定義するRubyファイル) が別途作成しなければいけないらしいよ。</p>
+<p>このアプリをインストールしてみることにします。</p>
+<pre class="brush:bash">
+brew create http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz
+</pre>
+<p>自動的にエディタが起動されて編集しろと促されます。</p>
+<pre class="brush:bash">
+require 'formula'
+
+class Httpd < Formula
+  url 'http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz'
+  homepage ''
+  md5 'b24ca6db942a4f8e57c357e5e3058d31'
+
+  # depends_on 'cmake'
+
+  def install
+    #system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    #                      "--prefix=#{prefix}"
+    # system "cmake . #{std_cmake_parameters}"
+    system "./configure", *args
+    system "make"
+    system "make install"
+  end
+
+  def test
+    # This test will fail and we won't accept that! It's enough to just
+    # replace "false" with the main program this formula installs, but
+    # it'd be nice if you were more thorough. Test the test with
+    # `brew test httpd`. Remove this comment before submitting
+    # your pull request!
+    system "false"
+  end
+
+  def args
+      return ["--prefix=#{prefix}","--disable-debug","--disable-dependency-tracking","--enable-so","--enable-rewrite","--mandir=#{man}",]
+  end
+end
+</pre>
+<p>インストール開始します。</p>
+<pre class="brush:bash">
+brew install  httpd
+</pre>
+<p>完成です。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

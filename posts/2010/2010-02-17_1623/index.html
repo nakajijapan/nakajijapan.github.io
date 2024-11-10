@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="ZendのSmartyで文字コード変換">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-02-17_1623/" />
+<meta property="go:description" content="分け合ってUTF-8のデータをンプレート出力時にはデータをSJISに設定する必要がでたのでそのメモ。
+■動作
+HTTP（INPUT）：SJIS
+内部（データ、ファイルもろもろ）：UTF-8
+HTTP（OUTPUT）：SJIS
+
+// My_View_Smarty 内の関数
+    public function __construct($tmplPath = null, $extraParams = array())
+    {
+        // オブジェクト生成
+        $this-&gt;_smarty = new Smarty();
+
+        // テンプレートパス設定
+        if (null !== $tmplPath) {
+            $this-&gt;setScriptPath($tmplPath);
+        }
+
+        // 設定情報をメンバ変数へ
+        foreach ($extraParams as $key =&gt; $value) {
+
+            // define function
+            if (is_array($value)) {
+                foreach ($value as $key2 =&gt; $value2) {
+                    // 出力時の関数指定
+                    if ($key === &#34;outputfilter&#34;) {
+                        $this-&gt;_smarty-&gt;autoload_filters[&#39;output&#39;][] = $value2;
+                    }
+                    else {
+                        $this-&gt;_smarty-&gt;{$key}[] = $value2;
+                    }
+                }
+            }
+            else {
+                $this-&gt;_smarty-&gt;$key = $value;
+            }
+        }
+
+その次は関数の設定" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="ZendのSmartyで文字コード変換" />
+<meta name="twitter:description" content="分け合ってUTF-8のデータをンプレート出力時にはデータをSJISに設定する必要がでたのでそのメモ。
+■動作
+HTTP（INPUT）：SJIS
+内部（データ、ファイルもろもろ）：UTF-8
+HTTP（OUTPUT）：SJIS
+
+// My_View_Smarty 内の関数
+    public function __construct($tmplPath = null, $extraParams = array())
+    {
+        // オブジェクト生成
+        $this-&gt;_smarty = new Smarty();
+
+        // テンプレートパス設定
+        if (null !== $tmplPath) {
+            $this-&gt;setScriptPath($tmplPath);
+        }
+
+        // 設定情報をメンバ変数へ
+        foreach ($extraParams as $key =&gt; $value) {
+
+            // define function
+            if (is_array($value)) {
+                foreach ($value as $key2 =&gt; $value2) {
+                    // 出力時の関数指定
+                    if ($key === &#34;outputfilter&#34;) {
+                        $this-&gt;_smarty-&gt;autoload_filters[&#39;output&#39;][] = $value2;
+                    }
+                    else {
+                        $this-&gt;_smarty-&gt;{$key}[] = $value2;
+                    }
+                }
+            }
+            else {
+                $this-&gt;_smarty-&gt;$key = $value;
+            }
+        }
+
+その次は関数の設定" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>ZendのSmartyで文字コード変換 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">ZendのSmartyで文字コード変換</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-02-17">February 17, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>分け合ってUTF-8のデータをンプレート出力時にはデータをSJISに設定する必要がでたのでそのメモ。</p>
+<p>■動作
+HTTP（INPUT）：SJIS
+内部（データ、ファイルもろもろ）：UTF-8
+HTTP（OUTPUT）：SJIS</p>
+<pre class="brush: php">
+// My_View_Smarty 内の関数
+    public function __construct($tmplPath = null, $extraParams = array())
+    {
+        // オブジェクト生成
+        $this->_smarty = new Smarty();
+
+        // テンプレートパス設定
+        if (null !== $tmplPath) {
+            $this->setScriptPath($tmplPath);
+        }
+
+        // 設定情報をメンバ変数へ
+        foreach ($extraParams as $key => $value) {
+
+            // define function
+            if (is_array($value)) {
+                foreach ($value as $key2 => $value2) {
+                    // 出力時の関数指定
+                    if ($key === "outputfilter") {
+                        $this->_smarty->autoload_filters['output'][] = $value2;
+                    }
+                    else {
+                        $this->_smarty->{$key}[] = $value2;
+                    }
+                }
+            }
+            else {
+                $this->_smarty->$key = $value;
+            }
+        }
+</pre>
+<p>その次は関数の設定</p>
+<pre class="brush: php">
+
+function smarty_outputfilter_convertSjis($output, &$smarty)
+{
+    return mb_convert_encoding($output, 'SJIS-win', 'UTF-8');
+}
+
+</pre>
+<p>あとはブートストラップ使ってPHPの設定情報を変更する。</p>
+<pre class="brush: php">
+phpSettings.mbstring.internal_encoding = "UTF-8"
+phpSettings.http_input                 = "UTF-8"
+phpSettings.http_output                = "pass"
+
+; smarty のアウトプットフィルターに関数を登録する
+; 番号指定で複数可能
+resources.viewsmarty.outputfilter.0    = "convertSjis"
+</pre>
+<p>こんな感じで変換してみた。</p>
+<p>もとにもどすときはapp.iniの設定抜くだけで全部UTF-8になるっすね。</p>
+<p>これでよし。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

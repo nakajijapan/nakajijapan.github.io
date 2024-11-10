@@ -1,0 +1,91 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>GoogleAppEngine on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/googleappengine/</link>
+        <description>Recent content in GoogleAppEngine on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sat, 13 Feb 2010 19:27:22 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/googleappengine/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>GAE勉強会</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-13_1597/</link>
+            <pubDate>Sat, 13 Feb 2010 19:27:22 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-13_1597/</guid>
+            <description>&lt;p&gt;GAE勉強会
+※わからないないところもあったので後で調べる予定です。&lt;/p&gt;
+&lt;h2&gt;内容&lt;/h2&gt;
+＜セッション1＞
+発表者：松尾さん（@tmatsuo）
+テーマ：「App Engine アンチパターンその他」
+内容：App Engine でやってはいけないパターンを紹介、その他で小技集の紹介をします。
+&lt;p&gt;＜セッション2＞
+発表者：ひがやすをさん（@higayasuo）
+テーマ：「Global Transaction」
+内容：Global Transactionを理解するために必要なことを全部お話します。&lt;/p&gt;
+&lt;h2&gt;セッション１&lt;/h2&gt;
+&lt;ol&gt;
+	&lt;li&gt;【モデル】&lt;/li&gt;
+インデックスの張り過ぎには注意
+メタデータにも注意
+カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。
+過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストア
+を節約させる。（そこそこらしい）
+検索不要なプロパティは、インデックス対象にならないようにPUTする。
+&lt;pre class=&#34;brush:python&#34;&gt;# before
+class Bar(db.Model):
+prop1 = db.StringProperty()
+&lt;h1 id=&#34;after&#34;&gt;after&lt;/h1&gt;
+&lt;p&gt;class Bar(db.Model):
+prop1 = db.StringProperty(false)&lt;/pre&gt;
+&lt;li&gt;【Query】&lt;/li&gt;
+コンポジットインデックス
+ソートもインデックスを使用して検索するので注意。
+&lt;li&gt;【モジュール】&lt;/li&gt;
+pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。
+appengineの場合は関数の中で必要なモジュールのみimportする&lt;/p&gt;
+&lt;pre class=&#34;brush: python&#34;&gt;#import hoge_utils
+
+def_index(request):
+# ここでimportしたほうがいい
+import hoge_utils
+return hoge_utils.getQuery();
+&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;li&amp;gt;【SDK1.3.1 新機能】&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;
+         &amp;lt;ol&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;li&gt;transaction task queue&lt;/li&gt;
+transactionalTaskQueue→transactionが成功するとTaskQueueが追加される。
+失敗したときはTaskがQueueに追加されない
+TaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい
+同時にさばけるのは２０らしい
+&lt;li&gt;Cursor&lt;/li&gt;
+pagingに使えそうなイメージ
+&lt;li&gt;appstats&lt;/li&gt;
+RPCのグラフみれたり、どっかでその時点でのコードがみれる
+memcacheを利用している
+pythonの作者が作成した
+&lt;pre&gt;&lt;code&gt;         &amp;lt;/ol&amp;gt;
+    &amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/ol&gt;
+&lt;h2&gt;セッション２　GTX&lt;/h2&gt;
+&lt;p&gt;１エンティティ１トランザクションが制約
+複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション
+エンティティグループロック？？&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

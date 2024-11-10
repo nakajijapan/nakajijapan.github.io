@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[memo]オブジェクト指向＋jquery">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/09/07/memo%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E6%8C%87%E5%90%91jquery/" />
+<meta property="go:description" content="いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので
+それ用に実装方法を書いてみる。
+
+
+
+＜body＞" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[memo]オブジェクト指向＋jquery" />
+<meta name="twitter:description" content="いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので
+それ用に実装方法を書いてみる。
+
+
+
+＜body＞" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[memo]オブジェクト指向＋jquery - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[memo]オブジェクト指向＋jquery</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-09-07">September 07, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/javascript">javascript</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>いつぞやのjavascriptでオブジェクト指向プログラミング的な記事を書きましたが、どっちかというとjqueryでの実装の方がおおいので
+それ用に実装方法を書いてみる。</p>
+<pre class="brush: html">
+<script src="../jquery-1_4_2.js" type="text/javascript"></script>
+<script>
+// クラス的な位置づけ
+var Nakaji = function(){ 
+    // メンバ変数的な位置づけ 
+    this.hidden = false; 
+
+    // コンストラクタ的な位置づけ
+    this.setup(); 
+} 
+Nakaji.prototype = { 
+    setup: function(){ 
+        this.elem = $('<div class="nakajijapan">NAKAJIJAPAN!</div>'); 
+        this.elem.css("background","#EEEEEE"); 
+        $(document.body).append(this.elem.fadeIn(5000)); 
+        var self = this; 
+        
+        this.elem.click(function(){ 
+            if(self.hidden){ 
+                self.show(); 
+            }else{ 
+                self.hide(); 
+            } 
+        }); 
+    }, 
+    hide: function(){ 
+        this.elem.css("background","#cccccc"); 
+        this.hidden = true; 
+    }, 
+    show: function(){ 
+        this.elem.css("background","#000000"); 
+        this.hidden = false; 
+    } 
+} 
+
+# document読み込み終了時に開始
+$(function(){ 
+    var nakaji1 = new Nakaji(); 
+    var nakaji2 = new Nakaji(); 
+    var nakaji3 = new Nakaji(); 
+    var nakaji4 = new Nakaji(); 
+    var nakaji5 = new Nakaji(); 
+});
+
+</script>
+<p>＜body＞</p>
+<h1>object</h1>
+＜/body＞
+</pre>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

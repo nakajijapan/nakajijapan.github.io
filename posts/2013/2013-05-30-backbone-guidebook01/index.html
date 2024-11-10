@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Backbone.jsガイドブック読書会 第１章 続き">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2013/2013-05-30-backbone-guidebook01/" />
+<meta property="go:description" content="第１章の続き
+Eventsあたりのところから
+
+Eventsが提供しているインタフェースはオブザーバパターンを駆使してオブジェクト間の結合を「疎」に保たせている
+
+と記述されている。
+オブザーバパターンとは
+購読者と発行者と呼ばれるオブジェクトが存在する。
+発行者が購読者のメソッドを直接呼び出す代わりに、購読者は発行者
+のイベントを購読する。イベントが発生したらそれを購読している
+オブジェクトに通知される。
+発行者はだれが購読してるのか知らずに済む。
+イベント駆動開発の技法。
+詳細はここが分かりやすい。
+http://www.techscore.com/tech/DesignPattern/Observer.html/
+Backbone.jsでいう購読者と発行者
+これを以下のようにして考えるとわかりやすい
+
+購読者: View
+発行者 : Model
+
+Modelはだれが購読してるかしらなくていい、イベントを通知してあげればいいんです。
+# viewの中で
+var entry = new Entry();
+entry.on(&#39;change&#39;, this.render());
+メディエータパターン
+
+複数オブジェクトの間を取り持つ仲介者と鳴るオブジェクトを用意し、オブジェクト間の連動の詳細をその仲介者に持たせる
+個々のオブジェクトの独自性を高める
+
+内容は理解できたけど、使いどころまだピンときていない。
+ここに詳しく記述されていた。
+http://www.techscore.com/tech/DesignPattern/Mediator.html/
+コラムでのまめ知識
+メモリーリークの問題からon() off()ではなくて listenTo() stopListening()を利用するといい
+v1.0からはView#remove()内部でstopListening() ViewではlistenToしてるので大丈夫！
+Underscore.js
+便利関数の紹介だった。
+
+_.debounce()
+
+一定時間イベントが発生しなかったときに処理を実行する
+
+
+_.throtte()
+
+コールバックの実行頻度をさげる
+
+
+_.delay()
+
+処理を遅らせる
+
+
+_.defer()
+
+コールバック関数の中で最後に実行されることを保証する
+
+
+
+上記二つの関数は今にも使えそうな便利関数だったので導入していきたいな。
+http://underscorejs.org/
+見る限り処理を便利＆スマートにしてくれるのでカジュアルにこれだけ導入でもありかもしれない。
+さて来週からは第二章ですよ。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Backbone.jsガイドブック読書会 第１章 続き" />
+<meta name="twitter:description" content="第１章の続き
+Eventsあたりのところから
+
+Eventsが提供しているインタフェースはオブザーバパターンを駆使してオブジェクト間の結合を「疎」に保たせている
+
+と記述されている。
+オブザーバパターンとは
+購読者と発行者と呼ばれるオブジェクトが存在する。
+発行者が購読者のメソッドを直接呼び出す代わりに、購読者は発行者
+のイベントを購読する。イベントが発生したらそれを購読している
+オブジェクトに通知される。
+発行者はだれが購読してるのか知らずに済む。
+イベント駆動開発の技法。
+詳細はここが分かりやすい。
+http://www.techscore.com/tech/DesignPattern/Observer.html/
+Backbone.jsでいう購読者と発行者
+これを以下のようにして考えるとわかりやすい
+
+購読者: View
+発行者 : Model
+
+Modelはだれが購読してるかしらなくていい、イベントを通知してあげればいいんです。
+# viewの中で
+var entry = new Entry();
+entry.on(&#39;change&#39;, this.render());
+メディエータパターン
+
+複数オブジェクトの間を取り持つ仲介者と鳴るオブジェクトを用意し、オブジェクト間の連動の詳細をその仲介者に持たせる
+個々のオブジェクトの独自性を高める
+
+内容は理解できたけど、使いどころまだピンときていない。
+ここに詳しく記述されていた。
+http://www.techscore.com/tech/DesignPattern/Mediator.html/
+コラムでのまめ知識
+メモリーリークの問題からon() off()ではなくて listenTo() stopListening()を利用するといい
+v1.0からはView#remove()内部でstopListening() ViewではlistenToしてるので大丈夫！
+Underscore.js
+便利関数の紹介だった。
+
+_.debounce()
+
+一定時間イベントが発生しなかったときに処理を実行する
+
+
+_.throtte()
+
+コールバックの実行頻度をさげる
+
+
+_.delay()
+
+処理を遅らせる
+
+
+_.defer()
+
+コールバック関数の中で最後に実行されることを保証する
+
+
+
+上記二つの関数は今にも使えそうな便利関数だったので導入していきたいな。
+http://underscorejs.org/
+見る限り処理を便利＆スマートにしてくれるのでカジュアルにこれだけ導入でもありかもしれない。
+さて来週からは第二章ですよ。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Backbone.jsガイドブック読書会 第１章 続き - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Backbone.jsガイドブック読書会 第１章 続き</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-05-30">May 30, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/backbonejs">backbonejs</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>第１章の続き</p>
+<p>Eventsあたりのところから</p>
+<blockquote>
+<p>Eventsが提供しているインタフェースはオブザーバパターンを駆使してオブジェクト間の結合を「疎」に保たせている</p>
+</blockquote>
+<p>と記述されている。</p>
+<h2 id="オブザーバパターンとは">オブザーバパターンとは</h2>
+<p>購読者と発行者と呼ばれるオブジェクトが存在する。
+発行者が購読者のメソッドを直接呼び出す代わりに、購読者は発行者
+のイベントを購読する。イベントが発生したらそれを購読している
+オブジェクトに通知される。</p>
+<p>発行者はだれが購読してるのか知らずに済む。</p>
+<p>イベント駆動開発の技法。</p>
+<p>詳細はここが分かりやすい。
+<a href="http://www.techscore.com/tech/DesignPattern/Observer.html/">http://www.techscore.com/tech/DesignPattern/Observer.html/</a></p>
+<h3 id="backbonejsでいう購読者と発行者">Backbone.jsでいう購読者と発行者</h3>
+<p>これを以下のようにして考えるとわかりやすい</p>
+<ul>
+<li>購読者: View</li>
+<li>発行者 : Model</li>
+</ul>
+<p>Modelはだれが購読してるかしらなくていい、イベントを通知してあげればいいんです。</p>
+<pre tabindex="0"><code># viewの中で
+var entry = new Entry();
+entry.on(&#39;change&#39;, this.render());
+</code></pre><h2 id="メディエータパターン">メディエータパターン</h2>
+<blockquote>
+<p>複数オブジェクトの間を取り持つ仲介者と鳴るオブジェクトを用意し、オブジェクト間の連動の詳細をその仲介者に持たせる
+個々のオブジェクトの独自性を高める</p>
+</blockquote>
+<p>内容は理解できたけど、使いどころまだピンときていない。</p>
+<p>ここに詳しく記述されていた。
+<a href="http://www.techscore.com/tech/DesignPattern/Mediator.html/">http://www.techscore.com/tech/DesignPattern/Mediator.html/</a></p>
+<h2 id="コラムでのまめ知識">コラムでのまめ知識</h2>
+<p>メモリーリークの問題から<code>on() off()</code>ではなくて <code>listenTo() stopListening()</code>を利用するといい
+v1.0からはView#remove()内部でstopListening() ViewではlistenToしてるので大丈夫！</p>
+<h2 id="underscorejs">Underscore.js</h2>
+<p>便利関数の紹介だった。</p>
+<ul>
+<li>_.debounce()
+<ul>
+<li>一定時間イベントが発生しなかったときに処理を実行する</li>
+</ul>
+</li>
+<li>_.throtte()
+<ul>
+<li>コールバックの実行頻度をさげる</li>
+</ul>
+</li>
+<li>_.delay()
+<ul>
+<li>処理を遅らせる</li>
+</ul>
+</li>
+<li>_.defer()
+<ul>
+<li>コールバック関数の中で最後に実行されることを保証する</li>
+</ul>
+</li>
+</ul>
+<p>上記二つの関数は今にも使えそうな便利関数だったので導入していきたいな。</p>
+<p><a href="http://underscorejs.org/">http://underscorejs.org/</a></p>
+<p>見る限り処理を便利＆スマートにしてくれるのでカジュアルにこれだけ導入でもありかもしれない。</p>
+<p>さて来週からは第二章ですよ。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Zsh on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/zsh/</link>
+        <description>Recent content in Zsh on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Wed, 12 Oct 2011 23:22:18 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/zsh/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>zshで超自動補完設定にしてみたけどやめた</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-10-12_2910/</link>
+            <pubDate>Wed, 12 Oct 2011 23:22:18 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-10-12_2910/</guid>
+            <description>&lt;p&gt;コマンドラインで何文字か入力した時点でコマンドやファイル等を候補であげてくれるものらしんだけどなんかあまりにもうざかったので速攻廃止しました。&lt;/p&gt;
+&lt;p&gt;「欲しい情報が欲しいときに入る」前提の下、必要じゃないときにいろんな情報が１文字打つたびでるのは目障りにみえました。&lt;/p&gt;
+&lt;p&gt;今まで通りほしいときにTabで候補をだして移動して選択がいいです。&lt;/p&gt;
+&lt;p&gt;■参考URL
+&lt;a href=&#34;http://d.hatena.ne.jp/Naruhodius/20110520/1305872622&#34;&gt;http://d.hatena.ne.jp/Naruhodius/20110520/1305872622&lt;/a&gt;
+&lt;a href=&#34;http://d.hatena.ne.jp/seiunsky/20110519/1305764493&#34;&gt;http://d.hatena.ne.jp/seiunsky/20110519/1305764493&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

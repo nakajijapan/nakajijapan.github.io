@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Travis CI &#43; GitHubを利用した継続的インテグレーション">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2012/2012-09-10_3330/" />
+<meta property="go:description" content="最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、
+PHPからRuby&#43;Rails&#43;S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。
+本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト
+環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの
+ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。
+
+A hosted continuous integration service for the open source community.
+(翻訳)
+オープンソースコミュニティのための継続インテグレーションサービス
+
+早速、設定してみました。
+とりあえず、ユーザ登録します。
+だいたいここをみてやればできるはずです。。
+
+language: ruby
+rvm:
+  - 1.9.3
+  - 1.9.2
+
+gemfile:
+  - Gemfile
+
+env:
+- DB=mysql
+
+before_script:
+ - mysql -e &#39;create database frustration_test;&#39;
+
+script: 
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+
+これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。
+テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。
+
+あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが
+問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって
+もんですね！！！" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Travis CI &#43; GitHubを利用した継続的インテグレーション" />
+<meta name="twitter:description" content="最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、
+PHPからRuby&#43;Rails&#43;S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。
+本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト
+環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの
+ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。
+
+A hosted continuous integration service for the open source community.
+(翻訳)
+オープンソースコミュニティのための継続インテグレーションサービス
+
+早速、設定してみました。
+とりあえず、ユーザ登録します。
+だいたいここをみてやればできるはずです。。
+
+language: ruby
+rvm:
+  - 1.9.3
+  - 1.9.2
+
+gemfile:
+  - Gemfile
+
+env:
+- DB=mysql
+
+before_script:
+ - mysql -e &#39;create database frustration_test;&#39;
+
+script: 
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+
+これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。
+テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。
+
+あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが
+問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって
+もんですね！！！" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Travis CI &#43; GitHubを利用した継続的インテグレーション - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Travis CI &#43; GitHubを利用した継続的インテグレーション</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-09-10">September 10, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ci">CI</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、</p>
+<p>PHPからRuby+Rails+S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。</p>
+<p>本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト</p>
+<p>環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの</p>
+<p>ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。</p>
+<blockquote>
+A hosted continuous integration service for the open source community.
+<p>(翻訳)
+オープンソースコミュニティのための継続インテグレーションサービス</p>
+</blockquote>
+<p>早速、設定してみました。
+とりあえず、ユーザ登録します。
+だいたい<a href="http://about.travis-ci.org/docs/" target="_blank">ここ</a>をみてやればできるはずです。。</p>
+<pre class="brush:bash">
+language: ruby
+rvm:
+  - 1.9.3
+  - 1.9.2
+
+gemfile:
+  - Gemfile
+
+env:
+- DB=mysql
+
+before_script:
+ - mysql -e 'create database frustration_test;'
+
+script: 
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+</pre>
+<p>これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。
+テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。</p>
+<p><img src="http://blog.nakajijapan.net/wp-content/uploads/2012/09/スクリーンショット-2012-09-10-2.20.39.png" alt="" title="Travis-CI" class="aligncenter size-full wp-image-3331" /></p>
+<p>あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが
+問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって
+もんですね！！！</p>
+<p><a href="https://github.com/nakajijapan/frustrationme_app/pull/2"><img src="http://blog.nakajijapan.net/wp-content/uploads/2012/09/スクリーンショット-2012-09-10-2.23.27.png" alt="Travis-CI_GitHub" title="Travis-CI_GitHub" class="aligncenter size-full wp-image-3333" /></a></p>
+<p>□参照URL</p>
+<p>http://travis-ci.org/</p>
+<p>https://github.com/</p>
+<blockquote>
+</blockquote>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

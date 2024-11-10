@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="AV Foundation Frameworkを利用して動画の結合を行う">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2013/10/22/av-foundation-framework%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E5%8B%95%E7%94%BB%E3%81%AE%E7%B5%90%E5%90%88%E3%82%92%E8%A1%8C%E3%81%86/" />
+<meta property="go:description" content="こんにちはあのnakajijapanです。 以前、心霊動画アプリで「もう一度ご覧いただこう」 というアプリをリリースしました。 心霊動画アプリなので動画と動画を結合したり動画の上に動画を重ねて実装したりといろいろ やるわけですが今回はじめてということもあり沢山勉強になったのでここいらで自分の頭の整理 がてら情報をまためようと思います。
+今回主に利用したのが「AV Foundation」です。
+ざっくりいうとメディア情報（動画）を細かく制御できるようにしたフレームワークで、メタ情報の 取得、作成、編集、再エンコードができたりできます。
+階層的には以下のような階層に存在して、簡単に動画とか写真の処理をしたい場合は
+
+Media Player Framework(MPMoviePlayerController, MPMoviePlayerViewController)
+UIKit(UIIMagePickerController)
+
+を実装すれば難なく実装できちゃいます。ただ、今回は動画にいろんなエフェクトをいれたいのでもっと細かく制御 できる下の階層のフレームワークを使いました。感覚的に細かい制御できるようになるのでそのぶん面倒くさいのは いうまでもありません。
+
+https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html
+では実際にどう実装していけばいいかなのですが、そのために結構なクラスを利用するのでそれぞれざっくり説明していきます。
+AVAsset
+iPodや写真ライブラリのメディア情報をオブジェクトとして保持することができ、これからいろんなの情報を切り出して取得すること ができます。
+AVAsset*                   videoAsset;
+videoAsset = [[AVURLAsset alloc] initWithURL:movieUrl options:nil];
+AVAssetTrack
+アセットの情報からトラックレベルで切り出した情報。（うまく翻訳できなかった・・・） 例えば、アセットから動画と音声に切り分ける。
+AVAsset*                   videoAsset;
+AVAssetTrack*              videoTrack;
+AVAssetTrack*              audioTrack;
+
+videoAsset = [[AVURLAsset alloc] initWithURL:movieUrl options:nil];
+
+// アセットからトラックを取得
+videoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+audioTrack = [[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+AVMutableCompositionTrack
+様々なメディア情報を結合したものです。このクラスで様々に編集された動画や音声を結合したり、時間の制御をしたり するクラスです。最終的にAVAssetExportSessionに渡してエキスポート処理（実際にファイルに保存する）します。
+AVMutableComposition*      mixComposition;
+AVMutableCompositionTrack* compositionVideoTrack;
+
+// コンポジション作成
+mixComposition = [AVMutableComposition composition];
+compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+AVMutableVideoComposition
+AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="AV Foundation Frameworkを利用して動画の結合を行う" />
+<meta name="twitter:description" content="こんにちはあのnakajijapanです。 以前、心霊動画アプリで「もう一度ご覧いただこう」 というアプリをリリースしました。 心霊動画アプリなので動画と動画を結合したり動画の上に動画を重ねて実装したりといろいろ やるわけですが今回はじめてということもあり沢山勉強になったのでここいらで自分の頭の整理 がてら情報をまためようと思います。
+今回主に利用したのが「AV Foundation」です。
+ざっくりいうとメディア情報（動画）を細かく制御できるようにしたフレームワークで、メタ情報の 取得、作成、編集、再エンコードができたりできます。
+階層的には以下のような階層に存在して、簡単に動画とか写真の処理をしたい場合は
+
+Media Player Framework(MPMoviePlayerController, MPMoviePlayerViewController)
+UIKit(UIIMagePickerController)
+
+を実装すれば難なく実装できちゃいます。ただ、今回は動画にいろんなエフェクトをいれたいのでもっと細かく制御 できる下の階層のフレームワークを使いました。感覚的に細かい制御できるようになるのでそのぶん面倒くさいのは いうまでもありません。
+
+https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html
+では実際にどう実装していけばいいかなのですが、そのために結構なクラスを利用するのでそれぞれざっくり説明していきます。
+AVAsset
+iPodや写真ライブラリのメディア情報をオブジェクトとして保持することができ、これからいろんなの情報を切り出して取得すること ができます。
+AVAsset*                   videoAsset;
+videoAsset = [[AVURLAsset alloc] initWithURL:movieUrl options:nil];
+AVAssetTrack
+アセットの情報からトラックレベルで切り出した情報。（うまく翻訳できなかった・・・） 例えば、アセットから動画と音声に切り分ける。
+AVAsset*                   videoAsset;
+AVAssetTrack*              videoTrack;
+AVAssetTrack*              audioTrack;
+
+videoAsset = [[AVURLAsset alloc] initWithURL:movieUrl options:nil];
+
+// アセットからトラックを取得
+videoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+audioTrack = [[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+AVMutableCompositionTrack
+様々なメディア情報を結合したものです。このクラスで様々に編集された動画や音声を結合したり、時間の制御をしたり するクラスです。最終的にAVAssetExportSessionに渡してエキスポート処理（実際にファイルに保存する）します。
+AVMutableComposition*      mixComposition;
+AVMutableCompositionTrack* compositionVideoTrack;
+
+// コンポジション作成
+mixComposition = [AVMutableComposition composition];
+compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+AVMutableVideoComposition
+AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>AV Foundation Frameworkを利用して動画の結合を行う - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">AV Foundation Frameworkを利用して動画の結合を行う</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-10-22">October 22, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>こんにちはあのnakajijapanです。 以前、心霊動画アプリで「もう一度ご覧いただこう」 というアプリをリリースしました。 心霊動画アプリなので動画と動画を結合したり動画の上に動画を重ねて実装したりといろいろ やるわけですが今回はじめてということもあり沢山勉強になったのでここいらで自分の頭の整理 がてら情報をまためようと思います。</p>
+<p>今回主に利用したのが「AV Foundation」です。</p>
+<p>ざっくりいうとメディア情報（動画）を細かく制御できるようにしたフレームワークで、メタ情報の 取得、作成、編集、再エンコードができたりできます。</p>
+<p>階層的には以下のような階層に存在して、簡単に動画とか写真の処理をしたい場合は</p>
+<ul>
+<li>Media Player Framework(MPMoviePlayerController, MPMoviePlayerViewController)</li>
+<li>UIKit(UIIMagePickerController)</li>
+</ul>
+<p>を実装すれば難なく実装できちゃいます。ただ、今回は動画にいろんなエフェクトをいれたいのでもっと細かく制御 できる下の階層のフレームワークを使いました。感覚的に細かい制御できるようになるのでそのぶん面倒くさいのは いうまでもありません。</p>
+<p><img src="/images/posts/2013/2013-10-22_01.png" alt="layer"></p>
+<p><a href="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html">https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html</a></p>
+<p>では実際にどう実装していけばいいかなのですが、そのために結構なクラスを利用するのでそれぞれざっくり説明していきます。</p>
+<h3 id="avasset">AVAsset</h3>
+<p>iPodや写真ライブラリのメディア情報をオブジェクトとして保持することができ、これからいろんなの情報を切り出して取得すること ができます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVAsset<span style="color:#f92672">*</span>                   videoAsset;
+</span></span><span style="display:flex;"><span>videoAsset <span style="color:#f92672">=</span> [[AVURLAsset alloc] initWithURL:movieUrl options:nil];
+</span></span></code></pre></div><h3 id="avassettrack">AVAssetTrack</h3>
+<p>アセットの情報からトラックレベルで切り出した情報。（うまく翻訳できなかった・・・） 例えば、アセットから動画と音声に切り分ける。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVAsset<span style="color:#f92672">*</span>                   videoAsset;
+</span></span><span style="display:flex;"><span>AVAssetTrack<span style="color:#f92672">*</span>              videoTrack;
+</span></span><span style="display:flex;"><span>AVAssetTrack<span style="color:#f92672">*</span>              audioTrack;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>videoAsset <span style="color:#f92672">=</span> [[AVURLAsset alloc] initWithURL:movieUrl options:nil];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// アセットからトラックを取得
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>videoTrack <span style="color:#f92672">=</span> [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>audioTrack <span style="color:#f92672">=</span> [[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:<span style="color:#ae81ff">0</span>];
+</span></span></code></pre></div><h3 id="avmutablecompositiontrack">AVMutableCompositionTrack</h3>
+<p>様々なメディア情報を結合したものです。このクラスで様々に編集された動画や音声を結合したり、時間の制御をしたり するクラスです。最終的にAVAssetExportSessionに渡してエキスポート処理（実際にファイルに保存する）します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVMutableComposition<span style="color:#f92672">*</span>      mixComposition;
+</span></span><span style="display:flex;"><span>AVMutableCompositionTrack<span style="color:#f92672">*</span> compositionVideoTrack;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// コンポジション作成
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>mixComposition <span style="color:#f92672">=</span> [AVMutableComposition composition];
+</span></span><span style="display:flex;"><span>compositionVideoTrack <span style="color:#f92672">=</span> [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+</span></span></code></pre></div><h3 id="avmutablevideocomposition">AVMutableVideoComposition</h3>
+<p>AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>compositionVideoTrack <span style="color:#f92672">=</span> [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[compositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, timeDuration)
+</span></span><span style="display:flex;"><span>                               ofTrack:_videoTrack
+</span></span><span style="display:flex;"><span>                                atTime:kCMTimeZero
+</span></span><span style="display:flex;"><span>                                 error:nil];
+</span></span><span style="display:flex;"><span>[compositionVideoTrack setPreferredTransform:[videoTrack preferredTransform]];
+</span></span></code></pre></div><h3 id="avmutablevideocompositionlayerinstruction">AVMutableVideoCompositionLayerInstruction</h3>
+<p>アセットのトラックに対して回転、透過度、クロッピングができます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">// ここでは動画を小さくして指定の位置へ移動させてます。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>CGAffineTransform scale      <span style="color:#f92672">=</span> CGAffineTransformMakeScale(<span style="color:#ae81ff">0.30f</span>, <span style="color:#ae81ff">0.30f</span>);
+</span></span><span style="display:flex;"><span>CGAffineTransform trnsration <span style="color:#f92672">=</span> CGAffineTransformMakeTranslation(<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">406</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>AVMutableVideoCompositionLayerInstruction<span style="color:#f92672">*</span> _layerInstruction;
+</span></span><span style="display:flex;"><span>_layerInstruction <span style="color:#f92672">=</span> [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:_compositionVideoTrack];
+</span></span><span style="display:flex;"><span>[_layerInstruction setTransform:CGAffineTransformConcat(scale, trnsration) atTime:kCMTimeZero];
+</span></span></code></pre></div><hr>
+<h3 id="avassetexportsession">AVAssetExportSession</h3>
+<p>さまざまなアセット情報を利用して指定されたフォーマットに変換したり動画のトリミングを行います。 例えば、mov形式、720x720サイズでファイルに保存させたりで</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>videoComp <span style="color:#f92672">=</span> [AVMutableVideoComposition videoComposition];
+</span></span><span style="display:flex;"><span>videoComp.renderSize    <span style="color:#f92672">=</span> CGSizeMake(<span style="color:#ae81ff">720</span>, <span style="color:#ae81ff">720</span>);
+</span></span><span style="display:flex;"><span>videoComp.frameDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">24</span>); <span style="color:#75715e">// framerate
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// AVCompositionをベースにAVAssetExportを生成
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>assetExportSession <span style="color:#f92672">=</span> [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPreset1280x720];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 合成用のVideoCompositionを設定
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>assetExportSession.videoComposition <span style="color:#f92672">=</span> videoComp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// エクスポートファイルの設定
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>NSURL <span style="color:#f92672">*</span>composedMovieUrl <span style="color:#f92672">=</span> [NSURL fileURLWithPath:composedMoviePath];
+</span></span><span style="display:flex;"><span>assetExportSession.outputFileType <span style="color:#f92672">=</span> AVFileTypeQuickTimeMovie;
+</span></span><span style="display:flex;"><span>assetExportSession.outputURL <span style="color:#f92672">=</span> composedMovieUrl;
+</span></span><span style="display:flex;"><span>assetExportSession.shouldOptimizeForNetworkUse <span style="color:#f92672">=</span> YES;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// エキスポート処理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>[assetExportSession exportAsynchronouslyWithCompletionHandler:<span style="color:#f92672">^</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span> ([exportSession status]) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> AVAssetExportSessionStatusFailed:
+</span></span><span style="display:flex;"><span>            NSLog(<span style="color:#e6db74">@&#34;Export failed: %@&#34;</span>, [[exportSession error] localizedDescription]);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> AVAssetExportSessionStatusCancelled:
+</span></span><span style="display:flex;"><span>            NSLog(<span style="color:#e6db74">@&#34;Export canceled&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}];
+</span></span></code></pre></div><p>主に利用するクラスを説明しました。これらを駆使して実装すれば簡単な動画の結合ができるようになります。</p>
+<p>だいたいの大枠は以下の図を見ると何となくわかるかもしれませんね。</p>
+<p><img src="/images/posts/2013/2013-10-22_02.png" alt="layer"></p>
+<p><a href="https://developer.apple.com/library/ios/DOCUMENTATION/AudioVideo/Conceptual/AVFoundationPG/Articles/03_Editing.html">https://developer.apple.com/library/ios/DOCUMENTATION/AudioVideo/Conceptual/AVFoundationPG/Articles/03_Editing.html</a></p>
+<h2 id="まとめ">まとめ</h2>
+<p>どうでしょう。ざっくりとですが動画を結合するのに必要なクラスの説明とどのように実装されていくのかをざっくり 説明しました。本当に最初の方は？？？となってしまうと思いますが実装していくうちに分かってくるようになります。 あとこれ系の情報はあんまりネット上にはないのでしっかりと学びたいもっと動画カスタマイズしたという人がいれば やはり<code>AV Foundation Programming Guide</code>をじっくり読むのが最短だししっかり理解できるとおもいました。あと困った ことがあったら <a href="http://stackoverflow.com/">http://stackoverflow.com/</a> で同じ人が困っているかもしれないのでみるといいです。</p>
+<p>応用編としては動画をスローモーションにさせたり、ワイプのような動画を作成したり、画像をアニメーションさせたりと いろいろありますが説明していこうと思います。というか時間がたったら忘れそうな知識なのでやります。。。</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://developer.apple.com/library/ios/documentation/AudioVideo/Conceptual/AVFoundationPG/AVFoundationPG.pdf">AV Foundation Programming Guide</a></li>
+<li><a href="https://developer.apple.com/wwdc/videos/">Moving to AV Kit and AV Foundation – 606</a></li>
+<li><a href="https://developer.apple.com/wwdc/videos/">Core Image Effects and Techniques – 509</a></li>
+<li><a href="https://developer.apple.com/wwdc/videos/">Advanced Editing with AV Foundation – 612</a></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

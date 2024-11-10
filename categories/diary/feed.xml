@@ -1,0 +1,617 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Diary on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/diary/</link>
+        <description>Recent content in Diary on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Tue, 16 Dec 2014 22:33:00 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/diary/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Pepabo Advent Calendar 2014</title>
+            <link>http://nakajijapan.github.io/posts/2014/2014-12-16-pepabo-advent-calendar-2014/</link>
+            <pubDate>Tue, 16 Dec 2014 22:33:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2014/2014-12-16-pepabo-advent-calendar-2014/</guid>
+            <description>&lt;p&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2014/pepabo&#34;&gt;Pepabo Advent Calendar 2014&lt;/a&gt;の17日目の記事です。
+明日は lamanotrama さんです。くろださーーーん。&lt;/p&gt;
+&lt;p&gt;最近ではiPhoneおじさんとして活動させていただいています。&lt;a href=&#34;https://twitter.com/nakajijapan&#34;&gt;@nakajijapan&lt;/a&gt;です。&lt;/p&gt;
+&lt;p&gt;Pepabo Advent Calendarはやっぱりこれでしょうということで&lt;a href=&#34;http://nakajijapan.github.io/blog/2014/06/08/wwdc2014/&#34;&gt;WWDC2014&lt;/a&gt;に行ったことを出そうかなと思ったのですが、何も書いていないのはあれなのでその後、どうなったかを書いていきます。&lt;/p&gt;
+&lt;p&gt;最初に&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;テンションあがる&#34;&gt;テンションあがる&lt;/h2&gt;
+&lt;p&gt;ただ参加しただけでも大きな価値があると思うのですが、今年はAppleが開発者向けに大きな発表があったことはみなさんご存知だと思います。それによりさらにさらにテンションアゲアゲMAXでアドレナリン分泌状態であります。&lt;/p&gt;
+&lt;h2 id=&#34;プレッシャー感高まる&#34;&gt;プレッシャー感高まる&lt;/h2&gt;
+&lt;p&gt;会社の神対応には大変感謝しておりますが、まぁそれと同等のプレッシャーは感じておりまして今以上に何か恩返しせねばという勢いで、まず社内のSNSのハンドルネーム的なものをApple信者会員番号２番にしました。（社内から僕の他に@misyobunという人も参加してもともとAndroidエンジニアだったのが急に寝返って僕よりも早くApple信者に変えていた裏切り者がいるので。。。）&lt;/p&gt;
+&lt;h2 id=&#34;神恩返しのために&#34;&gt;神恩返しのために&lt;/h2&gt;
+&lt;h3 id=&#34;座談会を盛り上げました&#34;&gt;座談会を盛り上げました？&lt;/h3&gt;
+&lt;p&gt;弊社では業務中に週に一回ずつAndroidとiOSで座談会的な集会が行われています。
+いろんなサービスがあるペパボでは、なかなか同じ職種（特にモバイル）の人が一緒に
+仕事をする機会がない中で、同じ職種の人が集まって今週どうだったかどか、新しい機種出たね、この実装どうしてるとかを話せる貴重な時間であり、日々ぽよぽよしています。&lt;/p&gt;
+&lt;h3 id=&#34;ciサーバ構築&#34;&gt;CIサーバ構築&lt;/h3&gt;
+&lt;p&gt;モバイル環境でもCI活動ができるようにJenkins運用したり。&lt;/p&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-slide=&#34;9&#34; data-id=&#34;55cde09038e501324a864a15dbbe3320&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;(これはFlat Designの歴史について話した時のつかみみたいなものです。。。)&lt;/p&gt;
+&lt;p&gt;プラグインは&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin&#34;&gt;Simple Theme Plugin&lt;/a&gt;を利用しましたCSSを変更しました。
+jenkinsをsteve jobsにすることでさらにテンションが上がり、仕事の意欲も高まりました。
+自動化してしまうとIRCに結果が流れてくるので、なかなか直接みに行かないものですがなぜか、時々見に行ってしまいます。&lt;/p&gt;
+&lt;h3 id=&#34;swiftrisを作成した&#34;&gt;Swiftrisを作成した&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bloc.io/swiftris-build-your-first-ios-game-with-swift&#34;&gt;BLOC - Learn Swift&lt;/a&gt;を題材にSwift勉強しながらテトリス作っちゃおうという教材を利用してみんなで隔週で行いました。&lt;/p&gt;
+&lt;p&gt;BGMはこの曲にするとテンションがあがることでしょう。&lt;/p&gt;
+&lt;iframe width=&#34;100%&#34; height=&#34;166&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; src=&#34;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/88243228&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&#34;&gt;&lt;/iframe&gt;
+&lt;h3 id=&#34;ios8-sdk読書会&#34;&gt;iOS8 SDK読書会&lt;/h3&gt;
+&lt;div class=&#34;booklog_html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;booklog_html_image&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Ios-Sdk-Development-Creating-Iphone/dp/1941222641%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1941222641&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51jTyaM8J5L._SL160_.jpg&#34; width=&#34;124&#34; height=&#34;150&#34; style=&#34;border:0;border-radius:0;&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class=&#34;booklog_html_info&#34; style=&#34;padding-left:20px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:10px;font-size:14px;font-weight:bold;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Ios-Sdk-Development-Creating-Iphone/dp/1941222641%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1941222641&#34; target=&#34;_blank&#34;&gt;Ios 8 Sdk Development: Creating Iphone and Ipad Apps With Swift&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;margin-bottom:15px;font-size:12px;;line-height:1.2em&#34;&gt;著者 : &lt;a href=&#34;http://booklog.jp/author/Chris+Adamson&#34; target=&#34;_blank&#34;&gt;Chris Adamson&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;margin-bottom:5px;font-size:12px;;line-height:1.2em&#34;&gt;Pragmatic Bookshelf&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:12px;;line-height:1.2em&#34;&gt;発売日 : 2015-01-25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34;&gt;&lt;a href=&#34;http://booklog.jp/item/1/1941222641&#34; style=&#34;font-size:12px;&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;p&gt;まだBeta版なのですが、出た瞬間後輩の&lt;a href=&#34;https://twitter.com/kurotaky&#34;&gt;@kurotaky&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/ryoma_123&#34;&gt;@ryoma_123&lt;/a&gt;に懇願して仕事が始まる１時間前に集合して朝練活動を行っております。コードを書きながら進んでいるので遅めですが最近やっとGestureRecognizerの章までいきました。執筆に追いつくことを目標に日々取り組んでおります。&lt;/p&gt;
+&lt;h3 id=&#34;ircに通知するやつ&#34;&gt;IRCに通知するやつ&lt;/h3&gt;
+&lt;p&gt;なるべく情報の取得が遅れないようにと話のネタ作りにモバイル関係の記事を流すようにしました。。。主にAndroidとAppleの情報が毎朝流れるようになっています。もっとモバイルに興味もってーーーーーーーという僕の想いの表れです。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/nakajijapan/post-feeds-in-irc&#34;&gt;https://github.com/nakajijapan/post-feeds-in-irc&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;まだまだだ&#34;&gt;まだまだだ！&lt;/h2&gt;
+&lt;p&gt;と、なにかと活動してきましたが、まだまだもっと自分ができることはたくさんあるはずだし進化できると思う。
+なので、来年は今年以上に技術をさらに掘り下げつつサービスや会社に貢献していくんだ！！と決意。
+以下の三つを掘り下げます。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;iPhoneおじさんを掘り下げる&lt;/li&gt;
+&lt;li&gt;モバイルの開発基盤を掘り下げる&lt;/li&gt;
+&lt;li&gt;UI/UXを掘り下げる&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;その先に神恩返しがあるのではないかと思います。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Happy New Year</title>
+            <link>http://nakajijapan.github.io/posts/2014/2014-01-02-happy-new-year/</link>
+            <pubDate>Thu, 02 Jan 2014 20:22:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2014/2014-01-02-happy-new-year/</guid>
+            <description>&lt;p&gt;明けましておめでとうございます。&lt;/p&gt;
+&lt;p&gt;時が経つが年々早くなるのがだんだんと早く感じる今日この頃ですが、去年は自分がもう
+３０年も生きたことになり、仕事にプライベートに考えさせられる一年だったと思います。&lt;/p&gt;
+&lt;p&gt;いかがおすごしでしょうか。
+nakajijapanです。&lt;/p&gt;
+&lt;p&gt;去年を振り返ってみると、とにかく自分の可能性を信じつつ自分が未開拓な領域
+をガンガン攻めた年ではありました。しかし、まだスタート地点に立ったところ
+というか物足りないと感じてる次第です。もっとイケル！&lt;/p&gt;
+&lt;p&gt;殻を打ち破る日はまだ分からないですが、あきらめず自分のケツを叩きながら
+一歩づつ前に突き進んでいこうと思います。&lt;/p&gt;
+&lt;p&gt;今年も仕事にプライベートにがんばるぞ！&lt;/p&gt;
+&lt;p&gt;今年もよろしくお願いします。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Backbone.js読書会１日目</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-05-23_3629/</link>
+            <pubDate>Thu, 23 May 2013 23:35:47 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-05-23_3629/</guid>
+            <description>&lt;h2&gt;Backbone.js読書会１日目&lt;/h2&gt;
+&lt;p&gt;Webも徐々にGUIアプリのような振る舞いが求められていく世の中になってきたし、技術的に可能になってきたと。クライアントでそんな振る舞いをしてくれてるのが現状javascriptです。僕たちはどんどんjavascriiptを利用して多種多様な振る舞いをしていかなければいけないけど、現状のjQueryでばんばん書いていくのにも限界がきてるんじゃないか。そのとき、外国で話題になっていたフレームワークをほそぼそと勉強しはじめ、今や業務にまで導入できることに成功しました。（まだ、いろいろ課題はありますが。。。）&lt;/p&gt;
+&lt;p&gt;そんなときに、満を持して洋書よりも早く日本の書籍がでてしまったので早速基本に振り返るがてらみんなで知識深めようという目的で読書会はじめました。&lt;/p&gt;
+&lt;p&gt;「Backbone.js ガイドブック」&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/Backbone-js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E9%AB%98%E6%A9%8B-%E4%BE%91%E4%B9%85/dp/4899773501%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4899773501&#34; target=&#34;_blank&#34; title=&#34;Backbone.jsガイドブック&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/31tI0WaZukL._SL160_.jpg&#34; width=&#34;118&#34; height=&#34;150&#34; alt=&#34;Backbone.jsガイドブック&#34; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/Backbone-js%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF-%E9%AB%98%E6%A9%8B-%E4%BE%91%E4%B9%85/dp/4899773501%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4899773501&#34; target=&#34;_blank&#34;&gt;Backbone.jsガイドブック&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;はじめは概要なのですらっと。&lt;/p&gt;
+&lt;p&gt;一つ話題になったのは、基本は「.extend」を利用してインスタンス用のプロパティを作成していくのが基本だけど、クラス用のプロパティってどこで利用するケースがあるかってこと。&lt;/p&gt;
+&lt;pre class=&#34;brush:js&#34;&gt;
+var Parent = Backbone.View.extend(
+  {
+    instance_p: 1,
+    instance_m: function(){ return &#39;instance_m&#39;;}
+  },
+  {
+    class_p: 2,
+    class_m: function(){ return &#39;instance_m&#39;;}
+  }
+    
+);
+
+&lt;/pre&gt;
+&lt;p&gt;サンプルみただけだとふーんですよね。僕もいまのところふーんです。&lt;/p&gt;
+&lt;p&gt;ケースとしてはクラスプロパティにテンプレートをぶち込んでおくのがよさげなのかしらね。例えば、Viewが管理している内部でモーダルを管理しているとき。モーダルは基本一つなのでクラスプロパティであらかじめ作成しておけば使い回しがきくと。$(&#39;modal&#39;)とかで毎回DOMを操作しなくて済む。&lt;/p&gt;
+&lt;p&gt;ふと思った訳です。&lt;/p&gt;
+&lt;pre class=&#34;brush:js&#34;&gt;
+var Parent = Backbone.View.extend(
+  {
+    instance_p: 1,
+    instance_m: function(){ return &#39;instance_m&#39;;}
+  },
+  {
+    modal_template: null,
+    class_m: function(){ this.modal_template = $(&#39;#modal&#39;).html()}
+  }
+    
+);
+
+&lt;/pre&gt;
+&lt;p&gt;こんなかんじ。&lt;/p&gt;
+&lt;p&gt;あと、なんだかんだ実装しながら確認してたら時間かかってしまったので１章の半分くらいで終了。バタリ。&lt;/p&gt;
+&lt;p&gt;さ。来週もすすめていきますよ。&lt;/p&gt;
+&lt;h2&gt;追記&lt;/h2&gt;
+&lt;p&gt;洋書は今月末にでるようだ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449328253&#34; target=&#34;_blank&#34; title=&#34;Developing Backbone.js Applications&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/5171nmxXQdL._SL160_.jpg&#34; width=&#34;114&#34; height=&#34;150&#34; alt=&#34;Developing Backbone.js Applications&#34; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/Developing-Backbone-js-Applications-Addy-Osmani/dp/1449328253%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449328253&#34; target=&#34;_blank&#34;&gt;Developing Backbone.js Applications&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>欲求不満(www.frustration.me)フルリニューアルかけた。</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-05-20_3612/</link>
+            <pubDate>Mon, 20 May 2013 03:51:20 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-05-20_3612/</guid>
+            <description>&lt;p&gt;欲求不満フルリニューアルかけた。
+現在、自分で全て管理している「欲求不満（www.frustration.me）」ですが、数年前
+にリリースを行い（ http://blog.nakajijapan.net/?p=2685 ）、デザインのリニューアル、
+機能追加が粛々と気の向くままに開発していましたが、ついに３年目にしてソース・デザイン全て
+リニューアルをかけました。構想は去年の１２月から徐々に着手し始めていまして、年初めにはリニューアル
+できるものかなと安易にかんがえていたけど（仕様そんなに難しくないしねーてきなのり）なかなか
+大変で一部機能を削ぎ落しての妥協リリースになってしまいました。。。無念です。あと、これ要らねーだろう
+っていうやつは消してますけど。&lt;/p&gt;
+&lt;p&gt;見た目は今時風にしたかったので、それっぽくしました。あとは自分の開発モチベーションあげたいので言語をRubyに変更しました。&lt;/p&gt;
+&lt;p&gt;内部的には結構細かいことしてまして。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;デザインをTwitterBootstrapをベースにした&lt;/li&gt;
+&lt;li&gt;ZendFramework(PHP)からRails(Ruby)に対応&lt;/li&gt;
+&lt;li&gt;jsのフレームワークにBackbone.jsを導入&lt;/li&gt;
+&lt;li&gt;APIの検索周りの処理をGem化
+&lt;ul&gt;
+&lt;li&gt;https://rubygems.org/gems/api_bucket&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ユーザの画像一式を全てS3で管理&lt;/li&gt;
+&lt;li&gt;Paasを導入してsqale.jpで管理するようにした&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;的なことしています。&lt;/p&gt;
+&lt;h2&gt;デザイン&lt;/h2&gt;
+&lt;p&gt;なんか自分で眺めててあきないようにしたくて、いろんなサイトから参考にしましておこぼれちょうだいしてます。
+デザイナ不在なので慣れないコーディングを全て自分やることになりましたが大変勉強になりました。あとTwitterBootstrapがなかったらもっとCSSのコーディングが大変になっていたしそこそこのデザインに鳴らなかったと思います。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2013/05/スクリーンショット-2013-05-16-10.20.30-1024x888.png&#34; alt=&#34;スクリーンショット 2013-05-16 10.20.30&#34; width=&#34;580&#34; class=&#34;aligncenter size-large wp-image-3619&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;ちなみに初期のデザインはこれ&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.frustration.me/&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/03/2011-03-25-1.51.43）-e1300985688193.png&#34; alt=&#34;frustration&#34; title=&#34;欲求不満&#34; width=&#34;580&#34; class=&#34;aligncenter size-full wp-image-2687&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ちょっとは成長しました。。。&lt;/p&gt;
+&lt;h2&gt;Paasはsqale.jp( http://sqale.jp )&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://sqale.jp&#34; title=&#34;sqale.jp&#34;&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/03/スクリーンショット-2013-05-20-3.27.57-1024x757.png&#34; alt=&#34;スクリーンショット 2013-05-20 3.27.57&#34; width=&#34;500&#34;  class=&#34;aligncenter size-large wp-image-3619&#34;/&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。
+インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。&lt;/p&gt;
+&lt;h1&gt;今後やっていくこと&lt;/h1&gt;
+&lt;p&gt;誰も使わなくても改善していきます！！！！１０年使い続けられる物欲管理サービスになります！！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Backbone.jsをもっとフル活用する
+&lt;ul&gt;
+&lt;li&gt;もっと動きをjs側に処理を依存させる&lt;/li&gt;
+&lt;li&gt;よろしくない記述が多々あるのでリファクタリングに励みます。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;自分でもっと画像作れるようにする
+&lt;ul&gt;
+&lt;li&gt;cssでデザインするのには限界ですね&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。&lt;/li&gt;
+&lt;li&gt;失われた機能を追加します。。。&lt;/li&gt;
+&lt;/ul&gt;</description>
+        </item>
+        
+        <item>
+            <title>2013</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-01-01_3572/</link>
+            <pubDate>Tue, 01 Jan 2013 00:48:29 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-01-01_3572/</guid>
+            <description>&lt;p&gt;あけましておめでとうございます。&lt;/p&gt;
+&lt;p&gt;今年はいいところも悪いところもガツガツとさらけ出していこうと思います!!&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>自作のライブラリをGemに公開するまでに行ったこと</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-12-11_3508/</link>
+            <pubDate>Tue, 11 Dec 2012 04:37:24 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-12-11_3508/</guid>
+            <description>&lt;p&gt;自作のライブラリをGemに公開するまでに行ったこと&lt;/p&gt;
+&lt;p&gt;欲求不満の利用しているライブラリを別に切り出してGemにしてみました。&lt;br&gt;欲求不満は自分が運営している言うなればソーシャルウィッシュリストサービス&lt;br&gt;なのですが自分がよく使うAPIを何個も使って商品を登録・管理しています。&lt;/p&gt;
+&lt;h3&gt;欲求不満&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;http://frustration.me  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;しかし、apiはというものそれぞれの仕様でインターフェースが異なるので&lt;br&gt;商品情報を管理するときに大変面倒なので自前でクラスを作成して&lt;br&gt;インターフェースを統一させてます。そのい一部分をGemで切り出してみました。&lt;/p&gt;
+&lt;p&gt;今回使うにあたって簡単インストールできるjewelerを利用してみました。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;gem install jeweler
+&lt;/pre&gt;
+&lt;p&gt;まずは、あらかじめGitHubでレポジトリを作成しておきます。&lt;/p&gt;
+&lt;p&gt;その後、インストール処理。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+jeweler --rspec --create-repo api-bucket                                                                         
+
+[~/Programming/ruby/gem_test]
+        create  .gitignore
+        create  Rakefile
+        create  Gemfile
+        create  LICENSE.txt
+        create  README.rdoc
+        create  .document
+        create  lib
+        create  lib/api-bucket.rb
+        create  spec
+        create  spec/spec_helper.rb
+        create  spec/api-bucket_spec.rb
+        create  .rspec
+Jeweler has prepared your gem in ./api-bucket
+Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket
+
+bundle install
+
+rake version:write
+
+rake gemspec
+&lt;/pre&gt;
+&lt;p&gt;これでGemに必要な一式が入ります。&lt;/p&gt;
+&lt;p&gt;もろもろライブラリやらテストやらを実装したら、それをbuildして 作成されたGemファイルをRubyGemsにアップロードします。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+gem build api-bucket.gemspec
+gem push api-bucket-0.0.0.gem
+&lt;/pre&gt;
+&lt;p&gt;Awasame!!!&lt;/p&gt;
+&lt;p&gt;これで、自分のライブラリが公開となります！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Ember.js勉強会に参加してきた。</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-10-09_3446/</link>
+            <pubDate>Tue, 09 Oct 2012 20:12:06 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-10-09_3446/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;http://emberjs.com/images/about/ember-productivity-sm.png&#34; class=&#34;aligncenter&#34; /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;先日、Ember.js勉強会に参加するために万葉さんにお邪魔してきました。&lt;/p&gt;
+&lt;p&gt;JSのフレームワークは他にBackbone.jsしか触れたことが無かったので他の選択肢として参加してみました。&lt;/p&gt;
+&lt;p&gt;今回はみんなでチュートリアルを読んでもくもくと作業をしてわかんないところが随時質問でした。&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;ですが&lt;/b&gt;、自分の力不足（方向音痴。。。）で場所がわからず１時間遅れるという不甲斐ない形となりましたがみんなに追いつこう&lt;/p&gt;
+&lt;p&gt;とせっせと作業をこなしたという次第です。&lt;/p&gt;
+&lt;h1&gt;感想&lt;/h1&gt;
+&lt;h2&gt;Ember.Handlebars Class便利な件&lt;/h2&gt;
+&lt;p&gt;印象てきだったのが&lt;/p&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+&lt;script type=&#34;text/x-handlebars&#34;&gt;
+  {{view Em.TextField id=&#34;new-todo&#34;
+      placeholder=&#34;What needs to be done?&#34;}}
+&lt;/script&gt;
+&lt;p&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;こんなふうにView側のAPIが用意されていて、この記述でイベント処理を諸々やってくれるのはありがたい。&lt;/p&gt;
+&lt;p&gt;Backbone.jsだったら通常のHTMLを記述しないといけないし、そもそもテンプレートエンジンてきなものは&lt;/p&gt;
+&lt;p&gt;用意されていない。&lt;/p&gt;
+&lt;p&gt;カスタマイズしたいときは普通に&lt;/p&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+Todos.CreateTodoView = Em.TextField.extend({
+  insertNewline: function() {
+    var value = this.get(&#39;value&#39;);
+
+    if (value) {
+      Todos.todosController.createTodo(value);
+      this.set(&#39;value&#39;, &#39;&#39;);
+    }
+  }
+});
+&lt;/pre&gt;
+&lt;p&gt;で自分用のViewオブジェクト作ってしまえば良い訳です。&lt;/p&gt;
+&lt;p&gt;あ、handlebar.jsっていうテンプレートエンジン利用してるのですね、これ。&lt;/p&gt;
+&lt;h2&gt;Modelって言うクラスがない？！&lt;/h2&gt;
+&lt;p&gt;MVCフレームワークなのになぜかModelって言うクラスはなくて&lt;/p&gt;
+&lt;p&gt;「Ember.Object Class」を継承して作成するっていうのがセオリーらしいです。&lt;/p&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+Todos.Todo = Em.Object.extend({
+  title:  null,
+  isDone: false
+});
+&lt;/pre&gt;
+&lt;p&gt;調べてみるとサーバと通信するもの機構はないみたいでやるときは、通信部分を&lt;/p&gt;
+&lt;p&gt;jQueryとか使って実装しないといけないみたいですね。。。&lt;/p&gt;
+&lt;p&gt;http://emberjs.com/api/classes/Ember.Object.html&lt;/p&gt;
+&lt;h2&gt;Debugging&lt;/h2&gt;
+&lt;p&gt;なにかと大変らしい、ログイングの機能は用意されてはいるがなにかとおうのは大変らしい&lt;/p&gt;
+&lt;h1&gt;まぁ&lt;/h1&gt;
+&lt;p&gt;Backbone.jsとくらべるとテンプレートエンジンが結構便利なのでその分最初の前提となる知識は&lt;/p&gt;
+&lt;p&gt;必要になってきそうな感じがしました。もちろん通信自体は自前で実装する必要がある？！&lt;/p&gt;
+&lt;p&gt;逆をいうとBackbone.jsはREST通信なのでその辺は小回りが聞く感じですかね。&lt;/p&gt;
+&lt;h1&gt;参考URL&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/frodsan/emberjs-getting-started&#34;&gt;Ember.jsのチュートリアル&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/frodsan/emberjs-getting-started&#34;&gt;Ember.jsのチュートリアル結果&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+        </item>
+        
+        <item>
+            <title>社内でBackbone.js勉強会しました。</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-09-28_3428/</link>
+            <pubDate>Fri, 28 Sep 2012 23:02:27 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-09-28_3428/</guid>
+            <description>&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/09/スクリーンショット-2012-09-28-22.57.37.png&#34; alt=&#34;&#34; title=&#34;スクリーンショット 2012-09-28 22.57.37&#34; class=&#34;aligncenter size-full wp-image-3435&#34; /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;最近、Backbone.jsがにわかに業務やプライベートでBackbone.jsを利用
+していきたってことで勉強会を行いました。&lt;/p&gt;
+&lt;p&gt;僕が行うときは、だいたいみんなが野次がとばしたり質問できるようにおかしやフランクにして&lt;/p&gt;
+&lt;p&gt;お菓子ばらまいたりお菓子を発表者になげたりして話しやすい環境にできて良かったと思います。&lt;/p&gt;
+&lt;p&gt;スライドはこれ。&lt;/p&gt;
+&lt;p&gt;http://storyboards.jp/controller/1jjgwa&lt;/p&gt;
+&lt;p&gt;勉強会を通して思ったのが&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3&gt;■別にそんなにフル活用しなくてよくて、View側のメカニズムを利用するだけでも効果はある&lt;/h3&gt;
+&lt;h3&gt;■coffeescript.jsで相乗効果！！&lt;/h3&gt;
+&lt;h3&gt;■「_」はunderscore.jsだったんだ....&lt;/h3&gt;
+&lt;h3&gt;■STORY BOARDSはモデルでのパラメータチェックを行い、そして統一するためにexecjsでクライアント・サーバから同じプログラムを利用したよん♪&lt;/h3&gt;
+&lt;h3&gt;■backbone-rails専念されてるし、勉強になった。&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;ただ、Backbone.jsが正解ではないはずなので、他にも選択肢はある。それにとってかわるようなものを&lt;/p&gt;
+&lt;p&gt;どんどん検証していきたいと思う。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>中島清掃局Appleの審査に落ちました。。。</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-09-24_3402/</link>
+            <pubDate>Mon, 24 Sep 2012 22:05:06 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-09-24_3402/</guid>
+            <description>&lt;p&gt;&lt;img class=&#34;aligncenter size-full wp-image-3403&#34; title=&#34;sakebi2&#34; src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/09/sakebi2.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;早速叫ばせていただきます。&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;案の定、落ちましたね。。。&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;今回、Appleストアでわいせつや不衛生なものの表現のあるのは落とされるとはわかっていたたもの、&lt;/p&gt;
+&lt;p&gt;やはりこのままの世界観でやってほしいという作成者からのちっぽけな期待からうんこという表現を&lt;/p&gt;
+&lt;p&gt;削除する以外はそのままのうんこゲームで申請した次第でありまして。&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;pre&gt;
+We found that your app contains content that many audiences would find objectionable, which is not in compliance with the App Store Review Guidelines.
+
+Specifically, we noticed the purpose of the game is to clean out feces. Such apps are not appropriate for the App Store.
+
+We encourage you to review your app content and evaluate whether you can modify the content to bring it into compliance with the Guidelines.
+&lt;/pre&gt;
+&lt;p&gt;ゲームの目的がうんこを掃除すること、そんなの認めないわよ！！！！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>札幌Ruby会議２０１２に参加してきました。</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-09-19_3346/</link>
+            <pubDate>Wed, 19 Sep 2012 23:39:46 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-09-19_3346/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/09/-e1348065456150.jpg&#34; alt=&#34;札幌Ruby会議2012&#34; title=&#34;札幌Ruby会議2012&#34; class=&#34;aligncenter size-full wp-image-3383&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;今回初めてではありますが、&lt;a href=&#34;http://sapporo.rubykaigi.org/2012/ja/index.html&#34;&gt;札幌Ruby会議２０１２&lt;/a&gt;という&lt;br /&gt;
+Rubyのカンファレンスに参加してきました。&lt;/p&gt;
+&lt;h1&gt;１日目&lt;/h1&gt;
+&lt;h2&gt;相澤 歩 &#34;Heroku&#34;&lt;/h2&gt;
+&lt;p&gt;Herokuはあんまり日本サポートしないのかね。&lt;/p&gt;
+&lt;p&gt;そもそもあんまり使っておりませぬが！！&lt;/p&gt;
+&lt;h3&gt;url&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;http://sapporo.rubykaigi.org/2012/ja/schedule/details/R01.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;井原 正博 &#34;クックパッドのつくりかた&#34;&lt;/h2&gt;
+&lt;p&gt;概要にもありますが、技術的な話というよりかは開発を裏側で支えるための組織作りについて
+話されていました。これ、自分、だいぶ意識たかくなりましたね。崇志！&lt;/p&gt;
+&lt;p&gt;印象に残ったのが&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;やりたいことをやりましょう！！！！！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;の言葉です。ただこれだけ言われたとしても何の説得力もありませんが井原さんの話を総じて聞い
+ていたらすごい納得しました。&lt;/p&gt;
+&lt;p&gt;あ、web進化論読んでなかったからよんでみる。&lt;/p&gt;
+&lt;h2&gt;井原 正博 &#34;クックパッドのつくりかた&#34;&lt;/h2&gt;
+&lt;h1&gt;３日目&lt;/h1&gt;
+&lt;h2&gt;柴田博志 &#34;Ruby の世界の継続的デリバリ&#34;&lt;/h2&gt;
+&lt;p&gt;弊社の技術基盤整備エンジニアの柴田さん発表でした。&lt;/p&gt;
+&lt;h3&gt;継続的○○！&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;意識が低くても大丈夫な仕組み&lt;/li&gt;
+&lt;li&gt;確実なフィードバックと改善を行える仕組み&lt;/li&gt;
+&lt;li&gt;サイクルタイムの短縮と継続した価値の提供&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;北海道メモ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;八雲町のケンタッキーがうまい  &lt;/li&gt;
+&lt;li&gt;新得町のそばがうまい  &lt;/li&gt;
+&lt;li&gt;小樽の鶏がうまい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;自分たちにとってリリースとはなんなんだろう&lt;br /&gt;
+みんなで話し合ってみよう&lt;/p&gt;
+&lt;h3&gt;url&lt;/h3&gt;
+&lt;p&gt;http://www.hsbt.org/diary/20120916.html&lt;/p&gt;
+&lt;h2&gt;村田賢太 &#34;分散 RSpec&#34;&lt;/h2&gt;
+&lt;p&gt;肥大化？したプログラムのテストは時間かかりまくり！！
+いろいろ改善してテストの時間を短縮してみた的なお話。&lt;/p&gt;
+&lt;p&gt;スペックファイルが7500以上ものテストって全然想像できないんですけど
+このぐらいの規模になってくるとテストもちゃんと負荷分散してかないと
+速いサイクル開発ができなくなってくるのですな。ただただ関心しておりました。&lt;/p&gt;
+&lt;h3&gt;url&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;http://mrkn.hatenablog.com/entry/2012/09/16/143941&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;白土 慧 &#34;Spree で約3ヶ月でイチからEコマースサービスを作るまで&#34;&lt;/h2&gt;
+&lt;p&gt;ECサイトをSpreeで開発を行いました！以前はPHPでは作成されていて、発表者が
+Rails＋Spreeで再構築したようです。そのときの苦労話や心構え。まだちゃんと
+ソース読まないと本来のSpreeの力が発揮できない（ヒントがソースやソースのコメントあったり
+するらしいです）！巨人がどうできているかを理解する！！&lt;/p&gt;
+&lt;h3&gt;spreeメモ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;https://github.com/spree/spree  &lt;/li&gt;
+&lt;li&gt;railsのengineで利用されている  &lt;/li&gt;
+&lt;li&gt;実際コード読まないとわからない・・・  &lt;/li&gt;
+&lt;li&gt;1.1.0 -&gt; 1.2.0で仕組みがらっとかわった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;テスト&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;spreeのモデルでモックを作るのはすごい大変-&gt;インテグレーションテストを行っている  &lt;/li&gt;
+&lt;li&gt;開発、spreeの仕様・構造で足引っ張られる？  &lt;/li&gt;
+&lt;li&gt;どんどん鳴らし、そしてspreeから話していってる  &lt;/li&gt;
+&lt;li&gt;ある部分からモデルを作成してからそれにひもづくものを  &lt;/li&gt;
+&lt;li&gt;テーブル構造・設計を学んでいくのは大切でその仕様に耐えうるビジネスなのか、それを利用すべきものなのかしっかり考えてから導入するべき&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;角谷 信太郎 &#34;DCI and the application builds our mental models&#34;&lt;/h2&gt;
+&lt;h3&gt;DCI (Data, Context and Interaction)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;オブジェクト指向アプリケーションに対する「パラダイム」のひとつ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;url&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;http://kakutani.com/20120916.html#p01&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ちょっと勉強不足のせいかあまり、理解できませんでした。。。肥大かしたモデルに対して解決する一つのアプローチ！！
+それがData, Context, Interaction。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[iphone][memo]HTTP通信して画像を投げる。</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-09-03_2784/</link>
+            <pubDate>Mon, 03 Sep 2012 23:56:49 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-09-03_2784/</guid>
+            <description>&lt;p&gt;最近いろんな言語であっちこっち開発しているから頭パンクしてきそうな季節ですね。&lt;/p&gt;
+&lt;p&gt;意味分からないですね。nakajijapanです。&lt;/p&gt;
+&lt;p&gt;簡単にできるといいのにね。まぁでもある意味生のデータを生成しているのでわかりやすいっちゃわかりやすい。
+抽象化したやつは後で自分でつくっておこっと。&lt;/p&gt;
+&lt;pre class=&#34;brush: cpp&#34;&gt;
+    //NSString *query = @&#34;test=hoge&amp;test2=hogehoge&#34;;
+    NSURL *url = [[NSURL alloc] initWithString:@&#34;http://test.hoge/hoge/post.php&#34;];
+
+    // GETでは使えない
+    CGFloat quality = 100.0;
+    NSData *postImage = [[[NSData alloc] initWithData:UIImageJPEGRepresentation(_imageView.image, quality)] autorelease];
+    
+    // POST用
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: url];
+    [request setHTTPMethod:@&#34;POST&#34;];
+    
+    NSString *boundary = [NSString stringWithString:@&#34;nakajijapan2011&#34;];
+    NSString *contentType = [NSString stringWithFormat:@&#34;multipart/form-data; boundary=%@&#34;,boundary];
+    [request addValue:contentType forHTTPHeaderField: @&#34;Content-Type&#34;];
+    NSMutableData *body = [NSMutableData data];
+
+    //	name=image dataの設定
+    [body appendData:[[NSString stringWithFormat:@&#34;\r\n--%@\r\n&#34;,boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithString:@&#34;Content-Disposition: form-data; name=\&#34;image\&#34;;filename=\&#34;source.jpg\&#34;\r\n&#34;] 
+                      dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithString:@&#34;Content-Type: image/jpeg;\r\n\r\n&#34;] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:postImage];
+    [body appendData:[[NSString stringWithFormat:@&#34;\r\n--%@--\r\n&#34;,boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+
+    [request setHTTPBody:body];
+    NSURLResponse *response = nil;
+    NSError       *error    = nil;
+    NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:&amp;response error:&amp;error];
+
+    
+    // error
+    NSString *errorStr = [error localizedDescription];
+    if (0 &lt; [errorStr length]) {
+        UIAlertView *alert = [[UIAlertView alloc] 
+                              initWithTitle:@&#34;RequestError&#34; 
+                              message:errorStr 
+                              delegate:nil 
+                              cancelButtonTitle:@&#34;OK&#34; 
+                              otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+&lt;/pre&gt;
+&lt;p&gt;今回の処理でいうと同期処理なので実際にiPhoneでユーザがスムーズにストレスなく操作することを考慮にいれると
+非同期の処理かましたほうがいいんだけど、それはまた後ほど。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]iOSシミュレータでスクリーンショットを作る</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-09-03_3267/</link>
+            <pubDate>Mon, 03 Sep 2012 23:31:25 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-09-03_3267/</guid>
+            <description>&lt;p&gt;iOSシミュレータをアクティブにして「Command + Control + C」&lt;/p&gt;
+&lt;p&gt;プレビューを起動「Command + n」&lt;/p&gt;
+&lt;p&gt;メニューで保存でいけた！&lt;/p&gt;
+&lt;p&gt;毎回忘れる。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>中島清掃局というウンコゲームをiPhoneアプリで作成してみた。</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-09-02_3298/</link>
+            <pubDate>Sun, 02 Sep 2012 03:44:57 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-09-02_3298/</guid>
+            <description>&lt;p&gt;どーもー。肥だめちゃんです。&lt;/p&gt;
+&lt;p&gt;先日ですが、弊社paperboy&amp;amp;co.では&lt;a href=&#34;http://www.paperboy.co.jp/next/osan6/&#34; title=&#34;お産合宿6&#34; target=&#34;_blank&#34;&gt;お産合宿&lt;/a&gt;といいモノを生み出す企画がございましてそれに参加しました。
+その成果としてタイトルのようなものを作成したという次第です。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/09/スクリーンショット-2012-09-02-2.29.15.png&#34; alt=&#34;中島清掃局&#34; title=&#34;中島清掃局&#34; class=&#34;aligncenter size-medium wp-image-3299&#34; /&gt;
+デザイナーはイソジンさん（ https://twitter.com/isodine ）で、プログラマは肥だめです。&lt;/p&gt;
+&lt;p&gt;以前にも参加していますがプロダクトを作成していましたが、いろいろと考えた結果世間の波が「携帯」と「ゲーム」だろうということでゲームを作ってみようってことになりました。しかもうんこで・・・！！！ただ、それだけだと普通だなっとおもったので排便記録をできた上でのサブ機能としてゲームがあればいいよねって言うスタンスで考えていました。
+あと、音姫とかも。（ここから若干カオス気味に・・・）&lt;/p&gt;
+&lt;p&gt;こう、なんかトイレできるプラットフォームアプリてきな位置づけにしようとしていましたが自分の力量足らずで排便管理の方まで手が回らず機能を削るというちょっと悔しい結果になりましたが残りの機能は作成することができました！！！&lt;/p&gt;
+&lt;p&gt;ですがこの数週間後に「タブログ」さんという方が排便管理アプリで「ウンコのアプリ作ってアップルの審査通ったけど、やっぱりウンコダメと言われリジェクトされた件」(http://tagwak.hateblo.jp/entry/2012/08/08/010406)という記事を読んで心配で一杯になりました。俺らのだそうとしているものはうんこそのものじゃないかと・・・・。ただ、ここまで作成したので出したかったのとデザインまで変更しちゃうと自分たちが納得のいくもじゃなかなるので出来るだけ世界感うんこにさせない努力をしましたがさてどうでしょうかね。&lt;/p&gt;
+&lt;p&gt;とりあえず、ソフトクリーム・・・・。いや違う。&lt;/p&gt;
+&lt;p&gt;スイーツだ！と。。。。。。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/09/写真-200x300.png&#34; alt=&#34;中島清掃局&#34; title=&#34;中島清掃局&#34; class=&#34;aligncenter size-medium wp-image-3304&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;大丈夫かな。。。&lt;/p&gt;
+&lt;p&gt;とりあえず、今申請待ちなので進捗があればまたブログに記載しようかとお思います。&lt;/p&gt;
+&lt;p&gt;では！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/09/ore.jpg&#34; alt=&#34;&#34; title=&#34;ore&#34; class=&#34;aligncenter&#34; width=&#34;400px&#34; /&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>るろうに剣心をみてきた</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-08-27_3285/</link>
+            <pubDate>Mon, 27 Aug 2012 01:01:01 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-08-27_3285/</guid>
+            <description>&lt;p&gt;昔からアニメ・マンガをしていた私。
+日本で実写化して成功した作品がないせいかこれもそんなたいした映画じゃないだろと多少ながら
+小馬鹿にしていたところはありますが、予告編をみてなんだか多少ならずか期待を抱いてしまい、
+だめもとでいってまいりました。&lt;/p&gt;
+&lt;iframe width=&#34;853&#34; height=&#34;480&#34; src=&#34;http://www.youtube.com/embed/M5nPcNIl36w&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;日本のチャンバラ映画では１番と勝手に思っている私でした。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[Rails]ログに色付けして出力させる</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-06-18_3207/</link>
+            <pubDate>Mon, 18 Jun 2012 02:48:47 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-06-18_3207/</guid>
+            <description>&lt;p&gt;テストコードを書き始める前はじゃんじゃんprintしまくってログをみて実装していたのでガンガン出力されるデバッグ分が
+色分けされてないとどうにも見分けがつかない状況だったので色分けできるようにしてみました。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+class Logger
+  class Formatter
+    def call(severity, time, progname, msg)
+      msg = msg.to_s.gsub(/(SELECT.+)/, &#34;\033\[1;33m&#34; + &#39;[SQL] \1&#39; + &#34;\033\[0m&#34;)
+      msg = msg.to_s.gsub(/(UPDATE.+)/, &#34;\033\[1;34m&#34; + &#39;[SQL] \1&#39; + &#34;\033\[0m&#34;)
+      msg = msg.to_s.gsub(/(DELETE.+)/, &#34;\033\[1;35m&#34; + &#39;[SQL] \1&#39; + &#34;\033\[0m&#34;)
+      msg = msg.to_s.gsub(/(INSERT.+)/, &#34;\033\[1;32m&#34; + &#39;[SQL] \1&#39; + &#34;\033\[0m&#34;)
+
+      case severity
+        when &#34;FATAL&#34;
+          # \033[#{esc};#{bg};#{fg}m hogehoge \033[0m
+          &#34;#{time.to_s(:db)} \033[1;33;41m[#{severity}]\033[0m #{msg}\n&#34;
+        when &#34;ERROR&#34;
+          &#34;#{time.to_s(:db)} \033[1;33;45m[#{severity}]\033[0m #{msg}\n&#34;
+        when &#34;WARN&#34;
+          &#34;#{time.to_s(:db)} \033[1;30;43m[#{severity}]\033[0m #{msg}\n&#34;
+        when &#34;INFO&#34;
+          &#34;#{time.to_s(:db)} \033[1;36;40m[#{severity}]\033[0m #{msg}\n&#34;
+        else
+          &#34;#{time.to_s(:db)} \033[1;34;40m[#{severity}]\033[0m #{msg}\n&#34;
+        end
+    end
+  end
+end
+&lt;/pre&gt;
+&lt;p&gt;■参照URL
+&lt;a href=&#34;http://api.rubyonrails.org/classes/ActiveSupport/BufferedLogger.html&#34;&gt;http://api.rubyonrails.org/classes/ActiveSupport/BufferedLogger.html&lt;/a&gt;
+&lt;a href=&#34;http://blog.rantan.jp/archives/107&#34;&gt;http://blog.rantan.jp/archives/107&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

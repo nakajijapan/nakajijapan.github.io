@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="FileApi &#43; DragAndDrop &#43; JQueryでドロップした画像ファイルを画面に描画する">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-05-02_1954/" />
+<meta property="go:description" content="今回はDrag And Dropしてみます。
+ただやるんじゃ面白く無いのでローカルにある複数の画像ファイルをドラッグして画面に表示させるところまでやってみます。
+JSとHTMLはこんな感じ。
+
+
+Drag and Drop
+
+	Drop　Here！！
+
+
+
+
+
+
+
+    EXIF Data from the JPEG file:
+&lt;p id=&quot;desc&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;device&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;rights&quot;&gt;&lt;/p&gt;
+&lt;strong&gt;More EXIF details:&lt;/strong&gt;
+&lt;dl id=&quot;exif&quot;&gt;&lt;/dl&gt;
+
+
+
+方法としては、ドラッグ対象となる要素にイベントを登録して必要とする処理を行わせます。
+処理内容は、ドラッグしたファイルからファイル情報を読み込んだ後に画面に描画させます。
+基本は前回と同じですね。ファイルの選択からドラッグをできるようにしただけですからね。。。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="FileApi &#43; DragAndDrop &#43; JQueryでドロップした画像ファイルを画面に描画する" />
+<meta name="twitter:description" content="今回はDrag And Dropしてみます。
+ただやるんじゃ面白く無いのでローカルにある複数の画像ファイルをドラッグして画面に表示させるところまでやってみます。
+JSとHTMLはこんな感じ。
+
+
+Drag and Drop
+
+	Drop　Here！！
+
+
+
+
+
+
+
+    EXIF Data from the JPEG file:
+&lt;p id=&quot;desc&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;device&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;rights&quot;&gt;&lt;/p&gt;
+&lt;strong&gt;More EXIF details:&lt;/strong&gt;
+&lt;dl id=&quot;exif&quot;&gt;&lt;/dl&gt;
+
+
+
+方法としては、ドラッグ対象となる要素にイベントを登録して必要とする処理を行わせます。
+処理内容は、ドラッグしたファイルからファイル情報を読み込んだ後に画面に描画させます。
+基本は前回と同じですね。ファイルの選択からドラッグをできるようにしただけですからね。。。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>FileApi &#43; DragAndDrop &#43; JQueryでドロップした画像ファイルを画面に描画する - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">FileApi &#43; DragAndDrop &#43; JQueryでドロップした画像ファイルを画面に描画する</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-05-02">May 02, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/html">Html</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>今回はDrag And Dropしてみます。
+ただやるんじゃ面白く無いのでローカルにある複数の画像ファイルをドラッグして画面に表示させるところまでやってみます。</p>
+<p>JSとHTMLはこんな感じ。</p>
+<pre class="brush: html">
+<script>
+<script>
+function Nakaji(){
+//var Nakaji = function(){ 
+	//var dropBox = {};
+	//this.init();
+};
+Nakaji.prototype = {
+	dropBox : {},
+
+	//-------------------------
+	// ドラッグ中のマウスカーソルが、要素と重なったときに瞬間に呼び出されるイベント
+	//-------------------------
+	dragEnter : function(event) 
+	{
+    	$("#dropbox").css('background', 'red');
+	},
+    
+    //-------------------------
+    // ドラッグ中のマウスカーソルが要素上を横切っている間、断続的に発生するイベント
+    //-------------------------
+	dragLeave : function(event) 
+	{
+		$("#dropbox").css('background', 'brue');
+    },
+	
+	//-------------------------
+	// ドラッグ中のマウスカーソルが要素内から出た時に呼び出されるイベント
+	//-------------------------
+    dragOver : function(event) 
+    {
+    	event.preventDefault();
+    	$("#dropbox").css('background', 'green');
+    },
+    
+    
+    //-------------------------
+    // ドラッグ時に呼び出されるイベント
+    //-------------------------
+    drop : function(event) {
+		
+		// ドラッグされたデータを取得
+		var dt    = event.dataTransfer;
+		var files = dt.files;
+		var count  = files.length;
+
+		// ドロップを処理したら、イベントのバブリングを防ぐ
+    	event.stopPropagation();
+    	
+    	// デフォルト動作をキャンセルする？
+    	event.preventDefault();
+
+		// ドラッグされたファイル分走査
+		for (var i = 0; i < count; i++) {
+			var file = files[i];
+			var reader = new FileReader();
+			
+			reader.name = file.name,
+			reader.index = i,
+			reader.file = file;
+													
+			// thisじゃだめなのはなぜ？？？？
+			// メソッドの登録
+			reader.addEventListener("loadend", Nakaji.prototype.buildImageListItem, false);
+			
+			// ファイルをdataURL形式で読み取る
+			reader.readAsDataURL(file);
+		}
+    },
+
+    //-------------------------
+    // ドラッグ時に呼び出されるイベント
+    //-------------------------
+    buildImageListItem : function(event)
+    {
+    	var imgTag = $(document.createElement("img"));
+    	var divTag = $(document.createElement("div"));
+		var name = event.target.name;
+		var data = event.target.result;
+		var index = event.target.index;
+		var file = event.target.file;
+
+		divTag.css('float', 'left');
+		divTag.attr('id', 'item_' + index);
+        imgTag.attr({
+        		width: 	200,
+        		height:	200,
+        		src: 	data
+        	});
+
+		// 先頭に追加
+        $("#bag").prepend(divTag.append(imgTag.fadeIn(2000)));
+
+        // TEST
+        elem = $('<div class="nakajijapan"><h2>なんかはいった!(' + name + ')</h2></div>'); 
+        $("#log").prepend(elem.fadeIn(1000)); 
+    }
+}
+
+function init() {
+		dandd = new Nakaji();
+
+		window.addEventListener("dragenter", dandd.dragEnter, false);
+		window.addEventListener("dragleave", dandd.dragLeave, false);
+    	
+    	var dropBox = {};
+		dropBox = document.getElementById("dropbox");
+		dropBox.addEventListener("dragover", dandd.dragOver, false);
+		dropBox.addEventListener("drop", dandd.drop, true);
+}
+
+
+
+// ロード時に処理を追加
+window.addEventListener("load", init, false);
+
+</script>
+<h1>Drag and Drop</h1>
+<div id= "dropbox">
+	Drop　Here！！
+</div>
+<div id="bag">
+</div>
+<br style="clear:both;">
+<div id="log">
+</div>
+<div id="exifbox">
+    <em id="introExif">EXIF Data from the JPEG file:</em>
+<pre><code>&lt;p id=&quot;desc&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;device&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;rights&quot;&gt;&lt;/p&gt;
+&lt;strong&gt;More EXIF details:&lt;/strong&gt;
+&lt;dl id=&quot;exif&quot;&gt;&lt;/dl&gt;
+</code></pre>
+</div>
+</pre>
+<p>方法としては、ドラッグ対象となる要素にイベントを登録して必要とする処理を行わせます。
+処理内容は、ドラッグしたファイルからファイル情報を読み込んだ後に画面に描画させます。
+基本は前回と同じですね。ファイルの選択からドラッグをできるようにしただけですからね。。。</p>
+<p>大元がこれイベントの登録をしています。</p>
+<pre class="brush: html">
+function init() {
+		dandd = new Nakaji();
+
+		window.addEventListener("dragenter", dandd.dragEnter, false);
+		window.addEventListener("dragleave", dandd.dragLeave, false);
+    	
+    	var dropBox = {};
+		dropBox = document.getElementById("dropbox");
+		dropBox.addEventListener("dragover", dandd.dragOver, false);
+		dropBox.addEventListener("drop", dandd.drop, true);
+}
+</pre>
+<p>あと、ドラッグしたファイルを読み込むときには「DataTransfer」という型をドロップしたファイルオブジェクトが情報を持っているのでこれを利用します。</p>
+<pre class="blush: html">
+		// ドラッグされたデータを取得
+		var dt    = event.dataTransfer;
+		var files = dt.files;
+		var count  = files.length;
+</pre>
+<p>あとちょっと理由がわからなかったのですがメソッドがthisじゃだめだったのなぜなんだろうか？？？インスタンスかさせてないと認識できない？なのでメソッドを直接指定することにしました。</p>
+<pre class="brush: html">
+			// thisじゃだめなのはなぜ？？？？
+			// メソッドの登録
+			reader.addEventListener("loadend", Nakaji.prototype.buildImageListItem, false);
+</pre>
+<p>だいたいできた。</p>
+<p>■感想
+・重い画像ファイルを一気にドラッグするとブラウザの処理が追いつかないみたいでファイル名が「undefined」になってしまうことがあるね。どうしたらいいものか。
+(無理やりsleep()的なものおいておいた方がいいのかな？)
+・これも後ろで非同期通信してみる（みたい）
+・これだとIE、Chromeだと動かないのでクロスブラウザ的な対策が必要なんだな
+そもそもIEは「addEventListener」がないからね
+・GPSの情報取得してグーグルマップに登録的なことをしたいでげす。</p>
+<p>■<a href="http://nakajijapan.heteml.jp/html5/dandd/dandd.html">デモ</a></p>
+<p>■参考サイト
+<a href="http://diaspar.jp/node/200">Drag &amp; Drop - HTML5 版</a>
+<a href="http://wiki.bit-hive.com/tomizoo/pg/JavaScript%20addEventListener%28%29">JavaScript addEventListener()</a>
+<a href="http://hacks.mozilla.org/2009/12/w3c-fileapi-in-firefox-3-6/">W3C FileAPI in Firefox 3.6</a></p>
+<p><a href="http://www.thecssninja.com/javascript/drag-and-drop-upload">Drag and drop file uploading using JavaScript</a>
+※コード汚かったけど結構参考になりました。ここだとSVGとかXHRとかもつかってアプロード中の処理もやってるからすごい。</p>
+<p>�</p>
+<p>��</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="ブラウザのページスクロール">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2011/02/01/%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%AE%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB/" />
+<meta property="go:description" content="こんなんでブラウザのスクロールができるのですね！
+正直めんどくさいのでエージングの処理の詳細はしらべませんでした。
+
+jQuery.easing.quart = function (x, t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) &#43; b;
+};  
+
+$(function () {
+    $(&#39;#link_to_top&#39;).click(function () {
+        $(&#39;html,body&#39;).animate({ scrollTop: 0 }, 300, &#39;quart&#39;);
+    });
+});
+
+指定した位置にもっていきたい場合には、
+
+jQuery.easing.quart = function (x, t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) &#43; b;
+};  
+
+$(function () {
+    $(&#39;#link_to_top&#39;).click(function () {
+        
+        // ここでタグが配置していある座標情報を取得する
+        var offset = $(&#39;hogehoge&#39;).offset().top;
+        // 
+        $(&#39;html,body&#39;).animate({ scrollTop: offset }, 300, &#39;quart&#39;);
+    });
+});
+
+■参考URL
+Animated Scrolling with jQuery 1.2
+（ありがとうございます、めもろぐということで・・・・。）
+jQuery でページスクロール" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="ブラウザのページスクロール" />
+<meta name="twitter:description" content="こんなんでブラウザのスクロールができるのですね！
+正直めんどくさいのでエージングの処理の詳細はしらべませんでした。
+
+jQuery.easing.quart = function (x, t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) &#43; b;
+};  
+
+$(function () {
+    $(&#39;#link_to_top&#39;).click(function () {
+        $(&#39;html,body&#39;).animate({ scrollTop: 0 }, 300, &#39;quart&#39;);
+    });
+});
+
+指定した位置にもっていきたい場合には、
+
+jQuery.easing.quart = function (x, t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) &#43; b;
+};  
+
+$(function () {
+    $(&#39;#link_to_top&#39;).click(function () {
+        
+        // ここでタグが配置していある座標情報を取得する
+        var offset = $(&#39;hogehoge&#39;).offset().top;
+        // 
+        $(&#39;html,body&#39;).animate({ scrollTop: offset }, 300, &#39;quart&#39;);
+    });
+});
+
+■参考URL
+Animated Scrolling with jQuery 1.2
+（ありがとうございます、めもろぐということで・・・・。）
+jQuery でページスクロール" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>ブラウザのページスクロール - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">ブラウザのページスクロール</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-02-01">February 01, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>こんなんでブラウザのスクロールができるのですね！
+正直めんどくさいのでエージングの処理の詳細はしらべませんでした。</p>
+<pre class="brush:javascript">
+jQuery.easing.quart = function (x, t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) + b;
+};  
+
+$(function () {
+    $('#link_to_top').click(function () {
+        $('html,body').animate({ scrollTop: 0 }, 300, 'quart');
+    });
+});
+</pre>
+<p>指定した位置にもっていきたい場合には、</p>
+<pre class="brush:javascript">
+jQuery.easing.quart = function (x, t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) + b;
+};  
+
+$(function () {
+    $('#link_to_top').click(function () {
+        
+        // ここでタグが配置していある座標情報を取得する
+        var offset = $('hogehoge').offset().top;
+        // 
+        $('html,body').animate({ scrollTop: offset }, 300, 'quart');
+    });
+});
+</pre>
+<p>■参考URL
+<a href="http://www.learningjquery.com/2007/09/animated-scrolling-with-jquery-12">Animated Scrolling with jQuery 1.2</a><br />
+（ありがとうございます、めもろぐということで・・・・。）
+<a href="http://d.hatena.ne.jp/dayflower/20081007/1223358033">jQuery でページスクロール</a><br /></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

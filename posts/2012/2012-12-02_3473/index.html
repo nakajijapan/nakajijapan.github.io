@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="RailsとCookieではまったこと">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2012/2012-12-02_3473/" />
+<meta property="go:description" content="今回Railsで起きた問題、ちと自分の中で迷ったの纏めておく。
+PHPで運用していたものをRuby(Rails)にのせ変えようとしたときに置きました。
+以前、前の仕様でCookieでカンマ区切りにして保存していた情報があったのですが
+それを気にしないでRailsを導入していたら初期表示でサーバエラーになるという
+問題が発生しました。
+保存していたもの
+
+document.cookie = &#34;HOGE=1,,1,1&#34;
+
+どうもRack側で発生していることに気づきましてCookieの文字列を解析している箇所で「;」「,」の
+二つでハッシュ化していることが原因だとわかりました。
+
+      # According to RFC 2109:
+      #   If multiple cookies satisfy the criteria above, they are ordered in
+      #   the Cookie header such that those with more specific Path attributes
+      #   precede those with less specific.  Ordering with respect to other
+      #   attributes (e.g., Domain) is unspecified.
+      Utils.parse_query(string, &#39;;,&#39;).each { |k,v| hash[k] = Array === v ? v.first : v }
+      @env[&#34;rack.request.cookie_string&#34;] = string
+      hash
+
+Rackが悪いのでは？と思っていてけどRFCまわりをよくよく調査してみるとNAME,VALUEにセミコロン、コンマ、空白文字を
+除いた文字列を指定すべきで、いれるときはエンコードすべき。あと、サーバは将来の互換性のためにカンマも受け入れるべきです。
+てきなことが記述されていたので間違っていないことは確認しました。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="RailsとCookieではまったこと" />
+<meta name="twitter:description" content="今回Railsで起きた問題、ちと自分の中で迷ったの纏めておく。
+PHPで運用していたものをRuby(Rails)にのせ変えようとしたときに置きました。
+以前、前の仕様でCookieでカンマ区切りにして保存していた情報があったのですが
+それを気にしないでRailsを導入していたら初期表示でサーバエラーになるという
+問題が発生しました。
+保存していたもの
+
+document.cookie = &#34;HOGE=1,,1,1&#34;
+
+どうもRack側で発生していることに気づきましてCookieの文字列を解析している箇所で「;」「,」の
+二つでハッシュ化していることが原因だとわかりました。
+
+      # According to RFC 2109:
+      #   If multiple cookies satisfy the criteria above, they are ordered in
+      #   the Cookie header such that those with more specific Path attributes
+      #   precede those with less specific.  Ordering with respect to other
+      #   attributes (e.g., Domain) is unspecified.
+      Utils.parse_query(string, &#39;;,&#39;).each { |k,v| hash[k] = Array === v ? v.first : v }
+      @env[&#34;rack.request.cookie_string&#34;] = string
+      hash
+
+Rackが悪いのでは？と思っていてけどRFCまわりをよくよく調査してみるとNAME,VALUEにセミコロン、コンマ、空白文字を
+除いた文字列を指定すべきで、いれるときはエンコードすべき。あと、サーバは将来の互換性のためにカンマも受け入れるべきです。
+てきなことが記述されていたので間違っていないことは確認しました。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>RailsとCookieではまったこと - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">RailsとCookieではまったこと</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-12-02">December 02, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/rails">Rails</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>今回Railsで起きた問題、ちと自分の中で迷ったの纏めておく。</p>
+<p>PHPで運用していたものをRuby(Rails)にのせ変えようとしたときに置きました。<br >
+以前、前の仕様でCookieでカンマ区切りにして保存していた情報があったのですが<br >
+それを気にしないでRailsを導入していたら初期表示でサーバエラーになるという<br >
+問題が発生しました。</p>
+<h2>保存していたもの</h2>
+<pre class="brush:ruby">
+document.cookie = "HOGE=1,,1,1"
+</pre>
+<p>どうもRack側で発生していることに気づきましてCookieの文字列を解析している箇所で「;」「,」の<br >
+二つでハッシュ化していることが原因だとわかりました。<br ></p>
+<pre class="brush:ruby">
+      # According to RFC 2109:
+      #   If multiple cookies satisfy the criteria above, they are ordered in
+      #   the Cookie header such that those with more specific Path attributes
+      #   precede those with less specific.  Ordering with respect to other
+      #   attributes (e.g., Domain) is unspecified.
+      Utils.parse_query(string, ';,').each { |k,v| hash[k] = Array === v ? v.first : v }
+      @env["rack.request.cookie_string"] = string
+      hash
+</pre>
+<p>Rackが悪いのでは？と思っていてけどRFCまわりをよくよく調査してみるとNAME,VALUEにセミコロン、コンマ、空白文字を<br >
+除いた文字列を指定すべきで、いれるときはエンコードすべき。あと、サーバは将来の互換性のためにカンマも受け入れるべきです。<br >
+てきなことが記述されていたので間違っていないことは確認しました。<br ></p>
+<p>とはいっても、サーバエラーにしてクッキー削除してから閲覧してねという訳にもいかないので一時凌ぎとして</p>
+<p>コロンで解析しないようにしました。</p>
+<h2>修正したこと</h2>
+<pre class="brush:ruby">
+# environment.rb
+
+module Rack
+  class Request
+    def cookies
+      hash   = @env["rack.request.cookie_hash"] ||= {}
+      string = @env["HTTP_COOKIE"]
+
+      return hash if string == @env["rack.request.cookie_string"]
+      hash.clear
+
+      Utils.parse_query(string, ';').each { |k,v| hash[k] = Array === v ? v.first : v}
+
+      @env["rack.request.cookie_string"] = string
+
+      hash
+    rescue => error
+      error.message.replace "cannot parse Cookie header: #{error.message}"
+      raise
+    end
+  end
+end
+</pre>
+<h3>Reference</h3>
+<ul>
+<li>http://www.ietf.org/rfc/rfc2109.txt</li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

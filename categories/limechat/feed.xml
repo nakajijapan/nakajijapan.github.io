@@ -1,0 +1,216 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Limechat on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/limechat/</link>
+        <description>Recent content in Limechat on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Mon, 20 Dec 2010 19:30:44 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/limechat/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>[limechat]private talkでログを残す</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-12-20_2575/</link>
+            <pubDate>Mon, 20 Dec 2010 19:30:44 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-12-20_2575/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;http://blog.nakajijapan.net/2010/09/16/limechat%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%83%88%E3%83%BC%E3%82%AF%E3%81%A7%E8%A9%B1%E3%81%97%E3%81%8B%E3%81%91%E3%82%89%E3%82%8C%E3%81%9F%E3%82%89%E3%82%AD%E3%83%BC%E3%83%AF/&#34;&gt;昔書いた記事&lt;/a&gt;の続きなんですがトーク中は勝手にログをファイルに保存させちゃうことにしました。&lt;/p&gt;
+&lt;p&gt;そうすると、相手のチャット名で話した内容が保存されるようになります。&lt;/p&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+// usage:
+//      make directory C:\Program Files\LimeChat2\users\[user name]\scripts\files\privateChatLog
+//      modify self variable to yourself
+
+// IRCのユーザ名を記述
+var self = &#34;nakaji&#34;;
+
+// ログ保存有無
+var logFlg = true;
+
+// トークログ用ディレクトリ
+var dir = &#39;privateChatLog/&#39;;
+
+function event::onTalkText(prefix, targetNick, text)
+{
+    // 自分以外からのユーザのみ処理
+    if (prefix.nick != self) {
+        showBalloon(prefix.nick, text); // バルーン
+        playSound(&#34;type.wav&#34;);          // サウンド
+        window.BlinkTitle();            // タイトルバーを点滅
+    }
+
+    if (logFlg == true) {
+        date = getDateStr();
+        
+        // 相手が自分に発言してきたときはユーザを相手にして強制的に保存させる
+        var user = targetNick;
+        if (user == self) {
+            user = prefix.nick;
+        }
+        str = &#34;[&#34; + date + &#34;] &#34; + prefix.nick + &#34; &gt; &#34; + text;
+        write_file_string( dir + user + &#39;.log&#39;, str)
+    }
+}
+
+
+//--------------------------------------------
+// ファイル書き込み
+//--------------------------------------------
+function write_file_string( file_name, string  ){
+    file = openFile( file_name , false );
+    file.seekToEnd();
+    file.writeLine(string); 
+
+    file.close();
+}
+
+//--------------------------------------------
+// 日付表示
+//--------------------------------------------
+function getDateStr() {
+    date = new Date();
+    yy = date.getYear();
+    mm = date.getMonth() + 1;
+    dd = date.getDate();
+    
+    hh = date.getHours();
+    ii = date.getMinutes();
+    ss = date.getSeconds();
+    
+    if (yy &lt; 2000) { yy += 1900; }
+    if (mm &lt; 10) { mm = &#34;0&#34; + mm; }
+    if (dd &lt; 10) { dd = &#34;0&#34; + dd; }
+    if (hh &lt; 10) { hh = &#34;0&#34; + hh; }
+    if (ii &lt; 10) { ii = &#34;0&#34; + ii; }
+    if (ss &lt; 10) { ss = &#34;0&#34; + ss; }
+    str = yy + &#34;/&#34; + mm + &#34;/&#34; + dd + &#34; &#34; + hh + &#34;:&#34; + ii + &#34;:&#34; + ss;
+    return str;
+}
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>[limechat]プライベートトークで話しかけられたらキーワード無しでもお知らせしてくれるスクリプト</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-09-16_2408/</link>
+            <pubDate>Thu, 16 Sep 2010 14:41:32 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-09-16_2408/</guid>
+            <description>&lt;p&gt;まず、
+「設定」ー＞「スクリプトの設定」ー＞「スクリプトフォルダを開く」
+でフォルダが表示されるのでそこに適当なファイルを作成します。notice_private_talk.jsでもいいでしょう。
+そのファイルに以下のコード設定します。&lt;/p&gt;
+&lt;pre class=&#34;brush: javascript&#34;&gt;
+function event::onTalkText(prefix, targetNick, text)
+{
+    // 自分以外からのユーザのみ処理
+    if (prefix.nick != &#34;nakaji&#34;) {
+        showBalloon(prefix.nick, text); // バルーン
+        playSound(&#34;type.wav&#34;);          // サウンド
+        window.BlinkTitle();            // タイトルバーを点滅
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;保存したらスクリプトの設定ウィンドウにあるファイル一覧にスクリプト名が表示されると思うのでそのファイル名の右側にあるノードに対して右クリックを押して「○」にします。
+これでスクリプトが反映されたことになります。&lt;/p&gt;
+&lt;p&gt;ちなみに音はメッセンジャーの音をコピペしてつかっているのですがこれはお好みで設定してくださいな。
+「C:\Program Files\Windows Live\Messenger」にあるはずです。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>limeChatで指定した時刻にメッセージを表示させる</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-07-09_2209/</link>
+            <pubDate>Fri, 09 Jul 2010 00:16:04 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-07-09_2209/</guid>
+            <description>&lt;p&gt;これだと毎週のある時刻にメッセージを表示する&lt;/p&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+/*
+ *
+ * 指定した時間にイベントのお知らせメッセージを表示する
+ *　
+ */
+var targetChannel = &#34;#channel&#34;;
+
+
+//------------------------------------
+// 実行時
+//------------------------------------
+var ret = 0;
+function event::onLoad() {
+    ret = setInterval(checkDevMtg, 1000);
+}
+
+//------------------------------------
+// 時刻チェック
+//------------------------------------
+function checkDevMtg(){
+    var date = new Date();
+    
+    // 表示させる時刻（定期的に表示）
+    var targetDay    = 2;    // 火曜日
+    var targetHour   = 15
+    var targetMinute = 50;
+    var targetSecond = 0;
+
+    var currentDay    = date.getDay();
+    var currentHour   = date.getHours();
+    var currentMinute = date.getMinutes();
+    var currentSecond = date.getSeconds();
+    
+    if (targetDay    == currentDay &amp;&amp;
+        targetHour   == currentHour &amp;&amp;
+        targetMinute == currentMinute &amp;&amp;
+        targetSecond == currentSecond
+    ) {
+        window.flashTitle();
+        window.blinkTitle();
+        send(targetChannel, &#34;==============================================&#34;);
+        send(targetChannel, &#34;= ミーティングの時間ですよ！                       =&#34;);
+        send(targetChannel, &#34;==============================================&#34;);
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;補足
+以下のメソッドがうまくうごいてくれなかった。なんでだろう。
+window.flashTitle();
+window.blinkTitle();&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>limeChatで禁止用語チェック　と　自分の関連するキーワードがあればバルーンと音を鳴らす。</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-07-08_2217/</link>
+            <pubDate>Thu, 08 Jul 2010 00:22:08 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-07-08_2217/</guid>
+            <description>&lt;p&gt;ちゃっちープログラムだな。&lt;/p&gt;
+&lt;p&gt;音はメッセンジャーからぱっくんちょ。&lt;/p&gt;
+&lt;pre class=&#34;brush:javascript&#34;&gt;
+var target_channel = &#34;#bot_test&#34;;
+var replyFlg = false;
+
+function event::onChannelText(prefix, channel, text) {
+    // 禁止用語
+    if (text.match(/(卑猥|ピン子|ぴんこ)/)) {
+        send(target_channel, &#34;んっ！&#34;);
+        showBalloon(&#34;ん！&#34;, &#34;なんて卑猥！&#34;);
+    }
+    // キーワード
+    else if (text.match(/(nakaji|Nakajijapan)/)) {
+        showBalloon(channel, prefix.nick + &#34; &gt;&gt; &#34;  + text);
+        playSound(&#34;type.wav&#34;);
+    }
+}
+&lt;/pre&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

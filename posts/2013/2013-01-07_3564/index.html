@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Maintainable Javascriptを読んだ">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2013/2013-01-07_3564/" />
+<meta property="go:description" content="Maintainable JavascriptNicholas C. ZakasOreilly & Associates Inc発売日：2012-05-31ブクログでレビューを見る»
+javascriptは以前からいろいろ実装していたものの、なんとは無しに実装していたが運用しやすいコードってどんなもんだろうな。どういう気概でやってるのだろうと思ってこの本を読んでみました。
+だいたい大きく纏めると
+
+Style Guidlines
+Programming Practice
+Automation
+
+で構成されています。今回はその「Style Guildlines」についてぼやいていこうと思います。
+だいたい言っていることは他の言語でも通ずるところがあったのでしっくり腹に落とし込めた気がします。あと、「Style Guidlines」に関してはおすすめだけじゃなくてなんでこういう書き方いいのかを説明されているので納得いくものがありました。「Programming Practice
+」は結構知らないことが多々あったのでちょっと実用性があるかは疑問なものもあったけど勉強になったと思います。
+Basic formatting
+コードのインデントや変数名・関数名の決め方がこんな書き方がいいよという紹介から始まり、変数の型について説明されていた。
+特にnullとundefinedで細かく説明されていたのでメモ。
+null
+
+変数宣言の際には初期化しようね
+
+
+var hoge = null;
+
+
+期待されていないオブジェクトだったりしたときはnullを返す
+
+
+function getPerson(){
+  if (condition) {
+    return new Person();
+  }
+  else {
+    return null;
+  }
+}
+
+var person = getPerson();
+if (person !== null) {
+  doSomething();
+}
+
+
+引数に設定（供給）されたかどうかをnullでチェックしないで！
+この関数に技術的に間違っているわけじゃないけどそういう想定で
+やるとあとで大変なことになるからやらんほうがいいのかな。
+（すこしわかってない）  
+
+
+function hoge(arg1, arg2) {
+  if (arg2 != null) {
+    doSomething();
+  }
+}
+
+undefined
+基本的にこれは混乱を招くものなので使わないようにしよう！と筆者は書いていた" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Maintainable Javascriptを読んだ" />
+<meta name="twitter:description" content="Maintainable JavascriptNicholas C. ZakasOreilly & Associates Inc発売日：2012-05-31ブクログでレビューを見る»
+javascriptは以前からいろいろ実装していたものの、なんとは無しに実装していたが運用しやすいコードってどんなもんだろうな。どういう気概でやってるのだろうと思ってこの本を読んでみました。
+だいたい大きく纏めると
+
+Style Guidlines
+Programming Practice
+Automation
+
+で構成されています。今回はその「Style Guildlines」についてぼやいていこうと思います。
+だいたい言っていることは他の言語でも通ずるところがあったのでしっくり腹に落とし込めた気がします。あと、「Style Guidlines」に関してはおすすめだけじゃなくてなんでこういう書き方いいのかを説明されているので納得いくものがありました。「Programming Practice
+」は結構知らないことが多々あったのでちょっと実用性があるかは疑問なものもあったけど勉強になったと思います。
+Basic formatting
+コードのインデントや変数名・関数名の決め方がこんな書き方がいいよという紹介から始まり、変数の型について説明されていた。
+特にnullとundefinedで細かく説明されていたのでメモ。
+null
+
+変数宣言の際には初期化しようね
+
+
+var hoge = null;
+
+
+期待されていないオブジェクトだったりしたときはnullを返す
+
+
+function getPerson(){
+  if (condition) {
+    return new Person();
+  }
+  else {
+    return null;
+  }
+}
+
+var person = getPerson();
+if (person !== null) {
+  doSomething();
+}
+
+
+引数に設定（供給）されたかどうかをnullでチェックしないで！
+この関数に技術的に間違っているわけじゃないけどそういう想定で
+やるとあとで大変なことになるからやらんほうがいいのかな。
+（すこしわかってない）  
+
+
+function hoge(arg1, arg2) {
+  if (arg2 != null) {
+    doSomething();
+  }
+}
+
+undefined
+基本的にこれは混乱を招くものなので使わないようにしよう！と筆者は書いていた" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Maintainable Javascriptを読んだ - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Maintainable Javascriptを読んだ</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-01-07">January 07, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/javascript">javascript</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <div class="booklog_html"><div class="booklog_html_image" style="float:left;"><a href="http://www.amazon.co.jp/Maintainable-Javascript-Nicholas-C-Zakas/dp/1449327680%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449327680" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51ALZ8tWE8L._SL160_.jpg" width="113" height="150" style="border:0;" /></a></div><div class="booklog_html_info" style="float:left;margin-left:10px;"><div class="booklog_html_title" style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/Maintainable-Javascript-Nicholas-C-Zakas/dp/1449327680%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449327680" target="_blank">Maintainable Javascript</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="font-size:80%;"><a href="http://booklog.jp/author/Nicholas+C.+Zakas" target="_blank">Nicholas C. Zakas</a></div><div class="booklog_html_manufacturer" style="font-size:80%;">Oreilly & Associates Inc</div><div class="booklog_html_release" style="font-size:80%;">発売日：2012-05-31</div></div><div class="booklog_html_link_amazon" style="margin-bottom:10px;font-size:80%;"><a href="http://booklog.jp/item/1/1449327680" target="_blank">ブクログでレビューを見る»</a></div></div><div class="booklog_html_fotter" style="clear:left;"></div><br /></div>
+<p>javascriptは以前からいろいろ実装していたものの、なんとは無しに実装していたが運用しやすいコードってどんなもんだろうな。どういう気概でやってるのだろうと思ってこの本を読んでみました。</p>
+<p>だいたい大きく纏めると</p>
+<ul>
+<li>Style Guidlines</li>
+<li>Programming Practice</li>
+<li>Automation</li>
+</ul>
+<p>で構成されています。今回はその「Style Guildlines」についてぼやいていこうと思います。
+だいたい言っていることは他の言語でも通ずるところがあったのでしっくり腹に落とし込めた気がします。あと、「Style Guidlines」に関してはおすすめだけじゃなくてなんでこういう書き方いいのかを説明されているので納得いくものがありました。「Programming Practice
+」は結構知らないことが多々あったのでちょっと実用性があるかは疑問なものもあったけど勉強になったと思います。</p>
+<h2>Basic formatting</h2>
+<p>コードのインデントや変数名・関数名の決め方がこんな書き方がいいよという紹介から始まり、変数の型について説明されていた。</p>
+<p>特にnullとundefinedで細かく説明されていたのでメモ。</p>
+<h3>null</h3>
+<ul>
+<li>変数宣言の際には初期化しようね</li>
+</ul>
+<pre class="brush:javascript">
+var hoge = null;
+</pre>
+<ul>
+<li>期待されていないオブジェクトだったりしたときはnullを返す</li>
+</ul>
+<pre class="brush:javascript">
+function getPerson(){
+  if (condition) {
+    return new Person();
+  }
+  else {
+    return null;
+  }
+}
+
+var person = getPerson();
+if (person !== null) {
+  doSomething();
+}
+</pre>
+<ul>
+<li>引数に設定（供給）されたかどうかをnullでチェックしないで！
+この関数に技術的に間違っているわけじゃないけどそういう想定で<br />
+やるとあとで大変なことになるからやらんほうがいいのかな。<br />
+（すこしわかってない）  </li>
+</ul>
+<pre class="brush:javascript">
+function hoge(arg1, arg2) {
+  if (arg2 != null) {
+    doSomething();
+  }
+}
+</pre>
+<h3>undefined</h3>
+<p>基本的にこれは混乱を招くものなので使わないようにしよう！と筆者は書いていた</p>
+<pre class="brush:javascript">
+var person;
+typeof(person); // "undefined"
+typeof(hoge);   // "undefined"
+</pre>
+<p>変数宣言したけど初期化してないからundefined、宣言してなくてもundefined。仮にエラーが発生しても宣言されていな変数と統一するべきだろう。
+あとはこんな混乱が起きないように初期化しようって話</p>
+<pre class="brush:javascript">
+var person = null;
+if (person === null) {
+  do();     
+}
+</pre>
+<h2>Comments</h2>
+<p>コメントの書き方のおすすめなんかが説明されています。</p>
+<h2>Statements and Expressions</h2>
+<p>条件文を書くときの作法なんか書かれていて、基本的な者から筆者のおすすめやら各コーディング規約に準ずるとこんな書き方できるよっての書かれていてそれを採用してるときりがないので自分もしっくり書き方を紹介</p>
+<pre class="brush:javascript">
+// if,forの次は必ずspace
+// ()内部は空白を入れない
+if (condition) {  
+  do();
+} else {
+  doElse();
+}
+
+for (var i = 0;i < 10; i++) {
+  do();
+}
+
+switch (condition) {
+  'hoge':
+    // do something
+    break;
+  'moge':
+    // do something
+    break;
+  default:
+    // none
+}
+</pre>
+<p>個人的には「if」は以下のように書きたい</p>
+<pre class="brush:javascript">
+if (condition) {
+  do();
+}
+// ここにコメント入れられたりできて見やすい
+else {
+  doElse();
+}
+</pre>
+<h3>The loop</h3>
+<p>言わずと知れた構文だが、continueは利用しないほうが分かりやすくてバグの原因とならない</p>
+<pre class="brush:javascript">
+var values = [1,2,3,4,5], i;
+
+for (i=0; values.length < 5; i++) {
+  if (i != 2) {
+    process(values[i]);
+  }
+}
+</pre>
+<h3>The for-in loop</h3>
+<p>for-in は基本的にはオブジェクトのプロパティを走査するときに利用される。
+利用するときはhasOwnPropertyを利用することを筆者はおすすめしている</p>
+<pre class="brush:javascript">
+var prop;
+for (prop in object) {
+  if (object.hasOwnProperty(prop)) {
+    console.log(prop);
+    console.log(object[prop]);
+  }
+}
+</pre>
+<p>単純な配列の走査はしないようにすすめている。これは数値的インデックスされたプロパティとして
+走査されてしまい、本来値としてのデータとして扱われないのだ！なので先天的なエラーをお越しかねない。</p>
+<h2>Valiables, Functions, and Operators</h2>
+<p>まぁ、あたりまえのことなのですが最初に変数宣言はちゃんとしようぜ。
+から、無名関数を宣言するときは最後の行でオブジェクトか無名かわからなくなるから
+無名関数の場合は()でくくってね！</p>
+<pre class="brush:javascript">
+// Bad
+var hoge = function() {
+  alert('hohoho-');
+}();
+
+var hoge = (function() {
+  alert('hohoho-');
+}());
+</pre>
+<h3>Primitive Wrapper Type</h3>
+<p>結論から言うと型としての扱い方がわからなくなるので利用しないことを進めている。</p>
+<pre class="brush:javascript">
+
+var name = 'hoge';
+// このとき、処理の裏側では一時的にインスタンスが生成されている
+// のでこの書き方をしてもエラーにはならないらしい
+name.toUpperCase();
+console.log(name.toUpperCase());
+
+
+// ので以下のものはBad
+var name = new String('hoge');
+var num = new Number(20);
+var bool = new Boolean(true);
+</pre>
+<p>次回は、「Programming Practice」をメモってみる。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,432 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Ruby on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/ruby/</link>
+        <description>Recent content in Ruby on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Tue, 02 Jul 2013 22:30:00 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/ruby/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-07-02-usinggoogledrive/</link>
+            <pubDate>Tue, 02 Jul 2013 22:30:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-07-02-usinggoogledrive/</guid>
+            <description>&lt;p&gt;サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。&lt;/p&gt;
+&lt;p&gt;便利だったのが&lt;a href=&#34;https://github.com/gimite/google-drive-ruby&#34;&gt;google-drive-ruby&lt;/a&gt;で、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。&lt;/p&gt;
+&lt;p&gt;実際に&lt;a href=&#34;http://www.frustration.me/&#34;&gt;www.frustration.me&lt;/a&gt;のユーザ数やアイテム数を計測するために使用してみました。&lt;/p&gt;
+&lt;p&gt;まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;desc &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;send score data to google spreadsheet&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;google_drive&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;namespace &lt;span style=&#34;color:#e6db74&#34;&gt;:batches&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  task &lt;span style=&#34;color:#e6db74&#34;&gt;total_scores&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;:environment&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;t, args&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fail &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;no username&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;GOOGLE_USERNAME&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;].&lt;/span&gt;blank?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fail &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;no password&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;GOOGLE_PASSWORD&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;].&lt;/span&gt;blank?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    session &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;GoogleDrive&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;login(&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;GOOGLE_USERNAME&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;GOOGLE_PASSWORD&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    spreadsheet &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; session&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;spreadsheet_by_key(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;input key name&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    worksheet &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; spreadsheet&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;worksheet_by_title(&lt;span style=&#34;color:#66d9ef&#34;&gt;Rails&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;env)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    analyze_data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#e6db74&#34;&gt;date&lt;/span&gt;:           &lt;span style=&#34;color:#66d9ef&#34;&gt;Time&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;now&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;strftime(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%Y-%m-%d&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#e6db74&#34;&gt;users_num&lt;/span&gt;:      &lt;span style=&#34;color:#66d9ef&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;all&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;count,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#e6db74&#34;&gt;items_num&lt;/span&gt;:      &lt;span style=&#34;color:#66d9ef&#34;&gt;Item&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;all&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;count,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#e6db74&#34;&gt;comments_num&lt;/span&gt;:   &lt;span style=&#34;color:#66d9ef&#34;&gt;Comment&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;all&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;count,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#e6db74&#34;&gt;categories_num&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;Category&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;all&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;count
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    worksheet&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;push(analyze_data)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    worksheet&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;save()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで&lt;code&gt;rake batches:total_scores&lt;/code&gt;で実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2013/2013-07-02_01.png&#34; alt=&#34;ss&#34;&gt;&lt;/p&gt;
+&lt;p&gt;な感じでどんどんレコードが追加されていきます。&lt;/p&gt;
+&lt;p&gt;便利。&lt;/p&gt;
+&lt;p&gt;ただし、注意点があります。今回は&lt;a href=&#34;http://sqale.jp&#34;&gt;sqale&lt;/a&gt;のcronで動かしているのですがログインで以下のように失敗することがあります。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ bundle exec rake batches:total_scores
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rake aborted!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Authentication failed &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; hogehoge@gmail.com: Response code &lt;span style=&#34;color:#ae81ff&#34;&gt;403&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; post https://www.google.com/accounts/ClientLogin: Error&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;BadAuthentication
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Url&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;https://www.google.com/accounts/ServiceLogin?service&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;wise#Email&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;hogehoge%40gmail.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Info&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;WebLoginRequired
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:93:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;rescue in login&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:86:in `login&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:38:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;login&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive.rb:18:in `login&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/home/sqale/current/lib/tasks/scores.rake:10:in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;block &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; levels&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; in &amp;lt;top &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;required&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Tasks: TOP &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; batches:total_scores
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;See full trace by running task with --trace&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>RubyHiroba</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-06-02-rubyhiroba/</link>
+            <pubDate>Wed, 05 Jun 2013 00:12:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-06-02-rubyhiroba/</guid>
+            <description>&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/22314337&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;http://www.slideshare.net/nakajijapan/2013-lt&#34; title=&#34;サービスをRailsにした話&#34; target=&#34;_blank&#34;&gt;サービスをRailsにした話&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/nakajijapan&#34; target=&#34;_blank&#34;&gt;Daichi Nakajima&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;http://rubyhiroba.org/2013/&#34;&gt;RubyHiroba&lt;/a&gt;でLTに参加してきまして自分のサービスのことについて話してきました。
+以前はCGIだったものをせっせせっせとRailsにリニューアルしていっていますよ。という内容です。
+やはり５分で話すにはちょっと時間が足りなかったように思います。薄い話になってしまったのが
+反省点であります。しかし、今回のリニューアルにはいろいろする理由はあると思うけども（そもそもCGIてどうよてなところから）&lt;/p&gt;
+&lt;p&gt;perlにしろrubyにしろテストがあるのは大変心強いし、安心します。
+たとえ、最新のRailsにのせ変えたとしてもテストがない時点でもう技術的負債。前のコードと何ら変わりはない。
+まぁ作成した時点負債は負債なんだけどその劣化速度は抑えられるはず。&lt;/p&gt;
+&lt;p&gt;まだまだリニューアルは続きますが、引き続きがんばります。&lt;/p&gt;
+&lt;p&gt;そして裏で支えていただいた@hsbt氏には感謝の意を隠しきれないであります。。。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Gem公開にBumpを利用してみた</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-12-16_3546/</link>
+            <pubDate>Sun, 16 Dec 2012 22:14:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-12-16_3546/</guid>
+            <description>&lt;p&gt;Gemの公開をBumpを利用して公開してみる。&lt;/p&gt;
+&lt;p&gt;Bumpでやってみる.&lt;/p&gt;
+&lt;p&gt;以前はjewelerを使っていたけど、使ってみることにしました。
+GitHubみるかぎりなんだかシンプルそう。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Bump&lt;/em&gt;&lt;br /&gt;
+https://github.com/gregorym/bump&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+gem install bump
+&lt;/pre&gt;
+&lt;p&gt;gemを作成しときます。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+bundle gem api-bucket
+&lt;/pre&gt;
+&lt;p&gt;ここで一式のGem公開に必要なファイルが作成されるので、
+あとはごにょごにょ作り込む。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ rake build 
+api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem
+
+$ rake release 
+api-bucket 0.0.1 built to pkg/api-bucket-0.0.1.gem
+Tagged v0.0.1
+Pushed git commits and tags
+Pushed api-bucket 0.0.1 to rubygems.org
+&lt;/pre&gt;
+&lt;p&gt;バージョンアップは&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ bump minor
+[master aa84ae1] v0.1.0
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Bump version 0.0.1 to 0.1.0
+&lt;/pre&gt;
+&lt;p&gt;で勝手にコミットまでしてくれる。&lt;/p&gt;
+&lt;p&gt;あとは「rake build」でGemファイルを構築して「rake release」でGemにアップ。&lt;/p&gt;
+&lt;p&gt;うん&lt;/p&gt;
+&lt;p&gt;gemspecファイルとかよくわかんないものまでつくられることないからこっちのほうがシンプルでいいかも。&lt;/p&gt;
+&lt;p&gt;ということで、数日問題あって非公開していたapi-bucket( https://rubygems.org/gems/api-bucket )を公開しました。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[Rails]テーブルの作成更新日時のカラム名を変更する。</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-06-02_3257/</link>
+            <pubDate>Sat, 02 Jun 2012 03:11:17 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-06-02_3257/</guid>
+            <description>&lt;p&gt;Railsはテーブルを作成するときの決まり事として「created_at」「updated_at」と作成されます。
+しかし、既存テのーブル構成を変更しないで作成・更新日時のカラムを利用しようとしたとき不便なものがありますが、
+以下の方法を実装すれば、既存のカラムを変更しなくてもそれがRailsもモデル作成・更新日時用のカラムとして
+認識させてくれるのです。&lt;/p&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+module ActiveRecord
+  module Timestamp
+    private
+    def timestamp_attributes_for_update #:nodoc:
+      [:update_time, :update_date, :updated_at]
+    end
+
+    def timestamp_attributes_for_create #:nodoc:
+      [:make_time, :create_date, :created_at]
+    end
+  end
+end
+&lt;/pre&gt;
+&lt;p&gt;enviroment.rbに記述して再起動すれば反映されているはずです。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>datetime_selectをカスタマイズしたときのあれ</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-02-17_3177/</link>
+            <pubDate>Fri, 17 Feb 2012 06:59:50 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-02-17_3177/</guid>
+            <description>&lt;p&gt;なんか神経使った。Railsはいちいちつまずく。
+デフォルトだとロケールも英語になっていてなんの問題もないけど、フォーマット変更したり、日本語にしたりするとさらに追加の設定が必要になったのでめも。&lt;/p&gt;
+&lt;p&gt;最初はデフォルトのロケールを日本語にしているとエラーが発生してたので調査しました。
+yaml側でどうも解析できていないみたいだったのでboot.rbに明示的に記述を足してライブラリを読み込めるように
+しました。&lt;/p&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+# confg/application.rb
+config.i18n.default_locale = :ja
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+# config/boot.rb
+require &#39;yaml&#39; # この行を追加
+YAML::ENGINE.yamler= &#39;syck&#39; # この行を追加
+&lt;/pre&gt;
+&lt;p&gt;そんでもって日付のフォーマットを変更してみる&lt;/p&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+# config/locale/ja.yml
+ja:
+  date:
+    order: [ :year, :month, :day ]
+  datetime:
+    order: [ :year, :month, :day, :hour, :min ]
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+# views/hoge/_form.html.erb
+&lt;%= f.datetime_select :disp_date, :use_month_numbers =&gt; true %&gt;
+&lt;/pre&gt;
+&lt;p&gt;うまくいきました。&lt;/p&gt;
+&lt;p&gt;■参考URL
+&lt;a href=&#34;http://stackoverflow.com/questions/7045137/rake-tasks-from-cron-uninitialized-constant-yamlengine&#34;&gt;http://stackoverflow.com/questions/7045137/rake-tasks-from-cron-uninitialized-constant-yamlengine&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>sorceryを使ってログイン処理を作成してみる</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-02-15_3170/</link>
+            <pubDate>Wed, 15 Feb 2012 01:07:16 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-02-15_3170/</guid>
+            <description>&lt;p&gt;Railsでsorceryを使ってログイン処理を実現してみることにします。&lt;/p&gt;
+&lt;p&gt;まずはMysqlを理由するのでそれに関連したプラグインもいれてきます。
+Gemfileに必要なプラグインを記述&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+gem &#39;mysql2&#39;
+gem &#39;sorcery&#39;
+gem &#39;refinerycms&#39;
+bundle install
+&lt;/pre&gt;
+&lt;p&gt;DBの設定を行います&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+development:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+# Warning: The database defined as &#34;test&#34; will be erased and
+# re-generated from your development database when you run &#34;rake&#34;.
+# Do not set this db to the same as development or production.
+test:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+production:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+&lt;/pre&gt;
+&lt;p&gt;とりあえず、WEBサーバが動作するようにUnicornの設定をします。（内容はとりあえず、動作する目的で記述しているのであまりつっこまないでください）&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>rbenvのインストール</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-01-31_3121/</link>
+            <pubDate>Tue, 31 Jan 2012 02:06:16 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-01-31_3121/</guid>
+            <description>&lt;p&gt;rubyで新サービスを開発するためにいろいろ技術調査やら実験しているわけでして、試行錯誤しているわけなフェーズな訳です。
+とはいうもののなんだかんだしてrubyのバージョンがあがってフレームワークの並に乗れなかったりするのは嫌なので、システム
+からチョッち上の層でバージョン管理してくれるものあったのでインストールしてみることにします。&lt;/p&gt;
+&lt;p&gt;今回はMacからのインストールですが、以前リナックスに同じバージョン管理してくれるRVMをいれていまして
+「update」するとめんどくさいという経験談を聞いてちょっと公開してしまいましたがとりあえずはこれで運用しつつ、
+Macではrbenvで運用してみることにします。&lt;/p&gt;
+&lt;p&gt;でもその前に、久々にMacに入っているサーバやらソフトをbrewでアップデートします。brew入れてから半年もたってないけどもろもろ更新されてるみたいですね。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# brew update
+# brew upgrade                                                                                                                                                                                                    [~/config]
+==&gt; Upgrading 9 outdated packages, with result:
+cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6
+
+・
+・
+・
+・
+
+&lt;/pre&gt;
+&lt;h3&gt;rbenvのインストール&lt;/h3&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# brew install rbenv
+# brew install ruby-build
+&lt;/pre&gt;
+brewは楽でいいですね。
+&lt;p&gt;その後に.zshrcに以下の処理を追加します。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+eval &#34;$(rbenv init -)&#34;
+source ~/.rbenv/completions/rbenv.zsh
+&lt;/pre&gt;
+&lt;h3&gt;rubyのインストール&lt;/h3&gt;
+まずはちょっと前のバージョンをいれてみることにします。
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# rbenv install 1.9.2-p290
+# rbenv global 1.9.2-p290
+# rbenv rehash
+# ruby -v
+ruby 1.9.2p290 (2011-07-09 revision 32553) [x86_64-darwin11.2.0]
+&lt;/pre&gt;
+「rbenv rehash」でインストールしたバージョンを反映させるみたいです。これで設定は完了です。
+&lt;p&gt;以下も同様ですね。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Rails &#43; Thinで構成してみる in Scientific Linux</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-01-31_3119/</link>
+            <pubDate>Tue, 31 Jan 2012 01:44:53 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-01-31_3119/</guid>
+            <description>&lt;p&gt;さくらのVPSを借りることになったので早速Ruby+Rails+Thinで構築してみることにします。&lt;/p&gt;
+&lt;p&gt;「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。&lt;/p&gt;
+&lt;blockquote&gt; the Mongrel parser, the root of Mongrel speed and security
+Event Machine, a network I/O library with extremely high scalability, performance and stability
+Rack, a minimal interface between webservers and Ruby frameworks &lt;/blockquote&gt;
+&lt;h3&gt;RVMのインストール&lt;/h3&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+&lt;/pre&gt;
+&lt;h3&gt;設定情報を追加&lt;/h3&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+[[ -s &#34;$HOME/.rvm/scripts/rvm&#34; ]] &amp;&amp; . &#34;$HOME/.rvm/scripts/rvm&#34;
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# rvm  install 1.9.3
+# rvm  install 1.9.2
+# rvm --default use 1.9.3
+&lt;/pre&gt;
+&lt;h3&gt;RubyGemsのインストール&lt;/h3&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+sudo /usr/local/rvm/bin/ruby setup.rb
+gem update --system
+&lt;/pre&gt;
+&lt;h3&gt;Mysqlのインストール&lt;/h3&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+gem install mysql2
+&lt;/pre&gt;
+&lt;p&gt;これの前提条件として&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[入門]railsで簡単なヘルパーを作成してみる</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-11-14_2973/</link>
+            <pubDate>Mon, 14 Nov 2011 22:05:34 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-11-14_2973/</guid>
+            <description>&lt;p&gt;viewで使うようのhelperを作成します。&lt;/p&gt;
+&lt;pre class=&#34;brush:html&#34;&gt;
+    &lt;div id=&#34;cart-area&#34; &lt;% if @cart.line_items.empty? %&gt;style=&#34;display: none&#34;&lt;%end%&gt;&gt;
+      &lt;%= render @cart %&gt;
+    &lt;/div&gt;
+&lt;/pre&gt;
+&lt;p&gt;これじゃスマートじゃないよね。というかもっと簡素化します。&lt;/p&gt;
+&lt;pre class=&#34;brush:html&#34;&gt;
+    &lt;%= hidden_div_if(@cart.line_items.empty?, id: &#39;cart&#39;) do %&gt;
+      &lt;%= render @cart %&gt;
+    &lt;%end%&gt;
+&lt;/pre&gt;
+&lt;p&gt;実際のヘルパーは「app/helpers/appliction_helper.rb」に保存されて以下のように実装すると完了です。&lt;/p&gt;
+&lt;pre class=&#34;brush:html&#34;&gt;
+module ApplicationHelper
+  def hidden_div_if(condition, attributes = {}, &amp;block)
+    if condition
+      attributes[&#34;style&#34;] = &#34;display: none&#34;
+    end
+    
+    content_tag(&#34;div&#34;, attributes, &amp;block)
+  end
+end
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>[入門][続き２]rails3でコントローラ作成してみました！</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-10-05_2932/</link>
+            <pubDate>Wed, 05 Oct 2011 22:17:02 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-10-05_2932/</guid>
+            <description>&lt;p&gt;お勉強のつづきです。&lt;/p&gt;
+&lt;p&gt;rails3フレームワークを指定したディレクトリにインストールします。
+コマンドはrailsを利用してもろもろ作成していきます。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+[nakajijapan] #rails new test
+・
+・
+・
+
+Using rack-ssl (1.3.2) 
+Using rdoc (3.9.4) 
+Using thor (0.14.6) 
+Using railties (3.1.0) 
+Installing coffee-rails (3.1.1) 
+Installing jquery-rails (1.0.14) 
+Using rails (3.1.0) 
+Installing sass (3.1.8) 
+Installing sass-rails (3.1.4) 
+Using sqlite3 (1.3.4) 
+Installing turn (0.8.2) 
+Installing uglifier (1.0.3) 
+Your bundle is complete! Use `bundle show [gemname]` to see where a bundled gem is installed.
+&lt;/pre&gt;
+&lt;p&gt;その後、コントローラを導入してみます。
+処理内容としては顧客情報のCRUDをやらせましょう。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+[nakajijapan] #rails generate scaffold customer name:string email:string address:text                                                                                               [/var/www/spec]
+/usr/local/Cellar/ruby/1.9.2-p290/lib/ruby/gems/1.9.1/gems/rack-1.3.4/lib/rack/backports/uri/common_192.rb:53: warning: already initialized constant WFKV_
+      invoke  active_record
+      create    db/migrate/20111004120942_create_customers.rb
+      create    app/models/customer.rb
+      invoke    test_unit
+      create      test/unit/customer_test.rb
+      create      test/fixtures/customers.yml
+       route  resources :customers
+      invoke  scaffold_controller
+      create    app/controllers/customers_controller.rb
+      invoke    erb
+      create      app/views/customers
+      create      app/views/customers/index.html.erb
+      create      app/views/customers/edit.html.erb
+      create      app/views/customers/show.html.erb
+      create      app/views/customers/new.html.erb
+      create      app/views/customers/_form.html.erb
+      invoke    test_unit
+      create      test/functional/customers_controller_test.rb
+      invoke    helper
+      create      app/helpers/customers_helper.rb
+      invoke      test_unit
+      create        test/unit/helpers/customers_helper_test.rb
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/customers.js.coffee
+      invoke    scss
+      create      app/assets/stylesheets/customers.css.scss
+      invoke  scss
+      create    app/assets/stylesheets/scaffolds.css.scss
+&lt;/pre&gt;
+&lt;p&gt;もろもろできちゃいましたね。これでCRUDの処理系は作成し終わっちゃうことになりました。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

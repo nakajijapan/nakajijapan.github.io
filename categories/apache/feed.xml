@@ -1,0 +1,174 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Apache on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/apache/</link>
+        <description>Recent content in Apache on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Tue, 13 Sep 2011 02:07:18 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/apache/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>[Apache]プロセスを制限してみた</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-09-13_2890/</link>
+            <pubDate>Tue, 13 Sep 2011 02:07:18 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-09-13_2890/</guid>
+            <description>&lt;p&gt;パフォーマンスチューニング勉強&lt;/p&gt;
+&lt;p&gt;Apache HTTP serverについてちょいとお勉強なうです。&lt;/p&gt;
+&lt;p&gt;MPMはHTTPのリクエストを処理する部分。
+Version2.0から採用サれている
+MPMには次の種類あり。
+&lt;code&gt;
+・prefork
+１つのリクエストに対して１プロセスを割り当てる
+負荷に応じて小プロセスを増減させる
+PHPだとPreforkMPMを推奨している&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;StartServers: 最初に起動する子プロセスの数
+MinSpareServers: 待機する子プロセスの最小数
+MaxSpareServers: 待機する子プロセスの最大数
+MaxClients: 生成する子プロセスの最大数
+MaxRequestsPerChild: それぞれの子プロセスが扱うリクエスト数の制限数
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;・worker
+・perchild
+・winnt
+&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+#MaxKeepAliveRequests 100
+MaxKeepAliveRequests 30
+
+
+&lt;IfModule prefork.c&gt;
+#StartServers       8
+#MinSpareServers    5
+#MaxSpareServers   20
+#ServerLimit      256
+#MaxClients       256
+#MaxRequestsPerChild  4000
+
+StartServers       2
+MinSpareServers    2
+MaxSpareServers    8
+ServerLimit        5
+MaxClients         5
+MaxRequestsPerChild  3000
+&lt;/IfModule&gt;
+
+&lt;/pre&gt;
+&lt;p&gt;□参考URL
+&lt;a href=&#34;http://www.atmarkit.co.jp/flinux/rensai/apache16/apache16b.html&#34;&gt;http://www.atmarkit.co.jp/flinux/rensai/apache16/apache16b.html&lt;/a&gt;
+&lt;a href=&#34;http://labs.unoh.net/2008/03/apache_mpm.html&#34;&gt;http://labs.unoh.net/2008/03/apache_mpm.html&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>IE６における「content-encoding gzip」の問題</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-06-12_2124/</link>
+            <pubDate>Sat, 12 Jun 2010 13:15:39 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-06-12_2124/</guid>
+            <description>&lt;p&gt;IE６でいまいちjavascriptが正常に動作しない件&lt;/p&gt;
+&lt;p&gt;原因はよくわからなかったがIEが「content-encoding gzip」があるレスポンスを
+うまく理解してくれないみたいだ。なのでjavascriptがどうのこうのという話ではなかった。&lt;/p&gt;
+&lt;p&gt;その間に調査したこととして、圧縮の通信ていうのもHTTP/1.1からなので
+「HTTP/1.1」を設定できるように設定すればいいのかと思ったがどうもそれでも
+だめだったようだ。&lt;/p&gt;
+&lt;p&gt;ということでApacheで圧縮している箇所を探す&lt;/p&gt;
+&lt;p&gt;mod_deflateっていう機能で実現してました。&lt;/p&gt;
+&lt;p&gt;通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+&lt;/pre&gt;
+&lt;p&gt;これをコメントアウトして再起動したら、なんら問題はおきなくなった。
+ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。&lt;/p&gt;
+&lt;p&gt;あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。&lt;/p&gt;
+&lt;p&gt;■参照URL
+&lt;a href=&#34;Content Negotiation でリクエストに応じて gzip 圧縮ファイルを返す&#34;&gt;&lt;a href=&#34;http://sonic64.com/2005-09-14.html&#34;&gt;http://sonic64.com/2005-09-14.html&lt;/a&gt;&lt;/a&gt;
+&lt;a href=&#34;http://httpd.apache.org/docs/2.0/ja/mod/mod_deflate.html&#34;&gt;mod_deflate&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>VirtualDocumentRootとか</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-03-13_1710/</link>
+            <pubDate>Sat, 13 Mar 2010 02:54:53 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-03-13_1710/</guid>
+            <description>&lt;p&gt;Apacheの設定をいじる機会がありましていろいろしることできたのでメモ。
+あと考え方もちょびちょび。&lt;/p&gt;
+&lt;p&gt;・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。&lt;/p&gt;
+&lt;p&gt;このとき利用する方法としてVirtualDocumentRootの設定をします。&lt;/p&gt;
+&lt;p&gt;それが以下の設定。&lt;/p&gt;
+&lt;pre class=&#34;brush: text&#34;&gt;
+# ディレクトリティブの設定
+&lt;Directory &#34;/var/www/test/public&#34;&gt;
+    Options -Indexes -MultiViews +ExecCGI -Includes
+    AllowOverride All
+    FileETag None
+&lt;/Directory&gt;
+# すべてからのホストに対しての設定
+&lt;VirtualHost *&gt;
+    ServerName   %0
+    VirtualDocumentRoot /home/web/%0/public_html
+&lt;/VirtualHost&gt;
+&lt;/pre&gt;
+&lt;p&gt;これによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。
+一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。
+これができると楽なんだなぁと思いました。&lt;/p&gt;
+&lt;p&gt;ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば
+ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。&lt;/p&gt;
+&lt;blockquote&gt;
+%%	insert a %
+%p	insert the port number of the virtual host
+%N.M	insert (part of) the name
+&lt;p&gt;0	the whole name
+1	the first part
+2	the second part
+-1	the last part
+-2	the penultimate part
+2+	the second and all subsequent parts
+-2+	the penultimate and all preceding parts
+1+ and -1+	the same as 0&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>DSOでmod_perlをインスコ</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-10_443/</link>
+            <pubDate>Wed, 10 Feb 2010 15:08:11 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-10_443/</guid>
+            <description>&lt;p&gt;mod_perをインスコログ&lt;/p&gt;
+&lt;p&gt;これダウンロード先
+&lt;a href=&#34;http://perl.apache.org/download/index.html&#34;&gt;http://perl.apache.org/download/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# 解答
+$ tar zxvf mod_perl-2.0-current.tar.gz
+$ cd mod_perl-2.0.4/
+ 
+# モジュールの確認を行う
+$ httpd -l
+Compiled in modules:
+  core.c
+  prefork.c
+  http_core.c
+  mod_so.c
+
+$ perl Makefile.PL USE_APXS=1 WITH_APXS=/usr/local/apache/bin/apxs EVERYTHING=1 MP_APR_CONFIG=/usr/local/apache/bin/apr-1-config
+$ make
+$ make install
+&lt;/pre&gt;
+&lt;p&gt;$ vi httpd.conf
+LoadModule perl_module modules/mod_perl.so&lt;/p&gt;
+&lt;p&gt;これでおｋ&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

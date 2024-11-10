@@ -1,0 +1,54 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Devlopment on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/devlopment/</link>
+        <description>Recent content in Devlopment on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sat, 23 Jan 2010 11:39:18 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/devlopment/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>NetBeans使ってみる</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-01-23_349/</link>
+            <pubDate>Sat, 23 Jan 2010 11:39:18 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-01-23_349/</guid>
+            <description>&lt;p&gt;なんかGUIでいいのないかなぁって思っていたら。&lt;/p&gt;
+&lt;p&gt;NetBeansなるもの発見情報としてはおそいんでしょうけどね。。。&lt;/p&gt;
+&lt;p&gt;とりあえず、フォントは変更。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+filename.Consolas=CONSOLA.TTF
+filename.Consolas_Bold=CONSOLAB.TTF
+filename.Consolas_Italic=CONSOLAI.TTF
+filename.Consolas_Bold_Italic=CONSOLAZ.TTF
+
+# alphebet と japanese を逆にする
+# じゃないとまたmonospacedになるみたいです。
+sequence.monospaced.windows-31j=alphabetic,japanese,dingbats,symbol
+
+# mod
+monospaced.plain.alphabetic=Consolas
+monospaced.bold.alphabetic=Consolas Bold
+monospaced.italic.alphabetic=Consolas Italic
+monospaced.bolditalic.alphabetic=Consolas Bold Italic
+&lt;/pre&gt;
+&lt;p&gt;次は空白とタブを表示できるようにする。でこのへんのサイト参考にしてたんだけど
+なんかうまくプラグインがインストールしてくれなかった。。。６．８だとなんか問題
+あるのかな？&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://netbeans.org/files/documents/197/2344/org-netbeans-modules-fixtabs.nbm&#34;&gt;Netbeans org-netbeans-modules-fixtabs.nbm&lt;/a&gt;
+&lt;a href=&#34;http://old.nabble.com/NB6.5PHP%E3%81%A7%E3%81%AE%E5%85%A8%E8%A7%92%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%82%84%E3%82%BF%E3%83%96%E3%81%AE%E8%A1%A8%E7%A4%BA-td20431581.html
+&#34;&gt;このへん&lt;/a&gt;の書き方&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

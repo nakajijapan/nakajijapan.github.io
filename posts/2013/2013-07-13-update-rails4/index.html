@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Update To Rails4">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2013/2013-07-13-update-rails4/" />
+<meta property="go:description" content="自分のサービスのRailsのversionがまだ3.2だったので地道にRails4にアップデートしました。
+その際に必要になった作業をメモっときます。
+attr_accessible is extracted out of Rails into a gem.
+E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError)
+attr_accessibleはRailsから省いてstrong_parametersを利用してとのこと。
+振るいものを利用するならprotected_attributesっていうGem使ってね。
+しかし、今回はstrong_parametersを記述していきます。
+とりあえずModelからの排除を行う。
+DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.
+DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. (called from block in &lt;top (required)&gt; at /private/var/www/frustration/config/environm
+ents/development.rb:10)
+
+whiny_nils
+
+初期化されていないオブジェクトが呼び出させたときに、警告を表示する
+
+
+
+-  # Log error messages when you accidentally call methods on nil
+-  config.whiny_nils = true
+-
+config.eager_load is set to nil.
+config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+必須の設定項目増えたのでrails newして作成された環境ファイルを眺めてみる。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Update To Rails4" />
+<meta name="twitter:description" content="自分のサービスのRailsのversionがまだ3.2だったので地道にRails4にアップデートしました。
+その際に必要になった作業をメモっときます。
+attr_accessible is extracted out of Rails into a gem.
+E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError)
+attr_accessibleはRailsから省いてstrong_parametersを利用してとのこと。
+振るいものを利用するならprotected_attributesっていうGem使ってね。
+しかし、今回はstrong_parametersを記述していきます。
+とりあえずModelからの排除を行う。
+DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.
+DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. (called from block in &lt;top (required)&gt; at /private/var/www/frustration/config/environm
+ents/development.rb:10)
+
+whiny_nils
+
+初期化されていないオブジェクトが呼び出させたときに、警告を表示する
+
+
+
+-  # Log error messages when you accidentally call methods on nil
+-  config.whiny_nils = true
+-
+config.eager_load is set to nil.
+config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+必須の設定項目増えたのでrails newして作成された環境ファイルを眺めてみる。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Update To Rails4 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Update To Rails4</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-07-13">July 13, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/rails">Rails</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>自分のサービスのRailsのversionがまだ<code>3.2</code>だったので地道にRails4にアップデートしました。
+その際に必要になった作業をメモっときます。</p>
+<h2 id="attr_accessible-is-extracted-out-of-rails-into-a-gem">attr_accessible is extracted out of Rails into a gem.</h2>
+<pre tabindex="0"><code>E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError)
+</code></pre><p><code>attr_accessible</code>はRailsから省いて<code>strong_parameters</code>を利用してとのこと。
+振るいものを利用するなら<code>protected_attributes</code>っていうGem使ってね。
+しかし、今回は<code>strong_parameters</code>を記述していきます。</p>
+<p>とりあえずModelからの排除を行う。</p>
+<h2 id="deprecation-warning-configwhiny_nils-option-is-deprecated-and-no-longer-works">DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.</h2>
+<pre tabindex="0"><code>DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. (called from block in &lt;top (required)&gt; at /private/var/www/frustration/config/environm
+ents/development.rb:10)
+</code></pre><ul>
+<li>whiny_nils
+<ul>
+<li>初期化されていないオブジェクトが呼び出させたときに、警告を表示する</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  # Log error messages when you accidentally call methods on nil
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-  config.whiny_nils = true
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-
+</span></span></span></code></pre></div><h2 id="configeager_load-is-set-to-nil">config.eager_load is set to nil.</h2>
+<pre tabindex="0"><code>config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+</code></pre><p>必須の設定項目増えたので<code>rails new</code>して作成された環境ファイルを眺めてみる。</p>
+<h2 id="the-provided-regular-expression">The provided regular expression</h2>
+<pre tabindex="0"><code>E, [2013-07-04T12:00:26.429744 #7376] ERROR -- : The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline =&gt; true option? (ArgumentError)
+</code></pre><p>正規表現の処理にもセキュリティが強化されていました。
+一行を考慮したデータのチェック<code>^</code>なら<code>\A</code>、<code>$</code>なら<code>\z</code>にすると意図したチェックになるよ。
+複数行を考慮してるんだよ！ってときは<code>:multiline =&gt; true</code>にしてね！</p>
+<p>自分のValidationは一行のデータを考慮しているので修正します。</p>
+<h2 id="you-should-not-use-the-match-method-in-your-router-without-specifying-an-http-method">You should not use the <code>match</code> method in your router without specifying an HTTP method.</h2>
+<pre tabindex="0"><code>E, [2013-07-04T12:07:42.318503 #7626] ERROR -- : You should not use the `match` method in your router without specifying an HTTP method.
+If you want to expose your action to both GET and POST, add `via: [:get, :post]` option.
+If you want to expose your action to GET, use `get` in the router:
+  Instead of: match &#34;controller#action&#34;
+  Do: get &#34;controller#action&#34; (RuntimeError)
+</code></pre><p><code>match</code>の代わりにHTTPメソッドをちゃんと宣言しようぜ！っていうメッセージ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  match &#39;home&#39; =&gt; &#39;home#index&#39;, :via =&gt; :get
+</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+  get &#39;home&#39; =&gt; &#39;home#index&#39;
+</span></span></span></code></pre></div><p>なかんじで修正。</p>
+<p>これで起動はうまくいった。strong_parameterによる警告はあるけどこれは後ほど修正することにする。
+その後は、テストを流して全部通す。</p>
+<pre tabindex="0"><code>bundle exec rspec spec
+</code></pre><h2 id="deprecation-warning-calling-findfirst-is-deprecated">DEPRECATION WARNING: Calling #find(:first) is deprecated.</h2>
+<pre tabindex="0"><code>DEPRECATION WARNING: Calling #find(:first) is deprecated. Please call #first directly instead. You have also used finder options. These are also deprecated. Please build a scope instead of using finder options. (called from block in create_with_item at /private/var/www/frustration/app/services/service_fuman.rb:51)
+</code></pre><p>以下のような推奨されていない使い方をしていたので修正しました。</p>
+<pre tabindex="0"><code>Hoge.find(:first, condition: {user_id: @user.id})
+↓
+Hoge.where(user_id: @user.id).first
+</code></pre><h2 id="strong_parameter">strong_parameter</h2>
+<p>ここはひたすらcontroller側に制限の内容を記述。</p>
+<p>ホワイトリストとして許可するパラメータを記述していきます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">category_params</span>
+</span></span><span style="display:flex;"><span>      params<span style="color:#f92672">.</span>require(<span style="color:#e6db74">:category</span>)<span style="color:#f92672">.</span>permit(<span style="color:#e6db74">:user_id</span>, <span style="color:#e6db74">:name</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h2 id="deprecation-warning-you-didnt-set-configsecret_key_base">DEPRECATION WARNING: You didn&rsquo;t set config.secret_key_base.</h2>
+<pre tabindex="0"><code>DEPRECATION WARNING: You didn&#39;t set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from env_config at /private/var/www/frustration/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/application.rb:141)
+</code></pre><p><code>secret_token</code>はもう推奨されていなくて<code>secret_key_base</code>に名前が変更されたようです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> config<span style="color:#f92672">.</span>secret_key_base<span style="color:#f92672">.</span>blank?
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">ActiveSupport</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Deprecation</span><span style="color:#f92672">.</span>warn <span style="color:#e6db74">&#34;You didn&#39;t set config.secret_key_base. &#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Read the upgrade documentation to learn more about this new config option.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> config<span style="color:#f92672">.</span>secret_token<span style="color:#f92672">.</span>blank?
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#e6db74">&#34;You must set config.secret_key_base in your app&#39;s config.&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>これですべてテストがうまくいったのでPull Requestを自分に送ってfin.</p>
+<p><a href="https://github.com/nakajijapan/frustrationme_app/pulls">https://github.com/nakajijapan/frustrationme_app/pulls</a></p>
+<p>メジャーバージョンが上がってるということで、新しい機能が追加されたり、機能が廃止されたり、名前が変更されていたりと、いろいろと変更するべき点は多かったですがテストを書いていたので実行させては修正、実行させては修正の連続で効率的に修正作業ができたんじゃないかとおもいます（最終的にはWEB上での確認はしましたが）。</p>
+<p>あと、今回は規模が小さいし、修正箇所もそんなに多くなかったのでstrong_parametersの部分も変更させてしましましたが、</p>
+<pre tabindex="0"><code>gem &#39;strong_parameters&#39;
+</code></pre><p>であらかじめ3系で実装しておくと細かい粒度で修正できて安心かもしれませんね。</p>
+<p>さてさて、アップデートできてよかった。。。</p>
+<h2 id="ref">Ref</h2>
+<p><a href="http://www.upgradingtorails4.com/">http://www.upgradingtorails4.com/</a>
+<a href="http://railscasts.com/episodes/415-upgrading-to-rails-4?language=ja&amp;view=asciicast">http://railscasts.com/episodes/415-upgrading-to-rails-4?language=ja&amp;view=asciicast</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

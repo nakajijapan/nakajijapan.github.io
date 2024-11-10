@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[ios]CGContextDrawImageすると座標の原点が変更されてしまいてんやわんや。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2011/08/02/ioscgcontextdrawimage%E3%81%99%E3%82%8B%E3%81%A8%E5%BA%A7%E6%A8%99%E3%81%AE%E5%8E%9F%E7%82%B9%E3%81%8C%E5%A4%89%E6%9B%B4%E3%81%95%E3%82%8C%E3%81%A6%E3%81%97%E3%81%BE%E3%81%84%E3%81%A6%E3%82%93%E3%82%84%E3%82%8F%E3%82%93%E3%82%84/" />
+<meta property="go:description" content="ガッツでのりこえました。
+いろんな画像を一つの画像に描画させるときにview側で保存しといた座標位置を「CGContextDrawImage」
+で画像を描画させるときに座標がずれてしまい、困っていました。
+原因はviewとCGContextするときのの座標の原点が異なっていたところと画像の原点はアイテムの中心に
+になっているところ
+view側が(0,0)だとするとコンテキストのときは(0, Y - y - h)
+Y:yの最大値
+h:描画する画像の縦幅
+自分で変換してやってみました。
+しかし、原点の座標を変更処理があったのでした。
+CGContextScaleCTM
+ CGContextTranslateCTM
+ CGAffineTransform
+この辺をうまく利用すればできるのですが、描画する画像が垂直反転されて原因がいまいち
+不明だったのであきらめました（汗汗汗汗汗汗汗）
+以下がやっつけ変換です。
+
+- (CGRect) calcRealSize: (CGRect)rect withRate:(float)rate
+{
+    NSLog(@&#34;&#43;X: %f, Y: %f, W: %f, H: %f&#34;, rect.origin.x,        rect.origin.y,        rect.size.width, rect.size.height);
+    NSLog(@&#34;-X: %f, Y: %f, W: %f, H: %f&#34;, rect.origin.x * rate, 500 - (rect.origin.y * rate) - (rect.size.height*rate), rect.size.width * rate, rect.size.height * rate);
+    CGRect retRect = CGRectMake(rect.origin.x * rate, 
+                                500 - (rect.origin.y * rate) - (rect.size.height*rate) , 
+                                rect.size.width * rate, 
+                                rect.size.height * rate);
+
+    return retRect;
+}
+
+■参照URL
+http://developer.apple.com/library/mac/#documentation/GraphicsImaging/Reference/CGAffineTransform/Reference/reference.html
+http://ja.w3support.net/index.php?db=so&amp;id=506622" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[ios]CGContextDrawImageすると座標の原点が変更されてしまいてんやわんや。" />
+<meta name="twitter:description" content="ガッツでのりこえました。
+いろんな画像を一つの画像に描画させるときにview側で保存しといた座標位置を「CGContextDrawImage」
+で画像を描画させるときに座標がずれてしまい、困っていました。
+原因はviewとCGContextするときのの座標の原点が異なっていたところと画像の原点はアイテムの中心に
+になっているところ
+view側が(0,0)だとするとコンテキストのときは(0, Y - y - h)
+Y:yの最大値
+h:描画する画像の縦幅
+自分で変換してやってみました。
+しかし、原点の座標を変更処理があったのでした。
+CGContextScaleCTM
+ CGContextTranslateCTM
+ CGAffineTransform
+この辺をうまく利用すればできるのですが、描画する画像が垂直反転されて原因がいまいち
+不明だったのであきらめました（汗汗汗汗汗汗汗）
+以下がやっつけ変換です。
+
+- (CGRect) calcRealSize: (CGRect)rect withRate:(float)rate
+{
+    NSLog(@&#34;&#43;X: %f, Y: %f, W: %f, H: %f&#34;, rect.origin.x,        rect.origin.y,        rect.size.width, rect.size.height);
+    NSLog(@&#34;-X: %f, Y: %f, W: %f, H: %f&#34;, rect.origin.x * rate, 500 - (rect.origin.y * rate) - (rect.size.height*rate), rect.size.width * rate, rect.size.height * rate);
+    CGRect retRect = CGRectMake(rect.origin.x * rate, 
+                                500 - (rect.origin.y * rate) - (rect.size.height*rate) , 
+                                rect.size.width * rate, 
+                                rect.size.height * rate);
+
+    return retRect;
+}
+
+■参照URL
+http://developer.apple.com/library/mac/#documentation/GraphicsImaging/Reference/CGAffineTransform/Reference/reference.html
+http://ja.w3support.net/index.php?db=so&amp;id=506622" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[ios]CGContextDrawImageすると座標の原点が変更されてしまいてんやわんや。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[ios]CGContextDrawImageすると座標の原点が変更されてしまいてんやわんや。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-08-02">August 02, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>ガッツでのりこえました。</p>
+<p>いろんな画像を一つの画像に描画させるときにview側で保存しといた座標位置を「CGContextDrawImage」
+で画像を描画させるときに座標がずれてしまい、困っていました。</p>
+<p>原因はviewとCGContextするときのの座標の原点が異なっていたところと画像の原点はアイテムの中心に
+になっているところ</p>
+<p>view側が(0,0)だとするとコンテキストのときは(0, Y - y - h)
+Y:yの最大値
+h:描画する画像の縦幅</p>
+<p>自分で変換してやってみました。</p>
+<p>しかし、原点の座標を変更処理があったのでした。</p>
+<p><strong>CGContextScaleCTM</strong>
+<strong> CGContextTranslateCTM</strong>
+<strong> CGAffineTransform</strong></p>
+<p>この辺をうまく利用すればできるのですが、描画する画像が垂直反転されて原因がいまいち
+不明だったのであきらめました（汗汗汗汗汗汗汗）</p>
+<p>以下がやっつけ変換です。</p>
+<pre class="brush: cpp">
+- (CGRect) calcRealSize: (CGRect)rect withRate:(float)rate
+{
+    NSLog(@"+X: %f, Y: %f, W: %f, H: %f", rect.origin.x,        rect.origin.y,        rect.size.width, rect.size.height);
+    NSLog(@"-X: %f, Y: %f, W: %f, H: %f", rect.origin.x * rate, 500 - (rect.origin.y * rate) - (rect.size.height*rate), rect.size.width * rate, rect.size.height * rate);
+    CGRect retRect = CGRectMake(rect.origin.x * rate, 
+                                500 - (rect.origin.y * rate) - (rect.size.height*rate) , 
+                                rect.size.width * rate, 
+                                rect.size.height * rate);
+
+    return retRect;
+}
+</pre>
+<p>■参照URL
+<a href="http://developer.apple.com/library/mac/#documentation/GraphicsImaging/Reference/CGAffineTransform/Reference/reference.html">http://developer.apple.com/library/mac/#documentation/GraphicsImaging/Reference/CGAffineTransform/Reference/reference.html</a>
+<a href="http://ja.w3support.net/index.php?db=so&amp;id=506622">http://ja.w3support.net/index.php?db=so&amp;id=506622</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

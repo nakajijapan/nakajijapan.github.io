@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Maintainable Javascript読んだ（Part2）">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2013/2013-02-04_3579/" />
+<meta property="go:description" content="Maintainable JavascriptNicholas C. ZakasOreilly & Associates Inc発売日：2012-05-31ブクログでレビューを見る»
+Programing Practice
+前回の続きです。今回はPart2のメモ。
+実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。
+Event Handling
+
+アプリケーションのロジックときり分けよう！
+Don&#39;t Pass the Event Object Around(略せなかった・・・)
+
+アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない
+処理の透過性が悪くなるし、テストしにくいんだよ！
+イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。
+
+
+Avoid Null Comparisons
+Detecting Reference Values
+*どれもobjectが返るから注意
+
+console.log(typeof {}); // &#34;object&#34;
+console.log(typeof []); // &#34;object&#34;
+console.log(typeof new Date()); // &#34;object&#34;
+console.log(typeof new RegExp()); // &#34;object&#34;
+console.log(typeof null); // &#34;object&#34;
+
+
+チェックはインスタンスを見るといい
+
+
+if (hoge instance Date) {
+  // do something
+}
+if (hoge instance Error) {
+  throw value;
+}
+
+Detecting Arrays
+Array.isArray()ていう便利メソッドがあるけど対応しているブラウザがまだ最新なので
+昔のブラウザを補完した実装がいいよね！" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Maintainable Javascript読んだ（Part2）" />
+<meta name="twitter:description" content="Maintainable JavascriptNicholas C. ZakasOreilly & Associates Inc発売日：2012-05-31ブクログでレビューを見る»
+Programing Practice
+前回の続きです。今回はPart2のメモ。
+実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。
+Event Handling
+
+アプリケーションのロジックときり分けよう！
+Don&#39;t Pass the Event Object Around(略せなかった・・・)
+
+アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない
+処理の透過性が悪くなるし、テストしにくいんだよ！
+イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。
+
+
+Avoid Null Comparisons
+Detecting Reference Values
+*どれもobjectが返るから注意
+
+console.log(typeof {}); // &#34;object&#34;
+console.log(typeof []); // &#34;object&#34;
+console.log(typeof new Date()); // &#34;object&#34;
+console.log(typeof new RegExp()); // &#34;object&#34;
+console.log(typeof null); // &#34;object&#34;
+
+
+チェックはインスタンスを見るといい
+
+
+if (hoge instance Date) {
+  // do something
+}
+if (hoge instance Error) {
+  throw value;
+}
+
+Detecting Arrays
+Array.isArray()ていう便利メソッドがあるけど対応しているブラウザがまだ最新なので
+昔のブラウザを補完した実装がいいよね！" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Maintainable Javascript読んだ（Part2） - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Maintainable Javascript読んだ（Part2）</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-02-04">February 04, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/javascript">javascript</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <div class="booklog_html"><div class="booklog_html_image" style="float:left;"><a href="http://www.amazon.co.jp/Maintainable-Javascript-Nicholas-C-Zakas/dp/1449327680%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449327680" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51ALZ8tWE8L._SL160_.jpg" width="113" height="150" style="border:0;" /></a></div><div class="booklog_html_info" style="float:left;margin-left:10px;"><div class="booklog_html_title" style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/Maintainable-Javascript-Nicholas-C-Zakas/dp/1449327680%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1449327680" target="_blank">Maintainable Javascript</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="font-size:80%;"><a href="http://booklog.jp/author/Nicholas+C.+Zakas" target="_blank">Nicholas C. Zakas</a></div><div class="booklog_html_manufacturer" style="font-size:80%;">Oreilly & Associates Inc</div><div class="booklog_html_release" style="font-size:80%;">発売日：2012-05-31</div></div><div class="booklog_html_link_amazon" style="margin-bottom:10px;font-size:80%;"><a href="http://booklog.jp/item/1/1449327680" target="_blank">ブクログでレビューを見る»</a></div></div><div class="booklog_html_fotter" style="clear:left;"></div><br /></div>
+<h1>Programing Practice</h1>
+<p>前回の続きです。今回はPart2のメモ。
+実践編です、javascript特有の癖があるのでそれを考慮した上での実装方針がわかるようだ。</p>
+<h2>Event Handling</h2>
+<ul>
+<li>アプリケーションのロジックときり分けよう！</li>
+<li>Don't Pass the Event Object Around(略せなかった・・・)
+<ul>
+<li>アプリケーションロジックはイベントオブジェクトそのものに頼っては行けない</li>
+<li>処理の透過性が悪くなるし、テストしにくいんだよ！
+イベントオブジェクト周りを引数とかにして処理させないで！！っていういみだったのかも。</li>
+</ul></li>
+</ul>
+<h2>Avoid Null Comparisons</h2>
+<h3>Detecting Reference Values</h3>
+<p>*どれもobjectが返るから注意</p>
+<pre class="brush:javascript">
+console.log(typeof {}); // "object"
+console.log(typeof []); // "object"
+console.log(typeof new Date()); // "object"
+console.log(typeof new RegExp()); // "object"
+console.log(typeof null); // "object"
+</pre>
+<ul>
+<li>チェックはインスタンスを見るといい</li>
+</ul>
+<pre class="brush:javascript">
+if (hoge instance Date) {
+  // do something
+}
+if (hoge instance Error) {
+  throw value;
+}
+</pre>
+<h3>Detecting Arrays</h3>
+<p><code>Array.isArray()</code>ていう便利メソッドがあるけど対応しているブラウザがまだ最新なので
+昔のブラウザを補完した実装がいいよね！</p>
+<h2>Separate Configration Data from Code</h2>
+<p>jsでもアプリ全体で利用する変数があると思うからそういった変数だとわかるように
+オブジェクトないで大文字で統一して実装するといいかも</p>
+<pre class="brush:javascript">
+var config = {
+   PERSON_LIMIT : 2222
+   TIME_LIMIT : 3333
+}
+
+if (num > config.PERSON_LIMIT) {
+  // do something
+}
+</pre>
+<h2>Don't Modify Objects You Don't Own</h2>
+<p>最初から用意されているオブジェクトを変更しちゃうとまじでみんな混乱しちゃうよ！
+もちろん、チームで扱うこと考慮して。</p>
+<h3>rules</h3>
+<ul>
+<li>Don't override methods</li>
+<li>Don't add new methods</li>
+<li>Don't remove existing methods.</li>
+</ul>
+<p><code>// bad
+document.getElementById = function() {
+  return null;
+}</code>
+なんかまちがってもこんなことしないような気がするけど、逆言うとこんなことやったらみんなが混乱しちゃうね。</p>
+<h2>Browser Detection</h2>
+<p>ブラウザの見分け方いろいろあるけど、自分のアプリケーションでどちらを優先させるかで決定の方法を柔軟に
+決めていった方がいいだろうね。</p>
+<h3>User-Agent Detection</h3>
+<pre class="brush:javascript">
+// bad
+if (navigator.userAgent.indexOf("MSIE") > -1) { 
+  // it is Internet Explorer
+} else {
+  // it is not.
+}
+
+// good
+if (isInternetExplorer8OrEarlier) { 
+  // it is Internet Explorer
+} else {
+  // it is not.
+}
+</pre>
+<h3>Feature Detection</h3>
+<p>使えるメソッドでブラウザをきり分けするっていうのもあり。<code>この機能はこのブラウザではできないよ!</code>って切りけするときには便利かもしれない。</p>
+<pre class="brush:javascript">
+if (document.getElementById) { 
+  // do something
+}
+</pre>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

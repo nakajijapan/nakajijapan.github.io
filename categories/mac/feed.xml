@@ -1,0 +1,351 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Mac on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/mac/</link>
+        <description>Recent content in Mac on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Fri, 18 Nov 2011 02:18:57 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/mac/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>LaunchDaemons</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-11-18_3006/</link>
+            <pubDate>Fri, 18 Nov 2011 02:18:57 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-11-18_3006/</guid>
+            <description>&lt;p&gt;ふむふむなんです。&lt;/p&gt;
+&lt;h2&gt;Daemon と Agent の違い&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Daemon&lt;/dt&gt;
+&lt;dd&gt;OS 起動時に、PID 1 の launched によって起動されるプログラム。&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;dl&gt;
+&lt;dt&gt;Agent&lt;/dt&gt;
+&lt;dd&gt;ユーザ権限で起動する launched によって起動されるプログラム。Agent は GUI インターフェースを持つことができるが、Daemon はそれができない。&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9&#34;&gt;http://www.maruko2.com/mw/LaunchDaemons_(launchctl,_launchd.plist)_%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>brewでhttpdをインストール</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-10-09_2918/</link>
+            <pubDate>Sun, 09 Oct 2011 22:28:48 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-10-09_2918/</guid>
+            <description>&lt;p&gt;なぜなんだろうかbrewでhttpdがすんなりはいってくれない。
+Formula (パッケージ(のようなもの)を定義するRubyファイル) が別途作成しなければいけないらしいよ。&lt;/p&gt;
+&lt;p&gt;このアプリをインストールしてみることにします。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+brew create http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz
+&lt;/pre&gt;
+&lt;p&gt;自動的にエディタが起動されて編集しろと促されます。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+require &#39;formula&#39;
+
+class Httpd &lt; Formula
+  url &#39;http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz&#39;
+  homepage &#39;&#39;
+  md5 &#39;b24ca6db942a4f8e57c357e5e3058d31&#39;
+
+  # depends_on &#39;cmake&#39;
+
+  def install
+    #system &#34;./configure&#34;, &#34;--disable-debug&#34;, &#34;--disable-dependency-tracking&#34;,
+    #                      &#34;--prefix=#{prefix}&#34;
+    # system &#34;cmake . #{std_cmake_parameters}&#34;
+    system &#34;./configure&#34;, *args
+    system &#34;make&#34;
+    system &#34;make install&#34;
+  end
+
+  def test
+    # This test will fail and we won&#39;t accept that! It&#39;s enough to just
+    # replace &#34;false&#34; with the main program this formula installs, but
+    # it&#39;d be nice if you were more thorough. Test the test with
+    # `brew test httpd`. Remove this comment before submitting
+    # your pull request!
+    system &#34;false&#34;
+  end
+
+  def args
+      return [&#34;--prefix=#{prefix}&#34;,&#34;--disable-debug&#34;,&#34;--disable-dependency-tracking&#34;,&#34;--enable-so&#34;,&#34;--enable-rewrite&#34;,&#34;--mandir=#{man}&#34;,]
+  end
+end
+&lt;/pre&gt;
+&lt;p&gt;インストール開始します。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[入門][はじめ１]railsをインスコ、そこまで！</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-10-04_2928/</link>
+            <pubDate>Tue, 04 Oct 2011 21:10:12 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-10-04_2928/</guid>
+            <description>&lt;pre class=&#34;brush:bash&#34;&gt;
+# 1.9.2が入りました
+brew install ruby
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+[nakajijapan] #sudo ruby setup.rb                                                                                                                                   [~/Programming/rubygems-1.8.10]
+Password:
+RubyGems 1.8.10 installed
+
+== 1.8.10 / 2011-08-25
+
+RubyGems 1.8.10 contains a security fix that prevents malicious gems from
+executing code when their specification is loaded.  See
+https://github.com/rubygems/rubygems/pull/165 for details.
+
+* 5 bug fixes:
+
+  * RubyGems escapes strings in ruby-format specs using #dump instead of #to_s
+    and %q to prevent code injection.  Issue #165 by Postmodern
+  * RubyGems attempt to activate the psych gem now to obtain bugfixes from
+    psych.
+  * Gem.dir has been restored to the front of Gem.path.  Fixes remaining
+    problem with Issue #115
+  * Fixed Syck DefaultKey infecting ruby-format specifications.
+  * `gem uninstall a b` no longer stops if gem &#34;a&#34; is not installed.
+
+
+------------------------------------------------------------------------------
+&lt;/pre&gt;
+&lt;p&gt;最後にrailsのインストールを行う。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[mac][lion]Lionにしてからxcodeのジェスチャーができなくなった。</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-08-30_2864/</link>
+            <pubDate>Tue, 30 Aug 2011 02:14:26 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-08-30_2864/</guid>
+            <description>&lt;p&gt;プログラムに熱中してくるとマウスに手を持っていく時間もストレスになってしまう僕ですが。&lt;/p&gt;
+&lt;p&gt;OSをLionにしてからxcodeで重宝していたジェスチャーが利用できなくなった。&lt;/p&gt;
+&lt;p&gt;３本のジェスチャーを上下に移動することでhoge.hとhoge.mファイルを切り替えるもの
+選択移動になってしまっているではないか。&lt;/p&gt;
+&lt;p&gt;とりあえずはショートカットキーをりようすることで対処しました。&lt;/p&gt;
+&lt;p&gt;「Ctrl+Cmd+Up/Down」&lt;/p&gt;
+&lt;p&gt;めも。&lt;/p&gt;
+&lt;p&gt;&amp;ndash; 追記 &amp;ndash;&lt;/p&gt;
+&lt;p&gt;なんかこんなショートカットキー見つけた！！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://cocoasamurai.blogspot.com/2008/02/complete-xcode-keyboard-shortcut-list.html&#34;&gt;http://cocoasamurai.blogspot.com/2008/02/complete-xcode-keyboard-shortcut-list.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;更新が２００８年になっているのでLionには対応していない模様だけど、ショートカットキーなので特に問題はないでしょう。&lt;/p&gt;
+&lt;p&gt;�&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[mac]キーボードの入力文字を変更したい</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-01-23_2636/</link>
+            <pubDate>Sun, 23 Jan 2011 13:37:25 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-01-23_2636/</guid>
+            <description>&lt;p&gt;いまさらですがめもします。
+&lt;a href=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/01/スクリーンショット（2011-01-26-23.40.25）.png&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/01/スクリーンショット（2011-01-26-23.40.25）.png&#34; alt=&#34;&#34; title=&#34;スクリーンショット（2011-01-26 23.40.25）&#34; width=&#34;133&#34; height=&#34;27&#34; class=&#34;aligncenter size-full wp-image-2638&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ここのIMEをクリックして「環境設定を表示」をクリック。
+下記のように設定すればOK。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/01/admin-ajax.png&#34;&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2011/01/admin-ajax-300x183.png&#34; alt=&#34;&#34; title=&#34;admin-ajax&#34; width=&#34;300&#34; height=&#34;183&#34; class=&#34;aligncenter size-medium wp-image-2640&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;■変更したもの
+全角スラッシュ「／」→「・」&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>emacsにタブ＆全角を識別させる</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-01-15_272/</link>
+            <pubDate>Fri, 15 Jan 2010 01:16:58 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-01-15_272/</guid>
+            <description>&lt;p&gt;なんかさくらエディタでできていたことがEmacsでできなかったのがやだったので調べたらありましたね。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://homepage3.nifty.com/satomii/software/elisp.ja.html&#34;&gt;おまけ for GNU Emacs&lt;/a&gt;
+でまずjaspace.elファイルをダウンロード。&lt;/p&gt;
+&lt;p&gt;そのあと以下のコードを.emacsに追加するとおｋ。&lt;/p&gt;
+&lt;p&gt;それはここにあるみたい。
+&lt;a href=&#34;http://openlab.dino.co.jp/2008/08/29/230500336.html&#34;&gt;&lt;a href=&#34;http://openlab.dino.co.jp/2008/08/29/230500336.html&#34;&gt;http://openlab.dino.co.jp/2008/08/29/230500336.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34; &gt;
+;; タブ, 全角スペース、改行直前の半角スペースを表示する
+(when (require &#39;jaspace nil t)
+  (when (boundp &#39;jaspace-modes)
+    (setq jaspace-modes (append jaspace-modes
+                                (list &#39;php-mode
+                                      &#39;yaml-mode
+                                      &#39;javascript-mode
+                                      &#39;ruby-mode
+                                      &#39;text-mode
+                                      &#39;fundamental-mode))))
+  (when (boundp &#39;jaspace-alternate-jaspace-string)
+    (setq jaspace-alternate-jaspace-string &#34;□&#34;))
+  (when (boundp &#39;jaspace-highlight-tabs)
+    (setq jaspace-highlight-tabs ?^))
+  (add-hook &#39;jaspace-mode-off-hook
+            (lambda()
+              (when (boundp &#39;show-trailing-whitespace)
+                (setq show-trailing-whitespace nil))))
+  (add-hook &#39;jaspace-mode-hook
+            (lambda()
+              (progn
+                (when (boundp &#39;show-trailing-whitespace)
+                  (setq show-trailing-whitespace t))
+                (face-spec-set &#39;jaspace-highlight-jaspace-face
+                               &#39;((((class color) (background light))
+                                  (:foreground &#34;blue&#34;))
+                                 (t (:foreground &#34;green&#34;))))
+                (face-spec-set &#39;jaspace-highlight-tab-face
+                               &#39;((((class color) (background light))
+                                  (:foreground &#34;red&#34;
+                                   :background &#34;unspecified&#34;
+                                   :strike-through nil
+                                   :underline t))
+                                 (t (:foreground &#34;purple&#34;
+                                     :background &#34;unspecified&#34;
+                                     :strike-through nil
+                                     :underline t))))
+                (face-spec-set &#39;trailing-whitespace
+                               &#39;((((class color) (background light))
+                                  (:foreground &#34;red&#34;
+                                   :background &#34;unspecified&#34;
+                                   :strike-through nil
+                                   :underline t))
+                                 (t (:foreground &#34;purple&#34;
+                                     :background &#34;unspecified&#34;
+                                     :strike-through nil
+                                     :underline t))))))))
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>macでfirefoxのキーバインドを変更してみた。</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-12-25_187/</link>
+            <pubDate>Fri, 25 Dec 2009 02:15:11 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-12-25_187/</guid>
+            <description>&lt;p&gt;でけた。&lt;/p&gt;
+&lt;p&gt;変更した場所(id)「textarea」「editor」「inputField」。
+あ、「browser」もやっときゃよかったかも。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://kb.mozillazine.org/Emacs_Keybindings_%28Firefox%29&#34;&gt;&lt;a href=&#34;http://kb.mozillazine.org/Emacs_Keybindings_%28Firefox%29&#34;&gt;http://kb.mozillazine.org/Emacs_Keybindings_%28Firefox%29&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Macで半角変換　ショートカット</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-12-21_180/</link>
+            <pubDate>Mon, 21 Dec 2009 21:07:04 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-12-21_180/</guid>
+            <description>&lt;p&gt;やたー、できそうでできなかた半角カタカナができるようになった。
+まだまだ覚えることたくさんあるじゃわい。&lt;/p&gt;
+&lt;p&gt;ﾏﾝｾ。&lt;/p&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2009/12/スクリーンショット（2009-12-20-21.29.43）.png&#34; alt=&#34;スクリーンショット（2009-12-20 21.29.43）&#34; title=&#34;スクリーンショット（2009-12-20 21.29.43）&#34; width=&#34;80%&#34; height=&#34;80%&#34; class=&#34;aligncenter size-full wp-image-181&#34; /&gt;</description>
+        </item>
+        
+        <item>
+            <title>キー変更</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-12-13_109/</link>
+            <pubDate>Sun, 13 Dec 2009 11:44:59 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-12-13_109/</guid>
+            <description>&lt;p&gt;とりあえずキーを変更してみた。&lt;/p&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2009/12/スクリーンショット（2009-12-12-12.00.22）.png&#34; alt=&#34;スクリーンショット（2009-12-12 12.00.22）&#34; title=&#34;スクリーンショット（2009-12-12 12.00.22）&#34; width=&#34;80%&#34; height=&#34;80%&#34; class=&#34;alignleft size-full wp-image-110&#34; /&gt;
+&lt;p&gt;とりあえずよく使うキーは押しやすいところに持っていく。&lt;/p&gt;
+&lt;p&gt;これ効率的かつ合理的？&lt;/p&gt;
+&lt;p&gt;それにしても全然ショートカット覚えきれてないや。山のようにたくさんある。
+徐々に慣れてこ。&lt;/p&gt;
+&lt;p&gt;むかついたこと
+macのfirefoxのショートカットがいろいろと言うこときかんね。
+emacsのキーバインドがうまく適用されていないみだ。&lt;strong&gt;こんちくしょーーーーー。&lt;/strong&gt;
+どうもfirefoxでしていされたショートカットになってる。
+なんか設定どうにかできそうだけど、めんどくしゃい。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Make を入れてみる</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-12-10_94/</link>
+            <pubDate>Thu, 10 Dec 2009 23:42:28 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-12-10_94/</guid>
+            <description>&lt;p&gt;あれ？wgetないからMacPortでインスコしようと思ってコマンド打ったら&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Makeがないっておこられてもうた。&lt;br&gt;
+&lt;br&gt;
+最初から付いていないもんなんだね。。。いつもLinuxをインスコする感覚だから&lt;br&gt;
+あるのが当たり前におもってたからちょいと違和感を感じました。&lt;br&gt;
+&lt;br&gt;
+んでいろいろぐぐったらXcodeなるものが必要らしい&lt;br&gt;
+&lt;br&gt;
+例のDevelopper&amp;rsquo;s Siteからゲットってやつですね。&lt;br&gt;
+&lt;a href=&#34;https://connect.apple.com&#34;&gt;&lt;a href=&#34;https://connect.apple.com&#34;&gt;https://connect.apple.com&lt;/a&gt;&lt;/a&gt;
+&lt;br&gt;
+後は実行して松の木です。&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;！！&lt;br&gt;&lt;br&gt;
+やっとインスコできるわい。&lt;br&gt;&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34; file=&#34;bash&#34;&gt;
+
+sudo port install wget
+
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>Mac奮闘記(MacPort編)</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-11-25_16/</link>
+            <pubDate>Wed, 25 Nov 2009 01:52:10 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-11-25_16/</guid>
+            <description>&lt;p&gt;ディストリビューションによってApacheのディレクトリ配置は結構違うもの。&lt;/p&gt;
+&lt;p&gt;勝手に自分でインストールするのも自分がわかるところにインスコできるのは&lt;/p&gt;
+&lt;p&gt;いいのよね。でもここはパッケージ管理で自動インスコこのマシン自体は&lt;/p&gt;
+&lt;p&gt;サーバ管理が主じゃなくてプログラミングすることが主だからそこにいちいち&lt;/p&gt;
+&lt;p&gt;こだわってられないのよねん。&lt;/p&gt;
+&lt;p&gt;…まぁ結局Apacheの設定必要になってくるんだけどね。そんときはそんときで。&lt;/p&gt;
+&lt;p&gt;後、いろいろと初めてなので冒険心です。&lt;/p&gt;
+&lt;p&gt;余談ですが、昔のリナックスのパッケージ管理は結構なほどに面倒でしたね。&lt;/p&gt;
+&lt;p&gt;まだyumもないころパッケージいちいち自分で依存性のあるものダウンロード&lt;/p&gt;
+&lt;p&gt;してはちょこちょこやって、んでそこでもまた依存性があって挙げ句の果てに&lt;/p&gt;
+&lt;p&gt;それは競合してるだなんていわれる始末。面倒くさいからひとまず強制インスコ。&lt;/p&gt;
+&lt;p&gt;それでも元々のアプリがインスコできなくて…ひどかったなぁ。&lt;/p&gt;
+&lt;p&gt;期待してます！！&lt;/p&gt;
+&lt;p&gt;まずはここにいってユーザ登録。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;wp-caption&#34; href=&#34;https://connect.apple.com&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://connect.apple.com&#34;&gt;https://connect.apple.com&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;そこからここでMacPortsをダウンロードする。自分はMac OS X 10.6&lt;/p&gt;
+&lt;p&gt;なのでそれ用のものをダウンロード。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;wp-caption&#34; href=&#34;http://svn.macosforge.org/repository/macports/downloads/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://svn.macosforge.org/repository/macports/downloads/&#34;&gt;http://svn.macosforge.org/repository/macports/downloads/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;と思ったら10.6用のパッケージがなかった。。。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;wp-caption&#34; href=&#34;http://distfiles.macports.org/MacPorts/&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://distfiles.macports.org/MacPorts/&#34;&gt;http://distfiles.macports.org/MacPorts/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;まず実行してみる。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;■インストールされてるパッケージの一覧表&lt;/strong&gt;&lt;strong&gt;示&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;_mcePaste&#34; style=&#34;position: absolute; left: -10000px; top: 227px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;&#34;&gt;# sudo port installed&lt;/div&gt;
+&lt;blockquote&gt;# sudo port installed
+&lt;div&gt;
+&lt;div&gt;No ports are installed.&lt;/div&gt;
+&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div&gt;うーん、既存のものは別なのね。普通にインストールされてるだけなのかな？&lt;/div&gt;
+&lt;div&gt;&lt;strong&gt;■パッケージの検索&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;&lt;strong&gt;
+&lt;blockquote&gt;
+&lt;div&gt;# &lt;span style=&#34;font-weight: normal;&#34;&gt;sudo port search zsh&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style=&#34;font-weight: normal;&#34;&gt;zsh @4.2.7 (shells)&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style=&#34;font-weight: normal;&#34;&gt; Zsh is a UNIX command interpreter (shell)&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style=&#34;font-weight: normal;&#34;&gt;
+&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style=&#34;font-weight: normal;&#34;&gt;zsh-devel @4.3.10 (shells)&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style=&#34;font-weight: normal;&#34;&gt; Zsh is a UNIX command interpreter (shell)&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style=&#34;font-weight: normal;&#34;&gt;
+&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style=&#34;font-weight: normal;&#34;&gt;Found 2 ports.&lt;/span&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;/strong&gt;&lt;/div&gt;
+&lt;div&gt;&lt;strong&gt;■インスコ&lt;/strong&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;div&gt;# sudo port install zsh-devel&lt;/div&gt;&lt;/blockquote&gt;
+&lt;h3&gt;variantsの仕組み&lt;/h3&gt;
+パッケージごとにインスコするときの追加オプションが選べて、自分でいろいろとカスタマイズしてインスコできるらしい。
+&lt;p&gt;&lt;strong&gt;■varients一覧表示&lt;/strong&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

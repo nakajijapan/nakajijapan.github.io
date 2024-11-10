@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Swift勉強会をした">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2014/2014-06-10-study-swift-01/" />
+<meta property="go:description" content="社内で早速Swift勉強会を開きました。
+流れとしては、あのときの動画（クレイグがSwiftを発表したところ）をみんなで１０分程鑑賞してテンションあげてから公式のドキュメントを見ながら、みんなでぺちゃくちゃ話す会をしました。
+はじめに
+以下の動画をみてまずざっくりどんなものか概要をつかむ
+https://developer.apple.com/videos/wwdc/2014/?id=101
+A Swift Tour
+About Swift
+
+Objective-C without the C
+iOSとOS Xで開発するための開発言語
+Ccoa and Cocoa Touch
+Build with LLVM compiler
+Optimizer and Autovectorizer
+ARC memory management
+Same runtime as Objective-C
+
+Simple Value
+
+let,varで宣言
+letは定数、varは変数
+
+var foo = 33
+let foo = 33
+
+格納する値が明白であれば自動できに方が決定される
+十分でなければ明示的に指定することも可能
+
+let total = 30
+let total = 30.0
+let total:Double = 0
+
+初期化に以下のような宣言ができる
+
+let emptyArray = String[]()
+let emptyDictionary = Dictionary&lt;String, Float&gt;()
+
+単純な初期化は[] and [:]で省略できる
+
+
+let emptyArray = []
+let emptyDictionary = [:]
+Control Flow
+
+どこかでみたような記述でif,switch,for-in,for,while,do-whileできるよ
+..で数値の範囲を決定できることができる
+
+var total = 0;
+for i in 0..10 {
+    total &#43;= 2
+}
+
+total
+Functions and Closures
+
+考え方は他の言語と同じ。引数があって返り値がある
+
+func greet(name: String, day: String) -&gt; String {
+  return &#34;Hello \(name), today is \(day)&#34;
+}
+
+greet(&#34;Bob&#34;, &#34;Tuesday&#34;)
+
+Touple
+
+複数の返り値を返す
+
+
+
+func getGasPrices() -&gt; (Double, Double, Double) {
+    return (3.59, 3.69, 3.79)
+}
+getGasPrices()
+
+引数を任意で指定することもできます
+
+func sumOf(numbers:Int...) -&gt; Int
+{
+    var sum = 0
+    for number in numbers {
+        sum &#43;= number
+    }
+
+    return sum
+}
+
+
+sumOf()
+
+sumOf(10, 20, 33)
+
+{}でクロージャを記述
+
+numbers.map({
+    (number: Int) -&gt; Int in
+    let result = 3 * number
+    return result
+})
+以下の記述も同じ意味" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Swift勉強会をした" />
+<meta name="twitter:description" content="社内で早速Swift勉強会を開きました。
+流れとしては、あのときの動画（クレイグがSwiftを発表したところ）をみんなで１０分程鑑賞してテンションあげてから公式のドキュメントを見ながら、みんなでぺちゃくちゃ話す会をしました。
+はじめに
+以下の動画をみてまずざっくりどんなものか概要をつかむ
+https://developer.apple.com/videos/wwdc/2014/?id=101
+A Swift Tour
+About Swift
+
+Objective-C without the C
+iOSとOS Xで開発するための開発言語
+Ccoa and Cocoa Touch
+Build with LLVM compiler
+Optimizer and Autovectorizer
+ARC memory management
+Same runtime as Objective-C
+
+Simple Value
+
+let,varで宣言
+letは定数、varは変数
+
+var foo = 33
+let foo = 33
+
+格納する値が明白であれば自動できに方が決定される
+十分でなければ明示的に指定することも可能
+
+let total = 30
+let total = 30.0
+let total:Double = 0
+
+初期化に以下のような宣言ができる
+
+let emptyArray = String[]()
+let emptyDictionary = Dictionary&lt;String, Float&gt;()
+
+単純な初期化は[] and [:]で省略できる
+
+
+let emptyArray = []
+let emptyDictionary = [:]
+Control Flow
+
+どこかでみたような記述でif,switch,for-in,for,while,do-whileできるよ
+..で数値の範囲を決定できることができる
+
+var total = 0;
+for i in 0..10 {
+    total &#43;= 2
+}
+
+total
+Functions and Closures
+
+考え方は他の言語と同じ。引数があって返り値がある
+
+func greet(name: String, day: String) -&gt; String {
+  return &#34;Hello \(name), today is \(day)&#34;
+}
+
+greet(&#34;Bob&#34;, &#34;Tuesday&#34;)
+
+Touple
+
+複数の返り値を返す
+
+
+
+func getGasPrices() -&gt; (Double, Double, Double) {
+    return (3.59, 3.69, 3.79)
+}
+getGasPrices()
+
+引数を任意で指定することもできます
+
+func sumOf(numbers:Int...) -&gt; Int
+{
+    var sum = 0
+    for number in numbers {
+        sum &#43;= number
+    }
+
+    return sum
+}
+
+
+sumOf()
+
+sumOf(10, 20, 33)
+
+{}でクロージャを記述
+
+numbers.map({
+    (number: Int) -&gt; Int in
+    let result = 3 * number
+    return result
+})
+以下の記述も同じ意味" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Swift勉強会をした - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Swift勉強会をした</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-06-10">June 10, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/swift">Swift</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>社内で早速Swift勉強会を開きました。
+流れとしては、あのときの動画（クレイグがSwiftを発表したところ）をみんなで１０分程鑑賞してテンションあげてから公式のドキュメントを見ながら、みんなでぺちゃくちゃ話す会をしました。</p>
+<h2 id="はじめに">はじめに</h2>
+<p>以下の動画をみてまずざっくりどんなものか概要をつかむ</p>
+<p><a href="https://developer.apple.com/videos/wwdc/2014/?id=101">https://developer.apple.com/videos/wwdc/2014/?id=101</a></p>
+<h1 id="a-swift-tour">A Swift Tour</h1>
+<h2 id="about-swift">About Swift</h2>
+<ul>
+<li>Objective-C without the C</li>
+<li>iOSとOS Xで開発するための開発言語</li>
+<li>Ccoa and Cocoa Touch</li>
+<li>Build with LLVM compiler</li>
+<li>Optimizer and Autovectorizer</li>
+<li>ARC memory management</li>
+<li>Same runtime as Objective-C</li>
+</ul>
+<h2 id="simple-value">Simple Value</h2>
+<ul>
+<li><code>let</code>,<code>var</code>で宣言</li>
+<li><code>let</code>は定数、<code>var</code>は変数</li>
+</ul>
+<pre tabindex="0"><code>var foo = 33
+let foo = 33
+</code></pre><ul>
+<li>格納する値が明白であれば自動できに方が決定される</li>
+<li>十分でなければ明示的に指定することも可能</li>
+</ul>
+<pre tabindex="0"><code>let total = 30
+let total = 30.0
+let total:Double = 0
+</code></pre><ul>
+<li>初期化に以下のような宣言ができる</li>
+</ul>
+<pre tabindex="0"><code>let emptyArray = String[]()
+let emptyDictionary = Dictionary&lt;String, Float&gt;()
+</code></pre><ul>
+<li>単純な初期化は<code>[] and [:]</code>で省略できる</li>
+</ul>
+<pre tabindex="0"><code>
+let emptyArray = []
+let emptyDictionary = [:]
+</code></pre><h3 id="control-flow">Control Flow</h3>
+<ul>
+<li>どこかでみたような記述でif,switch,for-in,for,while,do-whileできるよ</li>
+<li><code>..</code>で数値の範囲を決定できることができる</li>
+</ul>
+<pre tabindex="0"><code>var total = 0;
+for i in 0..10 {
+    total += 2
+}
+
+total
+</code></pre><h2 id="functions-and-closures">Functions and Closures</h2>
+<ul>
+<li>考え方は他の言語と同じ。引数があって返り値がある</li>
+</ul>
+<pre tabindex="0"><code>func greet(name: String, day: String) -&gt; String {
+  return &#34;Hello \(name), today is \(day)&#34;
+}
+
+greet(&#34;Bob&#34;, &#34;Tuesday&#34;)
+</code></pre><ul>
+<li>Touple
+<ul>
+<li>複数の返り値を返す</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>func getGasPrices() -&gt; (Double, Double, Double) {
+    return (3.59, 3.69, 3.79)
+}
+getGasPrices()
+</code></pre><ul>
+<li>引数を任意で指定することもできます</li>
+</ul>
+<pre tabindex="0"><code>func sumOf(numbers:Int...) -&gt; Int
+{
+    var sum = 0
+    for number in numbers {
+        sum += number
+    }
+
+    return sum
+}
+
+
+sumOf()
+
+sumOf(10, 20, 33)
+</code></pre><ul>
+<li><code>{}</code>でクロージャを記述</li>
+</ul>
+<pre tabindex="0"><code>numbers.map({
+    (number: Int) -&gt; Int in
+    let result = 3 * number
+    return result
+})
+</code></pre><p>以下の記述も同じ意味</p>
+<pre tabindex="0"><code>numbers.map({ number in 3 * number })
+</code></pre><h2 id="objects-and-classes">Objects and Classes</h2>
+<ul>
+<li><code>class</code>で定義</li>
+<li><code>init()</code>はコンストラクタ</li>
+</ul>
+<p>継承は</p>
+<pre tabindex="0"><code>class Squre : NamedShape {
+
+}
+</code></pre><p>overrideはfuncの前に<code>override</code>を宣言する</p>
+<pre tabindex="0"><code>override func init() {
+    super.init()
+}
+</code></pre><p>インスタンス変数をカスタマイズできる</p>
+<pre tabindex="0"><code>var perimeter: Double {
+    get {
+        return 3.0 * sideLength
+    }
+    set {
+        sideLength = newValue / 3.0
+    }
+}
+</code></pre><ul>
+<li>メンバ変数に以下の記述,<code>willSet</code>,<code>didSet</code>をすることであらかじめ、前処理後処理ができるようになる</li>
+</ul>
+<pre tabindex="0"><code>class {
+    var triangle: EquilateralTriangle {
+    willSet {
+        square.sideLength = newValue.sideLength
+    }
+    didSet {
+        square.sideLength *= 2
+    }
+    }
+
+}
+</code></pre><ul>
+<li>引数に別名を持たせられる</li>
+</ul>
+<pre tabindex="0"><code>class Counter {
+    var count: Int = 0
+    func incrementBy(amount: Int, numberOfTimes times: Int) {
+        count += amount * times
+    }
+}
+var counter = Counter()
+counter.incrementBy(2, numberOfTimes: 7)
+</code></pre><h2 id="enumerations-and-structures">Enumerations and Structures</h2>
+<ul>
+<li>メソッドも作成できる</li>
+<li>最初に数値を入れておかなければならない</li>
+<li>後はインクリメントされる</li>
+</ul>
+<pre tabindex="0"><code>enum Rank: Int {
+    case Ace = 1
+    case Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten
+    case Jack, Queen, King
+    func simpleDescription() -&gt; String {
+        switch self {
+        case .Ace:
+            return &#34;ace&#34;
+        case .Jack:
+            return &#34;jack&#34;
+        case .Queen:
+            return &#34;queen&#34;
+        case .King:
+            return &#34;king&#34;
+        default:
+            return String(self.toRaw())
+        }
+    }
+}
+
+let ace = Rank.Ace
+let aceRawValue = ace.toRaw() # 1
+let name = ace.simpleDescription() # &#34;Ace&#34;
+</code></pre><p>enumの方で比較しないとだめ</p>
+<pre tabindex="0"><code>
+        if ace == Rank.Ace {
+            NSLog(&#34;-- ace!!!&#34;)
+        }
+// NG
+//        else if ace == 1 {
+//            NSLog(&#34;-- no ace...&#34;)
+//        }
+</code></pre><h5 id="structure">structure</h5>
+<ul>
+<li>classとほぼ同じ振る舞いをする</li>
+<li>処理するときは必ずコピーされる, クラスは参照によって処理される</li>
+</ul>
+<h2 id="protocols-and-extensions">Protocols and Extensions</h2>
+<ul>
+<li>基本的なところはObjective-Cと変わらない</li>
+</ul>
+<pre tabindex="0"><code>protocol ExampleProtocol {
+    var simpleDescription: String { get } # readonly
+    mutating func adjust()
+}
+</code></pre><ul>
+<li>クラスにも構造体にも組み込める</li>
+</ul>
+<pre tabindex="0"><code>class SimpleClass: ExampleProtocol {
+}
+
+struct SimpleStructure: ExampleProtocol {
+}
+</code></pre><h2 id="generics">Generics</h2>
+<ul>
+<li>型に汎用性を持たせて同じロジックを処理させることができる</li>
+<li><code>classes</code>, <code>enumerations</code>, <code>structures</code>で利用できる</li>
+</ul>
+<pre tabindex="0"><code>func repeat&lt;T&gt;(item: T, times: Int) -&gt; T[] {
+    var result = T[]()
+    for i in 0..times {
+        result += item
+    }
+    return result
+}
+
+
+repeat(&#34;knock&#34;, 4)
+repeat(333, 3)
+</code></pre><h2 id="まとめ">まとめ</h2>
+<p>何よりシンプルでモダンな作りになっているのでアプリを作ることがよりいっそう楽しくなること間違い無しですな。
+ただ、いくつか説明できないところがあったので、次の会まで宿題にすることにします。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

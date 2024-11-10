@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="OS X Advent Calendar 2014 - 初めてMacOS X App作成してみた。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2014/12/25/os-x-advent-calendar-2014-%E5%88%9D%E3%82%81%E3%81%A6macos-x-app%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/" />
+<meta property="go:description" content="この記事はOS X Advent Calendar 2014の25日目の記事になります。
+ラストーーーーーーーー！！！！
+実は前回も自分がOSXアプリ初心者の行きを脱するためにしたこと書きましたが、
+まだまだ熱が冷めないので二つ目の記事を書くことにしました。
+teitenという MacOS Xアプリを作成しました。
+WWDC2014の発表から少しづつ地道に開発してきてようやく形になりました。
+teiten
+
+Macのカメラを通して自分自身を定点観測するアプリです。
+アイコンはめっちゃ見ている感じを出したくてカメラ＋妖怪でそれっぽさを出してみました。
+観測というかもう監視している感じですが。。。
+アイコンはえびちゃんというデザイナの方に作成していただきました。
+機能
+
+10 sec or 60 sec ごとに勝手に写真を撮ります。
+自由に自分自身で写真を取ることもできます。
+適当に溜まったら画像を集めて動画が作成できるようになります。
+
+Compatibility
+OS X 10.9以上ですが、もしかしたら10.10しか動かないかも&hellip;
+追記：OS X 10.10以上でした。。。
+Dwonload
+期間限定ですがここあるのでよければどうぞ。
+それだけです。それだけのアプリなのにいろいろハマりにハマりまくって結構時間かかりました。。。
+めっちゃシンプルなアプリですがなんか大変だった。。
+ScreenShot
+
+capture imageでも写真は取れるのですが、カウントダウンされて０になっても写真が撮れます。
+経緯
+実は昔にペパボの先輩の@taropと @diskipが同じようなWEBサービス作成していました。
+個人的には好きで、毎日のように利用していたのですが、もうサービスが無くなってしまったのがちょっと悲しくて、なんかもったいないと思ったので
+それに近い形でありながらMacOSXアプリならではの機能をつけて作成した次第です。
+もう一つは、今作成しているLimuというサービスがMac版も対応する予定でいるので、その準備運動の一つでもあります。
+最後に
+プロダクト作るのって自分の興味＋αでいろいろ知らないといけないんですが、何か作る度に自分が一歩成長している間があるのでなかなかやめれない。
+あと、そもそも楽しい。
+まだまだ、バグも多いし機能も足りないのでちょっとづつ改善していこう思います。
+なんとかAdvent Calenderには間に合ったけど、僕のクリスマスはこれで消えてしまった！！！" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="OS X Advent Calendar 2014 - 初めてMacOS X App作成してみた。" />
+<meta name="twitter:description" content="この記事はOS X Advent Calendar 2014の25日目の記事になります。
+ラストーーーーーーーー！！！！
+実は前回も自分がOSXアプリ初心者の行きを脱するためにしたこと書きましたが、
+まだまだ熱が冷めないので二つ目の記事を書くことにしました。
+teitenという MacOS Xアプリを作成しました。
+WWDC2014の発表から少しづつ地道に開発してきてようやく形になりました。
+teiten
+
+Macのカメラを通して自分自身を定点観測するアプリです。
+アイコンはめっちゃ見ている感じを出したくてカメラ＋妖怪でそれっぽさを出してみました。
+観測というかもう監視している感じですが。。。
+アイコンはえびちゃんというデザイナの方に作成していただきました。
+機能
+
+10 sec or 60 sec ごとに勝手に写真を撮ります。
+自由に自分自身で写真を取ることもできます。
+適当に溜まったら画像を集めて動画が作成できるようになります。
+
+Compatibility
+OS X 10.9以上ですが、もしかしたら10.10しか動かないかも&hellip;
+追記：OS X 10.10以上でした。。。
+Dwonload
+期間限定ですがここあるのでよければどうぞ。
+それだけです。それだけのアプリなのにいろいろハマりにハマりまくって結構時間かかりました。。。
+めっちゃシンプルなアプリですがなんか大変だった。。
+ScreenShot
+
+capture imageでも写真は取れるのですが、カウントダウンされて０になっても写真が撮れます。
+経緯
+実は昔にペパボの先輩の@taropと @diskipが同じようなWEBサービス作成していました。
+個人的には好きで、毎日のように利用していたのですが、もうサービスが無くなってしまったのがちょっと悲しくて、なんかもったいないと思ったので
+それに近い形でありながらMacOSXアプリならではの機能をつけて作成した次第です。
+もう一つは、今作成しているLimuというサービスがMac版も対応する予定でいるので、その準備運動の一つでもあります。
+最後に
+プロダクト作るのって自分の興味＋αでいろいろ知らないといけないんですが、何か作る度に自分が一歩成長している間があるのでなかなかやめれない。
+あと、そもそも楽しい。
+まだまだ、バグも多いし機能も足りないのでちょっとづつ改善していこう思います。
+なんとかAdvent Calenderには間に合ったけど、僕のクリスマスはこれで消えてしまった！！！" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>OS X Advent Calendar 2014 - 初めてMacOS X App作成してみた。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">OS X Advent Calendar 2014 - 初めてMacOS X App作成してみた。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-12-25">December 25, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/macos">macOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>この記事は<a href="http://qiita.com/advent-calendar/2014/osx">OS X Advent Calendar 2014</a>の25日目の記事になります。
+ラストーーーーーーーー！！！！</p>
+<p>実は前回も<a href="http://nakajijapan.github.io/blog/2014/12/14/osx-advent-calendar-2014/">自分がOSXアプリ初心者の行きを脱するためにしたこと</a>書きましたが、
+まだまだ熱が冷めないので二つ目の記事を書くことにしました。</p>
+<p>teitenという MacOS Xアプリを作成しました。
+WWDC2014の発表から少しづつ地道に開発してきてようやく形になりました。</p>
+<h2 id="teiten">teiten</h2>
+<p><img src="/images/posts/2014/2014-12-25-01.png" alt="teiten"></p>
+<p>Macのカメラを通して自分自身を定点観測するアプリです。
+アイコンはめっちゃ見ている感じを出したくてカメラ＋妖怪でそれっぽさを出してみました。
+観測というかもう監視している感じですが。。。
+アイコンはえびちゃんというデザイナの方に作成していただきました。</p>
+<h3 id="機能">機能</h3>
+<ul>
+<li>10 sec or 60 sec ごとに勝手に写真を撮ります。</li>
+<li>自由に自分自身で写真を取ることもできます。</li>
+<li>適当に溜まったら画像を集めて動画が作成できるようになります。</li>
+</ul>
+<h3 id="compatibility">Compatibility</h3>
+<p><del>OS X 10.9以上</del>ですが、もしかしたら10.10しか動かないかも&hellip;</p>
+<p>追記：OS X 10.10以上でした。。。</p>
+<h3 id="dwonload">Dwonload</h3>
+<p>期間限定ですが<a href="http://nakajijapan.heteml.jp/teiten.app.zip">ここ</a>あるのでよければどうぞ。</p>
+<p>それだけです。それだけのアプリなのにいろいろハマりにハマりまくって結構時間かかりました。。。
+めっちゃシンプルなアプリですがなんか大変だった。。</p>
+<h3 id="screenshot">ScreenShot</h3>
+<p><img src="/images/posts/2014/2014-12-25-02.gif" alt=""></p>
+<p><code>capture image</code>でも写真は取れるのですが、カウントダウンされて０になっても写真が撮れます。</p>
+<h2 id="経緯">経緯</h2>
+<p>実は昔にペパボの先輩の<a href="https://twitter.com/tarop">@tarop</a>と <a href="https://twitter.com/daiskip">@diskip</a>が同じようなWEBサービス作成していました。
+個人的には好きで、毎日のように利用していたのですが、もうサービスが無くなってしまったのがちょっと悲しくて、なんかもったいないと思ったので
+それに近い形でありながらMacOSXアプリならではの機能をつけて作成した次第です。</p>
+<p>もう一つは、今作成している<a href="http://limu.xyz/">Limu</a>というサービスがMac版も対応する予定でいるので、その準備運動の一つでもあります。</p>
+<h2 id="最後に">最後に</h2>
+<p>プロダクト作るのって自分の興味＋αでいろいろ知らないといけないんですが、何か作る度に自分が一歩成長している間があるのでなかなかやめれない。
+あと、そもそも楽しい。
+まだまだ、バグも多いし機能も足りないのでちょっとづつ改善していこう思います。</p>
+<p>なんとかAdvent Calenderには間に合ったけど、僕のクリスマスはこれで消えてしまった！！！</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

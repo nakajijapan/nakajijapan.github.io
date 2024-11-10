@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[limeChat]RSS情報を定期的に読み込んで新着情報のみをぶっこぬく">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/09/02/limechatrss%E6%83%85%E5%A0%B1%E3%82%92%E5%AE%9A%E6%9C%9F%E7%9A%84%E3%81%AB%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A7%E6%96%B0%E7%9D%80%E6%83%85%E5%A0%B1%E3%81%AE%E3%81%BF%E3%82%92%E3%81%B6%E3%81%A3%E3%81%93%E3%81%AC%E3%81%8F/" />
+<meta property="go:description" content="
+
+var targetChannel = &#34;#project&#34;;
+var fileName = &#34;projectSvnRevision.txt&#34;;
+//------------------------------------
+// 実行時
+//------------------------------------
+var ret = 0;
+function event::onLoad() {
+    ret = setInterval(getRssForDev, 1000 * 60 * 10); // by 10 min
+    //ret = setInterval(getRssForDev, 1000 * 6); // by 1 min( for test)
+}
+
+//------------------------------------
+// 時刻チェック
+//------------------------------------
+function getRssForDev()
+{
+    var lines = load_textfile_array( fileName );
+    var currentRevision = parseInt( lines[0] );
+    var req = new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;);
+    if (req) {
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) {
+                var s = req.responseText;
+
+                // 2回のタイトル削除
+                s.match(/＜title＞(.*)＜\/title＞/);
+                s = RegExp.rightContext;
+                s.match(/＜title＞(.*)＜\/title＞/);
+                s = RegExp.rightContext;
+                
+                for (var i=0; i&lt;100; i&#43;&#43;) {
+                    if (!s.match(/＜title＞(.*)＜\/title＞/)) {
+                        break;
+                    }
+                    s = RegExp.rightContext;
+                    var title = RegExp.$1;
+                    
+                    var ret = title.match(/(\d&#43;):/);
+                    //var revision = ret[0];
+                    var revision = RegExp.$1;
+                    //var revision = &#34;&#34;;
+
+                    s.match(/＜dc:creator＞(.*)＜\/dc:creator＞/);
+                    s = RegExp.rightContext;
+                    var creator = RegExp.$1;
+                    
+                    s.match(/＜link＞(.*)＜\/link＞/);
+                    s = RegExp.rightContext;
+                    var link = RegExp.$1;
+                    
+                    s.match(/＜pubDate＞(.*)＜\/pubDate＞/);
+                    s = RegExp.rightContext;
+                    var pubDate = RegExp.$1;
+                    
+                    // RSSの最大値を保持しておく
+                    if (i == 0) {
+                        maxRevision = revision;
+                    }
+                    
+                    if (currentRevision &lt; revision) {
+                        send(targetChannel, &#34;====================&#34;);
+                        send(targetChannel, &#34;TITLE   : &#34; &#43; title);
+                        send(targetChannel, &#34;CREATER : &#34; &#43; creator);
+                        send(targetChannel, &#34;PUBDATE : &#34; &#43; pubDate);
+                        send(targetChannel, &#34;LINK    : &#34; &#43; link);
+                     }
+                    else {
+                        break;
+                    }
+                    
+                }
+                
+                write_file_string(fileName, maxRevision);
+            }
+        }
+    }
+    // ここに読み取りたいURIを記載
+    var url = &#39;http://hogehoge.com/rss&#39;; 
+
+    req.open(&#39;get&#39;, url, true);
+    req.send(&#39;&#39;);
+}
+
+//--------------------------------------------
+// ファイル読み込み
+//--------------------------------------------
+function load_textfile_array( file_name  ){
+  lines = new Array();
+  d_file = openFile( file_name , true );
+    while ( s = d_file.readLine() ) {
+      lines[lines.length] = s;
+    }
+  d_file.close();
+  return lines;
+}
+
+//--------------------------------------------
+// ファイル書き込み
+//--------------------------------------------
+function write_file_string( file_name, string  ){
+    file = openFile( file_name , false );
+    file.write(string); 
+    file.truncate();
+    file.close();
+}
+
+これでイけると思うよ。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[limeChat]RSS情報を定期的に読み込んで新着情報のみをぶっこぬく" />
+<meta name="twitter:description" content="
+
+var targetChannel = &#34;#project&#34;;
+var fileName = &#34;projectSvnRevision.txt&#34;;
+//------------------------------------
+// 実行時
+//------------------------------------
+var ret = 0;
+function event::onLoad() {
+    ret = setInterval(getRssForDev, 1000 * 60 * 10); // by 10 min
+    //ret = setInterval(getRssForDev, 1000 * 6); // by 1 min( for test)
+}
+
+//------------------------------------
+// 時刻チェック
+//------------------------------------
+function getRssForDev()
+{
+    var lines = load_textfile_array( fileName );
+    var currentRevision = parseInt( lines[0] );
+    var req = new ActiveXObject(&#34;Microsoft.XMLHTTP&#34;);
+    if (req) {
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) {
+                var s = req.responseText;
+
+                // 2回のタイトル削除
+                s.match(/＜title＞(.*)＜\/title＞/);
+                s = RegExp.rightContext;
+                s.match(/＜title＞(.*)＜\/title＞/);
+                s = RegExp.rightContext;
+                
+                for (var i=0; i&lt;100; i&#43;&#43;) {
+                    if (!s.match(/＜title＞(.*)＜\/title＞/)) {
+                        break;
+                    }
+                    s = RegExp.rightContext;
+                    var title = RegExp.$1;
+                    
+                    var ret = title.match(/(\d&#43;):/);
+                    //var revision = ret[0];
+                    var revision = RegExp.$1;
+                    //var revision = &#34;&#34;;
+
+                    s.match(/＜dc:creator＞(.*)＜\/dc:creator＞/);
+                    s = RegExp.rightContext;
+                    var creator = RegExp.$1;
+                    
+                    s.match(/＜link＞(.*)＜\/link＞/);
+                    s = RegExp.rightContext;
+                    var link = RegExp.$1;
+                    
+                    s.match(/＜pubDate＞(.*)＜\/pubDate＞/);
+                    s = RegExp.rightContext;
+                    var pubDate = RegExp.$1;
+                    
+                    // RSSの最大値を保持しておく
+                    if (i == 0) {
+                        maxRevision = revision;
+                    }
+                    
+                    if (currentRevision &lt; revision) {
+                        send(targetChannel, &#34;====================&#34;);
+                        send(targetChannel, &#34;TITLE   : &#34; &#43; title);
+                        send(targetChannel, &#34;CREATER : &#34; &#43; creator);
+                        send(targetChannel, &#34;PUBDATE : &#34; &#43; pubDate);
+                        send(targetChannel, &#34;LINK    : &#34; &#43; link);
+                     }
+                    else {
+                        break;
+                    }
+                    
+                }
+                
+                write_file_string(fileName, maxRevision);
+            }
+        }
+    }
+    // ここに読み取りたいURIを記載
+    var url = &#39;http://hogehoge.com/rss&#39;; 
+
+    req.open(&#39;get&#39;, url, true);
+    req.send(&#39;&#39;);
+}
+
+//--------------------------------------------
+// ファイル読み込み
+//--------------------------------------------
+function load_textfile_array( file_name  ){
+  lines = new Array();
+  d_file = openFile( file_name , true );
+    while ( s = d_file.readLine() ) {
+      lines[lines.length] = s;
+    }
+  d_file.close();
+  return lines;
+}
+
+//--------------------------------------------
+// ファイル書き込み
+//--------------------------------------------
+function write_file_string( file_name, string  ){
+    file = openFile( file_name , false );
+    file.write(string); 
+    file.truncate();
+    file.close();
+}
+
+これでイけると思うよ。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[limeChat]RSS情報を定期的に読み込んで新着情報のみをぶっこぬく - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[limeChat]RSS情報を定期的に読み込んで新着情報のみをぶっこぬく</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-09-02">September 02, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/javascript">javascript</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <pre class="brush: javascript">
+
+var targetChannel = "#project";
+var fileName = "projectSvnRevision.txt";
+//------------------------------------
+// 実行時
+//------------------------------------
+var ret = 0;
+function event::onLoad() {
+    ret = setInterval(getRssForDev, 1000 * 60 * 10); // by 10 min
+    //ret = setInterval(getRssForDev, 1000 * 6); // by 1 min( for test)
+}
+
+//------------------------------------
+// 時刻チェック
+//------------------------------------
+function getRssForDev()
+{
+    var lines = load_textfile_array( fileName );
+    var currentRevision = parseInt( lines[0] );
+    var req = new ActiveXObject("Microsoft.XMLHTTP");
+    if (req) {
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) {
+                var s = req.responseText;
+
+                // 2回のタイトル削除
+                s.match(/＜title＞(.*)＜\/title＞/);
+                s = RegExp.rightContext;
+                s.match(/＜title＞(.*)＜\/title＞/);
+                s = RegExp.rightContext;
+                
+                for (var i=0; i<100; i++) {
+                    if (!s.match(/＜title＞(.*)＜\/title＞/)) {
+                        break;
+                    }
+                    s = RegExp.rightContext;
+                    var title = RegExp.$1;
+                    
+                    var ret = title.match(/(\d+):/);
+                    //var revision = ret[0];
+                    var revision = RegExp.$1;
+                    //var revision = "";
+
+                    s.match(/＜dc:creator＞(.*)＜\/dc:creator＞/);
+                    s = RegExp.rightContext;
+                    var creator = RegExp.$1;
+                    
+                    s.match(/＜link＞(.*)＜\/link＞/);
+                    s = RegExp.rightContext;
+                    var link = RegExp.$1;
+                    
+                    s.match(/＜pubDate＞(.*)＜\/pubDate＞/);
+                    s = RegExp.rightContext;
+                    var pubDate = RegExp.$1;
+                    
+                    // RSSの最大値を保持しておく
+                    if (i == 0) {
+                        maxRevision = revision;
+                    }
+                    
+                    if (currentRevision < revision) {
+                        send(targetChannel, "====================");
+                        send(targetChannel, "TITLE   : " + title);
+                        send(targetChannel, "CREATER : " + creator);
+                        send(targetChannel, "PUBDATE : " + pubDate);
+                        send(targetChannel, "LINK    : " + link);
+                     }
+                    else {
+                        break;
+                    }
+                    
+                }
+                
+                write_file_string(fileName, maxRevision);
+            }
+        }
+    }
+    // ここに読み取りたいURIを記載
+    var url = 'http://hogehoge.com/rss'; 
+
+    req.open('get', url, true);
+    req.send('');
+}
+
+//--------------------------------------------
+// ファイル読み込み
+//--------------------------------------------
+function load_textfile_array( file_name  ){
+  lines = new Array();
+  d_file = openFile( file_name , true );
+    while ( s = d_file.readLine() ) {
+      lines[lines.length] = s;
+    }
+  d_file.close();
+  return lines;
+}
+
+//--------------------------------------------
+// ファイル書き込み
+//--------------------------------------------
+function write_file_string( file_name, string  ){
+    file = openFile( file_name , false );
+    file.write(string); 
+    file.truncate();
+    file.close();
+}
+</pre>
+<p>これでイけると思うよ。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

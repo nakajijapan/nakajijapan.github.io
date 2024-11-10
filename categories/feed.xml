@@ -1,0 +1,156 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Categories on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/</link>
+        <description>Recent content in Categories on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Fri, 05 Jul 2024 23:06:42 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Life</title>
+            <link>http://nakajijapan.github.io/categories/life/</link>
+            <pubDate>Fri, 05 Jul 2024 23:06:42 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/life/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Tech</title>
+            <link>http://nakajijapan.github.io/categories/tech/</link>
+            <pubDate>Tue, 25 Jun 2024 12:06:56 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/tech/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Car</title>
+            <link>http://nakajijapan.github.io/categories/car/</link>
+            <pubDate>Sat, 16 Sep 2023 05:00:51 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/car/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Osx</title>
+            <link>http://nakajijapan.github.io/categories/osx/</link>
+            <pubDate>Tue, 11 Aug 2020 03:26:18 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/osx/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>JBL</title>
+            <link>http://nakajijapan.github.io/categories/jbl/</link>
+            <pubDate>Mon, 09 Mar 2020 01:18:53 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/jbl/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Ios</title>
+            <link>http://nakajijapan.github.io/categories/ios/</link>
+            <pubDate>Sun, 08 Sep 2019 22:10:01 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/ios/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>MacOS</title>
+            <link>http://nakajijapan.github.io/categories/macos/</link>
+            <pubDate>Thu, 25 Oct 2018 01:08:24 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/macos/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Swift</title>
+            <link>http://nakajijapan.github.io/categories/swift/</link>
+            <pubDate>Thu, 01 Mar 2018 14:35:04 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/swift/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Diary</title>
+            <link>http://nakajijapan.github.io/categories/diary/</link>
+            <pubDate>Tue, 16 Dec 2014 22:33:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/diary/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>CloudKit</title>
+            <link>http://nakajijapan.github.io/categories/cloudkit/</link>
+            <pubDate>Wed, 17 Sep 2014 00:06:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/cloudkit/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>WWDC</title>
+            <link>http://nakajijapan.github.io/categories/wwdc/</link>
+            <pubDate>Mon, 09 Jun 2014 07:43:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/wwdc/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Vagrant</title>
+            <link>http://nakajijapan.github.io/categories/vagrant/</link>
+            <pubDate>Fri, 28 Feb 2014 20:34:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/vagrant/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Study</title>
+            <link>http://nakajijapan.github.io/categories/study/</link>
+            <pubDate>Sat, 15 Feb 2014 01:51:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/study/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Rails</title>
+            <link>http://nakajijapan.github.io/categories/rails/</link>
+            <pubDate>Sat, 13 Jul 2013 15:13:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/rails/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>Ruby</title>
+            <link>http://nakajijapan.github.io/categories/ruby/</link>
+            <pubDate>Tue, 02 Jul 2013 22:30:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/categories/ruby/</guid>
+            <description></description>
+        </item>
+        
+    </channel>
+</rss>
+

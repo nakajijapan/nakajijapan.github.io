@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="iOSDC 2018 でMarkdownの解析について発表してきた。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2018/2018-09-07-iosdc-markdown/" />
+<meta property="go:description" content="
+発表したぞ！
+iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。
+発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと
+心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。
+発表のタイトルはこちら
+Markdownをリアルタイムに解析する
+https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
+
+Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
+
+資料
+
+ざっくり解説
+リアルタイムに処理をするために
+以下の項目を基点に話を掘り下げていきました。
+
+カラーリング
+入力補佐
+
+カラーリング
+一番リアルタイム性を考えなければいけないのが文字を入力した時です。
+最小限の範囲で文字列操作を行う
+いつ？
+まず、、NSTextStorageDelegateのメソッド（以下のメソッド）を使用して取得する必要がありました。
+これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。
+さらにeditedRangeは複数行の場合があることを考慮に入れる必要があります。
+// MARK: - NSTextStorageDelegate
+
+extension TextViewController: NSTextStorageDelegate {
+    func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+        self.editedRange = editedRange
+    }
+}
+何を？
+それは変換するべき領域です。以前のコードでeditedRangeを利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。
+
+
+この赤線の部分が一行ずつ抽出して属性を変更していきます。
+どのようにして？
+変換するべき領域を抽出するんですがその時には以下の関数を使うと行の全ての範囲を取得することが可能になります。
+ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。
+
+lineRange
+
+
+　" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="images/posts/2018/2018-09-001.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="iOSDC 2018 でMarkdownの解析について発表してきた。" />
+<meta name="twitter:description" content="
+発表したぞ！
+iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。
+発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと
+心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。
+発表のタイトルはこちら
+Markdownをリアルタイムに解析する
+https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806
+
+Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。
+
+資料
+
+ざっくり解説
+リアルタイムに処理をするために
+以下の項目を基点に話を掘り下げていきました。
+
+カラーリング
+入力補佐
+
+カラーリング
+一番リアルタイム性を考えなければいけないのが文字を入力した時です。
+最小限の範囲で文字列操作を行う
+いつ？
+まず、、NSTextStorageDelegateのメソッド（以下のメソッド）を使用して取得する必要がありました。
+これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。
+さらにeditedRangeは複数行の場合があることを考慮に入れる必要があります。
+// MARK: - NSTextStorageDelegate
+
+extension TextViewController: NSTextStorageDelegate {
+    func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+        self.editedRange = editedRange
+    }
+}
+何を？
+それは変換するべき領域です。以前のコードでeditedRangeを利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。
+
+
+この赤線の部分が一行ずつ抽出して属性を変更していきます。
+どのようにして？
+変換するべき領域を抽出するんですがその時には以下の関数を使うと行の全ての範囲を取得することが可能になります。
+ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。
+
+lineRange
+
+
+　" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>iOSDC 2018 でMarkdownの解析について発表してきた。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">iOSDC 2018 でMarkdownの解析について発表してきた。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2018-09-10">September 10, 2018</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">ios</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><img src="/images/posts/2018/2018-09-002.png" alt=""></p>
+<p>発表したぞ！</p>
+<p>iOSDC 2018にコアスタッフ兼スピーカーとして参加させていただきました。
+発表時間帯は初日でしかも朝一で発表しなければいけなく、人がくるのかと
+心配していましたが、朝一にもかかわらずまぁまぁ人がきてくれたので少し安心しました。</p>
+<p>発表のタイトルはこちら</p>
+<h2 id="markdownをリアルタイムに解析する">Markdownをリアルタイムに解析する</h2>
+<p><a href="https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806">https://fortee.jp/iosdc-japan-2018/proposal/a2e20820-d4f6-43e5-b34b-1b9e6fec7806</a></p>
+<blockquote>
+<p>Markdownを解析する時にGitHubで探せば簡単にライブラリを何個も見つけることができます。しかし、をそれをリアルタイムとなるとなかなかみつけることができません。私は端末間で同期できるメモアプリを作成し、機能の一つに入力しながらMarkdown形式に色付けをする機能を実装しました。本トークではリアルタイムに文章を解析し、リッチな表現をどのようにして行っているのかを解説します。</p>
+</blockquote>
+<h1 id="資料">資料</h1>
+<script async class="speakerdeck-embed" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<p>ざっくり解説</p>
+<h1 id="リアルタイムに処理をするために">リアルタイムに処理をするために</h1>
+<p>以下の項目を基点に話を掘り下げていきました。</p>
+<ul>
+<li>カラーリング</li>
+<li>入力補佐</li>
+</ul>
+<h1 id="カラーリング">カラーリング</h1>
+<p>一番リアルタイム性を考えなければいけないのが文字を入力した時です。</p>
+<h2 id="最小限の範囲で文字列操作を行う">最小限の範囲で文字列操作を行う</h2>
+<h3 id="いつ">いつ？</h3>
+<p>まず、、<code>NSTextStorageDelegate</code>のメソッド（以下のメソッド）を使用して取得する必要がありました。
+これは処理前にこのメソッドがコールされ、その中でで編集した領域を取得するができます。
+さらに<code>editedRange</code>は複数行の場合があることを考慮に入れる必要があります。</p>
+<pre tabindex="0"><code>// MARK: - NSTextStorageDelegate
+
+extension TextViewController: NSTextStorageDelegate {
+    func textStorage(_ textStorage: NSTextStorage, willProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+        self.editedRange = editedRange
+    }
+}
+</code></pre><h3 id="何を">何を？</h3>
+<p>それは<code>変換するべき領域</code>です。以前のコードで<code>editedRange</code>を利用していますが、これは編集した領域であって変換する領域ではありません。以下のように、編集した時にそれに関わる行の最初の位置から最後の位置まで取得する必要があります。</p>
+<script async class="speakerdeck-embed" data-slide="41" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<script async class="speakerdeck-embed" data-slide="43" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<p>この赤線の部分が一行ずつ抽出して属性を変更していきます。</p>
+<h3 id="どのようにして">どのようにして？</h3>
+<p><code>変換するべき領域</code>を抽出するんですがその時には以下の関数を使うと<code>行の全ての範囲を取得する</code>ことが可能になります。
+ここでは取得した行の範囲にあるlocationがわかっていれば期待した位置が取得できます。</p>
+<ul>
+<li>lineRange</li>
+</ul>
+<script async class="speakerdeck-embed" data-slide="50" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<p>　</p>
+<h2 id="絵文字">絵文字</h2>
+<p>ここでは絵文字を扱う時に気をつけようと話をしています。そもそもユニコードの話から文字コード仕組みを話し、Swift.stringでは各文字コードでカウントすると変わってくることを示しました。それはどういうことなのかなぜそれを意識する必要があるのかという解説をしています。</p>
+<p>また、文字列操作をするときにはNSString、NSRangeを使うことになりますがこの仕様を理解して文字列の操作を行って行くことが重要になってきます。</p>
+<h3 id="型の内部仕様">型の内部仕様</h3>
+<script async class="speakerdeck-embed" data-slide="63" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<p>なので範囲を指定する時にはUTF16を意識した文字列操作が必要になってきます。</p>
+<pre tabindex="0"><code>NSRange(location: 0, length: line.utf16.count)
+</code></pre><h2 id="入力補佐">入力補佐</h2>
+<p>タブやバックタブや改行による<code>自動インデント</code>とリスト表現を改行しても同じ構造にしておく必要があります。ちなみにIzumoではオプションで自動でするかしないかを選択することができます。</p>
+<ul>
+<li>オートインデント
+<ul>
+<li>改行してもリスト構造を復元する</li>
+</ul>
+</li>
+<li>タブでの移動
+<ul>
+<li>リストの構造を崩さず深くしたりする</li>
+</ul>
+</li>
+</ul>
+<p>つまり、以下のイベント時に文字列の操作を必要がありました。</p>
+<ul>
+<li>タブ</li>
+<li>バックタブ</li>
+<li>改行</li>
+</ul>
+<p>さらに、アプリを作成するときに気をつけなければいけなかったのがiOSだけでなくmacOSを考慮する必要があります。</p>
+<ul>
+<li>NSTextView</li>
+<li>UITextView</li>
+</ul>
+<p>この二つの仕様を意識して実装する必要があります。
+ここではNSTextViewにテキスト操作に必要なイベント用意されていたのですが、UITextViewには僕たちが期待したメソッドが用意されていなかったので自分でそれに取って代わる実装をする必要があったという話をしました。（モバイルはそこまでキーボードで入力するということ期待していない設計になっているので用意されていないのはわかるけど面倒だった）</p>
+<script async class="speakerdeck-embed" data-slide="92" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<p>通常の<code>String.insert</code>でやろうとするとカーソルやエベント期待通りに動いてくれいないことがありました。</p>
+<script async class="speakerdeck-embed" data-slide="93" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<p>なので<code>insertText</code>を利用すれば問題は解決するのではと思い使って見ました。がそれでも期待通りに動いてくれませんでした。</p>
+<script async class="speakerdeck-embed" data-slide="95" data-id="e973277a6f24458da5cbd4fdbf829941" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<p>期待通りになるまで実装を全て自分で行う必要ありました。</p>
+<h1 id="まとめ">まとめ</h1>
+<ul>
+<li>解析はるべく最小限の範囲で行う</li>
+<li>文字コードを意識した文字列操作
+<ul>
+<li>NSString, NSRange</li>
+</ul>
+</li>
+<li>入力補佐時のiOSの設計
+<ul>
+<li>カスタマイズが必須</li>
+</ul>
+</li>
+</ul>
+<h1 id="所感">所感</h1>
+<p>去年に引き続きそれなりにニッチな話となったが、自分の過去一年のまとめになりましたし、発表したところ複数の人からも興味を持ってくれた人がよかったので話したかいがありました。よかった。よかった。
+また、僕以外の素晴らしい発表をまだ見切れていないので自分のペースでゆっくり見ていこうと思う。</p>
+<h1 id="_φ_"><em>φ(･</em>･</h1>
+<p><a href="https://togetter.com/li/1262029">https://togetter.com/li/1262029</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

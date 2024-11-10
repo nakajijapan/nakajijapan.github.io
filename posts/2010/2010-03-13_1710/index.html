@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="VirtualDocumentRootとか">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-03-13_1710/" />
+<meta property="go:description" content="Apacheの設定をいじる機会がありましていろいろしることできたのでメモ。
+あと考え方もちょびちょび。
+・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。
+このとき利用する方法としてVirtualDocumentRootの設定をします。
+それが以下の設定。
+
+# ディレクトリティブの設定
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="VirtualDocumentRootとか" />
+<meta name="twitter:description" content="Apacheの設定をいじる機会がありましていろいろしることできたのでメモ。
+あと考え方もちょびちょび。
+・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。
+このとき利用する方法としてVirtualDocumentRootの設定をします。
+それが以下の設定。
+
+# ディレクトリティブの設定
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>VirtualDocumentRootとか - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">VirtualDocumentRootとか</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-03-13">March 13, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/apache">Apache</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>Apacheの設定をいじる機会がありましていろいろしることできたのでメモ。
+あと考え方もちょびちょび。</p>
+<p>・ドメインが「sub.domain.jp」でアクセスしてきた場合、「sub」部分が動的にいろいろな形でアクセスできるようにします。つまり、FQDNごとにアクセス先を違うディレクトリで分けるようにします。</p>
+<p>このとき利用する方法としてVirtualDocumentRootの設定をします。</p>
+<p>それが以下の設定。</p>
+<pre class="brush: text">
+# ディレクトリティブの設定
+<Directory "/var/www/test/public">
+    Options -Indexes -MultiViews +ExecCGI -Includes
+    AllowOverride All
+    FileETag None
+</Directory>
+# すべてからのホストに対しての設定
+<VirtualHost *>
+    ServerName   %0
+    VirtualDocumentRoot /home/web/%0/public_html
+</VirtualHost>
+</pre>
+<p>これによりFQDN毎にディレクトリでわけておくとその時点でディレクトリのみ見に行くようになります。
+一つのドメインが追加していくごとに設定書いていくのなんてめんどくさいですもんね。
+これができると楽なんだなぁと思いました。</p>
+<p>ちなみに「％０」はFQDNの意味合いをもっているそう。あとは以下の設定項目をいろいろやれば
+ドメインにURIにあわせてディレクトリ構成もいろいろできるようになるんだな。</p>
+<blockquote>
+%%	insert a %
+%p	insert the port number of the virtual host
+%N.M	insert (part of) the name
+<p>0	the whole name
+1	the first part
+2	the second part
+-1	the last part
+-2	the penultimate part
+2+	the second and all subsequent parts
+-2+	the penultimate and all preceding parts
+1+ and -1+	the same as 0</p>
+</blockquote>
+<p>あとディレクティブの設定は別々にディレクトリを分けたのはいいけれど、時には
+ある特定の条件の時には共通の処理をしたいわがままなときがあるかもしれないような気がします。。。
+そのときは指定されたディレクトリ以下をアクセスできるように設定をしてから。「VirtualHost」内で
+そのプログラムを実行できるようにします。</p>
+<pre class="brush: text">
+# ディレクトリティブの設定
+<Directory "/var/www/test/public">
+    Options -Indexes -MultiViews +ExecCGI -Includes
+    AllowOverride All
+    FileETag None
+</Directory>
+# すべてからのホストに対しての設定
+<VirtualHost *>
+    ServerName   %0
+    VirtualDocumentRoot /home/web/%0/public_html
+
+    RewriteEngine On
+    RewriteRule /path/to/       /var/www/test/public/index.php
+</VirtualHost>
+</pre>
+<p>こうすると指定のパスの場合だけすべて共通で「index.php」が実行されるようになる。</p>
+<p>Apacheって便利だねー。こんなこともできるなんて最近しりますた。</p>
+<p><a href="http://httpd.apache.org/docs/2.2/mod/core.html#documentroot">DocumentRoot</a>
+<a href="http://httpd.apache.org/docs/2.2/mod/core.html#virtualhost">VirtualHost</a>
+<a href="http://httpd.apache.org/docs/2.2/vhosts/mass.html">大量バーチャルホストの設定</a></p>
+<p>/a&gt;</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

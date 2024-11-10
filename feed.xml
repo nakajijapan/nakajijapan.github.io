@@ -1,0 +1,75 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>おじさんは生きている on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/</link>
+        <description>Recent content in おじさんは生きている on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Fri, 05 Jul 2024 23:06:42 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Posts</title>
+            <link>http://nakajijapan.github.io/posts/</link>
+            <pubDate>Fri, 05 Jul 2024 23:06:42 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/</guid>
+            <description></description>
+        </item>
+        
+        <item>
+            <title>About</title>
+            <link>http://nakajijapan.github.io/about/</link>
+            <pubDate>Sun, 25 Feb 2018 20:41:19 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/about/</guid>
+            <description>&lt;p&gt;I&amp;rsquo;m nakajijapan.
+&lt;a href=&#34;http://nakajijapan.net&#34;&gt;http://nakajijapan.net&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+会津大学コンピューター理工学部に入学し、ベンチャー企業でネットワークエンジニアとして実際の業務を学生のうちから経験しながら勉学に励む。卒業後、受託企業に入社。自分が楽しみたかったインターネットじゃないと感じ、インターネットを楽しみつつ仕事ができるGMOペパボに入社。エンジニアとして幅広く業務を経験した。その後、iOSエンジニアとしてハンドメイドマーケット「minne」のアプリ開発に携わる。
+&lt;p&gt;2015年1月からプリシンパルエンジニアに昇格する。技術的側面からチームメンバーのフォローをしたり、メンバーが開発しやすい環境を構築を行う。所属事業部以外では、全社的に勉強会・読書会や開発合宿を企画してモバイルエンジニアの成長を促しつつ、プライベートや業務で得た知見を社内外にアウトプットすることで会社のモバイルエンジニアとしてのプレゼンス向上に寄与。&lt;/p&gt;
+&lt;p&gt;株式会社DeNAではエンジニアとして仕様策定・技術選定・実装も行いつつエンジニアのマネージメント業も平行して行った。&lt;/p&gt;
+&lt;p&gt;現在はPIAZZA株式会社でCTOとして奮闘中。&lt;/p&gt;
+&lt;p&gt;趣味はものづくり、良い環境で映画鑑賞。
+最近はお金の流れに興味があり。&lt;/p&gt;
+&lt;/p&gt;
+&lt;section&gt;
+  &lt;h3&gt;My Products&lt;/h3&gt;
+  &lt;a href=&#34;http://izumo.nakajijapan.net/&#34; style=&#34;text-decoration: none;&#34;&gt;
+    &lt;img src=&#34;http://nakajijapan.github.io/images/about/izumo.png&#34; width=&#34;150px&#34; /&gt;
+  &lt;/a&gt;
+  &lt;a href=&#34;http://izumo.nakajijapan.net/&#34; style=&#34;text-decoration: none;&#34;&gt;
+    &lt;img src=&#34;http://nakajijapan.github.io/images/about/izumo2.png&#34; width=&#34;150px&#34; /&gt;
+  &lt;/a&gt;
+  &lt;a href=&#34;https://itunes.apple.com/jp/app/teiten/id965784054?mt=12&#34; style=&#34;text-decoration: none;&#34;&gt;
+    &lt;img src=&#34;http://nakajijapan.github.io/images/about/teiten.png&#34; width=&#34;150px&#34; /&gt;
+  &lt;/a&gt;
+  &lt;a href=&#34;https://itunes.apple.com/jp/app/sengiri/id1090331454?mt=12&#34; style=&#34;text-decoration: none;&#34;&gt;
+    &lt;img src=&#34;http://nakajijapan.github.io/images/about/sengiri.png&#34; width=&#34;150px&#34; /&gt;
+  &lt;/a&gt;
+  &lt;a href=&#34;http://www.frustration.me&#34; style=&#34;text-decoration: none;&#34;&gt;
+    &lt;img src=&#34;http://nakajijapan.github.io/images/about/frustrationme.png&#34; width=&#34;150px&#34; /&gt;
+  &lt;/a&gt;
+  &lt;a href=&#34;http://owkr.nakajijapan.net/&#34; style=&#34;text-decoration: none;&#34;&gt;
+    &lt;img src=&#34;http://nakajijapan.github.io/images/about/owkr.png&#34; width=&#34;150px&#34; alt=&#34;心霊写真アプリ 「おわかりいただけただろうか」 - HajiShiraZu&#34; /&gt;
+  &lt;/a&gt;
+  &lt;a href=&#34;http://owkr.nakajijapan.net/movie/&#34; style=&#34;text-decoration: none;&#34;&gt;
+    &lt;img src=&#34;http://nakajijapan.github.io/images/about/owkr2.png&#34; width=&#34;150px&#34; alt=&#34;心霊動画アプリ もう一度ご覧いただこう - HajiShiraZu&#34; /&gt;
+  &lt;/a&gt;
+  &lt;a href=&#34;http://vacuum.nakajijapan.net/&#34; style=&#34;text-decoration: none;&#34;&gt;
+    &lt;img src=&#34;http://nakajijapan.github.io/images/about/unkore.png&#34; width=&#34;150px&#34; /&gt;
+  &lt;/a&gt;
+&lt;/section&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

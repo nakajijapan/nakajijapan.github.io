@@ -1,0 +1,432 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MacOS on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/macos/</link>
+        <description>Recent content in MacOS on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Thu, 25 Oct 2018 01:08:24 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/macos/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>NSPopoverからWindowにViewを分裂させる</title>
+            <link>http://nakajijapan.github.io/posts/2018/2018-10-25-popover/</link>
+            <pubDate>Thu, 25 Oct 2018 01:08:24 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2018/2018-10-25-popover/</guid>
+            <description>&lt;p&gt;NSPopoverからWindowにViewを分裂させる&lt;/p&gt;
+&lt;p&gt;BearのアプリのようにPopoverからタップを移動することでWindowにに分離する方法を知りたくて調査した。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-10-009.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-10-010.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;まず、popover自体は&lt;code&gt;NSPopover&lt;/code&gt;を利用すれば表示することができる。
+WindowにするにはNSPopoverのあるデリゲートメソッドを記述すればできるようになる&lt;/p&gt;
+&lt;h2 id=&#34;nspopover&#34;&gt;NSPopover&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;           popover.contentViewController = viewController
+            popover.delegate = self
+            popover.behavior = NSPopover.Behavior.transient
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;分離方法&#34;&gt;分離方法&lt;/h2&gt;
+&lt;h3 id=&#34;nspopoverdelegate&#34;&gt;NSPopoverDelegate&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    func popoverShouldDetach(_ popover: NSPopover) -&amp;gt; Bool {
+        return true
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;Detaches the popover creating a window containing the content.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以下のメソッドでカスタムのwindowを作ることができる&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    func detachableWindow(for popover: NSPopover) -&amp;gt; NSWindow? {
+        return nil
+        //return detachedWindowController.window
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;referer&#34;&gt;Referer&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developer.apple.com/documentation/appkit/nspopoverdelegate/1534822-detachablewindow&#34;&gt;https://developer.apple.com/documentation/appkit/nspopoverdelegate/1534822-detachablewindow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/lukaskubanek/DetachablePopoverExample&#34;&gt;https://github.com/lukaskubanek/DetachablePopoverExample&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+        </item>
+        
+        <item>
+            <title>IzumoはDark Modeに対応しました。</title>
+            <link>http://nakajijapan.github.io/posts/2018/2018-10-11-izumo-dark-mode/</link>
+            <pubDate>Thu, 11 Oct 2018 00:08:36 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2018/2018-10-11-izumo-dark-mode/</guid>
+            <description>&lt;p&gt;IzumoはDark Modeを対応しました。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-10-002.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-10-001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;作業&#34;&gt;作業&lt;/h2&gt;
+&lt;p&gt;基本的に動画やドキュメントを見ればある程度のことはできるようになります。
+まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-10-004.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-10-005.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-10-003.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;updateConstraints&lt;/li&gt;
+&lt;li&gt;layout&lt;/li&gt;
+&lt;li&gt;draw(_ dirtyRect: NSRect)&lt;/li&gt;
+&lt;li&gt;updateLayer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;気に食わなかったところ&#34;&gt;気に食わなかったところ&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;NSScroller&lt;/code&gt;のデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。
+（背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2018/2018-10-006.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Cocoa&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;NoteListVerticalScroller&lt;/span&gt;: NSScroller {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;draw&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;_&lt;/span&gt; dirtyRect: NSRect) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.draw(dirtyRect)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;drawKnobSlot&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt; slotRect: NSRect, highlight flag: Bool) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.drawKnobSlot(&lt;span style=&#34;color:#66d9ef&#34;&gt;in&lt;/span&gt;: slotRect, highlight: flag)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// 背景はリストの背景と同じにする&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        NSColor.defaultBackgroundColor.&lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        slotRect.fill()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// 同じにすると境界がわからなくなるのでボーダー独自に描くようにする&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        NSColor.defaultScrollerLeft.&lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; rect = CGRect(x: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, y: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, width: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, height: slotRect.height)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        rect.fill()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;NoteListScrollView&lt;/span&gt;: NSScrollView {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;required&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;init&lt;/span&gt;?(coder: NSCoder) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;init&lt;/span&gt;(coder: coder)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        verticalScroller = NoteListVerticalScroller(frame: verticalScroller!.frame)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Darkは正義&lt;/strong&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Macアプリ Sengiri をリリースした。</title>
+            <link>http://nakajijapan.github.io/posts/2016/2016-03-13-sengiri/</link>
+            <pubDate>Sun, 13 Mar 2016 02:19:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2016/2016-03-13-sengiri/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://github.com/nakajijapan/Sengiri/raw/master/Icons/icon_256x256.png&#34; alt=&#34;Sengiri&#34;&gt;&lt;/p&gt;
+&lt;p&gt;つい先日、SengiriというMacアプリをリリースしました。&lt;/p&gt;
+&lt;h2 id=&#34;何それ&#34;&gt;何それ？&lt;/h2&gt;
+&lt;p&gt;「千切り」はスクリーン録画からGIFアニメーションファイルにするまで、簡単な操作ですぐに作成することができます。&lt;/p&gt;
+&lt;h2 id=&#34;機能は&#34;&gt;機能は？&lt;/h2&gt;
+&lt;p&gt;・録画できる領域を指定することができます。
+・トップウィンドウの矩形を自動で行います。
+・録画はステータスメニューから止めることができます。
+・それぞれの操作がショートカットに対応しています。&lt;/p&gt;
+&lt;h2 id=&#34;なぜ&#34;&gt;なぜ？&lt;/h2&gt;
+&lt;p&gt;それなりにGIFにするツールはあるのですがもっと簡単にショートカット一つで録画できるようなものがあればいいのになと常々不満に思っていたので作成してみました。&lt;/p&gt;
+&lt;h2 id=&#34;作業ログ&#34;&gt;作業ログ&lt;/h2&gt;
+&lt;p&gt;作成したものは↓にあるのでツッコミあったら教えていただけると助かります！
+&lt;a href=&#34;https://github.com/nakajijapan/Sengiri&#34;&gt;Sengiri&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;後、調べたことは&lt;a href=&#34;http://shibuya-swift.connpass.com/event/25656/&#34;&gt;Shibuya.swift #2&lt;/a&gt;で話しました。&lt;/p&gt;
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;122af278a1c64232a737d808e33de1f1&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;</description>
+        </item>
+        
+        <item>
+            <title>Teiten 1.3.0にバージョンアップ - 動画をアーカイブできるようにした</title>
+            <link>http://nakajijapan.github.io/posts/2015/2015-11-03-teiten-update-avfoundation/</link>
+            <pubDate>Tue, 03 Nov 2015 23:10:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2015/2015-11-03-teiten-update-avfoundation/</guid>
+            <description>&lt;img src=&#34;https://github.com/nakajijapan/teiten/raw/master/Icons/Icon-256.png&#34; width=&#34;300&#34; /&gt;
+&lt;p&gt;&lt;a href=&#34;http://teiten.nakajijapan.net/&#34;&gt;Teiten&lt;/a&gt;のバージョンアップを行いました。&lt;/p&gt;
+&lt;p&gt;バージョンアップ内容は以下の内容です。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;動画にその時の時間を加えました。&lt;/li&gt;
+&lt;li&gt;指定された時間ごとに３秒動画を撮ってそれを結合できるようにしました。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;もっと監視っぷりを高めたくこの更新を行いました。&lt;/p&gt;
+&lt;iframe width=&#34;800&#34; height=&#34;400&#34; src=&#34;https://www.youtube.com/embed/WIT30fkJn6s&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;h2 id=&#34;処理内容&#34;&gt;処理内容&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;動画を保存する&lt;/li&gt;
+&lt;li&gt;保存された動画を結合する&lt;/li&gt;
+&lt;li&gt;動画には録画された時間帯を表示させておく&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;動画を保存する&#34;&gt;動画を保存する&lt;/h3&gt;
+&lt;p&gt;今まで出力に&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AVCaptureStillImageOutput&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を利用していたが新たな出力先に&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AVCaptureMovieFileOutput&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を登録した。&lt;/p&gt;
+&lt;h3 id=&#34;保存された動画を結合する&#34;&gt;保存された動画を結合する&lt;/h3&gt;
+&lt;p&gt;以前自分が作成したプラグイン&lt;a href=&#34;&#34;&gt;NKJMovieComposer&lt;/a&gt;でさくっと実装した&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;let movieComposition = NKJMovieComposer()
+movieComposition.videoComposition.renderSize = CGSize(width: self.size.width, height: self.size.height)
+
+for i in 0..&amp;lt;self.files.count {
+
+    let beforeTimeDuration = movieComposition.currentTimeDuration
+    let moviePath = self.files[i]
+
+    // movie
+    let movieURL = NSURL(fileURLWithPath: moviePath)
+    //let layerInstruction = movieComposition.addVideo(movieURL)
+    _ = movieComposition.addVideo(movieURL)
+
+    (snip...)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;動画には録画された時間帯を表示させておく&#34;&gt;動画には録画された時間帯を表示させておく&lt;/h3&gt;
+&lt;p&gt;時間帯は動画ファイルのメタ情報から取得できるのでそれを利用する。あとは動画が切り替わるごとにその文字列を切り替えればいい。
+動画上にCALayerを敷いてそこで文字列を表示するのにCATextLayerを使ってアニメーションさせればしたいこは実現できた。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// today
+let dateFormatter = NSDateFormatter()
+dateFormatter.dateFormat = &amp;#34;yyyy/MM/dd HH:mm&amp;#34;
+
+// text layer
+let textLayer = CATextLayer()
+textLayer.frame = CGRect(x: self.size.width - 400.0 - 10.0, y: 10.0, width: 400.0, height: 52.0)
+textLayer.string = dateFormatter.stringFromDate(self.dates[i])
+textLayer.fontSize = 48.0
+textLayer.alignmentMode = kCAAlignmentRight
+textLayer.foregroundColor = NSColor.whiteColor().CGColor
+textLayer.shouldRasterize = true
+textLayer.opacity = 0.0
+layerRoot.addSublayer(textLayer)
+
+// animation
+let offsetTimeDuration = CMTimeSubtract(movieComposition.currentTimeDuration, beforeTimeDuration)
+let animation = CABasicAnimation(keyPath: &amp;#34;opacity&amp;#34;)
+animation.beginTime     = (i == 0) ? AVCoreAnimationBeginTimeAtZero : CMTimeGetSeconds(beforeTimeDuration)
+animation.duration      = CMTimeGetSeconds(offsetTimeDuration)
+animation.repeatCount   = 1
+animation.autoreverses  = false
+animation.fromValue     = NSNumber(float: 1.0)
+animation.toValue       = NSNumber(float: 1.0)
+animation.removedOnCompletion = false
+textLayer.addAnimation(animation, forKey:&amp;#34;hide&amp;#34;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;最後はそのアニメーションを&lt;code&gt;AVVideoCompositionCoreAnimationTool&lt;/code&gt;を使ってVideo Compositionに登録する。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>ペパボテックカンファレンス#3で発表した</title>
+            <link>http://nakajijapan.github.io/posts/2015/2015-09-02-pepabo-tech-conference-3/</link>
+            <pubDate>Wed, 02 Sep 2015 08:54:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2015/2015-09-02-pepabo-tech-conference-3/</guid>
+            <description>&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;98adca89519c4ddc80dd89f38dd60d4b&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;a href=&#34;http://pepabo.connpass.com/event/18641/&#34;&gt;第三回ペパボテックカンファレンス&lt;/a&gt;に参加しました。&lt;/p&gt;
+&lt;p&gt;OS Xの話したけど、話の内容がなかなかニッチすぎたのと、想定された人たちを元にした内容になっていなかったので
+反応が薄くてだめだめだった。（自分のせいです。）だけど、自分の勉強会のまとめにするいい機会だったのでよかった
+のかなと自分に言い聞かせています。。。まだまだだ。&lt;/p&gt;
+&lt;p&gt;今度はもっとそれっぽい人たち集めて話すぞ！！！！！ということで勉強会を開催してみた。
+&lt;a href=&#34;http://shibuya-swift.connpass.com/event/19306/&#34;&gt;Shibuya.swift&lt;/a&gt;開催するのでよかったらきてみてください！&lt;/p&gt;
+&lt;p&gt;これから定期的に鍛錬積んで自分の身の回りの便利アプリ作成していきたい。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>teiten をv1.1.1にした</title>
+            <link>http://nakajijapan.github.io/posts/2015/2015-03-17-teiten-v1-dot-1-1/</link>
+            <pubDate>Tue, 17 Mar 2015 13:49:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2015/2015-03-17-teiten-v1-dot-1-1/</guid>
+            <description>&lt;img src=&#34;http://teiten.nakajijapan.net/images/icon.png&#34; width=&#34;300&#34; /&gt;
+&lt;p&gt;&lt;a href=&#34;http://teiten.nakajijapan.net/&#34;&gt;Teiten&lt;/a&gt;のバージョンアップを行いました。&lt;/p&gt;
+&lt;p&gt;バージョンアップ内容は以下の内容です。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;画像を保存するときに画像の解像度を選択できるようになりました。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;File&lt;/code&gt; -&amp;gt; &lt;code&gt;Open Saved Images&lt;/code&gt; で保存されているディレクトリをFinderで開ける用にしました。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;地味なバージョアンアップでした。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>自作のアプリから他のWindowに画像をドラッグする</title>
+            <link>http://nakajijapan.github.io/posts/2015/2015-02-10-osx-dandd2/</link>
+            <pubDate>Tue, 10 Feb 2015 21:15:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2015/2015-02-10-osx-dandd2/</guid>
+            <description>&lt;p&gt;タイトルの通り。たとえば、自作アプリで生成された画像をそのままGitHubにドロップして画像を登録する。
+っていうことをできるようにしたい。だけど前回の記事だとどうしてもドロップする機能が実装できなくて
+困っていたのですができる方法が見つかったので記録しておく。&lt;/p&gt;
+&lt;p&gt;結論からいうと&lt;code&gt;NSTableView&lt;/code&gt;をうまく利用することでできるようになった。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSTableView_Class/index.html#//apple_ref/occ/instm/NSTableViiew&#34;&gt;公式ドキュメント&lt;/a&gt;
+にもあるのですが、Draggingの操作があらかじめ用意されていてすくない実装で目的のことができるようになります。&lt;/p&gt;
+&lt;h3 id=&#34;setup&#34;&gt;Setup&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;NSTableView&lt;/code&gt;は初期化されていることは前提で、それ以外で必要な設定を説明します。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;let types = [NSImage.imagePasteboardTypes()]
+tableView.registerForDraggedTypes(types)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;これはドロップできるデータのデータのタイプを指定します。
+この場合だと画像の種類を指定しています。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tableView.setDraggingSourceOperationMask(NSDragOperation.Copy, forLocal: false)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;これは、ドラッグできる操作の種類、他のWindowにもドラッグできるかどうかも指定できます。
+この場合だとファイルのコピーを他のWindowにドロップします。&lt;/p&gt;
+&lt;p&gt;ドラッグの種類は&lt;a href=&#34;https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSDraggingInfo_Protocol/#//apple_ref/c/tdef/NSDragOperation&#34;&gt;ここ&lt;/a&gt;
+にすべて記述してあります。&lt;/p&gt;
+&lt;h3 id=&#34;nstableviewdatasource&#34;&gt;NSTableViewDataSource&lt;/h3&gt;
+&lt;p&gt;今回は一つだけ表示できればいいので要素を一つのみ表示する処理をします。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// MARK: - NSTableViewDataSource
+
+func numberOfRowsInTableView(tableView: NSTableView) -&amp;gt; Int {
+    return 1
+}
+
+func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -&amp;gt; NSView? {
+    var view = tableView.makeViewWithIdentifier(&amp;#34;imageCell&amp;#34;, owner: self) as NSView
+
+    self.entity = Entity()
+    var imageView = view.viewWithTag(1) as NSImageView
+    imageView.image = self.entity.image
+
+    return view
+}
+
+func tableView(tableView: NSTableView, pasteboardWriterForRow row: Int) -&amp;gt; NSPasteboardWriting? {
+     return self.entity
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;データを管理するentityを作成&#34;&gt;データを管理するEntityを作成&lt;/h3&gt;
+&lt;p&gt;TableViewを扱うというとはCellが必要になってそこに描画するデータが必要になります。
+今回はそのデータを管理するクラスを作成して、そこにドラッグするデータを保持します。
+さらにそのデータをドロップしたときの処理も&lt;code&gt;NSPasteboardWriting&lt;/code&gt;を宣言して実装していきます。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>OSX ドラッグアンドドロップの調査</title>
+            <link>http://nakajijapan.github.io/posts/2015/2015-01-20-osx-dandd/</link>
+            <pubDate>Tue, 20 Jan 2015 17:01:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2015/2015-01-20-osx-dandd/</guid>
+            <description>&lt;p&gt;ドラッギングアンドドロップ関連の調査&lt;/p&gt;
+&lt;h2 id=&#34;nsdraggingsource&#34;&gt;NSDraggingSource&lt;/h2&gt;
+&lt;p&gt;プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。
+ドラッグ操作中に受け取るメッセージ&lt;/p&gt;
+&lt;h3 id=&#34;draggingsession_sourceoperationmaskfordraggingcontext&#34;&gt;draggingSession(_:sourceOperationMaskForDraggingContext:)&lt;/h3&gt;
+&lt;p&gt;ドラッギングしている状況を教えて、どんなドラッグのタイプを許すか設定します。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;enum NSDraggingContext : Int {
+
+    case OutsideApplication
+    case WithinApplication
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ドラッグ操作のマスク。ここでどんな操作を許すのかの種類&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;struct NSDragOperation : RawOptionSetType {
+    init(_ rawValue: UInt)
+    init(rawValue: UInt)
+
+    static var None: NSDragOperation { get }
+    static var Copy: NSDragOperation { get }
+    static var Link: NSDragOperation { get }
+    static var Generic: NSDragOperation { get }
+    static var Private: NSDragOperation { get }
+    static var Move: NSDragOperation { get }
+    static var Delete: NSDragOperation { get }
+    static var Every: NSDragOperation { get }
+
+    static var All_Obsolete: NSDragOperation { get } // Use NSDragOperationEvery
+    static var All: NSDragOperation { get } // Use NSDragOperationEvery
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以下は、指定されたスクリーン上をトリガーにして呼び出されるメソッド
+その時の位置も保持している。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>OS X Advent Calendar 2014 - 初めてMacOS X App作成してみた。</title>
+            <link>http://nakajijapan.github.io/posts/2014/2014-12-24-osx-advent-calendar-2014/</link>
+            <pubDate>Thu, 25 Dec 2014 00:00:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2014/2014-12-24-osx-advent-calendar-2014/</guid>
+            <description>&lt;p&gt;この記事は&lt;a href=&#34;http://qiita.com/advent-calendar/2014/osx&#34;&gt;OS X Advent Calendar 2014&lt;/a&gt;の25日目の記事になります。
+ラストーーーーーーーー！！！！&lt;/p&gt;
+&lt;p&gt;実は前回も&lt;a href=&#34;http://nakajijapan.github.io/blog/2014/12/14/osx-advent-calendar-2014/&#34;&gt;自分がOSXアプリ初心者の行きを脱するためにしたこと&lt;/a&gt;書きましたが、
+まだまだ熱が冷めないので二つ目の記事を書くことにしました。&lt;/p&gt;
+&lt;p&gt;teitenという MacOS Xアプリを作成しました。
+WWDC2014の発表から少しづつ地道に開発してきてようやく形になりました。&lt;/p&gt;
+&lt;h2 id=&#34;teiten&#34;&gt;teiten&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2014/2014-12-25-01.png&#34; alt=&#34;teiten&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Macのカメラを通して自分自身を定点観測するアプリです。
+アイコンはめっちゃ見ている感じを出したくてカメラ＋妖怪でそれっぽさを出してみました。
+観測というかもう監視している感じですが。。。
+アイコンはえびちゃんというデザイナの方に作成していただきました。&lt;/p&gt;
+&lt;h3 id=&#34;機能&#34;&gt;機能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;10 sec or 60 sec ごとに勝手に写真を撮ります。&lt;/li&gt;
+&lt;li&gt;自由に自分自身で写真を取ることもできます。&lt;/li&gt;
+&lt;li&gt;適当に溜まったら画像を集めて動画が作成できるようになります。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;compatibility&#34;&gt;Compatibility&lt;/h3&gt;
+&lt;p&gt;&lt;del&gt;OS X 10.9以上&lt;/del&gt;ですが、もしかしたら10.10しか動かないかも&amp;hellip;&lt;/p&gt;
+&lt;p&gt;追記：OS X 10.10以上でした。。。&lt;/p&gt;
+&lt;h3 id=&#34;dwonload&#34;&gt;Dwonload&lt;/h3&gt;
+&lt;p&gt;期間限定ですが&lt;a href=&#34;http://nakajijapan.heteml.jp/teiten.app.zip&#34;&gt;ここ&lt;/a&gt;あるのでよければどうぞ。&lt;/p&gt;
+&lt;p&gt;それだけです。それだけのアプリなのにいろいろハマりにハマりまくって結構時間かかりました。。。
+めっちゃシンプルなアプリですがなんか大変だった。。&lt;/p&gt;
+&lt;h3 id=&#34;screenshot&#34;&gt;ScreenShot&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2014/2014-12-25-02.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;capture image&lt;/code&gt;でも写真は取れるのですが、カウントダウンされて０になっても写真が撮れます。&lt;/p&gt;
+&lt;h2 id=&#34;経緯&#34;&gt;経緯&lt;/h2&gt;
+&lt;p&gt;実は昔にペパボの先輩の&lt;a href=&#34;https://twitter.com/tarop&#34;&gt;@tarop&lt;/a&gt;と &lt;a href=&#34;https://twitter.com/daiskip&#34;&gt;@diskip&lt;/a&gt;が同じようなWEBサービス作成していました。
+個人的には好きで、毎日のように利用していたのですが、もうサービスが無くなってしまったのがちょっと悲しくて、なんかもったいないと思ったので
+それに近い形でありながらMacOSXアプリならではの機能をつけて作成した次第です。&lt;/p&gt;
+&lt;p&gt;もう一つは、今作成している&lt;a href=&#34;http://limu.xyz/&#34;&gt;Limu&lt;/a&gt;というサービスがMac版も対応する予定でいるので、その準備運動の一つでもあります。&lt;/p&gt;
+&lt;h2 id=&#34;最後に&#34;&gt;最後に&lt;/h2&gt;
+&lt;p&gt;プロダクト作るのって自分の興味＋αでいろいろ知らないといけないんですが、何か作る度に自分が一歩成長している間があるのでなかなかやめれない。
+あと、そもそも楽しい。
+まだまだ、バグも多いし機能も足りないのでちょっとづつ改善していこう思います。&lt;/p&gt;
+&lt;p&gt;なんとかAdvent Calenderには間に合ったけど、僕のクリスマスはこれで消えてしまった！！！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>OS X Advent Calendar 2014 - OSXアプリ初心者の域を脱するためにしたこと</title>
+            <link>http://nakajijapan.github.io/posts/2014/2014-12-14-osx-advent-calendar-2014/</link>
+            <pubDate>Sun, 14 Dec 2014 23:56:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2014/2014-12-14-osx-advent-calendar-2014/</guid>
+            <description>&lt;p&gt;この記事は&lt;a href=&#34;http://qiita.com/advent-calendar/2014/osx&#34;&gt;OS X Advent Calendar 2014&lt;/a&gt;の15日目の記事になります。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://devimages.apple.com.edgekey.net/osx/images/osx-whats-new-hero.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;AppleがSwiftという言語をサポートしてから半年が経とうとしています。
+このほかにも今年はAppleに驚かせる一年になったのではないでしょうか。
+みなさんこんにちは&lt;a href=&#34;https://twitter.com/nakajijapan&#34;&gt;@nakajijapan&lt;/a&gt;です。&lt;/p&gt;
+&lt;p&gt;Swiftが出た当初はコードの書きやすさに驚き、ドキュメントを読んでは
+サンプルコードを書いたり、はたまた&lt;a href=&#34;http://limu.xyz/&#34;&gt;Limu&lt;/a&gt;というサービスを作成するようになりました。ちなみにこのサービスはいまだに地道に開発しています。。。&lt;/p&gt;
+&lt;p&gt;そして、私は新たな興味を持ちました。OSXアプリも頑張れば開発できるのではないかと。&lt;/p&gt;
+&lt;p&gt;とにかく、なにも考えずOSXプロジェクトを作成して初期起動してみる。
+とりあえずなにもできないWindowが起動できる。
+あとは、iOS開発でしたノウハウである程度のカスタマイズができるのではないかと。
+しかし、そこまでで終わりでUIKitやiOSの開発知識である程度流用できるものはありますが
+それ以上にCocoaプログラミングする上での仕様を学ぶ必要がありました。&lt;/p&gt;
+&lt;p&gt;そこで今回は、ある程度開発できる？(いや、まだまだであります)ようになってきたのでここでちょっとまとめようと思います。&lt;/p&gt;
+&lt;h2 id=&#34;osxアプリ開発ができるようになるまでに行ったこと&#34;&gt;OSXアプリ開発ができるようになるまでに行ったこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;とにかくサンプルを読む&lt;/li&gt;
+&lt;li&gt;思ったことは駄目元で試してみる&lt;/li&gt;
+&lt;li&gt;公式ドキュメントを読む&lt;/li&gt;
+&lt;li&gt;本を読む&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;とにかくサンプルを読む&#34;&gt;とにかくサンプルを読む&lt;/h3&gt;
+&lt;p&gt;大体のサンプルはObjective-Cで書いてあります。最初からSwiftで書いていてほしいのですが、まだ昔のサンプルのままで更新されていないので、それをみるようになりますがObjective-CからSwiftに変えるのはそこまで難しくないです。ただより、下のレイヤーにを実装するとなると少し考える事が増えるでしょうが。。。そこにヒントが隠されているので気になるソースを落としてはサンプルを眺めてビルドしてみましょう。&lt;/p&gt;
+&lt;p&gt;自分は10個くらい眺めてなんとなくこんな書き方すればいいんだと若干ながら理解して
+いきました。&lt;/p&gt;
+&lt;h3 id=&#34;思ったことは駄目元でためしてみる&#34;&gt;思ったことは駄目元でためしてみる&lt;/h3&gt;
+&lt;p&gt;iOS以上に情報が少ないので自分で解決しなきゃいけないことが多くなってきます。
+実装が滞るのであれば、ソースをミクロな状態にしてそれができるかこうやったらどうなるんだろうと試行錯誤をしてみることが大切です。&lt;/p&gt;
+&lt;h3 id=&#34;公式ドキュメントを読む&#34;&gt;公式ドキュメントを読む&lt;/h3&gt;
+&lt;p&gt;ネットの情報に自分の疑問の答えがあっても、仕様は確認するといいです。それより便利なプロパティやメソッドが用意されているかもしれませんし、そもそも使い方が間違っているかもしれません。&lt;/p&gt;
+&lt;h3 id=&#34;本を読む&#34;&gt;本を読む&lt;/h3&gt;
+&lt;p&gt;日本語の情報がない中、以下の本を参考にしました。&lt;/p&gt;
+&lt;div class=&#34;booklog_html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;booklog_html_image&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/MAC-OS-X-COCOA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC4%E7%89%88/dp/4501552700%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4501552700&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41bAmGQ-ljL._SL160_.jpg&#34; width=&#34;119&#34; height=&#34;150&#34; style=&#34;border:0;border-radius:0;&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class=&#34;booklog_html_info&#34; style=&#34;padding-left:20px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:10px;font-size:14px;font-weight:bold;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/MAC-OS-X-COCOA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC4%E7%89%88/dp/4501552700%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4501552700&#34; target=&#34;_blank&#34;&gt;MAC OS X COCOAプログラミング 第4版&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;margin-bottom:15px;font-size:12px;;line-height:1.2em&#34;&gt;著者 : &lt;a href=&#34;http://booklog.jp/author/%E3%82%A2%E3%83%BC%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%92%E3%83%AC%E3%82%AC%E3%82%B9&#34; target=&#34;_blank&#34;&gt;アーロン・ヒレガス&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;margin-bottom:5px;font-size:12px;;line-height:1.2em&#34;&gt;東京電機大学出版局&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:12px;;line-height:1.2em&#34;&gt;発売日 : 2014-05-20&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34;&gt;&lt;a href=&#34;http://booklog.jp/item/1/4501552700&#34; style=&#34;font-size:12px;&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;p&gt;情報はかなり古いのですが、Cocoaプログラミングの基本がわかるというところまではいいのですが、ある程度iOSで学んだことが記述されているので分厚いわりにはそこまで自分にとって優良な情報は少なかったイメージがあります。&lt;/p&gt;
+&lt;div class=&#34;booklog_html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;booklog_html_image&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Mac-OS-iPhone%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECocoa%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E8%97%A4%E6%9C%AC-%E8%A3%95%E4%B9%8B/dp/4881666967%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4881666967&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/519bb6t6VoL._SL160_.jpg&#34; width=&#34;117&#34; height=&#34;150&#34; style=&#34;border:0;border-radius:0;&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class=&#34;booklog_html_info&#34; style=&#34;padding-left:20px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:10px;font-size:14px;font-weight:bold;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Mac-OS-iPhone%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECocoa%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E8%97%A4%E6%9C%AC-%E8%A3%95%E4%B9%8B/dp/4881666967%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4881666967&#34; target=&#34;_blank&#34;&gt;Mac OS X/iPhoneのためのCocoaプログラミング入門&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;margin-bottom:15px;font-size:12px;;line-height:1.2em&#34;&gt;著者 : &lt;a href=&#34;http://booklog.jp/author/%E8%97%A4%E6%9C%AC%E8%A3%95%E4%B9%8B&#34; target=&#34;_blank&#34;&gt;藤本裕之&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;margin-bottom:5px;font-size:12px;;line-height:1.2em&#34;&gt;ソーテック社&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:12px;;line-height:1.2em&#34;&gt;発売日 : 2009-07-04&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34;&gt;&lt;a href=&#34;http://booklog.jp/item/1/4881666967&#34; style=&#34;font-size:12px;&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;p&gt;他にもう一冊読もうかなと思って購入した一冊なのですが関西弁？と微妙な例えに苦しんで読みにくかった。。。&lt;/p&gt;
+&lt;h4 id=&#34;余談&#34;&gt;余談&lt;/h4&gt;
+&lt;div class=&#34;booklog_html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;booklog_html_image&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Cocoa-Programming-OS-Edition-Guides/dp/0134076958%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0134076958&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51CF44RQryL._SL160_.jpg&#34; width=&#34;105&#34; height=&#34;150&#34; style=&#34;border:0;border-radius:0;&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td class=&#34;booklog_html_info&#34; style=&#34;padding-left:20px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:10px;font-size:14px;font-weight:bold;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Cocoa-Programming-OS-Edition-Guides/dp/0134076958%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0134076958&#34; target=&#34;_blank&#34;&gt;Cocoa Programming for OS X: The Big Nerd Ranch Guide (5th Edition) (Big Nerd Ranch Guides)&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;margin-bottom:15px;font-size:12px;;line-height:1.2em&#34;&gt;著者 : &lt;a href=&#34;http://booklog.jp/author/Aaron+Hillegass&#34; target=&#34;_blank&#34;&gt;Aaron Hillegass&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;margin-bottom:5px;font-size:12px;;line-height:1.2em&#34;&gt;Big Nerd Ranch Guides&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:12px;;line-height:1.2em&#34;&gt;発売日 : 2015-04-10&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34;&gt;&lt;a href=&#34;http://booklog.jp/item/1/0134076958&#34; style=&#34;font-size:12px;&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;p&gt;来年発売される第五版の本はSwift、Xcode6に対応しているので勉強しがいがあります。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

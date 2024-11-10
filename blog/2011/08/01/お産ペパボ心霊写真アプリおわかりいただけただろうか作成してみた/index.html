@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[お産][ペパボ]心霊写真アプリ「おわかりいただけただろうか」作成してみた。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2011/08/01/%E3%81%8A%E7%94%A3%E3%83%9A%E3%83%91%E3%83%9C%E5%BF%83%E9%9C%8A%E5%86%99%E7%9C%9F%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8A%E3%82%8F%E3%81%8B%E3%82%8A%E3%81%84%E3%81%9F%E3%81%A0%E3%81%91%E3%81%9F%E3%81%A0%E3%82%8D%E3%81%86%E3%81%8B%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/" />
+<meta property="go:description" content="
+
+
+結構時期外れとなりますが日記か来ます。ええ。あたかもその日に書いたつもりでかきますよ。
+書きそびれたもののそのままログに残さずいれるわけでなく、ただただログに残しておきたいために、書き留めておきますよ。
+今年paperboy&amp;coでも毎年行われる企画「お産合宿」に参加してきました。
+チーム名は「恥知らず」という、中学生から恥を忘れた男と三十路の女がタッグとなってくんだチームです。
+今回、僕らが作成したのは心霊写真アプリ「おわかりいただけただろうか」です。
+説明としては
+
+雑誌やテレビ番組で心霊写真が紹介されるときによくある演出を、手持ちの写真に施すことができ るカメラアプリです。口元についたご飯粒、おもしろい顔の友人、画面を見切ったおっさんなど、おわかりいただきたい個所を拡大してください。霊のパーツもあるので、そのまま心霊写真にすることも可能です。
+
+こんな感じです。
+使ってやってみてください。
+最近世の中がスマフォスマフォと騒がれているなか、WEBサービスしか作れない自分でなんかせにゃいかんという思いから
+今回この企画に便乗して思い切って作成してみました。
+そう、Objective-Cは最近始めた言語です。
+使い始めた当初はもう、なんか噂通り敷居が高くて苦しみました。言語仕様だったり、メモリあれこれだったり・・・・
+正直ひとりじゃなんもできませんでしたが、アプリチームの方々にいろいろご協力していただいてなんとか、あ、なんとか
+作成することができました。
+これを機会にいろいろ作成していこうと思いますので、また何かできればお知らせします！
+（だれもこんなブログみてないけどね！！）" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[お産][ペパボ]心霊写真アプリ「おわかりいただけただろうか」作成してみた。" />
+<meta name="twitter:description" content="
+
+
+結構時期外れとなりますが日記か来ます。ええ。あたかもその日に書いたつもりでかきますよ。
+書きそびれたもののそのままログに残さずいれるわけでなく、ただただログに残しておきたいために、書き留めておきますよ。
+今年paperboy&amp;coでも毎年行われる企画「お産合宿」に参加してきました。
+チーム名は「恥知らず」という、中学生から恥を忘れた男と三十路の女がタッグとなってくんだチームです。
+今回、僕らが作成したのは心霊写真アプリ「おわかりいただけただろうか」です。
+説明としては
+
+雑誌やテレビ番組で心霊写真が紹介されるときによくある演出を、手持ちの写真に施すことができ るカメラアプリです。口元についたご飯粒、おもしろい顔の友人、画面を見切ったおっさんなど、おわかりいただきたい個所を拡大してください。霊のパーツもあるので、そのまま心霊写真にすることも可能です。
+
+こんな感じです。
+使ってやってみてください。
+最近世の中がスマフォスマフォと騒がれているなか、WEBサービスしか作れない自分でなんかせにゃいかんという思いから
+今回この企画に便乗して思い切って作成してみました。
+そう、Objective-Cは最近始めた言語です。
+使い始めた当初はもう、なんか噂通り敷居が高くて苦しみました。言語仕様だったり、メモリあれこれだったり・・・・
+正直ひとりじゃなんもできませんでしたが、アプリチームの方々にいろいろご協力していただいてなんとか、あ、なんとか
+作成することができました。
+これを機会にいろいろ作成していこうと思いますので、また何かできればお知らせします！
+（だれもこんなブログみてないけどね！！）" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[お産][ペパボ]心霊写真アプリ「おわかりいただけただろうか」作成してみた。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[お産][ペパボ]心霊写真アプリ「おわかりいただけただろうか」作成してみた。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-08-01">August 01, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <a href="http://owkr.info">
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2011/08/img.png" alt="" title="心霊写真アプリ「おわかりいただけただろうか」" width="678" height="618" class="aligncenter size-full wp-image-2855" />
+</a>
+<p>結構時期外れとなりますが日記か来ます。ええ。あたかもその日に書いたつもりでかきますよ。
+書きそびれたもののそのままログに残さずいれるわけでなく、ただただログに残しておきたいために、書き留めておきますよ。</p>
+<p>今年<a href="http://paperboy.co.jp">paperboy&amp;co</a>でも毎年行われる企画<a href="http://paperboy.co.jp/next/osan5/">「お産合宿」</a>に参加してきました。</p>
+<p>チーム名は「恥知らず」という、中学生から恥を忘れた男と三十路の女がタッグとなってくんだチームです。</p>
+<p>今回、僕らが作成したのは<b><a href="http://owkr.info">心霊写真アプリ「おわかりいただけただろうか」</a></b>です。</p>
+<p>説明としては</p>
+<blockquote>
+雑誌やテレビ番組で心霊写真が紹介されるときによくある演出を、手持ちの写真に施すことができ るカメラアプリです。口元についたご飯粒、おもしろい顔の友人、画面を見切ったおっさんなど、おわかりいただきたい個所を拡大してください。霊のパーツもあるので、そのまま心霊写真にすることも可能です。
+</blockquote>
+こんな感じです。
+<p>使ってやってみてください。</p>
+<p>最近世の中がスマフォスマフォと騒がれているなか、WEBサービスしか作れない自分でなんかせにゃいかんという思いから
+今回この企画に便乗して思い切って作成してみました。</p>
+<p>そう、Objective-Cは最近始めた言語です。</p>
+<p>使い始めた当初はもう、なんか噂通り敷居が高くて苦しみました。言語仕様だったり、メモリあれこれだったり・・・・
+正直ひとりじゃなんもできませんでしたが、アプリチームの方々にいろいろご協力していただいてなんとか、あ、なんとか
+作成することができました。</p>
+<p>これを機会にいろいろ作成していこうと思いますので、また何かできればお知らせします！
+（だれもこんなブログみてないけどね！！）</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

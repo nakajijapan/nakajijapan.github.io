@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="rbenvのインストール">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2012/01/31/rbenv%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/" />
+<meta property="go:description" content="rubyで新サービスを開発するためにいろいろ技術調査やら実験しているわけでして、試行錯誤しているわけなフェーズな訳です。
+とはいうもののなんだかんだしてrubyのバージョンがあがってフレームワークの並に乗れなかったりするのは嫌なので、システム
+からチョッち上の層でバージョン管理してくれるものあったのでインストールしてみることにします。
+今回はMacからのインストールですが、以前リナックスに同じバージョン管理してくれるRVMをいれていまして
+「update」するとめんどくさいという経験談を聞いてちょっと公開してしまいましたがとりあえずはこれで運用しつつ、
+Macではrbenvで運用してみることにします。
+でもその前に、久々にMacに入っているサーバやらソフトをbrewでアップデートします。brew入れてから半年もたってないけどもろもろ更新されてるみたいですね。
+
+# brew update
+# brew upgrade                                                                                                                                                                                                    [~/config]
+==&gt; Upgrading 9 outdated packages, with result:
+cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6
+
+・
+・
+・
+・
+
+
+rbenvのインストール
+
+# brew install rbenv
+# brew install ruby-build
+
+brewは楽でいいですね。
+その後に.zshrcに以下の処理を追加します。
+
+eval &#34;$(rbenv init -)&#34;
+source ~/.rbenv/completions/rbenv.zsh
+
+rubyのインストール
+まずはちょっと前のバージョンをいれてみることにします。
+
+# rbenv install 1.9.2-p290
+# rbenv global 1.9.2-p290
+# rbenv rehash
+# ruby -v
+ruby 1.9.2p290 (2011-07-09 revision 32553) [x86_64-darwin11.2.0]
+
+「rbenv rehash」でインストールしたバージョンを反映させるみたいです。これで設定は完了です。
+以下も同様ですね。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="rbenvのインストール" />
+<meta name="twitter:description" content="rubyで新サービスを開発するためにいろいろ技術調査やら実験しているわけでして、試行錯誤しているわけなフェーズな訳です。
+とはいうもののなんだかんだしてrubyのバージョンがあがってフレームワークの並に乗れなかったりするのは嫌なので、システム
+からチョッち上の層でバージョン管理してくれるものあったのでインストールしてみることにします。
+今回はMacからのインストールですが、以前リナックスに同じバージョン管理してくれるRVMをいれていまして
+「update」するとめんどくさいという経験談を聞いてちょっと公開してしまいましたがとりあえずはこれで運用しつつ、
+Macではrbenvで運用してみることにします。
+でもその前に、久々にMacに入っているサーバやらソフトをbrewでアップデートします。brew入れてから半年もたってないけどもろもろ更新されてるみたいですね。
+
+# brew update
+# brew upgrade                                                                                                                                                                                                    [~/config]
+==&gt; Upgrading 9 outdated packages, with result:
+cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6
+
+・
+・
+・
+・
+
+
+rbenvのインストール
+
+# brew install rbenv
+# brew install ruby-build
+
+brewは楽でいいですね。
+その後に.zshrcに以下の処理を追加します。
+
+eval &#34;$(rbenv init -)&#34;
+source ~/.rbenv/completions/rbenv.zsh
+
+rubyのインストール
+まずはちょっと前のバージョンをいれてみることにします。
+
+# rbenv install 1.9.2-p290
+# rbenv global 1.9.2-p290
+# rbenv rehash
+# ruby -v
+ruby 1.9.2p290 (2011-07-09 revision 32553) [x86_64-darwin11.2.0]
+
+「rbenv rehash」でインストールしたバージョンを反映させるみたいです。これで設定は完了です。
+以下も同様ですね。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>rbenvのインストール - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">rbenvのインストール</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-01-31">January 31, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ruby">Ruby</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>rubyで新サービスを開発するためにいろいろ技術調査やら実験しているわけでして、試行錯誤しているわけなフェーズな訳です。
+とはいうもののなんだかんだしてrubyのバージョンがあがってフレームワークの並に乗れなかったりするのは嫌なので、システム
+からチョッち上の層でバージョン管理してくれるものあったのでインストールしてみることにします。</p>
+<p>今回はMacからのインストールですが、以前リナックスに同じバージョン管理してくれるRVMをいれていまして
+「update」するとめんどくさいという経験談を聞いてちょっと公開してしまいましたがとりあえずはこれで運用しつつ、
+Macではrbenvで運用してみることにします。</p>
+<p>でもその前に、久々にMacに入っているサーバやらソフトをbrewでアップデートします。brew入れてから半年もたってないけどもろもろ更新されてるみたいですね。</p>
+<pre class="brush:bash">
+# brew update
+# brew upgrade                                                                                                                                                                                                    [~/config]
+==> Upgrading 9 outdated packages, with result:
+cmake 2.8.7, curl 7.23.1, emacs 23.3b, git 1.7.9, icu4c 4.8.1.1, libevent 2.0.16, readline 6.2.2, mysql 5.5.19, tmux 1.6
+
+・
+・
+・
+・
+
+</pre>
+<h3>rbenvのインストール</h3>
+<pre class="brush:bash">
+# brew install rbenv
+# brew install ruby-build
+</pre>
+brewは楽でいいですね。
+<p>その後に.zshrcに以下の処理を追加します。</p>
+<pre class="brush:bash">
+eval "$(rbenv init -)"
+source ~/.rbenv/completions/rbenv.zsh
+</pre>
+<h3>rubyのインストール</h3>
+まずはちょっと前のバージョンをいれてみることにします。
+<pre class="brush:bash">
+# rbenv install 1.9.2-p290
+# rbenv global 1.9.2-p290
+# rbenv rehash
+# ruby -v
+ruby 1.9.2p290 (2011-07-09 revision 32553) [x86_64-darwin11.2.0]
+</pre>
+「rbenv rehash」でインストールしたバージョンを反映させるみたいです。これで設定は完了です。
+<p>以下も同様ですね。</p>
+<pre class="brush:bash">
+# rbenv install 1.9.3-p0
+# rbenv global 1.9.3-p0
+# rbenv rehash
+# ruby -v
+ruby 1.9.3p0 (2011-10-30 revision 33570) [x86_64-darwin11.2.0]
+</pre>
+<p>こんな感じにすれば、現在インストールされているものと利用されてるものが確認できるそうですね。</p>
+<pre class="brush:bash">
+# rbenv versions                                                                                                                                                                                                  [~/.rbenv]
+  1.9.2-p290
+* 1.9.3-p0 (set by /Users/nakajimadaichi/.rbenv/version)
+</pre>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

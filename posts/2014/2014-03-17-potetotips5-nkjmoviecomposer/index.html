@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="第５回 #potatotips に参加してきた。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2014/2014-03-17-potetotips5-nkjmoviecomposer/" />
+<meta property="go:description" content="先日ですが、#potatetips　（第五回）に参加させていただきました。
+持ち時間一人５分のtips共有会なのですが、自分はAVFoundation周りの話をしてきました。
+本当は実装しているときにこんなメソッド使うと便利だよとかこうすると迷走するからこうしたしたほうがいいよとかあればよかったのですが
+いまいち思いつかなくて、自分でプラグイン作成して、これ使うと便利だよっ、知らなかったでしょう！！という感じに強制的にもっていった発表内容でした。
+内容としては前回の発表のつづきで、以前作成したアプリの機能を切り出して、動画関連の処理を簡単に実装できるようにした（CocoaPods化）した話をしました。
+
+NKJMovieComposer
+インストール方法は至って簡単で
+pod &#34;NKJMovieComposer&#34;
+でオッケーです。後は実装するファイルに#import &#39;NKJMovieComposer.h&#39;を追加すればOKです。
+機能としては以下の機能が実装できます。
+
+動画結合
+ワイプ
+フェードイン・アウト
+
+詳しいことはGitHubをみていただくことにして、
+まだエラー処理とかデバイス・OSに応じたカスタマイズがまだまだできていないので地道に実装していこうと思います。
+最後に、発表者のみなさん、クックパッドさんおつかれさまでした！" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="第５回 #potatotips に参加してきた。" />
+<meta name="twitter:description" content="先日ですが、#potatetips　（第五回）に参加させていただきました。
+持ち時間一人５分のtips共有会なのですが、自分はAVFoundation周りの話をしてきました。
+本当は実装しているときにこんなメソッド使うと便利だよとかこうすると迷走するからこうしたしたほうがいいよとかあればよかったのですが
+いまいち思いつかなくて、自分でプラグイン作成して、これ使うと便利だよっ、知らなかったでしょう！！という感じに強制的にもっていった発表内容でした。
+内容としては前回の発表のつづきで、以前作成したアプリの機能を切り出して、動画関連の処理を簡単に実装できるようにした（CocoaPods化）した話をしました。
+
+NKJMovieComposer
+インストール方法は至って簡単で
+pod &#34;NKJMovieComposer&#34;
+でオッケーです。後は実装するファイルに#import &#39;NKJMovieComposer.h&#39;を追加すればOKです。
+機能としては以下の機能が実装できます。
+
+動画結合
+ワイプ
+フェードイン・アウト
+
+詳しいことはGitHubをみていただくことにして、
+まだエラー処理とかデバイス・OSに応じたカスタマイズがまだまだできていないので地道に実装していこうと思います。
+最後に、発表者のみなさん、クックパッドさんおつかれさまでした！" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>第５回 #potatotips に参加してきた。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">第５回 #potatotips に参加してきた。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-03-17">March 17, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>先日ですが、#potatetips　（第五回）に参加させていただきました。
+持ち時間一人５分のtips共有会なのですが、自分はAVFoundation周りの話をしてきました。
+本当は実装しているときにこんなメソッド使うと便利だよとかこうすると迷走するからこうしたしたほうがいいよとかあればよかったのですが
+いまいち思いつかなくて、自分でプラグイン作成して、これ使うと便利だよっ、知らなかったでしょう！！という感じに強制的にもっていった発表内容でした。
+内容としては前回の発表のつづきで、以前作成したアプリの機能を切り出して、動画関連の処理を簡単に実装できるようにした（CocoaPods化）した話をしました。</p>
+<script async class="speakerdeck-embed" data-id="f675b2008c7e013162b85e7a2e8ee0d7" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<p><a href="https://github.com/nakajijapan/NKJMovieComposer">NKJMovieComposer</a></p>
+<p>インストール方法は至って簡単で</p>
+<pre tabindex="0"><code>pod &#34;NKJMovieComposer&#34;
+</code></pre><p>でオッケーです。後は実装するファイルに<code>#import 'NKJMovieComposer.h'を追加すればOKです。</code></p>
+<p>機能としては以下の機能が実装できます。</p>
+<ul>
+<li>動画結合</li>
+<li>ワイプ</li>
+<li>フェードイン・アウト</li>
+</ul>
+<p>詳しいことは<a href="https://github.com/nakajijapan/NKJMovieComposer">GitHub</a>をみていただくことにして、
+まだエラー処理とかデバイス・OSに応じたカスタマイズがまだまだできていないので地道に実装していこうと思います。</p>
+<p>最後に、発表者のみなさん、クックパッドさんおつかれさまでした！</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

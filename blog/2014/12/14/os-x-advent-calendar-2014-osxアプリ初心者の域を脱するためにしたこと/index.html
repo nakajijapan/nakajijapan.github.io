@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="OS X Advent Calendar 2014 - OSXアプリ初心者の域を脱するためにしたこと">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2014/12/14/os-x-advent-calendar-2014-osx%E3%82%A2%E3%83%97%E3%83%AA%E5%88%9D%E5%BF%83%E8%80%85%E3%81%AE%E5%9F%9F%E3%82%92%E8%84%B1%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E3%81%97%E3%81%9F%E3%81%93%E3%81%A8/" />
+<meta property="go:description" content="この記事はOS X Advent Calendar 2014の15日目の記事になります。
+
+AppleがSwiftという言語をサポートしてから半年が経とうとしています。
+このほかにも今年はAppleに驚かせる一年になったのではないでしょうか。
+みなさんこんにちは@nakajijapanです。
+Swiftが出た当初はコードの書きやすさに驚き、ドキュメントを読んでは
+サンプルコードを書いたり、はたまたLimuというサービスを作成するようになりました。ちなみにこのサービスはいまだに地道に開発しています。。。
+そして、私は新たな興味を持ちました。OSXアプリも頑張れば開発できるのではないかと。
+とにかく、なにも考えずOSXプロジェクトを作成して初期起動してみる。
+とりあえずなにもできないWindowが起動できる。
+あとは、iOS開発でしたノウハウである程度のカスタマイズができるのではないかと。
+しかし、そこまでで終わりでUIKitやiOSの開発知識である程度流用できるものはありますが
+それ以上にCocoaプログラミングする上での仕様を学ぶ必要がありました。
+そこで今回は、ある程度開発できる？(いや、まだまだであります)ようになってきたのでここでちょっとまとめようと思います。
+OSXアプリ開発ができるようになるまでに行ったこと
+
+とにかくサンプルを読む
+思ったことは駄目元で試してみる
+公式ドキュメントを読む
+本を読む
+
+とにかくサンプルを読む
+大体のサンプルはObjective-Cで書いてあります。最初からSwiftで書いていてほしいのですが、まだ昔のサンプルのままで更新されていないので、それをみるようになりますがObjective-CからSwiftに変えるのはそこまで難しくないです。ただより、下のレイヤーにを実装するとなると少し考える事が増えるでしょうが。。。そこにヒントが隠されているので気になるソースを落としてはサンプルを眺めてビルドしてみましょう。
+自分は10個くらい眺めてなんとなくこんな書き方すればいいんだと若干ながら理解して
+いきました。
+思ったことは駄目元でためしてみる
+iOS以上に情報が少ないので自分で解決しなきゃいけないことが多くなってきます。
+実装が滞るのであれば、ソースをミクロな状態にしてそれができるかこうやったらどうなるんだろうと試行錯誤をしてみることが大切です。
+公式ドキュメントを読む
+ネットの情報に自分の疑問の答えがあっても、仕様は確認するといいです。それより便利なプロパティやメソッドが用意されているかもしれませんし、そもそも使い方が間違っているかもしれません。
+本を読む
+日本語の情報がない中、以下の本を参考にしました。
+MAC OS X COCOAプログラミング 第4版著者 : アーロン・ヒレガス東京電機大学出版局発売日 : 2014-05-20ブクログでレビューを見る»
+情報はかなり古いのですが、Cocoaプログラミングの基本がわかるというところまではいいのですが、ある程度iOSで学んだことが記述されているので分厚いわりにはそこまで自分にとって優良な情報は少なかったイメージがあります。
+Mac OS X/iPhoneのためのCocoaプログラミング入門著者 : 藤本裕之ソーテック社発売日 : 2009-07-04ブクログでレビューを見る»
+他にもう一冊読もうかなと思って購入した一冊なのですが関西弁？と微妙な例えに苦しんで読みにくかった。。。
+余談
+Cocoa Programming for OS X: The Big Nerd Ranch Guide (5th Edition) (Big Nerd Ranch Guides)著者 : Aaron HillegassBig Nerd Ranch Guides発売日 : 2015-04-10ブクログでレビューを見る»
+来年発売される第五版の本はSwift、Xcode6に対応しているので勉強しがいがあります。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="OS X Advent Calendar 2014 - OSXアプリ初心者の域を脱するためにしたこと" />
+<meta name="twitter:description" content="この記事はOS X Advent Calendar 2014の15日目の記事になります。
+
+AppleがSwiftという言語をサポートしてから半年が経とうとしています。
+このほかにも今年はAppleに驚かせる一年になったのではないでしょうか。
+みなさんこんにちは@nakajijapanです。
+Swiftが出た当初はコードの書きやすさに驚き、ドキュメントを読んでは
+サンプルコードを書いたり、はたまたLimuというサービスを作成するようになりました。ちなみにこのサービスはいまだに地道に開発しています。。。
+そして、私は新たな興味を持ちました。OSXアプリも頑張れば開発できるのではないかと。
+とにかく、なにも考えずOSXプロジェクトを作成して初期起動してみる。
+とりあえずなにもできないWindowが起動できる。
+あとは、iOS開発でしたノウハウである程度のカスタマイズができるのではないかと。
+しかし、そこまでで終わりでUIKitやiOSの開発知識である程度流用できるものはありますが
+それ以上にCocoaプログラミングする上での仕様を学ぶ必要がありました。
+そこで今回は、ある程度開発できる？(いや、まだまだであります)ようになってきたのでここでちょっとまとめようと思います。
+OSXアプリ開発ができるようになるまでに行ったこと
+
+とにかくサンプルを読む
+思ったことは駄目元で試してみる
+公式ドキュメントを読む
+本を読む
+
+とにかくサンプルを読む
+大体のサンプルはObjective-Cで書いてあります。最初からSwiftで書いていてほしいのですが、まだ昔のサンプルのままで更新されていないので、それをみるようになりますがObjective-CからSwiftに変えるのはそこまで難しくないです。ただより、下のレイヤーにを実装するとなると少し考える事が増えるでしょうが。。。そこにヒントが隠されているので気になるソースを落としてはサンプルを眺めてビルドしてみましょう。
+自分は10個くらい眺めてなんとなくこんな書き方すればいいんだと若干ながら理解して
+いきました。
+思ったことは駄目元でためしてみる
+iOS以上に情報が少ないので自分で解決しなきゃいけないことが多くなってきます。
+実装が滞るのであれば、ソースをミクロな状態にしてそれができるかこうやったらどうなるんだろうと試行錯誤をしてみることが大切です。
+公式ドキュメントを読む
+ネットの情報に自分の疑問の答えがあっても、仕様は確認するといいです。それより便利なプロパティやメソッドが用意されているかもしれませんし、そもそも使い方が間違っているかもしれません。
+本を読む
+日本語の情報がない中、以下の本を参考にしました。
+MAC OS X COCOAプログラミング 第4版著者 : アーロン・ヒレガス東京電機大学出版局発売日 : 2014-05-20ブクログでレビューを見る»
+情報はかなり古いのですが、Cocoaプログラミングの基本がわかるというところまではいいのですが、ある程度iOSで学んだことが記述されているので分厚いわりにはそこまで自分にとって優良な情報は少なかったイメージがあります。
+Mac OS X/iPhoneのためのCocoaプログラミング入門著者 : 藤本裕之ソーテック社発売日 : 2009-07-04ブクログでレビューを見る»
+他にもう一冊読もうかなと思って購入した一冊なのですが関西弁？と微妙な例えに苦しんで読みにくかった。。。
+余談
+Cocoa Programming for OS X: The Big Nerd Ranch Guide (5th Edition) (Big Nerd Ranch Guides)著者 : Aaron HillegassBig Nerd Ranch Guides発売日 : 2015-04-10ブクログでレビューを見る»
+来年発売される第五版の本はSwift、Xcode6に対応しているので勉強しがいがあります。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>OS X Advent Calendar 2014 - OSXアプリ初心者の域を脱するためにしたこと - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">OS X Advent Calendar 2014 - OSXアプリ初心者の域を脱するためにしたこと</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-12-14">December 14, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/macos">macOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>この記事は<a href="http://qiita.com/advent-calendar/2014/osx">OS X Advent Calendar 2014</a>の15日目の記事になります。</p>
+<p><img src="https://devimages.apple.com.edgekey.net/osx/images/osx-whats-new-hero.png" alt=""></p>
+<p>AppleがSwiftという言語をサポートしてから半年が経とうとしています。
+このほかにも今年はAppleに驚かせる一年になったのではないでしょうか。
+みなさんこんにちは<a href="https://twitter.com/nakajijapan">@nakajijapan</a>です。</p>
+<p>Swiftが出た当初はコードの書きやすさに驚き、ドキュメントを読んでは
+サンプルコードを書いたり、はたまた<a href="http://limu.xyz/">Limu</a>というサービスを作成するようになりました。ちなみにこのサービスはいまだに地道に開発しています。。。</p>
+<p>そして、私は新たな興味を持ちました。OSXアプリも頑張れば開発できるのではないかと。</p>
+<p>とにかく、なにも考えずOSXプロジェクトを作成して初期起動してみる。
+とりあえずなにもできないWindowが起動できる。
+あとは、iOS開発でしたノウハウである程度のカスタマイズができるのではないかと。
+しかし、そこまでで終わりでUIKitやiOSの開発知識である程度流用できるものはありますが
+それ以上にCocoaプログラミングする上での仕様を学ぶ必要がありました。</p>
+<p>そこで今回は、ある程度開発できる？(いや、まだまだであります)ようになってきたのでここでちょっとまとめようと思います。</p>
+<h2 id="osxアプリ開発ができるようになるまでに行ったこと">OSXアプリ開発ができるようになるまでに行ったこと</h2>
+<ul>
+<li>とにかくサンプルを読む</li>
+<li>思ったことは駄目元で試してみる</li>
+<li>公式ドキュメントを読む</li>
+<li>本を読む</li>
+</ul>
+<h3 id="とにかくサンプルを読む">とにかくサンプルを読む</h3>
+<p>大体のサンプルはObjective-Cで書いてあります。最初からSwiftで書いていてほしいのですが、まだ昔のサンプルのままで更新されていないので、それをみるようになりますがObjective-CからSwiftに変えるのはそこまで難しくないです。ただより、下のレイヤーにを実装するとなると少し考える事が増えるでしょうが。。。そこにヒントが隠されているので気になるソースを落としてはサンプルを眺めてビルドしてみましょう。</p>
+<p>自分は10個くらい眺めてなんとなくこんな書き方すればいいんだと若干ながら理解して
+いきました。</p>
+<h3 id="思ったことは駄目元でためしてみる">思ったことは駄目元でためしてみる</h3>
+<p>iOS以上に情報が少ないので自分で解決しなきゃいけないことが多くなってきます。
+実装が滞るのであれば、ソースをミクロな状態にしてそれができるかこうやったらどうなるんだろうと試行錯誤をしてみることが大切です。</p>
+<h3 id="公式ドキュメントを読む">公式ドキュメントを読む</h3>
+<p>ネットの情報に自分の疑問の答えがあっても、仕様は確認するといいです。それより便利なプロパティやメソッドが用意されているかもしれませんし、そもそも使い方が間違っているかもしれません。</p>
+<h3 id="本を読む">本を読む</h3>
+<p>日本語の情報がない中、以下の本を参考にしました。</p>
+<div class="booklog_html"><table><tr><td class="booklog_html_image"><a href="http://www.amazon.co.jp/MAC-OS-X-COCOA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC4%E7%89%88/dp/4501552700%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4501552700" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41bAmGQ-ljL._SL160_.jpg" width="119" height="150" style="border:0;border-radius:0;" /></a></td><td class="booklog_html_info" style="padding-left:20px;"><div class="booklog_html_title" style="margin-bottom:10px;font-size:14px;font-weight:bold;"><a href="http://www.amazon.co.jp/MAC-OS-X-COCOA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC4%E7%89%88/dp/4501552700%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4501552700" target="_blank">MAC OS X COCOAプログラミング 第4版</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="margin-bottom:15px;font-size:12px;;line-height:1.2em">著者 : <a href="http://booklog.jp/author/%E3%82%A2%E3%83%BC%E3%83%AD%E3%83%B3%E3%83%BB%E3%83%92%E3%83%AC%E3%82%AC%E3%82%B9" target="_blank">アーロン・ヒレガス</a></div><div class="booklog_html_manufacturer" style="margin-bottom:5px;font-size:12px;;line-height:1.2em">東京電機大学出版局</div><div class="booklog_html_release" style="font-size:12px;;line-height:1.2em">発売日 : 2014-05-20</div></div><div class="booklog_html_link_amazon"><a href="http://booklog.jp/item/1/4501552700" style="font-size:12px;" target="_blank">ブクログでレビューを見る»</a></div></td></tr></table></div>
+<p>情報はかなり古いのですが、Cocoaプログラミングの基本がわかるというところまではいいのですが、ある程度iOSで学んだことが記述されているので分厚いわりにはそこまで自分にとって優良な情報は少なかったイメージがあります。</p>
+<div class="booklog_html"><table><tr><td class="booklog_html_image"><a href="http://www.amazon.co.jp/Mac-OS-iPhone%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECocoa%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E8%97%A4%E6%9C%AC-%E8%A3%95%E4%B9%8B/dp/4881666967%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4881666967" target="_blank"><img src="http://ecx.images-amazon.com/images/I/519bb6t6VoL._SL160_.jpg" width="117" height="150" style="border:0;border-radius:0;" /></a></td><td class="booklog_html_info" style="padding-left:20px;"><div class="booklog_html_title" style="margin-bottom:10px;font-size:14px;font-weight:bold;"><a href="http://www.amazon.co.jp/Mac-OS-iPhone%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECocoa%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%85%A5%E9%96%80-%E8%97%A4%E6%9C%AC-%E8%A3%95%E4%B9%8B/dp/4881666967%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4881666967" target="_blank">Mac OS X/iPhoneのためのCocoaプログラミング入門</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="margin-bottom:15px;font-size:12px;;line-height:1.2em">著者 : <a href="http://booklog.jp/author/%E8%97%A4%E6%9C%AC%E8%A3%95%E4%B9%8B" target="_blank">藤本裕之</a></div><div class="booklog_html_manufacturer" style="margin-bottom:5px;font-size:12px;;line-height:1.2em">ソーテック社</div><div class="booklog_html_release" style="font-size:12px;;line-height:1.2em">発売日 : 2009-07-04</div></div><div class="booklog_html_link_amazon"><a href="http://booklog.jp/item/1/4881666967" style="font-size:12px;" target="_blank">ブクログでレビューを見る»</a></div></td></tr></table></div>
+<p>他にもう一冊読もうかなと思って購入した一冊なのですが関西弁？と微妙な例えに苦しんで読みにくかった。。。</p>
+<h4 id="余談">余談</h4>
+<div class="booklog_html"><table><tr><td class="booklog_html_image"><a href="http://www.amazon.co.jp/Cocoa-Programming-OS-Edition-Guides/dp/0134076958%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0134076958" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51CF44RQryL._SL160_.jpg" width="105" height="150" style="border:0;border-radius:0;" /></a></td><td class="booklog_html_info" style="padding-left:20px;"><div class="booklog_html_title" style="margin-bottom:10px;font-size:14px;font-weight:bold;"><a href="http://www.amazon.co.jp/Cocoa-Programming-OS-Edition-Guides/dp/0134076958%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0134076958" target="_blank">Cocoa Programming for OS X: The Big Nerd Ranch Guide (5th Edition) (Big Nerd Ranch Guides)</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="margin-bottom:15px;font-size:12px;;line-height:1.2em">著者 : <a href="http://booklog.jp/author/Aaron+Hillegass" target="_blank">Aaron Hillegass</a></div><div class="booklog_html_manufacturer" style="margin-bottom:5px;font-size:12px;;line-height:1.2em">Big Nerd Ranch Guides</div><div class="booklog_html_release" style="font-size:12px;;line-height:1.2em">発売日 : 2015-04-10</div></div><div class="booklog_html_link_amazon"><a href="http://booklog.jp/item/1/0134076958" style="font-size:12px;" target="_blank">ブクログでレビューを見る»</a></div></td></tr></table></div>
+<p>来年発売される第五版の本はSwift、Xcode6に対応しているので勉強しがいがあります。</p>
+<p><font color="red">熱い!!!!!!!</font></p>
+<h2 id="まとめ">まとめ</h2>
+<p>自分がどうやってCocoaプログラミングの勉強してきたかをまとめてみました。
+なにあともあれ自分は何が作成したいかだと思うので、それありきの勉強じゃないと長続きはしないと思うのでそれを見つけるのが何より重要かもしれませんし、
+僕も作りたいものがあって勉強してます。あと、まだ始めたばかりでものすごく勉強不足なのですが来年も継続して勉強していきたいです。</p>
+<p>そんなこんなで、来年の目標としては自分でもCocoa勉強会（のようなもの）を開催できるようになるまでいけたらいいすね。</p>
+<h2 id="余談-1">余談</h2>
+<p>次がないのですが @shu223 さんの記事が楽しみだ。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

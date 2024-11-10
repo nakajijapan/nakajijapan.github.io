@@ -1,0 +1,306 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Car on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/car/</link>
+        <description>Recent content in Car on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sat, 16 Sep 2023 05:00:51 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/car/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>タイヤとホイールを交換した</title>
+            <link>http://nakajijapan.github.io/posts/2023/2023-09-16-replace-wheel/</link>
+            <pubDate>Sat, 16 Sep 2023 05:00:51 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2023/2023-09-16-replace-wheel/</guid>
+            <description>&lt;p&gt;タイヤを交換する時期になってきた。
+まだ溝はあって交換にはまだ程遠いのだが以下の要因で交換することに至った。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;タイヤの製造年月日が2019年と4年経過している&lt;/li&gt;
+&lt;li&gt;だいぶひび割れが進行している&lt;/li&gt;
+&lt;li&gt;家族を連れて移動することがほとんどなので安心・安全でいたい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2023/09-01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ホイールは&#34;&gt;ホイールは？&lt;/h2&gt;
+&lt;p&gt;せっかくだしこのタイミングでかっこよくしようと思いまして購入することになりました。
+ただ、本当はディーラーでフリード専用のかっこいいホイールがあるのですが見積もりを取ってもらったら
+タイヤ交換と合わせるとカー用品店で購入するより２倍もしたので断念しました。&lt;/p&gt;
+&lt;h1 id=&#34;どこで購入するか&#34;&gt;どこで購入するか&lt;/h1&gt;
+&lt;p&gt;カー用品店それぞれの特徴をChatGPTで無駄に聞いてみる&lt;/p&gt;
+&lt;h2 id=&#34;honda&#34;&gt;HONDA&lt;/h2&gt;
+&lt;p&gt;言わずもがなディーラーである。&lt;/p&gt;
+&lt;h2 id=&#34;イエローハットyellow-hat&#34;&gt;イエローハット（Yellow Hat）&lt;/h2&gt;
+&lt;p&gt;イエローハットは、日本を拠点とする自動車部品・タイヤ販売店のチェーンです。
+主に自動車用品やタイヤ、バッテリー、オイル、カーアクセサリーなどを販売しています。
+イエローハットは全国に多くの店舗を展開しており、一般消費者から自動車愛好家まで幅広い顧客層に向けてサービスを提供しています。&lt;/p&gt;
+&lt;h2 id=&#34;ジェームズjames&#34;&gt;ジェームズ（James）&lt;/h2&gt;
+&lt;p&gt;&amp;ldquo;ジェームズ&amp;rdquo; という名前だけでは、特定のブランドや企業を指定するのが難しいです。詳細を提供いただければ、特定のジェームズについての情報をお伝えできるかもしれません。ジェームズという名前を持つ多くの企業や製品が存在します。&lt;/p&gt;
+&lt;h2 id=&#34;タイヤ館tire-shop&#34;&gt;タイヤ館（Tire Shop）&lt;/h2&gt;
+&lt;p&gt;&amp;ldquo;タイヤ館&amp;rdquo; という名称も、特定のチェーンや企業を指定するためには追加の情報が必要です。タイヤ館という名前を持つタイヤ専門店や販売店が様々な地域で存在します。特定のタイヤ館に関する情報を提供いただければ、詳細な特徴をお伝えできるかもしれません。&lt;/p&gt;
+&lt;h2 id=&#34;どこにしたの&#34;&gt;どこにしたの？&lt;/h2&gt;
+&lt;p&gt;タイヤ館は遠かったので断念ジェームズは良さそうなホイールがなかったのでこれも断念、ディーラーはあまりにも高すぎたので断念！結果イエローハットになった。&lt;/p&gt;
+&lt;h1 id=&#34;購入したもの&#34;&gt;購入したもの&lt;/h1&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;項目&lt;/th&gt;
+          &lt;th&gt;費用（円）&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;タイヤ（YOKOHAMA Blue earth rv03）&lt;/td&gt;
+          &lt;td&gt;80,000円&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;アルミホイール（スポルト クローネ BP）&lt;/td&gt;
+          &lt;td&gt;50,000円&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;作業代&lt;/td&gt;
+          &lt;td&gt;20,000円&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;謎の割引&lt;/td&gt;
+          &lt;td&gt;&lt;span style=&#34;color: red&#34;&gt;-50,000円&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;合計&lt;/td&gt;
+          &lt;td&gt;100,000円&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;なかなかのいいお値段となったがディーラーで頼んだら20万くらいだったのでコスパ的にこれで満足かと思う。
+これで車買い替えるまで交換することはないだろうしあったとしてもタイヤのみなのでいいことにしましょう。&lt;/p&gt;
+&lt;h2 id=&#34;タイヤyokohama-bluearth-rv-rv03&#34;&gt;タイヤ：YOKOHAMA BluEarth-RV RV03&lt;/h2&gt;
+&lt;p&gt;前回はただただ普通の夏タイヤだったのですが、今回はミニバン用のタイヤにしてみました。
+&lt;a href=&#34;https://www.y-yokohama.com/product/tire/bluearth_rv03/&#34;&gt;https://www.y-yokohama.com/product/tire/bluearth_rv03/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;夏タイヤ
+&lt;ul&gt;
+&lt;li&gt;オールシーズンタイヤというのもあってこれは割高
+&lt;ul&gt;
+&lt;li&gt;基本関東走るだけで雪道はほぼ走らないのでこれはいらない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ミニバン用
+&lt;ul&gt;
+&lt;li&gt;フリードはコンパクト&lt;strong&gt;ミニバン&lt;/strong&gt;なので&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;横浜タイヤ
+&lt;ul&gt;
+&lt;li&gt;安心・安全のmade in japan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;まとめ&#34;&gt;まとめ&lt;/h1&gt;
+&lt;p&gt;いい感じになった！！
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2023/09-02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>最初の車検受けた</title>
+            <link>http://nakajijapan.github.io/posts/2023/2023-02-01-car-maintainance/</link>
+            <pubDate>Sat, 04 Feb 2023 03:21:55 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2023/2023-02-01-car-maintainance/</guid>
+            <description>&lt;h1 id=&#34;車検&#34;&gt;車検&lt;/h1&gt;
+&lt;p&gt;車検を受けてきた。
+点検関連は信頼度の高いディーラーでやったほうがいいと思っている性分なのでHONDAでやってもらっている。&lt;/p&gt;
+&lt;h1 id=&#34;何乗ってるの&#34;&gt;何乗ってるの？&lt;/h1&gt;
+&lt;p&gt;【現行モデル 2代目】 ホンダ フリード（2016年9月〜）
+&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2023/02-03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;かかった金額&#34;&gt;かかった金額&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;詳細&lt;/th&gt;
+          &lt;th&gt;金額&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;修理代&lt;/td&gt;
+          &lt;td&gt;108,000円&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;点検パック・マモル&lt;/td&gt;
+          &lt;td&gt;84,000円&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;合計&lt;/td&gt;
+          &lt;td&gt;193,000円&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;車検代は10万くらいかなぁと大体想像はついていて覚悟はしていて想定通りだったが、予定外だったのが点検パックに入ってしまったことだ。
+まんまと営業の口車に乗ってしまった感はいなめない。&lt;/p&gt;
+&lt;h1 id=&#34;入ったサービス&#34;&gt;入ったサービス&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2023/02-01.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.honda.co.jp/ciao/&#34;&gt;https://www.honda.co.jp/ciao/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;どうやら定期的に点検をちゃんとディーラーで受ければそこそこやすくなるとのこと&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2023/02-02.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2sコース2回の点検車検のコース&#34;&gt;2Sコース（2回の点検＋車検のコース）&lt;/h2&gt;
+&lt;p&gt;12ヶ月定期点検から車検までコースです。
+2回の点検と1回の車検+3回のオイル交換と2回のオイルフィルター交換とその他消耗品をパックにしています。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;2Sコース&lt;/th&gt;
+          &lt;th&gt;通常価格&lt;/th&gt;
+          &lt;th&gt;パック価格&lt;/th&gt;
+          &lt;th&gt;差額&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;軽自動車&lt;/td&gt;
+          &lt;td&gt;¥109,563&lt;/td&gt;
+          &lt;td&gt;¥76,700&lt;/td&gt;
+          &lt;td&gt;&lt;span style=&#34;color: red&#34;&gt;-¥32,863&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;小型乗用車5ナンバー&lt;/td&gt;
+          &lt;td&gt;¥131,953&lt;/td&gt;
+          &lt;td&gt;¥92,370&lt;/td&gt;
+          &lt;td&gt;&lt;span style=&#34;color: red&#34;&gt;-¥39,583&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.hondacars-tokyochuo.co.jp/maintenance/ciao.html&#34;&gt;https://www.hondacars-tokyochuo.co.jp/maintenance/ciao.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自分は小型乗用車5ナンバーで約4万くらい安くなるようだ。
+車検込みとのことなのでお得？とはいえやはりディーラーは高い。&lt;/p&gt;
+&lt;h1 id=&#34;所感&#34;&gt;所感&lt;/h1&gt;
+&lt;p&gt;次の車検までは点検パックに入っているので定期的には行こうとは思う。
+その後の車検、さらにはその後の点検に向けて適材適所でディーラー・カー用品店で使い分けれるようにしたいものだ。&lt;/p&gt;
+&lt;h1 id=&#34;参考&#34;&gt;参考&lt;/h1&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/rTLMF1QHNmY?si=HXAiREQSSA04qMsN&#34; title=&#34;YouTube video player&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen&gt;&lt;/iframe&gt;</description>
+        </item>
+        
+        <item>
+            <title>８年後くらいに欲しい車</title>
+            <link>http://nakajijapan.github.io/posts/2020/2020-09-14-wants-car/</link>
+            <pubDate>Mon, 14 Sep 2020 01:17:57 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2020/2020-09-14-wants-car/</guid>
+            <description>&lt;p&gt;すでに8年後に買う車を考えています。
+購入してみたが最後、徐々に車の面白さにハマっていってしまいました。
+また、購入するのにしても結構なお値段なので今のうちに目標たてて貯金していかなければいけません。
+なので次の計画を立ててしまいました。&lt;/p&gt;
+&lt;h1 id=&#34;カムリ&#34;&gt;カムリ&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/09-001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://toyota.jp/camry/&#34;&gt;https://toyota.jp/camry/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;オプションで高くなりそう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;インサイト&#34;&gt;インサイト&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/09-002.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.honda.co.jp/INSIGHT/&#34;&gt;https://www.honda.co.jp/INSIGHT/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;アコード&#34;&gt;アコード&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2020/09-003.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.honda.co.jp/ACCORD/&#34;&gt;https://www.honda.co.jp/ACCORD/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;高いから中古&lt;/li&gt;
+&lt;li&gt;2020リニューアルされた&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;加速&#34;&gt;加速&lt;/h1&gt;
+&lt;h2 id=&#34;カムリ-1&#34;&gt;カムリ&lt;/h2&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/xY4J_3IsQGo&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=xY4J_3IsQGo&#34;&gt;https://www.youtube.com/watch?v=xY4J_3IsQGo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;0-100km/h 06.58 sec&lt;/p&gt;
+&lt;h2 id=&#34;インサイト-1&#34;&gt;インサイト&lt;/h2&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/AuB5-ZdFzzo&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=AuB5-ZdFzzo&#34;&gt;https://www.youtube.com/watch?v=AuB5-ZdFzzo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;0-100km/h 07.36 sec&lt;/p&gt;
+&lt;h2 id=&#34;アコード-1&#34;&gt;アコード&lt;/h2&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/-noEqaZHvI0&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=-noEqaZHvI0&#34;&gt;https://www.youtube.com/watch?v=-noEqaZHvI0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;0-100km/h 06.93 sec&lt;/p&gt;
+&lt;h1 id=&#34;サイト&#34;&gt;サイト&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;【最新】ホンダ「インサイト」とトヨタ「カムリ」を徹底比較！どっちがおすすめ！？【2020年版】
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bluesky-sheep.com/insight-camry-2019&#34;&gt;https://bluesky-sheep.com/insight-camry-2019&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;めも&#34;&gt;めも&lt;/h1&gt;
+&lt;p&gt;インサイトだった新車ほかは中古車で値段さげて購入&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>フリード vs シエンタ 速度比較</title>
+            <link>http://nakajijapan.github.io/posts/2020/2020-09-10-freed-speed/</link>
+            <pubDate>Thu, 10 Sep 2020 00:56:40 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2020/2020-09-10-freed-speed/</guid>
+            <description>&lt;p&gt;自分の買った車がどのくらいの性能があるのかちょっと気になったので調べてみた。まずシエンタとの比較の動画ですこれは加速したときの速度の違いを調べてみた動画みたいです。やっぱりフリードの方が100キロに対して到達するスピードが多少早かったです。とても面白い動画。別にこれだけが買った理由では無いですが性能がほかより良くて嬉しい限りです。￼￼自分も内装・値段というよりかは走りの性能・走り心地を優先して購入したのでより自分の決断は間違っていなかったなと確信しました。&lt;/p&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/cMhNgeNHRoM&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;【フル加速比較】フリードvsシエンタ　ガソリン車&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.youtube.com/embed/cMhNgeNHRoM&#34;&gt;https://www.youtube.com/embed/cMhNgeNHRoM&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;フリード&lt;/td&gt;
+          &lt;td&gt;0-100km/h 10.00 sec&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;シエンタ&lt;/td&gt;
+          &lt;td&gt;0-100km/h 11.24 sec&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/CTz048dumeE&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;新型フリード　DCT　vs　CVT　フル加速比較&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=CTz048dumeE&#34;&gt;https://www.youtube.com/watch?v=CTz048dumeE&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ほぼ変わらず&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ガソリン&lt;/td&gt;
+          &lt;td&gt;0-100km/h 10.00 sec&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ハイブリット&lt;/td&gt;
+          &lt;td&gt;0-100km/h 09.20 sec&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

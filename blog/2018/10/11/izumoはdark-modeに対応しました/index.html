@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="IzumoはDark Modeに対応しました。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2018/10/11/izumo%E3%81%AFdark-mode%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/" />
+<meta property="go:description" content="IzumoはDark Modeを対応しました。
+
+
+作業
+基本的に動画やドキュメントを見ればある程度のことはできるようになります。
+まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。
+
+
+あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。
+
+
+updateConstraints
+layout
+draw(_ dirtyRect: NSRect)
+updateLayer
+
+気に食わなかったところ
+NSScrollerのデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。
+（背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）
+
+実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。
+import Cocoa
+
+class NoteListVerticalScroller: NSScroller {
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+    }
+
+    override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) {
+        super.drawKnobSlot(in: slotRect, highlight: flag)
+
+        // 背景はリストの背景と同じにする
+        NSColor.defaultBackgroundColor.set()
+        slotRect.fill()
+
+        // 同じにすると境界がわからなくなるのでボーダー独自に描くようにする
+        NSColor.defaultScrollerLeft.set()
+        let rect = CGRect(x: 0, y: 0, width: 1, height: slotRect.height)
+        rect.fill()
+    }
+}
+
+class NoteListScrollView: NSScrollView {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        verticalScroller = NoteListVerticalScroller(frame: verticalScroller!.frame)
+    }
+}
+まとめ
+Darkは正義" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="images/posts/2018/2018-10-002.png" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="IzumoはDark Modeに対応しました。" />
+<meta name="twitter:description" content="IzumoはDark Modeを対応しました。
+
+
+作業
+基本的に動画やドキュメントを見ればある程度のことはできるようになります。
+まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。
+
+
+あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。
+
+
+updateConstraints
+layout
+draw(_ dirtyRect: NSRect)
+updateLayer
+
+気に食わなかったところ
+NSScrollerのデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。
+（背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）
+
+実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。
+import Cocoa
+
+class NoteListVerticalScroller: NSScroller {
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+    }
+
+    override func drawKnobSlot(in slotRect: NSRect, highlight flag: Bool) {
+        super.drawKnobSlot(in: slotRect, highlight: flag)
+
+        // 背景はリストの背景と同じにする
+        NSColor.defaultBackgroundColor.set()
+        slotRect.fill()
+
+        // 同じにすると境界がわからなくなるのでボーダー独自に描くようにする
+        NSColor.defaultScrollerLeft.set()
+        let rect = CGRect(x: 0, y: 0, width: 1, height: slotRect.height)
+        rect.fill()
+    }
+}
+
+class NoteListScrollView: NSScrollView {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        verticalScroller = NoteListVerticalScroller(frame: verticalScroller!.frame)
+    }
+}
+まとめ
+Darkは正義" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>IzumoはDark Modeに対応しました。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">IzumoはDark Modeに対応しました。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2018-10-11">October 11, 2018</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/macos">macOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>IzumoはDark Modeを対応しました。</p>
+<p><img src="/images/posts/2018/2018-10-002.png" alt="">
+<img src="/images/posts/2018/2018-10-001.png" alt=""></p>
+<h2 id="作業">作業</h2>
+<p>基本的に動画やドキュメントを見ればある程度のことはできるようになります。
+まずは、アプリで利用するカラーをAssetsで利用してそこからダークモードとそうでないものに切り分けして設定してしまえば、自動的に判別してモードに適した色を設定してくれます。</p>
+<p><img src="/images/posts/2018/2018-10-004.png" alt="">
+<img src="/images/posts/2018/2018-10-005.png" alt=""></p>
+<p>あとは何かしらのタイミングでUIが変更され、再度描画が必要な場合は以下のタイミングを利用してアップデートかければよくなります。</p>
+<p><img src="/images/posts/2018/2018-10-003.png" alt=""></p>
+<ul>
+<li>updateConstraints</li>
+<li>layout</li>
+<li>draw(_ dirtyRect: NSRect)</li>
+<li>updateLayer</li>
+</ul>
+<h2 id="気に食わなかったところ">気に食わなかったところ</h2>
+<p><code>NSScroller</code>のデザインがDark Modeにした時に自分が納得のいく十分なデザインではなかったのでカスタマイズしました。
+（背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）</p>
+<p><img src="/images/posts/2018/2018-10-006.png" alt=""></p>
+<p>実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListVerticalScroller</span>: NSScroller {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">draw</span>(<span style="color:#66d9ef">_</span> dirtyRect: NSRect) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.draw(dirtyRect)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawKnobSlot</span>(<span style="color:#66d9ef">in</span> slotRect: NSRect, highlight flag: Bool) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.drawKnobSlot(<span style="color:#66d9ef">in</span>: slotRect, highlight: flag)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 背景はリストの背景と同じにする</span>
+</span></span><span style="display:flex;"><span>        NSColor.defaultBackgroundColor.<span style="color:#66d9ef">set</span>()
+</span></span><span style="display:flex;"><span>        slotRect.fill()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 同じにすると境界がわからなくなるのでボーダー独自に描くようにする</span>
+</span></span><span style="display:flex;"><span>        NSColor.defaultScrollerLeft.<span style="color:#66d9ef">set</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> rect = CGRect(x: <span style="color:#ae81ff">0</span>, y: <span style="color:#ae81ff">0</span>, width: <span style="color:#ae81ff">1</span>, height: slotRect.height)
+</span></span><span style="display:flex;"><span>        rect.fill()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListScrollView</span>: NSScrollView {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">required</span> <span style="color:#66d9ef">init</span>?(coder: NSCoder) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(coder: coder)
+</span></span><span style="display:flex;"><span>        verticalScroller = NoteListVerticalScroller(frame: verticalScroller!.frame)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="まとめ">まとめ</h1>
+<p><strong>Darkは正義</strong></p>
+<p>とにかくかっこいいし、メモして快適なので我ながら対応してよかった。</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li>Dark Mode
+<ul>
+<li><a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/">https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/</a></li>
+</ul>
+</li>
+<li>Introducing Dark Mode
+<ul>
+<li><a href="https://developer.apple.com/videos/play/wwdc2018/210/">https://developer.apple.com/videos/play/wwdc2018/210/</a></li>
+</ul>
+</li>
+<li>Advanced Dark Mode.
+<ul>
+<li><a href="https://developer.apple.com/videos/play/wwdc2018/218/">https://developer.apple.com/videos/play/wwdc2018/218/</a></li>
+</ul>
+</li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

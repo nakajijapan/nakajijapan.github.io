@@ -1,0 +1,19 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tags on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/tags/</link>
+        <description>Recent content in Tags on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/tags/" rel="self" type="application/rss+xml" />
+        
+        
+    </channel>
+</rss>
+

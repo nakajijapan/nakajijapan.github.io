@@ -1,0 +1,410 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Linux on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/linux/</link>
+        <description>Recent content in Linux on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Fri, 30 Dec 2011 02:22:59 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/linux/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>[memo]gitflowを導入</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-12-30_3013/</link>
+            <pubDate>Fri, 30 Dec 2011 02:22:59 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-12-30_3013/</guid>
+            <description>&lt;p&gt;gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。&lt;/p&gt;
+&lt;p&gt;基本的な概念は、ここを参照。
+&lt;a href=&#34;http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html&#34;&gt;http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ここ&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash
+&lt;/pre&gt;
+&lt;p&gt;まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+git clone hoge.git hoge
+git flow init
+&lt;/pre&gt;
+&lt;p&gt;開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# 開発からブランチを切って開発を行う。
+git flow feature test start
+
+# 何かしらのファイルを修正
+git commit -a
+
+# 他で開発していれば更新分をマージする
+git pull origin develop
+
+# 開発終了
+git flow feature test finish
+
+&lt;/pre&gt;
+&lt;p&gt;ここから本番にデプロイするときの設定です。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+git flow release 0.0.1 start
+git flow release 0.0.1 stop
+
+git push 
+git push --tags
+&lt;/pre&gt;
+&lt;p&gt;■参照URL
+&lt;a href=&#34;https://github.com/nvie/gitflow&#34;&gt;https://github.com/nvie/gitflow&lt;/a&gt;
+&lt;a href=&#34;http://d.hatena.ne.jp/Voluntas/20101223/1293111549&#34;&gt;http://d.hatena.ne.jp/Voluntas/20101223/1293111549&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]一括ですべてのファイル内の文字列を置換する（ふ～）</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-09-20_2671/</link>
+            <pubDate>Tue, 20 Sep 2011 03:24:24 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-09-20_2671/</guid>
+            <description>&lt;p&gt;これもどっかでかいたようなそうでないような。。。。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+#!/bin/bash
+#find . -type f -name &#34;*.html&#34; -exec sed &#39;s/Shift_JIS/UTF-8/g&#39; {} \;
+
+for FILE in $*;
+do
+cp $FILE $FILE.bak;
+#sed -e &#34;s/Shift_JIS/UTF-8/g&#34; $FILE.bak &gt; $FILE;
+sed -e &#34;s/EUC-JP/UTF-8/g&#34; $FILE.bak &gt; $FILE;
+rm $FILE.bak
+echo &#34;end &#34;$FILE
+done
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>[svn]trunkに変更分をマージする</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-01-18_2611/</link>
+            <pubDate>Tue, 18 Jan 2011 06:38:09 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-01-18_2611/</guid>
+            <description>&lt;p&gt;めもめも&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# ブランチが作成されたリビジョンを調べる
+svn log --stop-on-copy http://hoge/repos/branches/branch
+
+# マージのテスト
+svn merge --dry-run -r (上ででたリビジョン):HEAD http://hoge/repos/branches/branch
+
+# マージ実行
+svn merge -r (上ででたリビジョン):HEAD http://hoge/repos/branches/branch
+
+# マージはローカル上での変更のみなのでコミットする
+svn commit -m &#34;message&#34;
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>２０１０年現在、redhat9にyumを入れてみる。</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-10-29_2506/</link>
+            <pubDate>Fri, 29 Oct 2010 10:33:20 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-10-29_2506/</guid>
+            <description>&lt;pre class=&#34;brush:bash&#34;&gt;
+wget http://ftp.kddilabs.jp/Linux/packages/fedora.legacy/redhat/9/updates/i386/gnupg-1.2.1-9.i386.rpm
+wget http://ftp.kddilabs.jp/Linux/packages/fedora.legacy/redhat/9/legacy-utils/i386/yum-2.0.5-0.9.2.legacy.noarch.rpm
+rpm -ivh gnupg-1.2.1-9.i386.rpm
+rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+
+wget http://dag.wieers.com/rpm/packages/rpmforge-release/rpmforge-release-0.3.6-1.rh9.rf.i386.rpm
+rpm -ivh rpmforge-release-0.3.6-1.rh9.rf.i386.rpm
+
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# ここで依存性エラーが出てしまいインストールできませんでした
+#rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+wget http://dag.wieers.com/packages/RPM-GPG-KEY.dag.txt
+wget http://dag.wieers.com/packages/RPM-GPG-KEY.dag.txt
+rpm --import RPM-GPG-KEY.dag.txt
+wget http://packages.sw.be/libxml2/libxml2-python-2.6.16-1.0.rh9.rf.i386.rpm
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+wget http://packages.sw.be/libxml2/libxml2-2.6.16-1.0.rh9.rf.i386.rpm
+wget http://packages.sw.be/libxml2/libxml2-devel-2.6.16-1.0.rh9.rf.i386.rpm
+wget ftp://ftp.muug.mb.ca/mirror/redhat/redhat/linux/9/en/os/i386/RedHat/RPMS/zlib-devel-1.1.4-8.i386.rpm
+
+rpm -ivh zlib-devel-1.1.4-8.i386.rpm
+rpm -ivh libxml2-*
+rpm -ivh yum-2.0.5-0.9.2.legacy.noarch.rpm
+vi /etc/yum.conf
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+[rpmforge]
+name = Red Hat $releasever - RPMforge.net - dag
+baseurl = http://apt.sw.be/redhat/9/en/$basearch/dag
+mirrorlist = http://apt.sw.be/redhat/9/en/mirrors-rpmforge
+#mirrorlist = file:///etc/yum.repos.d/mirrors-rpmforge
+enabled = 1
+protect = 0
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmforge-dag
+gpgcheck = 1
+&lt;/pre&gt;
+&lt;p&gt;■参考サイト
+&lt;a href=&#34;http://d.hatena.ne.jp/onering/20080708/1215517963&#34;&gt;&lt;a href=&#34;http://d.hatena.ne.jp/onering/20080708/1215517963&#34;&gt;http://d.hatena.ne.jp/onering/20080708/1215517963&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>redhat9にsamba2をインストール</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-10-08_2501/</link>
+            <pubDate>Fri, 08 Oct 2010 20:15:55 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-10-08_2501/</guid>
+            <description>&lt;p&gt;久々にredhat9をいじったんだな。大学以来だ！&lt;/p&gt;
+&lt;p&gt;なんでメモ。開発時にsambaが必要になったので。&lt;/p&gt;
+&lt;blockquote&gt;
+samba-2.2.11.ja-1.rh9.i386.rpm
+&lt;/blockquote&gt;
+&lt;p&gt;とりあえず、依存関係でエラーが出ないことを祈りつつインストール&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+rpm -ivh samba-2.2.11.ja-1.rh9.i386.rpm
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+[global]
+    workgroup = MYGROUP
+    server string = Samba Server Version %v
+    hosts allow = 127. 192.168.0.
+    security = user
+    encrypt passwords = Yes
+
+[hogehoge]
+    comment = hogehoge
+    path = /var/www/hogehoge/
+    browseable = no
+    writable = yes
+    create mode = 0664
+    directory mode = 0775
+    valid users = root,nakaji
+    force user = nakaji
+&lt;/pre&gt;
+&lt;p&gt;気になった項目だけ調べる&lt;/p&gt;
+&lt;p&gt;まずは「security」&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+security=user  	ユーザー単位でパスワード認証を行う
+security=ads 	Active Directoryドメインで認証を行う
+security=share 	共有単位で認証を行う
+security=server 	Windows NTもしくはSambaで認証を行う
+security=domain 	Windowsドメインで認証を行う
+&lt;/pre&gt;
+&lt;p&gt;今回は個人用として利用するので「security=user」で問題なし
+他はActive Direcctoryドメインを利用して認証なんかできちゃったりするんです。すばらしい。
+深くは掘り下げません。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]ntpd設定、その他時間設定もろもろ</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-08-14_2312/</link>
+            <pubDate>Sat, 14 Aug 2010 07:57:42 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-08-14_2312/</guid>
+            <description>&lt;p&gt;VMで開発をして、サーバを「ストップ」状態にしてパソコンを落とすことをなんどもやっていると時間が合わなくなる
+ときがあったでのNetwork Time Protocolを利用することにしました。&lt;/p&gt;
+&lt;p&gt;■起動方法
+service ntpd start&lt;/p&gt;
+&lt;pre class=&#34;brush:text&#34;&gt;
+# 起動レベルをテキストログイン、GUIログインモード時のみ起動
+chkconfig --level 35 nptd on
+
+# check
+chkconfig --list ntpd
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:text&#34;&gt;
+[root@www0 ~]# chkconfig --list ntpd
+ntpd            0:off   1:off   2:off   3:on    4:off   5:on    6:off
+&lt;/pre&gt;
+&lt;p&gt;その他、チェックしておいた方がいいコマンド&lt;/p&gt;
+&lt;p&gt;・ハードウェアロック
+hwclock&lt;/p&gt;
+&lt;p&gt;・システムロック
+date&lt;/p&gt;
+&lt;p&gt;・Timeサーバから時間を取得して更新する
+ntpdate&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>困った時の「yum clean all」</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-07-13_2230/</link>
+            <pubDate>Tue, 13 Jul 2010 20:01:06 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-07-13_2230/</guid>
+            <description>&lt;p&gt;jasper　を入れるときに発生。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# yum update
+&lt;/pre&gt;
+&lt;p&gt;したら、↓みたいなエラーが出た。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+Error: Missing Dependency: /bin/cpio is needed by package redhat-lsb
+&lt;/pre&gt;
+&lt;p&gt;↓で解決&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+# yum clean all
+# yum update
+&lt;/pre&gt;</description>
+        </item>
+        
+        <item>
+            <title>ImageMagicをCentOS5.4にインスコ</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-07-10_2221/</link>
+            <pubDate>Sat, 10 Jul 2010 20:02:07 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-07-10_2221/</guid>
+            <description>&lt;pre class=&#34;brush: bash&#34;&gt;
+wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-libs-1.900.1-7.el5.kb.i386.rpm
+wget http://centos.karan.org/el5/extras/testing/i386/RPMS/jasper-devel-1.900.1-7.el5.kb.i386.rpm
+rpm -ivh jasper-libs-1.900.1-7.el5.kb.i386.rpm
+rpm -ivh jasper-devel-1.900.1-7.el5.kb.i386.rpm
+
+wget http://www.imagemagick.org/download/linux/CentOS/i386/ImageMagick-6.6.3-0.i386.rpm
+wget http://image_magick.veidrodis.com/image_magick/linux/CentOS/i386/ImageMagick-devel-6.6.3-0.i386.rpm
+
+# rpmをダウンロードしたそのディレクトリ内で実行するとそのパッケージ＋依存性のあるパッケージを自動でやってくれます。
+yum install ImageMagic
+&lt;/pre&gt;
+&lt;p&gt;このときエラーが発生してチェック処理ができていないとだめといわれるのであらかじめyum.confを変更しておきます&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+vi /etc/yum.conf
+gpgcheck=1
+&lt;/pre&gt;
+&lt;p&gt;このときｖ2.3がいんすとーるされました。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+pecl install imagick
+&lt;/pre&gt;
+&lt;p&gt;php.iniを変更&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+extension=imagick.so
+&lt;/pre&gt;
+&lt;p&gt;本当は画像関係のモジュールをいろいろいれないいけないみたいだけど今回はこれで大丈夫でしたです。&lt;/p&gt;
+&lt;p&gt;■参照URL
+&lt;a href=&#34;http://mercurius.jp/blog/2010/02/08-113607.html&#34;&gt;http://mercurius.jp/blog/2010/02/08-113607.html&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>sshfs for CentOS</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-03-09_1704/</link>
+            <pubDate>Tue, 09 Mar 2010 21:00:48 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-03-09_1704/</guid>
+            <description>&lt;p&gt;複数サーバを行き来してるとemacsの設定とかまたやりなおさなきゃいけないのが癪（漢字これでいいのかな）なので、それを解消しようといれてみました。&lt;/p&gt;
+&lt;p&gt;yum install sshfs&lt;/p&gt;
+&lt;p&gt;mkdir mnt
+sshfs &lt;a href=&#34;mailto:root@xxx.xxx.xxx.xxx&#34;&gt;root@xxx.xxx.xxx.xxx&lt;/a&gt;/ mnt/&lt;/p&gt;
+&lt;p&gt;はい、完了。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>指定ファイルを一括で文字コード・改行コード変換する</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-16_1614/</link>
+            <pubDate>Tue, 16 Feb 2010 11:28:54 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-16_1614/</guid>
+            <description>&lt;p&gt;こんなコマンドあったのでめも。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+
+# 追記：２０１０ー０２－１６
+# こっちもいいぉ
+find ./* -type f | xargs -n 10 nkf -w -Lu --overwrite
+&lt;/pre&gt;
+&lt;p&gt;上記のだといまいち不要なファイルまで変換されて大変なことになってしまう。。。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+
+# this is my best
+find -name &#39;*.js&#39; | xargs nkf -w -Lu --overwrite
+
+&lt;/pre&gt;
+&lt;p&gt;参考URL
+&lt;a href=&#34;http://x68000.q-e-d.net/~68user/unix/pickup?xargs&#34;&gt;http://x68000.q-e-d.net/~68user/unix/pickup?xargs&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>改行コード一括変換だぉ</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-10_454/</link>
+            <pubDate>Wed, 10 Feb 2010 18:44:39 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-10_454/</guid>
+            <description>&lt;pre class=&#34;brush: bash&#34;&gt;
+find  ./* -name &#34;*.cgi&#34; -exec dos2unix {} \;
+&lt;/pre&gt;
+&lt;blockquote&gt;-exec command ;
+    command を実行する。コマンドの戻り値が 0 ならば真。 find のコマンドラインで指定されたこれ以降の引き数は、 `;&#39; を含む引き数にいたるまで、すべて command の引き数とみなされる。文字列 `{}&#39; は現在処理しているファイル名に置き換えられる。これは command 引き数のどこにあってもよく、単独で置かれていなくてもよい (単独で置かれていなければならないような find もある)。これらの文字はシェルによって展開されないよう、 `\&#39; によってエスケープするか引用符で囲む必要がある。コマンドは find を実行したディレクトリから実行される。 &lt;/blockquote&gt;</description>
+        </item>
+        
+        <item>
+            <title>CentOS5.4にemacs23をインスコ</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-01-13_282/</link>
+            <pubDate>Wed, 13 Jan 2010 23:41:43 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-01-13_282/</guid>
+            <description>&lt;p&gt;●基本このサイトでほぼOK牧場
+&lt;a href=&#34;http://d.hatena.ne.jp/totemn/20091025/p1&#34;&gt;http://d.hatena.ne.jp/totemn/20091025/p1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;案の定エラーがおきてしまったので、必要なもの「wゲッチュ」してrpmでインスコです。&lt;/p&gt;
+&lt;blockquote&gt;
+&gt; エラー: 依存性の欠如:
+&gt;         hunspell は emacs-23.1-10.i386 に必要とされています
+&gt;         libotf.so.0 は emacs-23.1-10.i386 に必要とされています
+&lt;/blockquote&gt;
+&lt;p&gt;Emacs23 gecyu!!&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>サブドメイン設定してみた。</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-12-16_125/</link>
+            <pubDate>Wed, 16 Dec 2009 02:31:36 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-12-16_125/</guid>
+            <description>&lt;p&gt;のはいいんだけど、だれからRSSみてたのね。ごめんなさい。ドメインとディレクトリ配置の変更に
+伴って再度設定しなければいけないかもしれません。&lt;/p&gt;
+&lt;p&gt;やったことメも&lt;/p&gt;
+&lt;ol&gt;
+	&lt;li&gt;DBデータを前もってバックアップ(mysqldump)く&lt;/li&gt;
+	&lt;li&gt;wordpressでまずは新しい設定にしてく&lt;/li&gt;
+	&lt;li&gt;ApacheのVitualHostでドメイン別で切り分ける&lt;/li&gt;
+	&lt;li&gt;ほしいサブドメインの登録&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;最初のやつは結構いけてないかもしれないけどまぁてっとり早い。&lt;/p&gt;
+&lt;p&gt;これでおk。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>sshfsでLinux－Windowsをつなげてみた</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-12-04_56/</link>
+            <pubDate>Fri, 04 Dec 2009 10:17:26 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-12-04_56/</guid>
+            <description>&lt;p&gt;ドカンっていうサイトからライブラリとSSHFSをおとしてやってみた。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;wp-caption&#34; href=&#34;http://dokan-dev.net/docs/dokan-sshfs-readme/&#34;&gt;&lt;a href=&#34;http://dokan-dev.net/docs/dokan-sshfs-readme/&#34;&gt;http://dokan-dev.net/docs/dokan-sshfs-readme/&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ちょっと重いな・・・。でもSVNをWindowsで管理できるみたいだしいい感じかもしれない。&lt;/p&gt;
+&lt;p&gt;と思ったけどめちゃくちゃ不安定だった。すぐパラメータが不正になるっていわれる。。。&lt;/p&gt;
+&lt;p&gt;ｶｰｯﾍﾟ。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>zsh補完</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-12-01_23/</link>
+            <pubDate>Tue, 01 Dec 2009 03:16:15 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-12-01_23/</guid>
+            <description>&lt;p&gt;一応メモ代わりです。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.ayu.ics.keio.ac.jp/members/mukai/translate/write_zsh_functions.html&#34;&gt;この編&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.google.co.jp/url?sa=t&amp;amp;source=web&amp;amp;ct=res&amp;amp;cd=1&amp;amp;ved=0CAcQFjAA&amp;amp;url=http%3A%2F%2Fd.hatena.ne.jp%2Fvoidy21%2F20090902%2F1251918174&amp;amp;ei=gpAMS9vHGs2IkAWUiZGCBA&amp;amp;usg=AFQjCNETlqcRbmzMgFaQmmLYnkbheFM0Jg&amp;amp;sig2=27TSNBFc4CDpr8SDmzJgKA&#34;&gt;googleのここ&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;意味は後でまとめる。&lt;/p&gt;
+&lt;p&gt;極論ここみればなんとかなるのだけれど。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.gentei.org/~yuuji/rec/pc/zsh/zshcompsys.txt&#34;&gt;http://www.gentei.org/~yuuji/rec/pc/zsh/zshcompsys.txt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;まぁ気にしない。&lt;/p&gt;
+&lt;p&gt;zsh&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://zsh.sourceforge.net/&#34;&gt;http://zsh.sourceforge.net/&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

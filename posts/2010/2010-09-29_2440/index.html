@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[jquery]window.onloadを複数実行させたい">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-09-29_2440/" />
+<meta property="go:description" content="いいんかな。
+規模が大きくなってくるとJSファイルだんだん増えてきて処理もそれなりに分割しなくちゃいけなくなる。
+onloadインベントも共通の処理はあるけど、各処理（フレームワークでいうとコントローラごととか）でも
+固有の処理を行いときがあります。しかも運用しやすい？用にファイルは分割して分けときたい。
+jqueryちゃんは優秀ですね。
+
+
+
+
+
+// file A (common)
+$(document).ready(function(){
+    alert(&#39;a&#39;);
+});
+
+
+// file B
+$(document).ready(function(){
+    alert(&#39;b&#39;);
+});
+
+Aは全体で使う共通の処理、Bは各処理で行う処理。
+こうすることでほぼonloadと同じタイミングで両方とも実行してくれることになります。
+ただ、CSS読み込むときにはあらかじめCSSファイルを読み込んでおくことと、画像ファイルを全部
+読み込み終わるまで「.ready」は実行されないことに注意。
+jqueryのドキュメント結構勉強になった。
+
+
+$(document).ready(handler)
+$().ready(handler) (this is not recommended)
+$(handler)
+
+■参照URL
+jquery document" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[jquery]window.onloadを複数実行させたい" />
+<meta name="twitter:description" content="いいんかな。
+規模が大きくなってくるとJSファイルだんだん増えてきて処理もそれなりに分割しなくちゃいけなくなる。
+onloadインベントも共通の処理はあるけど、各処理（フレームワークでいうとコントローラごととか）でも
+固有の処理を行いときがあります。しかも運用しやすい？用にファイルは分割して分けときたい。
+jqueryちゃんは優秀ですね。
+
+
+
+
+
+// file A (common)
+$(document).ready(function(){
+    alert(&#39;a&#39;);
+});
+
+
+// file B
+$(document).ready(function(){
+    alert(&#39;b&#39;);
+});
+
+Aは全体で使う共通の処理、Bは各処理で行う処理。
+こうすることでほぼonloadと同じタイミングで両方とも実行してくれることになります。
+ただ、CSS読み込むときにはあらかじめCSSファイルを読み込んでおくことと、画像ファイルを全部
+読み込み終わるまで「.ready」は実行されないことに注意。
+jqueryのドキュメント結構勉強になった。
+
+
+$(document).ready(handler)
+$().ready(handler) (this is not recommended)
+$(handler)
+
+■参照URL
+jquery document" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[jquery]window.onloadを複数実行させたい - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[jquery]window.onloadを複数実行させたい</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-09-29">September 29, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/javascript">javascript</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>いいんかな。</p>
+<p>規模が大きくなってくるとJSファイルだんだん増えてきて処理もそれなりに分割しなくちゃいけなくなる。
+onloadインベントも共通の処理はあるけど、各処理（フレームワークでいうとコントローラごととか）でも
+固有の処理を行いときがあります。しかも運用しやすい？用にファイルは分割して分けときたい。</p>
+<p>jqueryちゃんは優秀ですね。</p>
+<pre class="brush: html">
+<script type="text/javascript" src="/fileA.js"></script>
+<script type="text/javascript" src="/fileB.js"></script>
+<p></pre></p>
+<pre class="brush: javascript">
+// file A (common)
+$(document).ready(function(){
+    alert('a');
+});
+</pre>
+<pre class="brush: javascript">
+// file B
+$(document).ready(function(){
+    alert('b');
+});
+</pre>
+<p>Aは全体で使う共通の処理、Bは各処理で行う処理。
+こうすることで<b>ほぼ</b>onloadと同じタイミングで両方とも実行してくれることになります。
+ただ、CSS読み込むときにはあらかじめCSSファイルを読み込んでおくことと、画像ファイルを全部
+読み込み終わるまで「.ready」は実行されないことに注意。
+jqueryのドキュメント結構勉強になった。</p>
+<pre class="brush: html">
+<!-- other -->
+$(document).ready(handler)
+$().ready(handler) (this is not recommended)
+$(handler)
+</pre>
+<p>■参照URL
+<a href="http://api.jquery.com/ready/">jquery document</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

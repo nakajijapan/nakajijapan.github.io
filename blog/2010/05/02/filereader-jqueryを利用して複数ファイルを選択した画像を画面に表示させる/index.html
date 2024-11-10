@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="FileReader(&#43;JQuery)を利用して複数ファイルを選択した画像を画面に表示させる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/05/02/filereader-jquery%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E8%A4%87%E6%95%B0%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%81%B8%E6%8A%9E%E3%81%97%E3%81%9F%E7%94%BB%E5%83%8F%E3%82%92%E7%94%BB%E9%9D%A2%E3%81%AB%E8%A1%A8%E7%A4%BA%E3%81%95%E3%81%9B%E3%82%8B/" />
+<meta property="go:description" content="
+&lt;!DOCTYPE html&gt;
+
+
+
+
+File API sample(jquery version)
+
+read start
+
+    file name:
+    file size:
+
+
+
+
+
+HTML５の勉強っす。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="FileReader(&#43;JQuery)を利用して複数ファイルを選択した画像を画面に表示させる" />
+<meta name="twitter:description" content="
+&lt;!DOCTYPE html&gt;
+
+
+
+
+File API sample(jquery version)
+
+read start
+
+    file name:
+    file size:
+
+
+
+
+
+HTML５の勉強っす。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>FileReader(&#43;JQuery)を利用して複数ファイルを選択した画像を画面に表示させる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">FileReader(&#43;JQuery)を利用して複数ファイルを選択した画像を画面に表示させる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-05-02">May 02, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/html">Html</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <pre class="brush: html">
+<!DOCTYPE html>
+
+<script src="../jquery-1_4_2.js" type="text/javascript"></script>
+<script>
+// ファイル読み込み用
+function FileReaderCustom() {};
+FileReaderCustom.prototype = {
+	setup : function(file, cnt) {
+	    var reader = new FileReader();
+
+        //----------------------
+        // ロード時の処理
+        //----------------------
+	    reader.onload = function() {
+	        
+	        // 表示用タグ生成
+	        var divTag = $(document.createElement("span"));
+	        var imgTag = $(document.createElement("img"));
+	        
+	        // 出力先
+	        var list   = $("#list");
+	        
+	        // 各タグの属性情報設定
+	        divTag.attr('id', 'item_' + cnt);
+	        divTag.css('float', 'left');
+	        imgTag.attr({
+	        		width: 	200,
+	        		height:	200,
+	        		src: 	reader.result
+	        	});
+
+            // タグをまとめる
+	        divTag.append(imgTag);
+            
+            // 画像タグをリストに追加
+            // 表示時はアニメーションで表示
+	        list.append(divTag.fadeIn(5000));
+	    };
+	    
+	    //----------------------
+	    // 作成中の処理
+	    //----------------------
+	    reader.onprogress = function() {
+	        var msg = document.getElementById('msg');
+	        msg.textContent = "loading ...." + file.name;
+	    };
+	    
+	    //----------------------
+	    // ロード終了時の処理
+	    //----------------------
+	    reader.onloadend = function() {
+	        var msg = document.getElementById('msg');
+	        while(msg.firstChild) {
+	            msg.removeChild(msg.firstChild);
+	        }
+	    };
+	    
+	    // ファイル内容を読み取りdataURL形式で読み取るんだってさ
+	    reader.readAsDataURL(file, "UTF-8");
+	}
+};
+
+
+// 読み込み用メソッド
+function readFile() {
+    // タグからファイル情報を読み込む
+    var files = document.getElementById("file").files;
+    
+    // 配列作成
+	var data = new Array();
+    
+    // 選択ファイル分走査する
+    for (var cnt=0;cnt<files.length;cnt++) {
+        // インスタンス作成
+        data[cnt] = new FileReaderCustom();
+        
+        // 表示処理
+        data[cnt].setup(files[cnt], cnt);
+    }
+}
+
+</script>
+<body>
+<h1>File API sample(jquery version)</h1>
+<input type="file" id="file" type="file" multiple="true">
+<button onclick="readFile()">read start</button>
+<div>
+    file name:<span id="fileName"></span>
+    file size:<span id="fileSize"></span>
+</div>
+<div id="msg"></div>
+<div id="list">
+</div>
+</pre>
+<p>HTML５の勉強っす。</p>
+<p>今回はFileRead()を利用してみた。って話。</p>
+<p>まだ策定中のFile APIなのですが、これを利用するとjavascriptからファイル情報や内容を読み込んで
+アクセスができるようになるみたいですね。例をあげるとファイルをアップロードするときに予め対象の
+画像情報を表示させといてから非同期で画像を保存する。的なこと簡単にできてしまうわけです。</p>
+<p>現在はFirefoxでは実装されていてつかえるみたいなのですが、まだChromeで利用できないみたいですね。
+<a href="http://code.google.com/p/chromium/issues/detail?id=37785">ここ</a>いらへんで騒いでいます。</p>
+<p>実際、まだ全体的にみても策定中のようで「FileWriter」なんてものもあるらしくてこれが決定！！というわけではない。とのこと。
+なので、今後仕様が変わっていってしまうのは大いにあるようです。</p>
+<p>だけどおもしろそうだったのでやってみた。</p>
+<p>まずは、HTMLに</p>
+<pre class="brush: html">
+<input type="file" id="file" type="file" multiple="true">
+</pre>
+<p>を記述してから複数ファイルを選択できるようにします。
+(この時点でもうフラッシュいらないですね。はい。)</p>
+<p>次は関数を呼ぶ。</p>
+<pre class="brush: html">
+// 読み込み用メソッド
+function readFile() {
+    // タグからファイル情報を読み込む
+    var files = document.getElementById("file").files;
+    
+    // 配列作成
+	var data = new Array();
+    
+    // 選択ファイル分走査する
+    for (var cnt=0;cnt<files.length;cnt++) {
+        // インスタンス作成
+        data[cnt] = new FileReaderCustom();
+        
+        // 表示処理
+        data[cnt].setup(files[cnt], cnt);
+    }
+}
+</pre>
+<p>複数選択したとき用にループしてファイルを走査する。</p>
+<p>FileReaderCustomの中身でやっているものは</p>
+<li><b>Onloadイベント処理の登録</b></li>
+ファイル情報を読み込んで画面に描画させる
+ここで画像情報を「reader.result」から取得してimgタグの「src」属性として登録する
+<li><b>onprogressイベント処理の登録</b></li>
+現在処理中のファイル名を表示する
+<li><b>loadedendイベントイベント処理の登録</b></li>
+ログ「onprogressで表示した」情報を削除する
+<li><b>ファイルを指定した形式にして情報を読取る</b></li>
+<p>できた！！これでボタンを押せば読み込みが始まります。
+あとは非同期でデータをPOSTしてやればOK。</p>
+<p>■感想
+・「input」タグのmultiple属性POSTしたらどうなるのかな？
+・ファイルをアップするときになんていうかいい感じに連続的に表示できないかなーっておもった。
+・ロード中の画像はその画像上かどこかに身長情報載せたい。
+・クロスブラウザ対応できたら最高やね。。
+・後ろ側の通信しなきゃね。</p>
+<p>■<a href="http://nakajijapan.heteml.jp/html5/dandd/readfile_multiple2.html">デモ</a></p>
+<blockquote>
+</blockquote>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

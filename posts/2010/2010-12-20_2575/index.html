@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[limechat]private talkでログを残す">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-12-20_2575/" />
+<meta property="go:description" content="昔書いた記事の続きなんですがトーク中は勝手にログをファイルに保存させちゃうことにしました。
+そうすると、相手のチャット名で話した内容が保存されるようになります。
+
+// usage:
+//      make directory C:\Program Files\LimeChat2\users\[user name]\scripts\files\privateChatLog
+//      modify self variable to yourself
+
+// IRCのユーザ名を記述
+var self = &#34;nakaji&#34;;
+
+// ログ保存有無
+var logFlg = true;
+
+// トークログ用ディレクトリ
+var dir = &#39;privateChatLog/&#39;;
+
+function event::onTalkText(prefix, targetNick, text)
+{
+    // 自分以外からのユーザのみ処理
+    if (prefix.nick != self) {
+        showBalloon(prefix.nick, text); // バルーン
+        playSound(&#34;type.wav&#34;);          // サウンド
+        window.BlinkTitle();            // タイトルバーを点滅
+    }
+
+    if (logFlg == true) {
+        date = getDateStr();
+        
+        // 相手が自分に発言してきたときはユーザを相手にして強制的に保存させる
+        var user = targetNick;
+        if (user == self) {
+            user = prefix.nick;
+        }
+        str = &#34;[&#34; &#43; date &#43; &#34;] &#34; &#43; prefix.nick &#43; &#34; &gt; &#34; &#43; text;
+        write_file_string( dir &#43; user &#43; &#39;.log&#39;, str)
+    }
+}
+
+
+//--------------------------------------------
+// ファイル書き込み
+//--------------------------------------------
+function write_file_string( file_name, string  ){
+    file = openFile( file_name , false );
+    file.seekToEnd();
+    file.writeLine(string); 
+
+    file.close();
+}
+
+//--------------------------------------------
+// 日付表示
+//--------------------------------------------
+function getDateStr() {
+    date = new Date();
+    yy = date.getYear();
+    mm = date.getMonth() &#43; 1;
+    dd = date.getDate();
+    
+    hh = date.getHours();
+    ii = date.getMinutes();
+    ss = date.getSeconds();
+    
+    if (yy &lt; 2000) { yy &#43;= 1900; }
+    if (mm &lt; 10) { mm = &#34;0&#34; &#43; mm; }
+    if (dd &lt; 10) { dd = &#34;0&#34; &#43; dd; }
+    if (hh &lt; 10) { hh = &#34;0&#34; &#43; hh; }
+    if (ii &lt; 10) { ii = &#34;0&#34; &#43; ii; }
+    if (ss &lt; 10) { ss = &#34;0&#34; &#43; ss; }
+    str = yy &#43; &#34;/&#34; &#43; mm &#43; &#34;/&#34; &#43; dd &#43; &#34; &#34; &#43; hh &#43; &#34;:&#34; &#43; ii &#43; &#34;:&#34; &#43; ss;
+    return str;
+}
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[limechat]private talkでログを残す" />
+<meta name="twitter:description" content="昔書いた記事の続きなんですがトーク中は勝手にログをファイルに保存させちゃうことにしました。
+そうすると、相手のチャット名で話した内容が保存されるようになります。
+
+// usage:
+//      make directory C:\Program Files\LimeChat2\users\[user name]\scripts\files\privateChatLog
+//      modify self variable to yourself
+
+// IRCのユーザ名を記述
+var self = &#34;nakaji&#34;;
+
+// ログ保存有無
+var logFlg = true;
+
+// トークログ用ディレクトリ
+var dir = &#39;privateChatLog/&#39;;
+
+function event::onTalkText(prefix, targetNick, text)
+{
+    // 自分以外からのユーザのみ処理
+    if (prefix.nick != self) {
+        showBalloon(prefix.nick, text); // バルーン
+        playSound(&#34;type.wav&#34;);          // サウンド
+        window.BlinkTitle();            // タイトルバーを点滅
+    }
+
+    if (logFlg == true) {
+        date = getDateStr();
+        
+        // 相手が自分に発言してきたときはユーザを相手にして強制的に保存させる
+        var user = targetNick;
+        if (user == self) {
+            user = prefix.nick;
+        }
+        str = &#34;[&#34; &#43; date &#43; &#34;] &#34; &#43; prefix.nick &#43; &#34; &gt; &#34; &#43; text;
+        write_file_string( dir &#43; user &#43; &#39;.log&#39;, str)
+    }
+}
+
+
+//--------------------------------------------
+// ファイル書き込み
+//--------------------------------------------
+function write_file_string( file_name, string  ){
+    file = openFile( file_name , false );
+    file.seekToEnd();
+    file.writeLine(string); 
+
+    file.close();
+}
+
+//--------------------------------------------
+// 日付表示
+//--------------------------------------------
+function getDateStr() {
+    date = new Date();
+    yy = date.getYear();
+    mm = date.getMonth() &#43; 1;
+    dd = date.getDate();
+    
+    hh = date.getHours();
+    ii = date.getMinutes();
+    ss = date.getSeconds();
+    
+    if (yy &lt; 2000) { yy &#43;= 1900; }
+    if (mm &lt; 10) { mm = &#34;0&#34; &#43; mm; }
+    if (dd &lt; 10) { dd = &#34;0&#34; &#43; dd; }
+    if (hh &lt; 10) { hh = &#34;0&#34; &#43; hh; }
+    if (ii &lt; 10) { ii = &#34;0&#34; &#43; ii; }
+    if (ss &lt; 10) { ss = &#34;0&#34; &#43; ss; }
+    str = yy &#43; &#34;/&#34; &#43; mm &#43; &#34;/&#34; &#43; dd &#43; &#34; &#34; &#43; hh &#43; &#34;:&#34; &#43; ii &#43; &#34;:&#34; &#43; ss;
+    return str;
+}
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[limechat]private talkでログを残す - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[limechat]private talkでログを残す</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-12-20">December 20, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/limechat">limechat</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><a href="http://blog.nakajijapan.net/2010/09/16/limechat%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%83%88%E3%83%BC%E3%82%AF%E3%81%A7%E8%A9%B1%E3%81%97%E3%81%8B%E3%81%91%E3%82%89%E3%82%8C%E3%81%9F%E3%82%89%E3%82%AD%E3%83%BC%E3%83%AF/">昔書いた記事</a>の続きなんですがトーク中は勝手にログをファイルに保存させちゃうことにしました。</p>
+<p>そうすると、相手のチャット名で話した内容が保存されるようになります。</p>
+<pre class="brush:javascript">
+// usage:
+//      make directory C:\Program Files\LimeChat2\users\[user name]\scripts\files\privateChatLog
+//      modify self variable to yourself
+
+// IRCのユーザ名を記述
+var self = "nakaji";
+
+// ログ保存有無
+var logFlg = true;
+
+// トークログ用ディレクトリ
+var dir = 'privateChatLog/';
+
+function event::onTalkText(prefix, targetNick, text)
+{
+    // 自分以外からのユーザのみ処理
+    if (prefix.nick != self) {
+        showBalloon(prefix.nick, text); // バルーン
+        playSound("type.wav");          // サウンド
+        window.BlinkTitle();            // タイトルバーを点滅
+    }
+
+    if (logFlg == true) {
+        date = getDateStr();
+        
+        // 相手が自分に発言してきたときはユーザを相手にして強制的に保存させる
+        var user = targetNick;
+        if (user == self) {
+            user = prefix.nick;
+        }
+        str = "[" + date + "] " + prefix.nick + " > " + text;
+        write_file_string( dir + user + '.log', str)
+    }
+}
+
+
+//--------------------------------------------
+// ファイル書き込み
+//--------------------------------------------
+function write_file_string( file_name, string  ){
+    file = openFile( file_name , false );
+    file.seekToEnd();
+    file.writeLine(string); 
+
+    file.close();
+}
+
+//--------------------------------------------
+// 日付表示
+//--------------------------------------------
+function getDateStr() {
+    date = new Date();
+    yy = date.getYear();
+    mm = date.getMonth() + 1;
+    dd = date.getDate();
+    
+    hh = date.getHours();
+    ii = date.getMinutes();
+    ss = date.getSeconds();
+    
+    if (yy < 2000) { yy += 1900; }
+    if (mm < 10) { mm = "0" + mm; }
+    if (dd < 10) { dd = "0" + dd; }
+    if (hh < 10) { hh = "0" + hh; }
+    if (ii < 10) { ii = "0" + ii; }
+    if (ss < 10) { ss = "0" + ss; }
+    str = yy + "/" + mm + "/" + dd + " " + hh + ":" + ii + ":" + ss;
+    return str;
+}
+</pre>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

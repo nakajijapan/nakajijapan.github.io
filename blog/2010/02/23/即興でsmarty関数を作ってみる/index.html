@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="即興でsmarty関数を作ってみる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/02/23/%E5%8D%B3%E8%88%88%E3%81%A7smarty%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B/" />
+<meta property="go:description" content="
+function smarty_function_my_assign($params, &$smarty)
+{
+    $str=&#34;&#34;;
+    foreach ($params as $key =&gt; $value) {
+        if (substr($key, 0, 5) === &#34;value&#34;) {
+            $str .= $value;
+        }
+    }
+
+    $smarty-&gt;assign($params[&#39;var&#39;], $str);
+
+}
+
+
+{my_assign var-&#34;_test&#34; value1=&#34;aaaa&#34;  value2=&#34;bbbb&#34;}
+
+{*aaaabbbb*}
+{$_test}
+
+
+まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="即興でsmarty関数を作ってみる" />
+<meta name="twitter:description" content="
+function smarty_function_my_assign($params, &$smarty)
+{
+    $str=&#34;&#34;;
+    foreach ($params as $key =&gt; $value) {
+        if (substr($key, 0, 5) === &#34;value&#34;) {
+            $str .= $value;
+        }
+    }
+
+    $smarty-&gt;assign($params[&#39;var&#39;], $str);
+
+}
+
+
+{my_assign var-&#34;_test&#34; value1=&#34;aaaa&#34;  value2=&#34;bbbb&#34;}
+
+{*aaaabbbb*}
+{$_test}
+
+
+まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>即興でsmarty関数を作ってみる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">即興でsmarty関数を作ってみる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-02-23">February 23, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/smarty">Smarty</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <pre class="brush: php">
+function smarty_function_my_assign($params, &$smarty)
+{
+    $str="";
+    foreach ($params as $key => $value) {
+        if (substr($key, 0, 5) === "value") {
+            $str .= $value;
+        }
+    }
+
+    $smarty->assign($params['var'], $str);
+
+}
+</pre>
+<pre class="brush: text">
+{my_assign var-"_test" value1="aaaa"  value2="bbbb"}
+
+{*aaaabbbb*}
+{$_test}
+
+</pre>
+<p>まぁデフォルトのcatでもいいけどさ。何となくあったらいいな的機能</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

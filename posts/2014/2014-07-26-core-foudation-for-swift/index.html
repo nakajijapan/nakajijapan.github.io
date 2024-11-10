@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="About Core Foudation in Working with Cocoa Data Types">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2014/2014-07-26-core-foudation-for-swift/" />
+<meta property="go:description" content="AV Foundation関連のプログラムをSwiftで書き直しているときに、単純に変換できないところがあったので
+一旦でキュメントに振り返って読み直してみました。
+参照先はAppleの公式ドキュメントに記載してあるのを自分なりに翻訳してみました。
+Core Foundation
+Core Foundation型は自動的にfull-fledgedなSwiftクラスとしてインポートされる。
+メモリ管理が提供されるときはいつでも、Swiftは自動的にCore Foundation objectsのメモリを管理し、
+自身をインスタンス化したCore Foundation objectsをインクルードして管理します。Swift内で、
+あなたはtoll-free bridgedなFoundationとCore Foundationの両方を相互に変換できる。
+あなたはブリッジしているFoundation型をキャストするならSwiftの標準ライブラリに対してtoll-free bridgedな
+Core Foundation型をブリッジすることができる
+
+toll-free bridged
+
+オブジェクトを変換することなくキャストすることで相互変換可能な仕組みのことを指すらしいです
+
+
+
+Remapped Types
+SwiftはCore Foundation型をインポートするとき、コンパイラはそれらの型名を再配置する
+コンパイラは各型の最後に記述されているRefを削除する、なぜならSwiftクラスのすべては参照型、
+それゆえにサフィックスはいらない
+CFTypeRefはAnyObjectに再配置されるよ。CFTypeRefをつかうときはAnyObjectを利用すべきだ！
+Memory Managed Objects
+APIから返却されたCore Foundation objectsはSwiftで自動的にメモリ管理される。
+あなたは自分自身でCFRetain、CFRelease、CFAutoreleaseを呼び出す必要はない。独自のCの関数からCore Foundation objects
+を返すのなら、それらをCF_RETURNS_RETAINEDとCF_RETURNS_NOT_RETAINEDのいずれかを使ってアノテートする。
+上記のAPIを呼び出すSwiftコードをコンパイルするとき、コンパイラは自動的ににメモリ管理用の呼び出しを行う。
+Core Foundation objectsを返さないAPIを利用するときは、このセクションをスキップしてね。
+でないのならunmanaged Core Foundation objectsの操作について学んでね。
+Unmanaged Objects
+Swiftが提供されているAPIをimportするときに、コンパイラは自動的に返却されたCore Foundation Objectsをメモリ管理できないよ
+SwiftはUnmanaged&lt;T&gt;構造体内でこれらの返却されたCore Foundation objectsを内包する
+間接的に返却されたCore Foundation objectsのすべては管理されい。例えば以下のように宣言できる
+Objective-C
+CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)
+Swift
+func StringByAddingTwoStrings(CFString!, CFString!) -&gt; Unmanaged&lt;CFString&gt;!
+非管理のオブジェクトを受け取るとき、あなたは直接メモり管理されたオブジェクトに変換すべきです、非管理のオブジェクトを受け取る前に。
+この方法でSwiftは手動でメモリ管理を行うことができる。
+Unmanaged構造体は非管理オブジェクトをメモリ管理されたobjectにtakeUnretainedValue()に変換したり、takeRetainedValue()に変換したりと２つの方法を提供する。
+あなたは自分が呼びだだしているAPIがunretained objectやretained objectを返すかどうかを基本に利用するためにどちらかのメソッドを選べる。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="About Core Foudation in Working with Cocoa Data Types" />
+<meta name="twitter:description" content="AV Foundation関連のプログラムをSwiftで書き直しているときに、単純に変換できないところがあったので
+一旦でキュメントに振り返って読み直してみました。
+参照先はAppleの公式ドキュメントに記載してあるのを自分なりに翻訳してみました。
+Core Foundation
+Core Foundation型は自動的にfull-fledgedなSwiftクラスとしてインポートされる。
+メモリ管理が提供されるときはいつでも、Swiftは自動的にCore Foundation objectsのメモリを管理し、
+自身をインスタンス化したCore Foundation objectsをインクルードして管理します。Swift内で、
+あなたはtoll-free bridgedなFoundationとCore Foundationの両方を相互に変換できる。
+あなたはブリッジしているFoundation型をキャストするならSwiftの標準ライブラリに対してtoll-free bridgedな
+Core Foundation型をブリッジすることができる
+
+toll-free bridged
+
+オブジェクトを変換することなくキャストすることで相互変換可能な仕組みのことを指すらしいです
+
+
+
+Remapped Types
+SwiftはCore Foundation型をインポートするとき、コンパイラはそれらの型名を再配置する
+コンパイラは各型の最後に記述されているRefを削除する、なぜならSwiftクラスのすべては参照型、
+それゆえにサフィックスはいらない
+CFTypeRefはAnyObjectに再配置されるよ。CFTypeRefをつかうときはAnyObjectを利用すべきだ！
+Memory Managed Objects
+APIから返却されたCore Foundation objectsはSwiftで自動的にメモリ管理される。
+あなたは自分自身でCFRetain、CFRelease、CFAutoreleaseを呼び出す必要はない。独自のCの関数からCore Foundation objects
+を返すのなら、それらをCF_RETURNS_RETAINEDとCF_RETURNS_NOT_RETAINEDのいずれかを使ってアノテートする。
+上記のAPIを呼び出すSwiftコードをコンパイルするとき、コンパイラは自動的ににメモリ管理用の呼び出しを行う。
+Core Foundation objectsを返さないAPIを利用するときは、このセクションをスキップしてね。
+でないのならunmanaged Core Foundation objectsの操作について学んでね。
+Unmanaged Objects
+Swiftが提供されているAPIをimportするときに、コンパイラは自動的に返却されたCore Foundation Objectsをメモリ管理できないよ
+SwiftはUnmanaged&lt;T&gt;構造体内でこれらの返却されたCore Foundation objectsを内包する
+間接的に返却されたCore Foundation objectsのすべては管理されい。例えば以下のように宣言できる
+Objective-C
+CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)
+Swift
+func StringByAddingTwoStrings(CFString!, CFString!) -&gt; Unmanaged&lt;CFString&gt;!
+非管理のオブジェクトを受け取るとき、あなたは直接メモり管理されたオブジェクトに変換すべきです、非管理のオブジェクトを受け取る前に。
+この方法でSwiftは手動でメモリ管理を行うことができる。
+Unmanaged構造体は非管理オブジェクトをメモリ管理されたobjectにtakeUnretainedValue()に変換したり、takeRetainedValue()に変換したりと２つの方法を提供する。
+あなたは自分が呼びだだしているAPIがunretained objectやretained objectを返すかどうかを基本に利用するためにどちらかのメソッドを選べる。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>About Core Foudation in Working with Cocoa Data Types - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">About Core Foudation in Working with Cocoa Data Types</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-07-26">July 26, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>AV Foundation関連のプログラムをSwiftで書き直しているときに、単純に変換できないところがあったので
+一旦でキュメントに振り返って読み直してみました。</p>
+<p>参照先はAppleの<a href="https://developer.apple.com/library/prerelease/mac/documentation/Swift/Conceptual/BuildingCocoaApps/WorkingWithCocoaDataTypes.html">公式ドキュメント</a>に記載してあるのを自分なりに翻訳してみました。</p>
+<h1 id="core-foundation">Core Foundation</h1>
+<p><code>Core Foundation</code>型は自動的に<code>full-fledged</code>なSwiftクラスとしてインポートされる。
+メモリ管理が提供されるときはいつでも、Swiftは自動的に<code>Core Foundation objects</code>のメモリを管理し、
+自身をインスタンス化した<code>Core Foundation objects</code>をインクルードして管理します。Swift内で、
+あなたは<code>toll-free bridged</code>な<code>Foundation</code>と<code>Core Foundation</code>の両方を相互に変換できる。
+あなたはブリッジしている<code>Foundation</code>型をキャストするならSwiftの標準ライブラリに対して<code>toll-free bridged</code>な
+<code>Core Foundation</code>型をブリッジすることができる</p>
+<ul>
+<li>toll-free bridged
+<ul>
+<li>オブジェクトを変換することなくキャストすることで相互変換可能な仕組みのことを指すらしいです</li>
+</ul>
+</li>
+</ul>
+<h2 id="remapped-types">Remapped Types</h2>
+<p>Swiftは<code>Core Foundation</code>型をインポートするとき、コンパイラはそれらの型名を再配置する
+コンパイラは各型の最後に記述されている<code>Ref</code>を削除する、なぜならSwiftクラスのすべては参照型、
+それゆえにサフィックスはいらない</p>
+<p><code>CFTypeRef</code>は<code>AnyObject</code>に再配置されるよ。<code>CFTypeRef</code>をつかうときは<code>AnyObject</code>を利用すべきだ！</p>
+<h2 id="memory-managed-objects">Memory Managed Objects</h2>
+<p>APIから返却された<code>Core Foundation objects</code>はSwiftで自動的にメモリ管理される。
+あなたは自分自身でCFRetain、CFRelease、CFAutoreleaseを呼び出す必要はない。独自のCの関数から<code>Core Foundation objects</code>
+を返すのなら、それらを<code>CF_RETURNS_RETAINED</code>と<code>CF_RETURNS_NOT_RETAINED</code>のいずれかを使ってアノテートする。
+上記のAPIを呼び出すSwiftコードをコンパイルするとき、コンパイラは自動的ににメモリ管理用の呼び出しを行う。
+<code>Core Foundation objects</code>を返さないAPIを利用するときは、このセクションをスキップしてね。
+でないのなら<code>unmanaged Core Foundation objects</code>の操作について学んでね。</p>
+<h2 id="unmanaged-objects">Unmanaged Objects</h2>
+<p>Swiftが提供されているAPIをimportするときに、コンパイラは自動的に返却された<code>Core Foundation Objects</code>をメモリ管理できないよ
+Swiftは<code>Unmanaged&lt;T&gt;</code>構造体内でこれらの返却された<code>Core Foundation objects</code>を内包する
+間接的に返却された<code>Core Foundation objects</code>のすべては管理されい。例えば以下のように宣言できる</p>
+<h3 id="objective-c">Objective-C</h3>
+<pre tabindex="0"><code>CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)
+</code></pre><h3 id="swift">Swift</h3>
+<pre tabindex="0"><code>func StringByAddingTwoStrings(CFString!, CFString!) -&gt; Unmanaged&lt;CFString&gt;!
+</code></pre><p>非管理のオブジェクトを受け取るとき、あなたは直接メモり管理されたオブジェクトに変換すべきです、非管理のオブジェクトを受け取る前に。
+この方法でSwiftは手動でメモリ管理を行うことができる。
+Unmanaged<T>構造体は非管理オブジェクトをメモリ管理されたobjectに<code>takeUnretainedValue()</code>に変換したり、<code>takeRetainedValue()</code>に変換したりと２つの方法を提供する。
+あなたは自分が呼びだだしているAPIがunretained objectやretained objectを返すかどうかを基本に利用するためにどちらかのメソッドを選べる。</p>
+<h3 id="swift-1">Swift</h3>
+<pre tabindex="0"><code>let memoryManagedResult = StringByAddingTwoStrings(str1, str2).takeUnretainedValue()
+// memoryManagedResult is a memory managed CFString
+</code></pre><p>非管理のオブジェクトであるretain() release() autorelease() メソッドを呼び出すことができます、しかしこのアプローチは推奨されないよ</p>
+<h2 id="まとめ">まとめ</h2>
+<p>どうもSwiftでもARC非対応のものがあるので<code>Unmanaged&lt;T&gt;</code>構造体を利用して<code>takeUnretainedValue()</code>、<code>takeRetainedValue()</code>経由でメモリ管理されたオブジェクトにしなければならないようだ。
+とはいえまだ完全理解というわけではないので引き続き調べていこうと思う。</p>
+<h2 id="参考文献">参考文献</h2>
+<div style="margin-bottom:5px;"><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%A7%A3-Objective-C-2-0-%E7%AC%AC3%E7%89%88-%E8%8D%BB%E5%8E%9F/dp/4797368276%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4797368276" target="_blank" title="詳解 Objective-C 2.0 第3版"><img src="http://ecx.images-amazon.com/images/I/41VdFg9YqsL._SL160_.jpg" width="115" height="150" alt="詳解 Objective-C 2.0 第3版" style="border:0;border-radius:0" /></a></div><a href="http://www.amazon.co.jp/%E8%A9%B3%E8%A7%A3-Objective-C-2-0-%E7%AC%AC3%E7%89%88-%E8%8D%BB%E5%8E%9F/dp/4797368276%3FSubscriptionId%3D0AVSM5SVKRWTFMG7ZR82%26tag%3Ddaichibnejp-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4797368276" target="_blank">詳解 Objective-C 2.0 第3版</a>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

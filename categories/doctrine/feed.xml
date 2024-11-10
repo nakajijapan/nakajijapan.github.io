@@ -1,0 +1,148 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Doctrine on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/doctrine/</link>
+        <description>Recent content in Doctrine on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Mon, 15 Feb 2010 17:39:29 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/doctrine/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Doctrine の仕様的なもの。(V1.2)</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-15_1612/</link>
+            <pubDate>Mon, 15 Feb 2010 17:39:29 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-15_1612/</guid>
+            <description>&lt;p&gt;カラムのタイプで文字列の型を指定するとき、２５６以上にするとTEXT型になってしまう。&lt;/p&gt;
+&lt;pre class=&#34;brush: php&#34;&gt;
+Account:
+  columns:
+    username:
+      type: string(256)
+&lt;/pre&gt;
+&lt;p&gt;とりあえず限界が２５５でそれ以降はなぜかTEXT型でした。
+なんか設定の意図でもあるのかな＝＝＝＝。。
+どう見えてもバグのような気がする。&lt;/p&gt;
+&lt;p&gt;だって普通にvarchar(1024)てやりたい場合で絶対できくるはずなのに。&lt;/p&gt;
+&lt;p&gt;ちょっと使えないDoctrine_Cli&lt;/p&gt;
+&lt;p&gt;追記：（2月15日）
+・CLIコマンドは主キーを「id」にしないとうまいこと機能しない。(ハックすればいいんだけどね！！)
+・カラム制限がいろいろある。(ハックすればいいんだけどね！！)&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Doctrineでパーティショニングするときのための技術調査その１</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-09_415/</link>
+            <pubDate>Tue, 09 Feb 2010 15:02:18 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-09_415/</guid>
+            <description>&lt;p&gt;パーティショニングしながらDoctrineてつかえるのだろうかとふと思いしらべてみたらあった。
+ちょっちバージョンは古いけど&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.doctrine-project.org/jira/browse/DC-51&#34;&gt;ここからの引用&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+Please add ability not to create foreign key to database before releasing the last LTS version of Doctrine.
+&lt;p&gt;Creating foreign key is usually good, but there are some situations that we should not use foreign key.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In MySQL, partitioning doesn&amp;rsquo;t support foreign key. Partitioning is a good practice for very large tables. If you want to get information about it, visit: &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html&#34;&gt;http://dev.mysql.com/doc/refman/5.1/en/partitioning-limitations.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;As the case may be, foreign keys in database will rule out doing application-level-cascading-delete.&lt;/li&gt;
+&lt;li&gt;MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.g. MyISAM). We have to decrease warnings.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle.&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Doctrineを利用して実際の処理をしてみるの</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-09_414/</link>
+            <pubDate>Tue, 09 Feb 2010 14:16:42 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-09_414/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;http://blog.nakajijapan.net/?p=408&#34;&gt;Doctrineいれてみる　with zend&lt;/a&gt;からの続きです。&lt;/p&gt;
+&lt;p&gt;では実際にDoctrineで生成されたクラスを利用して
+データベースの操作を行ってみましょう。&lt;/p&gt;
+&lt;p&gt;ユーザデータ一覧取得&lt;/p&gt;
+&lt;pre class=&#34;brush: php&#34;&gt;
+            // user
+             $query = Doctrine_Query::create()
+                     -&gt;from(&#39;User u&#39;)
+                     -&gt;orderBy(&#39;u.id&#39;)
+                           ;
+            $lists = $query-&gt;execute();
+&lt;/pre&gt;
+&lt;p&gt;ユーザデータ作成&lt;/p&gt;
+&lt;pre class=&#34;brush: php&#34;&gt;
+            // user
+            $user = new User();
+            $user-&gt;username = &#34;username&#34;
+            $user-&gt;password = &#34;password&#34;
+            $user-&gt;save();
+&lt;/pre&gt;
+&lt;p&gt;ユーザデータ削除&lt;/p&gt;
+&lt;pre class=&#34;brush: php&#34;&gt;
+            //$user = new User();
+            $query = Doctrine_Query::create()
+                                    -&gt;delete(&#34;User u&#34;)
+                                    -&gt;whereIn(&#34;id&#34;, $prms[&#34;delid&#34;]);
+            $delcnt = $query-&gt;execute();
+&lt;/pre&gt;
+&lt;p&gt;ユーザデータ変更&lt;/p&gt;
+&lt;pre class=&#34;brush: php&#34;&gt;
+            // user
+            $user = Doctrine::getTable(&#39;User&#39;)-&gt;find(1);
+            
+            $user-&gt;username = &#34;modified_username&#34;
+            $user-&gt;password = &#34;modified_password&#34;
+            $user-&gt;save();
+&lt;/pre&gt;
+&lt;p&gt;ちょっと応用してみます。
+情報取得時にテーブルをJOINして取得します。&lt;/p&gt;
+&lt;pre class=&#34;brush: php&#34;&gt;
+            // user and group
+            $query = Doctrine_Query::create()
+                     -&gt;from(&#39;User u&#39;)
+                     -&gt;leftJoin(&#39;u.Group g&#39;)
+                     -&gt;orderBy(&#39;u.id&#39;)
+                           ;
+            $lists = $query-&gt;execute();
+            $this-&gt;view-&gt;lists = $lists;
+&lt;/pre&gt;
+&lt;p&gt;上記処理は、Doctrine独自の書き方でDoctrine側であらかじめ関連づけしといてカラムと繋ぎ合せて
+自動でSQLを作成しています。なのでSQLのなかで勝手に「UserGroup」テーブルがジョインされています。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Doctrineいれてみる　with zend</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-07_408/</link>
+            <pubDate>Sun, 07 Feb 2010 23:34:03 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-07_408/</guid>
+            <description>&lt;p&gt;doctrineを入れてみる。&lt;/p&gt;
+&lt;p&gt;久々にPHPでORMらしいツールがでましたね。
+Hibernateをインスパイアされたものらしいので結構使えそうかも
+って思ってインストールしてみました。&lt;/p&gt;
+&lt;p&gt;ちなみに今は、ZendFrameworkを使っていたのでそこに組み込んでみることにする。&lt;/p&gt;
+&lt;blockquote&gt;
+Doctrine is an object relational mapper (ORM) for PHP 5.2.3+ that sits on top of a powerful database abstraction layer (DBAL). One of its key features is the option to write database queries in a proprietary object oriented SQL dialect called Doctrine Query Language (DQL), inspired by Hibernates HQL. This provides developers with a powerful alternative to SQL that maintains flexibility without requiring unnecessary code duplication.&lt;/blockquote&gt;
+&lt;p&gt;まずはダウンロード。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Doctrine調査</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-03_419/</link>
+            <pubDate>Wed, 03 Feb 2010 15:03:45 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-03_419/</guid>
+            <description>&lt;div style=&#34;width:425px;text-align:left&#34; id=&#34;__ss_1462019&#34;&gt;&lt;a style=&#34;font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;&#34; href=&#34;http://www.slideshare.net/jwage/what-is-doctrine&#34; title=&#34;What Is Doctrine?&#34;&gt;What Is Doctrine?&lt;/a&gt;&lt;object style=&#34;margin:0px&#34; width=&#34;425&#34; height=&#34;355&#34;&gt;&lt;param name=&#34;movie&#34; value=&#34;http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=whatisdoctrine-090519213611-phpapp02&amp;rel=0&amp;stripped_title=what-is-doctrine&#34; /&gt;&lt;param name=&#34;allowFullScreen&#34; value=&#34;true&#34;/&gt;&lt;param name=&#34;allowScriptAccess&#34; value=&#34;always&#34;/&gt;&lt;embed src=&#34;http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=whatisdoctrine-090519213611-phpapp02&amp;rel=0&amp;stripped_title=what-is-doctrine&#34; type=&#34;application/x-shockwave-flash&#34; allowscriptaccess=&#34;always&#34; allowfullscreen=&#34;true&#34; width=&#34;425&#34; height=&#34;355&#34;&gt;&lt;/embed&gt;&lt;/object&gt;&lt;div style=&#34;font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;&#34;&gt;View more &lt;a style=&#34;text-decoration:underline;&#34; href=&#34;http://www.slideshare.net/&#34;&gt;presentations&lt;/a&gt; from &lt;a style=&#34;text-decoration:underline;&#34; href=&#34;http://www.slideshare.net/jwage&#34;&gt;Jonathan Wage&lt;/a&gt;.&lt;/div&gt;&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

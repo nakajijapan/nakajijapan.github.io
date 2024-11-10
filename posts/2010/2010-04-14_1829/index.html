@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="大量のデータをリクエストで送ってみる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-04-14_1829/" />
+<meta property="go:description" content="今の時代、複数枚の画像を一気に一つのリクエストで送るのありないけどときにやらないときもあるの。
+でも単純にできなかったので調査。
+以下、はてなをパクリつつチェックしてみた。
+■＜form method=post＞ で渡すデータ量に制限はない
+・HTTPヘッダの ContentsLength は 0 以上なら全て有効
+■Apache側で受け取るコンテンツの長さの設定ができる
+LimitRequestBody ディレクティブ（デフォルトは無制限）
+■PHP側での制限　変数の容量限界は設定された使用メモリ量に依存
+デフォルトでは8Mの設定になっていると思います。
+php.ini の、 memory_limit を参照してみてください
+■大量データを受け取る際のタイムアウトがあり得る
+あまり大きいとアップロード中にPHPがタイムアウトするかも。
+php.ini の max_execution_time を長めに取る等対策要？
+自分のところは「Content-Length」のサイズを予め設定しておく必要あるのかな。
+と思ってZendで以下の設定をすることにした。
+
+phpSettings.default_charset            = &#34;UTF-8&#34;
+phpSettings.default_mimetype           = &#34;text/html&#34;
+phpSettings.memory_limit               = -1
+phpSettings.post_max_size              = 20971520
+phpSettings.upload_max_filesize        = 20971520
+
+一応サイズは都合上２０Mぐらいにしたのだが
+エラ－で８M以上は遅れないよっていうレスポンスを返してきやがったぜ。
+php.iniで変更しないとだめなのか、そもそもそんな設定がphp.iniになるのか
+よくわかめ
+＜追記＞
+とおもったら単純ミスーーーーーー
+「post_max_size」「upload_max_filesize」はphp.iniで設定しないと反映されないんだった！！！！
+PHP：実行時設定
+
+# application.ini
+phpSettings.default_charset            = &#34;UTF-8&#34;
+phpSettings.default_mimetype           = &#34;text/html&#34;
+phpSettings.memory_limit               = -1
+;消さなきゃ
+;phpSettings.post_max_size              = 20971520
+;phpSettings.upload_max_filesize        = 20971520
+
+
+# php.ini
+post_max_size = 20M
+; 下記は一応
+upload_max_filesize = 2M
+max_file_uploads = 20
+
+教訓
+
+「変更の可否」部分を要確認
+PHP_INI_USER	ユーザスクリプトまたはWindowsレジストリ  で設定可能なエントリ
+PHP_INI_PERDIR	php.ini, .htaccess または httpd.confで設定可能なエントリ
+PHP_INI_SYSTEM	php.ini または httpd.confで設定可能なエントリ
+PHP_INI_ALL	どこでも設定可能なエントリ
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="大量のデータをリクエストで送ってみる" />
+<meta name="twitter:description" content="今の時代、複数枚の画像を一気に一つのリクエストで送るのありないけどときにやらないときもあるの。
+でも単純にできなかったので調査。
+以下、はてなをパクリつつチェックしてみた。
+■＜form method=post＞ で渡すデータ量に制限はない
+・HTTPヘッダの ContentsLength は 0 以上なら全て有効
+■Apache側で受け取るコンテンツの長さの設定ができる
+LimitRequestBody ディレクティブ（デフォルトは無制限）
+■PHP側での制限　変数の容量限界は設定された使用メモリ量に依存
+デフォルトでは8Mの設定になっていると思います。
+php.ini の、 memory_limit を参照してみてください
+■大量データを受け取る際のタイムアウトがあり得る
+あまり大きいとアップロード中にPHPがタイムアウトするかも。
+php.ini の max_execution_time を長めに取る等対策要？
+自分のところは「Content-Length」のサイズを予め設定しておく必要あるのかな。
+と思ってZendで以下の設定をすることにした。
+
+phpSettings.default_charset            = &#34;UTF-8&#34;
+phpSettings.default_mimetype           = &#34;text/html&#34;
+phpSettings.memory_limit               = -1
+phpSettings.post_max_size              = 20971520
+phpSettings.upload_max_filesize        = 20971520
+
+一応サイズは都合上２０Mぐらいにしたのだが
+エラ－で８M以上は遅れないよっていうレスポンスを返してきやがったぜ。
+php.iniで変更しないとだめなのか、そもそもそんな設定がphp.iniになるのか
+よくわかめ
+＜追記＞
+とおもったら単純ミスーーーーーー
+「post_max_size」「upload_max_filesize」はphp.iniで設定しないと反映されないんだった！！！！
+PHP：実行時設定
+
+# application.ini
+phpSettings.default_charset            = &#34;UTF-8&#34;
+phpSettings.default_mimetype           = &#34;text/html&#34;
+phpSettings.memory_limit               = -1
+;消さなきゃ
+;phpSettings.post_max_size              = 20971520
+;phpSettings.upload_max_filesize        = 20971520
+
+
+# php.ini
+post_max_size = 20M
+; 下記は一応
+upload_max_filesize = 2M
+max_file_uploads = 20
+
+教訓
+
+「変更の可否」部分を要確認
+PHP_INI_USER	ユーザスクリプトまたはWindowsレジストリ  で設定可能なエントリ
+PHP_INI_PERDIR	php.ini, .htaccess または httpd.confで設定可能なエントリ
+PHP_INI_SYSTEM	php.ini または httpd.confで設定可能なエントリ
+PHP_INI_ALL	どこでも設定可能なエントリ
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>大量のデータをリクエストで送ってみる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">大量のデータをリクエストで送ってみる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-04-14">April 14, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/php">PHP</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>今の時代、複数枚の画像を一気に一つのリクエストで送るのありないけどときにやらないときもあるの。
+でも単純にできなかったので調査。</p>
+<p>以下、はてなをパクリつつチェックしてみた。</p>
+<p>■＜form method=post＞ で渡すデータ量に制限はない
+・HTTPヘッダの ContentsLength は 0 以上なら全て有効</p>
+<p>■Apache側で受け取るコンテンツの長さの設定ができる
+LimitRequestBody ディレクティブ（デフォルトは無制限）</p>
+<p>■PHP側での制限　変数の容量限界は設定された使用メモリ量に依存
+デフォルトでは8Mの設定になっていると思います。
+php.ini の、 memory_limit を参照してみてください</p>
+<p>■大量データを受け取る際のタイムアウトがあり得る
+あまり大きいとアップロード中にPHPがタイムアウトするかも。
+php.ini の max_execution_time を長めに取る等対策要？</p>
+<p>自分のところは「Content-Length」のサイズを予め設定しておく必要あるのかな。</p>
+<p>と思ってZendで以下の設定をすることにした。</p>
+<pre class="brush: bash">
+phpSettings.default_charset            = "UTF-8"
+phpSettings.default_mimetype           = "text/html"
+phpSettings.memory_limit               = -1
+phpSettings.post_max_size              = 20971520
+phpSettings.upload_max_filesize        = 20971520
+</pre>
+<p>一応サイズは都合上２０Mぐらいにしたのだが</p>
+<p>エラ－で８M以上は遅れないよっていうレスポンスを返してきやがったぜ。</p>
+<p>php.iniで変更しないとだめなのか、そもそもそんな設定がphp.iniになるのか</p>
+<p>よくわかめ</p>
+<p>＜追記＞
+とおもったら単純ミスーーーーーー</p>
+<p>「post_max_size」「upload_max_filesize」はphp.iniで設定しないと反映されないんだった！！！！</p>
+<p><a href="http://php.net/manual/ja/ini.core.php">PHP：実行時設定</a></p>
+<pre class="brush: bash">
+# application.ini
+phpSettings.default_charset            = "UTF-8"
+phpSettings.default_mimetype           = "text/html"
+phpSettings.memory_limit               = -1
+;消さなきゃ
+;phpSettings.post_max_size              = 20971520
+;phpSettings.upload_max_filesize        = 20971520
+</pre>
+<pre class="brush: bash">
+# php.ini
+post_max_size = 20M
+; 下記は一応
+upload_max_filesize = 2M
+max_file_uploads = 20
+</pre>
+<h3>教訓</h3>
+<blockquote>
+「変更の可否」部分を要確認
+PHP_INI_USER	ユーザスクリプトまたはWindowsレジストリ  で設定可能なエントリ
+PHP_INI_PERDIR	php.ini, .htaccess または httpd.confで設定可能なエントリ
+PHP_INI_SYSTEM	php.ini または httpd.confで設定可能なエントリ
+PHP_INI_ALL	どこでも設定可能なエントリ
+</blockquote>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

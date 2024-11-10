@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Zend_Application に　Autoloderの設定を行う">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-10-31_2500/" />
+<meta property="go:description" content="昔のバージョンだとZendのソースを書き換えなくちゃいけなかったけど1.10からは自分でZend_Application利用してカスタマイズできるようになったみたいです。
+まずはPHP.iniを以下のように設定します。
+設定項目としては、どのクラスが宣言された場合はどのディレクトリを読み込みにいくかという設定です。
+やりかたはいろいろあると思いますが、とりあえずこんな感じでいいかなレベルです。
+
+;--------------------
+; loader
+;--------------------
+; resources.autoloader.lists.(設定名) = &#34;(どのクラス),(読み込み先)&#34;
+resources.autoloader.lists.validate = &#34;Validate,models/Validate&#34;
+resources.autoloader.lists.dbtable = &#34;Model_DbTable,models/DbTable&#34;
+resources.autoloader.lists.mappers = &#34;Model_Mapper,models/mappers&#34;
+
+リソースのプログラムは以下のように実装します。
+
+
+/*
+ * My_Application_Resource_Autoloader
+ */
+class My_Application_Resource_Autoloader extends Zend_Application_Resource_ResourceAbstract
+{
+    /**
+     *
+     * @return My_Application_Resource_Autoloader
+     */
+    public function init()
+    {
+        // init
+        $router = null;
+
+        // オプション情報取得
+        $options = $this-&gt;getOptions();
+
+        $moduleLoader = new Zend_Application_Module_Autoloader(array(
+            &#39;basePath&#39; =&gt; APPLICATION_PATH,
+            &#39;namespace&#39; =&gt; &#39;&#39;,
+        ));
+
+        foreach ($options[&#39;lists&#39;] as $key =&gt; $resource ) {
+            $data = explode(&#39;,&#39;, $resource);
+            $moduleLoader-&gt;addResourceType($key, $data[1], $data[0]);
+        }
+
+        return ;
+    }
+}
+
+
+これでいけるはず！！！" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Zend_Application に　Autoloderの設定を行う" />
+<meta name="twitter:description" content="昔のバージョンだとZendのソースを書き換えなくちゃいけなかったけど1.10からは自分でZend_Application利用してカスタマイズできるようになったみたいです。
+まずはPHP.iniを以下のように設定します。
+設定項目としては、どのクラスが宣言された場合はどのディレクトリを読み込みにいくかという設定です。
+やりかたはいろいろあると思いますが、とりあえずこんな感じでいいかなレベルです。
+
+;--------------------
+; loader
+;--------------------
+; resources.autoloader.lists.(設定名) = &#34;(どのクラス),(読み込み先)&#34;
+resources.autoloader.lists.validate = &#34;Validate,models/Validate&#34;
+resources.autoloader.lists.dbtable = &#34;Model_DbTable,models/DbTable&#34;
+resources.autoloader.lists.mappers = &#34;Model_Mapper,models/mappers&#34;
+
+リソースのプログラムは以下のように実装します。
+
+
+/*
+ * My_Application_Resource_Autoloader
+ */
+class My_Application_Resource_Autoloader extends Zend_Application_Resource_ResourceAbstract
+{
+    /**
+     *
+     * @return My_Application_Resource_Autoloader
+     */
+    public function init()
+    {
+        // init
+        $router = null;
+
+        // オプション情報取得
+        $options = $this-&gt;getOptions();
+
+        $moduleLoader = new Zend_Application_Module_Autoloader(array(
+            &#39;basePath&#39; =&gt; APPLICATION_PATH,
+            &#39;namespace&#39; =&gt; &#39;&#39;,
+        ));
+
+        foreach ($options[&#39;lists&#39;] as $key =&gt; $resource ) {
+            $data = explode(&#39;,&#39;, $resource);
+            $moduleLoader-&gt;addResourceType($key, $data[1], $data[0]);
+        }
+
+        return ;
+    }
+}
+
+
+これでいけるはず！！！" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Zend_Application に　Autoloderの設定を行う - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Zend_Application に　Autoloderの設定を行う</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-10-31">October 31, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/php">PHP</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>昔のバージョンだとZendのソースを書き換えなくちゃいけなかったけど1.10からは自分でZend_Application利用してカスタマイズできるようになったみたいです。</p>
+<p>まずはPHP.iniを以下のように設定します。
+設定項目としては、どのクラスが宣言された場合はどのディレクトリを読み込みにいくかという設定です。</p>
+<p>やりかたはいろいろあると思いますが、とりあえずこんな感じでいいかなレベルです。</p>
+<pre class="brush:php">
+;--------------------
+; loader
+;--------------------
+; resources.autoloader.lists.(設定名) = "(どのクラス),(読み込み先)"
+resources.autoloader.lists.validate = "Validate,models/Validate"
+resources.autoloader.lists.dbtable = "Model_DbTable,models/DbTable"
+resources.autoloader.lists.mappers = "Model_Mapper,models/mappers"
+</pre>
+<p>リソースのプログラムは以下のように実装します。</p>
+<pre class="brush:php">
+
+/*
+ * My_Application_Resource_Autoloader
+ */
+class My_Application_Resource_Autoloader extends Zend_Application_Resource_ResourceAbstract
+{
+    /**
+     *
+     * @return My_Application_Resource_Autoloader
+     */
+    public function init()
+    {
+        // init
+        $router = null;
+
+        // オプション情報取得
+        $options = $this->getOptions();
+
+        $moduleLoader = new Zend_Application_Module_Autoloader(array(
+            'basePath' => APPLICATION_PATH,
+            'namespace' => '',
+        ));
+
+        foreach ($options['lists'] as $key => $resource ) {
+            $data = explode(',', $resource);
+            $moduleLoader->addResourceType($key, $data[1], $data[0]);
+        }
+
+        return ;
+    }
+}
+
+</pre>
+<p>これでいけるはず！！！</p>
+<p>■参考URL
+<a href="http://d.hatena.ne.jp/sasezaki/20090415/p1"><a href="http://d.hatena.ne.jp/sasezaki/20090415/p1">http://d.hatena.ne.jp/sasezaki/20090415/p1</a><a></p>
+<p>15/p1<a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

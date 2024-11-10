@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Rails &#43; Thinで構成してみる in Scientific Linux">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2012/01/31/rails--thin%E3%81%A7%E6%A7%8B%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B-in-scientific-linux/" />
+<meta property="go:description" content="さくらのVPSを借りることになったので早速Ruby&#43;Rails&#43;Thinで構築してみることにします。
+「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。
+ the Mongrel parser, the root of Mongrel speed and security
+Event Machine, a network I/O library with extremely high scalability, performance and stability
+Rack, a minimal interface between webservers and Ruby frameworks 
+RVMのインストール
+
+# bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+
+設定情報を追加
+
+[[ -s &#34;$HOME/.rvm/scripts/rvm&#34; ]] && . &#34;$HOME/.rvm/scripts/rvm&#34;
+
+
+# rvm  install 1.9.3
+# rvm  install 1.9.2
+# rvm --default use 1.9.3
+
+RubyGemsのインストール
+
+sudo /usr/local/rvm/bin/ruby setup.rb
+gem update --system
+
+Mysqlのインストール
+
+gem install mysql2
+
+これの前提条件として" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Rails &#43; Thinで構成してみる in Scientific Linux" />
+<meta name="twitter:description" content="さくらのVPSを借りることになったので早速Ruby&#43;Rails&#43;Thinで構築してみることにします。
+「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。
+ the Mongrel parser, the root of Mongrel speed and security
+Event Machine, a network I/O library with extremely high scalability, performance and stability
+Rack, a minimal interface between webservers and Ruby frameworks 
+RVMのインストール
+
+# bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+
+設定情報を追加
+
+[[ -s &#34;$HOME/.rvm/scripts/rvm&#34; ]] && . &#34;$HOME/.rvm/scripts/rvm&#34;
+
+
+# rvm  install 1.9.3
+# rvm  install 1.9.2
+# rvm --default use 1.9.3
+
+RubyGemsのインストール
+
+sudo /usr/local/rvm/bin/ruby setup.rb
+gem update --system
+
+Mysqlのインストール
+
+gem install mysql2
+
+これの前提条件として" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Rails &#43; Thinで構成してみる in Scientific Linux - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Rails &#43; Thinで構成してみる in Scientific Linux</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-01-31">January 31, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ruby">Ruby</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>さくらのVPSを借りることになったので早速Ruby+Rails+Thinで構築してみることにします。</p>
+<p>「Thin」てどういうものかって勝手にまとめてみると軽量で高速なRails専用のWebサーバらしいです。</p>
+<blockquote> the Mongrel parser, the root of Mongrel speed and security
+Event Machine, a network I/O library with extremely high scalability, performance and stability
+Rack, a minimal interface between webservers and Ruby frameworks </blockquote>
+<h3>RVMのインストール</h3>
+<pre class="brush:bash">
+# bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+</pre>
+<h3>設定情報を追加</h3>
+<pre class="brush:bash">
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+</pre>
+<pre class="brush:bash">
+# rvm  install 1.9.3
+# rvm  install 1.9.2
+# rvm --default use 1.9.3
+</pre>
+<h3>RubyGemsのインストール</h3>
+<pre class="brush:bash">
+sudo /usr/local/rvm/bin/ruby setup.rb
+gem update --system
+</pre>
+<h3>Mysqlのインストール</h3>
+<pre class="brush:bash">
+gem install mysql2
+</pre>
+<p>これの前提条件として</p>
+<pre class="brush:bash">
+yum install mysql mysql-server mysql-devel 
+</pre>
+<p>が必要になる。</p>
+<h3>Thinのインストール：Ruby専用サーバ</h3>
+<pre class="brush:bash">
+gem install execjs
+gem install therubyracer
+gem install thin
+</pre>
+<p>これでブラウザで画面がみれるようになれば完成です。しかし、Thinとは別にまたUnicornらしきものがでていることを知ったので勉強がてらいれてみることにします。それは後ほど。</p>
+<p>■リファレンス
+<a href="http://www.ruby-lang.org/ja/">http://www.ruby-lang.org/ja/</a>
+<a href="http://rubygems.org/">http://rubygems.org/</a>
+<a href="http://beginrescueend.com/">http://beginrescueend.com/</a>
+<a href="http://code.macournoyer.com/thin/">http://code.macournoyer.com/thin/</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

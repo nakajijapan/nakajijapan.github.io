@@ -1,0 +1,85 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Objective-C on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/objective-c/</link>
+        <description>Recent content in Objective-C on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Mon, 09 Jan 2012 17:57:19 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/objective-c/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Code Sign error: Provisioning profile hogehoge can not be found がでたとき</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-01-09_3089/</link>
+            <pubDate>Mon, 09 Jan 2012 17:57:19 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-01-09_3089/</guid>
+            <description>&lt;p&gt;iPhone変更したからそれにともない鍵の更新が必要になった。
+何も気にせずしようとしたらタイトルのようなエラーが発生したのでメモ。&lt;/p&gt;
+&lt;p&gt;hogehoge.xcodeproj/project.pbxprojファイルをテキストエディタで開きます。
+「PROVISIONING PROFILE」なる部分をすでにiPhoneで設定されている鍵と合わせて変更すると解決する模様。&lt;/p&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/01/9aeaa01f4e4cdbc950cc30e879d1e7cf.png&#34; alt=&#34;&#34; title=&#34;Provisioning Profile&#34; width=&#34;646&#34; height=&#34;289&#34; class=&#34;aligncenter size-full wp-image-3090&#34; /&gt;
+&lt;p&gt;全部置換すて、無事解決しました。&lt;/p&gt;
+&lt;p&gt;■参考URL
+&lt;a href=&#34;http://ameblo.jp/iphone0126/entry-10862455082.html&#34;&gt;http://ameblo.jp/iphone0126/entry-10862455082.html&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>storyboadのページ遷移で「custom」を利用してみる</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-01-02_3051/</link>
+            <pubDate>Mon, 02 Jan 2012 22:07:12 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-01-02_3051/</guid>
+            <description>&lt;p&gt;普段は「push」か「modal」で実装するけど、場合によっては違う見せ方をしたほうがいい場合があると思います。&lt;/p&gt;
+&lt;p&gt;そこで「custom」を利用してページ遷移をもっとインタラクティブに見せる実装を行います。&lt;/p&gt;
+&lt;p&gt;まずは「UIStoryboardSegue」なるクラスを継承した「DetailSegue」を作成してみます。&lt;/p&gt;
+&lt;pre class=&#34;brush:cpp&#34;&gt;
+#import &#34;DetailSegue.h&#34;
+
+@implementation DetailSegue
+
+
+- (void)perform {
+    
+    // if either source or destination is nil, stop
+    if (nil == self.sourceViewController || nil == self.destinationViewController) return;
+    
+    UINavigationController *ctrlSrc = [self.sourceViewController navigationController];
+
+    [UIView beginAnimations:@&#34;fadeOst&#34; context:nil];
+    [UIView setAnimationDuration: 0.1];
+    
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop)];
+    [[ctrlSrc view] setAlpha: 0.3];
+    
+    [UIView commitAnimations];
+}
+// animation end event 
+- (void)animationDidStop {
+    UINavigationController *ctrlSrc = [self.sourceViewController navigationController];
+    
+    [UIView beginAnimations:@&#34;fadeIn&#34; context:nil];
+    [UIView setAnimationDuration: 0.5];
+    
+    [ctrlSrc pushViewController:self.destinationViewController animated:NO];
+    [[ctrlSrc view] setAlpha: 1];    
+    [UIView commitAnimations];
+}
+
+@end
+&lt;/pre&gt;
+&lt;p&gt;次にStroryboadで設定を行います。以下のSeguesのCustomにしている部分（矢印）を右クリックして先ほど作成したクラスを指定するとできあがりです。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

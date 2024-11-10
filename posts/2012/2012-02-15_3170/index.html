@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="sorceryを使ってログイン処理を作成してみる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2012/2012-02-15_3170/" />
+<meta property="go:description" content="Railsでsorceryを使ってログイン処理を実現してみることにします。
+まずはMysqlを理由するのでそれに関連したプラグインもいれてきます。
+Gemfileに必要なプラグインを記述
+
+gem &#39;mysql2&#39;
+gem &#39;sorcery&#39;
+gem &#39;refinerycms&#39;
+bundle install
+
+DBの設定を行います
+
+development:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+# Warning: The database defined as &#34;test&#34; will be erased and
+# re-generated from your development database when you run &#34;rake&#34;.
+# Do not set this db to the same as development or production.
+test:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+production:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+とりあえず、WEBサーバが動作するようにUnicornの設定をします。（内容はとりあえず、動作する目的で記述しているのであまりつっこまないでください）" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="sorceryを使ってログイン処理を作成してみる" />
+<meta name="twitter:description" content="Railsでsorceryを使ってログイン処理を実現してみることにします。
+まずはMysqlを理由するのでそれに関連したプラグインもいれてきます。
+Gemfileに必要なプラグインを記述
+
+gem &#39;mysql2&#39;
+gem &#39;sorcery&#39;
+gem &#39;refinerycms&#39;
+bundle install
+
+DBの設定を行います
+
+development:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+# Warning: The database defined as &#34;test&#34; will be erased and
+# re-generated from your development database when you run &#34;rake&#34;.
+# Do not set this db to the same as development or production.
+test:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+production:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+とりあえず、WEBサーバが動作するようにUnicornの設定をします。（内容はとりあえず、動作する目的で記述しているのであまりつっこまないでください）" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>sorceryを使ってログイン処理を作成してみる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">sorceryを使ってログイン処理を作成してみる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-02-15">February 15, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ruby">Ruby</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>Railsでsorceryを使ってログイン処理を実現してみることにします。</p>
+<p>まずはMysqlを理由するのでそれに関連したプラグインもいれてきます。
+Gemfileに必要なプラグインを記述</p>
+<pre class="brush:bash">
+gem 'mysql2'
+gem 'sorcery'
+gem 'refinerycms'
+bundle install
+</pre>
+<p>DBの設定を行います</p>
+<pre class="brush:bash">
+development:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+
+production:
+  adapter: mysql2
+  database: gifanime
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+</pre>
+<p>とりあえず、WEBサーバが動作するようにUnicornの設定をします。（内容はとりあえず、動作する目的で記述しているのであまりつっこまないでください）</p>
+<pre class="brush:ruby">
+# -*- coding: utf-8 -*-
+# ワーカーの数
+worker_processes 2
+
+# capistrano 用に RAILS_ROOT を指定
+app_path = "/Users/nakajimadaichi/develop/gifanime/"
+working_directory app_path
+
+# ソケット
+listen  '/tmp/unicorn.sock'
+
+# ログ
+rails_env = ENV['RAILS_ENV'] || 'production'
+if rails_env == 'production'
+  stderr_path 'log/unicorn.log'
+  stdout_path 'log/unicorn.log'
+else
+  # stdout
+end
+
+# ダウンタイムなくす
+preload_app true
+
+before_fork do |server, worker| defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+  old_pid = "#{ server.config[:pid] }.oldbin"
+  unless old_pid == server.pid
+    begin
+      # SIGTTOU だと worker_processes が多いときおかしい気がする
+      Process.kill :QUIT, File.read(old_pid).to_i
+      rescue Errno::ENOENT, Errno::ESRCH
+    end
+  end
+end
+
+after_fork do |server, worker|
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+end
+</pre>
+<p>前回の設定をちょっとかえてて、環境によってエラー出力をファイル出力か標準出力ぐらいのことしてます。
+最後に起動してこんなふうに出力すればとりあえず完了。。</p>
+<pre class="brush:bash">
+$ unicorn_rails -c config/unicorn.rb -E development -p 5000
+I, [2012-02-12T19:35:14.296704 #4448]  INFO -- : unlinking existing socket=/tmp/unicorn.sock
+I, [2012-02-12T19:35:14.297074 #4448]  INFO -- : listening on addr=/tmp/unicorn.sock fd=5
+I, [2012-02-12T19:35:14.298091 #4448]  INFO -- : listening on addr=0.0.0.0:5000 fd=6
+I, [2012-02-12T19:35:14.298290 #4448]  INFO -- : Refreshing Gem list
+I, [2012-02-12T19:35:16.681432 #4448]  INFO -- : master process ready
+I, [2012-02-12T19:35:16.694516 #4477]  INFO -- : worker=0 ready
+I, [2012-02-12T19:35:16.698188 #4478]  INFO -- : worker=1 ready
+</pre>
+<p>次はsorceryのインストールです。</p>
+<pre class="brush:bash">
+# デフォルトのインストール
+rails generate sorcery:install
+# ユーザのリソースを作成
+rails g scaffold User username:string email:string crypted_password:string salt:string
+# DBは婦負
+rake db:migrate
+# セッション用のコントローラ作成
+rails g controller UserSessions new create destroy
+</pre>
+<p>あとはsorceryが公開されているgithubのwikiをみて写経していきます。</p>
+<pre class="brush:ruby">
+# views/user_sessions/new.html.erb
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+     <%= f.label :password %><br />
+     <%= f.password_field :password %>
+  </div>
+  <div class="field">
+     <%= f.label :password_confirmation %><br />
+     <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</pre>
+<pre class="brush:ruby">
+# models/user.rb
+class User < ActiveRecord::Base
+  authenticates_with_sorcery!
+  #attr_accessible :email, :password, :password_confirmation
+
+  validates_length_of       :password, :minimum => 3, :message => "password must be at least 3 characters long", :if => :password
+  validates_confirmation_of :password, :message => "should match confirmation", :if => :password
+end
+</pre>
+<pre class="brush:ruby">
+# controllers/user_sessions_controller.rb
+class UserSessionsController < ApplicationController
+  before_filter :require_login
+  skip_before_filter :require_login, :only => [:index, :new, :create]
+  
+  def new
+    @user = User.new
+  end
+  
+  def create
+    respond_to do |format|
+      if @user = login(params[:username],params[:password])
+        format.html { redirect_back_or_to(:users, :notice => 'Login successful.') }
+        format.xml { render :xml => @user, :status => :created, :location => @user }
+      else
+        format.html { flash.now[:alert] = "Login failed."; render :action => "new" }
+        format.xml { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+    
+  def destroy
+    logout
+    redirect_to(:users, :notice => 'Logged out!')
+  end
+end
+
+</pre>
+<pre class="brush:ruby">
+# views/user_sessions/new.html.erb
+<h1>Login</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', user_sessions_path %>
+</pre>
+<pre class="brush:ruby">
+# views/user_sessions/_form.html.erb
+
+<%= form_tag user_sessions_path, :method => :post do %>
+  <div class="field">
+    <%= label_tag :username %><br />
+    <%= text_field_tag :username %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Login" %>
+  </div>
+<% end %>
+</pre>
+<pre class="brush:ruby">
+# config/routes.rb
+  root :to => 'users#index'
+  resources :user_sessions
+  resources :users
+  
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+</pre>
+<pre class="brush:ruby">
+# views/layouts/application.html.erb
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutorial</title>
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+  </head>
+  <body>
+    
+  <div id="nav">
+    <% if current_user %>
+      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+      <%= link_to "Logout", :logout %>
+    <% else %>
+      <%= link_to "Register", new_user_path %> |
+      <%= link_to "Login", :login %>
+    <% end %>
+  </div>
+  <div>
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
+  </div>
+  <%= yield %>
+    
+  </body>
+</html>
+</pre>
+<pre class="brush:ruby">
+# controllers/users_controller.rb
+class UsersController < ApplicationController
+  before_filter :require_login
+  skip_before_filter :require_login, :except => [:destroy]
+end
+</pre>
+<p>これでログイン可能になります。</p>
+<p>このプラグインには他にもTwitter認証やfacebook認証もできるみたいで「external」をサブモジュールに
+指定すればできるらしいです。</p>
+<p>■参照URL
+・Simple Password Authentication
+<a href="https://github.com/NoamB/sorcery/wiki/Simple-Password-Authentication">https://github.com/NoamB/sorcery/wiki/Simple-Password-Authentication</a></p>
+<p>・外部連携してログインする方法
+<a href="https://github.com/NoamB/sorcery/wiki/External">https://github.com/NoamB/sorcery/wiki/External</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

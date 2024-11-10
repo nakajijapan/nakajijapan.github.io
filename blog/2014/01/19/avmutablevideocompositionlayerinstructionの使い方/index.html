@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="AVMutableVideoCompositionLayerInstructionの使い方">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2014/01/19/avmutablevideocompositionlayerinstruction%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/" />
+<meta property="go:description" content="ビデオ用のAVMutableCompositionTrackにレイヤーを持たせることができます。
+それがAVMutableVideoCompositionLayerInstructionなんですがこれが意外と
+簡単に動画に対してCGAffineTransformを指定することで動画の移動・回転・拡大縮小
+ができたりフェードイン・アウトの設定ができたのでメモ。
+まずは対象のトラックをもとにして、レイヤーをインスタンス化します。
+&#43; (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track
+    AVMutableVideoCompositionLayerInstruction *layerInstruction;
+    layerInstruction = [AVMutableVideoCompositionLayerInstruction
+                        videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];
+TransForm
+- (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
+この例だと、３秒間左から動画が移動してきます。
+    // transition
+    CGAffineTransform rotateStart, rotateEnd;
+    startTime    = kCMTimeZero;
+    timeDuration = CMTimeMake(3, 1);
+    rotateStart  = CGAffineTransformMakeScale(1, 1);
+    rotateStart  = CGAffineTransformMakeTranslation(-720, 0);
+    rotateEnd    = CGAffineTransformTranslate(rotateStart, 720, 0);
+    [layerInstruction setTransformRampFromStartTransform:rotateStart
+                                          toEndTransform:rotateEnd
+                                               timeRange:CMTimeRangeMake(startTime, timeDuration)];
+Opacity
+- (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
+この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。
+    // fade in
+    CMTime startTime, timeDuration;
+    startTime    = kCMTimeZero;
+    timeDuration = CMTimeMake(3, 1);
+    [layerInstruction setOpacityRampFromStartOpacity:0.0
+                                        toEndOpacity:1.0
+                                           timeRange:CMTimeRangeMake(startTime, timeDuration)];
+
+
+    // fade out
+    startTime    = CMTimeSubtract(videoComposition.currentTimeDuration, CMTimeMake(3, 1));
+    timeDuration = CMTimeMake(3, 1);
+    [layerInstruction setOpacityRampFromStartOpacity:1.0
+                                        toEndOpacity:0.0
+                                           timeRange:CMTimeRangeMake(startTime, timeDuration)];
+まとめ
+Appleのドキュメントでこのクラスの説明をみると動画処理にしては結構シンプルだったので何個か試してみたのでした。
+ただ、CMTime関連・CGAffineTransform関連の知識はないと結構何がなんだかわからなくなるのであらかじめ知識として
+蓄えておくことはは必須ですね。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="AVMutableVideoCompositionLayerInstructionの使い方" />
+<meta name="twitter:description" content="ビデオ用のAVMutableCompositionTrackにレイヤーを持たせることができます。
+それがAVMutableVideoCompositionLayerInstructionなんですがこれが意外と
+簡単に動画に対してCGAffineTransformを指定することで動画の移動・回転・拡大縮小
+ができたりフェードイン・アウトの設定ができたのでメモ。
+まずは対象のトラックをもとにして、レイヤーをインスタンス化します。
+&#43; (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track
+    AVMutableVideoCompositionLayerInstruction *layerInstruction;
+    layerInstruction = [AVMutableVideoCompositionLayerInstruction
+                        videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];
+TransForm
+- (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange
+この例だと、３秒間左から動画が移動してきます。
+    // transition
+    CGAffineTransform rotateStart, rotateEnd;
+    startTime    = kCMTimeZero;
+    timeDuration = CMTimeMake(3, 1);
+    rotateStart  = CGAffineTransformMakeScale(1, 1);
+    rotateStart  = CGAffineTransformMakeTranslation(-720, 0);
+    rotateEnd    = CGAffineTransformTranslate(rotateStart, 720, 0);
+    [layerInstruction setTransformRampFromStartTransform:rotateStart
+                                          toEndTransform:rotateEnd
+                                               timeRange:CMTimeRangeMake(startTime, timeDuration)];
+Opacity
+- (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange
+この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。
+    // fade in
+    CMTime startTime, timeDuration;
+    startTime    = kCMTimeZero;
+    timeDuration = CMTimeMake(3, 1);
+    [layerInstruction setOpacityRampFromStartOpacity:0.0
+                                        toEndOpacity:1.0
+                                           timeRange:CMTimeRangeMake(startTime, timeDuration)];
+
+
+    // fade out
+    startTime    = CMTimeSubtract(videoComposition.currentTimeDuration, CMTimeMake(3, 1));
+    timeDuration = CMTimeMake(3, 1);
+    [layerInstruction setOpacityRampFromStartOpacity:1.0
+                                        toEndOpacity:0.0
+                                           timeRange:CMTimeRangeMake(startTime, timeDuration)];
+まとめ
+Appleのドキュメントでこのクラスの説明をみると動画処理にしては結構シンプルだったので何個か試してみたのでした。
+ただ、CMTime関連・CGAffineTransform関連の知識はないと結構何がなんだかわからなくなるのであらかじめ知識として
+蓄えておくことはは必須ですね。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>AVMutableVideoCompositionLayerInstructionの使い方 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">AVMutableVideoCompositionLayerInstructionの使い方</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-01-19">January 19, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>ビデオ用の<code>AVMutableCompositionTrack</code>にレイヤーを持たせることができます。
+それが<code>AVMutableVideoCompositionLayerInstruction</code>なんですがこれが意外と
+簡単に動画に対して<code>CGAffineTransform</code>を指定することで動画の移動・回転・拡大縮小
+ができたりフェードイン・アウトの設定ができたのでメモ。</p>
+<p>まずは対象のトラックをもとにして、レイヤーをインスタンス化します。</p>
+<p><code>+ (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    AVMutableVideoCompositionLayerInstruction <span style="color:#f92672">*</span>layerInstruction;
+</span></span><span style="display:flex;"><span>    layerInstruction <span style="color:#f92672">=</span> [AVMutableVideoCompositionLayerInstruction
+</span></span><span style="display:flex;"><span>                        videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];
+</span></span></code></pre></div><h3 id="transform">TransForm</h3>
+<p><code>- (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange</code></p>
+<p>この例だと、３秒間左から動画が移動してきます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// transition
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    CGAffineTransform rotateStart, rotateEnd;
+</span></span><span style="display:flex;"><span>    startTime    <span style="color:#f92672">=</span> kCMTimeZero;
+</span></span><span style="display:flex;"><span>    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    rotateStart  <span style="color:#f92672">=</span> CGAffineTransformMakeScale(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    rotateStart  <span style="color:#f92672">=</span> CGAffineTransformMakeTranslation(<span style="color:#f92672">-</span><span style="color:#ae81ff">720</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    rotateEnd    <span style="color:#f92672">=</span> CGAffineTransformTranslate(rotateStart, <span style="color:#ae81ff">720</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    [layerInstruction setTransformRampFromStartTransform:rotateStart
+</span></span><span style="display:flex;"><span>                                          toEndTransform:rotateEnd
+</span></span><span style="display:flex;"><span>                                               timeRange:CMTimeRangeMake(startTime, timeDuration)];
+</span></span></code></pre></div><h3 id="opacity">Opacity</h3>
+<p><code>- (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange</code></p>
+<p>この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// fade in
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    CMTime startTime, timeDuration;
+</span></span><span style="display:flex;"><span>    startTime    <span style="color:#f92672">=</span> kCMTimeZero;
+</span></span><span style="display:flex;"><span>    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    [layerInstruction setOpacityRampFromStartOpacity:<span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>                                        toEndOpacity:<span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                                           timeRange:CMTimeRangeMake(startTime, timeDuration)];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// fade out
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    startTime    <span style="color:#f92672">=</span> CMTimeSubtract(videoComposition.currentTimeDuration, CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>));
+</span></span><span style="display:flex;"><span>    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    [layerInstruction setOpacityRampFromStartOpacity:<span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>                                        toEndOpacity:<span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>                                           timeRange:CMTimeRangeMake(startTime, timeDuration)];
+</span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
+<p>Appleのドキュメントでこのクラスの説明をみると動画処理にしては結構シンプルだったので何個か試してみたのでした。
+ただ、<code>CMTime</code>関連・<code>CGAffineTransform</code>関連の知識はないと結構何がなんだかわからなくなるのであらかじめ知識として
+蓄えておくことはは必須ですね。</p>
+<h2 id="ref">Ref</h2>
+<p><a href="https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVMutableVideoCompositionLayerInstruction_Class/Reference/Reference.html#//apple_ref/occ/instm/AVMutableVideoCompositionLayerInstruction/setTransformRampFromStartTransform:toEndTransform:timeRange">https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVMutableVideoCompositionLayerInstruction_Class/Reference/Reference.html#//apple_ref/occ/instm/AVMutableVideoCompositionLayerInstruction/setTransformRampFromStartTransform:toEndTransform:timeRange</a>:</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

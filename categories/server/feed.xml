@@ -1,0 +1,85 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Server on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/server/</link>
+        <description>Recent content in Server on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Fri, 04 May 2012 17:43:04 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/server/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>[その２]capstranoでデプロイしてみる！！</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-05-04_3197/</link>
+            <pubDate>Fri, 04 May 2012 17:43:04 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-05-04_3197/</guid>
+            <description>&lt;p&gt;次は実際にソースをリモートに設置させるようにします。&lt;/p&gt;
+&lt;p&gt;このコマンドで必要最低限のファイルを自動で作成してくれます。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ capify . 
+$ emacs config/deploy.rb
+&lt;/pre&gt;
+&lt;p&gt;その作成されたファイルを自分の環境に合わせて設定します。
+以下だと、gitで管理しているソースをappユーザで配置します。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+set :application, &#34;hogeme&#34;
+set :repository,  &#34;ssh://hogeme.git&#34; # git
+set :deploy_to, &#34;/var/www/#{application}&#34;
+set :scm, :git
+
+#set :user, &#34;app&#34;                                                                                                                                                                    
+set :user, &#34;nakaji&#34;
+set :use_sudo, false
+
+role :web, &#34;hoge.me&#34;
+role :app, &#34;hoge.me&#34;
+role :db,  &#34;hoge.me&#34;, :primary =&gt; true
+&lt;/pre&gt;
+&lt;p&gt;デプロイの処理を行うコマンドです。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ cap deploy:setup
+&lt;/pre&gt;
+&lt;p&gt;このときリモート側でディレクトリがもろもろ作成されます&lt;/p&gt;
+&lt;pre class=&#34;brush:text&#34;&gt;
+[remote] $ tree
+.
+├── releases
+└── shared
+    ├── log
+    ├── pids
+    └── system
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ cap deploy:update
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+[remote] $ tree
+.
+├── current -&gt; /var/www/hogeme/releases/20120228170906
+├── releases
+│   └── 20120228170906
+│       ├── Gemfile
+│       ├── Gemfile.lock
+・
+・
+・
+└── shared
+    ├── log
+    ├── pids
+    └── system
+&lt;/pre&gt;
+&lt;p&gt;以上。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

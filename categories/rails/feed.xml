@@ -1,0 +1,178 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Rails on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/rails/</link>
+        <description>Recent content in Rails on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sat, 13 Jul 2013 15:13:00 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/rails/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Update To Rails4</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-07-13-update-rails4/</link>
+            <pubDate>Sat, 13 Jul 2013 15:13:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-07-13-update-rails4/</guid>
+            <description>&lt;p&gt;自分のサービスのRailsのversionがまだ&lt;code&gt;3.2&lt;/code&gt;だったので地道にRails4にアップデートしました。
+その際に必要になった作業をメモっときます。&lt;/p&gt;
+&lt;h2 id=&#34;attr_accessible-is-extracted-out-of-rails-into-a-gem&#34;&gt;attr_accessible is extracted out of Rails into a gem.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;E, [2013-07-04T09:54:39.926880 #2726] ERROR -- : `attr_accessible` is extracted out of Rails into a gem. Please use new recommended protection model for params(strong_parameters) or add `protected_attributes` to your Gemfile to use old one. (RuntimeError)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;attr_accessible&lt;/code&gt;はRailsから省いて&lt;code&gt;strong_parameters&lt;/code&gt;を利用してとのこと。
+振るいものを利用するなら&lt;code&gt;protected_attributes&lt;/code&gt;っていうGem使ってね。
+しかし、今回は&lt;code&gt;strong_parameters&lt;/code&gt;を記述していきます。&lt;/p&gt;
+&lt;p&gt;とりあえずModelからの排除を行う。&lt;/p&gt;
+&lt;h2 id=&#34;deprecation-warning-configwhiny_nils-option-is-deprecated-and-no-longer-works&#34;&gt;DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;DEPRECATION WARNING: config.whiny_nils option is deprecated and no longer works. (called from block in &amp;lt;top (required)&amp;gt; at /private/var/www/frustration/config/environm
+ents/development.rb:10)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;whiny_nils
+&lt;ul&gt;
+&lt;li&gt;初期化されていないオブジェクトが呼び出させたときに、警告を表示する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-diff&#34; data-lang=&#34;diff&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-  # Log error messages when you accidentally call methods on nil
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-  config.whiny_nils = true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;configeager_load-is-set-to-nil&#34;&gt;config.eager_load is set to nil.&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;必須の設定項目増えたので&lt;code&gt;rails new&lt;/code&gt;して作成された環境ファイルを眺めてみる。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>RailsとCookieではまったこと</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-12-02_3473/</link>
+            <pubDate>Sun, 02 Dec 2012 14:28:52 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-12-02_3473/</guid>
+            <description>&lt;p&gt;今回Railsで起きた問題、ちと自分の中で迷ったの纏めておく。&lt;/p&gt;
+&lt;p&gt;PHPで運用していたものをRuby(Rails)にのせ変えようとしたときに置きました。&lt;br &gt;
+以前、前の仕様でCookieでカンマ区切りにして保存していた情報があったのですが&lt;br &gt;
+それを気にしないでRailsを導入していたら初期表示でサーバエラーになるという&lt;br &gt;
+問題が発生しました。&lt;/p&gt;
+&lt;h2&gt;保存していたもの&lt;/h2&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+document.cookie = &#34;HOGE=1,,1,1&#34;
+&lt;/pre&gt;
+&lt;p&gt;どうもRack側で発生していることに気づきましてCookieの文字列を解析している箇所で「;」「,」の&lt;br &gt;
+二つでハッシュ化していることが原因だとわかりました。&lt;br &gt;&lt;/p&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+      # According to RFC 2109:
+      #   If multiple cookies satisfy the criteria above, they are ordered in
+      #   the Cookie header such that those with more specific Path attributes
+      #   precede those with less specific.  Ordering with respect to other
+      #   attributes (e.g., Domain) is unspecified.
+      Utils.parse_query(string, &#39;;,&#39;).each { |k,v| hash[k] = Array === v ? v.first : v }
+      @env[&#34;rack.request.cookie_string&#34;] = string
+      hash
+&lt;/pre&gt;
+&lt;p&gt;Rackが悪いのでは？と思っていてけどRFCまわりをよくよく調査してみるとNAME,VALUEにセミコロン、コンマ、空白文字を&lt;br &gt;
+除いた文字列を指定すべきで、いれるときはエンコードすべき。あと、サーバは将来の互換性のためにカンマも受け入れるべきです。&lt;br &gt;
+てきなことが記述されていたので間違っていないことは確認しました。&lt;br &gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>RailsでBASIC認証をさせる</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-06-09_3181/</link>
+            <pubDate>Sat, 09 Jun 2012 02:58:34 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-06-09_3181/</guid>
+            <description>&lt;p&gt;Railsで手っ取り早くBASIC認証させるためのメモ&lt;/p&gt;
+&lt;pre class=&#34;brush:ruby&#34;&gt;
+class BasicController &lt; ApplicationController
+
+  before_filter :basicauth
+
+  def basicauth
+    name = &#39;hoge&#39;
+    password = &#39;hohohohoho&#39;
+    msg = &#39;please input basic auth&#39;
+    authenticate_or_request_with_http_basic(msg) do |n,p|
+
+      File.open(&#34;#{Rails.root}/public/password.txt&#34;, &#34;r&#34;) {|f|
+        f.each_line do |line|
+          arr = line.split(&#34;:&#34;)
+          name = arr[0]
+          password = arr[1]
+          if n == name &amp;&amp; p.crypt(password[0,2]) == password
+            logger.debug(&#34;ok!!!&#34;)
+          else
+            return false
+          end
+        end
+      }
+    end
+  end
+end
+&lt;/pre&gt;
+&lt;p&gt;うん、簡単ですね。Zendのときでもこんなに完結にはかけなかったものです。。&lt;/p&gt;
+&lt;p&gt;「authenticate_or_request_with_http_basic」すばらしい！！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>「Unicorn &#43; Rails &#43; Nginx」で構築してみる</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-02-01_3135/</link>
+            <pubDate>Wed, 01 Feb 2012 00:21:07 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-02-01_3135/</guid>
+            <description>&lt;p&gt;勉強がてら構築してみました。以前はrailsのWebサーバはThinで構築していたのですが、
+最近流行している「Unicorn」、さらにはフロントにリバースプロキシとHTTP用のサーバ「nginx」
+をおいて構築してみることにします。&lt;/p&gt;
+&lt;p&gt;仕組みについては&lt;a href=&#34;http://techracho.jp/?p=2075&#34;&gt;こちら&lt;/a&gt;のサイトがよくまとめられていたので概要つかむによいでしょう。&lt;/p&gt;
+&lt;p&gt;まずは、nginxのインストールを行います。インストールはあらかじめrpm をインストールしてからyumでインストールし直します。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm
+yum install nginx
+&lt;/pre&gt;
+&lt;p&gt;一度、デフォルトでnginxで起動するかどうかの確認を行います。「service nginx start」でhttp://hoge.moge にアクセスしてnginx用の画面が表示されていればとりあえずはインストール完了です。&lt;/p&gt;
+&lt;p&gt;以下、Unicornがnginx経由でアクセスできるようにするための設定ファイルになります。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+upstream hoge.moge {
+    server unix:/var/www/test/tmp/sockets/unicorn.sock;
+}
+
+server {
+  listen 80;
+  server_name hoge.moge;
+
+  root /var/www/test/public/;
+  access_log log/access.log;
+  error_log  log/error.log;
+
+  location / {
+    if (-f $request_filename) {
+        break;
+    }
+    # ファイルが存在しなければunicornにproxyする
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_pass http://hoge.moge;
+  }
+
+  # この記述がないと静的ファイルが表示されなかった
+  location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+    expires 1y;
+  }
+}
+&lt;/pre&gt;
+&lt;p&gt;なんか書き方はPerlbalよりわかりやすいようなイメージしました。気のせいかもしれませんが。。。&lt;/p&gt;
+&lt;p&gt;次は、Unicornのインストールです。gemでパッケージをインストールします。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[memo]phpmyadminインストールメモ">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/08/09/memophpmyadmin%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%83%A1%E3%83%A2/" />
+<meta property="go:description" content="いままでmysqlの設定というとcuiでやってきたけどなんとなくではありますが、phpMyAdmin
+いれてみました。
+楽なんですね、これ。
+メモっす。本当にメモっす。
+たいしたことは書きません。
+１ソース落としてして展開。
+２設定ファイル名変更
+# mv config.sample.inc.php config.inc.php
+３設定変更
+# vi config.inc.php
+設定はクッキーを利用してログインするようにします。
+ログイン方法はクッキーを利用する方法とベーシック認証する方法の２パターンがありました。
+
+$cfg[&#39;DefaultCharset&#39;]                = &#39;utf-8&#39;;
+$cfg[&#39;PmaAbsoluteUri&#39;]              = &#39;http://hogehoge.com/phpmyadmin&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookie&#39;;
+//$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;port&#39;]             = &#39;3306&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;user&#39;]             = &#39;hoge&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;password&#39;]     = &#39;hogehoge&#39;;
+
+これで終了。
+後は、もう操作が行えます。
+ただ、
+「mcrypt 拡張をロードできません。PHP の設定を確認してください」
+というエラーがでるんだけど気にしてません。
+MacPortでPHP入れたもんでそのコンパイルオプション入っとらんのですよね。。。
+■参照URL
+phpMyAdmin  3.4.0-dev Documentation
+「phpMyAdmin」の導入
+Mac に MacPorts を使って MySQL と PHPMyAdmin をインストールする方法" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[memo]phpmyadminインストールメモ" />
+<meta name="twitter:description" content="いままでmysqlの設定というとcuiでやってきたけどなんとなくではありますが、phpMyAdmin
+いれてみました。
+楽なんですね、これ。
+メモっす。本当にメモっす。
+たいしたことは書きません。
+１ソース落としてして展開。
+２設定ファイル名変更
+# mv config.sample.inc.php config.inc.php
+３設定変更
+# vi config.inc.php
+設定はクッキーを利用してログインするようにします。
+ログイン方法はクッキーを利用する方法とベーシック認証する方法の２パターンがありました。
+
+$cfg[&#39;DefaultCharset&#39;]                = &#39;utf-8&#39;;
+$cfg[&#39;PmaAbsoluteUri&#39;]              = &#39;http://hogehoge.com/phpmyadmin&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookie&#39;;
+//$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;port&#39;]             = &#39;3306&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;user&#39;]             = &#39;hoge&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;password&#39;]     = &#39;hogehoge&#39;;
+
+これで終了。
+後は、もう操作が行えます。
+ただ、
+「mcrypt 拡張をロードできません。PHP の設定を確認してください」
+というエラーがでるんだけど気にしてません。
+MacPortでPHP入れたもんでそのコンパイルオプション入っとらんのですよね。。。
+■参照URL
+phpMyAdmin  3.4.0-dev Documentation
+「phpMyAdmin」の導入
+Mac に MacPorts を使って MySQL と PHPMyAdmin をインストールする方法" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[memo]phpmyadminインストールメモ - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[memo]phpmyadminインストールメモ</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-08-09">August 09, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/php">PHP</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>いままでmysqlの設定というとcuiでやってきたけどなんとなくではありますが、phpMyAdmin
+いれてみました。</p>
+<p>楽なんですね、これ。</p>
+<p>メモっす。本当にメモっす。
+たいしたことは書きません。</p>
+<h3>１ソース落としてして展開。</h3>
+<h3>２設定ファイル名変更</h3>
+# mv config.sample.inc.php config.inc.php
+<h3>３設定変更</h3>
+# vi config.inc.php
+<p>設定はクッキーを利用してログインするようにします。
+ログイン方法はクッキーを利用する方法とベーシック認証する方法の２パターンがありました。</p>
+<pre class="brush: bash">
+$cfg['DefaultCharset']                = 'utf-8';
+$cfg['PmaAbsoluteUri']              = 'http://hogehoge.com/phpmyadmin';
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+//$cfg['Servers'][$i]['auth_type'] = 'http';
+$cfg['Servers'][$i]['port']             = '3306';
+$cfg['Servers'][$i]['user']             = 'hoge';
+$cfg['Servers'][$i]['password']     = 'hogehoge';
+</pre>
+<p>これで終了。</p>
+<p>後は、もう操作が行えます。</p>
+<p>ただ、
+「mcrypt 拡張をロードできません。PHP の設定を確認してください」
+というエラーがでるんだけど気にしてません。</p>
+<p>MacPortでPHP入れたもんでそのコンパイルオプション入っとらんのですよね。。。</p>
+<p>■参照URL
+<a href="http://www.phpmyadmin.net/documentation/Documentation.html#setup">phpMyAdmin  3.4.0-dev Documentation</a>
+<a href="http://www.crimson-snow.net/hmsvr/centos/db/phpmyadmin.html">「phpMyAdmin」の導入</a>
+<a href="http://kezy.org/2010/06/20/mac-mysql-phpmyadmin">Mac に MacPorts を使って MySQL と PHPMyAdmin をインストールする方法</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2013/07/02/googledocs%E3%81%AE%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%93%84%E7%A9%8D%E3%81%95%E3%81%9B%E3%82%8B/" />
+<meta property="go:description" content="サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。
+便利だったのがgoogle-drive-rubyで、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。
+実際にwww.frustration.meのユーザ数やアイテム数を計測するために使用してみました。
+まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。
+desc &#34;send score data to google spreadsheet&#34;
+require &#39;google_drive&#39;
+
+namespace :batches do
+
+  task total_scores: :environment do |t, args|
+    fail &#39;no username&#39; if ENV[&#39;GOOGLE_USERNAME&#39;].blank?
+    fail &#39;no password&#39; if ENV[&#39;GOOGLE_PASSWORD&#39;].blank?
+
+    session = GoogleDrive.login(ENV[&#39;GOOGLE_USERNAME&#39;], ENV[&#39;GOOGLE_PASSWORD&#39;])
+    spreadsheet = session.spreadsheet_by_key(&#34;input key name&#34;)
+    worksheet = spreadsheet.worksheet_by_title(Rails.env)
+    analyze_data = {
+      date:           Time.now.strftime(&#34;%Y-%m-%d&#34;),
+      users_num:      User.all.count,
+      items_num:      Item.all.count,
+      comments_num:   Comment.all.count,
+      categories_num: Category.all.count
+    }
+    worksheet.list.push(analyze_data)
+    worksheet.save()
+  end
+
+end
+これでrake batches:total_scoresで実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では
+
+な感じでどんどんレコードが追加されていきます。
+便利。
+ただし、注意点があります。今回はsqaleのcronで動かしているのですがログインで以下のように失敗することがあります。
+$ bundle exec rake batches:total_scores
+WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
+rake aborted!
+Authentication failed for hogehoge@gmail.com: Response code 403 for post https://www.google.com/accounts/ClientLogin: Error=BadAuthentication
+Url=https://www.google.com/accounts/ServiceLogin?service=wise#Email=hogehoge%40gmail.com
+Info=WebLoginRequired
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:93:in `rescue in login&#39;
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:86:in `login&#39;
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:38:in `login&#39;
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive.rb:18:in `login&#39;
+/home/sqale/current/lib/tasks/scores.rake:10:in `block (2 levels) in &lt;top (required)&gt;&#39;
+Tasks: TOP =&gt; batches:total_scores
+(See full trace by running task with --trace)
+これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる" />
+<meta name="twitter:description" content="サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。
+便利だったのがgoogle-drive-rubyで、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。
+実際にwww.frustration.meのユーザ数やアイテム数を計測するために使用してみました。
+まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。
+desc &#34;send score data to google spreadsheet&#34;
+require &#39;google_drive&#39;
+
+namespace :batches do
+
+  task total_scores: :environment do |t, args|
+    fail &#39;no username&#39; if ENV[&#39;GOOGLE_USERNAME&#39;].blank?
+    fail &#39;no password&#39; if ENV[&#39;GOOGLE_PASSWORD&#39;].blank?
+
+    session = GoogleDrive.login(ENV[&#39;GOOGLE_USERNAME&#39;], ENV[&#39;GOOGLE_PASSWORD&#39;])
+    spreadsheet = session.spreadsheet_by_key(&#34;input key name&#34;)
+    worksheet = spreadsheet.worksheet_by_title(Rails.env)
+    analyze_data = {
+      date:           Time.now.strftime(&#34;%Y-%m-%d&#34;),
+      users_num:      User.all.count,
+      items_num:      Item.all.count,
+      comments_num:   Comment.all.count,
+      categories_num: Category.all.count
+    }
+    worksheet.list.push(analyze_data)
+    worksheet.save()
+  end
+
+end
+これでrake batches:total_scoresで実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では
+
+な感じでどんどんレコードが追加されていきます。
+便利。
+ただし、注意点があります。今回はsqaleのcronで動かしているのですがログインで以下のように失敗することがあります。
+$ bundle exec rake batches:total_scores
+WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
+rake aborted!
+Authentication failed for hogehoge@gmail.com: Response code 403 for post https://www.google.com/accounts/ClientLogin: Error=BadAuthentication
+Url=https://www.google.com/accounts/ServiceLogin?service=wise#Email=hogehoge%40gmail.com
+Info=WebLoginRequired
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:93:in `rescue in login&#39;
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:86:in `login&#39;
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:38:in `login&#39;
+/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive.rb:18:in `login&#39;
+/home/sqale/current/lib/tasks/scores.rake:10:in `block (2 levels) in &lt;top (required)&gt;&#39;
+Tasks: TOP =&gt; batches:total_scores
+(See full trace by running task with --trace)
+これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">GoogleDocsのスプレッドシートを利用してスコアデータを蓄積させる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-07-02">July 02, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ruby">Ruby</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>サービスの日々の情報を解析するために、普段はDBに解析用のテーブル作成してそこで毎日もしくは毎月バッチを走らせてレコードを追加なんてことするだろうけど、スモールスタートしてる内とか個人のサービスとかはそこまで大げさにしなくてももっと気軽にデータを収集したいなと思いまして日々のデータをGoogleDocsのスプレッドシートにレコードを追加いくことにしました。これならいつでもやめれるし気軽にカラムも増やせるので便利。</p>
+<p>便利だったのが<a href="https://github.com/gimite/google-drive-ruby">google-drive-ruby</a>で、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。</p>
+<p>実際に<a href="http://www.frustration.me/">www.frustration.me</a>のユーザ数やアイテム数を計測するために使用してみました。</p>
+<p>まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>desc <span style="color:#e6db74">&#34;send score data to google spreadsheet&#34;</span>
+</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;google_drive&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>namespace <span style="color:#e6db74">:batches</span> <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  task <span style="color:#e6db74">total_scores</span>: <span style="color:#e6db74">:environment</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>t, args<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>    fail <span style="color:#e6db74">&#39;no username&#39;</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_USERNAME&#39;</span><span style="color:#f92672">].</span>blank?
+</span></span><span style="display:flex;"><span>    fail <span style="color:#e6db74">&#39;no password&#39;</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_PASSWORD&#39;</span><span style="color:#f92672">].</span>blank?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    session <span style="color:#f92672">=</span> <span style="color:#66d9ef">GoogleDrive</span><span style="color:#f92672">.</span>login(<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_USERNAME&#39;</span><span style="color:#f92672">]</span>, <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;GOOGLE_PASSWORD&#39;</span><span style="color:#f92672">]</span>)
+</span></span><span style="display:flex;"><span>    spreadsheet <span style="color:#f92672">=</span> session<span style="color:#f92672">.</span>spreadsheet_by_key(<span style="color:#e6db74">&#34;input key name&#34;</span>)
+</span></span><span style="display:flex;"><span>    worksheet <span style="color:#f92672">=</span> spreadsheet<span style="color:#f92672">.</span>worksheet_by_title(<span style="color:#66d9ef">Rails</span><span style="color:#f92672">.</span>env)
+</span></span><span style="display:flex;"><span>    analyze_data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">date</span>:           <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">users_num</span>:      <span style="color:#66d9ef">User</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">items_num</span>:      <span style="color:#66d9ef">Item</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">comments_num</span>:   <span style="color:#66d9ef">Comment</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">categories_num</span>: <span style="color:#66d9ef">Category</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>count
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    worksheet<span style="color:#f92672">.</span>list<span style="color:#f92672">.</span>push(analyze_data)
+</span></span><span style="display:flex;"><span>    worksheet<span style="color:#f92672">.</span>save()
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>これで<code>rake batches:total_scores</code>で実行すると指定のスプレッドシートに情報が送信され、スプレッドシート側では</p>
+<p><img src="/images/posts/2013/2013-07-02_01.png" alt="ss"></p>
+<p>な感じでどんどんレコードが追加されていきます。</p>
+<p>便利。</p>
+<p>ただし、注意点があります。今回は<a href="http://sqale.jp">sqale</a>のcronで動かしているのですがログインで以下のように失敗することがあります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ bundle exec rake batches:total_scores
+</span></span><span style="display:flex;"><span>WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
+</span></span><span style="display:flex;"><span>rake aborted!
+</span></span><span style="display:flex;"><span>Authentication failed <span style="color:#66d9ef">for</span> hogehoge@gmail.com: Response code <span style="color:#ae81ff">403</span> <span style="color:#66d9ef">for</span> post https://www.google.com/accounts/ClientLogin: Error<span style="color:#f92672">=</span>BadAuthentication
+</span></span><span style="display:flex;"><span>Url<span style="color:#f92672">=</span>https://www.google.com/accounts/ServiceLogin?service<span style="color:#f92672">=</span>wise#Email<span style="color:#f92672">=</span>hogehoge%40gmail.com
+</span></span><span style="display:flex;"><span>Info<span style="color:#f92672">=</span>WebLoginRequired
+</span></span><span style="display:flex;"><span>/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:93:in <span style="color:#e6db74">`</span>rescue in login<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:86:in `login&#39;</span>
+</span></span><span style="display:flex;"><span>/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive/session.rb:38:in <span style="color:#e6db74">`</span>login<span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/home/sqale/current/vendor/bundle/ruby/2.0.0/gems/google_drive-0.3.6/lib/google_drive.rb:18:in `login&#39;</span>
+</span></span><span style="display:flex;"><span>/home/sqale/current/lib/tasks/scores.rake:10:in <span style="color:#e6db74">`</span>block <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span> levels<span style="color:#f92672">)</span> in &lt;top <span style="color:#f92672">(</span>required<span style="color:#f92672">)</span>&gt;<span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span><span style="display:flex;"><span>Tasks: TOP <span style="color:#f92672">=</span>&gt; batches:total_scores
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>See full trace by running task with --trace<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>これはGoogleがセキュリティ強化のため、変な場所からのログインは自動的に拒否しているためです。なので、通常通りWEBでGoogleにログインしてみてそのログインが大丈夫という設定をすれば問題無く通過できます。</p>
+<p><img src="/images/posts/2013/2013-07-02_02.png" alt="ss"></p>
+<p>あとはグラフツール使って簡単に見やすくできるのでお手軽&amp;便利メソッドでした。</p>
+<p><img src="/images/posts/2013/2013-07-02_03.png" alt="まだ情報はすくないのであれです">
+まだ情報は少ないのであれですがどんどん勝手にグラフ化されていくはず！</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

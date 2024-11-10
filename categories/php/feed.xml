@@ -1,0 +1,568 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>PHP on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/php/</link>
+        <description>Recent content in PHP on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Tue, 11 Oct 2011 00:00:26 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/php/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>brewでphpをインストール</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-10-11_2920/</link>
+            <pubDate>Tue, 11 Oct 2011 00:00:26 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-10-11_2920/</guid>
+            <description>&lt;p&gt;phpもbrewでインストールするときもなんやかんやしないとけません。&lt;/p&gt;
+&lt;p&gt;以下のサイトを見習ってなんだかんだ叫びました。&lt;/p&gt;
+&lt;div class=&#34;booklog_html&#34;&gt;&lt;div class=&#34;booklog_html_image&#34; style=&#34;float:left;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/B00005G38C?tag=daichibnejp-22&amp;linkCode=as1&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51IzmcFRN2L._SL160_.jpg&#34; width=&#34;136&#34; height=&#34;160&#34; style=&#34;border:0;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_info&#34; style=&#34;float:left;margin-left:10px;&#34;&gt;&lt;div class=&#34;booklog_html_title&#34; style=&#34;margin-bottom:5px;font-size:12px;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/product/B00005G38C?tag=daichibnejp-22&amp;linkCode=as1&#34; target=&#34;_blank&#34;&gt;ナンダカンダ&lt;/a&gt;&lt;/div&gt;&lt;div style=&#34;margin-bottom:10px;&#34;&gt;&lt;div class=&#34;booklog_html_author&#34; style=&#34;font-size:10px;&#34;&gt;藤井隆,KUMI SAITOU,MACHIKO SUGAKI,TOMOKO HADA&lt;/div&gt;&lt;div class=&#34;booklog_html_manufacturer&#34; style=&#34;font-size:10px;&#34;&gt;アンティノスレコード&lt;/div&gt;&lt;div class=&#34;booklog_html_release&#34; style=&#34;font-size:10px;&#34;&gt;発売日：2000-03-08&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_link_amazon&#34; style=&#34;margin-bottom:10px;font-size:10px;&#34;&gt;&lt;a href=&#34;http://booklog.jp/asin/B00005G38C&#34; target=&#34;_blank&#34;&gt;ブクログでレビューを見る»&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklog_html_fotter&#34; style=&#34;clear:left;&#34;&gt;&lt;/div&gt;&lt;br /&gt;&lt;/div&gt;
+&lt;p&gt;ごめんちょ。&lt;/p&gt;
+&lt;p&gt;だれかがつくったFormulaを落としてそれを使用します。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ brew install https://raw.github.com/adamv/homebrew-alt/master/duplicates/php.rb --with-mysql --with-pgsql --with-apache --with-intl
+
+&lt;/pre&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+LoadModule php5_module    /usr/local/Cellar/php/5.3.8/libexec/apache2/libphp5.so
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php-source .phps
+&lt;/pre&gt;
+&lt;p&gt;実はこのまま設定すると、参考にしたサイトの通りエラーが出力されてしまいPHPがインストールできませんでした。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+[nakajijapan] #apachectl -t                                                                                                                                   [/usr/local/Cellar/httpd/2.2.21/conf]
+httpd: Syntax error on line 431 of /usr/local/Cellar/httpd/2.2.21/conf/httpd.conf: Cannot load /usr/local/Cellar/php/5.3.8/libexec/apache2/libphp5.so into server: dlopen(/usr/local/Cellar/php/5.3.8/libexec/apache2/libphp5.so, 10): Symbol not found: _ap_loaded_modules\n  Referenced from: /usr/local/Cellar/php/5.3.8/libexec/apache2/libphp5.so\n  Expected in: /usr/local/Cellar/httpd/2.2.21/bin/httpd\n in /usr/local/Cellar/php/5.3.8/libexec/apache2/libphp5.so
+&lt;/pre&gt;
+&lt;p&gt;どうもapache側でなんか悪さしているみたいとのことなのでとりあえず手動でインストールしてみることにします&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+brew uninstall httpd
+cd /usr/local/Library
+wget http://ftp.jaist.ac.jp/pub/apache/httpd/httpd-2.2.21.tar.gz
+tar zxvf httpd-2.2.21.tar.gz
+cd httpd-2.2.21
+./configure -enable-shared=max --enable-rewrite --prefix=/usr/local/Cellar/httpd/2.2.20
+make
+make install
+&lt;/pre&gt;
+&lt;p&gt;再度apacheを起動させたら無事起動できました。
+mysqのpdoもインストールされているみたいでよかったですです。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[zend]ZendFrameworkでCSV出力をおこなう方法</title>
+            <link>http://nakajijapan.github.io/posts/2011/2011-07-24_2801/</link>
+            <pubDate>Sun, 24 Jul 2011 17:25:52 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2011/2011-07-24_2801/</guid>
+            <description>&lt;p&gt;突貫工事ではありますが、controllerからデータをCSV出力させるようにさせてみた。&lt;/p&gt;
+&lt;pre class=&#34;brush: php&#34;&gt;
+        // csv?
+        if (isset($params[&#39;csvFlg&#39;])) {
+            $this-&gt;getResponse()
+                 -&gt;setHeader(&#39;Content-disposition&#39;,&#39;attachment; filename=&#34;data_&#39;.date(&#39;YmdHis&#39;).&#39;.csv&#34;&#39; )
+                 -&gt;setHeader(&#39;Content-type&#39;, &#39;test/x-csv&#39;)
+                 -&gt;sendHeaders();
+            foreach($users as $user) {
+                $this-&gt;getResponse()-&gt;appendBody( implode(&#39;,&#39;, $user) . &#34;\r\n&#34; );
+            }
+            $this-&gt;getResponse()-&gt;outputBody();
+            exit;
+        }
+&lt;/pre&gt;
+&lt;p&gt;&lt;/pre&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[zend]アプリ側（UTF8）とDB(EUC-JP)の文字コード変換をPDOで行う</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-12-06_2566/</link>
+            <pubDate>Mon, 06 Dec 2010 14:28:28 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-12-06_2566/</guid>
+            <description>&lt;p&gt;システム開発行っていると、なるべく昔の仕様を変更せずに既存リソースを生かしながらも新しい開発行っていかな
+ければいけない自体が多々ある思われる。&lt;/p&gt;
+&lt;p&gt;今回の件でいえば、文字コードの問題。&lt;/p&gt;
+&lt;p&gt;システム側からみたら文字コードなんていっそのこと統一したほうが何も考えないで楽なんだけど、そうも
+いってられず昔の文字コードをどう利用していくかを考えなければいけないときがある。&lt;/p&gt;
+&lt;p&gt;理想としてはすべてUTF-8にしたかったがそうはいかない。DBがEUC－JPだからだ。
+DB・アプリ間でのインターフェースでそれぞれ変換する必要がある。&lt;/p&gt;
+&lt;p&gt;対策としては、ZendFrameworkで利用しているPDOのクラスを継承して変換をさせるようにしました。
+（この場合、局所的な対処ですがとりあえず目的は果たせたのでこれでいきました）&lt;/p&gt;
+&lt;p&gt;※ZendでDIコンテナ使って細かいこと実現しているのでそのへんは・・・・。&lt;/p&gt;
+&lt;p&gt;まずは&lt;/p&gt;
+&lt;pre class=&#34;brush:php&#34;&gt;
+abstract class App_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Pdo_Abstract
+{
+    /**
+     * Creates a PDO object and connects to the database.
+     *
+     * @return void
+     * @throws Zend_Db_Adapter_Exception
+     */
+    protected function _connect()
+    {
+        // if we already have a PDO object, no need to re-connect.
+        if ($this-&gt;_connection) {
+            return;
+        }
+
+        // get the dsn first, because some adapters alter the $_pdoType
+        $dsn = $this-&gt;_dsn();
+
+        // check for PDO extension
+        if (!extension_loaded(&#39;pdo&#39;)) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception(&#39;The PDO extension is required for this adapter but the extension is not loaded&#39;);
+        }
+
+        // check the PDO driver is available
+        if (!in_array($this-&gt;_pdoType, PDO::getAvailableDrivers())) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception(&#39;The &#39; . $this-&gt;_pdoType . &#39; driver is not currently installed&#39;);
+        }
+
+        // create PDO connection
+        $q = $this-&gt;_profiler-&gt;queryStart(&#39;connect&#39;, Zend_Db_Profiler::CONNECT);
+
+        // add the persistence flag if we find it in our config array
+        if (isset($this-&gt;_config[&#39;persistent&#39;]) &amp;&amp; ($this-&gt;_config[&#39;persistent&#39;] == true)) {
+            $this-&gt;_config[&#39;driver_options&#39;][PDO::ATTR_PERSISTENT] = true;
+        }
+
+        try {
+            $this-&gt;_connection = new PDOCSTM(
+                $dsn,
+                $this-&gt;_config[&#39;username&#39;],
+                $this-&gt;_config[&#39;password&#39;],
+                $this-&gt;_config[&#39;driver_options&#39;]
+            );
+
+            $this-&gt;_profiler-&gt;queryEnd($q);
+
+            // set the PDO connection to perform case-folding on array keys, or not
+            $this-&gt;_connection-&gt;setAttribute(PDO::ATTR_CASE, $this-&gt;_caseFolding);
+
+            // always use exceptions.
+            $this-&gt;_connection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch (PDOException $e) {
+            /**
+             * @see Zend_Db_Adapter_Exception
+             */
+            require_once &#39;Zend/Db/Adapter/Exception.php&#39;;
+            throw new Zend_Db_Adapter_Exception($e-&gt;getMessage(), $e-&gt;getCode(), $e);
+        }
+
+    }
+
+}
+&lt;/pre&gt;
+&lt;p&gt;なんてものを作成します。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Zend_Application に　Autoloderの設定を行う</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-10-31_2500/</link>
+            <pubDate>Sun, 31 Oct 2010 14:33:46 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-10-31_2500/</guid>
+            <description>&lt;p&gt;昔のバージョンだとZendのソースを書き換えなくちゃいけなかったけど1.10からは自分でZend_Application利用してカスタマイズできるようになったみたいです。&lt;/p&gt;
+&lt;p&gt;まずはPHP.iniを以下のように設定します。
+設定項目としては、どのクラスが宣言された場合はどのディレクトリを読み込みにいくかという設定です。&lt;/p&gt;
+&lt;p&gt;やりかたはいろいろあると思いますが、とりあえずこんな感じでいいかなレベルです。&lt;/p&gt;
+&lt;pre class=&#34;brush:php&#34;&gt;
+;--------------------
+; loader
+;--------------------
+; resources.autoloader.lists.(設定名) = &#34;(どのクラス),(読み込み先)&#34;
+resources.autoloader.lists.validate = &#34;Validate,models/Validate&#34;
+resources.autoloader.lists.dbtable = &#34;Model_DbTable,models/DbTable&#34;
+resources.autoloader.lists.mappers = &#34;Model_Mapper,models/mappers&#34;
+&lt;/pre&gt;
+&lt;p&gt;リソースのプログラムは以下のように実装します。&lt;/p&gt;
+&lt;pre class=&#34;brush:php&#34;&gt;
+
+/*
+ * My_Application_Resource_Autoloader
+ */
+class My_Application_Resource_Autoloader extends Zend_Application_Resource_ResourceAbstract
+{
+    /**
+     *
+     * @return My_Application_Resource_Autoloader
+     */
+    public function init()
+    {
+        // init
+        $router = null;
+
+        // オプション情報取得
+        $options = $this-&gt;getOptions();
+
+        $moduleLoader = new Zend_Application_Module_Autoloader(array(
+            &#39;basePath&#39; =&gt; APPLICATION_PATH,
+            &#39;namespace&#39; =&gt; &#39;&#39;,
+        ));
+
+        foreach ($options[&#39;lists&#39;] as $key =&gt; $resource ) {
+            $data = explode(&#39;,&#39;, $resource);
+            $moduleLoader-&gt;addResourceType($key, $data[1], $data[0]);
+        }
+
+        return ;
+    }
+}
+
+&lt;/pre&gt;
+&lt;p&gt;これでいけるはず！！！&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>MacにPeclのImagickをインスコしてみる</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-08-12_2319/</link>
+            <pubDate>Thu, 12 Aug 2010 10:00:23 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-08-12_2319/</guid>
+            <description>&lt;p&gt;ImageMagickまではmac portで自動で入れられたのだがなぜかimagickは自動で入れられなかったため
+自分でコンパイルしてインストールしてみた。&lt;/p&gt;
+&lt;p&gt;まず、ImageMagickをインストールする。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ sudo port install ImageMagick
+&lt;/pre&gt;
+&lt;p&gt;これで正常にインストールされることでしょう。&lt;/p&gt;
+&lt;p&gt;次はImagickをインストールします。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ wget http://pecl.php.net/get/imagick-2.3.0.tgz
+$ tar zxvf imagick-2.3.0.tgz
+$ cd imagick-2.3.0 
+$ ./configure --with-imagick=/opt/local
+$ make
+$ sudo make install
+&lt;/pre&gt;
+&lt;p&gt;モジュールを移動します&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+$ cd /usr/lib/php/extensions/no-debug-non-zts-20090626
+$ sudo cp * ../
+&lt;/pre&gt;
+&lt;p&gt;php.iniの設定を変更する&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+extension=imagick.so
+&lt;/pre&gt;
+&lt;p&gt;最後にApacheを再起動すれば終了です。&lt;/p&gt;
+&lt;p&gt;いやー、リナックスだとrpmやらyumコマンドで簡単にインストールできるんだけど
+OSによってやり方変えてインストールしなくちゃいけないのは大変ですわい。まぁ
+そんな難しいことはしてないんですけどね。。。&lt;/p&gt;
+&lt;p&gt;■参考URL
+&lt;a href=&#34;http://www.rakugaki.jp/blog/archives/20081106,11.html&#34;&gt;MacにPHP/Imagickをインストールする&lt;/a&gt;
+&lt;a href=&#34;http://pecl.php.net/package/imagick&#34;&gt;[pecl]imagick&lt;/a&gt;
+&lt;a href=&#34;http://www.imagemagick.org/script/index.php&#34;&gt;ImageMagick&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>[memo]phpmyadminインストールメモ</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-08-09_2314/</link>
+            <pubDate>Mon, 09 Aug 2010 19:18:37 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-08-09_2314/</guid>
+            <description>&lt;p&gt;いままでmysqlの設定というとcuiでやってきたけどなんとなくではありますが、phpMyAdmin
+いれてみました。&lt;/p&gt;
+&lt;p&gt;楽なんですね、これ。&lt;/p&gt;
+&lt;p&gt;メモっす。本当にメモっす。
+たいしたことは書きません。&lt;/p&gt;
+&lt;h3&gt;１ソース落としてして展開。&lt;/h3&gt;
+&lt;h3&gt;２設定ファイル名変更&lt;/h3&gt;
+# mv config.sample.inc.php config.inc.php
+&lt;h3&gt;３設定変更&lt;/h3&gt;
+# vi config.inc.php
+&lt;p&gt;設定はクッキーを利用してログインするようにします。
+ログイン方法はクッキーを利用する方法とベーシック認証する方法の２パターンがありました。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+$cfg[&#39;DefaultCharset&#39;]                = &#39;utf-8&#39;;
+$cfg[&#39;PmaAbsoluteUri&#39;]              = &#39;http://hogehoge.com/phpmyadmin&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;cookie&#39;;
+//$cfg[&#39;Servers&#39;][$i][&#39;auth_type&#39;] = &#39;http&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;port&#39;]             = &#39;3306&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;user&#39;]             = &#39;hoge&#39;;
+$cfg[&#39;Servers&#39;][$i][&#39;password&#39;]     = &#39;hogehoge&#39;;
+&lt;/pre&gt;
+&lt;p&gt;これで終了。&lt;/p&gt;
+&lt;p&gt;後は、もう操作が行えます。&lt;/p&gt;
+&lt;p&gt;ただ、
+「mcrypt 拡張をロードできません。PHP の設定を確認してください」
+というエラーがでるんだけど気にしてません。&lt;/p&gt;
+&lt;p&gt;MacPortでPHP入れたもんでそのコンパイルオプション入っとらんのですよね。。。&lt;/p&gt;
+&lt;p&gt;■参照URL
+&lt;a href=&#34;http://www.phpmyadmin.net/documentation/Documentation.html#setup&#34;&gt;phpMyAdmin  3.4.0-dev Documentation&lt;/a&gt;
+&lt;a href=&#34;http://www.crimson-snow.net/hmsvr/centos/db/phpmyadmin.html&#34;&gt;「phpMyAdmin」の導入&lt;/a&gt;
+&lt;a href=&#34;http://kezy.org/2010/06/20/mac-mysql-phpmyadmin&#34;&gt;Mac に MacPorts を使って MySQL と PHPMyAdmin をインストールする方法&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>携帯でリダイレクトした際にセッションが切れてしまう件。</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-07-15_2205/</link>
+            <pubDate>Thu, 15 Jul 2010 20:02:55 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-07-15_2205/</guid>
+            <description>&lt;p&gt;携帯版ではまってしまったのでメモ&lt;/p&gt;
+&lt;p&gt;携帯は基本的にはセッションはパラメータで引き回すようにしています。
+しかし、リダイレクト時には自動的にはセッションIDは引き回さないようPHPの仕様でなっています。
+そこで、リダイレクト時にもセッションを引き回せるように手動でセッションを引き回すように処理を
+加えたのですがなぜかリダイレクト先の処理側でセッションが新しく生成されてしまう。&lt;/p&gt;
+&lt;p&gt;そう、セッションを引き回していなかったのです。&lt;/p&gt;
+&lt;p&gt;「加藤さん事件です。」（レポーター風）&lt;/p&gt;
+&lt;p&gt;一応セッション設定チェック&lt;/p&gt;
+&lt;pre class=&#34;brush:text&#34;&gt;
+;----- mobile {-----
+resources.session.use_only_cookies      = false
+resources.session.use_cookies           = false
+resources.session.use_trans_sid         = true
+;----- mobile }-----
+&lt;/pre&gt;
+&lt;p&gt;なんら問題無し。&lt;/p&gt;
+&lt;p&gt;各処理でのサーバ情報ゲット&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[QUERY_STRING] =&amp;gt;
+[REQUEST_URI] =&amp;gt; /test.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;!?&lt;/h1&gt;
+&lt;p&gt;むむむ、URI自体に問題があるのか。&lt;/p&gt;
+&lt;p&gt;そういえばリダイレクト先にパラメータとは別に「#top」なんてものも追加していた。。。&lt;/p&gt;
+&lt;pre class=&#34;brush:text&#34;&gt;
+http://nakajijapan.net/test.php#top?PHPSESSID=xxxxxxxxxxxxxxx
+
+だとだめで
+
+http://nakajijapan.net/test.php?PHPSESSID=xxxxxxxxxxxxxxx#top
+&lt;/pre&gt;
+&lt;p&gt;「＃」が前に来るか後にくるかででパラメータを認識してくれないようですね。&lt;/p&gt;
+&lt;p&gt;RFCの決まりごと的には最初にqueryの解析を始めるからそれでもうないって認識されてしまったのかもね。&lt;/p&gt;
+&lt;p&gt;結構単純なことでした。。&lt;/p&gt;
+&lt;p&gt;■参照URL
+&lt;a href=&#34;http://www.studyinghttp.net/uri&#34;&gt;URI - Uniform Resource Identifiers&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;iers&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>ZendFrameworkでベーシック認証を試みる　自作編</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-06-24_2122/</link>
+            <pubDate>Thu, 24 Jun 2010 05:59:38 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-06-24_2122/</guid>
+            <description>&lt;p&gt;わけって、アプリ側（ZendFramework）でもベーシック認証できないかということで調べてみたらありました。&lt;/p&gt;
+&lt;p&gt;流れとしては、&lt;/p&gt;
+&lt;p&gt;１． 認証を行う対象のコントローラがリクエストされたら、認証用のリクエストを送信する
+２． パスワードファイルは指定されたディレクトリから情報読み込み、そこから認証のチェックを行う
+３． 認証できれば当該処理を終了させる
+４． 認証できなければ、４０１にする&lt;/p&gt;
+&lt;p&gt;今回はプラグイン側で実行することにします。&lt;/p&gt;
+&lt;pre class=&#34;brush:php&#34;&gt;
+/**
+ * My_Controller_Plugin_HttpBasicAuth
+ *
+ */
+class My_Controller_Plugin_HttpBasicAuth extends  Zend_Controller_Plugin_Abstract
+{
+
+    /**
+     * Basic認証
+     * 
+     * @param Zend_Controller_Request_Abstract $request
+     */
+    public function dispatchLoopStartup(Zend_Controller_Request_Abstract $request) 
+    {
+        // init
+        $server         = $this-&gt;getRequest()-&gt;getServer();
+        $htpasswdFile   = &#34;/home/html/public_html/.htpasswd&#34;;
+
+        // 処理系のアクションか？
+        if (file_exists($htpasswdFile) &amp;&amp; is_file($htpasswdFile)) {
+            // init
+            $response = $this-&gt;getResponse();
+            $request  = $this-&gt;getRequest();
+
+            // htpasswdから情報取得
+            $htpasswds = file($htpasswdFile);
+
+            // headerから情報取得
+            $authHeader = $request-&gt;getHeader(&#39;Authorization&#39;);
+            // 認証情報解析
+            $cryptPass = &#39;&#39;;
+            $cryptUser = &#39;&#39;;
+            if (preg_match(&#39;/Basic (.+)/&#39;, $authHeader, $matches)) {
+                $base64     = base64_decode($matches[1]);
+                $userInfo   = explode(&#39;:&#39;, $base64);
+                $cryptUser  = $userInfo[0];
+
+                // パスワード情報があるまでチェックする
+                foreach ($htpasswds as $line) {
+                    if (empty($line)) {
+                        continue;
+                    }
+                    $htpasswd  = My_Util::trimAll(explode(&#39;:&#39;, $line));
+                    $username  = array_get($htpasswd, 0);
+                    $password  = array_get($htpasswd, 1);
+
+                    // 送信されたパスワード
+                    $cryptPass  = crypt($userInfo[1], substr($password, 0, 2));
+
+                    // 値は等しいければ終了
+                    if ($password == $cryptPass &amp;&amp; $username == $cryptUser ) {
+                        return;
+                    }
+                }
+            }
+
+            // 認証リクエスト送信
+            $response-&gt;setRawHeader(&#39;HTTP/1.1 401 Authorization Required&#39;);
+            $response-&gt;setRawHeader(&#39;WWW-Authenticate: Basic realm=&#34;My User&#34;&#39;);
+
+            // 認証画面設定
+            $response-&gt;clearBody();
+            $request-&gt;setControllerName(&#39;error&#39;)
+                    -&gt;setActionName(&#39;authrequired&#39;)
+                    -&gt;setDispatched(false);
+        }
+    }
+}
+&lt;/pre&gt;
+&lt;p&gt;最後にapp.iniにプラグインを有効化して終了。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>zend_captchaをいじってみた</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-06-11_2106/</link>
+            <pubDate>Fri, 11 Jun 2010 13:22:01 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-06-11_2106/</guid>
+            <description>&lt;p&gt;やっぱ、コメントスパムってなくならないよねーと騒がれるこのご時世。&lt;/p&gt;
+&lt;p&gt;対策の一環として一つの施策を行いました。&lt;/p&gt;
+&lt;p&gt;そう、その名もキャプチャ認証。ﾁｬﾗﾗﾘﾝ。&lt;/p&gt;
+&lt;p&gt;今回はZendのコンポーネントに画像認証用のものがあったのでそれを利用してみることにしました。&lt;/p&gt;
+&lt;p&gt;下準備として以下の条件が必要になります。
+・GDは利用できるかどうか
+・画像を保存するディレクトリは実行権限が「７」で設定されているか&lt;/p&gt;
+&lt;p&gt;早速実装です。以下が画像と承認用のIDを生成する設処理です。&lt;/p&gt;
+&lt;pre class=&#34;brush:php&#34;&gt;
+        //-----------------------------------
+        // キャプチャ画像生成
+        //-----------------------------------
+        $imgUrl = &#34;hogehoge&#34;;
+        $imgDir = &#34;hogehoge&#34;;
+        $config = array(&#39;timeout&#39; =&gt; 300,
+                        &#39;wordLen&#39; =&gt; 6,
+                        &#39;width&#39;   =&gt; 110,
+                        &#39;height&#39;  =&gt; 50,
+                        &#39;lineNoiseLevel&#39; =&gt; 3,
+                        &#39;dotNoiseLevel&#39; =&gt; 3,
+                        &#39;fontSize&#39; =&gt; 26,
+                        &#39;font&#39;    =&gt; &#39;/usr/share/fonts/ja/TrueType/kochi-mincho-subst.ttf&#39;,
+                        &#39;imgUrl&#39;  =&gt; $imgUrl,
+                        &#39;imgDir&#39;  =&gt; $imgDir
+            );
+        $captcha = new Zend_Captcha_Image( $config );
+        $captcha-&gt;generate();   //command to generate session + create image
+
+        $this-&gt;view-&gt;captchaId      = $captcha-&gt;getId();
+        $this-&gt;view-&gt;captchaImgTag  = $captcha-&gt;render(); // generate Image Tag
+&lt;/pre&gt;
+&lt;p&gt;簡単です、設定をちょろちょろしてからインスタンス生成、「generate()」で画像生成。これでロジック部分は終了。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>大量のデータをリクエストで送ってみる</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-04-14_1829/</link>
+            <pubDate>Wed, 14 Apr 2010 21:04:34 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-04-14_1829/</guid>
+            <description>&lt;p&gt;今の時代、複数枚の画像を一気に一つのリクエストで送るのありないけどときにやらないときもあるの。
+でも単純にできなかったので調査。&lt;/p&gt;
+&lt;p&gt;以下、はてなをパクリつつチェックしてみた。&lt;/p&gt;
+&lt;p&gt;■＜form method=post＞ で渡すデータ量に制限はない
+・HTTPヘッダの ContentsLength は 0 以上なら全て有効&lt;/p&gt;
+&lt;p&gt;■Apache側で受け取るコンテンツの長さの設定ができる
+LimitRequestBody ディレクティブ（デフォルトは無制限）&lt;/p&gt;
+&lt;p&gt;■PHP側での制限　変数の容量限界は設定された使用メモリ量に依存
+デフォルトでは8Mの設定になっていると思います。
+php.ini の、 memory_limit を参照してみてください&lt;/p&gt;
+&lt;p&gt;■大量データを受け取る際のタイムアウトがあり得る
+あまり大きいとアップロード中にPHPがタイムアウトするかも。
+php.ini の max_execution_time を長めに取る等対策要？&lt;/p&gt;
+&lt;p&gt;自分のところは「Content-Length」のサイズを予め設定しておく必要あるのかな。&lt;/p&gt;
+&lt;p&gt;と思ってZendで以下の設定をすることにした。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+phpSettings.default_charset            = &#34;UTF-8&#34;
+phpSettings.default_mimetype           = &#34;text/html&#34;
+phpSettings.memory_limit               = -1
+phpSettings.post_max_size              = 20971520
+phpSettings.upload_max_filesize        = 20971520
+&lt;/pre&gt;
+&lt;p&gt;一応サイズは都合上２０Mぐらいにしたのだが&lt;/p&gt;
+&lt;p&gt;エラ－で８M以上は遅れないよっていうレスポンスを返してきやがったぜ。&lt;/p&gt;
+&lt;p&gt;php.iniで変更しないとだめなのか、そもそもそんな設定がphp.iniになるのか&lt;/p&gt;
+&lt;p&gt;よくわかめ&lt;/p&gt;
+&lt;p&gt;＜追記＞
+とおもったら単純ミスーーーーーー&lt;/p&gt;
+&lt;p&gt;「post_max_size」「upload_max_filesize」はphp.iniで設定しないと反映されないんだった！！！！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://php.net/manual/ja/ini.core.php&#34;&gt;PHP：実行時設定&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+# application.ini
+phpSettings.default_charset            = &#34;UTF-8&#34;
+phpSettings.default_mimetype           = &#34;text/html&#34;
+phpSettings.memory_limit               = -1
+;消さなきゃ
+;phpSettings.post_max_size              = 20971520
+;phpSettings.upload_max_filesize        = 20971520
+&lt;/pre&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+# php.ini
+post_max_size = 20M
+; 下記は一応
+upload_max_filesize = 2M
+max_file_uploads = 20
+&lt;/pre&gt;
+&lt;h3&gt;教訓&lt;/h3&gt;
+&lt;blockquote&gt;
+「変更の可否」部分を要確認
+PHP_INI_USER	ユーザスクリプトまたはWindowsレジストリ  で設定可能なエントリ
+PHP_INI_PERDIR	php.ini, .htaccess または httpd.confで設定可能なエントリ
+PHP_INI_SYSTEM	php.ini または httpd.confで設定可能なエントリ
+PHP_INI_ALL	どこでも設定可能なエントリ
+&lt;/blockquote&gt;</description>
+        </item>
+        
+        <item>
+            <title>Function split() is deprecated[memo]</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-03-25_1780/</link>
+            <pubDate>Thu, 25 Mar 2010 20:48:51 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-03-25_1780/</guid>
+            <description>&lt;p&gt;直訳するとsplit()は（利用することを）避難されている？&lt;/p&gt;
+&lt;p&gt;使うなってことか。非推奨。&lt;/p&gt;
+&lt;p&gt;調べてみたら５．３からだそうです。とりあえずexplode() で対応しました。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>モダンPHP</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-02-10_442/</link>
+            <pubDate>Wed, 10 Feb 2010 15:09:43 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-02-10_442/</guid>
+            <description>&lt;div style=&#34;width:425px;text-align:left&#34; id=&#34;__ss_2588997&#34;&gt;&lt;a style=&#34;font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;&#34; href=&#34;http://www.slideshare.net/sotarok/modern-php-programming-pfi-seminar&#34; title=&#34;Modern PHP Programming @ PFI Seminar&#34;&gt;Modern PHP Programming @ PFI Seminar&lt;/a&gt;&lt;object style=&#34;margin:0px&#34; width=&#34;425&#34; height=&#34;355&#34;&gt;&lt;param name=&#34;movie&#34; value=&#34;http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=20091125modernphpprogramming-091126045325-phpapp02&amp;rel=0&amp;stripped_title=modern-php-programming-pfi-seminar&#34; /&gt;&lt;param name=&#34;allowFullScreen&#34; value=&#34;true&#34;/&gt;&lt;param name=&#34;allowScriptAccess&#34; value=&#34;always&#34;/&gt;&lt;embed src=&#34;http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=20091125modernphpprogramming-091126045325-phpapp02&amp;rel=0&amp;stripped_title=modern-php-programming-pfi-seminar&#34; type=&#34;application/x-shockwave-flash&#34; allowscriptaccess=&#34;always&#34; allowfullscreen=&#34;true&#34; width=&#34;425&#34; height=&#34;355&#34;&gt;&lt;/embed&gt;&lt;/object&gt;&lt;div style=&#34;font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;&#34;&gt;View more &lt;a style=&#34;text-decoration:underline;&#34; href=&#34;http://www.slideshare.net/&#34;&gt;presentations&lt;/a&gt; from &lt;a style=&#34;text-decoration:underline;&#34; href=&#34;http://www.slideshare.net/sotarok&#34;&gt;Sotaro Karasawa&lt;/a&gt;.&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;PHPerはぺちぱーっていうんだね。初めて知った。。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

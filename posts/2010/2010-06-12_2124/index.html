@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="IE６における「content-encoding gzip」の問題">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-06-12_2124/" />
+<meta property="go:description" content="IE６でいまいちjavascriptが正常に動作しない件
+原因はよくわからなかったがIEが「content-encoding gzip」があるレスポンスを
+うまく理解してくれないみたいだ。なのでjavascriptがどうのこうのという話ではなかった。
+その間に調査したこととして、圧縮の通信ていうのもHTTP/1.1からなので
+「HTTP/1.1」を設定できるように設定すればいいのかと思ったがどうもそれでも
+だめだったようだ。
+ということでApacheで圧縮している箇所を探す
+mod_deflateっていう機能で実現してました。
+通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+
+これをコメントアウトして再起動したら、なんら問題はおきなくなった。
+ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
+あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。
+■参照URL
+http://sonic64.com/2005-09-14.html
+mod_deflate" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="IE６における「content-encoding gzip」の問題" />
+<meta name="twitter:description" content="IE６でいまいちjavascriptが正常に動作しない件
+原因はよくわからなかったがIEが「content-encoding gzip」があるレスポンスを
+うまく理解してくれないみたいだ。なのでjavascriptがどうのこうのという話ではなかった。
+その間に調査したこととして、圧縮の通信ていうのもHTTP/1.1からなので
+「HTTP/1.1」を設定できるように設定すればいいのかと思ったがどうもそれでも
+だめだったようだ。
+ということでApacheで圧縮している箇所を探す
+mod_deflateっていう機能で実現してました。
+通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+
+これをコメントアウトして再起動したら、なんら問題はおきなくなった。
+ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。
+あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。
+■参照URL
+http://sonic64.com/2005-09-14.html
+mod_deflate" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>IE６における「content-encoding gzip」の問題 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">IE６における「content-encoding gzip」の問題</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-06-12">June 12, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/apache">Apache</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>IE６でいまいちjavascriptが正常に動作しない件</p>
+<p>原因はよくわからなかったがIEが「content-encoding gzip」があるレスポンスを
+うまく理解してくれないみたいだ。なのでjavascriptがどうのこうのという話ではなかった。</p>
+<p>その間に調査したこととして、圧縮の通信ていうのもHTTP/1.1からなので
+「HTTP/1.1」を設定できるように設定すればいいのかと思ったがどうもそれでも
+だめだったようだ。</p>
+<p>ということでApacheで圧縮している箇所を探す</p>
+<p>mod_deflateっていう機能で実現してました。</p>
+<p>通信するファイルが以下のコンテンツタイプだと圧縮転送するっていう仕組み</p>
+<pre class="brush: bash">
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+</pre>
+<p>これをコメントアウトして再起動したら、なんら問題はおきなくなった。
+ApacheがレスポンスにIE６はうまく答えいてくれないみたいですね。。。</p>
+<p>あれかなユーザエージェント解析してIE６だったら圧縮しない設定にしないとな。っていう話になりました。</p>
+<p>■参照URL
+<a href="Content Negotiation でリクエストに応じて gzip 圧縮ファイルを返す"><a href="http://sonic64.com/2005-09-14.html">http://sonic64.com/2005-09-14.html</a></a>
+<a href="http://httpd.apache.org/docs/2.0/ja/mod/mod_deflate.html">mod_deflate</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

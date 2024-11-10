@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[ios][memo]UITableViewControllerのめも。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2011/2011-08-08_2803/" />
+<meta property="go:description" content="勉強の一環であります。
+実際に実装して間隔つかむ。
+
+
+#import 
+
+@interface RootViewController : UITableViewController {
+    NSMutableArray *arrListSection1;
+    NSMutableArray *arrListSection2;
+}
+
+@property (nonatomic, retain) NSMutableArray *arrListSection1;
+@property (nonatomic, retain) NSMutableArray *arrListSection2;
+
+@end
+
+
+#import &#34;RootViewController.h&#34;
+
+@implementation RootViewController
+
+@synthesize arrListSection1;
+@synthesize arrListSection2;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@&#34;test table&#34;];
+    arrListSection1 = [[NSMutableArray alloc] initWithObjects:@&#34;test1&#34;,@&#34;test2&#34;,@&#34;test3&#34;, nil];
+    arrListSection2 = [[NSMutableArray alloc] initWithObjects:@&#34;test11&#34;,@&#34;test22&#34;,@&#34;test33&#34;, nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+//----------------------------------------------------------------
+#pragma mark - TableViewController
+//----------------------------------------------------------------
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+	UIView *view = [[UIView alloc] init];
+	// 背景に画像をセットする 
+	view.backgroundColor = [UIColor blackColor];
+	UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
+	//UIImage *bgImage = [UIImage imageNamed:@&#34;icon.png&#34;];
+	//lbl.backgroundColor = [UIColor colorWithPatternImage: bgImage];
+    lbl.backgroundColor = [UIColor blackColor];
+    lbl.textColor = [UIColor whiteColor];
+
+    if (section == 0) {
+        lbl.text = @&#34;first section&#34;;
+    }
+    else if (section == 1) {
+        lbl.text = @&#34;second section&#34;;
+    }
+	[view addSubview:lbl];
+	[lbl release];
+	return view;
+}
+
+/*
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title = nil;
+    if (section == 0) {
+        title = @&#34;first section&#34;;
+    }
+    else if (section == 1) {
+        title = @&#34;second section&#34;;
+    }
+    return title;
+}
+ */
+// Customize the number of sections in the table view.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger cnt;
+    if (section == 0) {
+        cnt = [arrListSection1 count];
+    }
+    else if (section == 1) {
+        cnt = [arrListSection2 count];
+    }
+    return cnt;
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @&#34;Cell&#34;;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    if (indexPath.section == 0) {
+        NSString *cellValue = [arrListSection1 objectAtIndex:indexPath.row];
+        cell.textLabel.text = cellValue;
+        
+        NSInteger rowNum = [indexPath row];
+        if (rowNum == 0) {
+            
+        }
+        else if (rowNum == 1) {
+            
+        }
+        else if (rowNum == 2) {
+            
+        }
+    }
+    if (indexPath.section == 1) {
+        NSString *cellValue = [arrListSection2 objectAtIndex:indexPath.row];
+        cell.textLabel.text = cellValue;
+    }
+
+    // Configure the cell.
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowNum = [indexPath row];
+    NSLog(@&#34;selected [sec %d][%d]&#34;, indexPath.section, rowNum);
+                        
+}
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn&#39;t have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc that aren&#39;t in use.
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+
+    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+@end
+
+
+できたものはこんなもの" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[ios][memo]UITableViewControllerのめも。" />
+<meta name="twitter:description" content="勉強の一環であります。
+実際に実装して間隔つかむ。
+
+
+#import 
+
+@interface RootViewController : UITableViewController {
+    NSMutableArray *arrListSection1;
+    NSMutableArray *arrListSection2;
+}
+
+@property (nonatomic, retain) NSMutableArray *arrListSection1;
+@property (nonatomic, retain) NSMutableArray *arrListSection2;
+
+@end
+
+
+#import &#34;RootViewController.h&#34;
+
+@implementation RootViewController
+
+@synthesize arrListSection1;
+@synthesize arrListSection2;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@&#34;test table&#34;];
+    arrListSection1 = [[NSMutableArray alloc] initWithObjects:@&#34;test1&#34;,@&#34;test2&#34;,@&#34;test3&#34;, nil];
+    arrListSection2 = [[NSMutableArray alloc] initWithObjects:@&#34;test11&#34;,@&#34;test22&#34;,@&#34;test33&#34;, nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+//----------------------------------------------------------------
+#pragma mark - TableViewController
+//----------------------------------------------------------------
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+	UIView *view = [[UIView alloc] init];
+	// 背景に画像をセットする 
+	view.backgroundColor = [UIColor blackColor];
+	UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
+	//UIImage *bgImage = [UIImage imageNamed:@&#34;icon.png&#34;];
+	//lbl.backgroundColor = [UIColor colorWithPatternImage: bgImage];
+    lbl.backgroundColor = [UIColor blackColor];
+    lbl.textColor = [UIColor whiteColor];
+
+    if (section == 0) {
+        lbl.text = @&#34;first section&#34;;
+    }
+    else if (section == 1) {
+        lbl.text = @&#34;second section&#34;;
+    }
+	[view addSubview:lbl];
+	[lbl release];
+	return view;
+}
+
+/*
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title = nil;
+    if (section == 0) {
+        title = @&#34;first section&#34;;
+    }
+    else if (section == 1) {
+        title = @&#34;second section&#34;;
+    }
+    return title;
+}
+ */
+// Customize the number of sections in the table view.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger cnt;
+    if (section == 0) {
+        cnt = [arrListSection1 count];
+    }
+    else if (section == 1) {
+        cnt = [arrListSection2 count];
+    }
+    return cnt;
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @&#34;Cell&#34;;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    if (indexPath.section == 0) {
+        NSString *cellValue = [arrListSection1 objectAtIndex:indexPath.row];
+        cell.textLabel.text = cellValue;
+        
+        NSInteger rowNum = [indexPath row];
+        if (rowNum == 0) {
+            
+        }
+        else if (rowNum == 1) {
+            
+        }
+        else if (rowNum == 2) {
+            
+        }
+    }
+    if (indexPath.section == 1) {
+        NSString *cellValue = [arrListSection2 objectAtIndex:indexPath.row];
+        cell.textLabel.text = cellValue;
+    }
+
+    // Configure the cell.
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowNum = [indexPath row];
+    NSLog(@&#34;selected [sec %d][%d]&#34;, indexPath.section, rowNum);
+                        
+}
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn&#39;t have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc that aren&#39;t in use.
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+
+    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+@end
+
+
+できたものはこんなもの" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[ios][memo]UITableViewControllerのめも。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[ios][memo]UITableViewControllerのめも。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-08-08">August 08, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/iphone">iPhone</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>勉強の一環であります。</p>
+<p>実際に実装して間隔つかむ。</p>
+<pre class="brush: cpp">
+
+#import <UIKit/UIKit.h>
+
+@interface RootViewController : UITableViewController {
+    NSMutableArray *arrListSection1;
+    NSMutableArray *arrListSection2;
+}
+
+@property (nonatomic, retain) NSMutableArray *arrListSection1;
+@property (nonatomic, retain) NSMutableArray *arrListSection2;
+
+@end
+</pre>
+<pre class="brush: cpp">
+#import "RootViewController.h"
+
+@implementation RootViewController
+
+@synthesize arrListSection1;
+@synthesize arrListSection2;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@"test table"];
+    arrListSection1 = [[NSMutableArray alloc] initWithObjects:@"test1",@"test2",@"test3", nil];
+    arrListSection2 = [[NSMutableArray alloc] initWithObjects:@"test11",@"test22",@"test33", nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+	[super viewDidDisappear:animated];
+}
+
+//----------------------------------------------------------------
+#pragma mark - TableViewController
+//----------------------------------------------------------------
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+	UIView *view = [[UIView alloc] init];
+	// 背景に画像をセットする 
+	view.backgroundColor = [UIColor blackColor];
+	UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
+	//UIImage *bgImage = [UIImage imageNamed:@"icon.png"];
+	//lbl.backgroundColor = [UIColor colorWithPatternImage: bgImage];
+    lbl.backgroundColor = [UIColor blackColor];
+    lbl.textColor = [UIColor whiteColor];
+
+    if (section == 0) {
+        lbl.text = @"first section";
+    }
+    else if (section == 1) {
+        lbl.text = @"second section";
+    }
+	[view addSubview:lbl];
+	[lbl release];
+	return view;
+}
+
+/*
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *title = nil;
+    if (section == 0) {
+        title = @"first section";
+    }
+    else if (section == 1) {
+        title = @"second section";
+    }
+    return title;
+}
+ */
+// Customize the number of sections in the table view.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger cnt;
+    if (section == 0) {
+        cnt = [arrListSection1 count];
+    }
+    else if (section == 1) {
+        cnt = [arrListSection2 count];
+    }
+    return cnt;
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    if (indexPath.section == 0) {
+        NSString *cellValue = [arrListSection1 objectAtIndex:indexPath.row];
+        cell.textLabel.text = cellValue;
+        
+        NSInteger rowNum = [indexPath row];
+        if (rowNum == 0) {
+            
+        }
+        else if (rowNum == 1) {
+            
+        }
+        else if (rowNum == 2) {
+            
+        }
+    }
+    if (indexPath.section == 1) {
+        NSString *cellValue = [arrListSection2 objectAtIndex:indexPath.row];
+        cell.textLabel.text = cellValue;
+    }
+
+    // Configure the cell.
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowNum = [indexPath row];
+    NSLog(@"selected [sec %d][%d]", indexPath.section, rowNum);
+                        
+}
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc that aren't in use.
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+
+    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
+@end
+
+</pre>
+<p>できたものはこんなもの</p>
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2011/07/スクリーンショット（2011-07-24-17.21.29）.png" alt="" title="test" width="396" height="744" class="aligncenter size-full wp-image-2804" />
+<div class="booklog_html"><div class="booklog_html_image" style="float:left;"><a href="http://www.amazon.co.jp/gp/product/4797358106?tag=daichibnejp-22&linkCode=as1" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51Xh3SHkBaL._SL160_.jpg" width="124" height="160" style="border:0;" /></a></div><div class="booklog_html_info" style="float:left;margin-left:10px;"><div class="booklog_html_title" style="margin-bottom:5px;font-size:12px;"><a href="http://www.amazon.co.jp/gp/product/4797358106?tag=daichibnejp-22&linkCode=as1" target="_blank">はじめてのiPhone3プログラミング</a></div><div style="margin-bottom:10px;"><div class="booklog_html_author" style="font-size:10px;">Dave Mark,Jeff LaMarche</div><div class="booklog_html_manufacturer" style="font-size:10px;">ソフトバンククリエイティブ</div><div class="booklog_html_release" style="font-size:10px;">発売日：2009-12-17</div></div><div class="booklog_html_link_amazon" style="margin-bottom:10px;font-size:10px;"><a href="http://booklog.jp/asin/4797358106" target="_blank">ブクログでレビューを見る»</a></div></div><div class="booklog_html_fotter" style="clear:left;"></div><br /></div>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

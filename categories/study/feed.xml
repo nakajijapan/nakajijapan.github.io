@@ -1,0 +1,130 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Study on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/study/</link>
+        <description>Recent content in Study on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sat, 15 Feb 2014 01:51:00 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/study/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Developers Summit 2014</title>
+            <link>http://nakajijapan.github.io/posts/2014/2014-02-17-developers-summit-2014/</link>
+            <pubDate>Sat, 15 Feb 2014 01:51:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2014/2014-02-17-developers-summit-2014/</guid>
+            <description>&lt;p&gt;先週ではありますが、Developers Summit 2014に参加してきました。
+サミットが平日だったので全部はみれていませんが、いくつかのステージをみること
+はできたのでそのメモを記します。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Developers Summit 2014
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://event.shoeisha.jp/devsumi/20140213/&#34;&gt;http://event.shoeisha.jp/devsumi/20140213/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;iosアプリケーションの継続的デリバリー&#34;&gt;iOSアプリケーションの継続的デリバリー&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;発表者
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://event.shoeisha.jp/devsumi/20140213/session/430&#34;&gt;https://event.shoeisha.jp/devsumi/20140213/session/430&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;発表資料
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/numeha/ios-31199969&#34;&gt;http://www.slideshare.net/numeha/ios-31199969&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;どのくらいスピードが必要なのか&#34;&gt;どのくらいスピードが必要なのか&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;iOS１ヶ月で約四回リリース&lt;/li&gt;
+&lt;li&gt;ネックは申請降りるのに７日間必要。。。&lt;/li&gt;
+&lt;li&gt;1年で１２回のリリース&lt;/li&gt;
+&lt;li&gt;自分たちのリリースのリズムできてますか？
+&lt;ul&gt;
+&lt;li&gt;いつもリリースできる状態にしときましょう!!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;継続的デリバリー
+&lt;ul&gt;
+&lt;li&gt;ビジネスの主導権を握る為にCIやるんだ!!!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;価値のあるソフトウェアをはやく継続的にリリースする&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;徹底的に自動化してきた&#34;&gt;徹底的に自動化してきた&lt;/h3&gt;
+&lt;h4 id=&#34;コード品質のパイプライン&#34;&gt;コード品質のパイプライン&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;コード取得 -&amp;gt; Git&lt;/li&gt;
+&lt;li&gt;ビルド -&amp;gt; Xcode&lt;/li&gt;
+&lt;li&gt;コード行数 -&amp;gt; SLOCCount&lt;/li&gt;
+&lt;li&gt;重複コード -&amp;gt; DRY&lt;/li&gt;
+&lt;li&gt;警告 -&amp;gt; Warnnings&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;テストにはGHUnitを利用している&lt;/li&gt;
+&lt;li&gt;カバレッジはgcovr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;製品品質のパイプライン&#34;&gt;製品品質のパイプライン&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;実記でのテストが必要&lt;/li&gt;
+&lt;li&gt;テストフレームワークを同封してビルドしている&lt;/li&gt;
+&lt;li&gt;自動でipaファイル作成&lt;/li&gt;
+&lt;li&gt;複数のデバイスに自動でインストール
+&lt;ul&gt;
+&lt;li&gt;fruitstrap or Instruments&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;特定の端末のピンポイントでデプロイする&lt;/li&gt;
+&lt;li&gt;Frankというテストフレーム&lt;/li&gt;
+&lt;li&gt;httpで外部から複数代のios端末を操作&lt;/li&gt;
+&lt;li&gt;ios7からのTouch問うの操作API禁止&lt;/li&gt;
+&lt;li&gt;fsdfdsafda&lt;/li&gt;
+&lt;li&gt;sdfsadfsadfd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;どうしよう。。。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;解決策としてiOS6専用にしよう&lt;/li&gt;
+&lt;li&gt;iOS7はInstruments経由で操作&lt;/li&gt;
+&lt;li&gt;ビルドマシン一代につきiOS一代にいれよう&lt;/li&gt;
+&lt;li&gt;テストフレームワークを複数いれられない
+&lt;ul&gt;
+&lt;li&gt;シングルプロセスでしか動作しないらしい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;どうしよう。。。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MacサーバでVMサーバ作って複数台での端末で実装してみたよ
+&lt;ul&gt;
+&lt;li&gt;実機のテストにはさまざまなシリーズ・OSバージョンのiPhone,iPadを用意してるらしい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;エンタープライズすごい！&lt;/p&gt;
+&lt;h2 id=&#34;tokyo-motioncontrol-network&#34;&gt;Tokyo MotionControl Network&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Facebook
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/TokyoMotioncontrolNetwork&#34;&gt;https://www.facebook.com/TokyoMotioncontrolNetwork&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;モーションキャプチャを利用したさまざまなコンテンツの紹介をされていました。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

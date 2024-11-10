@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Doctrineを利用して実際の処理をしてみるの">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-02-09_414/" />
+<meta property="go:description" content="Doctrineいれてみる　with zendからの続きです。
+では実際にDoctrineで生成されたクラスを利用して
+データベースの操作を行ってみましょう。
+ユーザデータ一覧取得
+
+            // user
+             $query = Doctrine_Query::create()
+                     -&gt;from(&#39;User u&#39;)
+                     -&gt;orderBy(&#39;u.id&#39;)
+                           ;
+            $lists = $query-&gt;execute();
+
+ユーザデータ作成
+
+            // user
+            $user = new User();
+            $user-&gt;username = &#34;username&#34;
+            $user-&gt;password = &#34;password&#34;
+            $user-&gt;save();
+
+ユーザデータ削除
+
+            //$user = new User();
+            $query = Doctrine_Query::create()
+                                    -&gt;delete(&#34;User u&#34;)
+                                    -&gt;whereIn(&#34;id&#34;, $prms[&#34;delid&#34;]);
+            $delcnt = $query-&gt;execute();
+
+ユーザデータ変更
+
+            // user
+            $user = Doctrine::getTable(&#39;User&#39;)-&gt;find(1);
+            
+            $user-&gt;username = &#34;modified_username&#34;
+            $user-&gt;password = &#34;modified_password&#34;
+            $user-&gt;save();
+
+ちょっと応用してみます。
+情報取得時にテーブルをJOINして取得します。
+
+            // user and group
+            $query = Doctrine_Query::create()
+                     -&gt;from(&#39;User u&#39;)
+                     -&gt;leftJoin(&#39;u.Group g&#39;)
+                     -&gt;orderBy(&#39;u.id&#39;)
+                           ;
+            $lists = $query-&gt;execute();
+            $this-&gt;view-&gt;lists = $lists;
+
+上記処理は、Doctrine独自の書き方でDoctrine側であらかじめ関連づけしといてカラムと繋ぎ合せて
+自動でSQLを作成しています。なのでSQLのなかで勝手に「UserGroup」テーブルがジョインされています。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Doctrineを利用して実際の処理をしてみるの" />
+<meta name="twitter:description" content="Doctrineいれてみる　with zendからの続きです。
+では実際にDoctrineで生成されたクラスを利用して
+データベースの操作を行ってみましょう。
+ユーザデータ一覧取得
+
+            // user
+             $query = Doctrine_Query::create()
+                     -&gt;from(&#39;User u&#39;)
+                     -&gt;orderBy(&#39;u.id&#39;)
+                           ;
+            $lists = $query-&gt;execute();
+
+ユーザデータ作成
+
+            // user
+            $user = new User();
+            $user-&gt;username = &#34;username&#34;
+            $user-&gt;password = &#34;password&#34;
+            $user-&gt;save();
+
+ユーザデータ削除
+
+            //$user = new User();
+            $query = Doctrine_Query::create()
+                                    -&gt;delete(&#34;User u&#34;)
+                                    -&gt;whereIn(&#34;id&#34;, $prms[&#34;delid&#34;]);
+            $delcnt = $query-&gt;execute();
+
+ユーザデータ変更
+
+            // user
+            $user = Doctrine::getTable(&#39;User&#39;)-&gt;find(1);
+            
+            $user-&gt;username = &#34;modified_username&#34;
+            $user-&gt;password = &#34;modified_password&#34;
+            $user-&gt;save();
+
+ちょっと応用してみます。
+情報取得時にテーブルをJOINして取得します。
+
+            // user and group
+            $query = Doctrine_Query::create()
+                     -&gt;from(&#39;User u&#39;)
+                     -&gt;leftJoin(&#39;u.Group g&#39;)
+                     -&gt;orderBy(&#39;u.id&#39;)
+                           ;
+            $lists = $query-&gt;execute();
+            $this-&gt;view-&gt;lists = $lists;
+
+上記処理は、Doctrine独自の書き方でDoctrine側であらかじめ関連づけしといてカラムと繋ぎ合せて
+自動でSQLを作成しています。なのでSQLのなかで勝手に「UserGroup」テーブルがジョインされています。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Doctrineを利用して実際の処理をしてみるの - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Doctrineを利用して実際の処理をしてみるの</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-02-09">February 09, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/doctrine">Doctrine</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><a href="http://blog.nakajijapan.net/?p=408">Doctrineいれてみる　with zend</a>からの続きです。</p>
+<p>では実際にDoctrineで生成されたクラスを利用して
+データベースの操作を行ってみましょう。</p>
+<p>ユーザデータ一覧取得</p>
+<pre class="brush: php">
+            // user
+             $query = Doctrine_Query::create()
+                     ->from('User u')
+                     ->orderBy('u.id')
+                           ;
+            $lists = $query->execute();
+</pre>
+<p>ユーザデータ作成</p>
+<pre class="brush: php">
+            // user
+            $user = new User();
+            $user->username = "username"
+            $user->password = "password"
+            $user->save();
+</pre>
+<p>ユーザデータ削除</p>
+<pre class="brush: php">
+            //$user = new User();
+            $query = Doctrine_Query::create()
+                                    ->delete("User u")
+                                    ->whereIn("id", $prms["delid"]);
+            $delcnt = $query->execute();
+</pre>
+<p>ユーザデータ変更</p>
+<pre class="brush: php">
+            // user
+            $user = Doctrine::getTable('User')->find(1);
+            
+            $user->username = "modified_username"
+            $user->password = "modified_password"
+            $user->save();
+</pre>
+<p>ちょっと応用してみます。
+情報取得時にテーブルをJOINして取得します。</p>
+<pre class="brush: php">
+            // user and group
+            $query = Doctrine_Query::create()
+                     ->from('User u')
+                     ->leftJoin('u.Group g')
+                     ->orderBy('u.id')
+                           ;
+            $lists = $query->execute();
+            $this->view->lists = $lists;
+</pre>
+<p>上記処理は、Doctrine独自の書き方でDoctrine側であらかじめ関連づけしといてカラムと繋ぎ合せて
+自動でSQLを作成しています。なのでSQLのなかで勝手に「UserGroup」テーブルがジョインされています。</p>
+<p>しかし、この状態だと「UserGroup」テーブルの情報を取りたいとき取得されないみたいだったので
+以下にようにして普通に結合させます。</p>
+<pre class="brush: php">
+            // user and group
+            $query = Doctrine_Query::create()
+                     ->from('User u')
+                     ->leftJoin('u.UserGroup ug')
+                     ->leftJoin('ug.Group g')
+                     ->orderBy('u.id')
+                           ;
+            $lists = $query->execute();
+            $this->view->lists = $lists;
+</pre>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

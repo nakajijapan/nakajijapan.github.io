@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[memo]gitflowを導入">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2011/12/30/memogitflow%E3%82%92%E5%B0%8E%E5%85%A5/" />
+<meta property="go:description" content="gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。
+基本的な概念は、ここを参照。
+http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html
+ここ
+
+wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash
+
+まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
+
+git clone hoge.git hoge
+git flow init
+
+開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
+
+# 開発からブランチを切って開発を行う。
+git flow feature test start
+
+# 何かしらのファイルを修正
+git commit -a
+
+# 他で開発していれば更新分をマージする
+git pull origin develop
+
+# 開発終了
+git flow feature test finish
+
+
+ここから本番にデプロイするときの設定です。
+
+git flow release 0.0.1 start
+git flow release 0.0.1 stop
+
+git push 
+git push --tags
+
+■参照URL
+https://github.com/nvie/gitflow
+http://d.hatena.ne.jp/Voluntas/20101223/1293111549" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[memo]gitflowを導入" />
+<meta name="twitter:description" content="gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。
+基本的な概念は、ここを参照。
+http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html
+ここ
+
+wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash
+
+まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。
+
+git clone hoge.git hoge
+git flow init
+
+開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。
+
+# 開発からブランチを切って開発を行う。
+git flow feature test start
+
+# 何かしらのファイルを修正
+git commit -a
+
+# 他で開発していれば更新分をマージする
+git pull origin develop
+
+# 開発終了
+git flow feature test finish
+
+
+ここから本番にデプロイするときの設定です。
+
+git flow release 0.0.1 start
+git flow release 0.0.1 stop
+
+git push 
+git push --tags
+
+■参照URL
+https://github.com/nvie/gitflow
+http://d.hatena.ne.jp/Voluntas/20101223/1293111549" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[memo]gitflowを導入 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[memo]gitflowを導入</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-12-30">December 30, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/linux">Linux</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>gitにgitflowを導入してみました。簡単に言うと A successful Git branching model (O-Show 氏による日本語訳) というブランチモデルを補助するための git 拡張出そうです。</p>
+<p>基本的な概念は、ここを参照。
+<a href="http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html">http://www.oreilly.co.jp/community/blog/2011/11/branch-model-with-git-flow.html</a></p>
+<p>ここ</p>
+<pre class="brush:bash">
+wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash
+</pre>
+<p>まず最初にgit-flowを利用できるようにクローンしたあとすぐにgit flowで初期化して利用できるようにします。</p>
+<pre class="brush:bash">
+git clone hoge.git hoge
+git flow init
+</pre>
+<p>開発するときはfeatureで開発用のブランチをさくせいしてから実装を行うようにします。</p>
+<pre class="brush:bash">
+# 開発からブランチを切って開発を行う。
+git flow feature test start
+
+# 何かしらのファイルを修正
+git commit -a
+
+# 他で開発していれば更新分をマージする
+git pull origin develop
+
+# 開発終了
+git flow feature test finish
+
+</pre>
+<p>ここから本番にデプロイするときの設定です。</p>
+<pre class="brush:bash">
+git flow release 0.0.1 start
+git flow release 0.0.1 stop
+
+git push 
+git push --tags
+</pre>
+<p>■参照URL
+<a href="https://github.com/nvie/gitflow">https://github.com/nvie/gitflow</a>
+<a href="http://d.hatena.ne.jp/Voluntas/20101223/1293111549">http://d.hatena.ne.jp/Voluntas/20101223/1293111549</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

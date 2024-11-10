@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="[Rails]テーブルの作成更新日時のカラム名を変更する。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2012/06/02/rails%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90%E6%9B%B4%E6%96%B0%E6%97%A5%E6%99%82%E3%81%AE%E3%82%AB%E3%83%A9%E3%83%A0%E5%90%8D%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B/" />
+<meta property="go:description" content="Railsはテーブルを作成するときの決まり事として「created_at」「updated_at」と作成されます。
+しかし、既存テのーブル構成を変更しないで作成・更新日時のカラムを利用しようとしたとき不便なものがありますが、
+以下の方法を実装すれば、既存のカラムを変更しなくてもそれがRailsもモデル作成・更新日時用のカラムとして
+認識させてくれるのです。
+
+module ActiveRecord
+  module Timestamp
+    private
+    def timestamp_attributes_for_update #:nodoc:
+      [:update_time, :update_date, :updated_at]
+    end
+
+    def timestamp_attributes_for_create #:nodoc:
+      [:make_time, :create_date, :created_at]
+    end
+  end
+end
+
+enviroment.rbに記述して再起動すれば反映されているはずです。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="[Rails]テーブルの作成更新日時のカラム名を変更する。" />
+<meta name="twitter:description" content="Railsはテーブルを作成するときの決まり事として「created_at」「updated_at」と作成されます。
+しかし、既存テのーブル構成を変更しないで作成・更新日時のカラムを利用しようとしたとき不便なものがありますが、
+以下の方法を実装すれば、既存のカラムを変更しなくてもそれがRailsもモデル作成・更新日時用のカラムとして
+認識させてくれるのです。
+
+module ActiveRecord
+  module Timestamp
+    private
+    def timestamp_attributes_for_update #:nodoc:
+      [:update_time, :update_date, :updated_at]
+    end
+
+    def timestamp_attributes_for_create #:nodoc:
+      [:make_time, :create_date, :created_at]
+    end
+  end
+end
+
+enviroment.rbに記述して再起動すれば反映されているはずです。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>[Rails]テーブルの作成更新日時のカラム名を変更する。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">[Rails]テーブルの作成更新日時のカラム名を変更する。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-06-02">June 02, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ruby">Ruby</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>Railsはテーブルを作成するときの決まり事として「created_at」「updated_at」と作成されます。
+しかし、既存テのーブル構成を変更しないで作成・更新日時のカラムを利用しようとしたとき不便なものがありますが、
+以下の方法を実装すれば、既存のカラムを変更しなくてもそれがRailsもモデル作成・更新日時用のカラムとして
+認識させてくれるのです。</p>
+<pre class="brush:ruby">
+module ActiveRecord
+  module Timestamp
+    private
+    def timestamp_attributes_for_update #:nodoc:
+      [:update_time, :update_date, :updated_at]
+    end
+
+    def timestamp_attributes_for_create #:nodoc:
+      [:make_time, :create_date, :created_at]
+    end
+  end
+end
+</pre>
+<p>enviroment.rbに記述して再起動すれば反映されているはずです。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

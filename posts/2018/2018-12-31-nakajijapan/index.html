@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="2018を振り返る">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2018/2018-12-31-nakajijapan/" />
+<meta property="go:description" content="２０１８年を振り返る。
+仕事
+今年はまた新しい会社で働くことになり、心機一転頑張るぞというところから始まったが、まぁ社内ではスタートアップあるあるというかなんというか
+ごたついていて序盤は仕事に集中できていなかったように思う。せっかく入社してこれから心配になりそうだったのでメインの仕事以外にも自分もやらないと
+いけないと感じ、実務以外のところで、自分だけではなく他のメンバーへのハレーションが拡大しなように色々動いたと思う。
+エンジニアリングマネージャ
+自分の会社で初めて評価制度ができたタイミングで、もっと良くできるのではないかなと思い、
+今までの経験からエンジニアの評価制度はこうするべきと考えて、会社に企画・提案を行い、実施まで行った。
+そこから、エンジニアの軸だったり採用方針だったりを決めるところまで実行に移すことになる。
+その後、それを担う技術戦略部ができ、そこにも所属することになった。
+その結果、エンジニアリングマネージャ？となった。つまるところエンジニア全員の技術評価をしたり採用したりという役割。
+モバイルエンジニア
+当時はiOSは開発者3人体制で開発し、リリースしてから一年を経とうとしているアプリだった。
+しかし、チーム開発をするにはまだまだ課題があると感じたので以下のことを行った。
+
+Gitの使い方が間違っていたのでチーム開発に耐えれるような方針を提案
+ルーキー枠のエンジニアがいたがレビューがほとんど行われていなく、放置状態だったのでレビュー体制を整えるだけではなく、彼のフォロー体制も企画・提案を実施
+チームで安定した開発ができるようにするためにVIPER&#43;RxSwiftを利用した設計で運用することを提案・導入
+
+安定した開発とは、開発しやすい、バグの起きにくい、レビューがしやすい
+先ずは設計に慣れてないないエンジニアがほとんどだったので、最初に設計の勉強会（モバイル開発にはどういう実装があるのか色々な設計方法を交えて）から具体的にどのような実装をしていくのかを簡単な機能でPull Requestを作成して説明した。
+その結果、責務を分割したことでコードの見通しはよくなり、テストコードも書きやすくなり安定した開発ができるようになりました。
+VIPER設計(&#43;RxSwift)でサービスのコードを置き換えた
+
+
+自動化
+
+構築したっきり誰も運用されていないかったので自分で運用するようにした
+テストがなかったのでモデルのテストからUIの状態テストまでできるようにした
+Cocoapodsが速度を遅くしている原因になったいたので少しずつ移行し、処理時間の短縮化に成功した
+
+
+勉強会でFirebase Authrizationを発表した
+
+Androidエンジニアが一時的にいない問題
+運用途中から、Androidエンジニアがいなくなってしまうという問題が発生した。
+現状はリリースしてしまっている・機会損失に繋がる・ビジネス的判断から開発を止めるわけにはいかなかった。
+それ以降からPolcaのモバイル開発はiOS、Androidも開発を行うようにした。そこまで、実践経験がなかった自分だったが、
+これによりAndroidでも通常の機能開発できるようになったことはもちろんのことデザインのレビューの際には各プラットフォーム
+に適したデザインの提案がデザイナとできるようになりました。
+デザインにもコミット
+ある程度のデザインであれば、自分でSketchを利用してUI設計を行いデザイナいらずでリリースまで持っていくことが増えた。
+デザイナが不要というわけではなくめっちゃ必要なんだけど、すぐに採用というわけにはいかなかったので自分でできるところはやる
+というところやってみた 
+プライベート（技術）
+Izumo
+無事、一年越しで自分専用に欲しかったMarkdownメモアプリをリリースすることができた。対応プラットフォームはMacOS、iOS。
+いまのところ、自分が使い続けているので今後の保守・運用は続けていくつもり。
+
+Izumo - markdown note tool - をリリースしました。
+
+対応
+
+多言語化
+ダークモード対応
+諸々のバグ修正
+
+
+
+
+iOSDC 2018 でMarkdownの解析について発表してきた。
+
+OSS
+nakajijapan/ColorHex
+
+ios grade down deployment target: 2018-06-01
+Add calibrated color: 2018-01-16
+Use Xcode9: 2018-01-07
+Support macOS: 2018-01-07
+
+nakajijapan/Izumo
+
+Speed up the codeblock algorithm: 2018-10-28
+Abolish to use swift string method: (https://github.com/nakajijapan/Izumo/issues/38) 2018-10-07
+Use Swift 4.2 and Use Dark Mode: 2018-09-30
+Use typeingAttributes: (一行目を改行すると一行目のフォントサイズを引き継が&hellip;) 2018-08-06
+Refactoring: 2018-07-16
+Localize around recovery: 2018-07-15
+Use nsfetchresultscontroller: 2018-07-15
+Localization: (Add the Simplified Chinise) 2018-07-08
+Localization fo mac: 2018-07-03
+iOS側にもオートインデント追加: (Auto-indent対応 iOSはチェックしないようにした タブ&hellip;) 2018-04-15
+Cloudkit: 2018-03-01
+Abolish toolbar: 2018-01-18
+Drag and Drop: 2018-01-01
+
+nakajijapan/Kazaguruma
+
+Use Swift 4.1: 2018-04-11
+
+nakajijapan/PhotoSlider
+
+Delete warnings for Swift 4.2: 2018-09-24
+Pass a UI test: (A test didn&rsquo;t pass.) 2018-09-01
+Change the animtion logic: (Change the animation logic because the some views &hellip;) 2018-06-19
+Update Kingfisher to 4.8.0: 2018-06-15
+
+nakajijapan/Shari
+iPad対応・回転対応できるようにした。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="2018を振り返る" />
+<meta name="twitter:description" content="２０１８年を振り返る。
+仕事
+今年はまた新しい会社で働くことになり、心機一転頑張るぞというところから始まったが、まぁ社内ではスタートアップあるあるというかなんというか
+ごたついていて序盤は仕事に集中できていなかったように思う。せっかく入社してこれから心配になりそうだったのでメインの仕事以外にも自分もやらないと
+いけないと感じ、実務以外のところで、自分だけではなく他のメンバーへのハレーションが拡大しなように色々動いたと思う。
+エンジニアリングマネージャ
+自分の会社で初めて評価制度ができたタイミングで、もっと良くできるのではないかなと思い、
+今までの経験からエンジニアの評価制度はこうするべきと考えて、会社に企画・提案を行い、実施まで行った。
+そこから、エンジニアの軸だったり採用方針だったりを決めるところまで実行に移すことになる。
+その後、それを担う技術戦略部ができ、そこにも所属することになった。
+その結果、エンジニアリングマネージャ？となった。つまるところエンジニア全員の技術評価をしたり採用したりという役割。
+モバイルエンジニア
+当時はiOSは開発者3人体制で開発し、リリースしてから一年を経とうとしているアプリだった。
+しかし、チーム開発をするにはまだまだ課題があると感じたので以下のことを行った。
+
+Gitの使い方が間違っていたのでチーム開発に耐えれるような方針を提案
+ルーキー枠のエンジニアがいたがレビューがほとんど行われていなく、放置状態だったのでレビュー体制を整えるだけではなく、彼のフォロー体制も企画・提案を実施
+チームで安定した開発ができるようにするためにVIPER&#43;RxSwiftを利用した設計で運用することを提案・導入
+
+安定した開発とは、開発しやすい、バグの起きにくい、レビューがしやすい
+先ずは設計に慣れてないないエンジニアがほとんどだったので、最初に設計の勉強会（モバイル開発にはどういう実装があるのか色々な設計方法を交えて）から具体的にどのような実装をしていくのかを簡単な機能でPull Requestを作成して説明した。
+その結果、責務を分割したことでコードの見通しはよくなり、テストコードも書きやすくなり安定した開発ができるようになりました。
+VIPER設計(&#43;RxSwift)でサービスのコードを置き換えた
+
+
+自動化
+
+構築したっきり誰も運用されていないかったので自分で運用するようにした
+テストがなかったのでモデルのテストからUIの状態テストまでできるようにした
+Cocoapodsが速度を遅くしている原因になったいたので少しずつ移行し、処理時間の短縮化に成功した
+
+
+勉強会でFirebase Authrizationを発表した
+
+Androidエンジニアが一時的にいない問題
+運用途中から、Androidエンジニアがいなくなってしまうという問題が発生した。
+現状はリリースしてしまっている・機会損失に繋がる・ビジネス的判断から開発を止めるわけにはいかなかった。
+それ以降からPolcaのモバイル開発はiOS、Androidも開発を行うようにした。そこまで、実践経験がなかった自分だったが、
+これによりAndroidでも通常の機能開発できるようになったことはもちろんのことデザインのレビューの際には各プラットフォーム
+に適したデザインの提案がデザイナとできるようになりました。
+デザインにもコミット
+ある程度のデザインであれば、自分でSketchを利用してUI設計を行いデザイナいらずでリリースまで持っていくことが増えた。
+デザイナが不要というわけではなくめっちゃ必要なんだけど、すぐに採用というわけにはいかなかったので自分でできるところはやる
+というところやってみた 
+プライベート（技術）
+Izumo
+無事、一年越しで自分専用に欲しかったMarkdownメモアプリをリリースすることができた。対応プラットフォームはMacOS、iOS。
+いまのところ、自分が使い続けているので今後の保守・運用は続けていくつもり。
+
+Izumo - markdown note tool - をリリースしました。
+
+対応
+
+多言語化
+ダークモード対応
+諸々のバグ修正
+
+
+
+
+iOSDC 2018 でMarkdownの解析について発表してきた。
+
+OSS
+nakajijapan/ColorHex
+
+ios grade down deployment target: 2018-06-01
+Add calibrated color: 2018-01-16
+Use Xcode9: 2018-01-07
+Support macOS: 2018-01-07
+
+nakajijapan/Izumo
+
+Speed up the codeblock algorithm: 2018-10-28
+Abolish to use swift string method: (https://github.com/nakajijapan/Izumo/issues/38) 2018-10-07
+Use Swift 4.2 and Use Dark Mode: 2018-09-30
+Use typeingAttributes: (一行目を改行すると一行目のフォントサイズを引き継が&hellip;) 2018-08-06
+Refactoring: 2018-07-16
+Localize around recovery: 2018-07-15
+Use nsfetchresultscontroller: 2018-07-15
+Localization: (Add the Simplified Chinise) 2018-07-08
+Localization fo mac: 2018-07-03
+iOS側にもオートインデント追加: (Auto-indent対応 iOSはチェックしないようにした タブ&hellip;) 2018-04-15
+Cloudkit: 2018-03-01
+Abolish toolbar: 2018-01-18
+Drag and Drop: 2018-01-01
+
+nakajijapan/Kazaguruma
+
+Use Swift 4.1: 2018-04-11
+
+nakajijapan/PhotoSlider
+
+Delete warnings for Swift 4.2: 2018-09-24
+Pass a UI test: (A test didn&rsquo;t pass.) 2018-09-01
+Change the animtion logic: (Change the animation logic because the some views &hellip;) 2018-06-19
+Update Kingfisher to 4.8.0: 2018-06-15
+
+nakajijapan/Shari
+iPad対応・回転対応できるようにした。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>2018を振り返る - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">2018を振り返る</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2019-01-01">January 01, 2019</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>２０１８年を振り返る。</p>
+<h1 id="仕事">仕事</h1>
+<p>今年はまた新しい会社で働くことになり、心機一転頑張るぞというところから始まったが、まぁ社内ではスタートアップあるあるというかなんというか
+ごたついていて序盤は仕事に集中できていなかったように思う。せっかく入社してこれから心配になりそうだったのでメインの仕事以外にも自分もやらないと
+いけないと感じ、実務以外のところで、自分だけではなく他のメンバーへのハレーションが拡大しなように色々動いたと思う。</p>
+<h2 id="エンジニアリングマネージャ">エンジニアリングマネージャ</h2>
+<p>自分の会社で初めて評価制度ができたタイミングで、もっと良くできるのではないかなと思い、
+今までの経験からエンジニアの評価制度はこうするべきと考えて、会社に企画・提案を行い、実施まで行った。
+そこから、エンジニアの軸だったり採用方針だったりを決めるところまで実行に移すことになる。
+その後、それを担う技術戦略部ができ、そこに<strong>も</strong>所属することになった。
+その結果、エンジニアリングマネージャ？となった。つまるところエンジニア全員の技術評価をしたり採用したりという役割。</p>
+<h2 id="モバイルエンジニア">モバイルエンジニア</h2>
+<p>当時はiOSは開発者3人体制で開発し、リリースしてから一年を経とうとしているアプリだった。
+しかし、チーム開発をするにはまだまだ課題があると感じたので以下のことを行った。</p>
+<ul>
+<li>Gitの使い方が間違っていたのでチーム開発に耐えれるような方針を提案</li>
+<li>ルーキー枠のエンジニアがいたがレビューがほとんど行われていなく、放置状態だったのでレビュー体制を整えるだけではなく、彼のフォロー体制も企画・提案を実施</li>
+<li>チームで安定した開発ができるようにするためにVIPER+RxSwiftを利用した設計で運用することを提案・導入
+<ul>
+<li>安定した開発とは、開発しやすい、バグの起きにくい、レビューがしやすい</li>
+<li>先ずは設計に慣れてないないエンジニアがほとんどだったので、最初に設計の勉強会（モバイル開発にはどういう実装があるのか色々な設計方法を交えて）から具体的にどのような実装をしていくのかを簡単な機能でPull Requestを作成して説明した。</li>
+<li>その結果、責務を分割したことでコードの見通しはよくなり、テストコードも書きやすくなり安定した開発ができるようになりました。</li>
+<li><a href="http://nakajijapan.github.io/blog/2018/12/17/viper%E8%A8%AD%E8%A8%88-rxswift%E3%81%A7%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%81%9F/">VIPER設計(+RxSwift)でサービスのコードを置き換えた</a></li>
+</ul>
+</li>
+<li>自動化
+<ul>
+<li>構築したっきり誰も運用されていないかったので自分で運用するようにした</li>
+<li>テストがなかったのでモデルのテストからUIの状態テストまでできるようにした</li>
+<li>Cocoapodsが速度を遅くしている原因になったいたので少しずつ移行し、処理時間の短縮化に成功した</li>
+</ul>
+</li>
+<li>勉強会で<a href="https://speakerdeck.com/nakajijapan/firebase-authorization">Firebase Authrization</a>を発表した</li>
+</ul>
+<h3 id="androidエンジニアが一時的にいない問題">Androidエンジニアが一時的にいない問題</h3>
+<p>運用途中から、Androidエンジニアがいなくなってしまうという問題が発生した。
+現状はリリースしてしまっている・機会損失に繋がる・ビジネス的判断から開発を止めるわけにはいかなかった。
+それ以降からPolcaのモバイル開発はiOS、Androidも開発を行うようにした。そこまで、実践経験がなかった自分だったが、
+これによりAndroidでも通常の機能開発できるようになったことはもちろんのことデザインのレビューの際には各プラットフォーム
+に適したデザインの提案がデザイナとできるようになりました。</p>
+<h3 id="デザインにもコミット">デザインにもコミット</h3>
+<p>ある程度のデザインであれば、自分でSketchを利用してUI設計を行いデザイナいらずでリリースまで持っていくことが増えた。
+デザイナが不要というわけではなくめっちゃ必要なんだけど、すぐに採用というわけにはいかなかったので自分でできるところはやる
+というところやってみた </p>
+<h1 id="プライベート技術">プライベート（技術）</h1>
+<h2 id="izumo">Izumo</h2>
+<p>無事、一年越しで自分専用に欲しかったMarkdownメモアプリをリリースすることができた。対応プラットフォームはMacOS、iOS。
+いまのところ、自分が使い続けているので今後の保守・運用は続けていくつもり。</p>
+<ul>
+<li><a href="http://nakajijapan.github.io/blog/2018/03/25/izumo---markdown-note-tool---%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/">Izumo - markdown note tool - をリリースしました。</a>
+<ul>
+<li>対応
+<ul>
+<li>多言語化</li>
+<li>ダークモード対応</li>
+<li>諸々のバグ修正</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="http://nakajijapan.github.io/blog/2018/09/10/iosdc-2018-%E3%81%A7markdown%E3%81%AE%E8%A7%A3%E6%9E%90%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%99%BA%E8%A1%A8%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/">iOSDC 2018 でMarkdownの解析について発表してきた。</a></li>
+</ul>
+<h2 id="oss">OSS</h2>
+<h3 id="nakajijapancolorhex">nakajijapan/ColorHex</h3>
+<ul>
+<li><a href="https://github.com/nakajijapan/ColorHex/pull/13">ios grade down deployment target</a>: 2018-06-01</li>
+<li><a href="https://github.com/nakajijapan/ColorHex/pull/12">Add calibrated color</a>: 2018-01-16</li>
+<li><a href="https://github.com/nakajijapan/ColorHex/pull/11">Use Xcode9</a>: 2018-01-07</li>
+<li><a href="https://github.com/nakajijapan/ColorHex/pull/10">Support macOS</a>: 2018-01-07</li>
+</ul>
+<h3 id="nakajijapanizumo">nakajijapan/Izumo</h3>
+<ul>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/44">Speed up the codeblock algorithm</a>: 2018-10-28</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/39">Abolish to use swift string method</a>: (<a href="https://github.com/nakajijapan/Izumo/issues/38">https://github.com/nakajijapan/Izumo/issues/38</a>) 2018-10-07</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/37">Use Swift 4.2 and Use Dark Mode</a>: 2018-09-30</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/35">Use typeingAttributes</a>: (一行目を改行すると一行目のフォントサイズを引き継が&hellip;) 2018-08-06</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/33">Refactoring</a>: 2018-07-16</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/32">Localize around recovery</a>: 2018-07-15</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/31">Use nsfetchresultscontroller</a>: 2018-07-15</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/30">Localization</a>: (Add the Simplified Chinise) 2018-07-08</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/29">Localization fo mac</a>: 2018-07-03</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/28">iOS側にもオートインデント追加</a>: (Auto-indent対応 iOSはチェックしないようにした タブ&hellip;) 2018-04-15</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/21">Cloudkit</a>: 2018-03-01</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/19">Abolish toolbar</a>: 2018-01-18</li>
+<li><a href="https://github.com/nakajijapan/Izumo/pull/18">Drag and Drop</a>: 2018-01-01</li>
+</ul>
+<h3 id="nakajijapankazaguruma">nakajijapan/Kazaguruma</h3>
+<ul>
+<li><a href="https://github.com/nakajijapan/Kazaguruma/pull/4">Use Swift 4.1</a>: 2018-04-11</li>
+</ul>
+<h3 id="nakajijapanphotoslider">nakajijapan/PhotoSlider</h3>
+<ul>
+<li><a href="https://github.com/nakajijapan/PhotoSlider/pull/107">Delete warnings for Swift 4.2</a>: 2018-09-24</li>
+<li><a href="https://github.com/nakajijapan/PhotoSlider/pull/105">Pass a UI test</a>: (A test didn&rsquo;t pass.) 2018-09-01</li>
+<li><a href="https://github.com/nakajijapan/PhotoSlider/pull/103">Change the animtion logic</a>: (Change the animation logic because the some views &hellip;) 2018-06-19</li>
+<li><a href="https://github.com/nakajijapan/PhotoSlider/pull/102">Update Kingfisher to 4.8.0</a>: 2018-06-15</li>
+</ul>
+<h3 id="nakajijapanshari">nakajijapan/Shari</h3>
+<p>iPad対応・回転対応できるようにした。</p>
+<ul>
+<li><a href="https://github.com/nakajijapan/Shari/pull/35">Optimize the animation for rotation</a>: 2018-10-22</li>
+<li><a href="https://github.com/nakajijapan/Shari/pull/34">Add isUsingScreenShotImage</a>: 2018-10-20</li>
+<li><a href="https://github.com/nakajijapan/Shari/pull/33">Use Swift 4.2</a>: 2018-09-29</li>
+<li><a href="https://github.com/nakajijapan/Shari/pull/32">Enable to setting the cornerradius</a>: 2018-07-08</li>
+<li><a href="https://github.com/nakajijapan/Shari/pull/31">Specify the height</a>: (We can specify the height in presenting the view c&hellip;) 2018-06-10</li>
+</ul>
+<h3 id="nakajijapanversionupdater">nakajijapan/VersionUpdater</h3>
+<p>会社で必要だったので作成した。</p>
+<ul>
+<li><a href="https://github.com/nakajijapan/VersionUpdater/pull/3">Use Swift 4.2</a>: 2018-09-29</li>
+<li><a href="https://github.com/nakajijapan/VersionUpdater/pull/2">Use window variable and abolish completion closure</a>: 2018-06-11</li>
+<li><a href="https://github.com/nakajijapan/VersionUpdater/pull/1">Use travis</a>: 2018-06-08</li>
+</ul>
+<h2 id="副業">副業</h2>
+<p>複数の会社をまたいで小さい会社に技術的なアドバイスだけではなく開発まで行った。
+意識していたことは、様々な種類のアプリを作り、今まで知らなかった技術や表面的な技術としてしか持っていなかったものを深掘りして自分のものにすること。
+もう一つは、０から開発することはないのでその経験を得ることを意識して案件を選ぶようにしている。</p>
+<h1 id="これから">これから</h1>
+<p>エンジニアリングは引き続きやっていくというのはもちろんのことだが、一メンバーとしてエンジニア組織を構築するというのは大変貴重な機会だし、
+自分が興味がある分野なので引き続き関わっていきたい。</p>
+<p>とはいえ、大変そうだ。。。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

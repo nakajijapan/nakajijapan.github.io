@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="RailsでBowerの導入">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2013/06/09/rails%E3%81%A7bower%E3%81%AE%E5%B0%8E%E5%85%A5/" />
+<meta property="go:description" content="javascriptのパッケージ管理がしたくてbowerというパッケージ管理ツールをhttp://www.frustration.me にインストールしてみました。
+(ブランチ切って試してみました・・・)
+とりあえず、バージョンが古いので最新のものにインストールします。
+$ node -v 
+v0.6.19
+
+
+$ brew install node
+
+==&gt; Upgrading 1 outdated package, with result:
+node 0.10.7
+==&gt; Upgrading node
+Beginning with 0.8.0, this recipe now comes with npm.
+It appears you already have npm installed at /usr/local/lib/node_modules/npm.
+To use the npm that comes with this recipe, first uninstall npm with
+`npm uninstall npm -g`, then run this command again.
+
+If you would like to keep your installation of npm instead of
+using the one provided with homebrew, install the formula with
+the `--without-npm` option.
+Error: An unsatisfied requirement failed this build.
+npm をまずアンインストールしてほしいとのこと" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="RailsでBowerの導入" />
+<meta name="twitter:description" content="javascriptのパッケージ管理がしたくてbowerというパッケージ管理ツールをhttp://www.frustration.me にインストールしてみました。
+(ブランチ切って試してみました・・・)
+とりあえず、バージョンが古いので最新のものにインストールします。
+$ node -v 
+v0.6.19
+
+
+$ brew install node
+
+==&gt; Upgrading 1 outdated package, with result:
+node 0.10.7
+==&gt; Upgrading node
+Beginning with 0.8.0, this recipe now comes with npm.
+It appears you already have npm installed at /usr/local/lib/node_modules/npm.
+To use the npm that comes with this recipe, first uninstall npm with
+`npm uninstall npm -g`, then run this command again.
+
+If you would like to keep your installation of npm instead of
+using the one provided with homebrew, install the formula with
+the `--without-npm` option.
+Error: An unsatisfied requirement failed this build.
+npm をまずアンインストールしてほしいとのこと" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>RailsでBowerの導入 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">RailsでBowerの導入</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-06-09">June 09, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/javascript">javascript</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>javascriptのパッケージ管理がしたくて<code>bower</code>というパッケージ管理ツールをhttp://www.frustration.me にインストールしてみました。
+(ブランチ切って試してみました・・・)</p>
+<p>とりあえず、バージョンが古いので最新のものにインストールします。</p>
+<pre tabindex="0"><code>$ node -v 
+v0.6.19
+
+
+$ brew install node
+
+==&gt; Upgrading 1 outdated package, with result:
+node 0.10.7
+==&gt; Upgrading node
+Beginning with 0.8.0, this recipe now comes with npm.
+It appears you already have npm installed at /usr/local/lib/node_modules/npm.
+To use the npm that comes with this recipe, first uninstall npm with
+`npm uninstall npm -g`, then run this command again.
+
+If you would like to keep your installation of npm instead of
+using the one provided with homebrew, install the formula with
+the `--without-npm` option.
+Error: An unsatisfied requirement failed this build.
+</code></pre><p>npm をまずアンインストールしてほしいとのこと</p>
+<pre tabindex="0"><code>$ npm uninstall npm -g
+</code></pre><p>再度実行します。</p>
+<pre tabindex="0"><code>$ brew upgrade node
+$ node -v
+v0.10.7
+</code></pre><p>これで最新版になった。
+次にbowerをインストール</p>
+<pre tabindex="0"><code>$ npm install -g bower
+</code></pre><p>これでインストール完了。</p>
+<p>とりえず、検索でどうなるか確認。</p>
+<pre tabindex="0"><code>bower search backbone
+Search results:
+
+    backbone git://github.com/documentcloud/backbone.git
+    backbone-amd git://github.com/amdjs/backbone
+    backbone.stickit git://github.com/NYTimes/backbone.stickit.git
+    backbone.marionette git://github.com/marionettejs/backbone.marionette
+    backbone.wreqr git://github.com/marionettejs/backbone.wreqr.git
+・
+・
+・
+</code></pre><p>てな感じでbackboneに関連するプラグインがどどどっと出力される</p>
+<p>試しにインストールすると、ホームディレクトリに生成されてしまうので
+アプリごとに管理したいところ</p>
+<pre tabindex="0"><code>$ bower install jquery
+bower cloning git://github.com/components/jquery.git
+bower cached git://github.com/components/jquery.git
+bower fetching jquery
+bower checking out jquery#2.0.2
+bower copying /Users/pp_kupepo_gattyanmo/.bower/cache/jquery/29cb4373d29144ca260ac7c3997f4381
+bower installing jquery#2.0.2
+</code></pre><p>ここからRaisに組み込んでいきます。</p>
+<pre tabindex="0"><code>$ bower init
+name: [frustration]
+version: [0.0.0]
+main file: []
+add current components as dependencies? (y/n): [y] y
+add commonly ignored files to ignore list? (y/n): [y]
+</code></pre><p>そうするとカレントディレクトリに以下のファイルが作成されます。
+このファイルでプラグインの管理を行います。</p>
+<pre tabindex="0"><code>{
+  &#34;name&#34;: &#34;frustration&#34;,
+  &#34;version&#34;: &#34;0.0.0&#34;,
+  &#34;dependencies&#34;: {
+    &#34;jquery&#34;: &#34;~2.0.2&#34;
+  },
+  &#34;ignore&#34;: [
+    &#34;**/.*&#34;,
+    &#34;node_modules&#34;,
+    &#34;components&#34;
+  ]
+}
+</code></pre><p>現状の設定だとグローバルの設定なのでダウンロードがプロジェクト単位でできないので
+<code>.bowerrc</code>ファイルをプロジェクトディレクトリ直下に保存する。
+デフォルトは<code>~/.bowerrc</code>を参照するようだ。</p>
+<pre tabindex="0"><code>{
+  &#34;directory&#34;: &#34;vendor/assets/javascripts/components&#34;,
+  &#34;json&#34;: &#34;bower.json&#34;,
+  &#34;searchpath&#34;: [
+    &#34;https://bower.herokuapp.com&#34;
+  ]
+}
+</code></pre><p>これで<code>bower install</code>すると指定のディレクトリに保存される。</p>
+<h2 id="railsの場合">Railsの場合</h2>
+<p><code>application.rb</code>でパスを通るようにする</p>
+<pre tabindex="0"><code>    # for bower
+    config.assets.paths &lt;&lt; Rails.root.join(&#39;vendor&#39;, &#39;assets&#39;, &#39;javascripts&#39;, &#39;components&#39;)
+</code></pre><p><code>applicatio.js</code>でパスの再設定を行う。</p>
+<pre tabindex="0"><code>//= require components/jquery/jquery.js
+//= require components/jquery-ui/ui/jquery-ui.js
+</code></pre><p>これでRailsの場合は完了です。</p>
+<h2 id="所感">所感</h2>
+<p>jsもbundlerのように管理できるようになったのは大変便利作業です。
+version上がることごとにサイト確認して<code>wget</code>してこないといけないし、コマンド一発でプラグインの削除・検索・バージョンのアップ・ダウングレードもできてしまうのは進化であるのです。</p>
+<p>ですが、まだ</p>
+<ul>
+<li>version 管理されていないプラグインある</li>
+<li>本番環境にnodeが入っていない・bowerが使えない</li>
+</ul>
+<p>ときがあるのでそこは共存なり、一旦保留なりしたほうが良いかもしれません。。。
+また、後者のときはいけてないけどパッケージも合わせてコミットするのが良いかもしれない。</p>
+<h2 id="ref">Ref</h2>
+<ul>
+<li>source
+<ul>
+<li><a href="https://github.com/bower/bower">https://github.com/bower/bower</a></li>
+</ul>
+</li>
+<li>Bower components
+<ul>
+<li><a href="http://sindresorhus.com/bower-components/">http://sindresorhus.com/bower-components/</a></li>
+</ul>
+</li>
+</ul>
+<p>ここにパッケージが登録されています</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="【iOS勉強会】ヤフー vs クラスメソッド に参加してきた">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2014/02/26/ios%E5%8B%89%E5%BC%B7%E4%BC%9A%E3%83%A4%E3%83%95%E3%83%BC-vs-%E3%82%AF%E3%83%A9%E3%82%B9%E3%83%A1%E3%82%BD%E3%83%83%E3%83%89-%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/" />
+<meta property="go:description" content="面白そうな勉強会が開催されると耳にして【iOS勉強会】ヤフー vs クラスメソッド に参加してきました。
+
+
+ヤフーさん発表資料
+http://techblog.yahoo.co.jp/ios/yxcm/
+
+
+クラスメソッドさん発表資料
+http://dev.classmethod.jp/study_meeting/yxcm-epilogue/
+
+
+形式的にはYahoo!さんとクラスメソッドさんが交互にiOS開発に関連するテーマに対して発表してどちらグッドだったか競う会になっていました。よかったらその場でボタンを連打して投票する仕組みがあるのですが、リアルタイムにFacebook風ないいねの花火みたいなのでがドーンと別画面で表示されてわかるのはかなり面白かったです（Node.jsかな&hellip;）。
+そのなかで便利そうなものをpickupして自分でもやってみました。
+code snippet
+Code Snippet Libraryを開いた状態にする
+
+対象のコードを選択しといてそれLibrary側にドラッグアンドドロップ
+
+そうするとMy Code Snippetが出来上がるのでそれを適当に編集すると終わりです。
+作成されたSnippetは/Users/username/Library/Developer/Xcode/UserData/CodeSnippets/いかに保存されます。
+試しにUIAlertViewをいれてみました。
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle : NSLocalizedString(@&#34;Title&#34;, nil)
+                                                        message : NSLocalizedString(@&#34;Message&#34;, nil)
+                                                       delegate : self
+                                              cancelButtonTitle : NSLocalizedString(@&#34;OK&#34;, nil)
+                                              otherButtonTitles : nil
+                              ];
+    [alertView setTag:1];
+    [alertView show];
+Objective-Cって結構冗長になりがちなので、よく利用するものは登録しておくとよさそう。
+code template
+よくファイルを作成するときにはデフォルトでその親クラスに合わせたコードなりヘッダコメントなりテンプレートを作成してくれるのですが、カスタマイズしたくなったときは/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templatesにいっぱいテンプレートが用意されています。これを自分のディレクトリにコピーして利用するといいです。
+mkdir -p ~/Library/Developer/Xcode/Templates/File Templates
+cd    ~/Library/Developer/Xcode/Templates/File Templates
+cp /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/* .
+File TemplatesいかにCocoa Touchディレクトリがあるのですが自分がカスタマイズしたものだよとわかるようにMy Cocoa Touchとか作成してみる。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="【iOS勉強会】ヤフー vs クラスメソッド に参加してきた" />
+<meta name="twitter:description" content="面白そうな勉強会が開催されると耳にして【iOS勉強会】ヤフー vs クラスメソッド に参加してきました。
+
+
+ヤフーさん発表資料
+http://techblog.yahoo.co.jp/ios/yxcm/
+
+
+クラスメソッドさん発表資料
+http://dev.classmethod.jp/study_meeting/yxcm-epilogue/
+
+
+形式的にはYahoo!さんとクラスメソッドさんが交互にiOS開発に関連するテーマに対して発表してどちらグッドだったか競う会になっていました。よかったらその場でボタンを連打して投票する仕組みがあるのですが、リアルタイムにFacebook風ないいねの花火みたいなのでがドーンと別画面で表示されてわかるのはかなり面白かったです（Node.jsかな&hellip;）。
+そのなかで便利そうなものをpickupして自分でもやってみました。
+code snippet
+Code Snippet Libraryを開いた状態にする
+
+対象のコードを選択しといてそれLibrary側にドラッグアンドドロップ
+
+そうするとMy Code Snippetが出来上がるのでそれを適当に編集すると終わりです。
+作成されたSnippetは/Users/username/Library/Developer/Xcode/UserData/CodeSnippets/いかに保存されます。
+試しにUIAlertViewをいれてみました。
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle : NSLocalizedString(@&#34;Title&#34;, nil)
+                                                        message : NSLocalizedString(@&#34;Message&#34;, nil)
+                                                       delegate : self
+                                              cancelButtonTitle : NSLocalizedString(@&#34;OK&#34;, nil)
+                                              otherButtonTitles : nil
+                              ];
+    [alertView setTag:1];
+    [alertView show];
+Objective-Cって結構冗長になりがちなので、よく利用するものは登録しておくとよさそう。
+code template
+よくファイルを作成するときにはデフォルトでその親クラスに合わせたコードなりヘッダコメントなりテンプレートを作成してくれるのですが、カスタマイズしたくなったときは/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templatesにいっぱいテンプレートが用意されています。これを自分のディレクトリにコピーして利用するといいです。
+mkdir -p ~/Library/Developer/Xcode/Templates/File Templates
+cd    ~/Library/Developer/Xcode/Templates/File Templates
+cp /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/* .
+File TemplatesいかにCocoa Touchディレクトリがあるのですが自分がカスタマイズしたものだよとわかるようにMy Cocoa Touchとか作成してみる。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>【iOS勉強会】ヤフー vs クラスメソッド に参加してきた - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">【iOS勉強会】ヤフー vs クラスメソッド に参加してきた</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-02-26">February 26, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>面白そうな勉強会が開催されると耳にして<a href="http://connpass.com/event/5159/">【iOS勉強会】ヤフー vs クラスメソッド</a> に参加してきました。</p>
+<ul>
+<li>
+<p>ヤフーさん発表資料
+<a href="http://techblog.yahoo.co.jp/ios/yxcm/">http://techblog.yahoo.co.jp/ios/yxcm/</a></p>
+</li>
+<li>
+<p>クラスメソッドさん発表資料
+<a href="http://dev.classmethod.jp/study_meeting/yxcm-epilogue/">http://dev.classmethod.jp/study_meeting/yxcm-epilogue/</a></p>
+</li>
+</ul>
+<p>形式的にはYahoo!さんとクラスメソッドさんが交互にiOS開発に関連するテーマに対して発表してどちらグッドだったか競う会になっていました。よかったらその場でボタンを連打して投票する仕組みがあるのですが、リアルタイムにFacebook風ないいねの花火みたいなのでがドーンと別画面で表示されてわかるのはかなり面白かったです（Node.jsかな&hellip;）。</p>
+<p>そのなかで便利そうなものをpickupして自分でもやってみました。</p>
+<h2 id="code-snippet">code snippet</h2>
+<h3 id="code-snippet-libraryを開いた状態にする"><code>Code Snippet Library</code>を開いた状態にする</h3>
+<p><img src="/images/posts/2014/2014-02-28_02.png" alt="01"></p>
+<h3 id="対象のコードを選択しといてそれlibrary側にドラッグアンドドロップ">対象のコードを選択しといてそれLibrary側にドラッグアンドドロップ</h3>
+<p><img src="/images/posts/2014/2014-02-28_01.png" alt="01"></p>
+<p>そうすると<code>My Code Snippet</code>が出来上がるのでそれを適当に編集すると終わりです。
+作成されたSnippetは<code>/Users/username/Library/Developer/Xcode/UserData/CodeSnippets/</code>いかに保存されます。</p>
+<p>試しにUIAlertViewをいれてみました。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    UIAlertView <span style="color:#f92672">*</span>alertView <span style="color:#f92672">=</span> [[UIAlertView alloc] initWithTitle : NSLocalizedString(<span style="color:#e6db74">@&#34;Title&#34;</span>, nil)
+</span></span><span style="display:flex;"><span>                                                        message : NSLocalizedString(<span style="color:#e6db74">@&#34;Message&#34;</span>, nil)
+</span></span><span style="display:flex;"><span>                                                       delegate : self
+</span></span><span style="display:flex;"><span>                                              cancelButtonTitle : NSLocalizedString(<span style="color:#e6db74">@&#34;OK&#34;</span>, nil)
+</span></span><span style="display:flex;"><span>                                              otherButtonTitles : nil
+</span></span><span style="display:flex;"><span>                              ];
+</span></span><span style="display:flex;"><span>    [alertView setTag:<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>    [alertView show];
+</span></span></code></pre></div><p>Objective-Cって結構冗長になりがちなので、よく利用するものは登録しておくとよさそう。</p>
+<h2 id="code-template">code template</h2>
+<p>よくファイルを作成するときにはデフォルトでその親クラスに合わせたコードなりヘッダコメントなりテンプレートを作成してくれるのですが、カスタマイズしたくなったときは<code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates</code>にいっぱいテンプレートが用意されています。これを自分のディレクトリにコピーして利用するといいです。</p>
+<pre tabindex="0"><code>mkdir -p ~/Library/Developer/Xcode/Templates/File Templates
+cd    ~/Library/Developer/Xcode/Templates/File Templates
+cp /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/* .
+</code></pre><p><code>File Templates</code>いかに<code>Cocoa Touch</code>ディレクトリがあるのですが自分がカスタマイズしたものだよとわかるように<code>My Cocoa Touch</code>とか作成してみる。</p>
+<p>ファイルを作成するときにオプションで以下のような設定をするとオプションでテンプレートを利用するかしないか決定できるようです。<code>Objective-C class.xctemplate/TemplateInfo.plist</code>ファイルで設定するのですがXML形式なっているのでそこの<code>Options</code>以下に新しい設定を追加します。</p>
+<pre tabindex="0"><code>    &lt;dict&gt;
+      &lt;key&gt;Default&lt;/key&gt;
+      &lt;string&gt;false&lt;/string&gt;
+      &lt;key&gt;Identifier&lt;/key&gt;
+      &lt;string&gt;Nakajijapan&lt;/string&gt;
+      &lt;key&gt;Name&lt;/key&gt;
+      &lt;string&gt;Nakajijapan&lt;/string&gt;
+      &lt;key&gt;RequiredOptions&lt;/key&gt;
+      &lt;dict&gt;
+          &lt;key&gt;cocoaTouchSubclass&lt;/key&gt;
+          &lt;array&gt;
+            &lt;string&gt;NSObject&lt;/string&gt;
+            &lt;string&gt;UIViewController&lt;/string&gt;
+          &lt;/array&gt;
+      &lt;/dict&gt;
+      &lt;key&gt;Type&lt;/key&gt;
+      &lt;string&gt;checkbox&lt;/string&gt;
+    &lt;/dict&gt;
+</code></pre><p><code>NSObject/___FILENAME___.h</code>を上書きしてもよいのですが、念のため自分用に作成しておきましょう。<code>NSObjectNakajijapan/___FILENAME___.h</code>な感じで。（suffixは適当です。。。）</p>
+<h4 id="nsobjectnakajijapan___filename___h">NSObjectNakajijapan/<em><strong>FILENAME</strong></em>.h</h4>
+<pre tabindex="0"><code>//
+//  ___FILENAME___
+//
+//  Created by ___FULLUSERNAME___.
+//  Copyright ___YEAR___ ___FULLUSERNAME___. All rights reserved.
+//
+
+___IMPORTHEADER_cocoaTouchSubclass___
+
+@interface ___FILEBASENAMEASIDENTIFIER___ : ___VARIABLE_cocoaTouchSubclass___
+
+@end
+</code></pre><h4 id="nsobjectnakajijapan___filename___m">NSObjectNakajijapan/<em><strong>FILENAME</strong></em>.m</h4>
+<pre tabindex="0"><code>//
+//  ___FILENAME___
+//
+//  Created by ___FULLUSERNAME___.
+//  Copyright ___YEAR___ ___FULLUSERNAME___. All rights reserved.
+//
+
+#import &#34;___FILEBASENAME___.h&#34;
+
+@interface ___FILEBASENAMEASIDENTIFIER___ ()
+
+@end
+
+@implementation ___FILEBASENAMEASIDENTIFIER___
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+  // Do any additional setup after loading the view.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+@end
+</code></pre><p>これで自分好みの設定にできました。</p>
+<h3 id="参加してみて">参加してみて</h3>
+<p>吉田 一星さんの発表が印象的で</p>
+<iframe src="http://www.slideshare.net/slideshow/embed_code/31669085" width="510" height="420" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/issaymk2/apple-31669085" title="Appleの先を行くポストタッチインターフェース" target="_blank">Appleの先を行くポストタッチインターフェース</a> </strong> from <strong><a href="http://www.slideshare.net/issaymk2" target="_blank">issaymk2</a></strong> </div>
+<blockquote>
+<p>既存のAPIをそのまま使うアイディアは他の誰かに実現されている
+Appleが未だ実現されていない機能を先に作れ</p>
+</blockquote>
+<p>あえてブログでも書くようなものじゃなくてごくごく当たり前のことなのですが、これおもろくね？って思ったものはだいたいというかしょっちゅう世の中に出ちゃってるんですよね。その度に落胆しているnakajijapanですが。。。
+まぁ、自分もまだAPIを利用してなんとかアプリを作っているレベルなのでドキュメントにものどこにもないような「え、そんなんできんの！！」っていわれるもの作っていきたいですね。もちろん、アプリのアイディアとか企画は別にして。技術的な観点からのはなしでした。まだまだ頑張りまっしゅ。</p>
+<p>あと、自分でも使えそうなTipsが、今回のエントリ以外にたくさんあったのでちょこちょこ利用していこうと思います。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

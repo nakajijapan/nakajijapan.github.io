@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="ZendFrameworkでBasic認証　既にあるものを利用した編">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/06/25/zendframework%E3%81%A7basic%E8%AA%8D%E8%A8%BC-%E6%97%A2%E3%81%AB%E3%81%82%E3%82%8B%E3%82%82%E3%81%AE%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E7%B7%A8/" />
+<meta property="go:description" content="以前、Zendでベーシック認証を自作したエントリーがありましたが、本当は
+Zendに用意されているプラグインがあるのです。
+なぜ利用しなかったっていうと、Zend側での必須項目としてrealmを必ず
+指定しなければいけないのでです。それだとユーザ名とパスワードの認証情報
+に対応しないので必ずエラーになってしまいます。
+ベーシック認証としては「Zend_Auth_Adapter_Http_Resolver_File」のクラスが
+当てはまるのでしょうね。このクラスに認証に必要なファイルをセットする。
+Zendの認証用のAdapterを生成して、このクラスに実際の処理をさせていく感じですかね。
+
+        $config = array(
+            &#39;accept_schemes&#39;  =&gt; &#39;basic&#39;,      // basic認証
+            &#39;realm&#39;           =&gt; &#39;aaaaa&#39;,      // realm(ベーシック認証のフォームに出力されます)
+            &#39;digest_domains&#39;  =&gt; &#39;/login&#39;,     // どのURL以下にベーシック認証をかけるかです。
+            &#39;nonce_timeout&#39;   =&gt; 3600
+        );
+
+        $resolver = new Zend_Auth_Adapter_Http_Resolver_File();
+        $resolver-&gt;setFile(&#39;passwd.txt&#39;);
+
+        $adapter  = new Zend_Auth_Adapter_Http($config);
+        $adapter-&gt;setBasicResolver($resolver)
+                -&gt;setRequest($this-&gt;getRequest())
+                -&gt;setResponse($this-&gt;getResponse());
+
+        $result = $adapter-&gt;authenticate();
+        if (!$result-&gt;isValid()) {
+            // 認証エラーの場合
+        }
+
+
+passwd.txtは、ドキュメントルート(index.phpがあるところ)からのパスになります。
+内容はこんな感じです
+
+test:aaaaa:hogehoge
+ユーザ名:realm:パスワード
+
+realmはプログラム内で指定したrealmと一致している必要があります。
+前回書いたものよりだいぶスマートに実装されていますね。感心感心です。
+ちょっとわがままいうなら認証機構をもっと昔のにも親和性高くしてほしかったなと思います。
+まぁでも勉強になったのでよしとします。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="ZendFrameworkでBasic認証　既にあるものを利用した編" />
+<meta name="twitter:description" content="以前、Zendでベーシック認証を自作したエントリーがありましたが、本当は
+Zendに用意されているプラグインがあるのです。
+なぜ利用しなかったっていうと、Zend側での必須項目としてrealmを必ず
+指定しなければいけないのでです。それだとユーザ名とパスワードの認証情報
+に対応しないので必ずエラーになってしまいます。
+ベーシック認証としては「Zend_Auth_Adapter_Http_Resolver_File」のクラスが
+当てはまるのでしょうね。このクラスに認証に必要なファイルをセットする。
+Zendの認証用のAdapterを生成して、このクラスに実際の処理をさせていく感じですかね。
+
+        $config = array(
+            &#39;accept_schemes&#39;  =&gt; &#39;basic&#39;,      // basic認証
+            &#39;realm&#39;           =&gt; &#39;aaaaa&#39;,      // realm(ベーシック認証のフォームに出力されます)
+            &#39;digest_domains&#39;  =&gt; &#39;/login&#39;,     // どのURL以下にベーシック認証をかけるかです。
+            &#39;nonce_timeout&#39;   =&gt; 3600
+        );
+
+        $resolver = new Zend_Auth_Adapter_Http_Resolver_File();
+        $resolver-&gt;setFile(&#39;passwd.txt&#39;);
+
+        $adapter  = new Zend_Auth_Adapter_Http($config);
+        $adapter-&gt;setBasicResolver($resolver)
+                -&gt;setRequest($this-&gt;getRequest())
+                -&gt;setResponse($this-&gt;getResponse());
+
+        $result = $adapter-&gt;authenticate();
+        if (!$result-&gt;isValid()) {
+            // 認証エラーの場合
+        }
+
+
+passwd.txtは、ドキュメントルート(index.phpがあるところ)からのパスになります。
+内容はこんな感じです
+
+test:aaaaa:hogehoge
+ユーザ名:realm:パスワード
+
+realmはプログラム内で指定したrealmと一致している必要があります。
+前回書いたものよりだいぶスマートに実装されていますね。感心感心です。
+ちょっとわがままいうなら認証機構をもっと昔のにも親和性高くしてほしかったなと思います。
+まぁでも勉強になったのでよしとします。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>ZendFrameworkでBasic認証　既にあるものを利用した編 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">ZendFrameworkでBasic認証　既にあるものを利用した編</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-06-25">June 25, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/zendframework">ZendFramework</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>以前、Zendでベーシック認証を自作したエントリーがありましたが、本当は
+Zendに用意されているプラグインがあるのです。</p>
+<p>なぜ利用しなかったっていうと、Zend側での必須項目としてrealmを必ず
+指定しなければいけないのでです。それだとユーザ名とパスワードの認証情報
+に対応しないので必ずエラーになってしまいます。</p>
+<p>ベーシック認証としては「Zend_Auth_Adapter_Http_Resolver_File」のクラスが
+当てはまるのでしょうね。このクラスに認証に必要なファイルをセットする。
+Zendの認証用のAdapterを生成して、このクラスに実際の処理をさせていく感じですかね。</p>
+<pre class="brush:php">
+        $config = array(
+            'accept_schemes'  => 'basic',      // basic認証
+            'realm'           => 'aaaaa',      // realm(ベーシック認証のフォームに出力されます)
+            'digest_domains'  => '/login',     // どのURL以下にベーシック認証をかけるかです。
+            'nonce_timeout'   => 3600
+        );
+
+        $resolver = new Zend_Auth_Adapter_Http_Resolver_File();
+        $resolver->setFile('passwd.txt');
+
+        $adapter  = new Zend_Auth_Adapter_Http($config);
+        $adapter->setBasicResolver($resolver)
+                ->setRequest($this->getRequest())
+                ->setResponse($this->getResponse());
+
+        $result = $adapter->authenticate();
+        if (!$result->isValid()) {
+            // 認証エラーの場合
+        }
+
+</pre>
+<p>passwd.txtは、ドキュメントルート(index.phpがあるところ)からのパスになります。
+内容はこんな感じです</p>
+<pre class="brush:plain">
+test:aaaaa:hogehoge
+ユーザ名:realm:パスワード
+</pre>
+<p>realmはプログラム内で指定したrealmと一致している必要があります。</p>
+<p>前回書いたものよりだいぶスマートに実装されていますね。感心感心です。
+ちょっとわがままいうなら認証機構をもっと昔のにも親和性高くしてほしかったなと思います。</p>
+<p>まぁでも勉強になったのでよしとします。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

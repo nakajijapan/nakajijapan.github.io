@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="自作のライブラリをGemに公開するまでに行ったこと">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2012/12/11/%E8%87%AA%E4%BD%9C%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%82%92gem%E3%81%AB%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B%E3%81%BE%E3%81%A7%E3%81%AB%E8%A1%8C%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8/" />
+<meta property="go:description" content="自作のライブラリをGemに公開するまでに行ったこと
+欲求不満の利用しているライブラリを別に切り出してGemにしてみました。欲求不満は自分が運営している言うなればソーシャルウィッシュリストサービスなのですが自分がよく使うAPIを何個も使って商品を登録・管理しています。
+欲求不満
+
+http://frustration.me  
+
+しかし、apiはというものそれぞれの仕様でインターフェースが異なるので商品情報を管理するときに大変面倒なので自前でクラスを作成してインターフェースを統一させてます。そのい一部分をGemで切り出してみました。
+今回使うにあたって簡単インストールできるjewelerを利用してみました。
+gem install jeweler
+
+まずは、あらかじめGitHubでレポジトリを作成しておきます。
+その後、インストール処理。
+
+jeweler --rspec --create-repo api-bucket                                                                         
+
+[~/Programming/ruby/gem_test]
+        create  .gitignore
+        create  Rakefile
+        create  Gemfile
+        create  LICENSE.txt
+        create  README.rdoc
+        create  .document
+        create  lib
+        create  lib/api-bucket.rb
+        create  spec
+        create  spec/spec_helper.rb
+        create  spec/api-bucket_spec.rb
+        create  .rspec
+Jeweler has prepared your gem in ./api-bucket
+Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket
+
+bundle install
+
+rake version:write
+
+rake gemspec
+
+これでGemに必要な一式が入ります。
+もろもろライブラリやらテストやらを実装したら、それをbuildして 作成されたGemファイルをRubyGemsにアップロードします。
+
+gem build api-bucket.gemspec
+gem push api-bucket-0.0.0.gem
+
+Awasame!!!
+これで、自分のライブラリが公開となります！" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="自作のライブラリをGemに公開するまでに行ったこと" />
+<meta name="twitter:description" content="自作のライブラリをGemに公開するまでに行ったこと
+欲求不満の利用しているライブラリを別に切り出してGemにしてみました。欲求不満は自分が運営している言うなればソーシャルウィッシュリストサービスなのですが自分がよく使うAPIを何個も使って商品を登録・管理しています。
+欲求不満
+
+http://frustration.me  
+
+しかし、apiはというものそれぞれの仕様でインターフェースが異なるので商品情報を管理するときに大変面倒なので自前でクラスを作成してインターフェースを統一させてます。そのい一部分をGemで切り出してみました。
+今回使うにあたって簡単インストールできるjewelerを利用してみました。
+gem install jeweler
+
+まずは、あらかじめGitHubでレポジトリを作成しておきます。
+その後、インストール処理。
+
+jeweler --rspec --create-repo api-bucket                                                                         
+
+[~/Programming/ruby/gem_test]
+        create  .gitignore
+        create  Rakefile
+        create  Gemfile
+        create  LICENSE.txt
+        create  README.rdoc
+        create  .document
+        create  lib
+        create  lib/api-bucket.rb
+        create  spec
+        create  spec/spec_helper.rb
+        create  spec/api-bucket_spec.rb
+        create  .rspec
+Jeweler has prepared your gem in ./api-bucket
+Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket
+
+bundle install
+
+rake version:write
+
+rake gemspec
+
+これでGemに必要な一式が入ります。
+もろもろライブラリやらテストやらを実装したら、それをbuildして 作成されたGemファイルをRubyGemsにアップロードします。
+
+gem build api-bucket.gemspec
+gem push api-bucket-0.0.0.gem
+
+Awasame!!!
+これで、自分のライブラリが公開となります！" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>自作のライブラリをGemに公開するまでに行ったこと - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">自作のライブラリをGemに公開するまでに行ったこと</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2012-12-11">December 11, 2012</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>自作のライブラリをGemに公開するまでに行ったこと</p>
+<p>欲求不満の利用しているライブラリを別に切り出してGemにしてみました。<br>欲求不満は自分が運営している言うなればソーシャルウィッシュリストサービス<br>なのですが自分がよく使うAPIを何個も使って商品を登録・管理しています。</p>
+<h3>欲求不満</h3>
+<ul>
+<li>http://frustration.me  </li>
+</ul>
+<p>しかし、apiはというものそれぞれの仕様でインターフェースが異なるので<br>商品情報を管理するときに大変面倒なので自前でクラスを作成して<br>インターフェースを統一させてます。そのい一部分をGemで切り出してみました。</p>
+<p>今回使うにあたって簡単インストールできるjewelerを利用してみました。</p>
+<pre class="brush:bash">gem install jeweler
+</pre>
+<p>まずは、あらかじめGitHubでレポジトリを作成しておきます。</p>
+<p>その後、インストール処理。</p>
+<pre class="brush:bash">
+jeweler --rspec --create-repo api-bucket                                                                         
+
+[~/Programming/ruby/gem_test]
+        create  .gitignore
+        create  Rakefile
+        create  Gemfile
+        create  LICENSE.txt
+        create  README.rdoc
+        create  .document
+        create  lib
+        create  lib/api-bucket.rb
+        create  spec
+        create  spec/spec_helper.rb
+        create  spec/api-bucket_spec.rb
+        create  .rspec
+Jeweler has prepared your gem in ./api-bucket
+Jeweler has pushed your repo to http://github.com/nakajijapan/api-bucket
+
+bundle install
+
+rake version:write
+
+rake gemspec
+</pre>
+<p>これでGemに必要な一式が入ります。</p>
+<p>もろもろライブラリやらテストやらを実装したら、それをbuildして 作成されたGemファイルをRubyGemsにアップロードします。</p>
+<pre class="brush:bash">
+gem build api-bucket.gemspec
+gem push api-bucket-0.0.0.gem
+</pre>
+<p>Awasame!!!</p>
+<p>これで、自分のライブラリが公開となります！</p>
+<p>バージョンアップには</p>
+<pre class="brush:bash">rake version:bump:major  # Bump the major version by 1
+rake version:bump:minor  # Bump the a minor version by 1
+rake version:bump:patch  # Bump the patch version by 1
+</pre>
+<p>なるもので上げつつ、以下のコマンドリリースです。</p>
+<pre class="brush:bash">rake release
+
+Committing api-bucket.gemspec
+Pushing master to origin
+Tagging v0.1.0
+Pushing v0.1.0 to origin
+Generated: api-bucket.gemspec
+api-bucket.gemspec is valid.
+WARNING:  description and summary are identical
+  Successfully built RubyGem
+  Name: api-bucket
+  Version: 0.1.0
+  File: api-bucket-0.1.0.gem
+Executing "gem push ./pkg/api-bucket-0.1.0.gem":
+gem push ./pkg/api-bucket-0.1.0.gem
+Pushing gem to https://rubygems.org...
+Successfully registered gem: api-bucket (0.1.0)
+</pre>
+<p>これで、勝手にバージョンアップの手順を踏んでくれるのと、GitHub,Gemにすかさず<br>アップロードしてくれます。便利。</p>
+<p>というわけで</p>
+<h3>api-bucket</h3>
+<ul>
+<li>https://rubygems.org/gems/api-bucket</li>
+</ul>
+<p>なるものを公開しました。よかったら使ってみてください！</p>
+<h2>Reference</h2>
+<ul>
+<li>jeweler
+<ul>
+<li>https://github.com/technicalpickles/jeweler</li>
+</ul></li>
+<li>RubyGems
+<ul>
+<li>https://rubygems.org/</li>
+<li>http://help.rubygems.org/kb/gemcutter/publishing-your-own-rubygem</li>
+<li>https://rubygems.org/gems/api-bucket</li>
+</ul></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

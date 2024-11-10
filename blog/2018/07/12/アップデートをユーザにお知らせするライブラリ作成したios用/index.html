@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="アップデートをユーザにお知らせするライブラリ作成した。（iOS用）">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2018/07/12/%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%82%92%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AB%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%99%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9Fios%E7%94%A8/" />
+<meta property="go:description" content="何かと必要なのでシンプルなものをSwiftで作成し直した。
+以前は、Objective-C用のライブラリを使っていてPRとかもしていた。
+だけど、Swiftのものが欲しくなったので作成した。
+VersionUpdater
+
+Notify users when a new version of your app is available and force them to upgrade the application of the version.
+
+https://github.com/nakajijapan/VersionUpdater
+Requirements
+
+iOS 10.0&#43;
+Xcode 9&#43;
+Swift 4&#43;
+
+仕様
+
+アプリがアクティブになったらサーバからJSONファイルを取得する
+バージョンを比較して低ければアラートを表示する
+モード
+
+強制
+
+ダイアログを閉じれなくし、指定のURLへの遷移を強制させる
+
+
+オプショナル
+
+ダイアログを閉じることができ、以降アプリの操作ができる
+サイドアプリがアクティブになればまたダイアログが表示される
+
+
+
+
+
+Usage
+endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        let versionUpdater = VersionUpdater(
+            endPointURL: URL(string: &#34;https://foo.com/ios.json&#34;)!
+        )
+        versionUpdater.executeVersionCheck()
+    }
+Android
+Android用はMSBVersionUpdaterがあります。
+最近 @misyobun さんがKotlinで書き直したらしいのでjavaをプロジェクトに入れたくない方おすすめです。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="アップデートをユーザにお知らせするライブラリ作成した。（iOS用）" />
+<meta name="twitter:description" content="何かと必要なのでシンプルなものをSwiftで作成し直した。
+以前は、Objective-C用のライブラリを使っていてPRとかもしていた。
+だけど、Swiftのものが欲しくなったので作成した。
+VersionUpdater
+
+Notify users when a new version of your app is available and force them to upgrade the application of the version.
+
+https://github.com/nakajijapan/VersionUpdater
+Requirements
+
+iOS 10.0&#43;
+Xcode 9&#43;
+Swift 4&#43;
+
+仕様
+
+アプリがアクティブになったらサーバからJSONファイルを取得する
+バージョンを比較して低ければアラートを表示する
+モード
+
+強制
+
+ダイアログを閉じれなくし、指定のURLへの遷移を強制させる
+
+
+オプショナル
+
+ダイアログを閉じることができ、以降アプリの操作ができる
+サイドアプリがアクティブになればまたダイアログが表示される
+
+
+
+
+
+Usage
+endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        let versionUpdater = VersionUpdater(
+            endPointURL: URL(string: &#34;https://foo.com/ios.json&#34;)!
+        )
+        versionUpdater.executeVersionCheck()
+    }
+Android
+Android用はMSBVersionUpdaterがあります。
+最近 @misyobun さんがKotlinで書き直したらしいのでjavaをプロジェクトに入れたくない方おすすめです。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>アップデートをユーザにお知らせするライブラリ作成した。（iOS用） - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">アップデートをユーザにお知らせするライブラリ作成した。（iOS用）</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2018-07-12">July 12, 2018</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">ios</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>何かと必要なのでシンプルなものをSwiftで作成し直した。
+以前は、Objective-C用のライブラリを使っていてPRとかもしていた。
+だけど、Swiftのものが欲しくなったので作成した。</p>
+<h1 id="versionupdater">VersionUpdater</h1>
+<blockquote>
+<p>Notify users when a new version of your app is available and force them to upgrade the application of the version.</p>
+</blockquote>
+<p><a href="https://github.com/nakajijapan/VersionUpdater">https://github.com/nakajijapan/VersionUpdater</a></p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>iOS 10.0+</li>
+<li>Xcode 9+</li>
+<li>Swift 4+</li>
+</ul>
+<h2 id="仕様">仕様</h2>
+<ul>
+<li>アプリがアクティブになったらサーバからJSONファイルを取得する</li>
+<li>バージョンを比較して低ければアラートを表示する</li>
+<li>モード
+<ul>
+<li>強制
+<ul>
+<li>ダイアログを閉じれなくし、指定のURLへの遷移を強制させる</li>
+</ul>
+</li>
+<li>オプショナル
+<ul>
+<li>ダイアログを閉じることができ、以降アプリの操作ができる</li>
+<li>サイドアプリがアクティブになればまたダイアログが表示される</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>endpointを指定してあげるだけです。あとは内部でチェックを行い、モードに応じてダイアログを表示します。</p>
+<pre tabindex="0"><code>    func applicationDidBecomeActive(_ application: UIApplication) {
+        let versionUpdater = VersionUpdater(
+            endPointURL: URL(string: &#34;https://foo.com/ios.json&#34;)!
+        )
+        versionUpdater.executeVersionCheck()
+    }
+</code></pre><h1 id="android">Android</h1>
+<p>Android用は<a href="https://github.com/misyobun/MSBVersionUpdater">MSBVersionUpdater</a>があります。
+最近 @misyobun さんがKotlinで書き直したらしいのでjavaをプロジェクトに入れたくない方おすすめです。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

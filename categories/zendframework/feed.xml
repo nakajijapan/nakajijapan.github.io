@@ -1,0 +1,102 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ZendFramework on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/zendframework/</link>
+        <description>Recent content in ZendFramework on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Sat, 21 Aug 2010 21:46:25 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/zendframework/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>[zendframework][smarty]PC/Mobile版切替時にSmartyの設定で気をつけること</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-08-21_2341/</link>
+            <pubDate>Sat, 21 Aug 2010 21:46:25 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-08-21_2341/</guid>
+            <description>&lt;p&gt;最近ハマったこと。&lt;/p&gt;
+&lt;p&gt;携帯版とPC版でテンプレートを切り分けているときにちゃんとテンプレートキャッシュも別で保存しておかないと
+最初に表示した画面の状態をずっと保持し続けてしまう。たとえば、PC版で表示したら携帯版で表示しても
+PC版で表示されてしまう。&lt;/p&gt;
+&lt;p&gt;当たり前のことだけど、別にしないとだめだよね。&lt;/p&gt;
+&lt;p&gt;Smartyのコンパイルファイル(templates_c側)を一緒のディレクトリ・ファイルにしないようにします。
+なので携帯版はSMARTY_COMPILE_IDに「_mb」を追加して別管理にしました。&lt;/p&gt;
+&lt;p&gt;以下がディレクトリ構造。&lt;/p&gt;
+&lt;pre class=&#34;brush: bash&#34;&gt;
+---------------- 例 -------------------
+[root@hoge] # tree templates_c
+templates_c
+|-- ref
+|   |
+|   `-- %%DE
+|       `-- DE7
+|           `-- DE7C2150%%header.html.php
+`-- ref_mb
+    |
+    `-- %%DE
+        `-- DE7
+            `-- DE7C2150%%header.html.php
+&lt;/pre&gt;
+&lt;p&gt;Smartyのキャッシュを有効にしたときはまたもう少し考えないといけないな。&lt;/p&gt;
+&lt;p&gt;例えば、日記を新しく作成した場合はどちらとも作成しないといけないね。&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>ZendFrameworkでBasic認証　既にあるものを利用した編</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-06-25_2123/</link>
+            <pubDate>Fri, 25 Jun 2010 06:20:13 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-06-25_2123/</guid>
+            <description>&lt;p&gt;以前、Zendでベーシック認証を自作したエントリーがありましたが、本当は
+Zendに用意されているプラグインがあるのです。&lt;/p&gt;
+&lt;p&gt;なぜ利用しなかったっていうと、Zend側での必須項目としてrealmを必ず
+指定しなければいけないのでです。それだとユーザ名とパスワードの認証情報
+に対応しないので必ずエラーになってしまいます。&lt;/p&gt;
+&lt;p&gt;ベーシック認証としては「Zend_Auth_Adapter_Http_Resolver_File」のクラスが
+当てはまるのでしょうね。このクラスに認証に必要なファイルをセットする。
+Zendの認証用のAdapterを生成して、このクラスに実際の処理をさせていく感じですかね。&lt;/p&gt;
+&lt;pre class=&#34;brush:php&#34;&gt;
+        $config = array(
+            &#39;accept_schemes&#39;  =&gt; &#39;basic&#39;,      // basic認証
+            &#39;realm&#39;           =&gt; &#39;aaaaa&#39;,      // realm(ベーシック認証のフォームに出力されます)
+            &#39;digest_domains&#39;  =&gt; &#39;/login&#39;,     // どのURL以下にベーシック認証をかけるかです。
+            &#39;nonce_timeout&#39;   =&gt; 3600
+        );
+
+        $resolver = new Zend_Auth_Adapter_Http_Resolver_File();
+        $resolver-&gt;setFile(&#39;passwd.txt&#39;);
+
+        $adapter  = new Zend_Auth_Adapter_Http($config);
+        $adapter-&gt;setBasicResolver($resolver)
+                -&gt;setRequest($this-&gt;getRequest())
+                -&gt;setResponse($this-&gt;getResponse());
+
+        $result = $adapter-&gt;authenticate();
+        if (!$result-&gt;isValid()) {
+            // 認証エラーの場合
+        }
+
+&lt;/pre&gt;
+&lt;p&gt;passwd.txtは、ドキュメントルート(index.phpがあるところ)からのパスになります。
+内容はこんな感じです&lt;/p&gt;
+&lt;pre class=&#34;brush:plain&#34;&gt;
+test:aaaaa:hogehoge
+ユーザ名:realm:パスワード
+&lt;/pre&gt;
+&lt;p&gt;realmはプログラム内で指定したrealmと一致している必要があります。&lt;/p&gt;
+&lt;p&gt;前回書いたものよりだいぶスマートに実装されていますね。感心感心です。
+ちょっとわがままいうなら認証機構をもっと昔のにも親和性高くしてほしかったなと思います。&lt;/p&gt;
+&lt;p&gt;まぁでも勉強になったのでよしとします。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

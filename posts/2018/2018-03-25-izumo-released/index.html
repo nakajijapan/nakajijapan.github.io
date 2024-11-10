@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Izumo - markdown note tool - をリリースしました。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2018/2018-03-25-izumo-released/" />
+<meta property="go:description" content="
+Izumo Just Released!!!!
+先日、Izumo - markdown note toolのmacOS版をリリースしました。
+一年越しの個人アプリ。長かったわーhttps://t.co/qbI5qij8Aw&mdash; The old man (@nakajijapan) 2018年3月13日
+
+そして、本日iOS版もリリースすることになりました。簡単に説明するとマルチデバイスで同期可能なマークダウン用のノートアプリです。
+Izumoの説明
+Izumo is とてもシンプルなマークダウン専用メモアプリです。
+AppleIDを持っていれば、いろんなデバイスでデータの共有ができるようになります。
+macOSアプリ専用のアプリ、Izumoをを利用すればPCでもnoteの編集・保存ができます。
+無料で全ての機能が利用できます。
+機能
+
+マークダウンをサポート
+フォントスタイルの調整
+iCloudを利用してMacアプリとバックグラウンドで同期ができる
+
+（あらかじめApple IDでログインしておく必要があります）
+
+
+多くのメモから特定のメモを検索することができます。
+
+おすすめする人
+
+テキストリッチにはしなくていいけどマークダウンでメモをしたい人
+いろんなデバイスでnoteを編集・保存したい人
+
+早速ですが、よかったら使ってください。。。
+
+
+Izumo?
+マルチデバイス対応　⏩　クラウド　⏩　雲　⏩　出雲　⏩　Izumo!
+特にひねりもなく。。。
+なぜ作ったのか
+世の中には様々なノートツールがあります。Appleのnotesを筆頭にBear,DayOne,CotEditorなどがあげられるかと思います。
+しかしながら、自分に最適なツールはありませんでした。何が不満だったかというと、
+
+なるべくシンプルなやつ〜
+マークダウン表現をリッチにせずにただ色づけされされる
+マルチデバイス対応（同期ができる）
+
+とい自分の個人アプリでここまでかかったのうことで、ないなら作ろうと思って作ってみました。ということで2017年3月くらいか構想やら実験やらを初めて今に至ります。
+やったこと
+
+CloudKitを利用したデータ同期
+
+データ同期・ネットワーク周りの実装・テストはなかなか大変だ。
+
+
+文章のリアルタイム編集
+
+Markdownに変換してくれるライブラリはあるもののリアルタイムに変換してくれるものはなかったので自前で実装。
+
+
+
+以前に調査したやつ
+
+
+最後に
+初めて同じプロダクトで両方のデバイスをサポートしたのは初めててで、ものすごく苦労することが多かったのですが、なんとか無事リリースできたのでとりあえずはよかったです。。。一年という期間は個人アプリを作る中であまりにも長い期間でモチベーションを上げ続けるにはものすごく辛い期間だったかなと思います。どれだけ他のアプリ使おっかなと思ったことか。せっかくここまでできたからといつも心に秘めてなんとか持ちこたえられました。
+リリースしたと言ってもまだまだバグがあるしやることはあるのでゆっくりと広い心で見守っていただければと思います。
+もし、僕もこういうの欲しかった。バグ直して欲しい。僕のことが何を持ってか好きな方がいれば、支援していただければと思います。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Izumo - markdown note tool - をリリースしました。" />
+<meta name="twitter:description" content="
+Izumo Just Released!!!!
+先日、Izumo - markdown note toolのmacOS版をリリースしました。
+一年越しの個人アプリ。長かったわーhttps://t.co/qbI5qij8Aw&mdash; The old man (@nakajijapan) 2018年3月13日
+
+そして、本日iOS版もリリースすることになりました。簡単に説明するとマルチデバイスで同期可能なマークダウン用のノートアプリです。
+Izumoの説明
+Izumo is とてもシンプルなマークダウン専用メモアプリです。
+AppleIDを持っていれば、いろんなデバイスでデータの共有ができるようになります。
+macOSアプリ専用のアプリ、Izumoをを利用すればPCでもnoteの編集・保存ができます。
+無料で全ての機能が利用できます。
+機能
+
+マークダウンをサポート
+フォントスタイルの調整
+iCloudを利用してMacアプリとバックグラウンドで同期ができる
+
+（あらかじめApple IDでログインしておく必要があります）
+
+
+多くのメモから特定のメモを検索することができます。
+
+おすすめする人
+
+テキストリッチにはしなくていいけどマークダウンでメモをしたい人
+いろんなデバイスでnoteを編集・保存したい人
+
+早速ですが、よかったら使ってください。。。
+
+
+Izumo?
+マルチデバイス対応　⏩　クラウド　⏩　雲　⏩　出雲　⏩　Izumo!
+特にひねりもなく。。。
+なぜ作ったのか
+世の中には様々なノートツールがあります。Appleのnotesを筆頭にBear,DayOne,CotEditorなどがあげられるかと思います。
+しかしながら、自分に最適なツールはありませんでした。何が不満だったかというと、
+
+なるべくシンプルなやつ〜
+マークダウン表現をリッチにせずにただ色づけされされる
+マルチデバイス対応（同期ができる）
+
+とい自分の個人アプリでここまでかかったのうことで、ないなら作ろうと思って作ってみました。ということで2017年3月くらいか構想やら実験やらを初めて今に至ります。
+やったこと
+
+CloudKitを利用したデータ同期
+
+データ同期・ネットワーク周りの実装・テストはなかなか大変だ。
+
+
+文章のリアルタイム編集
+
+Markdownに変換してくれるライブラリはあるもののリアルタイムに変換してくれるものはなかったので自前で実装。
+
+
+
+以前に調査したやつ
+
+
+最後に
+初めて同じプロダクトで両方のデバイスをサポートしたのは初めててで、ものすごく苦労することが多かったのですが、なんとか無事リリースできたのでとりあえずはよかったです。。。一年という期間は個人アプリを作る中であまりにも長い期間でモチベーションを上げ続けるにはものすごく辛い期間だったかなと思います。どれだけ他のアプリ使おっかなと思ったことか。せっかくここまでできたからといつも心に秘めてなんとか持ちこたえられました。
+リリースしたと言ってもまだまだバグがあるしやることはあるのでゆっくりと広い心で見守っていただければと思います。
+もし、僕もこういうの欲しかった。バグ直して欲しい。僕のことが何を持ってか好きな方がいれば、支援していただければと思います。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Izumo - markdown note tool - をリリースしました。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Izumo - markdown note tool - をリリースしました。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2018-03-25">March 25, 2018</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/osx">osx</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><img src="/images/posts/2018/2018-03-25-01.png" alt=""></p>
+<h1 id="izumo-just-released">Izumo Just Released!!!!</h1>
+<p>先日、<code>Izumo - markdown note tool</code>のmacOS版をリリースしました。</p>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">一年越しの個人アプリ。長かったわー<a href="https://t.co/qbI5qij8Aw">https://t.co/qbI5qij8Aw</a></p>&mdash; The old man (@nakajijapan) <a href="https://twitter.com/nakajijapan/status/973369093049864192?ref_src=twsrc%5Etfw">2018年3月13日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>そして、本日iOS版もリリースすることになりました。簡単に説明するとマルチデバイスで同期可能なマークダウン用のノートアプリです。</p>
+<h2 id="izumoの説明">Izumoの説明</h2>
+<p>Izumo is とてもシンプルなマークダウン専用メモアプリです。
+AppleIDを持っていれば、いろんなデバイスでデータの共有ができるようになります。
+macOSアプリ専用のアプリ、Izumoをを利用すればPCでもnoteの編集・保存ができます。
+無料で全ての機能が利用できます。</p>
+<h2 id="機能">機能</h2>
+<ul>
+<li>マークダウンをサポート</li>
+<li>フォントスタイルの調整</li>
+<li>iCloudを利用してMacアプリとバックグラウンドで同期ができる
+<ul>
+<li>（あらかじめApple IDでログインしておく必要があります）</li>
+</ul>
+</li>
+<li>多くのメモから特定のメモを検索することができます。</li>
+</ul>
+<h2 id="おすすめする人">おすすめする人</h2>
+<ul>
+<li>テキストリッチにはしなくていいけどマークダウンでメモをしたい人</li>
+<li>いろんなデバイスでnoteを編集・保存したい人</li>
+</ul>
+<p>早速ですが、よかったら使ってください。。。</p>
+<p><a href='https://itunes.apple.com/us/app/izumo/id1281895938?mt=12'><img src="http://izumo.nakajijapan.net/images/download.svg" width=auto height="52" /></a>
+<a href='https://itunes.apple.com/jp/app/izumo/id1281897347?mt=8'><img src="http://izumo.nakajijapan.net/images/download-ios.svg" width=auto height="52" /></a></p>
+<h1 id="izumo">Izumo?</h1>
+<p>マルチデバイス対応　⏩　クラウド　⏩　雲　⏩　出雲　⏩　Izumo!</p>
+<p>特にひねりもなく。。。</p>
+<h1 id="なぜ作ったのか">なぜ作ったのか</h1>
+<p>世の中には様々なノートツールがあります。Appleのnotesを筆頭にBear,DayOne,CotEditorなどがあげられるかと思います。
+しかしながら、自分に最適なツールはありませんでした。何が不満だったかというと、</p>
+<ul>
+<li>なるべくシンプルなやつ〜</li>
+<li><strong>マークダウン表現をリッチにせずにただ色づけされされる</strong></li>
+<li>マルチデバイス対応（同期ができる）</li>
+</ul>
+<p>とい自分の個人アプリでここまでかかったのうことで、ないなら作ろうと思って作ってみました。ということで2017年3月くらいか構想やら実験やらを初めて今に至ります。</p>
+<h1 id="やったこと">やったこと</h1>
+<ul>
+<li>CloudKitを利用したデータ同期
+<ul>
+<li>データ同期・ネットワーク周りの実装・テストはなかなか大変だ。</li>
+</ul>
+</li>
+<li>文章のリアルタイム編集
+<ul>
+<li>Markdownに変換してくれるライブラリはあるもののリアルタイムに変換してくれるものはなかったので自前で実装。</li>
+</ul>
+</li>
+</ul>
+<h3 id="以前に調査したやつ">以前に調査したやつ</h3>
+<script async class="speakerdeck-embed" data-id="d8e6af5394f545f5be9c42d9b19fde2f" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<script async class="speakerdeck-embed" data-id="8680d4d00aa80132acd15e86903014cd" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+<h1 id="最後に">最後に</h1>
+<p>初めて同じプロダクトで両方のデバイスをサポートしたのは初めててで、ものすごく苦労することが多かったのですが、なんとか無事リリースできたのでとりあえずはよかったです。。。一年という期間は個人アプリを作る中であまりにも長い期間でモチベーションを上げ続けるにはものすごく辛い期間だったかなと思います。どれだけ他のアプリ使おっかなと思ったことか。せっかくここまでできたからといつも心に秘めてなんとか持ちこたえられました。
+リリースしたと言ってもまだまだバグがあるしやることはあるのでゆっくりと広い心で見守っていただければと思います。
+もし、僕もこういうの欲しかった。バグ直して欲しい。僕のことが何を持ってか好きな方がいれば、支援していただければと思います。</p>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="und" dir="ltr"><a href="https://t.co/m4PpIYLEGu">https://t.co/m4PpIYLEGu</a></p>&mdash; The old man (@nakajijapan) <a href="https://twitter.com/nakajijapan/status/977819662695129088?ref_src=twsrc%5Etfw">2018年3月25日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

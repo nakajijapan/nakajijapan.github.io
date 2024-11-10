@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="OSX ドラッグアンドドロップの調査">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2015/01/20/osx-%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%82%A2%E3%83%B3%E3%83%89%E3%83%89%E3%83%AD%E3%83%83%E3%83%97%E3%81%AE%E8%AA%BF%E6%9F%BB/" />
+<meta property="go:description" content="ドラッギングアンドドロップ関連の調査
+NSDraggingSource
+プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。
+ドラッグ操作中に受け取るメッセージ
+draggingSession(_:sourceOperationMaskForDraggingContext:)
+ドラッギングしている状況を教えて、どんなドラッグのタイプを許すか設定します。
+enum NSDraggingContext : Int {
+
+    case OutsideApplication
+    case WithinApplication
+}
+ドラッグ操作のマスク。ここでどんな操作を許すのかの種類
+struct NSDragOperation : RawOptionSetType {
+    init(_ rawValue: UInt)
+    init(rawValue: UInt)
+
+    static var None: NSDragOperation { get }
+    static var Copy: NSDragOperation { get }
+    static var Link: NSDragOperation { get }
+    static var Generic: NSDragOperation { get }
+    static var Private: NSDragOperation { get }
+    static var Move: NSDragOperation { get }
+    static var Delete: NSDragOperation { get }
+    static var Every: NSDragOperation { get }
+
+    static var All_Obsolete: NSDragOperation { get } // Use NSDragOperationEvery
+    static var All: NSDragOperation { get } // Use NSDragOperationEvery
+}
+以下は、指定されたスクリーン上をトリガーにして呼び出されるメソッド
+その時の位置も保持している。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="OSX ドラッグアンドドロップの調査" />
+<meta name="twitter:description" content="ドラッギングアンドドロップ関連の調査
+NSDraggingSource
+プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。
+ドラッグ操作中に受け取るメッセージ
+draggingSession(_:sourceOperationMaskForDraggingContext:)
+ドラッギングしている状況を教えて、どんなドラッグのタイプを許すか設定します。
+enum NSDraggingContext : Int {
+
+    case OutsideApplication
+    case WithinApplication
+}
+ドラッグ操作のマスク。ここでどんな操作を許すのかの種類
+struct NSDragOperation : RawOptionSetType {
+    init(_ rawValue: UInt)
+    init(rawValue: UInt)
+
+    static var None: NSDragOperation { get }
+    static var Copy: NSDragOperation { get }
+    static var Link: NSDragOperation { get }
+    static var Generic: NSDragOperation { get }
+    static var Private: NSDragOperation { get }
+    static var Move: NSDragOperation { get }
+    static var Delete: NSDragOperation { get }
+    static var Every: NSDragOperation { get }
+
+    static var All_Obsolete: NSDragOperation { get } // Use NSDragOperationEvery
+    static var All: NSDragOperation { get } // Use NSDragOperationEvery
+}
+以下は、指定されたスクリーン上をトリガーにして呼び出されるメソッド
+その時の位置も保持している。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>OSX ドラッグアンドドロップの調査 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">OSX ドラッグアンドドロップの調査</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2015-01-20">January 20, 2015</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/macos">macOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>ドラッギングアンドドロップ関連の調査</p>
+<h2 id="nsdraggingsource">NSDraggingSource</h2>
+<p>プロトコルメソッドで、Dragging Session内のオブジェクトによって実装される。
+ドラッグ操作中に受け取るメッセージ</p>
+<h3 id="draggingsession_sourceoperationmaskfordraggingcontext">draggingSession(_:sourceOperationMaskForDraggingContext:)</h3>
+<p>ドラッギングしている状況を教えて、どんなドラッグのタイプを許すか設定します。</p>
+<pre tabindex="0"><code>enum NSDraggingContext : Int {
+
+    case OutsideApplication
+    case WithinApplication
+}
+</code></pre><p>ドラッグ操作のマスク。ここでどんな操作を許すのかの種類</p>
+<pre tabindex="0"><code>struct NSDragOperation : RawOptionSetType {
+    init(_ rawValue: UInt)
+    init(rawValue: UInt)
+
+    static var None: NSDragOperation { get }
+    static var Copy: NSDragOperation { get }
+    static var Link: NSDragOperation { get }
+    static var Generic: NSDragOperation { get }
+    static var Private: NSDragOperation { get }
+    static var Move: NSDragOperation { get }
+    static var Delete: NSDragOperation { get }
+    static var Every: NSDragOperation { get }
+
+    static var All_Obsolete: NSDragOperation { get } // Use NSDragOperationEvery
+    static var All: NSDragOperation { get } // Use NSDragOperationEvery
+}
+</code></pre><p>以下は、指定されたスクリーン上をトリガーにして呼び出されるメソッド
+その時の位置も保持している。</p>
+<h3 id="draggingsession_willbeginatpoint">draggingSession(_:willBeginAtPoint:)</h3>
+<p>スクリーン上でドラッグされ始めたときに呼び出される</p>
+<h3 id="draggingsession_endedatpointoperation">draggingSession(_:endedAtPoint:operation:)</h3>
+<p>スクリーン上でドラッグが終了したときに呼び出される</p>
+<h3 id="draggingsession_movedtopoint">draggingSession(_:movedToPoint:)</h3>
+<p>スクリーン上でドラッグされているときに呼び出される</p>
+<h2 id="nsdraggingdestination">NSDraggingDestination</h2>
+<p>プロトコルメソッド。実装したViewに対してイベントが呼び出される</p>
+<pre tabindex="0"><code>draggingEntered(_:)
+draggingUpdated(_:)
+draggingEnded(_:)
+draggingExited(_:)
+</code></pre><p>以下は、ドロップ処理の実行要求。
+上記メソッドでドロップ可能と返した状態でこのテキストフィールド上でマウスボタンを放した時に呼び出されます。</p>
+<pre tabindex="0"><code>prepareForDragOperation(_:)
+performDragOperation(_:)
+</code></pre><p>ここでドラッグしたオブジェクトが対象のオブジェクトに対してどうゆう処理をするのかを実装する</p>
+<h2 id="nsdraggingsession">NSDraggingSession</h2>
+<p>ドラッグアンドドロップ関連の処理を提供してくれる。ドラッグ処理中に編集を許可する。</p>
+<h3 id="example">Example</h3>
+<p>以下のようにして対象のオブジェクトを監視する</p>
+<pre tabindex="0"><code>var draggingSession:NSDraggingSession = self.beginDraggingSessionWithItems([dragItem], event: theEvent, source: self)
+
+# 失敗したときに画像をもとの位置に戻すかどうか
+draggingSession.animatesToStartingPositionsOnCancelOrFail = true
+
+# ドラッグしている状態のビジュアルをどんな表現するかの設定
+#    None: 画像をポイントに維持させる
+draggingSession.draggingFormation = NSDraggingFormation.None
+</code></pre><h2 id="まとめ">まとめ</h2>
+<p>ここで対象のオブジェクトをドラッグアンドドロップできるようになる。
+たとえばFinderにある画像を実装したオブジェクトに画像とかをドロップできたりできる。
+ただ、実装したオブジェクトをドラッグしてFinderにドロップして（画像を保存したり）はできないのでもうすこし調査が必要。</p>
+<h2 id="参照">参照</h2>
+<ul>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/DragandDrop/DragandDrop.html#//apple_ref/doc/uid/10000069i">Introduction to Drag and Drop</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSDraggingDestination_Protocol/#//apple_ref/occ/intfm/NSDraggingDestination/prepareForDragOperation:">NSDraggingDestination</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Protocols/NSDraggingSource_Protocol/#//apple_ref/occ/intfm/NSDraggingSource/draggingSession:willBeginAtPoint:">NSDraggingSource</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSDraggingSession_Class/">NSDraggingSession</a></li>
+<li><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/NSPasteboardWriting_Protocol/index.html#//apple_ref/occ/intfm/NSPasteboardWriting/writableTypesForPasteboard:">NSPasteboardWriting</a></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

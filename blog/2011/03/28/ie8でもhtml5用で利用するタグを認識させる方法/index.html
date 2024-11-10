@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="IE8でもHTML5用で利用するタグを認識させる方法">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2011/03/28/ie8%E3%81%A7%E3%82%82html5%E7%94%A8%E3%81%A7%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%82%BF%E3%82%B0%E3%82%92%E8%AA%8D%E8%AD%98%E3%81%95%E3%81%9B%E3%82%8B%E6%96%B9%E6%B3%95/" />
+<meta property="go:description" content="「欲求不満」というサービスを作成しているときに調子にのりHTML５とCSS3をばりばり使ってしませいか
+IEでうまいように表示できなかったり崩れてしまいと残念な結果に終わっていました．もういっそのこと非推奨にして
+IEでみたときはエラーにしてしまえとアラートを出すようにしていたのです。
+確かに普通にITに関連のない人たちは普通にIEを使うのは普通であって当然アクセス解析をみるといる訳です。
+そのままにしていくわけにはいかずにある程度見れるように調査いたしました！
+調べてみたらあっさりと解決してしまいました。
+「document.createElement」なるものを使用するとスタイルシートが適用されるみたいですね。
+
+  
+&lt;![endif]&ndash;&gt;
+
+■参考
+IE8でのHTML５要素有効かあれこれ" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="IE8でもHTML5用で利用するタグを認識させる方法" />
+<meta name="twitter:description" content="「欲求不満」というサービスを作成しているときに調子にのりHTML５とCSS3をばりばり使ってしませいか
+IEでうまいように表示できなかったり崩れてしまいと残念な結果に終わっていました．もういっそのこと非推奨にして
+IEでみたときはエラーにしてしまえとアラートを出すようにしていたのです。
+確かに普通にITに関連のない人たちは普通にIEを使うのは普通であって当然アクセス解析をみるといる訳です。
+そのままにしていくわけにはいかずにある程度見れるように調査いたしました！
+調べてみたらあっさりと解決してしまいました。
+「document.createElement」なるものを使用するとスタイルシートが適用されるみたいですね。
+
+  
+&lt;![endif]&ndash;&gt;
+
+■参考
+IE8でのHTML５要素有効かあれこれ" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>IE8でもHTML5用で利用するタグを認識させる方法 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">IE8でもHTML5用で利用するタグを認識させる方法</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2011-03-28">March 28, 2011</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>「<a href="http://frustration.me">欲求不満</a>」というサービスを作成しているときに調子にのりHTML５とCSS3をばりばり使ってしませいか
+IEでうまいように表示できなかったり崩れてしまいと残念な結果に終わっていました．もういっそのこと非推奨にして
+IEでみたときはエラーにしてしまえとアラートを出すようにしていたのです。</p>
+<p>確かに普通にITに関連のない人たちは普通にIEを使うのは普通であって当然アクセス解析をみるといる訳です。
+そのままにしていくわけにはいかずにある程度見れるように調査いたしました！</p>
+<p>調べてみたらあっさりと解決してしまいました。</p>
+<p><strong>「document.createElement</strong>」なるものを使用するとスタイルシートが適用されるみたいですね。</p>
+<pre class="brush: javascript">
+  <script type="text/javascript">
+  var html5elements = ["header", "nav", "article", "section", "aside", "footer"];
+  for(var i=0; i<=html5elements.length; i++) { document.createElement( html5elements[ i ] ); }
+  </script>
+<p>&lt;![endif]&ndash;&gt;
+</pre></p>
+<p>■参考
+<a href="http://p2b.jp/201007-various-HTML5-enabling-scripts">IE8でのHTML５要素有効かあれこれ</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="NSPopoverからWindowにViewを分裂させる">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2018/2018-10-25-popover/" />
+<meta property="go:description" content="NSPopoverからWindowにViewを分裂させる
+BearのアプリのようにPopoverからタップを移動することでWindowにに分離する方法を知りたくて調査した。
+
+
+まず、popover自体はNSPopoverを利用すれば表示することができる。
+WindowにするにはNSPopoverのあるデリゲートメソッドを記述すればできるようになる
+NSPopover
+           popover.contentViewController = viewController
+            popover.delegate = self
+            popover.behavior = NSPopover.Behavior.transient
+分離方法
+NSPopoverDelegate
+    func popoverShouldDetach(_ popover: NSPopover) -&gt; Bool {
+        return true
+    }
+
+Detaches the popover creating a window containing the content.
+
+以下のメソッドでカスタムのwindowを作ることができる
+    func detachableWindow(for popover: NSPopover) -&gt; NSWindow? {
+        return nil
+        //return detachedWindowController.window
+    }
+Referer
+
+https://developer.apple.com/documentation/appkit/nspopoverdelegate/1534822-detachablewindow
+https://github.com/lukaskubanek/DetachablePopoverExample
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="NSPopoverからWindowにViewを分裂させる" />
+<meta name="twitter:description" content="NSPopoverからWindowにViewを分裂させる
+BearのアプリのようにPopoverからタップを移動することでWindowにに分離する方法を知りたくて調査した。
+
+
+まず、popover自体はNSPopoverを利用すれば表示することができる。
+WindowにするにはNSPopoverのあるデリゲートメソッドを記述すればできるようになる
+NSPopover
+           popover.contentViewController = viewController
+            popover.delegate = self
+            popover.behavior = NSPopover.Behavior.transient
+分離方法
+NSPopoverDelegate
+    func popoverShouldDetach(_ popover: NSPopover) -&gt; Bool {
+        return true
+    }
+
+Detaches the popover creating a window containing the content.
+
+以下のメソッドでカスタムのwindowを作ることができる
+    func detachableWindow(for popover: NSPopover) -&gt; NSWindow? {
+        return nil
+        //return detachedWindowController.window
+    }
+Referer
+
+https://developer.apple.com/documentation/appkit/nspopoverdelegate/1534822-detachablewindow
+https://github.com/lukaskubanek/DetachablePopoverExample
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>NSPopoverからWindowにViewを分裂させる - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">NSPopoverからWindowにViewを分裂させる</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2018-10-25">October 25, 2018</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/macos">macOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>NSPopoverからWindowにViewを分裂させる</p>
+<p>BearのアプリのようにPopoverからタップを移動することでWindowにに分離する方法を知りたくて調査した。</p>
+<p><img src="/images/posts/2018/2018-10-009.png" alt="">
+<img src="/images/posts/2018/2018-10-010.png" alt=""></p>
+<p>まず、popover自体は<code>NSPopover</code>を利用すれば表示することができる。
+WindowにするにはNSPopoverのあるデリゲートメソッドを記述すればできるようになる</p>
+<h2 id="nspopover">NSPopover</h2>
+<pre tabindex="0"><code>           popover.contentViewController = viewController
+            popover.delegate = self
+            popover.behavior = NSPopover.Behavior.transient
+</code></pre><h2 id="分離方法">分離方法</h2>
+<h3 id="nspopoverdelegate">NSPopoverDelegate</h3>
+<pre tabindex="0"><code>    func popoverShouldDetach(_ popover: NSPopover) -&gt; Bool {
+        return true
+    }
+</code></pre><blockquote>
+<p>Detaches the popover creating a window containing the content.</p>
+</blockquote>
+<p>以下のメソッドでカスタムのwindowを作ることができる</p>
+<pre tabindex="0"><code>    func detachableWindow(for popover: NSPopover) -&gt; NSWindow? {
+        return nil
+        //return detachedWindowController.window
+    }
+</code></pre><h1 id="referer">Referer</h1>
+<ul>
+<li><a href="https://developer.apple.com/documentation/appkit/nspopoverdelegate/1534822-detachablewindow">https://developer.apple.com/documentation/appkit/nspopoverdelegate/1534822-detachablewindow</a></li>
+<li><a href="https://github.com/lukaskubanek/DetachablePopoverExample">https://github.com/lukaskubanek/DetachablePopoverExample</a></li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

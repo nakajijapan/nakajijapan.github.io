@@ -1,0 +1,41 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Windows on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/windows/</link>
+        <description>Recent content in Windows on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Wed, 27 Jan 2010 10:26:55 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/windows/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>termのフォントをかっこよくしたい</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-01-27_273/</link>
+            <pubDate>Wed, 27 Jan 2010 10:26:55 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-01-27_273/</guid>
+            <description>&lt;p&gt;エコ？
+人間にやさしいのはヒュコ？&lt;/p&gt;
+&lt;p&gt;開発してるときにやっぱりフォントが気になりまして特に家MAC、会社Windowsだと
+すごい違和感感じてしまいまして変更することにしました。&lt;/p&gt;
+&lt;p&gt;まずは、Windows全体のフォントをきれいにするために。&lt;/p&gt;
+&lt;blockquote&gt;コントロールパネル→画面→デザイン→効果→ClearType&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.livedoor.jp/hakin/archives/50638547.html&#34;&gt;ここ&lt;/a&gt;参考にしました。&lt;/p&gt;
+&lt;p&gt;んでもってフォントのインスコ。&lt;a href=&#34;http://www.microsoft.com/downloads/details.aspx?familyid=22e69ae4-7e40-4807-8a86-b3d36fab68d3&amp;amp;displaylang=en&#34;&gt;これ&lt;/a&gt;があるとPoderosaとかで
+フォントの設定ができるようになります。&lt;/p&gt;
+&lt;p&gt;Consolas はお勧めです。&lt;/p&gt;
+&lt;p&gt;ちなみに、Poderosaの場合は日本語と英語のフォントが別のものできるので今は
+TeraTermを卒業してPodeちゃん使ってます。&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

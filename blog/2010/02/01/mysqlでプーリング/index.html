@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Mysqlでプーリング？？">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/02/01/mysql%E3%81%A7%E3%83%97%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0/" />
+<meta property="go:description" content="ちょっとサーバがらみでいろいろ調べてたんで自分なりにまとめてみる。
+発端は会社でDBの負荷分散のためにプログラムをいじってるみたいで
+自分的にはちょっとメンドくせーなとおもいつつ、今までのこと考えてみると
+PostgresSQLのpg_poolの場合はその辺いろいろやってくれたなぁって感じた。
+そのアプリにコネクションプーリングをいれるかどうかは考えていなくて
+もし手軽でそんなにコストかかんなきゃ入れてもいいレベルです。
+あ、最初にコネクションプーリングとはって言ってみる。
+
+    *   ウェブアプリケーションから DB への接続を開けっ放しにして、接続に必要とされるオーバーヘッドをカットして双方の負荷を下げる。
+    * ウェブアプリケーションと DB への接続を「使いまわす」ことで、同時接続本数を節約する。
+引用：コネクションプーリングの話
+
+んで上記のサイト見てみたら。
+
+でもどうも MySQL は thread_cache とかを有効にすると(案外しなくてもそうなんだけど)実は接続に必要なオーバーヘッドがアプリケーション総体では無視できる程度の微々たるものだということがベンチマークの結果とかで分かる。それだったら Apache::DBI や CDBI の永続化の機能は OFF にしちゃいましょう...これがコネクションプーリングイラネ、みたいな話。
+
+そんでもって「thread_cache」を調べてみると
+まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。
+そのときにどのくらいスレッドをキャッシュしておくか。
+(ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)
+Mysqlの場合は、これで大体のケースいける感じなんかね＝。
+Hatena:yamazさん
+http://d.hatena.ne.jp/yamaz/20060903
+Pgpool
+http://www2b.biglobe.ne.jp/~caco/pgpool/" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Mysqlでプーリング？？" />
+<meta name="twitter:description" content="ちょっとサーバがらみでいろいろ調べてたんで自分なりにまとめてみる。
+発端は会社でDBの負荷分散のためにプログラムをいじってるみたいで
+自分的にはちょっとメンドくせーなとおもいつつ、今までのこと考えてみると
+PostgresSQLのpg_poolの場合はその辺いろいろやってくれたなぁって感じた。
+そのアプリにコネクションプーリングをいれるかどうかは考えていなくて
+もし手軽でそんなにコストかかんなきゃ入れてもいいレベルです。
+あ、最初にコネクションプーリングとはって言ってみる。
+
+    *   ウェブアプリケーションから DB への接続を開けっ放しにして、接続に必要とされるオーバーヘッドをカットして双方の負荷を下げる。
+    * ウェブアプリケーションと DB への接続を「使いまわす」ことで、同時接続本数を節約する。
+引用：コネクションプーリングの話
+
+んで上記のサイト見てみたら。
+
+でもどうも MySQL は thread_cache とかを有効にすると(案外しなくてもそうなんだけど)実は接続に必要なオーバーヘッドがアプリケーション総体では無視できる程度の微々たるものだということがベンチマークの結果とかで分かる。それだったら Apache::DBI や CDBI の永続化の機能は OFF にしちゃいましょう...これがコネクションプーリングイラネ、みたいな話。
+
+そんでもって「thread_cache」を調べてみると
+まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。
+そのときにどのくらいスレッドをキャッシュしておくか。
+(ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)
+Mysqlの場合は、これで大体のケースいける感じなんかね＝。
+Hatena:yamazさん
+http://d.hatena.ne.jp/yamaz/20060903
+Pgpool
+http://www2b.biglobe.ne.jp/~caco/pgpool/" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Mysqlでプーリング？？ - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Mysqlでプーリング？？</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-02-01">February 01, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/mysql">Mysql</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>ちょっとサーバがらみでいろいろ調べてたんで自分なりにまとめてみる。</p>
+<p>発端は会社でDBの負荷分散のためにプログラムをいじってるみたいで
+自分的にはちょっとメンドくせーなとおもいつつ、今までのこと考えてみると
+PostgresSQLのpg_poolの場合はその辺いろいろやってくれたなぁって感じた。</p>
+<p>そのアプリにコネクションプーリングをいれるかどうかは考えていなくて
+もし手軽でそんなにコストかかんなきゃ入れてもいいレベルです。</p>
+<p>あ、最初にコネクションプーリングとはって言ってみる。</p>
+<blockquote>
+    *   ウェブアプリケーションから DB への接続を開けっ放しにして、接続に必要とされるオーバーヘッドをカットして双方の負荷を下げる。
+    * ウェブアプリケーションと DB への接続を「使いまわす」ことで、同時接続本数を節約する。
+引用：<a href="http://d.hatena.ne.jp/naoya/20060912/1158058322">コネクションプーリングの話</a>
+</blockquote>
+<p>んで上記のサイト見てみたら。</p>
+<blockquote>
+でもどうも MySQL は thread_cache とかを有効にすると(案外しなくてもそうなんだけど)実は接続に必要なオーバーヘッドがアプリケーション総体では無視できる程度の微々たるものだということがベンチマークの結果とかで分かる。それだったら Apache::DBI や CDBI の永続化の機能は OFF にしちゃいましょう...これがコネクションプーリングイラネ、みたいな話。
+</blockquote>
+<p>そんでもって「thread_cache」を調べてみると
+まず、１コネクションの中で要求を受けたときにMysqlはスレッドを生成して、要求が終了すればスレッドを取る。
+そのときにどのくらいスレッドをキャッシュしておくか。
+(ちなみにデフォルトは「０」なので要求毎にスレッドが生成される)</p>
+<p>Mysqlの場合は、これで大体のケースいける感じなんかね＝。</p>
+<p>Hatena:yamazさん
+<a href="http://d.hatena.ne.jp/yamaz/20060903"><a href="http://d.hatena.ne.jp/yamaz/20060903">http://d.hatena.ne.jp/yamaz/20060903</a></a></p>
+<p>Pgpool
+<a href="http://www2b.biglobe.ne.jp/~caco/pgpool/"><a href="http://www2b.biglobe.ne.jp/~caco/pgpool/">http://www2b.biglobe.ne.jp/~caco/pgpool/</a></a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

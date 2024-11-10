@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="欲求不満(www.frustration.me)フルリニューアルかけた。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2013/05/20/%E6%AC%B2%E6%B1%82%E4%B8%8D%E6%BA%80www.frustration.me%E3%83%95%E3%83%AB%E3%83%AA%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%A2%E3%83%AB%E3%81%8B%E3%81%91%E3%81%9F/" />
+<meta property="go:description" content="欲求不満フルリニューアルかけた。
+現在、自分で全て管理している「欲求不満（www.frustration.me）」ですが、数年前
+にリリースを行い（ http://blog.nakajijapan.net/?p=2685 ）、デザインのリニューアル、
+機能追加が粛々と気の向くままに開発していましたが、ついに３年目にしてソース・デザイン全て
+リニューアルをかけました。構想は去年の１２月から徐々に着手し始めていまして、年初めにはリニューアル
+できるものかなと安易にかんがえていたけど（仕様そんなに難しくないしねーてきなのり）なかなか
+大変で一部機能を削ぎ落しての妥協リリースになってしまいました。。。無念です。あと、これ要らねーだろう
+っていうやつは消してますけど。
+見た目は今時風にしたかったので、それっぽくしました。あとは自分の開発モチベーションあげたいので言語をRubyに変更しました。
+内部的には結構細かいことしてまして。
+
+デザインをTwitterBootstrapをベースにした
+ZendFramework(PHP)からRails(Ruby)に対応
+jsのフレームワークにBackbone.jsを導入
+APIの検索周りの処理をGem化
+
+https://rubygems.org/gems/api_bucket
+
+ユーザの画像一式を全てS3で管理
+Paasを導入してsqale.jpで管理するようにした
+
+的なことしています。
+デザイン
+なんか自分で眺めててあきないようにしたくて、いろんなサイトから参考にしましておこぼれちょうだいしてます。
+デザイナ不在なので慣れないコーディングを全て自分やることになりましたが大変勉強になりました。あとTwitterBootstrapがなかったらもっとCSSのコーディングが大変になっていたしそこそこのデザインに鳴らなかったと思います。
+
+ちなみに初期のデザインはこれ
+
+ちょっとは成長しました。。。
+Paasはsqale.jp( http://sqale.jp )
+
+
+
+弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。
+インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。
+今後やっていくこと
+誰も使わなくても改善していきます！！！！１０年使い続けられる物欲管理サービスになります！！
+
+Backbone.jsをもっとフル活用する
+
+もっと動きをjs側に処理を依存させる
+よろしくない記述が多々あるのでリファクタリングに励みます。
+
+自分でもっと画像作れるようにする
+
+cssでデザインするのには限界ですね
+
+jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。
+失われた機能を追加します。。。
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="欲求不満(www.frustration.me)フルリニューアルかけた。" />
+<meta name="twitter:description" content="欲求不満フルリニューアルかけた。
+現在、自分で全て管理している「欲求不満（www.frustration.me）」ですが、数年前
+にリリースを行い（ http://blog.nakajijapan.net/?p=2685 ）、デザインのリニューアル、
+機能追加が粛々と気の向くままに開発していましたが、ついに３年目にしてソース・デザイン全て
+リニューアルをかけました。構想は去年の１２月から徐々に着手し始めていまして、年初めにはリニューアル
+できるものかなと安易にかんがえていたけど（仕様そんなに難しくないしねーてきなのり）なかなか
+大変で一部機能を削ぎ落しての妥協リリースになってしまいました。。。無念です。あと、これ要らねーだろう
+っていうやつは消してますけど。
+見た目は今時風にしたかったので、それっぽくしました。あとは自分の開発モチベーションあげたいので言語をRubyに変更しました。
+内部的には結構細かいことしてまして。
+
+デザインをTwitterBootstrapをベースにした
+ZendFramework(PHP)からRails(Ruby)に対応
+jsのフレームワークにBackbone.jsを導入
+APIの検索周りの処理をGem化
+
+https://rubygems.org/gems/api_bucket
+
+ユーザの画像一式を全てS3で管理
+Paasを導入してsqale.jpで管理するようにした
+
+的なことしています。
+デザイン
+なんか自分で眺めててあきないようにしたくて、いろんなサイトから参考にしましておこぼれちょうだいしてます。
+デザイナ不在なので慣れないコーディングを全て自分やることになりましたが大変勉強になりました。あとTwitterBootstrapがなかったらもっとCSSのコーディングが大変になっていたしそこそこのデザインに鳴らなかったと思います。
+
+ちなみに初期のデザインはこれ
+
+ちょっとは成長しました。。。
+Paasはsqale.jp( http://sqale.jp )
+
+
+
+弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。
+インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。
+今後やっていくこと
+誰も使わなくても改善していきます！！！！１０年使い続けられる物欲管理サービスになります！！
+
+Backbone.jsをもっとフル活用する
+
+もっと動きをjs側に処理を依存させる
+よろしくない記述が多々あるのでリファクタリングに励みます。
+
+自分でもっと画像作れるようにする
+
+cssでデザインするのには限界ですね
+
+jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。
+失われた機能を追加します。。。
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>欲求不満(www.frustration.me)フルリニューアルかけた。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">欲求不満(www.frustration.me)フルリニューアルかけた。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-05-20">May 20, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/diary">diary</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>欲求不満フルリニューアルかけた。
+現在、自分で全て管理している「欲求不満（www.frustration.me）」ですが、数年前
+にリリースを行い（ http://blog.nakajijapan.net/?p=2685 ）、デザインのリニューアル、
+機能追加が粛々と気の向くままに開発していましたが、ついに３年目にしてソース・デザイン全て
+リニューアルをかけました。構想は去年の１２月から徐々に着手し始めていまして、年初めにはリニューアル
+できるものかなと安易にかんがえていたけど（仕様そんなに難しくないしねーてきなのり）なかなか
+大変で一部機能を削ぎ落しての妥協リリースになってしまいました。。。無念です。あと、これ要らねーだろう
+っていうやつは消してますけど。</p>
+<p>見た目は今時風にしたかったので、それっぽくしました。あとは自分の開発モチベーションあげたいので言語をRubyに変更しました。</p>
+<p>内部的には結構細かいことしてまして。</p>
+<ul>
+<li>デザインをTwitterBootstrapをベースにした</li>
+<li>ZendFramework(PHP)からRails(Ruby)に対応</li>
+<li>jsのフレームワークにBackbone.jsを導入</li>
+<li>APIの検索周りの処理をGem化
+<ul>
+<li>https://rubygems.org/gems/api_bucket</li>
+</ul></li>
+<li>ユーザの画像一式を全てS3で管理</li>
+<li>Paasを導入してsqale.jpで管理するようにした</li>
+</ul>
+<p>的なことしています。</p>
+<h2>デザイン</h2>
+<p>なんか自分で眺めててあきないようにしたくて、いろんなサイトから参考にしましておこぼれちょうだいしてます。
+デザイナ不在なので慣れないコーディングを全て自分やることになりましたが大変勉強になりました。あとTwitterBootstrapがなかったらもっとCSSのコーディングが大変になっていたしそこそこのデザインに鳴らなかったと思います。</p>
+<p><img src="http://blog.nakajijapan.net/wp-content/uploads/2013/05/スクリーンショット-2013-05-16-10.20.30-1024x888.png" alt="スクリーンショット 2013-05-16 10.20.30" width="580" class="aligncenter size-large wp-image-3619" /></p>
+<p>ちなみに初期のデザインはこれ</p>
+<p><a href="http://www.frustration.me/"><img src="http://blog.nakajijapan.net/wp-content/uploads/2011/03/2011-03-25-1.51.43）-e1300985688193.png" alt="frustration" title="欲求不満" width="580" class="aligncenter size-full wp-image-2687" /></a></p>
+<p>ちょっとは成長しました。。。</p>
+<h2>Paasはsqale.jp( http://sqale.jp )</h2>
+<p><a href="http://sqale.jp" title="sqale.jp">
+<img src="http://blog.nakajijapan.net/wp-content/uploads/2011/03/スクリーンショット-2013-05-20-3.27.57-1024x757.png" alt="スクリーンショット 2013-05-20 3.27.57" width="500"  class="aligncenter size-large wp-image-3619"/>
+</a></p>
+<p>弊社サービスで運用しています。http://sqale.jp で欲求不満を運用するようにしました。
+インフラのことは何も考えず、ただひたすらコードをデプロイするだけなので一心不乱にコーディングができるところがすばらしいです。</p>
+<h1>今後やっていくこと</h1>
+<p>誰も使わなくても改善していきます！！！！１０年使い続けられる物欲管理サービスになります！！</p>
+<ul>
+<li>Backbone.jsをもっとフル活用する
+<ul>
+<li>もっと動きをjs側に処理を依存させる</li>
+<li>よろしくない記述が多々あるのでリファクタリングに励みます。</li>
+</ul></li>
+<li>自分でもっと画像作れるようにする
+<ul>
+<li>cssでデザインするのには限界ですね</li>
+</ul></li>
+<li>jsの動きがまだ見た目的によろしくない箇所が多々あるので修正を行っていきます。</li>
+<li>失われた機能を追加します。。。</li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

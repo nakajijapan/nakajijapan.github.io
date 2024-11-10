@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Developers Summit 2014">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2014/2014-02-17-developers-summit-2014/" />
+<meta property="go:description" content="先週ではありますが、Developers Summit 2014に参加してきました。
+サミットが平日だったので全部はみれていませんが、いくつかのステージをみること
+はできたのでそのメモを記します。
+
+Developers Summit 2014
+
+http://event.shoeisha.jp/devsumi/20140213/
+
+
+
+iOSアプリケーションの継続的デリバリー
+
+発表者
+
+https://event.shoeisha.jp/devsumi/20140213/session/430
+
+
+発表資料
+
+http://www.slideshare.net/numeha/ios-31199969
+
+
+
+どのくらいスピードが必要なのか
+
+iOS１ヶ月で約四回リリース
+ネックは申請降りるのに７日間必要。。。
+1年で１２回のリリース
+自分たちのリリースのリズムできてますか？
+
+いつもリリースできる状態にしときましょう!!
+
+
+継続的デリバリー
+
+ビジネスの主導権を握る為にCIやるんだ!!!
+
+
+
+
+価値のあるソフトウェアをはやく継続的にリリースする
+
+徹底的に自動化してきた
+コード品質のパイプライン
+
+コード取得 -&gt; Git
+ビルド -&gt; Xcode
+コード行数 -&gt; SLOCCount
+重複コード -&gt; DRY
+警告 -&gt; Warnnings
+
+
+テストにはGHUnitを利用している
+カバレッジはgcovr
+
+製品品質のパイプライン
+
+実記でのテストが必要
+テストフレームワークを同封してビルドしている
+自動でipaファイル作成
+複数のデバイスに自動でインストール
+
+fruitstrap or Instruments
+
+
+特定の端末のピンポイントでデプロイする
+Frankというテストフレーム
+httpで外部から複数代のios端末を操作
+ios7からのTouch問うの操作API禁止
+fsdfdsafda
+sdfsadfsadfd
+
+どうしよう。。。
+
+解決策としてiOS6専用にしよう
+iOS7はInstruments経由で操作
+ビルドマシン一代につきiOS一代にいれよう
+テストフレームワークを複数いれられない
+
+シングルプロセスでしか動作しないらしい
+
+
+
+どうしよう。。。
+
+MacサーバでVMサーバ作って複数台での端末で実装してみたよ
+
+実機のテストにはさまざまなシリーズ・OSバージョンのiPhone,iPadを用意してるらしい
+
+
+
+エンタープライズすごい！
+Tokyo MotionControl Network
+
+Facebook
+
+https://www.facebook.com/TokyoMotioncontrolNetwork
+
+
+
+モーションキャプチャを利用したさまざまなコンテンツの紹介をされていました。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Developers Summit 2014" />
+<meta name="twitter:description" content="先週ではありますが、Developers Summit 2014に参加してきました。
+サミットが平日だったので全部はみれていませんが、いくつかのステージをみること
+はできたのでそのメモを記します。
+
+Developers Summit 2014
+
+http://event.shoeisha.jp/devsumi/20140213/
+
+
+
+iOSアプリケーションの継続的デリバリー
+
+発表者
+
+https://event.shoeisha.jp/devsumi/20140213/session/430
+
+
+発表資料
+
+http://www.slideshare.net/numeha/ios-31199969
+
+
+
+どのくらいスピードが必要なのか
+
+iOS１ヶ月で約四回リリース
+ネックは申請降りるのに７日間必要。。。
+1年で１２回のリリース
+自分たちのリリースのリズムできてますか？
+
+いつもリリースできる状態にしときましょう!!
+
+
+継続的デリバリー
+
+ビジネスの主導権を握る為にCIやるんだ!!!
+
+
+
+
+価値のあるソフトウェアをはやく継続的にリリースする
+
+徹底的に自動化してきた
+コード品質のパイプライン
+
+コード取得 -&gt; Git
+ビルド -&gt; Xcode
+コード行数 -&gt; SLOCCount
+重複コード -&gt; DRY
+警告 -&gt; Warnnings
+
+
+テストにはGHUnitを利用している
+カバレッジはgcovr
+
+製品品質のパイプライン
+
+実記でのテストが必要
+テストフレームワークを同封してビルドしている
+自動でipaファイル作成
+複数のデバイスに自動でインストール
+
+fruitstrap or Instruments
+
+
+特定の端末のピンポイントでデプロイする
+Frankというテストフレーム
+httpで外部から複数代のios端末を操作
+ios7からのTouch問うの操作API禁止
+fsdfdsafda
+sdfsadfsadfd
+
+どうしよう。。。
+
+解決策としてiOS6専用にしよう
+iOS7はInstruments経由で操作
+ビルドマシン一代につきiOS一代にいれよう
+テストフレームワークを複数いれられない
+
+シングルプロセスでしか動作しないらしい
+
+
+
+どうしよう。。。
+
+MacサーバでVMサーバ作って複数台での端末で実装してみたよ
+
+実機のテストにはさまざまなシリーズ・OSバージョンのiPhone,iPadを用意してるらしい
+
+
+
+エンタープライズすごい！
+Tokyo MotionControl Network
+
+Facebook
+
+https://www.facebook.com/TokyoMotioncontrolNetwork
+
+
+
+モーションキャプチャを利用したさまざまなコンテンツの紹介をされていました。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Developers Summit 2014 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Developers Summit 2014</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2014-02-15">February 15, 2014</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/study">study</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>先週ではありますが、Developers Summit 2014に参加してきました。
+サミットが平日だったので全部はみれていませんが、いくつかのステージをみること
+はできたのでそのメモを記します。</p>
+<ul>
+<li>Developers Summit 2014
+<ul>
+<li><a href="http://event.shoeisha.jp/devsumi/20140213/">http://event.shoeisha.jp/devsumi/20140213/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="iosアプリケーションの継続的デリバリー">iOSアプリケーションの継続的デリバリー</h2>
+<ul>
+<li>発表者
+<ul>
+<li><a href="https://event.shoeisha.jp/devsumi/20140213/session/430">https://event.shoeisha.jp/devsumi/20140213/session/430</a></li>
+</ul>
+</li>
+<li>発表資料
+<ul>
+<li><a href="http://www.slideshare.net/numeha/ios-31199969">http://www.slideshare.net/numeha/ios-31199969</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="どのくらいスピードが必要なのか">どのくらいスピードが必要なのか</h3>
+<ul>
+<li>iOS１ヶ月で約四回リリース</li>
+<li>ネックは申請降りるのに７日間必要。。。</li>
+<li>1年で１２回のリリース</li>
+<li>自分たちのリリースのリズムできてますか？
+<ul>
+<li>いつもリリースできる状態にしときましょう!!</li>
+</ul>
+</li>
+<li>継続的デリバリー
+<ul>
+<li>ビジネスの主導権を握る為にCIやるんだ!!!</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>価値のあるソフトウェアをはやく継続的にリリースする</p>
+</blockquote>
+<h3 id="徹底的に自動化してきた">徹底的に自動化してきた</h3>
+<h4 id="コード品質のパイプライン">コード品質のパイプライン</h4>
+<ol>
+<li>コード取得 -&gt; Git</li>
+<li>ビルド -&gt; Xcode</li>
+<li>コード行数 -&gt; SLOCCount</li>
+<li>重複コード -&gt; DRY</li>
+<li>警告 -&gt; Warnnings</li>
+</ol>
+<ul>
+<li>テストにはGHUnitを利用している</li>
+<li>カバレッジはgcovr</li>
+</ul>
+<h3 id="製品品質のパイプライン">製品品質のパイプライン</h3>
+<ul>
+<li>実記でのテストが必要</li>
+<li>テストフレームワークを同封してビルドしている</li>
+<li>自動でipaファイル作成</li>
+<li>複数のデバイスに自動でインストール
+<ul>
+<li>fruitstrap or Instruments</li>
+</ul>
+</li>
+<li>特定の端末のピンポイントでデプロイする</li>
+<li>Frankというテストフレーム</li>
+<li>httpで外部から複数代のios端末を操作</li>
+<li>ios7からのTouch問うの操作API禁止</li>
+<li>fsdfdsafda</li>
+<li>sdfsadfsadfd</li>
+</ul>
+<p>どうしよう。。。</p>
+<ul>
+<li>解決策としてiOS6専用にしよう</li>
+<li>iOS7はInstruments経由で操作</li>
+<li>ビルドマシン一代につきiOS一代にいれよう</li>
+<li>テストフレームワークを複数いれられない
+<ul>
+<li>シングルプロセスでしか動作しないらしい</li>
+</ul>
+</li>
+</ul>
+<p>どうしよう。。。</p>
+<ul>
+<li>MacサーバでVMサーバ作って複数台での端末で実装してみたよ
+<ul>
+<li>実機のテストにはさまざまなシリーズ・OSバージョンのiPhone,iPadを用意してるらしい</li>
+</ul>
+</li>
+</ul>
+<p>エンタープライズすごい！</p>
+<h2 id="tokyo-motioncontrol-network">Tokyo MotionControl Network</h2>
+<ul>
+<li>Facebook
+<ul>
+<li><a href="https://www.facebook.com/TokyoMotioncontrolNetwork">https://www.facebook.com/TokyoMotioncontrolNetwork</a></li>
+</ul>
+</li>
+</ul>
+<p>モーションキャプチャを利用したさまざまなコンテンツの紹介をされていました。</p>
+<h4 id="virtual-fashion">VIRTUAL FASHION</h4>
+<ul>
+<li><code>Kinect/PrimeSence</code>で作成</li>
+<li>ボーントラッキングの技術をもちいてCGノ衣装をマッピング</li>
+<li>360度マッピングしてる</li>
+</ul>
+<h4 id="transshome">TRANSSHOME</h4>
+<ul>
+<li>ポーズをとったその陰で家を自動生成してくれる</li>
+<li>子供受けがいい</li>
+</ul>
+<h4 id="air-shodou">AIR SHODOU</h4>
+<ul>
+<li><code>Kinect</code>で作成</li>
+<li>書道をモーションキャプチャを通して描くシステム</li>
+</ul>
+<h4 id="執事力">執事力</h4>
+<ul>
+<li>執事のようにきれいな姿勢で入れるか検定する</li>
+<li>ボーントラッキングで検査している</li>
+</ul>
+<h4 id="うるしずく">うるしずく</h4>
+<h4 id="nt-kinesys">nt-kinesys</h4>
+<ul>
+<li><code>PrimeSense</code>で作成</li>
+</ul>
+<h4 id="ゲゲゲの鬼太郎">ゲゲゲの鬼太郎</h4>
+<ul>
+<li>近づくと全身がネズミ男になるらしいです</li>
+</ul>
+<h3 id="メモ">メモ</h3>
+<p>他にもの以下のセッションが行われていました。</p>
+<ul>
+<li>モーションコントロールコンテンツの実装からみえてきたもの
+<ul>
+<li><a href="http://www.slideshare.net/NaojiTaniguchi/developer-summit-2014naojitaniguchi">http://www.slideshare.net/NaojiTaniguchi/developer-summit-2014naojitaniguchi</a></li>
+</ul>
+</li>
+<li>モーションセンサーの現状と2014年の予測
+<ul>
+<li><a href="http://www.slideshare.net/kaorun55/devsumi-201414c5">http://www.slideshare.net/kaorun55/devsumi-201414c5</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="所感">所感</h2>
+<p>今回一番勉強になったのはメインでリコーさんのiOSの発表で、いろいろ勉強させていただきました。
+そこでいくつかのツールがでてきたので今度利用してみようと思います。
+大企業もCIでやることはだいたいかわらないけど、実機数十台用意してそこにデプロイしてテストするとこは大企業だなと感じました。</p>
+<ul>
+<li>Frank
+<ul>
+<li><a href="http://www.testingwithfrank.com/">http://www.testingwithfrank.com/</a></li>
+</ul>
+</li>
+<li>fruitstrap
+<ul>
+<li><a href="https://github.com/ghughes/fruitstrap">https://github.com/ghughes/fruitstrap</a></li>
+<li><code>This project is no longer maintained.</code>が気になりました。。。</li>
+</ul>
+</li>
+<li>Instruments
+<ul>
+<li>Xcodeに付属しているプロファイラツール</li>
+<li>どの処理・メソッドが遅いのか、どこでメモリを消費しているのか調査する</li>
+</ul>
+</li>
+</ul>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

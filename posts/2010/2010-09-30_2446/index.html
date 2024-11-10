@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="jqueryでフォームを操作する">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2010/2010-09-30_2446/" />
+<meta property="go:description" content="Jqueryでフォームをいじっちゃいましょう。
+フォーム情報を取得したり設定したり
+
+var obj = $(&#39;#target&#39;);  // id指定
+var obj = $(&#39;.targets&#39;); // class指定
+var obj = $(&#39;input[name=target]&#39;);  // name指定
+// 選択したオブジェクトにたいしてそれぞれ処理を行う
+// (例)　ファームを「disabled」にする
+$(&lsquo;input[name=target]&rsquo;).attr(&lsquo;disabled&rsquo;, true);
+// .each() を利用してみる (上と同じ)
+$(&lsquo;input[name=target]&rsquo;).each(function(i){
+$(this).attr(&lsquo;disabled&rsquo;, true);
+});
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+// value属性の値を取得する
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+var str = $(&rsquo;#target&rsquo;).attr(&lsquo;value&rsquo;);
+var str = $(&rsquo;#target&rsquo;).val();
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+// value属性に値を入力する
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+$(&rsquo;#target&rsquo;).attr({value: str});
+$(&rsquo;#target&rsquo;).val(str);
+
+選択したオブジェクとを取得する(input[name=radio])
+
+// get
+var obj = $(&#34;input[name=target]:checked&#34;);
+// ＠は正規表現
+var obj2 = $(&ldquo;input[@name=target]:checked&rdquo;);
+// ラジオボタンで選択されているオブジェクトを取得する
+var objRadio = $(&quot;:radio[@name=target]:checked&quot;);" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="jqueryでフォームを操作する" />
+<meta name="twitter:description" content="Jqueryでフォームをいじっちゃいましょう。
+フォーム情報を取得したり設定したり
+
+var obj = $(&#39;#target&#39;);  // id指定
+var obj = $(&#39;.targets&#39;); // class指定
+var obj = $(&#39;input[name=target]&#39;);  // name指定
+// 選択したオブジェクトにたいしてそれぞれ処理を行う
+// (例)　ファームを「disabled」にする
+$(&lsquo;input[name=target]&rsquo;).attr(&lsquo;disabled&rsquo;, true);
+// .each() を利用してみる (上と同じ)
+$(&lsquo;input[name=target]&rsquo;).each(function(i){
+$(this).attr(&lsquo;disabled&rsquo;, true);
+});
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+// value属性の値を取得する
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+var str = $(&rsquo;#target&rsquo;).attr(&lsquo;value&rsquo;);
+var str = $(&rsquo;#target&rsquo;).val();
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+// value属性に値を入力する
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+$(&rsquo;#target&rsquo;).attr({value: str});
+$(&rsquo;#target&rsquo;).val(str);
+
+選択したオブジェクとを取得する(input[name=radio])
+
+// get
+var obj = $(&#34;input[name=target]:checked&#34;);
+// ＠は正規表現
+var obj2 = $(&ldquo;input[@name=target]:checked&rdquo;);
+// ラジオボタンで選択されているオブジェクトを取得する
+var objRadio = $(&quot;:radio[@name=target]:checked&quot;);" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>jqueryでフォームを操作する - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">jqueryでフォームを操作する</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-09-30">September 30, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/javascript">javascript</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>Jqueryでフォームをいじっちゃいましょう。</p>
+<h2>フォーム情報を取得したり設定したり</h2>
+<pre class="brush:javascript">
+var obj = $('#target');  // id指定
+var obj = $('.targets'); // class指定
+var obj = $('input[name=target]');  // name指定
+<p>// 選択したオブジェクトにたいしてそれぞれ処理を行う
+// (例)　ファームを「disabled」にする
+$(&lsquo;input[name=target]&rsquo;).attr(&lsquo;disabled&rsquo;, true);</p>
+<p>// .each() を利用してみる (上と同じ)
+$(&lsquo;input[name=target]&rsquo;).each(function(i){
+$(this).attr(&lsquo;disabled&rsquo;, true);
+});</p>
+<p>//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+// value属性の値を取得する
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+var str = $(&rsquo;#target&rsquo;).attr(&lsquo;value&rsquo;);
+var str = $(&rsquo;#target&rsquo;).val();</p>
+<p>//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+// value属性に値を入力する
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+$(&rsquo;#target&rsquo;).attr({value: str});
+$(&rsquo;#target&rsquo;).val(str);</p>
+<p></pre></p>
+<h2>選択したオブジェクとを取得する(input[name=radio])</h2>
+<pre class="brush:javascript">
+// get
+var obj = $("input[name=target]:checked");
+<p>// ＠は正規表現
+var obj2 = $(&ldquo;input[@name=target]:checked&rdquo;);</p>
+<p>// ラジオボタンで選択されているオブジェクトを取得する
+var objRadio = $(&quot;:radio[@name=target]:checked&quot;);</p>
+<p>// value属性を取得する
+console.log(&ldquo;val = &quot; + objRadio .val() );
+</pre></p>
+<h2>選択したオブジェクとを取得する(select])</h2>
+<pre class="brush:javascript">
+var value = $('#target').children(':selected').val();
+var value = $('#target').val(); // これだけで上に同じ
+<p>// 選択肢を増やす
+$(&rsquo;#target&rsquo;).append($(&rsquo;<option>&rsquo;).val(&lsquo;1&rsquo;).text(&lsquo;hogehoge&rsquo;));</p>
+<p></pre></p>
+<p>所感として「＠」は正規表現を利用して検索してくれるのですが、うまくいかなかったのでつかってません。
+なんで動かないかは現在調査チュウ。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Emacs on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/emacs/</link>
+        <description>Recent content in Emacs on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Wed, 25 Aug 2010 11:15:35 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/emacs/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>[memo]emacs カスタマイズ</title>
+            <link>http://nakajijapan.github.io/posts/2010/2010-08-25_191/</link>
+            <pubDate>Wed, 25 Aug 2010 11:15:35 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2010/2010-08-25_191/</guid>
+            <description>&lt;p&gt;■いろいろな操作
+&lt;a href=&#34;http://www.bookshelf.jp/soft/meadow_32.html&#34;&gt;http://www.bookshelf.jp/soft/meadow_32.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;■行番号表示
+&lt;a href=&#34;http://temping-amagramer.blogspot.com/2009/02/emacs_07.html&#34;&gt;http://temping-amagramer.blogspot.com/2009/02/emacs_07.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;■矩形
+&lt;a href=&#34;http://taiyaki.org/elisp/sense-region/&#34;&gt;http://taiyaki.org/elisp/sense-region/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;■めも
+&lt;a href=&#34;http://blog.asial.co.jp/190&#34;&gt;http://blog.asial.co.jp/190&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

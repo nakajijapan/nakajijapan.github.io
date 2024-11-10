@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="GAE勉強会">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/02/13/gae%E5%8B%89%E5%BC%B7%E4%BC%9A/" />
+<meta property="go:description" content="GAE勉強会
+※わからないないところもあったので後で調べる予定です。
+内容
+＜セッション1＞
+発表者：松尾さん（@tmatsuo）
+テーマ：「App Engine アンチパターンその他」
+内容：App Engine でやってはいけないパターンを紹介、その他で小技集の紹介をします。
+＜セッション2＞
+発表者：ひがやすをさん（@higayasuo）
+テーマ：「Global Transaction」
+内容：Global Transactionを理解するために必要なことを全部お話します。
+セッション１
+
+	【モデル】
+インデックスの張り過ぎには注意
+メタデータにも注意
+カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。
+過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストア
+を節約させる。（そこそこらしい）
+検索不要なプロパティは、インデックス対象にならないようにPUTする。
+# before
+class Bar(db.Model):
+prop1 = db.StringProperty()
+after
+class Bar(db.Model):
+prop1 = db.StringProperty(false)
+【Query】
+コンポジットインデックス
+ソートもインデックスを使用して検索するので注意。
+【モジュール】
+pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。
+appengineの場合は関数の中で必要なモジュールのみimportする
+#import hoge_utils
+
+def_index(request):
+# ここでimportしたほうがいい
+import hoge_utils
+return hoge_utils.getQuery();
+
+&lt;li&gt;【SDK1.3.1 新機能】&lt;/li&gt;
+&lt;li&gt;
+         &lt;ol&gt;
+
+transaction task queue
+transactionalTaskQueue→transactionが成功するとTaskQueueが追加される。
+失敗したときはTaskがQueueに追加されない
+TaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい
+同時にさばけるのは２０らしい
+Cursor
+pagingに使えそうなイメージ
+appstats
+RPCのグラフみれたり、どっかでその時点でのコードがみれる
+memcacheを利用している
+pythonの作者が作成した
+         &lt;/ol&gt;
+    &lt;/li&gt;
+
+
+セッション２　GTX
+１エンティティ１トランザクションが制約
+複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション
+エンティティグループロック？？" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="GAE勉強会" />
+<meta name="twitter:description" content="GAE勉強会
+※わからないないところもあったので後で調べる予定です。
+内容
+＜セッション1＞
+発表者：松尾さん（@tmatsuo）
+テーマ：「App Engine アンチパターンその他」
+内容：App Engine でやってはいけないパターンを紹介、その他で小技集の紹介をします。
+＜セッション2＞
+発表者：ひがやすをさん（@higayasuo）
+テーマ：「Global Transaction」
+内容：Global Transactionを理解するために必要なことを全部お話します。
+セッション１
+
+	【モデル】
+インデックスの張り過ぎには注意
+メタデータにも注意
+カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。
+過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストア
+を節約させる。（そこそこらしい）
+検索不要なプロパティは、インデックス対象にならないようにPUTする。
+# before
+class Bar(db.Model):
+prop1 = db.StringProperty()
+after
+class Bar(db.Model):
+prop1 = db.StringProperty(false)
+【Query】
+コンポジットインデックス
+ソートもインデックスを使用して検索するので注意。
+【モジュール】
+pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。
+appengineの場合は関数の中で必要なモジュールのみimportする
+#import hoge_utils
+
+def_index(request):
+# ここでimportしたほうがいい
+import hoge_utils
+return hoge_utils.getQuery();
+
+&lt;li&gt;【SDK1.3.1 新機能】&lt;/li&gt;
+&lt;li&gt;
+         &lt;ol&gt;
+
+transaction task queue
+transactionalTaskQueue→transactionが成功するとTaskQueueが追加される。
+失敗したときはTaskがQueueに追加されない
+TaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい
+同時にさばけるのは２０らしい
+Cursor
+pagingに使えそうなイメージ
+appstats
+RPCのグラフみれたり、どっかでその時点でのコードがみれる
+memcacheを利用している
+pythonの作者が作成した
+         &lt;/ol&gt;
+    &lt;/li&gt;
+
+
+セッション２　GTX
+１エンティティ１トランザクションが制約
+複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション
+エンティティグループロック？？" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>GAE勉強会 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">GAE勉強会</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-02-13">February 13, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/googleappengine">GoogleAppEngine</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>GAE勉強会
+※わからないないところもあったので後で調べる予定です。</p>
+<h2>内容</h2>
+＜セッション1＞
+発表者：松尾さん（@tmatsuo）
+テーマ：「App Engine アンチパターンその他」
+内容：App Engine でやってはいけないパターンを紹介、その他で小技集の紹介をします。
+<p>＜セッション2＞
+発表者：ひがやすをさん（@higayasuo）
+テーマ：「Global Transaction」
+内容：Global Transactionを理解するために必要なことを全部お話します。</p>
+<h2>セッション１</h2>
+<ol>
+	<li>【モデル】</li>
+インデックスの張り過ぎには注意
+メタデータにも注意
+カラムの名前でデータとして入る。ここで性能の問題になるので命名には気をつける。
+過インドの属性名もメタデータして保持されるので、短い属性名を利用するようにしてデータストア
+を節約させる。（そこそこらしい）
+検索不要なプロパティは、インデックス対象にならないようにPUTする。
+<pre class="brush:python"># before
+class Bar(db.Model):
+prop1 = db.StringProperty()
+<h1 id="after">after</h1>
+<p>class Bar(db.Model):
+prop1 = db.StringProperty(false)</pre>
+<li>【Query】</li>
+コンポジットインデックス
+ソートもインデックスを使用して検索するので注意。
+<li>【モジュール】</li>
+pythonではimportはファイルの先頭に記述するのが定石。しかしこれはappengine的には無駄らしい。
+appengineの場合は関数の中で必要なモジュールのみimportする</p>
+<pre class="brush: python">#import hoge_utils
+
+def_index(request):
+# ここでimportしたほうがいい
+import hoge_utils
+return hoge_utils.getQuery();
+</pre>
+<pre><code>&lt;li&gt;【SDK1.3.1 新機能】&lt;/li&gt;
+&lt;li&gt;
+         &lt;ol&gt;
+</code></pre>
+<li>transaction task queue</li>
+transactionalTaskQueue→transactionが成功するとTaskQueueが追加される。
+失敗したときはTaskがQueueに追加されない
+TaskQueueは指定した時刻に起動ができるらしい（ETAを利用すれば・・・）→正確ではないらしい
+同時にさばけるのは２０らしい
+<li>Cursor</li>
+pagingに使えそうなイメージ
+<li>appstats</li>
+RPCのグラフみれたり、どっかでその時点でのコードがみれる
+memcacheを利用している
+pythonの作者が作成した
+<pre><code>         &lt;/ol&gt;
+    &lt;/li&gt;
+</code></pre>
+</ol>
+<h2>セッション２　GTX</h2>
+<p>１エンティティ１トランザクションが制約
+複数のエンティティトランザクションを保証する　ー＞グローバルトランザクション
+エンティティグループロック？？</p>
+<p>２相コミット</p>
+<p>リソースマネージャー（RDBMS）
+トランザクションコーディネータ
+２つのフェーズに分かれる</p>
+<p>コーディネータが準備してくださいというリクエストを送る
+リソースマネージャーが準備が終了したよっていうリクエストがきた段階でコーディネータが処理を開始する。</p>
+<p>いずれにせよ極力エンティティは小さくする
+BaseTransaction　＆　 LocalTransaction</p>
+<blockquote>--通常のDB--
+１ジャーナルの書き出し
+２内部コミット
+３ロールフォワード
+ジャーナルの適用
+ジャーナルからなにをしなければいけなのか聞き出して適用させる
+<p>&ndash;GTX&ndash;
+０ロックの取得
+１ジャーナルの書き出し
+２内部コミット
+３ロールフォワード
+ジャーナルの適用
+ジャーナルからなにをしなければいけなのか聞き出して適用させる
+４ロック解除</p>
+</blockquote>
+<p>・自動採番の落とし穴
+データストアでは0.1%ぐらいで不整合がおきるらしい
+サーバ側で１．３．１からリトライしている。
+プログラム側でもやっておいた方が安全だよね</p>
+<p>・GAEには３０秒ルールがある。</p>
+<p>・ロックにタイムスタンプがあり
+３０ありだけどグローバルトランザクションIDがあればまだ解除しない
+まだジャーナルの書き出し中の場合とか。。。
+終われば解除。</p>
+<p>・パフォーマンスが最優先。
+トランザクションが混在するときは気をつける。
+ローカルトランザクションとグローバルトランザクションの混在に気をつける。</p>
+<h2>感想</h2>
+まずは、自分のレベルがまだGAEをデプロイした程度でこの勉強会に参加することが
+厳しかったものあり、すべてを理解することが難しかったです。内容としても
+実際にGAEを業務として行い、その結果として身に付いたプラクティスであったり
+だとかある制限の中でどれだけ性能を引き出せるかというものでした。
+<p>付いていけたかどうかかなり不安なものですが、これから勉強していくにあたって
+十分な肥やし？なったのかと思っています。</p>
+<p>後、クラウド化されたサービスやアプリはどんどん加速化していくのかなと思いました。</p>
+<p>心の中）
+グリー？がこれだけ研究に研究を重ねているということは、その技術に対してのそれだけの将来性
+を見越しているんだろうなーー。</p>
+<p>仮にそうなったとしてプログラマやサーバエンジニアは少なからずいままでメソッドやマインドを一新しないと
+いけないんだろうな。</p>
+<p>簡単なところでいうとクラウド化するってことはデータがいろんなところに混在して、データはどんどん
+いままで以上にLANといったネットワークを超えた通信をしていなかければいけない。だからそういった
+ことも考慮にいれて実装なり構築なりしていかないいけないのかな。今回話にでていたのがトランザクション
+の話だったりGAEなりのデータ構造の設計というのそれに相当していたんだと思うぉ。</p>
+<p>まぁ将来的に抽象化されるんだろうけどさ・・・・。</p>
+<p>僕たちはそろそろかわらねばならないステージに来てるんだろうと思う。</p>
+<h3>用語とか</h3>
+BigTable
+Google File SystemなどのGoogle インフラの上に作られた分散データベース。
+複数のテーブル群をまとめる、 Relational DB とは違い、テーブルひとつが論理単位となっている。
+<h3>参考URL</h3>
+<a href="http://blog.shehas.net/">Kays daddy</a>
+<a href="http://d.hatena.ne.jp/higayasuo/20091110/1257854009">App EngineのEntitiyGroupを理解しよう</a>
+<a href="http://d.hatena.ne.jp/higayasuo/20100210/1265781747">Google App EngineでGlobal Transaction</a>
+<a href="http://satoshi.blogs.com/life/2009/11/unique.html">Google App Engine入門：Datastore上で「ユニーク制限」を実現する方法</a>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>CSS on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/css/</link>
+        <description>Recent content in CSS on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Mon, 21 Dec 2009 12:12:51 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/css/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>CSSで画像を切り裂く</title>
+            <link>http://nakajijapan.github.io/posts/2009/2009-12-21_137/</link>
+            <pubDate>Mon, 21 Dec 2009 12:12:51 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2009/2009-12-21_137/</guid>
+            <description>&lt;p&gt;それぞれ違う画像を決まった大きさにしてそろえたいときどういしようかって考えたときに
+最初は「clip」利用してたんだけど、firebugでカーソル当てたときになんか気持ちわるかったので
+デザイナーさんに助言もらったら「overflow」でいい感じに表示できた。&lt;/p&gt;
+&lt;p&gt;■overflow&lt;/p&gt;
+&lt;div style=&#34;position: relative&#34;&gt;
+&lt;div style=&#34;float: left; overflow: hidden; width: 100px; height: 100px;&#34;&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2009/12/P6290012.JPG&#34; alt=&#34;2009122001&#34; /&gt;
+&lt;/div&gt;
+&lt;div style=&#34;float: left; overflow: hidden; width: 100px; height: 100px;&#34;&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2009/12/chara_blood_ph_a.gif&#34; alt=&#34;chara_blood_ph_a&#34;/&gt;
+&lt;/div&gt;
+&lt;div style=&#34;float: left; overflow: hidden; width: 100px; height: 100px;&#34;&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2009/12/SA410089.jpg&#34; alt=&#34;2009122001&#34; /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;br clear=&#34;all&#34;&gt;
+&lt;pre class=&#34;brush: html&#34;&gt;
+&lt;div style=&#34;position: relative&#34;&gt;
+&lt;div style=&#34;float: left; overflow: hidden; width: 100px; height: 100px;&#34;&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2009/12/P6290012.JPG&#34; alt=&#34;2009122001&#34; /&gt;
+&lt;/div&gt;
+&lt;div style=&#34;float: left; overflow: hidden; width: 100px; height: 100px;&#34;&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2009/12/chara_blood_ph_a.gif&#34; alt=&#34;chara_blood_ph_a&#34;/&gt;
+&lt;/div&gt;
+&lt;div style=&#34;float: left; overflow: hidden; width: 100px; height: 100px;&#34;&gt;
+&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2009/12/SA410089.jpg&#34; alt=&#34;2009122001&#34; /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/pre&gt;
+&lt;p&gt;でもoverflow,clip何がどうちがうんだろうかね。&lt;/p&gt;
+&lt;p&gt;clipはあれか上下左右で範囲指定できるんだね。なるほど。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://ykr414.com/css/style05g.shtml&#34;&gt;&lt;a href=&#34;http://ykr414.com/css/style05g.shtml&#34;&gt;http://ykr414.com/css/style05g.shtml&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+

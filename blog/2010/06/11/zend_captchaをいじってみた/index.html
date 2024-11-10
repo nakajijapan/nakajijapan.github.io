@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="zend_captchaをいじってみた">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2010/06/11/zend_captcha%E3%82%92%E3%81%84%E3%81%98%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/" />
+<meta property="go:description" content="やっぱ、コメントスパムってなくならないよねーと騒がれるこのご時世。
+対策の一環として一つの施策を行いました。
+そう、その名もキャプチャ認証。ﾁｬﾗﾗﾘﾝ。
+今回はZendのコンポーネントに画像認証用のものがあったのでそれを利用してみることにしました。
+下準備として以下の条件が必要になります。
+・GDは利用できるかどうか
+・画像を保存するディレクトリは実行権限が「７」で設定されているか
+早速実装です。以下が画像と承認用のIDを生成する設処理です。
+
+        //-----------------------------------
+        // キャプチャ画像生成
+        //-----------------------------------
+        $imgUrl = &#34;hogehoge&#34;;
+        $imgDir = &#34;hogehoge&#34;;
+        $config = array(&#39;timeout&#39; =&gt; 300,
+                        &#39;wordLen&#39; =&gt; 6,
+                        &#39;width&#39;   =&gt; 110,
+                        &#39;height&#39;  =&gt; 50,
+                        &#39;lineNoiseLevel&#39; =&gt; 3,
+                        &#39;dotNoiseLevel&#39; =&gt; 3,
+                        &#39;fontSize&#39; =&gt; 26,
+                        &#39;font&#39;    =&gt; &#39;/usr/share/fonts/ja/TrueType/kochi-mincho-subst.ttf&#39;,
+                        &#39;imgUrl&#39;  =&gt; $imgUrl,
+                        &#39;imgDir&#39;  =&gt; $imgDir
+            );
+        $captcha = new Zend_Captcha_Image( $config );
+        $captcha-&gt;generate();   //command to generate session &#43; create image
+
+        $this-&gt;view-&gt;captchaId      = $captcha-&gt;getId();
+        $this-&gt;view-&gt;captchaImgTag  = $captcha-&gt;render(); // generate Image Tag
+
+簡単です、設定をちょろちょろしてからインスタンス生成、「generate()」で画像生成。これでロジック部分は終了。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="zend_captchaをいじってみた" />
+<meta name="twitter:description" content="やっぱ、コメントスパムってなくならないよねーと騒がれるこのご時世。
+対策の一環として一つの施策を行いました。
+そう、その名もキャプチャ認証。ﾁｬﾗﾗﾘﾝ。
+今回はZendのコンポーネントに画像認証用のものがあったのでそれを利用してみることにしました。
+下準備として以下の条件が必要になります。
+・GDは利用できるかどうか
+・画像を保存するディレクトリは実行権限が「７」で設定されているか
+早速実装です。以下が画像と承認用のIDを生成する設処理です。
+
+        //-----------------------------------
+        // キャプチャ画像生成
+        //-----------------------------------
+        $imgUrl = &#34;hogehoge&#34;;
+        $imgDir = &#34;hogehoge&#34;;
+        $config = array(&#39;timeout&#39; =&gt; 300,
+                        &#39;wordLen&#39; =&gt; 6,
+                        &#39;width&#39;   =&gt; 110,
+                        &#39;height&#39;  =&gt; 50,
+                        &#39;lineNoiseLevel&#39; =&gt; 3,
+                        &#39;dotNoiseLevel&#39; =&gt; 3,
+                        &#39;fontSize&#39; =&gt; 26,
+                        &#39;font&#39;    =&gt; &#39;/usr/share/fonts/ja/TrueType/kochi-mincho-subst.ttf&#39;,
+                        &#39;imgUrl&#39;  =&gt; $imgUrl,
+                        &#39;imgDir&#39;  =&gt; $imgDir
+            );
+        $captcha = new Zend_Captcha_Image( $config );
+        $captcha-&gt;generate();   //command to generate session &#43; create image
+
+        $this-&gt;view-&gt;captchaId      = $captcha-&gt;getId();
+        $this-&gt;view-&gt;captchaImgTag  = $captcha-&gt;render(); // generate Image Tag
+
+簡単です、設定をちょろちょろしてからインスタンス生成、「generate()」で画像生成。これでロジック部分は終了。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>zend_captchaをいじってみた - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">zend_captchaをいじってみた</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2010-06-11">June 11, 2010</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/php">PHP</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>やっぱ、コメントスパムってなくならないよねーと騒がれるこのご時世。</p>
+<p>対策の一環として一つの施策を行いました。</p>
+<p>そう、その名もキャプチャ認証。ﾁｬﾗﾗﾘﾝ。</p>
+<p>今回はZendのコンポーネントに画像認証用のものがあったのでそれを利用してみることにしました。</p>
+<p>下準備として以下の条件が必要になります。
+・GDは利用できるかどうか
+・画像を保存するディレクトリは実行権限が「７」で設定されているか</p>
+<p>早速実装です。以下が画像と承認用のIDを生成する設処理です。</p>
+<pre class="brush:php">
+        //-----------------------------------
+        // キャプチャ画像生成
+        //-----------------------------------
+        $imgUrl = "hogehoge";
+        $imgDir = "hogehoge";
+        $config = array('timeout' => 300,
+                        'wordLen' => 6,
+                        'width'   => 110,
+                        'height'  => 50,
+                        'lineNoiseLevel' => 3,
+                        'dotNoiseLevel' => 3,
+                        'fontSize' => 26,
+                        'font'    => '/usr/share/fonts/ja/TrueType/kochi-mincho-subst.ttf',
+                        'imgUrl'  => $imgUrl,
+                        'imgDir'  => $imgDir
+            );
+        $captcha = new Zend_Captcha_Image( $config );
+        $captcha->generate();   //command to generate session + create image
+
+        $this->view->captchaId      = $captcha->getId();
+        $this->view->captchaImgTag  = $captcha->render(); // generate Image Tag
+</pre>
+<p>簡単です、設定をちょろちょろしてからインスタンス生成、「generate()」で画像生成。これでロジック部分は終了。</p>
+<p>次はHTML部分です。確認用のID情報はセッションに保存され、それをもとに値をチェックするようになります。</p>
+<pre class="brush:html">
+{* テンプレートエンジンはSmartyを使っています。 *}
+<hidden type="hidden" name="namecaptcha[id]" value="{$captchaId}">
+{$captchaImgTag}
+<hidden type="text" name="namecaptcha[word]" value="">
+</pre>
+<p>後は、入力した値のチェックを行う部分です。
+チェックを行う際にはValidatorを作成してセッションに値と正しいかのチェックを行います。</p>
+<pre class="brush:php">
+    public function isValid($value)
+    {
+        $captchaId          = $value['id'];
+        $captchaInput       = $value['input'];
+        $captchaSession     = new Zend_Session_Namespace('Zend_Form_Captcha_' . $captchaId);
+        $captchaIterator    = $captchaSession->getIterator();
+
+        if( isset($captchaIterator['word'])
+            && $captchaInput == $captchaIterator['word'] ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</pre>
+<p>以下のコードで複数画面操作していても別の画面で生成された値を利用しなくて済むようになります。</p>
+<pre class="brush:php">
+        $captchaSession     = new Zend_Session_Namespace('Zend_Form_Captcha_' . $captchaId);
+</pre>
+<p>なんか書いてみたけどチェック用のメソッドがあったのが後々になって気づきました。無念。</p>
+<p>「Zend_Captcha_Image::validateCaptcha();」
+まぁそんなかわらんからえええか</p>
+<p>画像がこんな感じで出力されます。</p>
+<p><a href="http://blog.nakajijapan.net/wp-content/uploads/2010/06/f53e0672c58cf048dcb10dda354bb532.png"><img src="http://blog.nakajijapan.net/wp-content/uploads/2010/06/f53e0672c58cf048dcb10dda354bb532.png" alt="" title="captcha" width="110" height="50" class="aligncenter size-full wp-image-2111" /></a></p>
+<p>まぁ、そんなこんなで簡単に実装ができるとさ。</p>
+<p>ノイズもあるメソッドをごりごりいじればもっと複雑かつ面白くできるのだが今回はここまで。</p>
+<p>■参考URL
+<a href="http://blog.sankhomallik.com/2008/12/17/tutorial-using-zend_captcha_image/">Tutorial: Using Zend_Captcha_Image</a></p>
+<p>mage</a></p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="iOSDC JAPAN 2019で「サービスにおけるデザインシステムの構築」について話してきた">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2019/09/08/iosdc-japan-2019%E3%81%A7%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E6%A7%8B%E7%AF%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%8D%E3%81%9F/" />
+<meta property="go:description" content="
+２０１９年０９月０５、０６、０７日と開催されたカンファレンス iOSDC JAPAN 2019 に参加してきました。
+今年は引き続きコアスタッフとして関わりつつ発表者として登壇してきました。今年は子育てしつつではあったので準備等は控えめにさせつつ発表の方をガンバる感じで進めてきました。
+発表自体は満員御礼という状態で他のトラックでもみる状況になっていたのは嬉しい限りでした。
+子育てとコアスタッフと登壇
+子供ができて初めてのカンファレンスの登壇準備だったりスタッフ運営だったり、登壇準備だったりと想像を超えたタスク量になり全てフルコミットできたかとういうと
+そうではなく、何かをおろそかになったりするところがあり妻やスタッフのメンバには迷惑をかけるところがあったかと思います。スタッフの皆さんは面目無いと同時に
+みんなの神対応でなんとか切り抜けることができました。そして妻にはカンファレンスの準備と言って集中してくれる時間を設けて子供と外出してくれたり、カンファレンスの日は
+三日間フルコミットしてもらうことになり大変助かりました。
+登壇
+前回は全然デザインの話とかではなくて僕の趣味のMarkdownの解析の話で話題は１８０度別の話です。
+今回発表したのが「サービスにおけるデザインシステムの構築」です。
+
+モバイル開発をしている上でデザインとの関係性は切手は切れない関係だとお思います。
+また、プロダクト自体も成長に伴い複雑性がましてきました。そのときに私はデザインシステム
+に注目して様々なアプローチしてきました。
+本発表ではあまり馴染みではなoい「デザインシステム」はどういうものなのかという基本的な話から
+ではどのようにしてプロダクトにデザインシステムを導入し、どこまで何をしていったのか
+エンジニアリングを持って何を解決していったのかを解説します。
+
+資料
+資料は以下になります。
+
+言いたかったこと
+僕が言いたかったことは別にWEBページでスタイルガイドとかパターンライブラリをどうやって便利にすることよりもまずは自分たちチームが作成しているプロダクトに対して
+どれだけみんな（エンジニア・デザイナ・ビジネス）が同じ思想でデザインしているかだと思います。そのために必要なものは言語化していこうという話です。
+それが確立した上でのそれぞれの要素を運用して行くかだと思います。さらにはエンジニアとしてこのシステムにどう関わって行くかもです。
+補足
+#iosdc #d 視聴・配信画面はそもそも使ってる要素が違うし、それをちゃんと抽象化仕切れていないから難しいんだよなぁ。要素への落とし込み自体は分離できそう。&mdash; The old man (@nakajijapan) September 6, 2019 
+機能で原則を分けるのは良くないというツイートを見かけて反応しました。分けて決めること自体は間違ってないと思うけども表現の仕方が悪かったかなと思ってる。
+そもそも視聴配信とそれ以外では利用しているUI要素が全く違うし目的が違うので考え方は変えても良さそうとは考えてる。
+なので表現を変えるとしたら以下になるのかなとお思ってる。
+
+というよりは
+
+
+ユーザにはとことん楽しんでもらう
+誠実なところは誠実に
+（暫定）
+
+こうしたときに今回要素ごとに落とし込みを行なったのは後者の方を基にしたものが多かったと思います。
+最後に
+反省点としてはもっとみんなと対話したかった。発表が終わりAsk the speakerの時間を設けてい田はずなのにLTの司会を入れたのが故にそこをなくしてしまったことです。
+ダメ出し欲しかったし褒めて欲しかったしもっと色々話したかったです。
+でも、なんだかんだで楽しかったなぁ。
+
+![](/images/posts/2019/09_001.jpg)
+" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="images/posts/2019/09_001.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="iOSDC JAPAN 2019で「サービスにおけるデザインシステムの構築」について話してきた" />
+<meta name="twitter:description" content="
+２０１９年０９月０５、０６、０７日と開催されたカンファレンス iOSDC JAPAN 2019 に参加してきました。
+今年は引き続きコアスタッフとして関わりつつ発表者として登壇してきました。今年は子育てしつつではあったので準備等は控えめにさせつつ発表の方をガンバる感じで進めてきました。
+発表自体は満員御礼という状態で他のトラックでもみる状況になっていたのは嬉しい限りでした。
+子育てとコアスタッフと登壇
+子供ができて初めてのカンファレンスの登壇準備だったりスタッフ運営だったり、登壇準備だったりと想像を超えたタスク量になり全てフルコミットできたかとういうと
+そうではなく、何かをおろそかになったりするところがあり妻やスタッフのメンバには迷惑をかけるところがあったかと思います。スタッフの皆さんは面目無いと同時に
+みんなの神対応でなんとか切り抜けることができました。そして妻にはカンファレンスの準備と言って集中してくれる時間を設けて子供と外出してくれたり、カンファレンスの日は
+三日間フルコミットしてもらうことになり大変助かりました。
+登壇
+前回は全然デザインの話とかではなくて僕の趣味のMarkdownの解析の話で話題は１８０度別の話です。
+今回発表したのが「サービスにおけるデザインシステムの構築」です。
+
+モバイル開発をしている上でデザインとの関係性は切手は切れない関係だとお思います。
+また、プロダクト自体も成長に伴い複雑性がましてきました。そのときに私はデザインシステム
+に注目して様々なアプローチしてきました。
+本発表ではあまり馴染みではなoい「デザインシステム」はどういうものなのかという基本的な話から
+ではどのようにしてプロダクトにデザインシステムを導入し、どこまで何をしていったのか
+エンジニアリングを持って何を解決していったのかを解説します。
+
+資料
+資料は以下になります。
+
+言いたかったこと
+僕が言いたかったことは別にWEBページでスタイルガイドとかパターンライブラリをどうやって便利にすることよりもまずは自分たちチームが作成しているプロダクトに対して
+どれだけみんな（エンジニア・デザイナ・ビジネス）が同じ思想でデザインしているかだと思います。そのために必要なものは言語化していこうという話です。
+それが確立した上でのそれぞれの要素を運用して行くかだと思います。さらにはエンジニアとしてこのシステムにどう関わって行くかもです。
+補足
+#iosdc #d 視聴・配信画面はそもそも使ってる要素が違うし、それをちゃんと抽象化仕切れていないから難しいんだよなぁ。要素への落とし込み自体は分離できそう。&mdash; The old man (@nakajijapan) September 6, 2019 
+機能で原則を分けるのは良くないというツイートを見かけて反応しました。分けて決めること自体は間違ってないと思うけども表現の仕方が悪かったかなと思ってる。
+そもそも視聴配信とそれ以外では利用しているUI要素が全く違うし目的が違うので考え方は変えても良さそうとは考えてる。
+なので表現を変えるとしたら以下になるのかなとお思ってる。
+
+というよりは
+
+
+ユーザにはとことん楽しんでもらう
+誠実なところは誠実に
+（暫定）
+
+こうしたときに今回要素ごとに落とし込みを行なったのは後者の方を基にしたものが多かったと思います。
+最後に
+反省点としてはもっとみんなと対話したかった。発表が終わりAsk the speakerの時間を設けてい田はずなのにLTの司会を入れたのが故にそこをなくしてしまったことです。
+ダメ出し欲しかったし褒めて欲しかったしもっと色々話したかったです。
+でも、なんだかんだで楽しかったなぁ。
+
+![](/images/posts/2019/09_001.jpg)
+" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>iOSDC JAPAN 2019で「サービスにおけるデザインシステムの構築」について話してきた - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">iOSDC JAPAN 2019で「サービスにおけるデザインシステムの構築」について話してきた</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2019-09-08">September 08, 2019</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">ios</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p><img src="/images/posts/2019/09_002.png" alt=""></p>
+<p>２０１９年０９月０５、０６、０７日と開催されたカンファレンス <a href="https://iosdc.jp/2019/">iOSDC JAPAN 2019</a> に参加してきました。
+今年は引き続きコアスタッフとして関わりつつ発表者として登壇してきました。今年は子育てしつつではあったので準備等は控えめにさせつつ発表の方をガンバる感じで進めてきました。
+発表自体は満員御礼という状態で他のトラックでもみる状況になっていたのは嬉しい限りでした。</p>
+<h1 id="子育てとコアスタッフと登壇">子育てとコアスタッフと登壇</h1>
+<p>子供ができて初めてのカンファレンスの登壇準備だったりスタッフ運営だったり、登壇準備だったりと想像を超えたタスク量になり全てフルコミットできたかとういうと
+そうではなく、何かをおろそかになったりするところがあり妻やスタッフのメンバには迷惑をかけるところがあったかと思います。スタッフの皆さんは面目無いと同時に
+みんなの神対応でなんとか切り抜けることができました。そして妻にはカンファレンスの準備と言って集中してくれる時間を設けて子供と外出してくれたり、カンファレンスの日は
+三日間フルコミットしてもらうことになり大変助かりました。</p>
+<h1 id="登壇">登壇</h1>
+<p>前回は全然デザインの話とかではなくて僕の趣味のMarkdownの解析の話で話題は１８０度別の話です。
+今回発表したのが「サービスにおけるデザインシステムの構築」です。</p>
+<blockquote>
+<p>モバイル開発をしている上でデザインとの関係性は切手は切れない関係だとお思います。
+また、プロダクト自体も成長に伴い複雑性がましてきました。そのときに私はデザインシステム
+に注目して様々なアプローチしてきました。</p>
+<p>本発表ではあまり馴染みではなoい「デザインシステム」はどういうものなのかという基本的な話から
+ではどのようにしてプロダクトにデザインシステムを導入し、どこまで何をしていったのか
+エンジニアリングを持って何を解決していったのかを解説します。</p>
+</blockquote>
+<h1 id="資料">資料</h1>
+<p>資料は以下になります。</p>
+<script async class="speakerdeck-embed" data-id="4d7b8a4a206c486db4891bd557caa5bc" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<h1 id="言いたかったこと">言いたかったこと</h1>
+<p>僕が言いたかったことは別にWEBページでスタイルガイドとかパターンライブラリをどうやって便利にすることよりもまずは自分たちチームが作成しているプロダクトに対して
+どれだけみんな（エンジニア・デザイナ・ビジネス）が同じ思想でデザインしているかだと思います。そのために必要なものは言語化していこうという話です。
+それが確立した上でのそれぞれの要素を運用して行くかだと思います。さらにはエンジニアとしてこのシステムにどう関わって行くかもです。</p>
+<h1 id="補足">補足</h1>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/iosdc?src=hash&amp;ref_src=twsrc%5Etfw">#iosdc</a> <a href="https://twitter.com/hashtag/d?src=hash&amp;ref_src=twsrc%5Etfw">#d</a> 視聴・配信画面はそもそも使ってる要素が違うし、それをちゃんと抽象化仕切れていないから難しいんだよなぁ。要素への落とし込み自体は分離できそう。</p>&mdash; The old man (@nakajijapan) <a href="https://twitter.com/nakajijapan/status/1169894028617273347?ref_src=twsrc%5Etfw">September 6, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>機能で原則を分けるのは良くないというツイートを見かけて反応しました。分けて決めること自体は間違ってないと思うけども表現の仕方が悪かったかなと思ってる。
+そもそも視聴配信とそれ以外では利用しているUI要素が全く違うし目的が違うので考え方は変えても良さそうとは考えてる。
+なので表現を変えるとしたら以下になるのかなとお思ってる。</p>
+<script async class="speakerdeck-embed" data-slide="76" data-id="4d7b8a4a206c486db4891bd557caa5bc" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<p>というよりは</p>
+<script async class="speakerdeck-embed" data-slide="78" data-id="4d7b8a4a206c486db4891bd557caa5bc" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+<ul>
+<li>ユーザにはとことん楽しんでもらう</li>
+<li>誠実なところは誠実に
+（暫定）</li>
+</ul>
+<p>こうしたときに今回要素ごとに落とし込みを行なったのは後者の方を基にしたものが多かったと思います。</p>
+<h1 id="最後に">最後に</h1>
+<p>反省点としてはもっとみんなと対話したかった。発表が終わりAsk the speakerの時間を設けてい田はずなのにLTの司会を入れたのが故にそこをなくしてしまったことです。
+ダメ出し欲しかったし褒めて欲しかったしもっと色々話したかったです。</p>
+<p>でも、なんだかんだで楽しかったなぁ。</p>
+<div style="width: 400px;">
+![](/images/posts/2019/09_001.jpg)
+</div>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

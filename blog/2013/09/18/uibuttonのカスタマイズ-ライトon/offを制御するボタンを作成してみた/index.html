@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.136.5">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="UIButtonのカスタマイズ - ライトON/OFFを制御するボタンを作成してみた">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/blog/2013/09/18/uibutton%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-%E3%83%A9%E3%82%A4%E3%83%88on/off%E3%82%92%E5%88%B6%E5%BE%A1%E3%81%99%E3%82%8B%E3%83%9C%E3%82%BF%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/" />
+<meta property="go:description" content="iPhoneについているライトのON/OFFを制御したいのですが、ボタンをそのまま流量できるのかなと思いきや
+UIImagePickerControllerを利用しないで実装する場合はイベントしか用意されておらずデザインも自分で実装
+しないといけないようです。
+なので自分なりにそれっぽいのを実装してみました。
+（とりあえず手動でon/offで切り替えるUIにしてます）
+    // ライトが利用できたら表示
+    if (device.torchAvailable == YES) {
+        UIButton* toggleLightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [toggleLightButton setFrame:CGRectMake(30, 120, 100, 55)];
+        [toggleLightButton setTitle:@&#34;ON&#34; forState:UIControlStateNormal];
+
+        // レイヤー内でボタンデザインの編集を行う
+        [[toggleLightButton layer] setCornerRadius:25.0f];// 角丸
+        [[toggleLightButton layer] setMasksToBounds:YES];
+        [[toggleLightButton layer] setBorderWidth:2.5f];// 枠線の太さ
+        [[toggleLightButton layer] setBorderColor:[[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7] CGColor]];// 枠線の色
+        [[toggleLightButton layer] setBackgroundColor:[[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.3] CGColor]];// 背景色
+        [toggleLightButton addTarget:self action:@selector(toggleChangeTorchMode:) forControlEvents:UIControlEventTouchUpInside];
+
+        // 画像を左側に埋め込む
+        UIImage* image = [UIImage imageNamed:@&#34;light.png&#34;];
+        CALayer* imgLayer = [CALayer layer];
+        imgLayer.contents = CFBridgingRelease([image CGImage]);
+        imgLayer.frame    = CGRectMake(10, 13, 30, 30);
+        [toggleLightButton.layer addSublayer:imgLayer];
+
+        // 文字列のpaddingを設定する
+        UIEdgeInsets insets = toggleLightButton.contentEdgeInsets;
+        insets.left = 20.0;
+        toggleLightButton.contentEdgeInsets = insets;
+
+        [self.view addSubview:toggleLightButton];
+    }
+実際できたのがこんな感じ。
+なんかそれっぽくできました。（アイコンは当てなのであしからず）" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="UIButtonのカスタマイズ - ライトON/OFFを制御するボタンを作成してみた" />
+<meta name="twitter:description" content="iPhoneについているライトのON/OFFを制御したいのですが、ボタンをそのまま流量できるのかなと思いきや
+UIImagePickerControllerを利用しないで実装する場合はイベントしか用意されておらずデザインも自分で実装
+しないといけないようです。
+なので自分なりにそれっぽいのを実装してみました。
+（とりあえず手動でon/offで切り替えるUIにしてます）
+    // ライトが利用できたら表示
+    if (device.torchAvailable == YES) {
+        UIButton* toggleLightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [toggleLightButton setFrame:CGRectMake(30, 120, 100, 55)];
+        [toggleLightButton setTitle:@&#34;ON&#34; forState:UIControlStateNormal];
+
+        // レイヤー内でボタンデザインの編集を行う
+        [[toggleLightButton layer] setCornerRadius:25.0f];// 角丸
+        [[toggleLightButton layer] setMasksToBounds:YES];
+        [[toggleLightButton layer] setBorderWidth:2.5f];// 枠線の太さ
+        [[toggleLightButton layer] setBorderColor:[[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.7] CGColor]];// 枠線の色
+        [[toggleLightButton layer] setBackgroundColor:[[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.3] CGColor]];// 背景色
+        [toggleLightButton addTarget:self action:@selector(toggleChangeTorchMode:) forControlEvents:UIControlEventTouchUpInside];
+
+        // 画像を左側に埋め込む
+        UIImage* image = [UIImage imageNamed:@&#34;light.png&#34;];
+        CALayer* imgLayer = [CALayer layer];
+        imgLayer.contents = CFBridgingRelease([image CGImage]);
+        imgLayer.frame    = CGRectMake(10, 13, 30, 30);
+        [toggleLightButton.layer addSublayer:imgLayer];
+
+        // 文字列のpaddingを設定する
+        UIEdgeInsets insets = toggleLightButton.contentEdgeInsets;
+        insets.left = 20.0;
+        toggleLightButton.contentEdgeInsets = insets;
+
+        [self.view addSubview:toggleLightButton];
+    }
+実際できたのがこんな感じ。
+なんかそれっぽくできました。（アイコンは当てなのであしからず）" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>UIButtonのカスタマイズ - ライトON/OFFを制御するボタンを作成してみた - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+		</div>
+		
+
+		<div class="header-menu">
+			<a href="/">Home</a> / <a href="/about">About</a>
+		</div>
+	</header>
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">UIButtonのカスタマイズ - ライトON/OFFを制御するボタンを作成してみた</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2013-09-18">September 18, 2013</time>
+        </span>
+        
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/ios">iOS</a>
+                )
+            
+        </span>
+        
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        <section itemprop="entry-text">
+            <p>iPhoneについているライトのON/OFFを制御したいのですが、ボタンをそのまま流量できるのかなと思いきや
+UIImagePickerControllerを利用しないで実装する場合はイベントしか用意されておらずデザインも自分で実装
+しないといけないようです。</p>
+<p>なので自分なりにそれっぽいのを実装してみました。
+（とりあえず手動でon/offで切り替えるUIにしてます）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// ライトが利用できたら表示
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (device.torchAvailable <span style="color:#f92672">==</span> YES) {
+</span></span><span style="display:flex;"><span>        UIButton<span style="color:#f92672">*</span> toggleLightButton <span style="color:#f92672">=</span> [UIButton buttonWithType:UIButtonTypeCustom];
+</span></span><span style="display:flex;"><span>        [toggleLightButton setFrame:CGRectMake(<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">120</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">55</span>)];
+</span></span><span style="display:flex;"><span>        [toggleLightButton setTitle:<span style="color:#e6db74">@&#34;ON&#34;</span> forState:UIControlStateNormal];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// レイヤー内でボタンデザインの編集を行う
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [[toggleLightButton layer] setCornerRadius:<span style="color:#ae81ff">25.0f</span>];<span style="color:#75715e">// 角丸
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [[toggleLightButton layer] setMasksToBounds:YES];
+</span></span><span style="display:flex;"><span>        [[toggleLightButton layer] setBorderWidth:<span style="color:#ae81ff">2.5f</span>];<span style="color:#75715e">// 枠線の太さ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [[toggleLightButton layer] setBorderColor:[[UIColor colorWithRed:<span style="color:#ae81ff">1.0</span> green:<span style="color:#ae81ff">1.0</span> blue:<span style="color:#ae81ff">1.0</span> alpha:<span style="color:#ae81ff">0.7</span>] CGColor]];<span style="color:#75715e">// 枠線の色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [[toggleLightButton layer] setBackgroundColor:[[UIColor colorWithRed:<span style="color:#ae81ff">1.0</span> green:<span style="color:#ae81ff">1.0</span> blue:<span style="color:#ae81ff">1.0</span> alpha:<span style="color:#ae81ff">0.3</span>] CGColor]];<span style="color:#75715e">// 背景色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [toggleLightButton addTarget:self action:<span style="color:#66d9ef">@selector</span>(toggleChangeTorchMode:) forControlEvents:UIControlEventTouchUpInside];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 画像を左側に埋め込む
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        UIImage<span style="color:#f92672">*</span> image <span style="color:#f92672">=</span> [UIImage imageNamed:<span style="color:#e6db74">@&#34;light.png&#34;</span>];
+</span></span><span style="display:flex;"><span>        CALayer<span style="color:#f92672">*</span> imgLayer <span style="color:#f92672">=</span> [CALayer layer];
+</span></span><span style="display:flex;"><span>        imgLayer.contents <span style="color:#f92672">=</span> CFBridgingRelease([image CGImage]);
+</span></span><span style="display:flex;"><span>        imgLayer.frame    <span style="color:#f92672">=</span> CGRectMake(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">30</span>);
+</span></span><span style="display:flex;"><span>        [toggleLightButton.layer addSublayer:imgLayer];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 文字列のpaddingを設定する
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        UIEdgeInsets insets <span style="color:#f92672">=</span> toggleLightButton.contentEdgeInsets;
+</span></span><span style="display:flex;"><span>        insets.left <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span>;
+</span></span><span style="display:flex;"><span>        toggleLightButton.contentEdgeInsets <span style="color:#f92672">=</span> insets;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        [self.view addSubview:toggleLightButton];
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>実際できたのがこんな感じ。
+なんかそれっぽくできました。（アイコンは当てなのであしからず）</p>
+<p><img src="/images/posts/2013/2013-09-18_01.png" alt="ss"></p>
+<p>基本は<code>CALayer</code>でデザインの修正をおこなう。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>        <span style="color:#75715e">// レイヤー内でボタンデザインの編集を行う
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [[toggleLightButton layer] setCornerRadius:<span style="color:#ae81ff">25.0f</span>];<span style="color:#75715e">// 角丸
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [[toggleLightButton layer] setMasksToBounds:YES];
+</span></span><span style="display:flex;"><span>        [[toggleLightButton layer] setBorderWidth:<span style="color:#ae81ff">2.5f</span>];<span style="color:#75715e">// 枠線の太さ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [[toggleLightButton layer] setBorderColor:[[UIColor colorWithRed:<span style="color:#ae81ff">1.0</span> green:<span style="color:#ae81ff">1.0</span> blue:<span style="color:#ae81ff">1.0</span> alpha:<span style="color:#ae81ff">0.7</span>] CGColor]];<span style="color:#75715e">// 枠線の色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [[toggleLightButton layer] setBackgroundColor:[[UIColor colorWithRed:<span style="color:#ae81ff">1.0</span> green:<span style="color:#ae81ff">1.0</span> blue:<span style="color:#ae81ff">1.0</span> alpha:<span style="color:#ae81ff">0.3</span>] CGColor]];<span style="color:#75715e">// 背景色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        [toggleLightButton addTarget:self action:<span style="color:#66d9ef">@selector</span>(toggleChangeTorchMode:) forControlEvents:UIControlEventTouchUpInside];
+</span></span></code></pre></div><p>画像を組み込んだ場合は文字と被るといけないので文字の表示位置をずらします。
+XIBの場合はIBの左側のメニューで設定できるのですが、それを実装で行うときは<code>UIEdgeInsets</code>クラスを
+利用します。CSSのイメージでいうとpaddingをイメージして設定すると想像できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>        <span style="color:#75715e">// 文字列のpaddingを設定する
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        UIEdgeInsets insets <span style="color:#f92672">=</span> toggleLightButton.contentEdgeInsets;
+</span></span><span style="display:flex;"><span>        insets.left <span style="color:#f92672">=</span> <span style="color:#ae81ff">20.0</span>;
+</span></span><span style="display:flex;"><span>        toggleLightButton.contentEdgeInsets <span style="color:#f92672">=</span> insets;
+</span></span></code></pre></div><p><code>UIButton</code>でいろいろカスタマイズしてみました。ほとんどはUIViewを親にもっていて、そのなかにCALayerをもっているのです。
+そのCALayerをうまく使ってデザインすればいい感じにカスタマイズができますよって話でした。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

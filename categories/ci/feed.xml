@@ -1,0 +1,174 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Ci on おじさんは生きている</title>
+        <link>http://nakajijapan.github.io/categories/ci/</link>
+        <description>Recent content in Ci on おじさんは生きている</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>ja-JP</language>
+        
+        <copyright>nakajijapan All rights reserved.</copyright>
+        
+        <lastBuildDate>Mon, 24 Jun 2013 08:02:00 +0900</lastBuildDate>
+        
+        
+        
+        <atom:link href="http://nakajijapan.github.io/categories/ci/" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Jenkinsでcommit statusを操作する</title>
+            <link>http://nakajijapan.github.io/posts/2013/2013-06-24-use-commitstatus-at-jenkins/</link>
+            <pubDate>Mon, 24 Jun 2013 08:02:00 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2013/2013-06-24-use-commitstatus-at-jenkins/</guid>
+            <description>&lt;p&gt;自分のサービスでテストを行うときはTravisCIに任せて自動で作業させているのですが、基本はソースをオープンにしないといけないので
+自社サービスに利用する訳にはいきません。そこでJenkinsを利用して同じような仕組みを作成しました。&lt;/p&gt;
+&lt;p&gt;仕組みとしは&lt;code&gt;commit status&lt;/code&gt;を操作するためのGitHubのAPI利用してPull Requestがきたらジョブを走らせるようにします。&lt;/p&gt;
+&lt;h2 id=&#34;監視用の親ジョブ作成&#34;&gt;監視用の親ジョブ作成&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ソースコード管理&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gitを選択&lt;/li&gt;
+&lt;li&gt;Repository URL(テスト対象のものを入れる)
+&lt;ul&gt;
+&lt;li&gt;ex) &lt;a href=&#34;mailto:git@github.com&#34;&gt;git@github.com&lt;/a&gt;:paperboy-petit/user-app.git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Branch Specifier()
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;*/master&lt;/code&gt;, &lt;code&gt;*/release&lt;/code&gt;を記述する&lt;/li&gt;
+&lt;li&gt;高度な設定のChoosing strategy
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Inverse&lt;/code&gt;を選択する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;これで&lt;code&gt;master&lt;/code&gt;,&lt;code&gt;release&lt;/code&gt;意外のブランチを監視対象にできる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ビルド環境&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;テストに必要な環境の設定なので適宜設定する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ビルド&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ここでテストする処理を実行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ビルド後の処理&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ビルド後の結果をトリガーにしてパラメータを小ジョブに渡す設定行う。フォームにはいかの用に項目設定する&lt;/li&gt;
+&lt;li&gt;Build Triggers 1
+&lt;ul&gt;
+&lt;li&gt;Project to build: &lt;code&gt;CommitSTatusUpdate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Trigger when build is &lt;code&gt;stable or unstable but not failed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;parameters
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;commit_status=success&lt;/code&gt;を設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Build Triggers 2
+&lt;ul&gt;
+&lt;li&gt;Project to build: &lt;code&gt;CommitSTatusUpdate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Trigger when build is &lt;code&gt;failed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;parameters
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;commit_status=failure&lt;/code&gt;を設定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;小ジョブ作成commitstatusupdate&#34;&gt;小ジョブ作成(CommitStatusUPdate)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ビルドのパラメータ化&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;受け取るパラメータの設定
+&lt;ul&gt;
+&lt;li&gt;名前：commit_status&lt;/li&gt;
+&lt;li&gt;デフォルト値：success&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ソースコード管理
+親ジョブと同じ設定にする&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;シェルの実行
+コミットステータスの変更を行う&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Authorization: token hogehogehogehogheohogehoge&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --data &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{\&amp;#34;state\&amp;#34;:\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;commit_status&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\&amp;#34;, \&amp;#34;target_url\&amp;#34;:\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BUILD_URL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\&amp;#34;}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  https://api.github.com/repos/paperboy-petit/user-app/statuses/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;GIT_COMMIT&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;ビルド後の処理
+お好みでIRCに渡します&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最終的に以下のようにチェックがついてたりしたら出来ています&lt;/p&gt;</description>
+        </item>
+        
+        <item>
+            <title>Travis CI &#43; GitHubを利用した継続的インテグレーション</title>
+            <link>http://nakajijapan.github.io/posts/2012/2012-09-10_3330/</link>
+            <pubDate>Mon, 10 Sep 2012 02:39:50 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2012/2012-09-10_3330/</guid>
+            <description>&lt;p&gt;最近自分が以前から運営しているサービスが大夫古くなってきていたのでリニューアルをこころみようと思いまして、&lt;/p&gt;
+&lt;p&gt;PHPからRuby+Rails+S3へ移行している途中なのですが、開発はテスト駆動で行こうと思いまして思考錯誤しています。&lt;/p&gt;
+&lt;p&gt;本当だったら社内のようにCIサーバ作成してプッシュと同時にテストが勝手に始まって終わったらIRCで通知してテスト&lt;/p&gt;
+&lt;p&gt;環境にデプロイしてくれたら良いんですが、まぁそこまで個人でするの贅沢きわまりないとおもって軽くCIできるもの&lt;/p&gt;
+&lt;p&gt;ないかなと思いまして、そんなか見つけたのが「Travis CI - http://travis-ci.org/ 」というサービスです。&lt;/p&gt;
+&lt;blockquote&gt;
+A hosted continuous integration service for the open source community.
+&lt;p&gt;(翻訳)
+オープンソースコミュニティのための継続インテグレーションサービス&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;早速、設定してみました。
+とりあえず、ユーザ登録します。
+だいたい&lt;a href=&#34;http://about.travis-ci.org/docs/&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;をみてやればできるはずです。。&lt;/p&gt;
+&lt;pre class=&#34;brush:bash&#34;&gt;
+language: ruby
+rvm:
+  - 1.9.3
+  - 1.9.2
+
+gemfile:
+  - Gemfile
+
+env:
+- DB=mysql
+
+before_script:
+ - mysql -e &#39;create database frustration_test;&#39;
+
+script: 
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+&lt;/pre&gt;
+&lt;p&gt;これでなにかプッシュしたら各言語のバージョンをそれぞれ自動的にテストしちゃってくれます。
+テストが正常に終了すると緑（この間いろいろうまくいかなくてやっとうまくいきまた。。。）になってお知らせしてくれます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.nakajijapan.net/wp-content/uploads/2012/09/スクリーンショット-2012-09-10-2.20.39.png&#34; alt=&#34;&#34; title=&#34;Travis-CI&#34; class=&#34;aligncenter size-full wp-image-3331&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;あと、良かったのはPull Requestを送信したときにtravisbotが介入（この表現はおかしいかもしれない）してきて自動でそのソースが
+問題無いかテストしてくれます。今回は失敗してますがこんな具合にはテスト結果を表記してくれます。これなら安心してマージできるって
+もんですね！！！&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
+
