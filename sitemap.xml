@@ -2,19 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://nakajijapan.github.io/posts/2024/tamashii-nation-2024/</loc>
+    <lastmod>2024-11-24T11:07:03+09:00</lastmod>
+  </url><url>
     <loc>http://nakajijapan.github.io/categories/</loc>
-    <lastmod>2024-07-05T23:06:42+09:00</lastmod>
+    <lastmod>2024-11-24T11:07:03+09:00</lastmod>
   </url><url>
     <loc>http://nakajijapan.github.io/categories/life/</loc>
-    <lastmod>2024-07-05T23:06:42+09:00</lastmod>
-  </url><url>
-    <loc>http://nakajijapan.github.io/posts/2024/metalbuild-festival-2024-07/</loc>
-    <lastmod>2024-07-05T23:06:42+09:00</lastmod>
+    <lastmod>2024-11-24T11:07:03+09:00</lastmod>
   </url><url>
     <loc>http://nakajijapan.github.io/posts/</loc>
-    <lastmod>2024-07-05T23:06:42+09:00</lastmod>
+    <lastmod>2024-11-24T11:07:03+09:00</lastmod>
   </url><url>
     <loc>http://nakajijapan.github.io/</loc>
+    <lastmod>2024-11-24T11:07:03+09:00</lastmod>
+  </url><url>
+    <loc>http://nakajijapan.github.io/posts/2024/metalbuild-festival-2024-07/</loc>
     <lastmod>2024-07-05T23:06:42+09:00</lastmod>
   </url><url>
     <loc>http://nakajijapan.github.io/categories/tech/</loc>
