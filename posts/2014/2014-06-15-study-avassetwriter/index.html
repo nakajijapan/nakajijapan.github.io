@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.136.5">
+<meta name="generator" content="Hugo 0.153.3">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="録画時にブラックシーンができてしまう問題">
@@ -216,7 +216,7 @@ Vine動画のようにタッチしたら録画し、タッチが終了したら(
 </span></span><span style="display:flex;"><span>     NSLog(@&#34;[Starting to record]&#34;);
 </span></span><span style="display:flex;"><span><span style="color:#f92672">-    [self.assetWriter startWriting];
 </span></span></span><span style="display:flex;"><span><span style="color:#f92672">-    [self.assetWriter startSessionAtSourceTime:self.recordStartTime];
-</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+    dispatch_async(self.movieWritingQueue, ^{
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    dispatch_async(self.movieWritingQueue, ^{
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        [self.assetWriter startWriting];
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+        [self.assetWriter startSessionAtSourceTime:self.recordStartTime];
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+    });

@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.136.5">
+<meta name="generator" content="Hugo 0.153.3">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="AVAudioMixでオーディオの調節を行う">
@@ -172,22 +172,22 @@ AVAudioMixInputParameters Class
 </span></span><span style="display:flex;"><span>(snip)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// movie sound
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>AVMutableCompositionTrack<span style="color:#f92672">*</span> compositionAudioTrack <span style="color:#f92672">=</span> [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio
+</span></span></span><span style="display:flex;"><span>AVMutableCompositionTrack<span style="color:#f92672">*</span> compositionAudioTrack <span style="color:#f92672">=</span> [avComposition addMutableTrackWithMediaType:AVMediaTypeAudio
 </span></span><span style="display:flex;"><span>                                                                              preferredTrackID:kCMPersistentTrackID_Invalid];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// オーディオのメディア情報をもとにオーディオミックス用のパラメータを生成する
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>AVMutableAudioMixInputParameters <span style="color:#f92672">*</span>mixInputParameters <span style="color:#f92672">=</span> [AVMutableAudioMixInputParameters
+</span></span></span><span style="display:flex;"><span>AVMutableAudioMixInputParameters <span style="color:#f92672">*</span>mixInputParameters <span style="color:#f92672">=</span> [AVMutableAudioMixInputParameters
 </span></span><span style="display:flex;"><span>                                                        audioMixInputParametersWithTrack:audioTrack];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 音量の調整
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>[mixInputParameters setVolumeRampFromStartVolume:<span style="color:#ae81ff">0.2f</span> toEndVolume:<span style="color:#ae81ff">0.2f</span>
+</span></span></span><span style="display:flex;"><span>[mixInputParameters setVolumeRampFromStartVolume:<span style="color:#ae81ff">0.2f</span> toEndVolume:<span style="color:#ae81ff">0.2f</span>
 </span></span><span style="display:flex;"><span>                                  timeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 入力パラメータをオーディオミックスに渡す。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>mutableAudioMix <span style="color:#f92672">=</span> [AVMutableAudioMix audioMix];
+</span></span></span><span style="display:flex;"><span>mutableAudioMix <span style="color:#f92672">=</span> [AVMutableAudioMix audioMix];
 </span></span><span style="display:flex;"><span>mutableAudioMix.inputParameters <span style="color:#f92672">=</span> <span style="color:#ae81ff">@[</span>mixInputParameters<span style="color:#ae81ff">]</span>;
 </span></span></code></pre></div><h4 id="--boolgetvolumerampfortimecmtimetime-startvolumefloat-startvolume-endvolumefloat-endvolume-timerangecmtimerange-timerange">- (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange</h4>
 <p>これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。</p>
@@ -196,7 +196,7 @@ AVAudioMixInputParameters Class
 </span></span><span style="display:flex;"><span>(snip)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 音声の制御
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>assetExportSession.audioMix <span style="color:#f92672">=</span> mutableAudioMix;
+</span></span></span><span style="display:flex;"><span>assetExportSession.audioMix <span style="color:#f92672">=</span> mutableAudioMix;
 </span></span></code></pre></div><p>設定が終われば、<code>AVAssetExportSession</code>の<code>audioMix</code>に格納すれば、設定が反映されているはずです。
 これでナレーションが動画がうるさくてもしっかり聞こえるようになったので、よりテレビ番組のような感じに近づけられたかと思います！！！</p>
 <h2 id="resources">Resources</h2>

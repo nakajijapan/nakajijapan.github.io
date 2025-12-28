@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.136.5">
+<meta name="generator" content="Hugo 0.153.3">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="AVMutableVideoCompositionLayerInstructionの使い方">
@@ -179,7 +179,7 @@ Appleのドキュメントでこのクラスの説明をみると動画処理に
 <p><code>- (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange</code></p>
 <p>この例だと、３秒間左から動画が移動してきます。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// transition
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    CGAffineTransform rotateStart, rotateEnd;
+</span></span></span><span style="display:flex;"><span>    CGAffineTransform rotateStart, rotateEnd;
 </span></span><span style="display:flex;"><span>    startTime    <span style="color:#f92672">=</span> kCMTimeZero;
 </span></span><span style="display:flex;"><span>    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>    rotateStart  <span style="color:#f92672">=</span> CGAffineTransformMakeScale(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>);
@@ -192,7 +192,7 @@ Appleのドキュメントでこのクラスの説明をみると動画処理に
 <p><code>- (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange</code></p>
 <p>この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// fade in
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    CMTime startTime, timeDuration;
+</span></span></span><span style="display:flex;"><span>    CMTime startTime, timeDuration;
 </span></span><span style="display:flex;"><span>    startTime    <span style="color:#f92672">=</span> kCMTimeZero;
 </span></span><span style="display:flex;"><span>    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>    [layerInstruction setOpacityRampFromStartOpacity:<span style="color:#ae81ff">0.0</span>
@@ -201,7 +201,7 @@ Appleのドキュメントでこのクラスの説明をみると動画処理に
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// fade out
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    startTime    <span style="color:#f92672">=</span> CMTimeSubtract(videoComposition.currentTimeDuration, CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>));
+</span></span></span><span style="display:flex;"><span>    startTime    <span style="color:#f92672">=</span> CMTimeSubtract(videoComposition.currentTimeDuration, CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>));
 </span></span><span style="display:flex;"><span>    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>    [layerInstruction setOpacityRampFromStartOpacity:<span style="color:#ae81ff">1.0</span>
 </span></span><span style="display:flex;"><span>                                        toEndOpacity:<span style="color:#ae81ff">0.0</span>

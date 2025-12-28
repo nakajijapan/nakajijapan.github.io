@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.136.5">
+<meta name="generator" content="Hugo 0.153.3">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Update To Rails4">
@@ -176,7 +176,7 @@ If you want to expose your action to GET, use `get` in the router:
   Do: get &#34;controller#action&#34; (RuntimeError)
 </code></pre><p><code>match</code>の代わりにHTTPメソッドをちゃんと宣言しようぜ！っていうメッセージ。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  match &#39;home&#39; =&gt; &#39;home#index&#39;, :via =&gt; :get
-</span></span></span><span style="display:flex;"><span><span style="color:#f92672"></span><span style="color:#a6e22e">+  get &#39;home&#39; =&gt; &#39;home#index&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+  get &#39;home&#39; =&gt; &#39;home#index&#39;
 </span></span></span></code></pre></div><p>なかんじで修正。</p>
 <p>これで起動はうまくいった。strong_parameterによる警告はあるけどこれは後ほど修正することにする。
 その後は、テストを流して全部通す。</p>

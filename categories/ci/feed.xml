@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Ci on おじさんは生きている</title>
+        <title>CI on おじさんは生きている</title>
         <link>http://nakajijapan.github.io/categories/ci/</link>
-        <description>Recent content in Ci on おじさんは生きている</description>
+        <description>Recent content in CI on おじさんは生きている</description>
         <generator>Hugo -- gohugo.io</generator>
         
         <language>ja-JP</language>
@@ -113,8 +113,8 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Authorization: token hogehogehogehogheohogehoge&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --data &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{\&amp;#34;state\&amp;#34;:\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;commit_status&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\&amp;#34;, \&amp;#34;target_url\&amp;#34;:\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BUILD_URL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\&amp;#34;}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  https://api.github.com/repos/paperboy-petit/user-app/statuses/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;GIT_COMMIT&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --data &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{\&amp;#34;state\&amp;#34;:\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;commit_status&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\&amp;#34;, \&amp;#34;target_url\&amp;#34;:\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;BUILD_URL&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;\&amp;#34;}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  https://api.github.com/repos/paperboy-petit/user-app/statuses/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;GIT_COMMIT&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;ビルド後の処理
 お好みでIRCに渡します&lt;/li&gt;

@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.136.5">
+<meta name="generator" content="Hugo 0.153.3">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="メディアキャプチャの出力先の実装について">
@@ -242,7 +242,7 @@ AVCaptureVideoDataOutput, AVCaptureAudioDataOutput
 <p>ムービーファイルを保存するのに必要な処理を提供してくれるクラス。</p>
 <p>録画するときは</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">//録画開始
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>[captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
+</span></span></span><span style="display:flex;"><span>[captureMovieFileOutput startRecordingToOutputFileURL:outputURL recordingDelegate:self];
 </span></span></code></pre></div><p>のように始めることができます。</p>
 <p>必要に応じて<code>AVCaptureFileOutputRecordingDelegate</code>オプションを利用して、各タイミングに応じた処理を行います。</p>
 <ul>

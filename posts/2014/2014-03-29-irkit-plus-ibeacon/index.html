@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.136.5">
+<meta name="generator" content="Hugo 0.153.3">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="IRKit &#43; iBeacon">
@@ -216,7 +216,7 @@ CoreBluetooth.framework
 </span></span><span style="display:flex;"><span>(snip..)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// find IRKit
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> ([IRKit sharedInstance].countOfReadyPeripherals <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ([IRKit sharedInstance].countOfReadyPeripherals <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
 </span></span><span style="display:flex;"><span>        IRNewPeripheralViewController <span style="color:#f92672">*</span>vc <span style="color:#f92672">=</span> [[IRNewPeripheralViewController alloc] init];
 </span></span><span style="display:flex;"><span>        vc.delegate <span style="color:#f92672">=</span> self;
 </span></span><span style="display:flex;"><span>        [self presentViewController:vc
@@ -231,7 +231,7 @@ CoreBluetooth.framework
 </span></span><span style="display:flex;"><span>    IRSignals <span style="color:#f92672">*</span>tmpSignals <span style="color:#f92672">=</span> [[IRSignals alloc] init];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// and add a signal to the collection
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    [tmpSignals loadFromStandardUserDefaultsKey:<span style="color:#e6db74">@&#34;xxxxxxxxxxxxxxxxxxxxxx&#34;</span>];
+</span></span></span><span style="display:flex;"><span>    [tmpSignals loadFromStandardUserDefaultsKey:<span style="color:#e6db74">@&#34;xxxxxxxxxxxxxxxxxxxxxx&#34;</span>];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> [[tmpSignals signals] count]; i<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>        NSLog(<span style="color:#e6db74">@&#34;%@&#34;</span>, [[tmpSignals signals] objectAtIndex:i]);
@@ -241,7 +241,7 @@ CoreBluetooth.framework
 </span></span></code></pre></div><p><code>IRNewPeripheralViewControllerDelegate</code>で信号の登録が終了したときに呼ばれるメソッドの実装を行います。
 ここでは、ハード側で学習が完了した信号を<code>NSUserDefault</code>側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">#pragma mark - IRNewPeripheralViewControllerDelegate
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">newSignalViewController:</span>(IRNewSignalViewController <span style="color:#f92672">*</span>)viewController
 </span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">didFinishWithSignal:</span>(IRSignal <span style="color:#f92672">*</span>)signal {
 </span></span><span style="display:flex;"><span>    NSLog( <span style="color:#e6db74">@&#34;signal: %@&#34;</span>, signal );
@@ -258,7 +258,7 @@ CoreBluetooth.framework
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#pragma mark - IRNewSignalViewControllerDelegate
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">newPeripheralViewController:</span>(IRNewPeripheralViewController <span style="color:#f92672">*</span>)viewController
 </span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">didFinishWithPeripheral:</span>(IRPeripheral <span style="color:#f92672">*</span>)peripheral {
 </span></span><span style="display:flex;"><span>    NSLog( <span style="color:#e6db74">@&#34;peripheral: %@&#34;</span>, peripheral );
