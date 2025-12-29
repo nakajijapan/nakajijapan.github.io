@@ -227,7 +227,7 @@ ul.image_tile  {
   list-style: none;
   margin: 0 0 6px 0; /* デフォルトのマージンをリセット */
   padding: 0; /* デフォルトのパディングをリセット */
-  
+
 }
 
 ul.image_tile li {
@@ -236,7 +236,7 @@ ul.image_tile li {
 }
 ul.image_tile li b {  display: block;}
 ul.image_tile li:nth-child(2) {
-  
+
   margin: 0 10px;
 }
 
@@ -256,4 +256,48 @@ aside.callout p.title {
   font-weight: bold;
   color: #444;
   padding: 0;
+}
+
+/* Table of Contents
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+nav.toc {
+  /* border-left: 3px solid #ddd; */
+
+  border-radius: 4px;
+  background-color: #f6f6f6;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+nav.toc h2 {
+  margin: 0 0 8px 0;
+  padding: 0;
+  border: none;
+  color: #888;
+  font-size: 1.8rem;
+}
+
+nav.toc ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+nav.toc ul ul {
+  list-style-type: circle;
+}
+
+nav.toc li {
+  margin-bottom: 4px;
+  font-size: 1.5rem;
+}
+
+nav.toc a {
+  text-decoration: none;
+  color: #666;
+}
+
+nav.toc a:hover {
+  text-decoration: underline;
+  color: #333;
 }
