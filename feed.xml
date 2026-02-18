@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>おじさんは生きている on おじさんは生きている</title>
-        <link>http://nakajijapan.github.io/</link>
+        <link>http://localhost:1313/</link>
         <description>Recent content in おじさんは生きている on おじさんは生きている</description>
         <generator>Hugo -- gohugo.io</generator>
         
@@ -13,24 +13,24 @@
         
         
         
-        <atom:link href="http://nakajijapan.github.io/" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:1313/" rel="self" type="application/rss+xml" />
         
         
         <item>
             <title>Posts</title>
-            <link>http://nakajijapan.github.io/posts/</link>
+            <link>http://localhost:1313/posts/</link>
             <pubDate>Sat, 20 Dec 2025 21:06:46 +0900</pubDate>
             
-            <guid>http://nakajijapan.github.io/posts/</guid>
+            <guid>http://localhost:1313/posts/</guid>
             <description></description>
         </item>
         
         <item>
             <title>About</title>
-            <link>http://nakajijapan.github.io/about/</link>
+            <link>http://localhost:1313/about/</link>
             <pubDate>Sun, 25 Feb 2018 20:41:19 +0900</pubDate>
             
-            <guid>http://nakajijapan.github.io/about/</guid>
+            <guid>http://localhost:1313/about/</guid>
             <description>&lt;p&gt;I&amp;rsquo;m nakajijapan.
 &lt;a href=&#34;http://nakajijapan.net&#34;&gt;http://nakajijapan.net&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;
@@ -41,28 +41,28 @@
 &lt;section&gt;
   &lt;h3&gt;My Products&lt;/h3&gt;
   &lt;a href=&#34;http://izumo.nakajijapan.net/&#34; style=&#34;text-decoration: none;&#34;&gt;
-    &lt;img src=&#34;http://nakajijapan.github.io/images/about/izumo.png&#34; width=&#34;150px&#34; /&gt;
+    &lt;img src=&#34;http://localhost:1313/images/about/izumo.png&#34; width=&#34;150px&#34; /&gt;
   &lt;/a&gt;
   &lt;a href=&#34;http://izumo.nakajijapan.net/&#34; style=&#34;text-decoration: none;&#34;&gt;
-    &lt;img src=&#34;http://nakajijapan.github.io/images/about/izumo2.png&#34; width=&#34;150px&#34; /&gt;
+    &lt;img src=&#34;http://localhost:1313/images/about/izumo2.png&#34; width=&#34;150px&#34; /&gt;
   &lt;/a&gt;
   &lt;a href=&#34;https://itunes.apple.com/jp/app/teiten/id965784054?mt=12&#34; style=&#34;text-decoration: none;&#34;&gt;
-    &lt;img src=&#34;http://nakajijapan.github.io/images/about/teiten.png&#34; width=&#34;150px&#34; /&gt;
+    &lt;img src=&#34;http://localhost:1313/images/about/teiten.png&#34; width=&#34;150px&#34; /&gt;
   &lt;/a&gt;
   &lt;a href=&#34;https://itunes.apple.com/jp/app/sengiri/id1090331454?mt=12&#34; style=&#34;text-decoration: none;&#34;&gt;
-    &lt;img src=&#34;http://nakajijapan.github.io/images/about/sengiri.png&#34; width=&#34;150px&#34; /&gt;
+    &lt;img src=&#34;http://localhost:1313/images/about/sengiri.png&#34; width=&#34;150px&#34; /&gt;
   &lt;/a&gt;
   &lt;a href=&#34;http://www.frustration.me&#34; style=&#34;text-decoration: none;&#34;&gt;
-    &lt;img src=&#34;http://nakajijapan.github.io/images/about/frustrationme.png&#34; width=&#34;150px&#34; /&gt;
+    &lt;img src=&#34;http://localhost:1313/images/about/frustrationme.png&#34; width=&#34;150px&#34; /&gt;
   &lt;/a&gt;
   &lt;a href=&#34;http://owkr.nakajijapan.net/&#34; style=&#34;text-decoration: none;&#34;&gt;
-    &lt;img src=&#34;http://nakajijapan.github.io/images/about/owkr.png&#34; width=&#34;150px&#34; alt=&#34;心霊写真アプリ 「おわかりいただけただろうか」 - HajiShiraZu&#34; /&gt;
+    &lt;img src=&#34;http://localhost:1313/images/about/owkr.png&#34; width=&#34;150px&#34; alt=&#34;心霊写真アプリ 「おわかりいただけただろうか」 - HajiShiraZu&#34; /&gt;
   &lt;/a&gt;
   &lt;a href=&#34;http://owkr.nakajijapan.net/movie/&#34; style=&#34;text-decoration: none;&#34;&gt;
-    &lt;img src=&#34;http://nakajijapan.github.io/images/about/owkr2.png&#34; width=&#34;150px&#34; alt=&#34;心霊動画アプリ もう一度ご覧いただこう - HajiShiraZu&#34; /&gt;
+    &lt;img src=&#34;http://localhost:1313/images/about/owkr2.png&#34; width=&#34;150px&#34; alt=&#34;心霊動画アプリ もう一度ご覧いただこう - HajiShiraZu&#34; /&gt;
   &lt;/a&gt;
   &lt;a href=&#34;http://vacuum.nakajijapan.net/&#34; style=&#34;text-decoration: none;&#34;&gt;
-    &lt;img src=&#34;http://nakajijapan.github.io/images/about/unkore.png&#34; width=&#34;150px&#34; /&gt;
+    &lt;img src=&#34;http://localhost:1313/images/about/unkore.png&#34; width=&#34;150px&#34; /&gt;
   &lt;/a&gt;
 &lt;/section&gt;</description>
         </item>
