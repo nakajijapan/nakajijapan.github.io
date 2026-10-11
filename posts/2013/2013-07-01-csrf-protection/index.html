@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.153.3">
+<meta name="generator" content="Hugo 0.167.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="CSRF Protection for Rails and Backbone.js">
@@ -142,6 +142,7 @@ https://github.com/nakajijapan/frustrationme_app/pull/25/files" />
         </span>
 
         
+        
         <nav class="toc">
             <h2>目次</h2>
             <nav id="TableOfContents">
@@ -162,7 +163,7 @@ Railsを利用しているときはCSRF用のtokenを発行しているのでそ
 して送信させるようにしました。</p>
 <p>ちなみに以前はModelに<code>toJSON</code>メソッドでtokenを付加させていたのですがPOST,PUTのみの対応だったので
 DELETE用にも対応できるよう実装してみた。（<code>Model.destroy</code>時には<code>toJSON()</code>を仲介しない）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">-------------------------------------------</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">-------------------------------------------</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#a6e22e">Sync</span>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">-------------------------------------------</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">_sync</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">sync</span>
@@ -181,7 +182,7 @@ DELETE用にも対応できるよう実装してみた。（<code>Model.destroy<
 </span></span></code></pre></div><p>メソッドをオーバーライドしてHEADERに<code>X−CSRF-Token</code>を付加して親処理に渡す。<code>BackboneFrustration.Model.csrf_token()</code>は
 単純にフォームからCSRF用のtokenを取得しているだけです。これでajax通信のときはtokenを無視して処理をするようなその場しのぎな実装をせずになりました。</p>
 <p>以下のような処理撲滅です。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>protect_from_forgery <span style="color:#e6db74">except</span>: <span style="color:#e6db74">:craete</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>protect_from_forgery <span style="color:#e6db74">except</span>: <span style="color:#e6db74">:craete</span> 
 </span></span></code></pre></div><p>この修正で問題なく動作しているので適用させました。</p>
 <p>ところでRails用のgemで<code>backbone-rails</code>なんてものがありましてそこのコードを
 見ていたらだいたい同じことをしていたのであらかじめこれを参考にして勉強すれば良かったと思いました。とほほ。。</p>

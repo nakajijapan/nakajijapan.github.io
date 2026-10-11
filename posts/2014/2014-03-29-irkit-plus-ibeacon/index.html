@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.153.3">
+<meta name="generator" content="Hugo 0.167.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="IRKit &#43; iBeacon">
@@ -186,6 +186,7 @@ IRNewPeripheralViewControllerDelegateで信号の登録が終了したときに�
         </span>
 
         
+        
         <nav class="toc">
             <h2>目次</h2>
             <nav id="TableOfContents">
@@ -234,7 +235,7 @@ end
 CoreBluetooth.framework
 </code></pre><h2 id="irkit-1">IRKit</h2>
 <p>ここでは、IRKit SDKを利用してシグナルを登録してテーブルのセルにボタンを追加する処理を行います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidLoad</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidLoad</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(snip..)
@@ -264,7 +265,7 @@ CoreBluetooth.framework
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><code>IRNewPeripheralViewControllerDelegate</code>で信号の登録が終了したときに呼ばれるメソッドの実装を行います。
 ここでは、ハード側で学習が完了した信号を<code>NSUserDefault</code>側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">#pragma mark - IRNewPeripheralViewControllerDelegate
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">#pragma mark - IRNewPeripheralViewControllerDelegate
 </span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">newSignalViewController:</span>(IRNewSignalViewController <span style="color:#f92672">*</span>)viewController
 </span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">didFinishWithSignal:</span>(IRSignal <span style="color:#f92672">*</span>)signal {
@@ -293,7 +294,7 @@ CoreBluetooth.framework
 </span></span><span style="display:flex;"><span>                             }];
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>登録した信号を実行するときは以下のような実装で呼び出せるようになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">tableView:</span>(UITableView <span style="color:#f92672">*</span>)tableView <span style="color:#a6e22e">didSelectRowAtIndexPath:</span>(NSIndexPath <span style="color:#f92672">*</span>)indexPath {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">tableView:</span>(UITableView <span style="color:#f92672">*</span>)tableView <span style="color:#a6e22e">didSelectRowAtIndexPath:</span>(NSIndexPath <span style="color:#f92672">*</span>)indexPath {
 </span></span><span style="display:flex;"><span>    NSLog(<span style="color:#e6db74">@&#34;indexPath: %@&#34;</span>, indexPath);
 </span></span><span style="display:flex;"><span>    [tableView deselectRowAtIndexPath:indexPath
 </span></span><span style="display:flex;"><span>                             animated:YES];
@@ -308,7 +309,7 @@ CoreBluetooth.framework
 <p>ここでは、ビーコンで領域を観測し出たか入ったかを監視して、IRKitに信号を送る処理を行います。</p>
 <p>まず、<code>ESTBeaconManager</code>をインスタンス化して<code>startMonitoringForRegion:</code> で監視を開始します。
 <code>startRangingBeaconsInRegion:</code>で距離の観測を開始します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidLoad</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidLoad</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(snip...)
@@ -328,7 +329,7 @@ CoreBluetooth.framework
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>位置情報を利用した領域観測の方法と同様に、ビーコン領域の出入りのイベントをハンドリングします。その処理内でIRKitへ信号の送信する処理を実行します。
 メソッドとしては、<code>locationManager:didEnterRegion:</code>と、<code>locationManager:didExitRegion:</code>をハンドリングして処理を行います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>-(<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">beaconManager:</span>(ESTBeaconManager <span style="color:#f92672">*</span>)manager <span style="color:#a6e22e">didEnterRegion:</span>(ESTBeaconRegion <span style="color:#f92672">*</span>)region
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>-(<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">beaconManager:</span>(ESTBeaconManager <span style="color:#f92672">*</span>)manager <span style="color:#a6e22e">didEnterRegion:</span>(ESTBeaconRegion <span style="color:#f92672">*</span>)region
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    IRSignals <span style="color:#f92672">*</span>signals <span style="color:#f92672">=</span> [[IRSignals alloc] init];

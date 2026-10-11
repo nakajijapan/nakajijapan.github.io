@@ -514,7 +514,10 @@ var obj = $(&#34;input[name=target]:checked&#34;);
 &lt;p&gt;// ＠は正規表現
 var obj2 = $(&amp;ldquo;input[@name=target]:checked&amp;rdquo;);&lt;/p&gt;
 &lt;p&gt;// ラジオボタンで選択されているオブジェクトを取得する
-var objRadio = $(&amp;quot;:radio[@name=target]:checked&amp;quot;);&lt;/p&gt;</description>
+var objRadio = $(&amp;quot;:radio[@name=target]:checked&amp;quot;);&lt;/p&gt;
+&lt;p&gt;// value属性を取得する
+console.log(&amp;ldquo;val = &amp;quot; + objRadio .val() );
+&lt;/pre&gt;</description>
         </item>
         
         <item>
@@ -613,7 +616,10 @@ $(function(){
 });
 
 &lt;/script&gt;
-&lt;p&gt;＜body＞&lt;/p&gt;</description>
+&lt;p&gt;＜body＞&lt;/p&gt;
+&lt;h1&gt;object&lt;/h1&gt;
+＜/body＞
+&lt;/pre&gt;</description>
         </item>
         
         <item>

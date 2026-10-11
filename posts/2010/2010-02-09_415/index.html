@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.153.3">
+<meta name="generator" content="Hugo 0.167.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Doctrineでパーティショニングするときのための技術調査その１">
@@ -19,7 +19,8 @@ In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good
 As the case may be, foreign keys in database will rule out doing application-level-cascading-delete.
 MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.g. MyISAM). We have to decrease warnings.
 
-I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle." />
+I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle.
+" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -40,7 +41,8 @@ In MySQL, partitioning doesn&rsquo;t support foreign key. Partitioning is a good
 As the case may be, foreign keys in database will rule out doing application-level-cascading-delete.
 MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.g. MyISAM). We have to decrease warnings.
 
-I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle." />
+I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle.
+" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -102,10 +104,6 @@ I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CRE
         </span>
 
         
-        <nav class="toc">
-            <h2>目次</h2>
-            <nav id="TableOfContents"></nav>
-        </nav>
         
 
         <section itemprop="entry-text">

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja-JP">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.153.3">
+<meta name="generator" content="Hugo 0.167.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する">
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/posts/2024/terraform-piazza/" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2024/terraform-piazza/" />
 <meta property="go:description" content="
 会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。
 現状
@@ -417,7 +417,7 @@ tfstateのコピペができなそうだった。</p>
 <li>環境別にまとめる</li>
 <li>moduleはロール別に共通化を行う。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>├── Gemfile
 </span></span><span style="display:flex;"><span>├── README.markdown
 </span></span><span style="display:flex;"><span>├── bin
@@ -458,9 +458,9 @@ tfstateのコピペができなそうだった。</p>
 </span></span><span style="display:flex;"><span>        └── variables.tf
 </span></span></code></pre></div><h3 id="既存の設定を取り込む">既存の設定を取り込む</h3>
 <p>terraformerで出力されたものを解析してimportコマンドとして落とし込む</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>terraformer import aws -r route53 --regions ap-northeast-1  --profile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> --path-pattern route53
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>terraformer import aws -r route53 --regions ap-northeast-1  --profile<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> --path-pattern route53
 </span></span></code></pre></div><p>これだけだとコードには落とし込んでくれて、便利ではあるものの、これからimport処理をしてリモートにあるtfstateと関連付けを行う必要があった。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># import
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># import
 </span></span><span style="display:flex;"><span>terraform import aws_subnet.hoge subnet-aaaaaaaa
 </span></span><span style="display:flex;"><span>terraform import aws_subnet.hoge subnet-aaaaaaaa
 </span></span><span style="display:flex;"><span>terraform import aws_subnet.hoge subnet-aaaaaaaa
@@ -470,7 +470,7 @@ tfstateのコピペができなそうだった。</p>
 </span></span></code></pre></div><p>これから実際に反映していくことにするとimportコマンドを大量に売っていくことになる。書いていくのが非常に面倒くさい。
 importするとものによってはかなりの量になってくるのでここは自分でスクリプトを作成してimportブロックを自動で生成するコマンドを生成して一気に関連付けできるようにして対応した。</p>
 <p>terraformerが生成したリソース名には一定の規則があり、それがIDとして抽出できるので、それが分かれば生成コマンドは簡単に作れます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ruby bin/generate-import-cmd.rb production/subnet/subnet.tf &gt; import.tf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ruby bin/generate-import-cmd.rb production/subnet/subnet.tf &gt; import.tf
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ cat import.tf
 </span></span><span style="display:flex;"><span>
@@ -533,7 +533,7 @@ output &#34;route53-zone-main&#34; {
 <p>Network Interfaceは設定によって定期的に変わるものがあるのでなるべく管理しないようにした。設定する順番がことなるとエラーになる時があるので <code>depends_on</code> を利用する</p>
 <h3 id="ポイント2">ポイント2</h3>
 <p>パスワードは管理したくないので無視するようにした。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  lifecycle <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  lifecycle <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    ignore_changes <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>value<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>秘匿情報をAWS側で管理している場合があるのでそれはGitHubで管理せず、1Passwordで管理して使う時に転換するようにしている。</p>

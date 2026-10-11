@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.153.3">
+<meta name="generator" content="Hugo 0.167.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="IzumoはDark Modeに対応しました。">
@@ -178,6 +178,7 @@ Darkは正義" />
         </span>
 
         
+        
         <nav class="toc">
             <h2>目次</h2>
             <nav id="TableOfContents">
@@ -217,7 +218,7 @@ Darkは正義" />
 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）</p>
 <p><img src="/images/posts/2018/2018-10-006.png" alt=""></p>
 <p>実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListVerticalScroller</span>: NSScroller {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">draw</span>(<span style="color:#66d9ef">_</span> dirtyRect: NSRect) {

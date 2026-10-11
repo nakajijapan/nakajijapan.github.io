@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.153.3">
+<meta name="generator" content="Hugo 0.167.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="AVAudioMixでオーディオの調節を行う">
@@ -162,6 +162,7 @@ AVAudioMixInputParameters Class
         </span>
 
         
+        
         <nav class="toc">
             <h2>目次</h2>
             <nav id="TableOfContents">
@@ -187,7 +188,7 @@ AVAudioMixInputParameters Class
 対策としては、ナレーションの音声はそのままにして録画した動画の音声を小さくするように調整すること。<code>AVAudioMix</code>、<code>AVMutableAudioMixInputParameters</code>をうまく利用することで解決しました。</p>
 <h2 id="実装">実装</h2>
 <p>基本的には対象のメディア情報に対して、オーディオを制御する用の<code>AVMutableAudioMixInputParameters</code>を利用します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVMutableComposition avComposition;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVMutableComposition avComposition;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(snip)
 </span></span><span style="display:flex;"><span>
@@ -211,7 +212,7 @@ AVAudioMixInputParameters Class
 </span></span><span style="display:flex;"><span>mutableAudioMix.inputParameters <span style="color:#f92672">=</span> <span style="color:#ae81ff">@[</span>mixInputParameters<span style="color:#ae81ff">]</span>;
 </span></span></code></pre></div><h4 id="--boolgetvolumerampfortimecmtimetime-startvolumefloat-startvolume-endvolumefloat-endvolume-timerangecmtimerange-timerange">- (BOOL)getVolumeRampForTime:(CMTime)time startVolume:(float *)startVolume endVolume:(float *)endVolume timeRange:(CMTimeRange *)timeRange</h4>
 <p>これでどの時間からどのくらいの間、音量をどのくらいにするのかの設定を行えるので、ここでその制御を行います。自分の場合はずっと音量を低くできればよかったので上記のような設定になっています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVAssetExportSession <span style="color:#f92672">*</span>assetExportSession;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVAssetExportSession <span style="color:#f92672">*</span>assetExportSession;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(snip)
 </span></span><span style="display:flex;"><span>

@@ -26,7 +26,7 @@
 &lt;p&gt;便利だったのが&lt;a href=&#34;https://github.com/gimite/google-drive-ruby&#34;&gt;google-drive-ruby&lt;/a&gt;で、中の通信部分の処理をいい感じに抽象化してくれる便利gemです。&lt;/p&gt;
 &lt;p&gt;実際に&lt;a href=&#34;http://www.frustration.me/&#34;&gt;www.frustration.me&lt;/a&gt;のユーザ数やアイテム数を計測するために使用してみました。&lt;/p&gt;
 &lt;p&gt;まずは、gemでインストールしてrakeでバッチ処理を実装するだけです。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;desc &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;send score data to google spreadsheet&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;desc &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;send score data to google spreadsheet&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;google_drive&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;namespace &lt;span style=&#34;color:#e6db74&#34;&gt;:batches&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
@@ -55,7 +55,7 @@
 &lt;p&gt;な感じでどんどんレコードが追加されていきます。&lt;/p&gt;
 &lt;p&gt;便利。&lt;/p&gt;
 &lt;p&gt;ただし、注意点があります。今回は&lt;a href=&#34;http://sqale.jp&#34;&gt;sqale&lt;/a&gt;のcronで動かしているのですがログインで以下のように失敗することがあります。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ bundle exec rake batches:total_scores
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ bundle exec rake batches:total_scores
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.7.8
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rake aborted!
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Authentication failed &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; hogehoge@gmail.com: Response code &lt;span style=&#34;color:#ae81ff&#34;&gt;403&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; post https://www.google.com/accounts/ClientLogin: Error&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;BadAuthentication

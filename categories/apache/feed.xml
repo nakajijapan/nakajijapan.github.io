@@ -135,7 +135,8 @@ ApacheがレスポンスにIE６はうまく答えいてくれないみたいで
 -2	the penultimate part
 2+	the second and all subsequent parts
 -2+	the penultimate and all preceding parts
-1+ and -1+	the same as 0&lt;/p&gt;</description>
+1+ and -1+	the same as 0&lt;/p&gt;
+&lt;/blockquote&gt;</description>
         </item>
         
         <item>

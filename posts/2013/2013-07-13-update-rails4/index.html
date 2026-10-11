@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.153.3">
+<meta name="generator" content="Hugo 0.167.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="Update To Rails4">
@@ -134,6 +134,7 @@ config.eager_load is set to nil. Please update your config/environments/*.rb fil
         </span>
 
         
+        
         <nav class="toc">
             <h2>目次</h2>
             <nav id="TableOfContents">
@@ -176,7 +177,7 @@ ents/development.rb:10)
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  # Log error messages when you accidentally call methods on nil
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  # Log error messages when you accidentally call methods on nil
 </span></span></span><span style="display:flex;"><span><span style="color:#f92672">-  config.whiny_nils = true
 </span></span></span><span style="display:flex;"><span><span style="color:#f92672">-
 </span></span></span></code></pre></div><h2 id="configeager_load-is-set-to-nil">config.eager_load is set to nil.</h2>
@@ -199,7 +200,7 @@ If you want to expose your action to GET, use `get` in the router:
   Instead of: match &#34;controller#action&#34;
   Do: get &#34;controller#action&#34; (RuntimeError)
 </code></pre><p><code>match</code>の代わりにHTTPメソッドをちゃんと宣言しようぜ！っていうメッセージ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  match &#39;home&#39; =&gt; &#39;home#index&#39;, :via =&gt; :get
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  match &#39;home&#39; =&gt; &#39;home#index&#39;, :via =&gt; :get
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+  get &#39;home&#39; =&gt; &#39;home#index&#39;
 </span></span></span></code></pre></div><p>なかんじで修正。</p>
 <p>これで起動はうまくいった。strong_parameterによる警告はあるけどこれは後ほど修正することにする。
@@ -214,14 +215,14 @@ Hoge.where(user_id: @user.id).first
 </code></pre><h2 id="strong_parameter">strong_parameter</h2>
 <p>ここはひたすらcontroller側に制限の内容を記述。</p>
 <p>ホワイトリストとして許可するパラメータを記述していきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">category_params</span>
 </span></span><span style="display:flex;"><span>      params<span style="color:#f92672">.</span>require(<span style="color:#e6db74">:category</span>)<span style="color:#f92672">.</span>permit(<span style="color:#e6db74">:user_id</span>, <span style="color:#e6db74">:name</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span></code></pre></div><h2 id="deprecation-warning-you-didnt-set-configsecret_key_base">DEPRECATION WARNING: You didn&rsquo;t set config.secret_key_base.</h2>
 <pre tabindex="0"><code>DEPRECATION WARNING: You didn&#39;t set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from env_config at /private/var/www/frustration/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/application.rb:141)
 </code></pre><p><code>secret_token</code>はもう推奨されていなくて<code>secret_key_base</code>に名前が変更されたようです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> config<span style="color:#f92672">.</span>secret_key_base<span style="color:#f92672">.</span>blank?
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> config<span style="color:#f92672">.</span>secret_key_base<span style="color:#f92672">.</span>blank?
 </span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">ActiveSupport</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Deprecation</span><span style="color:#f92672">.</span>warn <span style="color:#e6db74">&#34;You didn&#39;t set config.secret_key_base. &#34;</span> <span style="color:#f92672">+</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Read the upgrade documentation to learn more about this new config option.&#34;</span>
 </span></span><span style="display:flex;"><span>

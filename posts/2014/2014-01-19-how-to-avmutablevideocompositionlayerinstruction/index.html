@@ -2,7 +2,7 @@
 <html lang="ja-JP">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.153.3">
+<meta name="generator" content="Hugo 0.167.0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:title" content="AVMutableVideoCompositionLayerInstructionの使い方">
@@ -166,6 +166,7 @@ Appleのドキュメントでこのクラスの説明をみると動画処理に
         </span>
 
         
+        
         <nav class="toc">
             <h2>目次</h2>
             <nav id="TableOfContents">
@@ -194,13 +195,13 @@ Appleのドキュメントでこのクラスの説明をみると動画処理に
 ができたりフェードイン・アウトの設定ができたのでメモ。</p>
 <p>まずは対象のトラックをもとにして、レイヤーをインスタンス化します。</p>
 <p><code>+ (AVMutableVideoCompositionLayerInstruction *)videoCompositionLayerInstructionWithAssetTrack:(AVAssetTrack *)track</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    AVMutableVideoCompositionLayerInstruction <span style="color:#f92672">*</span>layerInstruction;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    AVMutableVideoCompositionLayerInstruction <span style="color:#f92672">*</span>layerInstruction;
 </span></span><span style="display:flex;"><span>    layerInstruction <span style="color:#f92672">=</span> [AVMutableVideoCompositionLayerInstruction
 </span></span><span style="display:flex;"><span>                        videoCompositionLayerInstructionWithAssetTrack:compositionVideoTrack];
 </span></span></code></pre></div><h3 id="transform">TransForm</h3>
 <p><code>- (void)setTransformRampFromStartTransform:(CGAffineTransform)startTransform toEndTransform:(CGAffineTransform)endTransform timeRange:(CMTimeRange)timeRange</code></p>
 <p>この例だと、３秒間左から動画が移動してきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// transition
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// transition
 </span></span></span><span style="display:flex;"><span>    CGAffineTransform rotateStart, rotateEnd;
 </span></span><span style="display:flex;"><span>    startTime    <span style="color:#f92672">=</span> kCMTimeZero;
 </span></span><span style="display:flex;"><span>    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);
@@ -213,7 +214,7 @@ Appleのドキュメントでこのクラスの説明をみると動画処理に
 </span></span></code></pre></div><h3 id="opacity">Opacity</h3>
 <p><code>- (void)setOpacityRampFromStartOpacity:(float)startOpacity toEndOpacity:(float)endOpacity timeRange:(CMTimeRange)timeRange</code></p>
 <p>この例だと最初から３秒間動画がフェードインしてきて最後の３秒間動画をフェードアウトします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// fade in
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    <span style="color:#75715e">// fade in
 </span></span></span><span style="display:flex;"><span>    CMTime startTime, timeDuration;
 </span></span><span style="display:flex;"><span>    startTime    <span style="color:#f92672">=</span> kCMTimeZero;
 </span></span><span style="display:flex;"><span>    timeDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>);

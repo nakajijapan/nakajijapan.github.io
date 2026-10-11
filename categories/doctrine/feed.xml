@@ -56,7 +56,8 @@ Please add ability not to create foreign key to database before releasing the la
 &lt;li&gt;As the case may be, foreign keys in database will rule out doing application-level-cascading-delete.&lt;/li&gt;
 &lt;li&gt;MySQL outputs warnings when it tries creating foreign keys to some storage engines (e.g. MyISAM). We have to decrease warnings.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle.&lt;/p&gt;</description>
+&lt;p&gt;I have a patch that includes unit test. My changes are adding Doctrine::ATTR_CREATE_FOREIGN_KEY, and not to create foreign key to database when a value of Doctrine::ATTR_CREATE_FOREIGN_KEY is false. It will work on MySQL, PostgreSQL and Oracle.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
         </item>
         
         <item>
