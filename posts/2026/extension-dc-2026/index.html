@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.167.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta property="og:title" content="Extension DC 2026 Day1行ってきた。">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://nakajijapan.github.io/posts/2026/extension-dc-2026/" />
+<meta property="go:description" content="
+きっかけ
+
+お誘いいただいて、Extension DC 2026 Day1 で発表してきました。
+内容
+
+枠は15分だったのだけど、話したいことはそれ以上あって、内容としては40分ぶんくらいになってしまった。ステーマはサブタイトルのとおり「AI に任せて、一人で回す」。AI を補完ツールとして使う、ではなく、役割を持った仮想チームとして育てて、iOS アプリ開発を一人で回している、という話。
+以下、5部構成の順にざっと振り返っておきます。
+1. 一人のエンジニアが見ている範囲
+
+スタートアップ・少人数・久々の開発という条件だと、Front-End / Design / Server Side / Security / Infrastructure / Mobile を、モバイルエンジニア起点で見るしかない
+例として二段階認証の対応を挙げた。iOS・Web・サーバー・インフラを横断して、一人で対応した話
+Web 版をベースにしつつ、iOS は別軸でモバイルらしい体験をつくる方針
+
+2. AI を仮想チームとして置く
+
+曖昧に「任せる」のではなく、役割ごとに「入力・完了条件・検証・引き継ぎ」の4点を決める。仕様判断や体験の良し悪しは人が決める
+Claude Code のサブエージェント（ios/.claude/agents）で、役割を分けて回している
+
+planner: 依頼を仕様書と受け入れ基準に広げる
+architect: 設計だけ。コードは書かない
+builder: 実装と自己評価
+evaluator: ビルド・テスト・シミュレータで、受け入れ基準ごとに pass/fail
+fixer: 最小変更で直す
+
+
+同じスプリントで3回 fail したら人に上げる。merge するのは自分
+
+3. AI に渡す仕事は4層
+
+毎回読む: CLAUDE.md と rules
+必要なとき読む: 自前スキル12本、借りたスキル52本（ハッシュ固定）
+役割として動く: orchestrator が回す
+動かして確かめる: シミュレータ・テスト、DebugHarness、E2E 21ケースは夜間
+
+4. 現状やれていること
+
+アーキテクチャは5層の MVVM。ViewModel 48本（@Observable 49ファイル）。Design System の共通部品15種はトークンで揃えている
+API の型は swagger から自動生成。チャット本文は SSE、カードの進捗は ActionCable
+SSE の受け口は URLSessionDataDelegate の上に自前の SSEParser を置いた。テストできる形にしたかったので、既製ライブラリは入れなかった
+Unit と UI でテスト 282 ファイル・2,266 本、#Preview 334。共通部品はスナップショット、VRT の基準画像は S3、E2E は夜間に回す。「AI が書いた差分は、ここを通って初めて信じる」
+計測は PostHog（イベント定義34種・セッション録画）と Crashlytics
+
+
+5. まだ課題に上がっていること
+
+動きの仕様の言語化。仕様に書いた 0.8 秒が実際は 0.2 秒、というズレが起きる。静止画は CI が比べられるが、動きはまだ人が録画を見て判断している
+アニメーション。アイテムは Lottie、Ken Burns 効果はモバイル用に最適化した動画を生成、複雑なものは SwiftUI の keyframe/transition。人間との同時並行が必要になっている
+AI に渡す判断と、人が持つ判断の分け方。合否と差し戻しは AI、rule を足すのと merge は人。全体の決まりはまだ無い
+仮想チームの成果の引き受け手。最後に merge するのは自分。一人だからこそ成り立っている
+
+まとめ
+
+iOS エンジニアの守備範囲は、事業側まで広がる
+AI は補完ではなく、役割と検証条件を持つ仮想チームとして育てる。最近は AI のマネージメントの比重が高い
+人は、体験の意図・品質基準・最終判断に集中する
+
+
+最後に
+この辺りは「全体の決まりはまだ無い」という話のとおり、自分でもまだ手探りの途中。続けながら、少しずつアップデートしていきたいと思っています。" />
+<meta property="og:site_name" content="おじさんは生きている"/>
+
+
+<meta property="og:image" content="/images/meta_logo.jpg" />
+
+<meta name="twitter:card" content="nakajijapan">
+<meta name="twitter:site" content="@nakajijapan">
+<meta name="twitter:card"  content="summary" />
+<meta name="twitter:title" content="Extension DC 2026 Day1行ってきた。" />
+<meta name="twitter:description" content="
+きっかけ
+
+お誘いいただいて、Extension DC 2026 Day1 で発表してきました。
+内容
+
+枠は15分だったのだけど、話したいことはそれ以上あって、内容としては40分ぶんくらいになってしまった。ステーマはサブタイトルのとおり「AI に任せて、一人で回す」。AI を補完ツールとして使う、ではなく、役割を持った仮想チームとして育てて、iOS アプリ開発を一人で回している、という話。
+以下、5部構成の順にざっと振り返っておきます。
+1. 一人のエンジニアが見ている範囲
+
+スタートアップ・少人数・久々の開発という条件だと、Front-End / Design / Server Side / Security / Infrastructure / Mobile を、モバイルエンジニア起点で見るしかない
+例として二段階認証の対応を挙げた。iOS・Web・サーバー・インフラを横断して、一人で対応した話
+Web 版をベースにしつつ、iOS は別軸でモバイルらしい体験をつくる方針
+
+2. AI を仮想チームとして置く
+
+曖昧に「任せる」のではなく、役割ごとに「入力・完了条件・検証・引き継ぎ」の4点を決める。仕様判断や体験の良し悪しは人が決める
+Claude Code のサブエージェント（ios/.claude/agents）で、役割を分けて回している
+
+planner: 依頼を仕様書と受け入れ基準に広げる
+architect: 設計だけ。コードは書かない
+builder: 実装と自己評価
+evaluator: ビルド・テスト・シミュレータで、受け入れ基準ごとに pass/fail
+fixer: 最小変更で直す
+
+
+同じスプリントで3回 fail したら人に上げる。merge するのは自分
+
+3. AI に渡す仕事は4層
+
+毎回読む: CLAUDE.md と rules
+必要なとき読む: 自前スキル12本、借りたスキル52本（ハッシュ固定）
+役割として動く: orchestrator が回す
+動かして確かめる: シミュレータ・テスト、DebugHarness、E2E 21ケースは夜間
+
+4. 現状やれていること
+
+アーキテクチャは5層の MVVM。ViewModel 48本（@Observable 49ファイル）。Design System の共通部品15種はトークンで揃えている
+API の型は swagger から自動生成。チャット本文は SSE、カードの進捗は ActionCable
+SSE の受け口は URLSessionDataDelegate の上に自前の SSEParser を置いた。テストできる形にしたかったので、既製ライブラリは入れなかった
+Unit と UI でテスト 282 ファイル・2,266 本、#Preview 334。共通部品はスナップショット、VRT の基準画像は S3、E2E は夜間に回す。「AI が書いた差分は、ここを通って初めて信じる」
+計測は PostHog（イベント定義34種・セッション録画）と Crashlytics
+
+
+5. まだ課題に上がっていること
+
+動きの仕様の言語化。仕様に書いた 0.8 秒が実際は 0.2 秒、というズレが起きる。静止画は CI が比べられるが、動きはまだ人が録画を見て判断している
+アニメーション。アイテムは Lottie、Ken Burns 効果はモバイル用に最適化した動画を生成、複雑なものは SwiftUI の keyframe/transition。人間との同時並行が必要になっている
+AI に渡す判断と、人が持つ判断の分け方。合否と差し戻しは AI、rule を足すのと merge は人。全体の決まりはまだ無い
+仮想チームの成果の引き受け手。最後に merge するのは自分。一人だからこそ成り立っている
+
+まとめ
+
+iOS エンジニアの守備範囲は、事業側まで広がる
+AI は補完ではなく、役割と検証条件を持つ仮想チームとして育てる。最近は AI のマネージメントの比重が高い
+人は、体験の意図・品質基準・最終判断に集中する
+
+
+最後に
+この辺りは「全体の決まりはまだ無い」という話のとおり、自分でもまだ手探りの途中。続けながら、少しずつアップデートしていきたいと思っています。" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/feed.xml" type="application/rss+xml" title="おじさんは生きている">
+
+<title>Extension DC 2026 Day1行ってきた。 - おじさんは生きている</title>
+</head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWZ1S620C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZJWZ1S620C');
+</script>
+
+
+<body>
+	<header role="banner">
+		<div class="header-image">
+			<div class="header-logo">
+				<a href="/"><img src="/images/logo.jpg" width="60" height="60" alt="おじさんは生きている"></a>
+			</div>
+			
+
+			<div class="header-menu">
+				<a href="/">Home</a> / <a href="/about">About</a>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+
+
+
+
+<main role="main">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">Extension DC 2026 Day1行ってきた。</h1>
+        <span class="entry-meta">
+            <time itemprop="datePublished" datetime="2026-09-18">September 18, 2026</time>
+        </span>
+
+        <span class="entry-categories">
+            
+                (
+                    <a href="/categories/tech">tech</a>
+                )
+            
+        </span>
+
+        
+        <span class="entry-diary">
+            
+        </span>
+
+        
+        
+        <nav class="toc">
+            <h2>目次</h2>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#きっかけ">きっかけ</a></li>
+    <li><a href="#内容">内容</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1-一人のエンジニアが見ている範囲">1. 一人のエンジニアが見ている範囲</a></li>
+            <li><a href="#2-ai-を仮想チームとして置く">2. AI を仮想チームとして置く</a></li>
+            <li><a href="#3-ai-に渡す仕事は4層">3. AI に渡す仕事は4層</a></li>
+            <li><a href="#4-現状やれていること">4. 現状やれていること</a></li>
+            <li><a href="#5-まだ課題に上がっていること">5. まだ課題に上がっていること</a></li>
+            <li><a href="#まとめ">まとめ</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#最後に">最後に</a></li>
+  </ul>
+</nav>
+        </nav>
+        
+
+        <section itemprop="entry-text">
+            <p><img src="/images/posts/2026/10-014.png" alt=""></p>
+<h1 id="きっかけ">きっかけ</h1>
+<!-- TODO: 依頼の経緯や、どんな発表を頼まれたのか、わかる範囲で追記する -->
+<p>お誘いいただいて、Extension DC 2026 Day1 で発表してきました。</p>
+<h1 id="内容">内容</h1>
+<iframe class="speakerdeck-iframe" frameborder="0" src="https://speakerdeck.com/player/86750731ce55408d9230d083da6d0b08" title="今時のフルスタック主導の iOSアプリ開発" allowfullscreen="true" allow="web-share" style="border: 0px; background: padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;" data-ratio="1.7777777777777777"></iframe>
+<p>枠は15分だったのだけど、話したいことはそれ以上あって、内容としては40分ぶんくらいになってしまった。ステーマはサブタイトルのとおり「AI に任せて、一人で回す」。AI を補完ツールとして使う、ではなく、役割を持った仮想チームとして育てて、iOS アプリ開発を一人で回している、という話。</p>
+<p>以下、5部構成の順にざっと振り返っておきます。</p>
+<h3 id="1-一人のエンジニアが見ている範囲">1. 一人のエンジニアが見ている範囲</h3>
+<ul>
+<li>スタートアップ・少人数・久々の開発という条件だと、Front-End / Design / Server Side / Security / Infrastructure / Mobile を、モバイルエンジニア起点で見るしかない</li>
+<li>例として二段階認証の対応を挙げた。iOS・Web・サーバー・インフラを横断して、一人で対応した話</li>
+<li>Web 版をベースにしつつ、iOS は別軸でモバイルらしい体験をつくる方針</li>
+</ul>
+<h3 id="2-ai-を仮想チームとして置く">2. AI を仮想チームとして置く</h3>
+<ul>
+<li>曖昧に「任せる」のではなく、役割ごとに「入力・完了条件・検証・引き継ぎ」の4点を決める。仕様判断や体験の良し悪しは人が決める</li>
+<li>Claude Code のサブエージェント（<code>ios/.claude/agents</code>）で、役割を分けて回している
+<ul>
+<li>planner: 依頼を仕様書と受け入れ基準に広げる</li>
+<li>architect: 設計だけ。コードは書かない</li>
+<li>builder: 実装と自己評価</li>
+<li>evaluator: ビルド・テスト・シミュレータで、受け入れ基準ごとに pass/fail</li>
+<li>fixer: 最小変更で直す</li>
+</ul>
+</li>
+<li>同じスプリントで3回 fail したら人に上げる。merge するのは自分</li>
+</ul>
+<h3 id="3-ai-に渡す仕事は4層">3. AI に渡す仕事は4層</h3>
+<ul>
+<li>毎回読む: CLAUDE.md と rules</li>
+<li>必要なとき読む: 自前スキル12本、借りたスキル52本（ハッシュ固定）</li>
+<li>役割として動く: orchestrator が回す</li>
+<li>動かして確かめる: シミュレータ・テスト、DebugHarness、E2E 21ケースは夜間</li>
+</ul>
+<h3 id="4-現状やれていること">4. 現状やれていること</h3>
+<ul>
+<li>アーキテクチャは5層の MVVM。ViewModel 48本（@Observable 49ファイル）。Design System の共通部品15種はトークンで揃えている</li>
+<li>API の型は swagger から自動生成。チャット本文は SSE、カードの進捗は ActionCable</li>
+<li>SSE の受け口は URLSessionDataDelegate の上に自前の SSEParser を置いた。テストできる形にしたかったので、既製ライブラリは入れなかった</li>
+<li>Unit と UI でテスト 282 ファイル・2,266 本、#Preview 334。共通部品はスナップショット、VRT の基準画像は S3、E2E は夜間に回す。「AI が書いた差分は、ここを通って初めて信じる」</li>
+<li>計測は PostHog（イベント定義34種・セッション録画）と Crashlytics</li>
+</ul>
+<!-- TODO: スライド13の「足場を置いた4〜6月」「8.5倍」「App Store」の数字が何を指すのか確認できたら追記 -->
+<h3 id="5-まだ課題に上がっていること">5. まだ課題に上がっていること</h3>
+<ul>
+<li>動きの仕様の言語化。仕様に書いた 0.8 秒が実際は 0.2 秒、というズレが起きる。静止画は CI が比べられるが、動きはまだ人が録画を見て判断している</li>
+<li>アニメーション。アイテムは Lottie、Ken Burns 効果はモバイル用に最適化した動画を生成、複雑なものは SwiftUI の keyframe/transition。人間との同時並行が必要になっている</li>
+<li>AI に渡す判断と、人が持つ判断の分け方。合否と差し戻しは AI、rule を足すのと merge は人。全体の決まりはまだ無い</li>
+<li>仮想チームの成果の引き受け手。最後に merge するのは自分。一人だからこそ成り立っている</li>
+</ul>
+<h3 id="まとめ">まとめ</h3>
+<ul>
+<li>iOS エンジニアの守備範囲は、事業側まで広がる</li>
+<li>AI は補完ではなく、役割と検証条件を持つ仮想チームとして育てる。最近は AI のマネージメントの比重が高い</li>
+<li>人は、体験の意図・品質基準・最終判断に集中する</li>
+</ul>
+<!-- TODO: 会場の反応や質疑応答があれば追記 -->
+<h1 id="最後に">最後に</h1>
+<p>この辺りは「全体の決まりはまだ無い」という話のとおり、自分でもまだ手探りの途中。続けながら、少しずつアップデートしていきたいと思っています。</p>
+<p>お誘いいただいて、本当にありがとうございました。</p>
+
+        </section>
+    </article>
+</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			<a href="mailto:pp.kupepo.gattyanmo@gmail.com" target="_blank">Email</a>
+			
+			<a href="https://www.facebook.com/nakajijapan" target="_blank">Facebook</a>
+			<a href="https://github.com/nakajijapan/" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; nakajijapan All rights reserved.</div>
+	</footer>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

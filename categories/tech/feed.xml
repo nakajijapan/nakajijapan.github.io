@@ -9,12 +9,80 @@
         
         <copyright>nakajijapan All rights reserved.</copyright>
         
-        <lastBuildDate>Tue, 25 Jun 2024 12:06:56 +0900</lastBuildDate>
+        <lastBuildDate>Fri, 18 Sep 2026 21:17:45 +0900</lastBuildDate>
         
         
         
         <atom:link href="http://nakajijapan.github.io/categories/tech/" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>Extension DC 2026 Day1行ってきた。</title>
+            <link>http://nakajijapan.github.io/posts/2026/extension-dc-2026/</link>
+            <pubDate>Fri, 18 Sep 2026 21:17:45 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2026/extension-dc-2026/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2026/10-014.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;きっかけ&#34;&gt;きっかけ&lt;/h1&gt;
+&lt;!-- TODO: 依頼の経緯や、どんな発表を頼まれたのか、わかる範囲で追記する --&gt;
+&lt;p&gt;お誘いいただいて、Extension DC 2026 Day1 で発表してきました。&lt;/p&gt;
+&lt;h1 id=&#34;内容&#34;&gt;内容&lt;/h1&gt;
+&lt;iframe class=&#34;speakerdeck-iframe&#34; frameborder=&#34;0&#34; src=&#34;https://speakerdeck.com/player/86750731ce55408d9230d083da6d0b08&#34; title=&#34;今時のフルスタック主導の iOSアプリ開発&#34; allowfullscreen=&#34;true&#34; allow=&#34;web-share&#34; style=&#34;border: 0px; background: padding-box rgba(0, 0, 0, 0.1); margin: 0px; padding: 0px; border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 40px; width: 100%; height: auto; aspect-ratio: 560 / 315;&#34; data-ratio=&#34;1.7777777777777777&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;枠は15分だったのだけど、話したいことはそれ以上あって、内容としては40分ぶんくらいになってしまった。ステーマはサブタイトルのとおり「AI に任せて、一人で回す」。AI を補完ツールとして使う、ではなく、役割を持った仮想チームとして育てて、iOS アプリ開発を一人で回している、という話。&lt;/p&gt;
+&lt;p&gt;以下、5部構成の順にざっと振り返っておきます。&lt;/p&gt;
+&lt;h3 id=&#34;1-一人のエンジニアが見ている範囲&#34;&gt;1. 一人のエンジニアが見ている範囲&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;スタートアップ・少人数・久々の開発という条件だと、Front-End / Design / Server Side / Security / Infrastructure / Mobile を、モバイルエンジニア起点で見るしかない&lt;/li&gt;
+&lt;li&gt;例として二段階認証の対応を挙げた。iOS・Web・サーバー・インフラを横断して、一人で対応した話&lt;/li&gt;
+&lt;li&gt;Web 版をベースにしつつ、iOS は別軸でモバイルらしい体験をつくる方針&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-ai-を仮想チームとして置く&#34;&gt;2. AI を仮想チームとして置く&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;曖昧に「任せる」のではなく、役割ごとに「入力・完了条件・検証・引き継ぎ」の4点を決める。仕様判断や体験の良し悪しは人が決める&lt;/li&gt;
+&lt;li&gt;Claude Code のサブエージェント（&lt;code&gt;ios/.claude/agents&lt;/code&gt;）で、役割を分けて回している
+&lt;ul&gt;
+&lt;li&gt;planner: 依頼を仕様書と受け入れ基準に広げる&lt;/li&gt;
+&lt;li&gt;architect: 設計だけ。コードは書かない&lt;/li&gt;
+&lt;li&gt;builder: 実装と自己評価&lt;/li&gt;
+&lt;li&gt;evaluator: ビルド・テスト・シミュレータで、受け入れ基準ごとに pass/fail&lt;/li&gt;
+&lt;li&gt;fixer: 最小変更で直す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;同じスプリントで3回 fail したら人に上げる。merge するのは自分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-ai-に渡す仕事は4層&#34;&gt;3. AI に渡す仕事は4層&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;毎回読む: CLAUDE.md と rules&lt;/li&gt;
+&lt;li&gt;必要なとき読む: 自前スキル12本、借りたスキル52本（ハッシュ固定）&lt;/li&gt;
+&lt;li&gt;役割として動く: orchestrator が回す&lt;/li&gt;
+&lt;li&gt;動かして確かめる: シミュレータ・テスト、DebugHarness、E2E 21ケースは夜間&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-現状やれていること&#34;&gt;4. 現状やれていること&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;アーキテクチャは5層の MVVM。ViewModel 48本（@Observable 49ファイル）。Design System の共通部品15種はトークンで揃えている&lt;/li&gt;
+&lt;li&gt;API の型は swagger から自動生成。チャット本文は SSE、カードの進捗は ActionCable&lt;/li&gt;
+&lt;li&gt;SSE の受け口は URLSessionDataDelegate の上に自前の SSEParser を置いた。テストできる形にしたかったので、既製ライブラリは入れなかった&lt;/li&gt;
+&lt;li&gt;Unit と UI でテスト 282 ファイル・2,266 本、#Preview 334。共通部品はスナップショット、VRT の基準画像は S3、E2E は夜間に回す。「AI が書いた差分は、ここを通って初めて信じる」&lt;/li&gt;
+&lt;li&gt;計測は PostHog（イベント定義34種・セッション録画）と Crashlytics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- TODO: スライド13の「足場を置いた4〜6月」「8.5倍」「App Store」の数字が何を指すのか確認できたら追記 --&gt;
+&lt;h3 id=&#34;5-まだ課題に上がっていること&#34;&gt;5. まだ課題に上がっていること&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;動きの仕様の言語化。仕様に書いた 0.8 秒が実際は 0.2 秒、というズレが起きる。静止画は CI が比べられるが、動きはまだ人が録画を見て判断している&lt;/li&gt;
+&lt;li&gt;アニメーション。アイテムは Lottie、Ken Burns 効果はモバイル用に最適化した動画を生成、複雑なものは SwiftUI の keyframe/transition。人間との同時並行が必要になっている&lt;/li&gt;
+&lt;li&gt;AI に渡す判断と、人が持つ判断の分け方。合否と差し戻しは AI、rule を足すのと merge は人。全体の決まりはまだ無い&lt;/li&gt;
+&lt;li&gt;仮想チームの成果の引き受け手。最後に merge するのは自分。一人だからこそ成り立っている&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;まとめ&#34;&gt;まとめ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;iOS エンジニアの守備範囲は、事業側まで広がる&lt;/li&gt;
+&lt;li&gt;AI は補完ではなく、役割と検証条件を持つ仮想チームとして育てる。最近は AI のマネージメントの比重が高い&lt;/li&gt;
+&lt;li&gt;人は、体験の意図・品質基準・最終判断に集中する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- TODO: 会場の反応や質疑応答があれば追記 --&gt;
+&lt;h1 id=&#34;最後に&#34;&gt;最後に&lt;/h1&gt;
+&lt;p&gt;この辺りは「全体の決まりはまだ無い」という話のとおり、自分でもまだ手探りの途中。続けながら、少しずつアップデートしていきたいと思っています。&lt;/p&gt;</description>
+        </item>
         
         <item>
             <title>Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する</title>
