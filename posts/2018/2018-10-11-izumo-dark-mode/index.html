@@ -218,33 +218,33 @@ Darkは正義" />
 （背景色が全体の黒に馴染まないような灰色だったのでカスタマイズした。）</p>
 <p><img src="/images/posts/2018/2018-10-006.png" alt=""></p>
 <p>実装はNSScrollerを継承時して独自のクラスを作成してあげれば期待した通りのデザインになる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Cocoa</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#cf222e">import</span> <span style="color:#1f2328">Cocoa</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListVerticalScroller</span>: NSScroller {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">draw</span>(<span style="color:#66d9ef">_</span> dirtyRect: NSRect) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.draw(dirtyRect)
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">NoteListVerticalScroller</span><span style="color:#1f2328">:</span> NSScroller <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">override</span> <span style="color:#cf222e">func</span> <span style="color:#6639ba">draw</span><span style="color:#1f2328">(</span><span style="color:#cf222e">_</span> dirtyRect<span style="color:#1f2328">:</span> NSRect<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">super</span><span style="color:#1f2328">.</span>draw<span style="color:#1f2328">(</span>dirtyRect<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawKnobSlot</span>(<span style="color:#66d9ef">in</span> slotRect: NSRect, highlight flag: Bool) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.drawKnobSlot(<span style="color:#66d9ef">in</span>: slotRect, highlight: flag)
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">override</span> <span style="color:#cf222e">func</span> <span style="color:#6639ba">drawKnobSlot</span><span style="color:#1f2328">(</span><span style="color:#cf222e">in</span> slotRect<span style="color:#1f2328">:</span> NSRect<span style="color:#1f2328">,</span> highlight flag<span style="color:#1f2328">:</span> <span style="color:#6639ba">Bool</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">super</span><span style="color:#1f2328">.</span>drawKnobSlot<span style="color:#1f2328">(</span><span style="color:#cf222e">in</span><span style="color:#1f2328">:</span> slotRect<span style="color:#1f2328">,</span> highlight<span style="color:#1f2328">:</span> flag<span style="color:#1f2328">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 背景はリストの背景と同じにする</span>
-</span></span><span style="display:flex;"><span>        NSColor.defaultBackgroundColor.<span style="color:#66d9ef">set</span>()
-</span></span><span style="display:flex;"><span>        slotRect.fill()
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 背景はリストの背景と同じにする</span>
+</span></span><span style="display:flex;"><span>        NSColor<span style="color:#1f2328">.</span>defaultBackgroundColor<span style="color:#1f2328">.</span><span style="color:#cf222e">set</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        slotRect<span style="color:#1f2328">.</span>fill<span style="color:#1f2328">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 同じにすると境界がわからなくなるのでボーダー独自に描くようにする</span>
-</span></span><span style="display:flex;"><span>        NSColor.defaultScrollerLeft.<span style="color:#66d9ef">set</span>()
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> rect = CGRect(x: <span style="color:#ae81ff">0</span>, y: <span style="color:#ae81ff">0</span>, width: <span style="color:#ae81ff">1</span>, height: slotRect.height)
-</span></span><span style="display:flex;"><span>        rect.fill()
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#57606a">// 同じにすると境界がわからなくなるのでボーダー独自に描くようにする</span>
+</span></span><span style="display:flex;"><span>        NSColor<span style="color:#1f2328">.</span>defaultScrollerLeft<span style="color:#1f2328">.</span><span style="color:#cf222e">set</span><span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">let</span> <span style="color:#953800">rect</span> <span style="color:#1f2328">=</span> CGRect<span style="color:#1f2328">(</span>x<span style="color:#1f2328">:</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> y<span style="color:#1f2328">:</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span> width<span style="color:#1f2328">:</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> height<span style="color:#1f2328">:</span> slotRect<span style="color:#1f2328">.</span>height<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        rect<span style="color:#1f2328">.</span>fill<span style="color:#1f2328">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NoteListScrollView</span>: NSScrollView {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">required</span> <span style="color:#66d9ef">init</span>?(coder: NSCoder) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(coder: coder)
-</span></span><span style="display:flex;"><span>        verticalScroller = NoteListVerticalScroller(frame: verticalScroller!.frame)
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#cf222e">class</span> <span style="color:#1f2328">NoteListScrollView</span><span style="color:#1f2328">:</span> NSScrollView <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">required</span> <span style="color:#cf222e">init</span><span style="color:#1f2328">?(</span>coder<span style="color:#1f2328">:</span> NSCoder<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">super</span><span style="color:#1f2328">.</span><span style="color:#cf222e">init</span><span style="color:#1f2328">(</span>coder<span style="color:#1f2328">:</span> coder<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>        verticalScroller <span style="color:#1f2328">=</span> NoteListVerticalScroller<span style="color:#1f2328">(</span>frame<span style="color:#1f2328">:</span> verticalScroller<span style="color:#1f2328">!.</span>frame<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><h1 id="まとめ">まとめ</h1>
 <p><strong>Darkは正義</strong></p>
 <p>とにかくかっこいいし、メモして快適なので我ながら対応してよかった。</p>
@@ -287,6 +287,7 @@ Darkは正義" />
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 
 </body>
 </html>

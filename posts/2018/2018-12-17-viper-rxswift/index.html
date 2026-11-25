@@ -440,17 +440,17 @@ class ProjectInfoProvider: BaseProvider {
 </code></pre><h3 id="entity">Entity</h3>
 <p>Entityはそこまでこだわりのある実装はしていません。Viewがその情報を表示させやすいようにデータ構造作ってあげています。
 基本はDBの構造になっているものがほとんどです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Project</span>: Codable, PaginationResponseProtocol {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> id: Int64 = <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> user: User
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> body = <span style="color:#e6db74">&#34;&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>    <span style="color:#cf222e">struct</span> <span style="color:#1f2328">Project</span><span style="color:#1f2328">:</span> Codable<span style="color:#1f2328">,</span> PaginationResponseProtocol <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> <span style="color:#953800">id</span><span style="color:#1f2328">:</span> <span style="color:#6639ba">Int64</span> <span style="color:#1f2328">=</span> <span style="color:#0550ae">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> <span style="color:#953800">user</span><span style="color:#1f2328">:</span> User
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">var</span> <span style="color:#953800">body</span> <span style="color:#1f2328">=</span> <span style="color:#0a3069">&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">CodingKeys</span>: String, CodingKey {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> id
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> user
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> body
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">enum</span> <span style="color:#1f2328">CodingKeys</span><span style="color:#1f2328">:</span> <span style="color:#6639ba">String</span><span style="color:#1f2328">,</span> CodingKey <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">case</span> id
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">case</span> user
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">case</span> body
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span></code></pre></div><h3 id="view">View</h3>
 <p>ViewではPresenterから受け取った情報・イベントをどのようにしてそれぞれのUIコンポーネントに伝えるかという実装と、Presenterで必要なイベント(どのタイミングで情報取得してもらうのか)という実装をしています。
 行なっていることとしては以下になります。</p>
@@ -577,6 +577,7 @@ class ProjectInfoProvider: BaseProvider {
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 
 </body>
 </html>

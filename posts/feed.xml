@@ -9,7 +9,7 @@
         
         <copyright>nakajijapan All rights reserved.</copyright>
         
-        <lastBuildDate>Mon, 26 Oct 2026 17:09:01 +0900</lastBuildDate>
+        <lastBuildDate>Tue, 24 Nov 2026 06:17:29 +0900</lastBuildDate>
         
         
         
@@ -17,7 +17,23 @@
         
         
         <item>
-            <title>プレミアムバンダイがんれ〜</title>
+            <title>Tamashii Nation 2026に行ってきた。</title>
+            <link>http://nakajijapan.github.io/posts/2026/tamashii-nation-2026/</link>
+            <pubDate>Tue, 24 Nov 2026 06:17:29 +0900</pubDate>
+            
+            <guid>http://nakajijapan.github.io/posts/2026/tamashii-nation-2026/</guid>
+            <description>&lt;h1 id=&#34;きっかけ&#34;&gt;きっかけ&lt;/h1&gt;
+&lt;!-- 何が気になったのか、何に困ったのかを書く --&gt;
+&lt;h1 id=&#34;やったこと&#34;&gt;やったこと&lt;/h1&gt;
+&lt;!-- 実際に試したこと、見たもの、使ったものを書く --&gt;
+&lt;h1 id=&#34;使ってみて&#34;&gt;使ってみて&lt;/h1&gt;
+&lt;!-- 良かった点と、まだ残る不便を書く --&gt;
+&lt;h1 id=&#34;次&#34;&gt;次&lt;/h1&gt;
+&lt;!-- 次に試したいことを書く --&gt;</description>
+        </item>
+        
+        <item>
+            <title>プレミアムバンダイがんばれ〜</title>
             <link>http://nakajijapan.github.io/posts/2026/post-170901/</link>
             <pubDate>Mon, 26 Oct 2026 17:09:01 +0900</pubDate>
             
@@ -554,111 +570,6 @@ GPS対応で、Bluetooth・ANT+両対応なのでセンサー類との接続も�
 このイベント特別の商品もある。それはストライクフリーダムガンダムとディスティニーガンダム。これは受注販売ではなく、抽選販売となっているものだ。自分としてはずっとガンダムSDガンダムSEEDA DESTINYを見てきた人間としてめちゃくちゃ欲しいものだ本当に欲しいのだ。抽選販売は数回に分けてやることになるが、自分は2つとも欲しかったものの、最後の最後で購入ができず1つのみ。それはディスティニーガンダムのみとなった。とても悔しく思っている。夢としては2つ飾ってお店の展示されていたような感じで家でも楽しみたかったものだ。まぁこれは仕方ないのでメルカリ等のC2Cアプリで見つけていくしかないなと思った。&lt;/p&gt;
 &lt;p&gt;その他の商品としては、ガンダムダブルオーの0オークアンタフルセイバーだ。これは購入ができたとは言っても家に届くのは11月となってまだまだ先となるがとても楽しみだ。&lt;/p&gt;
 &lt;p&gt;というわけで、メタルギルドの作る。裏側も学びになったり、どういったこだわりを持って開発をしているのかと言うのも知れて、本当に学びになった。また、展示されたもの全て本当にかっこいいものであり、どれも欲しいものばかりだった。本当に物欲がものすごく刺激された商品ばかりだ。その中で本当に良かったものは、購入もある程度できたので、本当に満足のいくイベントだった。&lt;/p&gt;</description>
-        </item>
-        
-        <item>
-            <title>Terraformで社内のインフラ環境(AWS)をコード化(IaC化)する</title>
-            <link>http://nakajijapan.github.io/posts/2024/terraform-piazza/</link>
-            <pubDate>Tue, 25 Jun 2024 12:06:56 +0900</pubDate>
-            
-            <guid>http://nakajijapan.github.io/posts/2024/terraform-piazza/</guid>
-            <description>&lt;p&gt;&lt;img src=&#34;http://nakajijapan.github.io/images/posts/2024/06-001.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;会社に入って、インフラの非効率さと管理の煩雑さに課題を感じていた。リソースや優先順位の制約があったが、改善の必要性を強く感じ、実務経験が浅い中でもTerraformを用いてIaC化に取り組むことを決意した。この取り組みを通じて得られた知見と成果を共有する。&lt;/p&gt;
-&lt;h1 id=&#34;現状&#34;&gt;現状&lt;/h1&gt;
-&lt;p&gt;2022年後半時点&lt;/p&gt;
-&lt;p&gt;一つのAWSアカウントに、すべての環境がセットアップされている状態だった。しかし、テスト段階のものやすでに利用されていないものが点在している状況。現状、どのサービスや設定が必須かどうかを判断する人がいないため、無駄なリソースが散在している。また、ビジネスの状況的に、メンバーがこの問題の改善にコミットすることが難しく、優先順位が低いとされている。&lt;/p&gt;
-&lt;p&gt;さらに、現在のプロダクトの構成は、少し過剰であったり、適切でない部分があるため、見直しが必要だった。さらには、あるミドルウェアを導入予定でもあり、検証するにも安心安全にそして迅速にできるかは不安ポイントであった。&lt;/p&gt;
-&lt;h1 id=&#34;課題&#34;&gt;課題&lt;/h1&gt;
-&lt;p&gt;このままにしておくと、以下の課題が発生する可能性が高まる。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;時間・費用面でのコスト増加&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;調査に時間がかかる。&lt;/li&gt;
-&lt;li&gt;不要なリソースを放置しているため、無駄な費用がかかる。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;運用負荷の増加&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;構成が複雑化・煩雑化しているため、シンプルに分離しておく必要がある。
-&lt;ul&gt;
-&lt;li&gt;環境を別々にすることで解消する。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;迅速な意思決定の阻害&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;アグレッシブにインフラの検証や新しい環境の構築が行えない。&lt;/li&gt;
-&lt;li&gt;何を削除し、変更すればよいかが分からず、理想の環境にするのが難しい。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;方針&#34;&gt;方針&lt;/h1&gt;
-&lt;p&gt;何を削除し、何を残すべきか、またどれを改善すべきかを判断するためには、現状を正確に把握する必要がある。そのために、以下の手順で進める。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;まず、現在の全ての環境設定をコード化して管理できる状態にする。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;現在、すべての環境が入り混ざっているproduction環境全体を、Infrastructure as Code (IaC)として管理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;次に、新しいAWSアカウントを構築し、現状のプロダクトに必要な環境だけを移行する。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;今ある環境をProductionにする&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Staging構築&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sandbox構築&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Productionにある不要な環境を削除していく。
-&lt;ul&gt;
-&lt;li&gt;Productionにあるstaging環境一式を削除。&lt;/li&gt;
-&lt;li&gt;Productionにあるsandbox環境一式を削除。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;これにより、以下の利点が得られる。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;各環境で不要な設定かどうかをチェックし、安心して削除が行える。&lt;/li&gt;
-&lt;li&gt;万が一間違えても、terraformで簡単にリカバリーが可能。&lt;/li&gt;
-&lt;li&gt;新しいサービスを導入する際も、sandboxで何度でも環境を再構築でき、安心して本番に導入できる。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;このようにして、メンバー全員が安心・安全・正確に運用できる状況を作り上げ、最終的に開発スピードを落とすことなくプロダクトを成長させることにコミットできる。&lt;/p&gt;
-&lt;p&gt;そのためにも、まずは、環境をIaC化するところから始めた。&lt;/p&gt;
-&lt;h1 id=&#34;やったこと&#34;&gt;やったこと&lt;/h1&gt;
-&lt;h2 id=&#34;ざっくり把握&#34;&gt;ざっくり把握&lt;/h2&gt;
-&lt;p&gt;基本中の基本ではあるがそれに変わるものがなかったのである程度把握したら、どういうサービスをどのように利用しているのかをドキュメントにまとめたり、アーキテクチャ図にしたりして、徐々に深掘りできる状態にした。&lt;/p&gt;
-&lt;h2 id=&#34;サポート状態を構築する&#34;&gt;サポート状態を構築する&lt;/h2&gt;
-&lt;p&gt;現状のメンバーで誰も把握できていないサービスを利用していたり、設定があったし、僕も完全に運用できる知見が少ないものもあったので以下の状況を構築した&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;徹底的にAWSのテクニカルサポートの人に聞く&lt;/li&gt;
-&lt;li&gt;コンサルしていただくメンバーを業務委託として迎え入れる&lt;/li&gt;
-&lt;li&gt;SREチームを発足して会社のインフラを把握し開発サイドに課題を取り込めるようにしたり、経営サイドに施策実行の提案など行える状態を作る。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;一括でできないかの調査&#34;&gt;一括でできないかの調査&lt;/h2&gt;
-&lt;p&gt;小さい構成ながら４、５年蔑ろにしてきたところはあるのでそれなりに設定はしてある状態。
-一つずつ設定をみて一個ずつimportしていくのは途方もなく時間がかかる。なるべくなら自動化できるところはしていきたい。一気にimportしていきたいところだった。&lt;/p&gt;
-&lt;aside class=&#34;callout&#34;&gt;
-  &lt;p class=&#34;title&#34;&gt;見つけたもの&lt;/p&gt;
-  &lt;p class=&#34;content&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://sfujiwara.hatenablog.com/entry/tfstate-merge&#34;&gt;複数の Terraform state を結合する tfstate-merge を書いて20個以上の state を大統一した - 酒日記 はてな支店&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;しかし、バージョンが現状利用しているものと異なるため、断念。
-tfstateのコピペができなそうだった。&lt;/p&gt;
-  &lt;/p&gt;
-&lt;/aside&gt;
-&lt;h3 id=&#34;代替案&#34;&gt;代替案&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/GoogleCloudPlatform/terraformer&#34;&gt;https://github.com/GoogleCloudPlatform/terraformer&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;これを使うとしてみた。
-これは指定したAWSアカウント、サービス別にコードとして一括ですべてコードにおとしこめるところ。
-懸念事項としては落とし込んだ時にtfstateも合わせて作成されるしようになっているところ。
-現状、リモートでtfstateを管理しているので、そちらに反映していかなければならない。
-ここは何かしらの対応が必要だ。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;手順&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;terraformerでコードに落とし込む&lt;/li&gt;
-&lt;li&gt;落とし込まれたコードからterraformのimportブロックを作成する。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;terraform import&lt;/code&gt;を実行して実際に反映させる。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;これでいけそうだ。&lt;/p&gt;</description>
         </item>
         
     </channel>

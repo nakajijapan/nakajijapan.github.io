@@ -177,9 +177,9 @@ ents/development.rb:10)
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  # Log error messages when you accidentally call methods on nil
-</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-  config.whiny_nils = true
-</span></span></span><span style="display:flex;"><span><span style="color:#f92672">-
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#82071e;background-color:#ffebe9">-  # Log error messages when you accidentally call methods on nil
+</span></span></span><span style="display:flex;"><span><span style="color:#82071e;background-color:#ffebe9">-  config.whiny_nils = true
+</span></span></span><span style="display:flex;"><span><span style="color:#82071e;background-color:#ffebe9">-
 </span></span></span></code></pre></div><h2 id="configeager_load-is-set-to-nil">config.eager_load is set to nil.</h2>
 <pre tabindex="0"><code>config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
 
@@ -200,8 +200,8 @@ If you want to expose your action to GET, use `get` in the router:
   Instead of: match &#34;controller#action&#34;
   Do: get &#34;controller#action&#34; (RuntimeError)
 </code></pre><p><code>match</code>の代わりにHTTPメソッドをちゃんと宣言しようぜ！っていうメッセージ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#f92672">-  match &#39;home&#39; =&gt; &#39;home#index&#39;, :via =&gt; :get
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">+  get &#39;home&#39; =&gt; &#39;home#index&#39;
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#82071e;background-color:#ffebe9">-  match &#39;home&#39; =&gt; &#39;home#index&#39;, :via =&gt; :get
+</span></span></span><span style="display:flex;"><span><span style="color:#116329;background-color:#dafbe1">+  get &#39;home&#39; =&gt; &#39;home#index&#39;
 </span></span></span></code></pre></div><p>なかんじで修正。</p>
 <p>これで起動はうまくいった。strong_parameterによる警告はあるけどこれは後ほど修正することにする。
 その後は、テストを流して全部通す。</p>
@@ -215,21 +215,21 @@ Hoge.where(user_id: @user.id).first
 </code></pre><h2 id="strong_parameter">strong_parameter</h2>
 <p>ここはひたすらcontroller側に制限の内容を記述。</p>
 <p>ホワイトリストとして許可するパラメータを記述していきます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">category_params</span>
-</span></span><span style="display:flex;"><span>      params<span style="color:#f92672">.</span>require(<span style="color:#e6db74">:category</span>)<span style="color:#f92672">.</span>permit(<span style="color:#e6db74">:user_id</span>, <span style="color:#e6db74">:name</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>  <span style="color:#cf222e">private</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">def</span> <span style="color:#6639ba">category_params</span>
+</span></span><span style="display:flex;"><span>      params<span style="color:#0550ae">.</span>require<span style="color:#1f2328">(</span><span style="color:#032f62">:category</span><span style="color:#1f2328">)</span><span style="color:#0550ae">.</span>permit<span style="color:#1f2328">(</span><span style="color:#032f62">:user_id</span><span style="color:#1f2328">,</span> <span style="color:#032f62">:name</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">end</span>
 </span></span></code></pre></div><h2 id="deprecation-warning-you-didnt-set-configsecret_key_base">DEPRECATION WARNING: You didn&rsquo;t set config.secret_key_base.</h2>
 <pre tabindex="0"><code>DEPRECATION WARNING: You didn&#39;t set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from env_config at /private/var/www/frustration/vendor/bundle/ruby/2.0.0/gems/railties-4.0.0/lib/rails/application.rb:141)
 </code></pre><p><code>secret_token</code>はもう推奨されていなくて<code>secret_key_base</code>に名前が変更されたようです。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> config<span style="color:#f92672">.</span>secret_key_base<span style="color:#f92672">.</span>blank?
-</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">ActiveSupport</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Deprecation</span><span style="color:#f92672">.</span>warn <span style="color:#e6db74">&#34;You didn&#39;t set config.secret_key_base. &#34;</span> <span style="color:#f92672">+</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Read the upgrade documentation to learn more about this new config option.&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>        <span style="color:#cf222e">if</span> config<span style="color:#0550ae">.</span>secret_key_base<span style="color:#0550ae">.</span>blank?
+</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">ActiveSupport</span><span style="color:#0550ae">::</span><span style="color:#0550ae">Deprecation</span><span style="color:#0550ae">.</span>warn <span style="color:#0a3069">&#34;You didn&#39;t set config.secret_key_base. &#34;</span> <span style="color:#0550ae">+</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0a3069">&#34;Read the upgrade documentation to learn more about this new config option.&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> config<span style="color:#f92672">.</span>secret_token<span style="color:#f92672">.</span>blank?
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#e6db74">&#34;You must set config.secret_key_base in your app&#39;s config.&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#cf222e">if</span> config<span style="color:#0550ae">.</span>secret_token<span style="color:#0550ae">.</span>blank?
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">raise</span> <span style="color:#0a3069">&#34;You must set config.secret_key_base in your app&#39;s config.&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#cf222e">end</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">end</span>
 </span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>これですべてテストがうまくいったのでPull Requestを自分に送ってfin.</p>
 <p><a href="https://github.com/nakajijapan/frustrationme_app/pulls">https://github.com/nakajijapan/frustrationme_app/pulls</a></p>
@@ -262,6 +262,7 @@ Hoge.where(user_id: @user.id).first
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 
 </body>
 </html>

@@ -235,130 +235,130 @@ end
 CoreBluetooth.framework
 </code></pre><h2 id="irkit-1">IRKit</h2>
 <p>ここでは、IRKit SDKを利用してシグナルを登録してテーブルのセルにボタンを追加する処理を行います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidLoad</span>
-</span></span><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#1f2328">-</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">)</span><span style="color:#6639ba">viewDidLoad</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(snip..)
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">(</span>snip<span style="color:#1f2328">..)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// find IRKit
-</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ([IRKit sharedInstance].countOfReadyPeripherals <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
-</span></span><span style="display:flex;"><span>        IRNewPeripheralViewController <span style="color:#f92672">*</span>vc <span style="color:#f92672">=</span> [[IRNewPeripheralViewController alloc] init];
-</span></span><span style="display:flex;"><span>        vc.delegate <span style="color:#f92672">=</span> self;
-</span></span><span style="display:flex;"><span>        [self presentViewController:vc
-</span></span><span style="display:flex;"><span>                           animated:YES
-</span></span><span style="display:flex;"><span>                         completion:<span style="color:#f92672">^</span>{
-</span></span><span style="display:flex;"><span>                             NSLog(<span style="color:#e6db74">@&#34;presented&#34;</span>);
-</span></span><span style="display:flex;"><span>                         }];
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// find IRKit
+</span></span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">([</span>IRKit sharedInstance<span style="color:#1f2328">].</span>countOfReadyPeripherals <span style="color:#0550ae">==</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        IRNewPeripheralViewController <span style="color:#0550ae">*</span>vc <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>IRNewPeripheralViewController alloc<span style="color:#1f2328">]</span> init<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>        vc<span style="color:#1f2328">.</span>delegate <span style="color:#0550ae">=</span> <span style="color:#6639ba">self</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">[</span><span style="color:#6639ba">self</span> <span style="color:#900;font-weight:bold">presentViewController</span><span style="color:#1f2328">:</span>vc
+</span></span><span style="display:flex;"><span>                           <span style="color:#900;font-weight:bold">animated</span><span style="color:#1f2328">:</span><span style="color:#6639ba">YES</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#900;font-weight:bold">completion</span><span style="color:#1f2328">:</span><span style="color:#0550ae">^</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                             NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;presented&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#1f2328">}];</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#f92672">*</span>tmpSignals <span style="color:#f92672">=</span> [[IRSignals alloc] init];
+</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#0550ae">*</span>tmpSignals <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>IRSignals alloc<span style="color:#1f2328">]</span> init<span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// and add a signal to the collection
-</span></span></span><span style="display:flex;"><span>    [tmpSignals loadFromStandardUserDefaultsKey:<span style="color:#e6db74">@&#34;xxxxxxxxxxxxxxxxxxxxxx&#34;</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#57606a">// and add a signal to the collection
+</span></span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>tmpSignals <span style="color:#900;font-weight:bold">loadFromStandardUserDefaultsKey</span><span style="color:#1f2328">:</span><span style="color:#0a3069">@&#34;xxxxxxxxxxxxxxxxxxxxxx&#34;</span><span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> [[tmpSignals signals] count]; i<span style="color:#f92672">++</span>) {
-</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#e6db74">@&#34;%@&#34;</span>, [[tmpSignals signals] objectAtIndex:i]);
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">for</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">int</span> i <span style="color:#0550ae">=</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">;</span> i <span style="color:#0550ae">&lt;</span> <span style="color:#1f2328">[[</span>tmpSignals signals<span style="color:#1f2328">]</span> count<span style="color:#1f2328">];</span> i<span style="color:#0550ae">++</span><span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;%@&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[[</span>tmpSignals signals<span style="color:#1f2328">]</span> <span style="color:#900;font-weight:bold">objectAtIndex</span><span style="color:#1f2328">:</span>i<span style="color:#1f2328">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><p><code>IRNewPeripheralViewControllerDelegate</code>で信号の登録が終了したときに呼ばれるメソッドの実装を行います。
 ここでは、ハード側で学習が完了した信号を<code>NSUserDefault</code>側でも保存させるようにしておきます。（実際にはそのシグナルを識別できるようにするためのハッシュ値のようなもの）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">#pragma mark - IRNewPeripheralViewControllerDelegate
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#57606a">#pragma mark - IRNewPeripheralViewControllerDelegate
 </span></span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">newSignalViewController:</span>(IRNewSignalViewController <span style="color:#f92672">*</span>)viewController
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">didFinishWithSignal:</span>(IRSignal <span style="color:#f92672">*</span>)signal {
-</span></span><span style="display:flex;"><span>    NSLog( <span style="color:#e6db74">@&#34;signal: %@&#34;</span>, signal );
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">-</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">)</span><span style="color:#6639ba">newSignalViewController:</span><span style="color:#1f2328">(</span>IRNewSignalViewController <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">viewController</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6639ba">didFinishWithSignal:</span><span style="color:#1f2328">(</span>IRSignal <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">signal</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    NSLog<span style="color:#1f2328">(</span> <span style="color:#0a3069">@&#34;signal: %@&#34;</span><span style="color:#1f2328">,</span> signal <span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (signal) {
-</span></span><span style="display:flex;"><span>        [_datasource addSignalsObject:signal];
-</span></span><span style="display:flex;"><span>        [_datasource.signals saveToStandardUserDefaultsWithKey:<span style="color:#e6db74">@&#34;SIGNALS&#34;</span>];
-</span></span><span style="display:flex;"><span>        [self.tableView reloadData];
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    [self dismissViewControllerAnimated:YES
-</span></span><span style="display:flex;"><span>                             completion:<span style="color:#f92672">^</span>{
-</span></span><span style="display:flex;"><span>                                 NSLog(<span style="color:#e6db74">@&#34;dismissed&#34;</span>);
-</span></span><span style="display:flex;"><span>                             }];
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>signal<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">[</span>_datasource <span style="color:#900;font-weight:bold">addSignalsObject</span><span style="color:#1f2328">:</span>signal<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">[</span>_datasource<span style="color:#1f2328">.</span>signals <span style="color:#900;font-weight:bold">saveToStandardUserDefaultsWithKey</span><span style="color:#1f2328">:</span><span style="color:#0a3069">@&#34;SIGNALS&#34;</span><span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">[</span><span style="color:#6639ba">self</span><span style="color:#1f2328">.</span>tableView reloadData<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span><span style="color:#6639ba">self</span> <span style="color:#900;font-weight:bold">dismissViewControllerAnimated</span><span style="color:#1f2328">:</span><span style="color:#6639ba">YES</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#900;font-weight:bold">completion</span><span style="color:#1f2328">:</span><span style="color:#0550ae">^</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                                 NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;dismissed&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#1f2328">}];</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#pragma mark - IRNewSignalViewControllerDelegate
+</span></span><span style="display:flex;"><span><span style="color:#57606a">#pragma mark - IRNewSignalViewControllerDelegate
 </span></span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">newPeripheralViewController:</span>(IRNewPeripheralViewController <span style="color:#f92672">*</span>)viewController
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">didFinishWithPeripheral:</span>(IRPeripheral <span style="color:#f92672">*</span>)peripheral {
-</span></span><span style="display:flex;"><span>    NSLog( <span style="color:#e6db74">@&#34;peripheral: %@&#34;</span>, peripheral );
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">-</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">)</span><span style="color:#6639ba">newPeripheralViewController:</span><span style="color:#1f2328">(</span>IRNewPeripheralViewController <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">viewController</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6639ba">didFinishWithPeripheral:</span><span style="color:#1f2328">(</span>IRPeripheral <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">peripheral</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    NSLog<span style="color:#1f2328">(</span> <span style="color:#0a3069">@&#34;peripheral: %@&#34;</span><span style="color:#1f2328">,</span> peripheral <span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    [self dismissViewControllerAnimated:YES
-</span></span><span style="display:flex;"><span>                             completion:<span style="color:#f92672">^</span>{
-</span></span><span style="display:flex;"><span>                                 NSLog(<span style="color:#e6db74">@&#34;dismissed&#34;</span>);
-</span></span><span style="display:flex;"><span>                             }];
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span><span style="color:#6639ba">self</span> <span style="color:#900;font-weight:bold">dismissViewControllerAnimated</span><span style="color:#1f2328">:</span><span style="color:#6639ba">YES</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#900;font-weight:bold">completion</span><span style="color:#1f2328">:</span><span style="color:#0550ae">^</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>                                 NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;dismissed&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#1f2328">}];</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><p>登録した信号を実行するときは以下のような実装で呼び出せるようになります。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">tableView:</span>(UITableView <span style="color:#f92672">*</span>)tableView <span style="color:#a6e22e">didSelectRowAtIndexPath:</span>(NSIndexPath <span style="color:#f92672">*</span>)indexPath {
-</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#e6db74">@&#34;indexPath: %@&#34;</span>, indexPath);
-</span></span><span style="display:flex;"><span>    [tableView deselectRowAtIndexPath:indexPath
-</span></span><span style="display:flex;"><span>                             animated:YES];
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#1f2328">-</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">)</span><span style="color:#6639ba">tableView:</span><span style="color:#1f2328">(</span>UITableView <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">tableView</span> <span style="color:#6639ba">didSelectRowAtIndexPath:</span><span style="color:#1f2328">(</span>NSIndexPath <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">indexPath</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;indexPath: %@&#34;</span><span style="color:#1f2328">,</span> indexPath<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>tableView <span style="color:#900;font-weight:bold">deselectRowAtIndexPath</span><span style="color:#1f2328">:</span>indexPath
+</span></span><span style="display:flex;"><span>                             <span style="color:#900;font-weight:bold">animated</span><span style="color:#1f2328">:</span><span style="color:#6639ba">YES</span><span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#f92672">*</span>signal <span style="color:#f92672">=</span> [_datasource objectAtIndex:indexPath.row];
+</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#0550ae">*</span>signal <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>_datasource <span style="color:#900;font-weight:bold">objectAtIndex</span><span style="color:#1f2328">:</span>indexPath<span style="color:#1f2328">.</span>row<span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    [signal sendWithCompletion:<span style="color:#f92672">^</span>(NSError <span style="color:#f92672">*</span>error) {
-</span></span><span style="display:flex;"><span>        NSLog(<span style="color:#e6db74">@&#34;sent error: %@&#34;</span>, error);
-</span></span><span style="display:flex;"><span>    }];
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>signal <span style="color:#900;font-weight:bold">sendWithCompletion</span><span style="color:#1f2328">:</span><span style="color:#0550ae">^</span><span style="color:#1f2328">(</span>NSError <span style="color:#0550ae">*</span>error<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;sent error: %@&#34;</span><span style="color:#1f2328">,</span> error<span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}];</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><h2 id="ibeacon">iBeacon</h2>
 <p>ここでは、ビーコンで領域を観測し出たか入ったかを監視して、IRKitに信号を送る処理を行います。</p>
 <p>まず、<code>ESTBeaconManager</code>をインスタンス化して<code>startMonitoringForRegion:</code> で監視を開始します。
 <code>startRangingBeaconsInRegion:</code>で距離の観測を開始します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidLoad</span>
-</span></span><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#1f2328">-</span> <span style="color:#1f2328">(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">)</span><span style="color:#6639ba">viewDidLoad</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(snip...)
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">(</span>snip<span style="color:#1f2328">...)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    self.beaconManager <span style="color:#f92672">=</span> [[ESTBeaconManager alloc] init];
-</span></span><span style="display:flex;"><span>    self.beaconManager.delegate <span style="color:#f92672">=</span> self;
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">self</span><span style="color:#1f2328">.</span>beaconManager <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>ESTBeaconManager alloc<span style="color:#1f2328">]</span> init<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6639ba">self</span><span style="color:#1f2328">.</span>beaconManager<span style="color:#1f2328">.</span>delegate <span style="color:#0550ae">=</span> <span style="color:#6639ba">self</span><span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    ESTBeaconRegion <span style="color:#f92672">*</span>region <span style="color:#f92672">=</span> [[ESTBeaconRegion alloc] initWithProximityUUID:MY_ESTIMOTE_PROXIMITY_UUID
-</span></span><span style="display:flex;"><span>                                                                       major:<span style="color:#ae81ff">36605</span>
-</span></span><span style="display:flex;"><span>                                                                       minor:<span style="color:#ae81ff">43679</span>
-</span></span><span style="display:flex;"><span>                                                                  identifier:<span style="color:#e6db74">@&#34;EstimoteSampleRegion&#34;</span>];
+</span></span><span style="display:flex;"><span>    ESTBeaconRegion <span style="color:#0550ae">*</span>region <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>ESTBeaconRegion alloc<span style="color:#1f2328">]</span> <span style="color:#900;font-weight:bold">initWithProximityUUID</span><span style="color:#1f2328">:</span>MY_ESTIMOTE_PROXIMITY_UUID
+</span></span><span style="display:flex;"><span>                                                                       <span style="color:#900;font-weight:bold">major</span><span style="color:#1f2328">:</span><span style="color:#0550ae">36605</span>
+</span></span><span style="display:flex;"><span>                                                                       <span style="color:#900;font-weight:bold">minor</span><span style="color:#1f2328">:</span><span style="color:#0550ae">43679</span>
+</span></span><span style="display:flex;"><span>                                                                  <span style="color:#900;font-weight:bold">identifier</span><span style="color:#1f2328">:</span><span style="color:#0a3069">@&#34;EstimoteSampleRegion&#34;</span><span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    [self.beaconManager startMonitoringForRegion:region];
-</span></span><span style="display:flex;"><span>    [self.beaconManager startRangingBeaconsInRegion:region];
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span><span style="color:#6639ba">self</span><span style="color:#1f2328">.</span>beaconManager <span style="color:#900;font-weight:bold">startMonitoringForRegion</span><span style="color:#1f2328">:</span>region<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span><span style="color:#6639ba">self</span><span style="color:#1f2328">.</span>beaconManager <span style="color:#900;font-weight:bold">startRangingBeaconsInRegion</span><span style="color:#1f2328">:</span>region<span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><p>位置情報を利用した領域観測の方法と同様に、ビーコン領域の出入りのイベントをハンドリングします。その処理内でIRKitへ信号の送信する処理を実行します。
 メソッドとしては、<code>locationManager:didEnterRegion:</code>と、<code>locationManager:didExitRegion:</code>をハンドリングして処理を行います。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>-(<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">beaconManager:</span>(ESTBeaconManager <span style="color:#f92672">*</span>)manager <span style="color:#a6e22e">didEnterRegion:</span>(ESTBeaconRegion <span style="color:#f92672">*</span>)region
-</span></span><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#1f2328">-(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">)</span><span style="color:#6639ba">beaconManager:</span><span style="color:#1f2328">(</span>ESTBeaconManager <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">manager</span> <span style="color:#6639ba">didEnterRegion:</span><span style="color:#1f2328">(</span>ESTBeaconRegion <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">region</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#f92672">*</span>signals <span style="color:#f92672">=</span> [[IRSignals alloc] init];
-</span></span><span style="display:flex;"><span>    [signals loadFromStandardUserDefaultsKey:<span style="color:#e6db74">@&#34;SIGNALS&#34;</span>];
-</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#f92672">*</span>signal <span style="color:#f92672">=</span> [signals objectAtIndex:<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#0550ae">*</span>signals <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>IRSignals alloc<span style="color:#1f2328">]</span> init<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>signals <span style="color:#900;font-weight:bold">loadFromStandardUserDefaultsKey</span><span style="color:#1f2328">:</span><span style="color:#0a3069">@&#34;SIGNALS&#34;</span><span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#0550ae">*</span>signal <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>signals <span style="color:#900;font-weight:bold">objectAtIndex</span><span style="color:#1f2328">:</span><span style="color:#0550ae">0</span><span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (signal) {
-</span></span><span style="display:flex;"><span>        [signal sendWithCompletion:<span style="color:#f92672">^</span>(NSError <span style="color:#f92672">*</span>error) {
-</span></span><span style="display:flex;"><span>            [self say:[NSString  stringWithFormat:<span style="color:#e6db74">@&#34;%@を実行しました。&#34;</span>, signal.name]];
-</span></span><span style="display:flex;"><span>        }];
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>signal<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">[</span>signal <span style="color:#900;font-weight:bold">sendWithCompletion</span><span style="color:#1f2328">:</span><span style="color:#0550ae">^</span><span style="color:#1f2328">(</span>NSError <span style="color:#0550ae">*</span>error<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">[</span><span style="color:#6639ba">self</span> <span style="color:#900;font-weight:bold">say</span><span style="color:#1f2328">:[</span>NSString  <span style="color:#900;font-weight:bold">stringWithFormat</span><span style="color:#1f2328">:</span><span style="color:#0a3069">@&#34;%@を実行しました。&#34;</span><span style="color:#1f2328">,</span> signal<span style="color:#1f2328">.</span>name<span style="color:#1f2328">]];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#e6db74">@&#34;beaconの近くに入りました。&#34;</span>);
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;beaconの近くに入りました。&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>-(<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">beaconManager:</span>(ESTBeaconManager <span style="color:#f92672">*</span>)manager <span style="color:#a6e22e">didExitRegion:</span>(ESTBeaconRegion <span style="color:#f92672">*</span>)region
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#f92672">*</span>signals <span style="color:#f92672">=</span> [[IRSignals alloc] init];
-</span></span><span style="display:flex;"><span>    [signals loadFromStandardUserDefaultsKey:<span style="color:#e6db74">@&#34;SIGNALS&#34;</span>];
-</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#f92672">*</span>signal <span style="color:#f92672">=</span> [signals objectAtIndex:<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">-(</span><span style="color:#cf222e">void</span><span style="color:#1f2328">)</span><span style="color:#6639ba">beaconManager:</span><span style="color:#1f2328">(</span>ESTBeaconManager <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">manager</span> <span style="color:#6639ba">didExitRegion:</span><span style="color:#1f2328">(</span>ESTBeaconRegion <span style="color:#0550ae">*</span><span style="color:#1f2328">)</span><span style="color:#953800">region</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    IRSignals <span style="color:#0550ae">*</span>signals <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>IRSignals alloc<span style="color:#1f2328">]</span> init<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>signals <span style="color:#900;font-weight:bold">loadFromStandardUserDefaultsKey</span><span style="color:#1f2328">:</span><span style="color:#0a3069">@&#34;SIGNALS&#34;</span><span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    IRSignal <span style="color:#0550ae">*</span>signal <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>signals <span style="color:#900;font-weight:bold">objectAtIndex</span><span style="color:#1f2328">:</span><span style="color:#0550ae">1</span><span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (signal) {
-</span></span><span style="display:flex;"><span>        [signal sendWithCompletion:<span style="color:#f92672">^</span>(NSError <span style="color:#f92672">*</span>error) {
-</span></span><span style="display:flex;"><span>            [self say:[NSString  stringWithFormat:<span style="color:#e6db74">@&#34;%@を実行しました。&#34;</span>, signal.name]];
-</span></span><span style="display:flex;"><span>        }];
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">if</span> <span style="color:#1f2328">(</span>signal<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">[</span>signal <span style="color:#900;font-weight:bold">sendWithCompletion</span><span style="color:#1f2328">:</span><span style="color:#0550ae">^</span><span style="color:#1f2328">(</span>NSError <span style="color:#0550ae">*</span>error<span style="color:#1f2328">)</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#1f2328">[</span><span style="color:#6639ba">self</span> <span style="color:#900;font-weight:bold">say</span><span style="color:#1f2328">:[</span>NSString  <span style="color:#900;font-weight:bold">stringWithFormat</span><span style="color:#1f2328">:</span><span style="color:#0a3069">@&#34;%@を実行しました。&#34;</span><span style="color:#1f2328">,</span> signal<span style="color:#1f2328">.</span>name<span style="color:#1f2328">]];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    NSLog(<span style="color:#e6db74">@&#34;beaconから離れました。&#34;</span>);
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>    NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;beaconから離れました。&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
 </span></span></code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>これで上記の仕様が実現できます。
 今回の実装はまだIRKitにしてもEstimote Beaconsにしてもさわりの部分しか実装していないのですが、他の仕様も合わせたりするとまだまだ面白いことでできるかと思います。
@@ -391,6 +391,7 @@ CoreBluetooth.framework
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 
 </body>
 </html>

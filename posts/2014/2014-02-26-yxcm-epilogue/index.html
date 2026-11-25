@@ -43,7 +43,27 @@ code template
 mkdir -p ~/Library/Developer/Xcode/Templates/File Templates
 cd    ~/Library/Developer/Xcode/Templates/File Templates
 cp /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/* .
-File TemplatesいかにCocoa Touchディレクトリがあるのですが自分がカスタマイズしたものだよとわかるようにMy Cocoa Touchとか作成してみる。" />
+File TemplatesいかにCocoa Touchディレクトリがあるのですが自分がカスタマイズしたものだよとわかるようにMy Cocoa Touchとか作成してみる。
+ファイルを作成するときにオプションで以下のような設定をするとオプションでテンプレートを利用するかしないか決定できるようです。Objective-C class.xctemplate/TemplateInfo.plistファイルで設定するのですがXML形式なっているのでそこのOptions以下に新しい設定を追加します。
+    &lt;dict&gt;
+      &lt;key&gt;Default&lt;/key&gt;
+      &lt;string&gt;false&lt;/string&gt;
+      &lt;key&gt;Identifier&lt;/key&gt;
+      &lt;string&gt;Nakajijapan&lt;/string&gt;
+      &lt;key&gt;Name&lt;/key&gt;
+      &lt;string&gt;Nakajijapan&lt;/string&gt;
+      &lt;key&gt;RequiredOptions&lt;/key&gt;
+      &lt;dict&gt;
+          &lt;key&gt;cocoaTouchSubclass&lt;/key&gt;
+          &lt;array&gt;
+            &lt;string&gt;NSObject&lt;/string&gt;
+            &lt;string&gt;UIViewController&lt;/string&gt;
+          &lt;/array&gt;
+      &lt;/dict&gt;
+      &lt;key&gt;Type&lt;/key&gt;
+      &lt;string&gt;checkbox&lt;/string&gt;
+    &lt;/dict&gt;
+NSObject/___FILENAME___.hを上書きしてもよいのですが、念のため自分用に作成しておきましょう。NSObjectNakajijapan/___FILENAME___.hな感じで。（suffixは適当です。。。）" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -88,7 +108,27 @@ code template
 mkdir -p ~/Library/Developer/Xcode/Templates/File Templates
 cd    ~/Library/Developer/Xcode/Templates/File Templates
 cp /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates/* .
-File TemplatesいかにCocoa Touchディレクトリがあるのですが自分がカスタマイズしたものだよとわかるようにMy Cocoa Touchとか作成してみる。" />
+File TemplatesいかにCocoa Touchディレクトリがあるのですが自分がカスタマイズしたものだよとわかるようにMy Cocoa Touchとか作成してみる。
+ファイルを作成するときにオプションで以下のような設定をするとオプションでテンプレートを利用するかしないか決定できるようです。Objective-C class.xctemplate/TemplateInfo.plistファイルで設定するのですがXML形式なっているのでそこのOptions以下に新しい設定を追加します。
+    &lt;dict&gt;
+      &lt;key&gt;Default&lt;/key&gt;
+      &lt;string&gt;false&lt;/string&gt;
+      &lt;key&gt;Identifier&lt;/key&gt;
+      &lt;string&gt;Nakajijapan&lt;/string&gt;
+      &lt;key&gt;Name&lt;/key&gt;
+      &lt;string&gt;Nakajijapan&lt;/string&gt;
+      &lt;key&gt;RequiredOptions&lt;/key&gt;
+      &lt;dict&gt;
+          &lt;key&gt;cocoaTouchSubclass&lt;/key&gt;
+          &lt;array&gt;
+            &lt;string&gt;NSObject&lt;/string&gt;
+            &lt;string&gt;UIViewController&lt;/string&gt;
+          &lt;/array&gt;
+      &lt;/dict&gt;
+      &lt;key&gt;Type&lt;/key&gt;
+      &lt;string&gt;checkbox&lt;/string&gt;
+    &lt;/dict&gt;
+NSObject/___FILENAME___.hを上書きしてもよいのですが、念のため自分用に作成しておきましょう。NSObjectNakajijapan/___FILENAME___.hな感じで。（suffixは適当です。。。）" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -198,14 +238,14 @@ File TemplatesいかにCocoa Touchディレクトリがあるのですが自分�
 <p>そうすると<code>My Code Snippet</code>が出来上がるのでそれを適当に編集すると終わりです。
 作成されたSnippetは<code>/Users/username/Library/Developer/Xcode/UserData/CodeSnippets/</code>いかに保存されます。</p>
 <p>試しにUIAlertViewをいれてみました。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    UIAlertView <span style="color:#f92672">*</span>alertView <span style="color:#f92672">=</span> [[UIAlertView alloc] initWithTitle : NSLocalizedString(<span style="color:#e6db74">@&#34;Title&#34;</span>, nil)
-</span></span><span style="display:flex;"><span>                                                        message : NSLocalizedString(<span style="color:#e6db74">@&#34;Message&#34;</span>, nil)
-</span></span><span style="display:flex;"><span>                                                       delegate : self
-</span></span><span style="display:flex;"><span>                                              cancelButtonTitle : NSLocalizedString(<span style="color:#e6db74">@&#34;OK&#34;</span>, nil)
-</span></span><span style="display:flex;"><span>                                              otherButtonTitles : nil
-</span></span><span style="display:flex;"><span>                              ];
-</span></span><span style="display:flex;"><span>    [alertView setTag:<span style="color:#ae81ff">1</span>];
-</span></span><span style="display:flex;"><span>    [alertView show];
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>    UIAlertView <span style="color:#0550ae">*</span>alertView <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>UIAlertView alloc<span style="color:#1f2328">]</span> <span style="color:#900;font-weight:bold">initWithTitle</span> <span style="color:#1f2328">:</span> NSLocalizedString<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;Title&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">nil</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>                                                        <span style="color:#900;font-weight:bold">message</span> <span style="color:#1f2328">:</span> NSLocalizedString<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;Message&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">nil</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>                                                       <span style="color:#900;font-weight:bold">delegate</span> <span style="color:#1f2328">:</span> <span style="color:#6639ba">self</span>
+</span></span><span style="display:flex;"><span>                                              <span style="color:#900;font-weight:bold">cancelButtonTitle</span> <span style="color:#1f2328">:</span> NSLocalizedString<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;OK&#34;</span><span style="color:#1f2328">,</span> <span style="color:#6639ba">nil</span><span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>                                              <span style="color:#900;font-weight:bold">otherButtonTitles</span> <span style="color:#1f2328">:</span> <span style="color:#6639ba">nil</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>alertView <span style="color:#900;font-weight:bold">setTag</span><span style="color:#1f2328">:</span><span style="color:#0550ae">1</span><span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">[</span>alertView show<span style="color:#1f2328">];</span>
 </span></span></code></pre></div><p>Objective-Cって結構冗長になりがちなので、よく利用するものは登録しておくとよさそう。</p>
 <h2 id="code-template">code template</h2>
 <p>よくファイルを作成するときにはデフォルトでその親クラスに合わせたコードなりヘッダコメントなりテンプレートを作成してくれるのですが、カスタマイズしたくなったときは<code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File Templates</code>にいっぱいテンプレートが用意されています。これを自分のディレクトリにコピーして利用するといいです。</p>
@@ -316,6 +356,7 @@ Appleが未だ実現されていない機能を先に作れ</p>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 
 </body>
 </html>

@@ -44,7 +44,16 @@ AVMutableCompositionTrack* compositionVideoTrack;
 mixComposition = [AVMutableComposition composition];
 compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
 AVMutableVideoComposition
-AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。" />
+AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。
+compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+
+[compositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, timeDuration)
+                               ofTrack:_videoTrack
+                                atTime:kCMTimeZero
+                                 error:nil];
+[compositionVideoTrack setPreferredTransform:[videoTrack preferredTransform]];
+AVMutableVideoCompositionLayerInstruction
+アセットのトラックに対して回転、透過度、クロッピングができます。" />
 <meta property="og:site_name" content="おじさんは生きている"/>
 
 
@@ -90,7 +99,16 @@ AVMutableCompositionTrack* compositionVideoTrack;
 mixComposition = [AVMutableComposition composition];
 compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
 AVMutableVideoComposition
-AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。" />
+AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。
+compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+
+[compositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, timeDuration)
+                               ofTrack:_videoTrack
+                                atTime:kCMTimeZero
+                                 error:nil];
+[compositionVideoTrack setPreferredTransform:[videoTrack preferredTransform]];
+AVMutableVideoCompositionLayerInstruction
+アセットのトラックに対して回転、透過度、クロッピングができます。" />
 
 <link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -193,77 +211,77 @@ AVMutableCompositionで新しいトラックを追加したときに返り値と
 <p>では実際にどう実装していけばいいかなのですが、そのために結構なクラスを利用するのでそれぞれざっくり説明していきます。</p>
 <h3 id="avasset">AVAsset</h3>
 <p>iPodや写真ライブラリのメディア情報をオブジェクトとして保持することができ、これからいろんなの情報を切り出して取得すること ができます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVAsset<span style="color:#f92672">*</span>                   videoAsset;
-</span></span><span style="display:flex;"><span>videoAsset <span style="color:#f92672">=</span> [[AVURLAsset alloc] initWithURL:movieUrl options:nil];
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVAsset<span style="color:#0550ae">*</span>                   videoAsset<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>videoAsset <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>AVURLAsset alloc<span style="color:#1f2328">]</span> <span style="color:#900;font-weight:bold">initWithURL</span><span style="color:#1f2328">:</span>movieUrl <span style="color:#900;font-weight:bold">options</span><span style="color:#1f2328">:</span><span style="color:#6639ba">nil</span><span style="color:#1f2328">];</span>
 </span></span></code></pre></div><h3 id="avassettrack">AVAssetTrack</h3>
 <p>アセットの情報からトラックレベルで切り出した情報。（うまく翻訳できなかった・・・） 例えば、アセットから動画と音声に切り分ける。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVAsset<span style="color:#f92672">*</span>                   videoAsset;
-</span></span><span style="display:flex;"><span>AVAssetTrack<span style="color:#f92672">*</span>              videoTrack;
-</span></span><span style="display:flex;"><span>AVAssetTrack<span style="color:#f92672">*</span>              audioTrack;
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVAsset<span style="color:#0550ae">*</span>                   videoAsset<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>AVAssetTrack<span style="color:#0550ae">*</span>              videoTrack<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>AVAssetTrack<span style="color:#0550ae">*</span>              audioTrack<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>videoAsset <span style="color:#f92672">=</span> [[AVURLAsset alloc] initWithURL:movieUrl options:nil];
+</span></span><span style="display:flex;"><span>videoAsset <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>AVURLAsset alloc<span style="color:#1f2328">]</span> <span style="color:#900;font-weight:bold">initWithURL</span><span style="color:#1f2328">:</span>movieUrl <span style="color:#900;font-weight:bold">options</span><span style="color:#1f2328">:</span><span style="color:#6639ba">nil</span><span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// アセットからトラックを取得
-</span></span></span><span style="display:flex;"><span>videoTrack <span style="color:#f92672">=</span> [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:<span style="color:#ae81ff">0</span>];
-</span></span><span style="display:flex;"><span>audioTrack <span style="color:#f92672">=</span> [[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// アセットからトラックを取得
+</span></span></span><span style="display:flex;"><span>videoTrack <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>videoAsset <span style="color:#900;font-weight:bold">tracksWithMediaType</span><span style="color:#1f2328">:</span>AVMediaTypeVideo<span style="color:#1f2328">]</span> <span style="color:#900;font-weight:bold">objectAtIndex</span><span style="color:#1f2328">:</span><span style="color:#0550ae">0</span><span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>audioTrack <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>videoAsset <span style="color:#900;font-weight:bold">tracksWithMediaType</span><span style="color:#1f2328">:</span>AVMediaTypeAudio<span style="color:#1f2328">]</span> <span style="color:#900;font-weight:bold">objectAtIndex</span><span style="color:#1f2328">:</span><span style="color:#0550ae">0</span><span style="color:#1f2328">];</span>
 </span></span></code></pre></div><h3 id="avmutablecompositiontrack">AVMutableCompositionTrack</h3>
 <p>様々なメディア情報を結合したものです。このクラスで様々に編集された動画や音声を結合したり、時間の制御をしたり するクラスです。最終的にAVAssetExportSessionに渡してエキスポート処理（実際にファイルに保存する）します。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVMutableComposition<span style="color:#f92672">*</span>      mixComposition;
-</span></span><span style="display:flex;"><span>AVMutableCompositionTrack<span style="color:#f92672">*</span> compositionVideoTrack;
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>AVMutableComposition<span style="color:#0550ae">*</span>      mixComposition<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>AVMutableCompositionTrack<span style="color:#0550ae">*</span> compositionVideoTrack<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// コンポジション作成
-</span></span></span><span style="display:flex;"><span>mixComposition <span style="color:#f92672">=</span> [AVMutableComposition composition];
-</span></span><span style="display:flex;"><span>compositionVideoTrack <span style="color:#f92672">=</span> [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// コンポジション作成
+</span></span></span><span style="display:flex;"><span>mixComposition <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>AVMutableComposition composition<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>compositionVideoTrack <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>mixComposition <span style="color:#900;font-weight:bold">addMutableTrackWithMediaType</span><span style="color:#1f2328">:</span>AVMediaTypeVideo <span style="color:#900;font-weight:bold">preferredTrackID</span><span style="color:#1f2328">:</span>kCMPersistentTrackID_Invalid<span style="color:#1f2328">];</span>
 </span></span></code></pre></div><h3 id="avmutablevideocomposition">AVMutableVideoComposition</h3>
 <p>AVMutableCompositionで新しいトラックを追加したときに返り値としてとれるもです。追加されたオブジェクトの参照で空のトラックって感じなんでしょうか。 ここに実際のメディア情報を入れていきます。メディアタイプで動画とか音声とか格納することができます。あと、この動画の何秒 から何秒間を何秒目に結合させるとかできたりします。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>compositionVideoTrack <span style="color:#f92672">=</span> [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>compositionVideoTrack <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>mixComposition <span style="color:#900;font-weight:bold">addMutableTrackWithMediaType</span><span style="color:#1f2328">:</span>AVMediaTypeVideo <span style="color:#900;font-weight:bold">preferredTrackID</span><span style="color:#1f2328">:</span>kCMPersistentTrackID_Invalid<span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[compositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, timeDuration)
-</span></span><span style="display:flex;"><span>                               ofTrack:_videoTrack
-</span></span><span style="display:flex;"><span>                                atTime:kCMTimeZero
-</span></span><span style="display:flex;"><span>                                 error:nil];
-</span></span><span style="display:flex;"><span>[compositionVideoTrack setPreferredTransform:[videoTrack preferredTransform]];
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span>compositionVideoTrack <span style="color:#900;font-weight:bold">insertTimeRange</span><span style="color:#1f2328">:</span>CMTimeRangeMake<span style="color:#1f2328">(</span>kCMTimeZero<span style="color:#1f2328">,</span> timeDuration<span style="color:#1f2328">)</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#900;font-weight:bold">ofTrack</span><span style="color:#1f2328">:</span>_videoTrack
+</span></span><span style="display:flex;"><span>                                <span style="color:#900;font-weight:bold">atTime</span><span style="color:#1f2328">:</span>kCMTimeZero
+</span></span><span style="display:flex;"><span>                                 <span style="color:#900;font-weight:bold">error</span><span style="color:#1f2328">:</span><span style="color:#6639ba">nil</span><span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span>compositionVideoTrack <span style="color:#900;font-weight:bold">setPreferredTransform</span><span style="color:#1f2328">:[</span>videoTrack preferredTransform<span style="color:#1f2328">]];</span>
 </span></span></code></pre></div><h3 id="avmutablevideocompositionlayerinstruction">AVMutableVideoCompositionLayerInstruction</h3>
 <p>アセットのトラックに対して回転、透過度、クロッピングができます。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#75715e">// ここでは動画を小さくして指定の位置へ移動させてます。
-</span></span></span><span style="display:flex;"><span>CGAffineTransform scale      <span style="color:#f92672">=</span> CGAffineTransformMakeScale(<span style="color:#ae81ff">0.30f</span>, <span style="color:#ae81ff">0.30f</span>);
-</span></span><span style="display:flex;"><span>CGAffineTransform trnsration <span style="color:#f92672">=</span> CGAffineTransformMakeTranslation(<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">406</span>);
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span><span style="color:#57606a">// ここでは動画を小さくして指定の位置へ移動させてます。
+</span></span></span><span style="display:flex;"><span>CGAffineTransform scale      <span style="color:#0550ae">=</span> CGAffineTransformMakeScale<span style="color:#1f2328">(</span><span style="color:#0550ae">0.30f</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">0.30f</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>CGAffineTransform trnsration <span style="color:#0550ae">=</span> CGAffineTransformMakeTranslation<span style="color:#1f2328">(</span><span style="color:#0550ae">30</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">406</span><span style="color:#1f2328">);</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>AVMutableVideoCompositionLayerInstruction<span style="color:#f92672">*</span> _layerInstruction;
-</span></span><span style="display:flex;"><span>_layerInstruction <span style="color:#f92672">=</span> [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:_compositionVideoTrack];
-</span></span><span style="display:flex;"><span>[_layerInstruction setTransform:CGAffineTransformConcat(scale, trnsration) atTime:kCMTimeZero];
+</span></span><span style="display:flex;"><span>AVMutableVideoCompositionLayerInstruction<span style="color:#0550ae">*</span> _layerInstruction<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>_layerInstruction <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>AVMutableVideoCompositionLayerInstruction <span style="color:#900;font-weight:bold">videoCompositionLayerInstructionWithAssetTrack</span><span style="color:#1f2328">:</span>_compositionVideoTrack<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span>_layerInstruction <span style="color:#900;font-weight:bold">setTransform</span><span style="color:#1f2328">:</span>CGAffineTransformConcat<span style="color:#1f2328">(</span>scale<span style="color:#1f2328">,</span> trnsration<span style="color:#1f2328">)</span> <span style="color:#900;font-weight:bold">atTime</span><span style="color:#1f2328">:</span>kCMTimeZero<span style="color:#1f2328">];</span>
 </span></span></code></pre></div><hr>
 <h3 id="avassetexportsession">AVAssetExportSession</h3>
 <p>さまざまなアセット情報を利用して指定されたフォーマットに変換したり動画のトリミングを行います。 例えば、mov形式、720x720サイズでファイルに保存させたりで</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>videoComp <span style="color:#f92672">=</span> [AVMutableVideoComposition videoComposition];
-</span></span><span style="display:flex;"><span>videoComp.renderSize    <span style="color:#f92672">=</span> CGSizeMake(<span style="color:#ae81ff">720</span>, <span style="color:#ae81ff">720</span>);
-</span></span><span style="display:flex;"><span>videoComp.frameDuration <span style="color:#f92672">=</span> CMTimeMake(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">24</span>); <span style="color:#75715e">// framerate
+<div class="highlight"><pre tabindex="0" style="background-color:#f7f7f7;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-obj-c" data-lang="obj-c"><span style="display:flex;"><span>videoComp <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>AVMutableVideoComposition videoComposition<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>videoComp<span style="color:#1f2328">.</span>renderSize    <span style="color:#0550ae">=</span> CGSizeMake<span style="color:#1f2328">(</span><span style="color:#0550ae">720</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">720</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>videoComp<span style="color:#1f2328">.</span>frameDuration <span style="color:#0550ae">=</span> CMTimeMake<span style="color:#1f2328">(</span><span style="color:#0550ae">1</span><span style="color:#1f2328">,</span> <span style="color:#0550ae">24</span><span style="color:#1f2328">);</span> <span style="color:#57606a">// framerate
 </span></span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// AVCompositionをベースにAVAssetExportを生成
-</span></span></span><span style="display:flex;"><span>assetExportSession <span style="color:#f92672">=</span> [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPreset1280x720];
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// AVCompositionをベースにAVAssetExportを生成
+</span></span></span><span style="display:flex;"><span>assetExportSession <span style="color:#0550ae">=</span> <span style="color:#1f2328">[[</span>AVAssetExportSession alloc<span style="color:#1f2328">]</span> <span style="color:#900;font-weight:bold">initWithAsset</span><span style="color:#1f2328">:</span>mixComposition <span style="color:#900;font-weight:bold">presetName</span><span style="color:#1f2328">:</span>AVAssetExportPreset1280x720<span style="color:#1f2328">];</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 合成用のVideoCompositionを設定
-</span></span></span><span style="display:flex;"><span>assetExportSession.videoComposition <span style="color:#f92672">=</span> videoComp;
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// 合成用のVideoCompositionを設定
+</span></span></span><span style="display:flex;"><span>assetExportSession<span style="color:#1f2328">.</span>videoComposition <span style="color:#0550ae">=</span> videoComp<span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// エクスポートファイルの設定
-</span></span></span><span style="display:flex;"><span>NSURL <span style="color:#f92672">*</span>composedMovieUrl <span style="color:#f92672">=</span> [NSURL fileURLWithPath:composedMoviePath];
-</span></span><span style="display:flex;"><span>assetExportSession.outputFileType <span style="color:#f92672">=</span> AVFileTypeQuickTimeMovie;
-</span></span><span style="display:flex;"><span>assetExportSession.outputURL <span style="color:#f92672">=</span> composedMovieUrl;
-</span></span><span style="display:flex;"><span>assetExportSession.shouldOptimizeForNetworkUse <span style="color:#f92672">=</span> YES;
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// エクスポートファイルの設定
+</span></span></span><span style="display:flex;"><span>NSURL <span style="color:#0550ae">*</span>composedMovieUrl <span style="color:#0550ae">=</span> <span style="color:#1f2328">[</span>NSURL <span style="color:#900;font-weight:bold">fileURLWithPath</span><span style="color:#1f2328">:</span>composedMoviePath<span style="color:#1f2328">];</span>
+</span></span><span style="display:flex;"><span>assetExportSession<span style="color:#1f2328">.</span>outputFileType <span style="color:#0550ae">=</span> AVFileTypeQuickTimeMovie<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>assetExportSession<span style="color:#1f2328">.</span>outputURL <span style="color:#0550ae">=</span> composedMovieUrl<span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>assetExportSession<span style="color:#1f2328">.</span>shouldOptimizeForNetworkUse <span style="color:#0550ae">=</span> <span style="color:#6639ba">YES</span><span style="color:#1f2328">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// エキスポート処理
-</span></span></span><span style="display:flex;"><span>[assetExportSession exportAsynchronouslyWithCompletionHandler:<span style="color:#f92672">^</span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span> ([exportSession status]) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> AVAssetExportSessionStatusFailed:
-</span></span><span style="display:flex;"><span>            NSLog(<span style="color:#e6db74">@&#34;Export failed: %@&#34;</span>, [[exportSession error] localizedDescription]);
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> AVAssetExportSessionStatusCancelled:
-</span></span><span style="display:flex;"><span>            NSLog(<span style="color:#e6db74">@&#34;Export canceled&#34;</span>);
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}];
+</span></span><span style="display:flex;"><span><span style="color:#57606a">// エキスポート処理
+</span></span></span><span style="display:flex;"><span><span style="color:#1f2328">[</span>assetExportSession <span style="color:#900;font-weight:bold">exportAsynchronouslyWithCompletionHandler</span><span style="color:#1f2328">:</span><span style="color:#0550ae">^</span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#cf222e">switch</span> <span style="color:#1f2328">([</span>exportSession status<span style="color:#1f2328">])</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">case</span> <span style="color:#900;font-weight:bold">AVAssetExportSessionStatusFailed</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;Export failed: %@&#34;</span><span style="color:#1f2328">,</span> <span style="color:#1f2328">[[</span>exportSession error<span style="color:#1f2328">]</span> localizedDescription<span style="color:#1f2328">]);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">break</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">case</span> <span style="color:#900;font-weight:bold">AVAssetExportSessionStatusCancelled</span><span style="color:#1f2328">:</span>
+</span></span><span style="display:flex;"><span>            NSLog<span style="color:#1f2328">(</span><span style="color:#0a3069">@&#34;Export canceled&#34;</span><span style="color:#1f2328">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">break</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#cf222e">default</span><span style="color:#0550ae">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#cf222e">break</span><span style="color:#1f2328">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}];</span>
 </span></span></code></pre></div><p>主に利用するクラスを説明しました。これらを駆使して実装すれば簡単な動画の結合ができるようになります。</p>
 <p>だいたいの大枠は以下の図を見ると何となくわかるかもしれませんね。</p>
 <p><img src="/images/posts/2013/2013-10-22_02.png" alt="layer"></p>
@@ -299,6 +317,7 @@ AVMutableCompositionで新しいトラックを追加したときに返り値と
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+
 
 </body>
 </html>
